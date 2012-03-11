@@ -256,9 +256,9 @@ public:
     void Undo(TDocument *Doc, int CardID, int SelStart, int SelLength, int *NextCardID, int *NextSelStart, int *NextSelLength);
     void Redo(TDocument *Doc, int CardID, int SelStart, int SelLength, int *NextCardID, int *NextSelStart, int *NextSelLength);
     bool GetCanUndo(char **editname);
-	bool GetCanRedo(char **editname);
+    bool GetCanRedo(char **editname);
 
-	int m_bChanged;//Undo、Redoが行われたことを示す
+    int m_bChanged;//Undo、Redoが行われたことを示す
 };
 //---------------------------------------------------------------------------
 //ドキュメントからの操作リクエスト(-1でリクエストなし)

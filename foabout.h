@@ -16,7 +16,7 @@
 class TFo_About : public TForm
 {
 __published:
-	TButton *Bu_OK;
+    TButton *Bu_OK;
     TImage *ProgramIcon;
     TLabel *ProductName;
     TLabel *Copyright;
@@ -25,7 +25,7 @@ __published:
     void __fastcall FormShow(TObject *Sender);
 private:
 public:
-	virtual __fastcall TFo_About(TComponent* AOwner);
+    virtual __fastcall TFo_About(TComponent* AOwner);
 public:
     //‘½Œ¾Œê‘Î‰ž
     void ApplyLanguageSetting();

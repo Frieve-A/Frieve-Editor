@@ -15,7 +15,7 @@
 //---------------------------------------------------------------------------
 class TFo_LabelEdit : public TForm
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TButton *Bu_OK;
     TStringGrid *SG_Labels;
     TButton *Bu_Delete;
@@ -33,9 +33,9 @@ __published:	// IDE 管理のコンポーネント
     void __fastcall Bu_NewClick(TObject *Sender);
     void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
     void __fastcall Ti_CheckTimer(TObject *Sender);
-	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+    void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_LabelEdit(TComponent* Owner);
 public:
     TDocument *m_Document;

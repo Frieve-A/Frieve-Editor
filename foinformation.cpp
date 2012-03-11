@@ -14,15 +14,15 @@ TFo_Information *Fo_Information;
 //---------------------------------------------------------------------------
 void TFo_Information::ApplyLanguageSetting()
 {
-	if (!FileExists(LanguageFileName())){
-		return;
-	}
-	TFastIni *Ini = new TFastIni(LanguageFileName());
+    if (!FileExists(LanguageFileName())){
+        return;
+    }
+    TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	Caption = Ini->ReadString("Information", "Caption", Caption);
-	Ch_DontCheckNew->Caption = Ini->ReadString("Information", "Ch_DontCheckNew", Ch_DontCheckNew->Caption);
+    Caption = Ini->ReadString("Information", "Caption", Caption);
+    Ch_DontCheckNew->Caption = Ini->ReadString("Information", "Ch_DontCheckNew", Ch_DontCheckNew->Caption);
 
-	delete Ini;
+    delete Ini;
 }
 //---------------------------------------------------------------------
 __fastcall TFo_Information::TFo_Information(TComponent* Owner)
@@ -32,7 +32,7 @@ __fastcall TFo_Information::TFo_Information(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFo_Information::FormShow(TObject *Sender)
 {
-	ApplyLanguageSetting();
+    ApplyLanguageSetting();
 
     WB->Align = alClient;
     WideString ws = InfoURL;

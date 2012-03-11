@@ -16,14 +16,14 @@
 //---------------------------------------------------------------------------
 class TFo_View : public TForm
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TPageControl *PC_View;
     TTabSheet *TS_Label;
     TTabSheet *TS_Limitation;
-	TLabel *La_Label;
-	TLabel *La_LabelShow;
-	TLabel *La_LabelHide;
-	TLabel *La_LabelFold;
+    TLabel *La_Label;
+    TLabel *La_LabelShow;
+    TLabel *La_LabelHide;
+    TLabel *La_LabelFold;
     TButton *Bu_LabelShowAll;
     TButton *Bu_LabelShowClear;
     TButton *Bu_LabelHideAll;
@@ -31,9 +31,9 @@ __published:	// IDE 管理のコンポーネント
     TButton *Bu_LabelClearAll;
     TButton *Bu_LabelHideClear;
     TStringGrid *SG_Labels;
-	TLabel *La_LinkLabel;
-	TLabel *La_LinkLabelShow;
-	TLabel *La_LinkLabelHide;
+    TLabel *La_LinkLabel;
+    TLabel *La_LinkLabelShow;
+    TLabel *La_LinkLabelHide;
     TButton *Bu_LinkLabelShowAll;
     TButton *Bu_LinkLabelShowClear;
     TButton *Bu_LinkLabelHideAll;
@@ -49,14 +49,14 @@ __published:	// IDE 管理のコンポーネント
     TLabel *La_Links;
     TTrackBar *TB_LinkLimitation;
     TGroupBox *GB_DateLimitation;
-	TLabel *La_DateType;
-	TLabel *La_DateLimitationType;
+    TLabel *La_DateType;
+    TLabel *La_DateLimitationType;
     TTrackBar *TB_DateLimitation;
     TComboBox *Co_DateType;
     TComboBox *Co_DateLimitationType;
     TRadioButton *RB_LinkForward;
     TRadioButton *RB_LinkBackward;
-	TLabel *La_LinkTarget;
+    TLabel *La_LinkTarget;
     TCheckBox *Ch_LinkDirection;
     TButton *Bu_LinkTarget;
     TCheckBox *Ch_LinkLimitation;
@@ -91,8 +91,8 @@ __published:	// IDE 管理のコンポーネント
     void __fastcall Bu_LinkTargetClick(TObject *Sender);
     void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_View(TComponent* Owner);
 public:
     TDocument *m_Document;

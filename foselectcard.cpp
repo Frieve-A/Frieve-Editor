@@ -12,15 +12,15 @@ TFo_Select *Fo_Select;
 //---------------------------------------------------------------------------
 void TFo_Select::ApplyLanguageSetting()
 {
-	if (!FileExists(LanguageFileName())){
-		return;
-	}
-	TFastIni *Ini = new TFastIni(LanguageFileName());
+    if (!FileExists(LanguageFileName())){
+        return;
+    }
+    TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	Bu_OK->Caption = Ini->ReadString("Dialog", "Bu_OK", Bu_OK->Caption);
-	Bu_Cancel->Caption = Ini->ReadString("Dialog", "Bu_Cancel", Bu_Cancel->Caption);
+    Bu_OK->Caption = Ini->ReadString("Dialog", "Bu_OK", Bu_OK->Caption);
+    Bu_Cancel->Caption = Ini->ReadString("Dialog", "Bu_Cancel", Bu_Cancel->Caption);
 
-	delete Ini;
+    delete Ini;
 }
 //---------------------------------------------------------------------------
 __fastcall TFo_Select::TFo_Select(TComponent* Owner)
@@ -31,8 +31,8 @@ __fastcall TFo_Select::TFo_Select(TComponent* Owner)
 
 void __fastcall TFo_Select::FormShow(TObject *Sender)
 {
-	ApplyLanguageSetting();
-	
+    ApplyLanguageSetting();
+    
     LB_Items->MultiSelect = m_bMultiSelect;
     LB_Items->Items->BeginUpdate();
     switch (m_nType){
@@ -49,7 +49,7 @@ void __fastcall TFo_Select::FormShow(TObject *Sender)
             LB_Items->Items->Add(DecodeES(Label->m_Name, " "));
         }
         break;
-	}
+    }
     LB_Items->Items->EndUpdate();
 }
 //---------------------------------------------------------------------------
@@ -85,7 +85,7 @@ void __fastcall TFo_Select::Bu_OKClick(TObject *Sender)
             for (int i = 0 ; i < m_Document->m_Labels[m_nType - 1]->Count && i < LB_Items->Count ; i++){
                 if (LB_Items->Selected[i]){
                     m_IDs->Add((void*)(i + 1));
-				}
+                }
             }
         }
         break;

@@ -82,8 +82,8 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX, float *Card
                 int card2index = -1;
                 if (Link->m_nFromID == Card_->m_nID){
                     card2index = m_Document->SearchCardIndex(Link->m_nDestID);
-				}else if (Link->m_nDestID == Card_->m_nID){
-					card2index = m_Document->SearchCardIndex(Link->m_nFromID);
+                }else if (Link->m_nDestID == Card_->m_nID){
+                    card2index = m_Document->SearchCardIndex(Link->m_nFromID);
                 }
                 if (card2index >= 0 && card2index != i) if (m_CardVisible[card2index] && !used[card2index]){
                     used[card2index] = true;

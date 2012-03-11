@@ -281,13 +281,13 @@ void __fastcall TDSDecoder::Execute()
 
     //NULL Renderer¶¬
     IBaseFilter *pFilter_NULLRenderer= NULL;
-	CoCreateInstance(CLSID_NullRenderer,
+    CoCreateInstance(CLSID_NullRenderer,
         NULL,
         CLSCTX_INPROC_SERVER,
         IID_IBaseFilter,
         (LPVOID *)&pFilter_NULLRenderer);
     if (pGraphBuilder && m_bGrub){
-    	pGraphBuilder->AddFilter(pFilter_NULLRenderer, L"Renderer");
+        pGraphBuilder->AddFilter(pFilter_NULLRenderer, L"Renderer");
     }
 
     //Ú‘±

@@ -155,9 +155,9 @@ int __fastcall Func_CompCardScoreI(void * Item1, void * Item2)
 TUndoRedoData::TUndoRedoData(TDocument *Doc, AnsiString Name, int CardID, int SelStart, int SelLength) :
     m_Doc(new TDocument(*Doc)),
     m_Name(Name),
-	m_nCardID(CardID),
+    m_nCardID(CardID),
     m_nSelStart(SelStart),
-	m_nSelLength(SelLength)
+    m_nSelLength(SelLength)
 {
 }
 //---------------------------------------------------------------------------
@@ -177,97 +177,97 @@ inline TUndoRedoData *TUndoRedo::RedoData(int index)
 }
 //---------------------------------------------------------------------------
 TUndoRedo::TUndoRedo(int maxundo) :
-	m_Undos(new TList()),
-	m_Redos(new TList()),
-	m_nMaxUndo(maxundo),
-	m_bChanged(false)
+    m_Undos(new TList()),
+    m_Redos(new TList()),
+    m_nMaxUndo(maxundo),
+    m_bChanged(false)
 {
 }
 //---------------------------------------------------------------------------
 TUndoRedo::~TUndoRedo()
 {
-	ClearRedos();
-	ClearUndos();
-	delete m_Redos;
-	delete m_Undos;
+    ClearRedos();
+    ClearUndos();
+    delete m_Redos;
+    delete m_Undos;
 }
 //---------------------------------------------------------------------------
 void TUndoRedo::ClearUndos()
 {
-	for (int i = 0 ; i < m_Undos->Count ; i++){
-		delete UndoData(i);
-	}
-	m_Undos->Clear();
+    for (int i = 0 ; i < m_Undos->Count ; i++){
+        delete UndoData(i);
+    }
+    m_Undos->Clear();
 }
 //---------------------------------------------------------------------------
 void TUndoRedo::ClearRedos()
 {
-	for (int i = 0 ; i < m_Redos->Count ; i++){
-		delete RedoData(i);
-	}
-	m_Redos->Clear();
+    for (int i = 0 ; i < m_Redos->Count ; i++){
+        delete RedoData(i);
+    }
+    m_Redos->Clear();
 }
 //---------------------------------------------------------------------------
 void TUndoRedo::Backup(TDocument *Doc, char *editname, int CardID, int SelStart, int SelLength)
 {
-	ClearRedos();
-	m_Undos->Insert(0, new TUndoRedoData(Doc, editname, CardID, SelStart, SelLength));
-	while (m_Undos->Count > m_nMaxUndo){
-		delete UndoData(m_Undos->Count - 1);
-		m_Undos->Delete(m_Undos->Count - 1);
-	}
+    ClearRedos();
+    m_Undos->Insert(0, new TUndoRedoData(Doc, editname, CardID, SelStart, SelLength));
+    while (m_Undos->Count > m_nMaxUndo){
+        delete UndoData(m_Undos->Count - 1);
+        m_Undos->Delete(m_Undos->Count - 1);
+    }
 }
 //---------------------------------------------------------------------------
 void TUndoRedo::Undo(TDocument *Doc, int CardID, int SelStart, int SelLength, int *NextCardID, int *NextSelStart, int *NextSelLength)
 {
-	TUndoRedoData *Data = UndoData(0);
-	AnsiString UndoName = Data->m_Name;
-	*NextCardID = Data->m_nCardID;
-	*NextSelStart = Data->m_nSelStart;
-	*NextSelLength = Data->m_nSelLength;
+    TUndoRedoData *Data = UndoData(0);
+    AnsiString UndoName = Data->m_Name;
+    *NextCardID = Data->m_nCardID;
+    *NextSelStart = Data->m_nSelStart;
+    *NextSelLength = Data->m_nSelLength;
 
-	//今のデータをRedoに積む
-	m_Redos->Insert(0, new TUndoRedoData(Doc, UndoName, CardID, SelStart, SelLength));
+    //今のデータをRedoに積む
+    m_Redos->Insert(0, new TUndoRedoData(Doc, UndoName, CardID, SelStart, SelLength));
 
-	//Undo
-	Doc->CopyFrom(Data->m_Doc);
+    //Undo
+    Doc->CopyFrom(Data->m_Doc);
 
-	//使ったUndoを削除
-	delete Data;
-	m_Undos->Delete(0);
+    //使ったUndoを削除
+    delete Data;
+    m_Undos->Delete(0);
 
-	m_bChanged = true;
+    m_bChanged = true;
 }
 //---------------------------------------------------------------------------
 void TUndoRedo::Redo(TDocument *Doc, int CardID, int SelStart, int SelLength, int *NextCardID, int *NextSelStart, int *NextSelLength)
 {
-	TUndoRedoData *Data = RedoData(0);
-	AnsiString RedoName = Data->m_Name;
-	*NextCardID = Data->m_nCardID;
-	*NextSelStart = Data->m_nSelStart;
-	*NextSelLength = Data->m_nSelLength;
+    TUndoRedoData *Data = RedoData(0);
+    AnsiString RedoName = Data->m_Name;
+    *NextCardID = Data->m_nCardID;
+    *NextSelStart = Data->m_nSelStart;
+    *NextSelLength = Data->m_nSelLength;
 
-	//今のデータをUndoに積む
-	m_Undos->Insert(0, new TUndoRedoData(Doc, RedoName, CardID, SelStart, SelLength));
+    //今のデータをUndoに積む
+    m_Undos->Insert(0, new TUndoRedoData(Doc, RedoName, CardID, SelStart, SelLength));
 
-	//Redo
-	Doc->CopyFrom(Data->m_Doc);
+    //Redo
+    Doc->CopyFrom(Data->m_Doc);
 
-	//使ったRedoを削除
-	delete Data;
-	m_Redos->Delete(0);
+    //使ったRedoを削除
+    delete Data;
+    m_Redos->Delete(0);
 
-	m_bChanged = true;
+    m_bChanged = true;
 }
 //---------------------------------------------------------------------------
 bool TUndoRedo::GetCanUndo(char **editname)
 {
-	if (m_Undos->Count){
-		*editname = UndoData(0)->m_Name.c_str();
-		return true;
-	}else{
-		*editname = NULL;
-		return false;
+    if (m_Undos->Count){
+        *editname = UndoData(0)->m_Name.c_str();
+        return true;
+    }else{
+        *editname = NULL;
+        return false;
     }
 }
 //---------------------------------------------------------------------------
@@ -864,8 +864,8 @@ TList *TDocument::GetRelatedCard(bool bInverse, bool bVisibleOnly)
                     ((TList *)RCard->Items[ifrom])->Add((void*)idest);
                 }
             }
-		}
-		delete[] matrix;
+        }
+        delete[] matrix;
     }
     return RCard;
 }
@@ -1051,7 +1051,7 @@ bool TDocument::LoadFromString(TStringList *SL, AnsiString FN)
     m_nDefaultView = Ini->ReadInteger("Global", "DefaultView", -1);
 
     //操作要求
-	bReqArrange = Ini->ReadInteger("Global", "Arrange", bReqArrange);//アレンジのON/OFF
+    bReqArrange = Ini->ReadInteger("Global", "Arrange", bReqArrange);//アレンジのON/OFF
     nReqArrangeMode = Ini->ReadInteger("Global", "ArrangeMode", nReqArrangeMode);//0から順にRepulsion、Link、Label、Index
     bReqAutoScroll = Ini->ReadInteger("Global", "AutoScroll", bReqAutoScroll);//オートスクロール
     bReqAutoZoom = Ini->ReadInteger("Global", "AutoZoom", bReqAutoZoom);//オートズーム
@@ -1063,19 +1063,19 @@ bool TDocument::LoadFromString(TStringList *SL, AnsiString FN)
     nReqTargetCard = Ini->ReadInteger("Global", "TargetCard", nReqTargetCard);
     bReqSizeLimitation = Ini->ReadInteger("Global", "SizeLimitation", bReqSizeLimitation);
     bReqLinkLimitation = Ini->ReadInteger("Global", "LinkLimitation", bReqLinkLimitation);
-	bReqDateLimitation = Ini->ReadInteger("Global", "DateLimitation", bReqDateLimitation);
-	nReqSizeLimitation = Ini->ReadInteger("Global", "SizeLimitation", nReqSizeLimitation);
-	nReqLinkLimitation = Ini->ReadInteger("Global", "LinkLimitation", nReqLinkLimitation);
-	bReqLinkDirection = Ini->ReadInteger("Global", "LinkDirection", bReqLinkDirection);
-	bReqLinkBackward = Ini->ReadInteger("Global", "LinkBackward", bReqLinkBackward);
-	nReqLinkTarget = Ini->ReadInteger("Global", "LinkTarget", nReqLinkTarget);
-	nReqDateLimitation = Ini->ReadInteger("Global", "DateLimitation", nReqDateLimitation);
-	ReqDateLimitationDateType = Ini->ReadInteger("Global", "DateLimitationDateType", ReqDateLimitationDateType);
-	ReqDateLimitationType = Ini->ReadInteger("Global", "DateLimitationType", ReqDateLimitationType);
+    bReqDateLimitation = Ini->ReadInteger("Global", "DateLimitation", bReqDateLimitation);
+    nReqSizeLimitation = Ini->ReadInteger("Global", "SizeLimitation", nReqSizeLimitation);
+    nReqLinkLimitation = Ini->ReadInteger("Global", "LinkLimitation", nReqLinkLimitation);
+    bReqLinkDirection = Ini->ReadInteger("Global", "LinkDirection", bReqLinkDirection);
+    bReqLinkBackward = Ini->ReadInteger("Global", "LinkBackward", bReqLinkBackward);
+    nReqLinkTarget = Ini->ReadInteger("Global", "LinkTarget", nReqLinkTarget);
+    nReqDateLimitation = Ini->ReadInteger("Global", "DateLimitation", nReqDateLimitation);
+    ReqDateLimitationDateType = Ini->ReadInteger("Global", "DateLimitationDateType", ReqDateLimitationDateType);
+    ReqDateLimitationType = Ini->ReadInteger("Global", "DateLimitationType", ReqDateLimitationType);
 
-	//カードのIDを読み込み
+    //カードのIDを読み込み
     int cardnum = Ini->ReadInteger("Card", "Num", 0);
-	m_nCardID = Ini->ReadInteger("Card", "CardID", -1);
+    m_nCardID = Ini->ReadInteger("Card", "CardID", -1);
 
     int maxid = 0;
     for (int i = 0 ; i < cardnum ; i++){
@@ -1260,30 +1260,30 @@ bool TDocument::SaveToString(TStringList *SL)
     SL->Add("[Global]");
     SL->Add(AnsiString("Version=") + IntToStr(FileVersion));
 
-	//表示情報
-	SL->Add(AnsiString("Arrange=") + IntToStr(bReqArrange));//アレンジのON/OFF
-	SL->Add(AnsiString("ArrangeMode=") + IntToStr(nReqArrangeMode));//0から順にRepulsion、Link、Label、Index
-	SL->Add(AnsiString("AutoScroll=") + IntToStr(bReqAutoScroll));//オートスクロール
-	SL->Add(AnsiString("AutoZoom=") + IntToStr(bReqAutoZoom));//オートズーム
-	SL->Add(AnsiString("FullScreen=") + IntToStr(bReqFullScreen));//フルスクリーン
-	SL->Add(AnsiString("Exit=") + IntToStr(bReqExit));//終了
-	SL->Add(AnsiString("Zoom=") + FloatToStr(fReqZoom));
-	SL->Add(AnsiString("X=") + FloatToStr(fReqX));
-	SL->Add(AnsiString("Y=") + FloatToStr(fReqY));
-	SL->Add(AnsiString("TargetCard=") + IntToStr(nReqTargetCard));
-	SL->Add(AnsiString("SizeLimitation=") + IntToStr(bReqSizeLimitation));
-	SL->Add(AnsiString("LinkLimitation=") + IntToStr(bReqLinkLimitation));
-	SL->Add(AnsiString("DateLimitation=") + IntToStr(bReqDateLimitation));
-	SL->Add(AnsiString("SizeLimitation=") + IntToStr(nReqSizeLimitation));
-	SL->Add(AnsiString("LinkLimitation=") + IntToStr(nReqLinkLimitation));
-	SL->Add(AnsiString("LinkDirection=") + IntToStr(bReqLinkDirection));
-	SL->Add(AnsiString("LinkBackward=") + IntToStr(bReqLinkBackward));
-	SL->Add(AnsiString("LinkTarget=") + IntToStr(nReqLinkTarget));
-	SL->Add(AnsiString("DateLimitation=") + IntToStr(nReqDateLimitation));
-	SL->Add(AnsiString("DateLimitationDateType=") + IntToStr(ReqDateLimitationDateType));
-	SL->Add(AnsiString("DateLimitationType=") + IntToStr(ReqDateLimitationType));
+    //表示情報
+    SL->Add(AnsiString("Arrange=") + IntToStr(bReqArrange));//アレンジのON/OFF
+    SL->Add(AnsiString("ArrangeMode=") + IntToStr(nReqArrangeMode));//0から順にRepulsion、Link、Label、Index
+    SL->Add(AnsiString("AutoScroll=") + IntToStr(bReqAutoScroll));//オートスクロール
+    SL->Add(AnsiString("AutoZoom=") + IntToStr(bReqAutoZoom));//オートズーム
+    SL->Add(AnsiString("FullScreen=") + IntToStr(bReqFullScreen));//フルスクリーン
+    SL->Add(AnsiString("Exit=") + IntToStr(bReqExit));//終了
+    SL->Add(AnsiString("Zoom=") + FloatToStr(fReqZoom));
+    SL->Add(AnsiString("X=") + FloatToStr(fReqX));
+    SL->Add(AnsiString("Y=") + FloatToStr(fReqY));
+    SL->Add(AnsiString("TargetCard=") + IntToStr(nReqTargetCard));
+    SL->Add(AnsiString("SizeLimitation=") + IntToStr(bReqSizeLimitation));
+    SL->Add(AnsiString("LinkLimitation=") + IntToStr(bReqLinkLimitation));
+    SL->Add(AnsiString("DateLimitation=") + IntToStr(bReqDateLimitation));
+    SL->Add(AnsiString("SizeLimitation=") + IntToStr(nReqSizeLimitation));
+    SL->Add(AnsiString("LinkLimitation=") + IntToStr(nReqLinkLimitation));
+    SL->Add(AnsiString("LinkDirection=") + IntToStr(bReqLinkDirection));
+    SL->Add(AnsiString("LinkBackward=") + IntToStr(bReqLinkBackward));
+    SL->Add(AnsiString("LinkTarget=") + IntToStr(nReqLinkTarget));
+    SL->Add(AnsiString("DateLimitation=") + IntToStr(nReqDateLimitation));
+    SL->Add(AnsiString("DateLimitationDateType=") + IntToStr(ReqDateLimitationDateType));
+    SL->Add(AnsiString("DateLimitationType=") + IntToStr(ReqDateLimitationType));
 
-	//カードのIDを保存
+    //カードのIDを保存
     SL->Add("[Card]");
     SL->Add(AnsiString("CardID=") + m_nCardID);
     SL->Add(AnsiString("Num=") + m_Cards->Count);
@@ -1363,10 +1363,10 @@ bool TDocument::Save()
 
     result = SaveToString(SL);
 
-	try{
-		SL->SaveToFile(m_FN);
-	}
-	catch(...){
+    try{
+        SL->SaveToFile(m_FN);
+    }
+    catch(...){
         result = false;
     }
 

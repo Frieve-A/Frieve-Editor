@@ -19,7 +19,7 @@ public:
 
 class TFo_Progress : public TForm
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TButton *Bu_Cancel;
     TProgressBar *PG_Progress;
     TTimer *Ti_Check;
@@ -32,8 +32,8 @@ __published:	// IDE 管理のコンポーネント
     void __fastcall FormCreate(TObject *Sender);
     void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_Progress(TComponent* Owner);
 public:
     bool m_bTerminated;

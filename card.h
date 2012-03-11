@@ -15,33 +15,33 @@ WideString DecodeES(WideString S, WideString Ret = "\r\n");//ƒGƒXƒP[ƒvƒV[ƒPƒ“ƒ
 class TCard
 {
 public:
-	//¦ƒf[ƒ^‚ğ’Ç‰Á‚µ‚½‚çA‰Šú‰»‚ÆƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚à•ÒW
+    //¦ƒf[ƒ^‚ğ’Ç‰Á‚µ‚½‚çA‰Šú‰»‚ÆƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚à•ÒW
 
-	//ƒf[ƒ^
-	int m_nID;
-	TLabelList *m_Labels;//ƒ‰ƒxƒ‹
-	AnsiString m_Title;//ƒ^ƒCƒgƒ‹
-	TStringList *m_Lines;//–{•¶
-	TDrawing *m_Drawing;//ŠG
-	bool m_bVisible;//•\¦A”ñ•\¦
-	int m_nShape;//Œ`
-	int m_nSize;//ƒTƒCƒYi100•ª—¦j
-	bool m_bTop;//ŠK‘w‚ÌƒgƒbƒvBƒfƒtƒHƒ‹ƒg‚Åfalse
-	bool m_bFixed;//ˆÊ’uŒÅ’èB
-	bool m_bFold;//Ü‚è‚½‚½‚İBƒfƒtƒHƒ‹ƒg‚Åfalse
+    //ƒf[ƒ^
+    int m_nID;
+    TLabelList *m_Labels;//ƒ‰ƒxƒ‹
+    AnsiString m_Title;//ƒ^ƒCƒgƒ‹
+    TStringList *m_Lines;//–{•¶
+    TDrawing *m_Drawing;//ŠG
+    bool m_bVisible;//•\¦A”ñ•\¦
+    int m_nShape;//Œ`
+    int m_nSize;//ƒTƒCƒYi100•ª—¦j
+    bool m_bTop;//ŠK‘w‚ÌƒgƒbƒvBƒfƒtƒHƒ‹ƒg‚Åfalse
+    bool m_bFixed;//ˆÊ’uŒÅ’èB
+    bool m_bFold;//Ü‚è‚½‚½‚İBƒfƒtƒHƒ‹ƒg‚Åfalse
 
-	//ƒlƒbƒg‹¤—L‚³‚ê‚È‚¢ƒf[ƒ^i’Ç‰Á‚ÌÛ‚ÍADocument->SoftLoad‚ğC³‚·‚é•K—v‚ ‚èj
-	double m_fX, m_fY;//À•W
-	double m_fCreated, m_fUpdated, m_fViewed;//“ú•t
+    //ƒlƒbƒg‹¤—L‚³‚ê‚È‚¢ƒf[ƒ^i’Ç‰Á‚ÌÛ‚ÍADocument->SoftLoad‚ğC³‚·‚é•K—v‚ ‚èj
+    double m_fX, m_fY;//À•W
+    double m_fCreated, m_fUpdated, m_fViewed;//“ú•t
 public:
-	//•Û‘¶‚³‚ê‚È‚¢ƒf[ƒ^
-	bool m_bGetFocus;//ƒJ[ƒ\ƒ‹ˆÚ“®‚ÅƒtƒH[ƒJƒX‚ğ“¾‚é‚©‚Ç‚¤‚©
+    //•Û‘¶‚³‚ê‚È‚¢ƒf[ƒ^
+    bool m_bGetFocus;//ƒJ[ƒ\ƒ‹ˆÚ“®‚ÅƒtƒH[ƒJƒX‚ğ“¾‚é‚©‚Ç‚¤‚©
 
-	int m_nLevel;//ŠK‘w
+    int m_nLevel;//ŠK‘w
 
-	int m_nCreatedOrder, m_nUpdatedOrder, m_nViewedOrder;//“ú•t‚ğƒ\[ƒg‡‚Å0.0`100.0‚É³‹K‰»‚µ‚½‚à‚Ì
-	double m_fScore;//ƒXƒRƒA
-	AnsiString m_ImageFN;//‰æ‘œƒtƒ@ƒCƒ‹–¼i–{•¶‚ÅÅ‰‚Éo‚Ä‚«‚½‰æ‘œƒtƒ@ƒCƒ‹j
+    int m_nCreatedOrder, m_nUpdatedOrder, m_nViewedOrder;//“ú•t‚ğƒ\[ƒg‡‚Å0.0`100.0‚É³‹K‰»‚µ‚½‚à‚Ì
+    double m_fScore;//ƒXƒRƒA
+    AnsiString m_ImageFN;//‰æ‘œƒtƒ@ƒCƒ‹–¼i–{•¶‚ÅÅ‰‚Éo‚Ä‚«‚½‰æ‘œƒtƒ@ƒCƒ‹j
     AnsiString m_VideoFN;//ƒrƒfƒIƒtƒ@ƒCƒ‹–¼i–{•¶‚ÅÅ‰‚Éo‚Ä‚«‚½“®‰æƒtƒ@ƒCƒ‹j
 
     int m_nMatrixX, m_nMatrixY;//Šiqó‚É”z’u‚µ‚½Û‚ÌÀ•W

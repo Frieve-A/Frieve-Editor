@@ -69,13 +69,13 @@ TCardImage::TCardImage(AnsiString FN) :
         }else{
             //Jpeg
             m_Jpg = new TJPEGImage();
-			try{
+            try{
                 m_Jpg->LoadFromFile(m_FN);
                 m_Image = m_Jpg;
                 m_bExist = true;
             }
             catch (...){
-			}
+            }
         }
     }
 }
@@ -105,7 +105,7 @@ TCardVideo::TCardVideo(AnsiString FN) :
     }
     m_Video->m_FN = WSFN;
     m_Video->m_bGrub = true;
-	m_Video->m_bLoop = true;
+    m_Video->m_bLoop = true;
     m_Video->Resume();
     m_Video->WaitPrepared();
     m_bExist = m_Video->GetLength() > 1;
@@ -141,13 +141,13 @@ void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes)
     //カードが選択されている？Open：不明
     //カードが選択されていたらOpenかInsertか不明
     //複数ファイルかつfipが混じっていたらInsert
-	//fip、txt以外が混ざっていたらInsert
+    //fip、txt以外が混ざっていたらInsert
     //基本開くで、Ctrlキーが押されているか、上記条件によりInsertと判断されたら挿入？
 
     //→とりあえず、2個以上だったりfipじゃなかったら全て外部リンクとする
 
     if (fcount > 0){
-		char FN[MAX_PATH];
+        char FN[MAX_PATH];
         DragQueryFile((HDROP)mes.Drop, 0, FN, MAX_PATH);
 
         if (fcount > 1 || LowerCase(ExtractFileExt(FN)) != ".fip"){
@@ -177,7 +177,7 @@ void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes)
         }else{
             //開く
             if (SaveCheck()){
-				LoadSub(FN);
+                LoadSub(FN);
             }
         }
     }
@@ -213,13 +213,13 @@ void TFo_Main::RefreshRecent(AnsiString FN)
         for (int i = 0 ; i < 10 ; i++){
             if (SettingFile.m_RecentFiles[i] == FN){
                 //既にリストにある場合
-				if (i > 0){
+                if (i > 0){
                     for (int i2 = i ; i2 >= 1 ; i2--){
                         SettingFile.m_RecentFiles[i2] = SettingFile.m_RecentFiles[i2 - 1];
                     }
                 }
                 SettingFile.m_RecentFiles[0] = FN;
-				break;
+                break;
             }
         }
 
@@ -249,13 +249,13 @@ void TFo_Main::RefreshRecent(AnsiString FN)
 
         if (SettingFile.m_RecentFolders[0] != FN){
             //重複無し
-			for (int i = 9 ; i >= 1 ; i--){
+            for (int i = 9 ; i >= 1 ; i--){
                 SettingFile.m_RecentFolders[i] = SettingFile.m_RecentFolders[i - 1];
             }
             SettingFile.m_RecentFolders[0] = FN;
         }
 
-	}
+    }
 
     //メニュー更新
     for (int i = 0 ; i < 10 ; i++){
@@ -285,19 +285,19 @@ void TFo_Main::RefreshRecent(AnsiString FN)
 //---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormCreate(TObject *Sender)
 {
-	randomize();
+    randomize();
 
     /*
     try{
         m_Agent = new TAgent(this);
         m_Agent->Parent = Fo_Main;
 
-	}
+    }
     catch(...){
         m_Agent = NULL;
     }
     try{
-		m_TTS = new TDirectSS(this);
+        m_TTS = new TDirectSS(this);
         m_TTS->Visible = false;
         m_TTS->Parent = Fo_Main;
 
@@ -315,13 +315,13 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     delete FIni;
 
     FIni = new TFastIni(ExtractFilePath(ParamStr(0)) + "setting2.ini");
-	Setting2Function.ReadFromIni(FIni);
+    Setting2Function.ReadFromIni(FIni);
     delete FIni;
 
-	//実行中の読み書きは通常のIniFileで
+    //実行中の読み書きは通常のIniFileで
     Ini = new TIniFile(ExtractFilePath(ParamStr(0)) + "setting.ini");
 
-	m_Document = new TDocument();
+    m_Document = new TDocument();
     m_Document->GetCardByIndex(0)->m_bSelected = true;
     m_UndoRedo = new TUndoRedo(SettingFile.m_nUndoTimes);
     m_nLastModified = 0;
@@ -350,8 +350,8 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     m_fMaxScore = 1.0f;
 
     m_Drawing = new TDrawing();
-	m_DrawingRect = Rect(0, 0, 1, 1);
-	m_DrawingTool = 0;
+    m_DrawingRect = Rect(0, 0, 1, 1);
+    m_DrawingTool = 0;
 
     m_fStatisticsPos = 0.0f;
     m_StatisticsRectToCard = new TList();
@@ -366,7 +366,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
         MI_RecentFiles[i]->OnClick = MF_RecentFilesClick;
         MF_RecentFiles->Add(MI_RecentFiles[i]);
 
-		MI_RecentFolders[i] = new TMenuItem(MF_RecentFolders);
+        MI_RecentFolders[i] = new TMenuItem(MF_RecentFolders);
         MI_RecentFolders[i]->Tag = i;
         MI_RecentFolders[i]->Visible = false;
         MI_RecentFolders[i]->OnClick = MF_RecentFoldersClick;
@@ -402,7 +402,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
             if (SettingFile.m_WebSearch == "" && i == 0){
                 SettingFile.m_WebSearch = MI->Caption;
 
-			}
+            }
             if (MI->Caption == SettingFile.m_WebSearch){
                 MI->ShortCut = TextToShortCut("Ctrl+W");
             }else{
@@ -438,7 +438,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
             Bu_Label0->Height
             );
         Bu_Label[i]->Parent = Bu_Label0->Parent;
-		Bu_Label[i]->OnClick = Bu_Label0Click;
+        Bu_Label[i]->OnClick = Bu_Label0Click;
         Bu_Label[i]->Tag = i;
         Bu_Label[i]->Visible = false;
 
@@ -474,7 +474,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     m_CardRelated = NULL;
     m_CardAssign = NULL;
     m_CardShape = NULL;
-	m_CardX = NULL;
+    m_CardX = NULL;
     m_CardY = NULL;
     m_CardWidth = NULL;
     m_CardHeight = NULL;
@@ -510,7 +510,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     m_bRedrawRequested = false;
 
     RefreshWallPaper();
-	RefreshFileList();
+    RefreshFileList();
 
     /*
     m_DemoStrings->Add("クリックしてカードを選択。");
@@ -546,7 +546,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     //*/
 
     /*
-	m_DemoStrings->Add("Auto Scroll、Auto Zoomで、カードを快適ブラウズ。");
+    m_DemoStrings->Add("Auto Scroll、Auto Zoomで、カードを快適ブラウズ。");
     m_DemoStrings->Add("Frieve Editorはいくつかのアニメーション機能を備えています。");
     m_DemoStrings->Add("Random Cardでは、ランダムにカードを表示しながら");
     m_DemoStrings->Add("アイデアを練ることができます。");
@@ -582,7 +582,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     m_DemoStrings->Add("Select card and select \"New Label\" to add new label to the card.");
     m_DemoStrings->Add("Select other card and add same label with Label button.");
     m_DemoStrings->Add("Use labeling button to add label with single click.");
-	//*/
+    //*/
 
     /*
     m_DemoStrings->Add("Push \"Arrange\" button to arrange cards automatically.");
@@ -618,7 +618,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender)
     Pa_Files->DoubleBuffered = true;
     LB_FileList->DoubleBuffered = true;
     Pa_List->DoubleBuffered = true;
-	LB_List->DoubleBuffered = true;
+    LB_List->DoubleBuffered = true;
     Pa_Client->DoubleBuffered = true;
     PC_Client->DoubleBuffered = true;
     //TS_Editor->DoubleBufferd = true;
@@ -654,7 +654,7 @@ void __fastcall TFo_Main::FormDestroy(TObject *Sender)
     for (int i = 0 ; i < m_ImageList->Count ; i++){
         delete (TCardImage*)m_ImageList->Items[i];
     }
-	delete m_ImageList;
+    delete m_ImageList;
 
     delete m_Drawing;
 
@@ -663,7 +663,7 @@ void __fastcall TFo_Main::FormDestroy(TObject *Sender)
 
     delete m_LinkIndexes;
 
-	ClearStatisticsRectToCard();
+    ClearStatisticsRectToCard();
     delete m_StatisticsRectToCard;
 
     delete m_UndoRedo;
@@ -727,7 +727,7 @@ void TFo_Main::RefreshLabel()
             if (i < Card->m_Labels->Count){
                 //ラベルあり
                 Bu_Label[i]->Caption = m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(i) - 1)->m_Name;
-				Bu_Label[i]->Visible = true;
+                Bu_Label[i]->Visible = true;
             }else if(i == Card->m_Labels->Count){
                 Bu_Label[i]->Caption = "";
                 Bu_Label[i]->Visible = true;
@@ -780,7 +780,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         SettingFile.fepTimeOut(m_Document);
     }
 
-	//DefaultView
+    //DefaultView
     if (m_Document->m_nDefaultView >= 0){
         switch (m_Document->m_nDefaultView){
         case 0:
@@ -794,27 +794,27 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
 
     //操作リクエスト
-	if (fReqZoom >= -999.0f){
-		TB_Zoom->Position = (int)(fReqZoom * 2000);
-		fReqZoom = -1000.0f;
-	}
-	if (fReqX >= -999.0f){
-		if (PC_Client->ActivePage != TS_Browser) {
-			Sc_X->Position = (int)(fReqX * 10000);
-		}else{
-			m_fBrowserScrollRatio = 0.0f;
-			m_nScrollTargetX = fReqX * 10000;
-		}
-		fReqX = -1000.0f;
-	}
-	if (fReqY >= -999.0f){
-		if (PC_Client->ActivePage != TS_Browser) {
-			Sc_Y->Position = (int)(fReqY * 10000);
-		}else{
-			m_fBrowserScrollRatio = 0.0f;
-			m_nScrollTargetY = fReqY * 10000;
+    if (fReqZoom >= -999.0f){
+        TB_Zoom->Position = (int)(fReqZoom * 2000);
+        fReqZoom = -1000.0f;
+    }
+    if (fReqX >= -999.0f){
+        if (PC_Client->ActivePage != TS_Browser) {
+            Sc_X->Position = (int)(fReqX * 10000);
+        }else{
+            m_fBrowserScrollRatio = 0.0f;
+            m_nScrollTargetX = fReqX * 10000;
         }
-		fReqY = -1000.0f;
+        fReqX = -1000.0f;
+    }
+    if (fReqY >= -999.0f){
+        if (PC_Client->ActivePage != TS_Browser) {
+            Sc_Y->Position = (int)(fReqY * 10000);
+        }else{
+            m_fBrowserScrollRatio = 0.0f;
+            m_nScrollTargetY = fReqY * 10000;
+        }
+        fReqY = -1000.0f;
     }
     if (bReqArrange != -1){
         SB_Arrange->Down = bReqArrange;
@@ -822,7 +822,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
     if (nReqArrangeMode != -1){
         Bu_ArrangeType->Tag = nReqArrangeMode;
-		nReqArrangeMode = -1;
+        nReqArrangeMode = -1;
     }
     if (bReqAutoScroll != -1){
         SB_AutoScroll->Down = bReqAutoScroll;
@@ -834,7 +834,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
     if (bReqFullScreen != -1){
         if (bReqFullScreen != Fo_FullScreen->Visible){
-			MV_FullScreenClick(Sender);
+            MV_FullScreenClick(Sender);
         }
         bReqFullScreen = -1;
     }
@@ -846,52 +846,52 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         m_nTargetCard = nReqTargetCard;
         nReqTargetCard = -1000;
     }
-	if (bReqSizeLimitation != -1){
-		SettingView.m_bSizeLimitation = bReqSizeLimitation;
-		bReqSizeLimitation = -1;
-	}
-	if (bReqLinkLimitation != -1){
-		SettingView.m_bLinkLimitation = bReqLinkLimitation;
-		bReqLinkLimitation = -1;
-	}
-	if (bReqDateLimitation != -1){
-		SettingView.m_bDateLimitation = bReqDateLimitation;
-		bReqDateLimitation = -1;
-	}
-	if (nReqSizeLimitation != -1){
-		SettingView.m_nSizeLimitation = nReqSizeLimitation;
-		nReqSizeLimitation = -1;
-	}
-	if (nReqLinkLimitation != -1){
-		SettingView.m_nLinkLimitation = nReqLinkLimitation;
-		nReqLinkLimitation = -1;
-	}
-	if (bReqLinkDirection != -1){
-		SettingView.m_bLinkDirection = bReqLinkDirection;
-		bReqLinkDirection = -1;
-	}
-	if (bReqLinkBackward != -1){
-		SettingView.m_bLinkBackward = bReqLinkBackward;
-		bReqLinkBackward = -1;
-	}
-	if (nReqLinkTarget != -2){
-		SettingView.m_nLinkTarget = nReqLinkTarget;
-		nReqLinkTarget = -2;
-	}
-	if (nReqDateLimitation != -1){
-		SettingView.m_nDateLimitation = nReqDateLimitation;
-		nReqDateLimitation = -1;
-	}
-	if (ReqDateLimitationDateType != -1){
-		SettingView.m_DateLimitationDateType = ReqDateLimitationDateType;
-		ReqDateLimitationDateType = -1;
-	}
-	if (ReqDateLimitationType != -1){
-		SettingView.m_DateLimitationType = ReqDateLimitationType;
-		ReqDateLimitationType = -1;
-	}
+    if (bReqSizeLimitation != -1){
+        SettingView.m_bSizeLimitation = bReqSizeLimitation;
+        bReqSizeLimitation = -1;
+    }
+    if (bReqLinkLimitation != -1){
+        SettingView.m_bLinkLimitation = bReqLinkLimitation;
+        bReqLinkLimitation = -1;
+    }
+    if (bReqDateLimitation != -1){
+        SettingView.m_bDateLimitation = bReqDateLimitation;
+        bReqDateLimitation = -1;
+    }
+    if (nReqSizeLimitation != -1){
+        SettingView.m_nSizeLimitation = nReqSizeLimitation;
+        nReqSizeLimitation = -1;
+    }
+    if (nReqLinkLimitation != -1){
+        SettingView.m_nLinkLimitation = nReqLinkLimitation;
+        nReqLinkLimitation = -1;
+    }
+    if (bReqLinkDirection != -1){
+        SettingView.m_bLinkDirection = bReqLinkDirection;
+        bReqLinkDirection = -1;
+    }
+    if (bReqLinkBackward != -1){
+        SettingView.m_bLinkBackward = bReqLinkBackward;
+        bReqLinkBackward = -1;
+    }
+    if (nReqLinkTarget != -2){
+        SettingView.m_nLinkTarget = nReqLinkTarget;
+        nReqLinkTarget = -2;
+    }
+    if (nReqDateLimitation != -1){
+        SettingView.m_nDateLimitation = nReqDateLimitation;
+        nReqDateLimitation = -1;
+    }
+    if (ReqDateLimitationDateType != -1){
+        SettingView.m_DateLimitationDateType = ReqDateLimitationDateType;
+        ReqDateLimitationDateType = -1;
+    }
+    if (ReqDateLimitationType != -1){
+        SettingView.m_DateLimitationType = ReqDateLimitationType;
+        ReqDateLimitationType = -1;
+    }
 
-	if (nReqKeyDown != -1){
+    if (nReqKeyDown != -1){
         unsigned short Key = (unsigned short)nReqKeyDown;
         FormKeyDown(Sender, Key, TShiftState());
         nReqKeyDown = -1;
@@ -927,8 +927,8 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         }
     }
 
-	//ファイルリスト
-	{
+    //ファイルリスト
+    {
         TPoint pos, listpos;
         GetCursorPos(&pos);
         listpos.x = Pa_Files->Left;
@@ -950,7 +950,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 Sp_Left->Left = Pa_Files->Width;
                 Sp_Left->Visible = true;
                 */
-				//*
+                //*
                 PB_Browser->Tag = 1;
 
                 Pa_Client->Visible = false;
@@ -973,7 +973,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 Sp_Left2->Left = Pa_List->Left + Pa_List->Width;
                 Sp_Left2->Align = alLeft;
                 Pa_Client->Left = Sp_Left2->Left + Sp_Left2->Width;
-				Pa_Client->Width = ClientWidth - Pa_Client->Left;
+                Pa_Client->Width = ClientWidth - Pa_Client->Left;
                 Pa_Client->Align = alClient;
                 Pa_List->Visible = true;
                 Sp_Left2->Visible = true;
@@ -986,7 +986,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 PB_Browser->Tag = 0;
                 //*/
             }else if ((pos.x >= Left + Pa_List->Left + 32 || pos.y < listpos.y || pos.y > listpos.y + Pa_Files->Height || !Application->Active) && Pa_Files->Visible){
-				//ちらつきを防止しながらファイルリストを非表示
+                //ちらつきを防止しながらファイルリストを非表示
                 PB_Browser->Tag = 1;
 
                 Pa_Client->Visible = false;
@@ -1018,11 +1018,11 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 /*
                 if (PC_Client->ActivePage == TS_Editor){
                     Pa_Editor->Visible = true;
-					RE_Edit->Visible = true;
+                    RE_Edit->Visible = true;
                 }
                 */
 
-				Ti_Check->Enabled = false;
+                Ti_Check->Enabled = false;
                 Application->ProcessMessages();//一旦各コンポーネントのサイズを変化させる
                 Ti_Check->Enabled = true;
 
@@ -1058,15 +1058,15 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
             Pa_Editor->Align = alNone;
             Pa_EditorRelated->Visible = SettingView.m_bEditorRelatedVisible;
             Sp_EditorRelated->Visible = SettingView.m_bEditorRelatedVisible;
-			Pa_Editor->Align = alClient;
+            Pa_Editor->Align = alClient;
             RelatedTextRefreshRequest = Pa_EditorRelated->Visible;//表示にした場合は更新要求
         }
-	}
+    }
 
-	bool drawrequest = false;//ブラウザ描画要求（データ更新用）
-	bool drawrequest2 = m_bRedrawRequested;//ブラウザ描画要求（アニメーション表示用）
-	bool drawrequest_s = m_bRedrawRequested;//統計描画要求
-	m_bRedrawRequested = false;
+    bool drawrequest = false;//ブラウザ描画要求（データ更新用）
+    bool drawrequest2 = m_bRedrawRequested;//ブラウザ描画要求（アニメーション表示用）
+    bool drawrequest_s = m_bRedrawRequested;//統計描画要求
+    m_bRedrawRequested = false;
 
     //アニメーション
     switch (m_nAnimation){
@@ -1094,10 +1094,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         break;
     }
 
-	//アニメーション中のフルスクリーン
+    //アニメーション中のフルスクリーン
     if (Fo_RandomAnimation->m_bFullScreenRequest){
         Fo_RandomAnimation->m_bFullScreenRequest = false;
-		MV_FullScreenClick(Sender);
+        MV_FullScreenClick(Sender);
     }
 
     //アニメーション中のZoom
@@ -1130,10 +1130,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 if (Card->m_bSelected){
                     Card->m_nSelected = 100;
                 }else{
-					Card->m_nSelected = 0;
+                    Card->m_nSelected = 0;
                 }
-			}
-			SelectionChanged |= Card->m_bSelected != LB_List->Selected[i];
+            }
+            SelectionChanged |= Card->m_bSelected != LB_List->Selected[i];
             SelectedExist |= Card->m_bSelected;
         }
     }
@@ -1166,11 +1166,11 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     bool ListChanged =
         LB_List->Count != m_Document->m_Cards->Count ||
         m_nRefreshListCount != m_Document->m_nRefreshListCount;
-	if (SelectionChanged || ListChanged || Fo_View->m_bRefreshRequest || m_UndoRedo->m_bChanged){
-		m_UndoRedo->m_bChanged = false;
+    if (SelectionChanged || ListChanged || Fo_View->m_bRefreshRequest || m_UndoRedo->m_bChanged){
+        m_UndoRedo->m_bChanged = false;
         RelatedTextRefreshRequest = true;//関連テキスト更新要求
 
-		//何らかのリストに関する編集操作があった
+        //何らかのリストに関する編集操作があった
         m_nRefreshListCount = m_Document->m_nRefreshListCount;
         m_fZoomSD = 0.21f;
         drawrequest = true;
@@ -1203,10 +1203,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 if (LB_List->Selected[i] != Card->m_bSelected){
                     LB_List->Selected[i] = Card->m_bSelected;
                 }
-			}
+            }
         }else{
             for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
-				TCard *Card = m_Document->GetCardByIndex(i);
+                TCard *Card = m_Document->GetCardByIndex(i);
                 if (LB_List->Selected[i] != Card->m_bSelected){
                     LB_List->Selected[i] = Card->m_bSelected;
                 }
@@ -1242,7 +1242,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
 
                         RE_Edit->SelStart = m_nNextSelStart;
                         RE_Edit->SelLength = 0;
-						RE_Edit->SelLength = m_nNextSelLength;
+                        RE_Edit->SelLength = m_nNextSelLength;
                     }else{
                         RE_Edit->Lines->EndUpdate();
                     }
@@ -1258,10 +1258,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                     Ed_Title->Tag = 1;
                     Ed_TitleB->Text = TB;
                     Ed_Title->Tag = 0;
-				}
+                }
 
-				delete m_Drawing;
-				m_Drawing = new TDrawing(*Card->m_Drawing);
+                delete m_Drawing;
+                m_Drawing = new TDrawing(*Card->m_Drawing);
             }
         }
 
@@ -1278,10 +1278,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
 
         LB_List->Items->EndUpdate();
 
-	}
+    }
 
     //存在しないカードが選択されていたときの処理（Undo時などに発生）
-	if (m_nCurrentCard == m_nTargetCard){
+    if (m_nCurrentCard == m_nTargetCard){
         TCard *Card = m_Document->GetCard(m_nCurrentCard);
         if (Card == NULL){
             RelatedTextRefreshRequest = true;//関連テキスト更新要求
@@ -1290,77 +1290,77 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
 
     //文章
-	TCard *Card = m_Document->GetCard(m_nTargetCard);
-	if (m_nCurrentCard != m_nTargetCard){
-		RelatedTextRefreshRequest = true;//関連テキスト更新要求
-		TCard *LastCard = m_Document->GetCard(m_nCurrentCard);
-		m_nLastTarget = -1;
-		if (LastCard && Card){
-			if (LastCard->m_nSelected > 0 && !LastCard->m_bSelected && Card->m_nSelected < 100){
-				m_nLastTarget = m_nCurrentCard;
-			}
-		}
-		if (SettingView.m_bFocusCursorAnimation){
-			if (Card){
-				if (Card->m_nSelected < 100){
-					m_nFocusCursorPos = 0;
-				}
-			}else{
-				m_nFocusCursorPos = 0;
-			}
-		}else{
-			m_nFocusCursorPos = 100;
-		}
+    TCard *Card = m_Document->GetCard(m_nTargetCard);
+    if (m_nCurrentCard != m_nTargetCard){
+        RelatedTextRefreshRequest = true;//関連テキスト更新要求
+        TCard *LastCard = m_Document->GetCard(m_nCurrentCard);
+        m_nLastTarget = -1;
+        if (LastCard && Card){
+            if (LastCard->m_nSelected > 0 && !LastCard->m_bSelected && Card->m_nSelected < 100){
+                m_nLastTarget = m_nCurrentCard;
+            }
+        }
+        if (SettingView.m_bFocusCursorAnimation){
+            if (Card){
+                if (Card->m_nSelected < 100){
+                    m_nFocusCursorPos = 0;
+                }
+            }else{
+                m_nFocusCursorPos = 0;
+            }
+        }else{
+            m_nFocusCursorPos = 100;
+        }
 
-		m_nCurrentCard = m_nTargetCard;
-		m_Document->m_nCardID = m_nTargetCard;
+        m_nCurrentCard = m_nTargetCard;
+        m_Document->m_nCardID = m_nTargetCard;
 
-		CloseEditBox();
+        CloseEditBox();
 
-		m_fBrowserScrollRatio = 0.0f;
-		//SetCardVisible();
-		drawrequest = true;
+        m_fBrowserScrollRatio = 0.0f;
+        //SetCardVisible();
+        drawrequest = true;
 
-		int nDrawingTool = m_Drawing->m_nTool;
+        int nDrawingTool = m_Drawing->m_nTool;
 
-		if (m_nCurrentCard == -1){
-			Pa_Editor->Visible = false;
-			Ed_Title->Tag = 1;
-			Ed_Title->Text = "";
-			Ed_Title->Tag = 0;
-			La_Created->Caption = "-";
-			La_Edited->Caption = "-";
-			La_Viewed->Caption = "-";
-			Ed_Title->Enabled = false;
-			Ed_CardSize->Enabled = false;
-			UD_CardSize->Enabled = false;
-			Ed_CardSize->Text = "";
-			RE_Edit->Tag = 1;
-			RE_Edit->Text = "";
-			RE_Edit->Tag = 0;
-			RE_Edit->Enabled = false;
+        if (m_nCurrentCard == -1){
+            Pa_Editor->Visible = false;
+            Ed_Title->Tag = 1;
+            Ed_Title->Text = "";
+            Ed_Title->Tag = 0;
+            La_Created->Caption = "-";
+            La_Edited->Caption = "-";
+            La_Viewed->Caption = "-";
+            Ed_Title->Enabled = false;
+            Ed_CardSize->Enabled = false;
+            UD_CardSize->Enabled = false;
+            Ed_CardSize->Text = "";
+            RE_Edit->Tag = 1;
+            RE_Edit->Text = "";
+            RE_Edit->Tag = 0;
+            RE_Edit->Enabled = false;
 
-			//絵をクリア
-			delete m_Drawing;
-			m_Drawing = new TDrawing();
+            //絵をクリア
+            delete m_Drawing;
+            m_Drawing = new TDrawing();
 
-			PB_Drawing->Enabled = false;
-			RefreshLabel();
-		}else{
-			Pa_Editor->Visible = true;
-			RE_Edit->Enabled = true;
-			Ed_Title->Enabled = true;
-			Ed_CardSize->Enabled = true;
-			UD_CardSize->Enabled = true;
-			if (Card){
-				//本文
-				RE_Edit->Tag = 1;
-				//RE_Edit->Lines->Assign(Card->m_Lines);
-				//RE_Edit->Text = Card->m_Lines->Text.SubString(1, Card->m_Lines->Text.Length() - 2);
-				RE_Edit->Text = Card->m_Lines->Text;
-				Card->m_fViewed = Now();
-				RE_Edit->SelStart = 0;
-				RE_Edit->Tag = 0;
+            PB_Drawing->Enabled = false;
+            RefreshLabel();
+        }else{
+            Pa_Editor->Visible = true;
+            RE_Edit->Enabled = true;
+            Ed_Title->Enabled = true;
+            Ed_CardSize->Enabled = true;
+            UD_CardSize->Enabled = true;
+            if (Card){
+                //本文
+                RE_Edit->Tag = 1;
+                //RE_Edit->Lines->Assign(Card->m_Lines);
+                //RE_Edit->Text = Card->m_Lines->Text.SubString(1, Card->m_Lines->Text.Length() - 2);
+                RE_Edit->Text = Card->m_Lines->Text;
+                Card->m_fViewed = Now();
+                RE_Edit->SelStart = 0;
+                RE_Edit->Tag = 0;
                 //本文以外
                 //タイトル
                 if (Ed_Title->Text != Card->m_Title){
@@ -1386,50 +1386,50 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 RefreshLabel();
 
                 //絵
-				delete m_Drawing;
-				m_Drawing = new TDrawing(*Card->m_Drawing);
+                delete m_Drawing;
+                m_Drawing = new TDrawing(*Card->m_Drawing);
 
-				//Date
-				La_Created->Caption = DateTimeToStr(Card->m_fCreated);
-				La_Edited->Caption = DateTimeToStr(Card->m_fUpdated);
-				La_Viewed->Caption = DateTimeToStr(Card->m_fViewed);
-				m_nRefreshLinkCount = m_Document->m_nRefreshLinkCount;
-				RefreshLinks();
+                //Date
+                La_Created->Caption = DateTimeToStr(Card->m_fCreated);
+                La_Edited->Caption = DateTimeToStr(Card->m_fUpdated);
+                La_Viewed->Caption = DateTimeToStr(Card->m_fViewed);
+                m_nRefreshLinkCount = m_Document->m_nRefreshLinkCount;
+                RefreshLinks();
 
-				//ビデオを先頭に戻す
-				if (Card->m_VideoFN != ""){
-					TCardVideo *Video = SearchVideo(Card->m_VideoFN);
-					if (Video){
-						Video->m_Video->SetPosition(Video->m_Video->m_fLoopStartPos);
-					}
-				}
-			}else{
-				delete m_Drawing;
-				m_Drawing = new TDrawing();
-			}
+                //ビデオを先頭に戻す
+                if (Card->m_VideoFN != ""){
+                    TCardVideo *Video = SearchVideo(Card->m_VideoFN);
+                    if (Video){
+                        Video->m_Video->SetPosition(Video->m_Video->m_fLoopStartPos);
+                    }
+                }
+            }else{
+                delete m_Drawing;
+                m_Drawing = new TDrawing();
+            }
 
-			m_Drawing->m_nTool = nDrawingTool;
+            m_Drawing->m_nTool = nDrawingTool;
 
-			//絵
-			PB_Drawing->Enabled = true;
-		}
-		RefreshLaStatus();
-	}
+            //絵
+            PB_Drawing->Enabled = true;
+        }
+        RefreshLaStatus();
+    }
 
-	//関連テキスト更新
-	if (RelatedTextRefreshRequest && Pa_EditorRelated->Visible){
-		TStringList *NewStr = new TStringList();
-		if (m_nTargetCard >= 0){
-			TCard *Card = m_Document->GetCard(m_nTargetCard);
-			TList *Str = new TList();//文字列リスト
-			TList *Order = new TList();//表示オーダーリスト
-			//リンクループ
-			for (int il = 0 ; il < m_Document->m_Links->Count ; il++){
-				TLink *Link = m_Document->GetLinkByIndex(il);
-				TCard *Card2 = NULL;
-				if (Link->m_nFromID == Card->m_nID && Link->m_nDestID != Card->m_nID){
-					Card2 = m_Document->GetCard(Link->m_nDestID);
-				}else if (Link->m_nDestID == Card->m_nID && Link->m_nFromID != Card->m_nID){
+    //関連テキスト更新
+    if (RelatedTextRefreshRequest && Pa_EditorRelated->Visible){
+        TStringList *NewStr = new TStringList();
+        if (m_nTargetCard >= 0){
+            TCard *Card = m_Document->GetCard(m_nTargetCard);
+            TList *Str = new TList();//文字列リスト
+            TList *Order = new TList();//表示オーダーリスト
+            //リンクループ
+            for (int il = 0 ; il < m_Document->m_Links->Count ; il++){
+                TLink *Link = m_Document->GetLinkByIndex(il);
+                TCard *Card2 = NULL;
+                if (Link->m_nFromID == Card->m_nID && Link->m_nDestID != Card->m_nID){
+                    Card2 = m_Document->GetCard(Link->m_nDestID);
+                }else if (Link->m_nDestID == Card->m_nID && Link->m_nFromID != Card->m_nID){
                     Card2 = m_Document->GetCard(Link->m_nFromID);
                 }
 
@@ -1439,7 +1439,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                             AnsiString("Title : ") + DecodeES(Card2->m_Title, " ") + AnsiString("\r\n\r\n") +
                             Card2->m_Lines->Text + AnsiString("\r\n\r\n")
                             ));
-					}else{
+                    }else{
                         Str->Add(new AnsiString(
                             AnsiString("(Title : ") + DecodeES(Card2->m_Title, " ") + AnsiString(")\r\n\r\n") +
                             Card2->m_Lines->Text + AnsiString("\r\n\r\n")
@@ -1475,7 +1475,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         }
 
         if (Me_EditorRelated->Lines->Text != NewStr->Text){
-			Me_EditorRelated->Lines->BeginUpdate();
+            Me_EditorRelated->Lines->BeginUpdate();
             Me_EditorRelated->Lines->Text = NewStr->Text;
             Me_EditorRelated->Lines->EndUpdate();
         }
@@ -1511,7 +1511,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     //リンクリスト
     if (m_nRefreshLinkCount != m_Document->m_nRefreshLinkCount){
         m_nRefreshLinkCount = m_Document->m_nRefreshLinkCount;
-		RefreshLinks();
+        RefreshLinks();
 
         //リンクタイトル変更反映
         if (m_nCurrentLink >= 0 && m_nCurrentLink == m_nTargetLink){
@@ -1547,7 +1547,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
             Ch_LinkDirection->Checked = false;
 
             //リンク非選択
-			Pa_Link->Visible = false;
+            Pa_Link->Visible = false;
         }
 
         Ed_LinkTitle->Tag = 0;
@@ -1560,14 +1560,14 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     //カード数、リンク数
     {
         AnsiString S =
-			IntToStr(m_Document->m_Cards->Count) +
-			AnsiString(" ") +
-			MLText.Cards +
-			AnsiString(", ") +
-			IntToStr(m_Document->m_Links->Count) +
-			AnsiString(" ") +
-			MLText.Links;
-		if (La_Count->Caption != S){
+            IntToStr(m_Document->m_Cards->Count) +
+            AnsiString(" ") +
+            MLText.Cards +
+            AnsiString(", ") +
+            IntToStr(m_Document->m_Links->Count) +
+            AnsiString(" ") +
+            MLText.Links;
+        if (La_Count->Caption != S){
             La_Count->Caption = S;
         }
     }
@@ -1586,7 +1586,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
             Ed_CardSize->Tag = 1;
             UD_CardSize->Position = size;
             Ed_CardSize->Text = IntToStr(UD_CardSize->Position);
-			Ed_CardSize->Tag = 0;
+            Ed_CardSize->Tag = 0;
         }
     }
 
@@ -1622,7 +1622,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 Link->m_nShape = Fo_Shape->m_nItemIndex;
                 m_Document->RefreshLink();
             }
-			break;
+            break;
         case 2:
             //全カード
             for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
@@ -1658,7 +1658,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         if (Link->m_nShape != SB_Shape->Tag){
             SB_Shape->Tag = Link->m_nShape;
             if (Link->m_nShape < IL_LinkShape->Count){
-				SB_LinkShape->Glyph->Canvas->FillRect(Rect(0, 0, 31,13));
+                SB_LinkShape->Glyph->Canvas->FillRect(Rect(0, 0, 31,13));
                 IL_LinkShape->GetBitmap(Link->m_nShape, SB_LinkShape->Glyph);
             }
         }
@@ -1730,7 +1730,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
             BrowserArrangeByFold();
         }
         //SetCardVisible();
-		drawrequest = true;
+        drawrequest = true;
     }
 
     if (drawrequest && PC_Client->ActivePage == TS_Browser){
@@ -1759,28 +1759,28 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     {
         AnsiString S;
         switch (Bu_ArrangeType->Tag){
-		//0～99=Hard、100～199=Soft、200～299＝Matrix
-		case 0:S = PAT_Normalize->Caption;break;
-		case 1:S = PAT_Repulsion->Caption;break;
-		case 2:S = PAT_Link->Caption;break;
-		case 3:S = PAT_Label->Caption;break;
-		case 4:S = PAT_Index->Caption;break;
-		case 102:S = PAT_SoftLink->Caption;break;
-		case 103:S = PAT_SoftLabel->Caption;break;
-		case 104:S = PAT_SoftIndex->Caption;break;
-		case 200:S = PAT_Matrix->Caption;break;
-		//case 202:S = "Link(Matrix)->Caption;break;
-		//case 203:S = "Label(Matrix)->Caption;break;
-		case 204:S = PAT_MatrixIndex->Caption;break;
+        //0～99=Hard、100～199=Soft、200～299＝Matrix
+        case 0:S = PAT_Normalize->Caption;break;
+        case 1:S = PAT_Repulsion->Caption;break;
+        case 2:S = PAT_Link->Caption;break;
+        case 3:S = PAT_Label->Caption;break;
+        case 4:S = PAT_Index->Caption;break;
+        case 102:S = PAT_SoftLink->Caption;break;
+        case 103:S = PAT_SoftLabel->Caption;break;
+        case 104:S = PAT_SoftIndex->Caption;break;
+        case 200:S = PAT_Matrix->Caption;break;
+        //case 202:S = "Link(Matrix)->Caption;break;
+        //case 203:S = "Label(Matrix)->Caption;break;
+        case 204:S = PAT_MatrixIndex->Caption;break;
 
-		//500～999＝Similarity
-		case 500:S = PAT_Similarity->Caption;break;
-		case 600:S = PAT_SimilaritySoft->Caption;break;
+        //500～999＝Similarity
+        case 500:S = PAT_Similarity->Caption;break;
+        case 600:S = PAT_SimilaritySoft->Caption;break;
 
-		//1000～1999＝Tree
-		case 1000:S = PAT_TreeRadial->Caption;break;
-		}
-		S = DeleteActionKey(S);
+        //1000～1999＝Tree
+        case 1000:S = PAT_TreeRadial->Caption;break;
+        }
+        S = DeleteActionKey(S);
         if (Bu_ArrangeType->Caption != S){
             Bu_ArrangeType->Caption = S;
         }
@@ -1803,7 +1803,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
             if (SB_Arrange->Down/* && timeGetTime() >= m_uMDownBrowserLast + 500*/){
                 switch (Bu_ArrangeType->Tag){
                 case 0:
-					//Normalize
+                    //Normalize
                     BrowserArrangeByNormalize();
                     drawrequest2 = true;
                     break;
@@ -1839,7 +1839,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 case 102:
                     //Link(Soft)
                     BrowserArrangeByLink(0.33f);
-					drawrequest2 = true;
+                    drawrequest2 = true;
                     break;
                 case 103:
                     //Label(Soft)
@@ -1875,7 +1875,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                     break;
                 }
                 //BrowserArrangeByFold();
-			}
+            }
 
             //スコア、Ticker、背景アニメーションによる再描画
             drawrequest2 |= SettingView.m_bScore || SettingView.m_bTickerVisible || SettingView.m_bBGAnimation;
@@ -1947,7 +1947,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     if (PC_Client->ActivePage == TS_Drawing){
         if (m_Drawing->m_bDrawRequest){
             PB_DrawingPaint(Sender);
-		}
+        }
     }
 
 
@@ -1983,7 +1983,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         }
     }
     */
-	if (PC_Client->ActivePage == TS_Browser){
+    if (PC_Client->ActivePage == TS_Browser){
         if (m_nTargetCard >= 0){
             if (Ed_TitleB->Visible){
                 SetEdTitleBPos();
@@ -2016,64 +2016,64 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
 
             if (srbak & 0x40){
                 //グローバル検索
-				if (!(srbak & 0x100)) {
-					La_SearchResultKeyword->Caption =
-						AnsiString("\"") +
-						SearchKeyword +
-						AnsiString("\"");
+                if (!(srbak & 0x100)) {
+                    La_SearchResultKeyword->Caption =
+                        AnsiString("\"") +
+                        SearchKeyword +
+                        AnsiString("\"");
 
-					GlobalSearch(srbak);
-					m_GlobalSearchOption = srbak;
-					m_GlobalSearchKeyword = SearchKeyword;
-					//置換ではない
-					
-					//グローバル検索結果を表示
-					Sc_GlobalSearch->Tag = 1;
-					Sc_GlobalSearch->Position = 0;
-					Sc_GlobalSearch->Tag = 0;
-					m_GlobalSearchCursorIndex = -1;
-					La_GlobalSearchCount->Caption = IntToStr(m_GlobalSearchResult->Count) + AnsiString(" Hits");
-					if (m_GlobalSearchResult->Count){
-						//見つかった
-						ExitFullScreen();
-						Fo_Search->Visible = false;
-						Sc_GlobalSearch->Max = m_GlobalSearchResult->Count - 1;
-						if (!Pa_GlobalSearch->Visible){
-							Pa_Client->Align = alNone;
-							Pa_GlobalSearch->Visible = true;
-							Sp_GlobalSearch->Visible = true;
-							Pa_Client->Align = alClient;
-						}else{
-							PB_GlobalSearchPaint(Sender);
-						}
-						Sc_GlobalSearch->SetFocus();
-					}else{
-						//見つからなかった
-						Sc_GlobalSearch->Max = 0;
-						PB_GlobalSearchPaint(Sender);
-						ShowMessage(
-							AnsiString("\"") +
-							SearchKeyword +
-							AnsiString("\"")+
-							MLText.NotFound);
-					}
-				}else{
-					//置換
-					int replaced = ReplaceAll(srbak);
+                    GlobalSearch(srbak);
+                    m_GlobalSearchOption = srbak;
+                    m_GlobalSearchKeyword = SearchKeyword;
+                    //置換ではない
+                    
+                    //グローバル検索結果を表示
+                    Sc_GlobalSearch->Tag = 1;
+                    Sc_GlobalSearch->Position = 0;
+                    Sc_GlobalSearch->Tag = 0;
+                    m_GlobalSearchCursorIndex = -1;
+                    La_GlobalSearchCount->Caption = IntToStr(m_GlobalSearchResult->Count) + AnsiString(" Hits");
+                    if (m_GlobalSearchResult->Count){
+                        //見つかった
+                        ExitFullScreen();
+                        Fo_Search->Visible = false;
+                        Sc_GlobalSearch->Max = m_GlobalSearchResult->Count - 1;
+                        if (!Pa_GlobalSearch->Visible){
+                            Pa_Client->Align = alNone;
+                            Pa_GlobalSearch->Visible = true;
+                            Sp_GlobalSearch->Visible = true;
+                            Pa_Client->Align = alClient;
+                        }else{
+                            PB_GlobalSearchPaint(Sender);
+                        }
+                        Sc_GlobalSearch->SetFocus();
+                    }else{
+                        //見つからなかった
+                        Sc_GlobalSearch->Max = 0;
+                        PB_GlobalSearchPaint(Sender);
+                        ShowMessage(
+                            AnsiString("\"") +
+                            SearchKeyword +
+                            AnsiString("\"")+
+                            MLText.NotFound);
+                    }
+                }else{
+                    //置換
+                    int replaced = ReplaceAll(srbak);
 
-					if (replaced) {
-                    	//置換成功
-						Fo_Search->Visible = false;
-					}else{
-						//見つからなかった
-						ShowMessage(
-							AnsiString("\"") +
-							SearchKeyword +
-							AnsiString("\"")+
-							MLText.NotFound);
-					}
+                    if (replaced) {
+                        //置換成功
+                        Fo_Search->Visible = false;
+                    }else{
+                        //見つからなかった
+                        ShowMessage(
+                            AnsiString("\"") +
+                            SearchKeyword +
+                            AnsiString("\"")+
+                            MLText.NotFound);
+                    }
                 }
-			}else{
+            }else{
                 Search(srbak);
                 if (srbak & 0x8){
                     Fo_Search->SetFocus();
@@ -2096,16 +2096,16 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     if (m_nMDownTargetY < 16 && Fo_FullScreen->Visible){
         if (Fo_FullScreen->Menu != MM_Menu){
             Menu = NULL;
-			Fo_FullScreen->Menu = MM_Menu;
-			Pa_BrowserTop->Parent = Fo_FullScreen;
-			Pa_BrowserTop->ParentColor = true;
-			Pa_Card->Parent = Fo_FullScreen;
-		}
-	}else{
-		if (Menu != MM_Menu){
-			Pa_BrowserTop->Parent = TS_Browser;
-			Pa_BrowserTop->ParentColor = true;
-			Pa_Card->Parent = Pa_Client;
+            Fo_FullScreen->Menu = MM_Menu;
+            Pa_BrowserTop->Parent = Fo_FullScreen;
+            Pa_BrowserTop->ParentColor = true;
+            Pa_Card->Parent = Fo_FullScreen;
+        }
+    }else{
+        if (Menu != MM_Menu){
+            Pa_BrowserTop->Parent = TS_Browser;
+            Pa_BrowserTop->ParentColor = true;
+            Pa_Card->Parent = Pa_Client;
             Fo_FullScreen->Menu = NULL;
             Menu = MM_Menu;
         }
@@ -2113,19 +2113,19 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
 
     //File
     if (MF_Save->Enabled != !m_Document->m_bReadOnly){
-		MF_Save->Enabled = !m_Document->m_bReadOnly;
-		MF_SaveAs->Enabled = !m_Document->m_bReadOnly;
-	}
-	{
-		bool CanExportH = Card != NULL && TreeMode();
-		if (CanExportH) {
-			CanExportH &= Card->m_bTop == true;
-		}
-		if (MFE_HierarchicalTextFile->Enabled != CanExportH){
-        	MFE_HierarchicalTextFile->Enabled = CanExportH;
-		}
+        MF_Save->Enabled = !m_Document->m_bReadOnly;
+        MF_SaveAs->Enabled = !m_Document->m_bReadOnly;
+    }
+    {
+        bool CanExportH = Card != NULL && TreeMode();
+        if (CanExportH) {
+            CanExportH &= Card->m_bTop == true;
+        }
+        if (MFE_HierarchicalTextFile->Enabled != CanExportH){
+            MFE_HierarchicalTextFile->Enabled = CanExportH;
+        }
 
-	}
+    }
 
     //Undo
     {
@@ -2134,8 +2134,8 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         if (ME_Undo->Enabled != CanUndo){
             ME_Undo->Enabled = CanUndo;
             PE_Undo->Enabled = CanUndo;
-			PD_Undo->Enabled = CanUndo;
-			PBN_Undo->Enabled = CanUndo;
+            PD_Undo->Enabled = CanUndo;
+            PBN_Undo->Enabled = CanUndo;
             PBC_Undo->Enabled = CanUndo;
             PBL_Undo->Enabled = CanUndo;
         }
@@ -2150,150 +2150,150 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         }
         if (ME_Undo->Caption != S){
             ME_Undo->Caption = S;
-			PE_Undo->Caption = S;
-			PD_Undo->Caption = S;
-			PBN_Undo->Caption = S;
-			PBC_Undo->Caption = S;
-			PBL_Undo->Caption = S;
-		}
-	}
+            PE_Undo->Caption = S;
+            PD_Undo->Caption = S;
+            PBN_Undo->Caption = S;
+            PBC_Undo->Caption = S;
+            PBL_Undo->Caption = S;
+        }
+    }
 
-	//Redo
-	{
-		char *RedoName;
-		bool CanRedo = m_UndoRedo->GetCanRedo(&RedoName) && (m_nAnimation == 0);
-		if (ME_Redo->Enabled != CanRedo){
-			ME_Redo->Enabled = CanRedo;
-			PE_Redo->Enabled = CanRedo;
-			PD_Redo->Enabled = CanRedo;
-			PBN_Redo->Enabled = CanRedo;
-			PBC_Redo->Enabled = CanRedo;
-			PBL_Redo->Enabled = CanRedo;
-		}
-		AnsiString S = ME_Redo->Caption;
+    //Redo
+    {
+        char *RedoName;
+        bool CanRedo = m_UndoRedo->GetCanRedo(&RedoName) && (m_nAnimation == 0);
+        if (ME_Redo->Enabled != CanRedo){
+            ME_Redo->Enabled = CanRedo;
+            PE_Redo->Enabled = CanRedo;
+            PD_Redo->Enabled = CanRedo;
+            PBN_Redo->Enabled = CanRedo;
+            PBC_Redo->Enabled = CanRedo;
+            PBL_Redo->Enabled = CanRedo;
+        }
+        AnsiString S = ME_Redo->Caption;
 
-		int p = S.Pos(" - ");
-		if (p){
-			S = S.SubString(1, p - 1);
-		}
-		if (RedoName){
-			S += AnsiString(" - ") + AnsiString(RedoName);
-		}
-		if (ME_Redo->Caption != S){
-			ME_Redo->Caption = S;
-			PE_Redo->Caption = S;
-			PD_Redo->Caption = S;
-			PBN_Redo->Caption = S;
-			PBC_Redo->Caption = S;
-			PBL_Redo->Caption = S;
-		}
-	}
+        int p = S.Pos(" - ");
+        if (p){
+            S = S.SubString(1, p - 1);
+        }
+        if (RedoName){
+            S += AnsiString(" - ") + AnsiString(RedoName);
+        }
+        if (ME_Redo->Caption != S){
+            ME_Redo->Caption = S;
+            PE_Redo->Caption = S;
+            PD_Redo->Caption = S;
+            PBN_Redo->Caption = S;
+            PBC_Redo->Caption = S;
+            PBL_Redo->Caption = S;
+        }
+    }
 
 
-	//Edit
-	{
-		//Cut（文字列が選択されているか、カードが選択されていればEnable）
-		bool editenabled =
-			(RE_Edit->Focused() && RE_Edit->SelLength > 0) ||
-			(Ed_Title->Focused() && Ed_Title->SelLength > 0) ||
-			(Ed_TitleB->Focused() && Ed_TitleB->SelLength > 0) ||
-			(Ed_LinkTitle->Focused() && Ed_LinkTitle->SelLength > 0) ||
-			(Ed_FindCard->Focused() && Ed_FindCard->SelLength > 0) ||
-			(Ed_FindCard->Focused() && Ed_FindCard->SelLength > 0) ||
-			(TB_DZoom->Focused() && m_Drawing->Selected() > 0) ||
-			(!RE_Edit->Focused() && !Me_EditorRelated->Focused() && !Ed_Title->Focused() && !Ed_TitleB->Focused() && !Ed_LinkTitle->Focused() && !Ed_FindCard->Focused() && !TB_DZoom->Focused() && m_nTargetCard >= 0);
-		if (ME_Cut->Enabled != editenabled){
-			ME_Cut->Enabled = editenabled;
-			PE_Cut->Enabled = editenabled;
-			PD_Cut->Enabled = editenabled;
-			PBC_Cut->Enabled = editenabled;
-		}
-	}
-	{
-		//Copy（文字列が選択されているか、カードが選択されていればEnable）
-		bool editenabled =
-			(RE_Edit->Focused() && RE_Edit->SelLength > 0) ||
-			(Me_EditorRelated->Focused() && Me_EditorRelated->SelLength > 0) ||
-			(Ed_Title->Focused() && Ed_Title->SelLength > 0) ||
-			(Ed_TitleB->Focused() && Ed_TitleB->SelLength > 0) ||
-			(Ed_LinkTitle->Focused() && Ed_LinkTitle->SelLength > 0) ||
-			(Ed_FindCard->Focused() && Ed_FindCard->SelLength > 0) ||
-			(TB_DZoom->Focused() && m_Drawing->Selected() > 0) ||
-			(!RE_Edit->Focused() && !Me_EditorRelated->Focused() && !Ed_Title->Focused() && !Ed_TitleB->Focused() && !Ed_LinkTitle->Focused() && !Ed_FindCard->Focused() && !TB_DZoom->Focused() && m_nTargetCard >= 0);
-		if (ME_Copy->Enabled != editenabled){
-			ME_Copy->Enabled = editenabled;
-			PE_Copy->Enabled = editenabled;
-			PD_Copy->Enabled = editenabled;
-			PBC_Copy->Enabled = editenabled;
-		}
-	}
+    //Edit
+    {
+        //Cut（文字列が選択されているか、カードが選択されていればEnable）
+        bool editenabled =
+            (RE_Edit->Focused() && RE_Edit->SelLength > 0) ||
+            (Ed_Title->Focused() && Ed_Title->SelLength > 0) ||
+            (Ed_TitleB->Focused() && Ed_TitleB->SelLength > 0) ||
+            (Ed_LinkTitle->Focused() && Ed_LinkTitle->SelLength > 0) ||
+            (Ed_FindCard->Focused() && Ed_FindCard->SelLength > 0) ||
+            (Ed_FindCard->Focused() && Ed_FindCard->SelLength > 0) ||
+            (TB_DZoom->Focused() && m_Drawing->Selected() > 0) ||
+            (!RE_Edit->Focused() && !Me_EditorRelated->Focused() && !Ed_Title->Focused() && !Ed_TitleB->Focused() && !Ed_LinkTitle->Focused() && !Ed_FindCard->Focused() && !TB_DZoom->Focused() && m_nTargetCard >= 0);
+        if (ME_Cut->Enabled != editenabled){
+            ME_Cut->Enabled = editenabled;
+            PE_Cut->Enabled = editenabled;
+            PD_Cut->Enabled = editenabled;
+            PBC_Cut->Enabled = editenabled;
+        }
+    }
+    {
+        //Copy（文字列が選択されているか、カードが選択されていればEnable）
+        bool editenabled =
+            (RE_Edit->Focused() && RE_Edit->SelLength > 0) ||
+            (Me_EditorRelated->Focused() && Me_EditorRelated->SelLength > 0) ||
+            (Ed_Title->Focused() && Ed_Title->SelLength > 0) ||
+            (Ed_TitleB->Focused() && Ed_TitleB->SelLength > 0) ||
+            (Ed_LinkTitle->Focused() && Ed_LinkTitle->SelLength > 0) ||
+            (Ed_FindCard->Focused() && Ed_FindCard->SelLength > 0) ||
+            (TB_DZoom->Focused() && m_Drawing->Selected() > 0) ||
+            (!RE_Edit->Focused() && !Me_EditorRelated->Focused() && !Ed_Title->Focused() && !Ed_TitleB->Focused() && !Ed_LinkTitle->Focused() && !Ed_FindCard->Focused() && !TB_DZoom->Focused() && m_nTargetCard >= 0);
+        if (ME_Copy->Enabled != editenabled){
+            ME_Copy->Enabled = editenabled;
+            PE_Copy->Enabled = editenabled;
+            PD_Copy->Enabled = editenabled;
+            PBC_Copy->Enabled = editenabled;
+        }
+    }
 
-	{
-		//Delete（文字編集中か、カードが選択されていればEnable）
-		bool editenabled =
-			RE_Edit->Focused() ||
-			Ed_Title->Focused() ||
-			Ed_TitleB->Focused() ||
-			Ed_LinkTitle->Focused() ||
-			Ed_FindCard->Focused() ||
-			(TB_DZoom->Focused() && m_Drawing->Selected() > 0) ||
-			(!RE_Edit->Focused() && !Me_EditorRelated->Focused() && !Ed_Title->Focused() && !Ed_TitleB->Focused() && !Ed_LinkTitle->Focused() && !Ed_FindCard->Focused() && !TB_DZoom->Focused() && m_nTargetCard >= 0);
-		if (ME_Delete->Enabled != editenabled){
-			ME_Delete->Enabled = editenabled;
-			PE_Delete->Enabled = editenabled;
-			PD_Delete->Enabled = editenabled;
-		}
-	}
+    {
+        //Delete（文字編集中か、カードが選択されていればEnable）
+        bool editenabled =
+            RE_Edit->Focused() ||
+            Ed_Title->Focused() ||
+            Ed_TitleB->Focused() ||
+            Ed_LinkTitle->Focused() ||
+            Ed_FindCard->Focused() ||
+            (TB_DZoom->Focused() && m_Drawing->Selected() > 0) ||
+            (!RE_Edit->Focused() && !Me_EditorRelated->Focused() && !Ed_Title->Focused() && !Ed_TitleB->Focused() && !Ed_LinkTitle->Focused() && !Ed_FindCard->Focused() && !TB_DZoom->Focused() && m_nTargetCard >= 0);
+        if (ME_Delete->Enabled != editenabled){
+            ME_Delete->Enabled = editenabled;
+            PE_Delete->Enabled = editenabled;
+            PD_Delete->Enabled = editenabled;
+        }
+    }
 
-	{
-		//Paste
-		bool editenabled =
-			Clipboard()->HasFormat(CF_TEXT) && (
-				RE_Edit->Focused() ||
-				Ed_Title->Focused() ||
-				Ed_TitleB->Focused() ||
-				Ed_LinkTitle->Focused() ||
-				Ed_FindCard->Focused() ||
-				TB_DZoom->Focused() ||
-				PC_Client->ActivePage == TS_Browser
-				);//テキストがペースト可能
-		editenabled &= !Me_EditorRelated->Focused();//関連テキストは編集不能
-		if (ME_Paste->Enabled != editenabled){
-			ME_Paste->Enabled = editenabled;
-			PE_Paste->Enabled = editenabled;
-			PD_Paste->Enabled = editenabled;
-			PBN_Paste->Enabled = editenabled;
-			PBC_Paste->Enabled = editenabled;
-		}
-	}
-	{
-		//Cutしてカード作成
-		bool editenabled = RE_Edit->SelLength > 0;
-		if (PE_CutToNewCard->Enabled != editenabled){
-			PE_CutToNewCard->Enabled = editenabled;
-			PE_CutToNewCardTitle->Enabled = editenabled;
-			PE_CutToNewCardTitleWithLink->Enabled = editenabled;
-		}
-	}
+    {
+        //Paste
+        bool editenabled =
+            Clipboard()->HasFormat(CF_TEXT) && (
+                RE_Edit->Focused() ||
+                Ed_Title->Focused() ||
+                Ed_TitleB->Focused() ||
+                Ed_LinkTitle->Focused() ||
+                Ed_FindCard->Focused() ||
+                TB_DZoom->Focused() ||
+                PC_Client->ActivePage == TS_Browser
+                );//テキストがペースト可能
+        editenabled &= !Me_EditorRelated->Focused();//関連テキストは編集不能
+        if (ME_Paste->Enabled != editenabled){
+            ME_Paste->Enabled = editenabled;
+            PE_Paste->Enabled = editenabled;
+            PD_Paste->Enabled = editenabled;
+            PBN_Paste->Enabled = editenabled;
+            PBC_Paste->Enabled = editenabled;
+        }
+    }
+    {
+        //Cutしてカード作成
+        bool editenabled = RE_Edit->SelLength > 0;
+        if (PE_CutToNewCard->Enabled != editenabled){
+            PE_CutToNewCard->Enabled = editenabled;
+            PE_CutToNewCardTitle->Enabled = editenabled;
+            PE_CutToNewCardTitleWithLink->Enabled = editenabled;
+        }
+    }
 
-	{
-		//WebSearch
-		static WideString LastSelText;
-		WideString SelText = Trim(GetSelText());
-		bool websearchenabled = SelText.Length() > 0 && SelText.Pos("\n") == 0;
-		if (SelText.Length() > 32){
-			SelText = SelText.SubString(1, 32) + "...";
-		}
-		if (ME_WebSearch->Enabled != websearchenabled || LastSelText != SelText){
-			ME_WebSearch->Enabled = websearchenabled;
-			PBC_WebSearch->Enabled = websearchenabled;
-			PBL_WebSearch->Enabled = websearchenabled;
-			for (int i = 0 ; i < MI_WebSearch->Count ; i++){
-				TMenuItem *MI = (TMenuItem*)MI_WebSearch->Items[i];
-				if (websearchenabled){
-					MI->Caption =
-						Setting2Function.m_WebSearch->Names[i % Setting2Function.m_WebSearch->Count] +
-						AnsiString(" \"") +
+    {
+        //WebSearch
+        static WideString LastSelText;
+        WideString SelText = Trim(GetSelText());
+        bool websearchenabled = SelText.Length() > 0 && SelText.Pos("\n") == 0;
+        if (SelText.Length() > 32){
+            SelText = SelText.SubString(1, 32) + "...";
+        }
+        if (ME_WebSearch->Enabled != websearchenabled || LastSelText != SelText){
+            ME_WebSearch->Enabled = websearchenabled;
+            PBC_WebSearch->Enabled = websearchenabled;
+            PBL_WebSearch->Enabled = websearchenabled;
+            for (int i = 0 ; i < MI_WebSearch->Count ; i++){
+                TMenuItem *MI = (TMenuItem*)MI_WebSearch->Items[i];
+                if (websearchenabled){
+                    MI->Caption =
+                        Setting2Function.m_WebSearch->Names[i % Setting2Function.m_WebSearch->Count] +
+                        AnsiString(" \"") +
                         SelText +
                         AnsiString("\"");
                 }else{
@@ -2341,7 +2341,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
     if (MVLi_5->Checked != (SettingView.m_nLinkLimitation == 5)){
         MVLi_5->Checked = (SettingView.m_nLinkLimitation == 5);
-	}
+    }
     */
 
     //View→Card
@@ -2369,15 +2369,15 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
             }
         }
     }
-	if (MVC_Video->Checked != SettingView.m_bVideoVisible){
-		MVC_Video->Checked = SettingView.m_bVideoVisible;
-	}
-	if (MVC_Drawing->Checked != SettingView.m_bDrawingVisible){
-		MVC_Drawing->Checked = SettingView.m_bDrawingVisible;
-	}
-	{
-		TMenuItem *MI = NULL;
-		switch (SettingView.m_nImageLimitation){
+    if (MVC_Video->Checked != SettingView.m_bVideoVisible){
+        MVC_Video->Checked = SettingView.m_bVideoVisible;
+    }
+    if (MVC_Drawing->Checked != SettingView.m_bDrawingVisible){
+        MVC_Drawing->Checked = SettingView.m_bDrawingVisible;
+    }
+    {
+        TMenuItem *MI = NULL;
+        switch (SettingView.m_nImageLimitation){
         case 32:MI = MVI_32; break;
         case 40:MI = MVI_40; break;
         case 64:MI = MVI_64; break;
@@ -2392,7 +2392,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
                 MI->Checked = true;
             }
         }
-	}
+    }
 
     //View→Link
     if (MVL_Link->Checked != SettingView.m_bLinkVisible){
@@ -2534,7 +2534,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
         MVO_CardList->Checked = SettingView.m_bCardList;
     }
     if (MVO_FileList->Checked != SettingView.m_bFileList){
-		MVO_FileList->Checked = SettingView.m_bFileList;
+        MVO_FileList->Checked = SettingView.m_bFileList;
     }
 
     if (MVO_Overview->Checked != SettingView.m_bOverview){
@@ -2570,84 +2570,84 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
     if (PBN_Link->Checked != SB_Line->Down){
         PBN_Link->Checked = SB_Line->Down;
-		PBC_Link->Checked = SB_Line->Down;
-		PBL_Link->Checked = SB_Line->Down;
-	}
+        PBC_Link->Checked = SB_Line->Down;
+        PBL_Link->Checked = SB_Line->Down;
+    }
 
-	//表示色
-	if (LB_List->Font->Color != (TColor)SettingView.m_nFourgroundColor){
-		LB_List->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		LB_FileList->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		RE_Edit->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		Me_EditorRelated->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		LB_Link->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		/*
-		Ed_Title->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		Ed_CardSize->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		Ed_LinkTitle->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		Ed_FindCard->Font->Color = (TColor)SettingView.m_nFourgroundColor;
-		*/
-	}
-	if (LB_List->Color != (TColor)SettingView.m_nBackgroundColor){
-		LB_List->Color = (TColor)SettingView.m_nBackgroundColor;
-		LB_FileList->Color = (TColor)SettingView.m_nBackgroundColor;
-		RE_Edit->Color = (TColor)SettingView.m_nBackgroundColor;
-		Me_EditorRelated->Color = (TColor)SettingView.m_nBackgroundColor;
-		LB_Link->Color = (TColor)SettingView.m_nBackgroundColor;
-		/*
-		Ed_Title->Color = (TColor)SettingView.m_nBackgroundColor;
-		Ed_CardSize->Color = (TColor)SettingView.m_nBackgroundColor;
-		Ed_LinkTitle->Color = (TColor)SettingView.m_nBackgroundColor;
-		Ed_FindCard->Color = (TColor)SettingView.m_nBackgroundColor;
-		*/
-		Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_Files->Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_List->Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_Client->Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_Browser->Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_Editor->Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_EditorRelated->Color = (TColor)SettingView.m_nBackgroundColor;
-		Pa_EditorRelatedTop->Color = (TColor)SettingView.m_nBackgroundColor;
-		//Pa_EditorTop->Color = (TColor)SettingView.m_nBackgroundColor;
-		//Pa_BrowserTop->Color = (TColor)SettingView.m_nBackgroundColor;
-		//Pa_DrawingTop->Color = (TColor)SettingView.m_nBackgroundColor;
-		//Pa_StatisticsTop->Color = (TColor)SettingView.m_nBackgroundColor;
-		bool focused = TB_Zoom->Focused(); TB_Zoom->Visible = false; TB_Zoom->Visible = true; if (focused){TB_Zoom->SetFocus();}//なぜかTB_Zoomの背景色が異なる問題対策
-	}
+    //表示色
+    if (LB_List->Font->Color != (TColor)SettingView.m_nFourgroundColor){
+        LB_List->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        LB_FileList->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        RE_Edit->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        Me_EditorRelated->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        LB_Link->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        /*
+        Ed_Title->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        Ed_CardSize->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        Ed_LinkTitle->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        Ed_FindCard->Font->Color = (TColor)SettingView.m_nFourgroundColor;
+        */
+    }
+    if (LB_List->Color != (TColor)SettingView.m_nBackgroundColor){
+        LB_List->Color = (TColor)SettingView.m_nBackgroundColor;
+        LB_FileList->Color = (TColor)SettingView.m_nBackgroundColor;
+        RE_Edit->Color = (TColor)SettingView.m_nBackgroundColor;
+        Me_EditorRelated->Color = (TColor)SettingView.m_nBackgroundColor;
+        LB_Link->Color = (TColor)SettingView.m_nBackgroundColor;
+        /*
+        Ed_Title->Color = (TColor)SettingView.m_nBackgroundColor;
+        Ed_CardSize->Color = (TColor)SettingView.m_nBackgroundColor;
+        Ed_LinkTitle->Color = (TColor)SettingView.m_nBackgroundColor;
+        Ed_FindCard->Color = (TColor)SettingView.m_nBackgroundColor;
+        */
+        Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_Files->Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_List->Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_Client->Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_Browser->Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_Editor->Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_EditorRelated->Color = (TColor)SettingView.m_nBackgroundColor;
+        Pa_EditorRelatedTop->Color = (TColor)SettingView.m_nBackgroundColor;
+        //Pa_EditorTop->Color = (TColor)SettingView.m_nBackgroundColor;
+        //Pa_BrowserTop->Color = (TColor)SettingView.m_nBackgroundColor;
+        //Pa_DrawingTop->Color = (TColor)SettingView.m_nBackgroundColor;
+        //Pa_StatisticsTop->Color = (TColor)SettingView.m_nBackgroundColor;
+        bool focused = TB_Zoom->Focused(); TB_Zoom->Visible = false; TB_Zoom->Visible = true; if (focused){TB_Zoom->SetFocus();}//なぜかTB_Zoomの背景色が異なる問題対策
+    }
 
-	//壁紙
-	if (MVO_WallPaper->Checked != (SettingView.m_WallPaper != "")){
-		MVO_WallPaper->Checked = (SettingView.m_WallPaper != "");
-	}
-	if (MVO_FixWallPaper->Checked != SettingView.m_bFixWallPaper){
-		MVO_FixWallPaper->Checked = SettingView.m_bFixWallPaper;
-	}
-	if (MVO_TileWallPaper->Checked != SettingView.m_bTileWallPaper){
-		MVO_TileWallPaper->Checked = SettingView.m_bTileWallPaper;
-	}
+    //壁紙
+    if (MVO_WallPaper->Checked != (SettingView.m_WallPaper != "")){
+        MVO_WallPaper->Checked = (SettingView.m_WallPaper != "");
+    }
+    if (MVO_FixWallPaper->Checked != SettingView.m_bFixWallPaper){
+        MVO_FixWallPaper->Checked = SettingView.m_bFixWallPaper;
+    }
+    if (MVO_TileWallPaper->Checked != SettingView.m_bTileWallPaper){
+        MVO_TileWallPaper->Checked = SettingView.m_bTileWallPaper;
+    }
 
-	//背景アニメーション
-	if (MVO_BGAnimation->Checked != SettingView.m_bBGAnimation){
-		MVO_BGAnimation->Checked = SettingView.m_bBGAnimation;
-	}
-	{
-		TMenuItem *MI;
-		switch(SettingView.m_nBGAnimationType){
-		case 0:
-			MI = MVOB_MovingLine;
-			break;
-		case 1:
-			MI = MVOB_Bubble;
-			break;
-		case 2:
-			MI = MVOB_Snow;
-			break;
-		case 3:
-			MI = MVOB_CherryBlossom;
-			break;
-		}
+    //背景アニメーション
+    if (MVO_BGAnimation->Checked != SettingView.m_bBGAnimation){
+        MVO_BGAnimation->Checked = SettingView.m_bBGAnimation;
+    }
+    {
+        TMenuItem *MI;
+        switch(SettingView.m_nBGAnimationType){
+        case 0:
+            MI = MVOB_MovingLine;
+            break;
+        case 1:
+            MI = MVOB_Bubble;
+            break;
+        case 2:
+            MI = MVOB_Snow;
+            break;
+        case 3:
+            MI = MVOB_CherryBlossom;
+            break;
+        }
 
-		if (!MI->Checked){
+        if (!MI->Checked){
             MI->Checked = true;
         }
     }
@@ -2680,72 +2680,72 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender)
     }
 
     //統計のキー
-	{
-		AnsiString S;
+    {
+        AnsiString S;
 
-		int level1 = Bu_StatisticsKey->Tag / 10000;
-		int level2 = (Bu_StatisticsKey->Tag / 100) % 100;
-		switch (level1){
-		case 0://Label
-			S = PMSK_Label->Caption;
-			break;
-		case 1://Number of Link
-			S = PMSK_NumberOfLink->Caption;
-			break;
-		case 2://Created
-			S = PMSK_CreatedDate->Caption;
-			break;
-		case 3://Edited
-			S = PMSK_EditedDate->Caption;
-			break;
-		case 4://Viewed
-			S = PMSK_ViewedDate->Caption;
-			break;
-		}
-		S = DeleteActionKey(S);
-		switch (level1){
-		case 1:
-			S += " ";
-			switch (level2){
-			case 0://Total
-				S += PMSKL_Total->Caption;
-				break;
-			case 1://Source
-				S += PMSKL_Source->Caption;
-				break;
-			case 2://Dest.
-				S += PMSKL_Destination->Caption;
-				break;
-			}
-			break;
-		case 2:
-		case 3:
-		case 4:
-			S += " ";
-			switch (level2){
-			case 0://Year
-				S += PMSKC_Year->Caption;
-				break;
-			case 1://Month
-				S += PMSKC_Month->Caption;
-				break;
-			case 2://Day
-				S += PMSKC_Day->Caption;
-				break;
-			case 3://Week
-				S += PMSKC_Week->Caption;
-				break;
-			case 4://Hour
-				S += PMSKC_Hour->Caption;
-				break;
-			}
-			break;
-		}
-		S = DeleteActionKey(S);
-		Bu_StatisticsKey->Caption = S;
-	}
+        int level1 = Bu_StatisticsKey->Tag / 10000;
+        int level2 = (Bu_StatisticsKey->Tag / 100) % 100;
+        switch (level1){
+        case 0://Label
+            S = PMSK_Label->Caption;
+            break;
+        case 1://Number of Link
+            S = PMSK_NumberOfLink->Caption;
+            break;
+        case 2://Created
+            S = PMSK_CreatedDate->Caption;
+            break;
+        case 3://Edited
+            S = PMSK_EditedDate->Caption;
+            break;
+        case 4://Viewed
+            S = PMSK_ViewedDate->Caption;
+            break;
+        }
+        S = DeleteActionKey(S);
+        switch (level1){
+        case 1:
+            S += " ";
+            switch (level2){
+            case 0://Total
+                S += PMSKL_Total->Caption;
+                break;
+            case 1://Source
+                S += PMSKL_Source->Caption;
+                break;
+            case 2://Dest.
+                S += PMSKL_Destination->Caption;
+                break;
+            }
+            break;
+        case 2:
+        case 3:
+        case 4:
+            S += " ";
+            switch (level2){
+            case 0://Year
+                S += PMSKC_Year->Caption;
+                break;
+            case 1://Month
+                S += PMSKC_Month->Caption;
+                break;
+            case 2://Day
+                S += PMSKC_Day->Caption;
+                break;
+            case 3://Week
+                S += PMSKC_Week->Caption;
+                break;
+            case 4://Hour
+                S += PMSKC_Hour->Caption;
+                break;
+            }
+            break;
+        }
+        S = DeleteActionKey(S);
+        Bu_StatisticsKey->Caption = S;
+    }
 
-	//テキスト編集ボックス
+    //テキスト編集ボックス
     if (m_bTextEditRequested){
         if (PC_Client->ActivePage == TS_Browser && m_nTargetCard >= 0){
             SetTextEditPos();
@@ -2823,18 +2823,18 @@ void TFo_Main::SetTextEditPos()
         if (SettingView.m_nEditorWidthInBrowser == 0 || SettingView.m_nEditorWidthInBrowser >= TS_Browser->Width){
             SettingView.m_nEditorWidthInBrowser = TS_Browser->Width / 4;
         }
-		RE_Edit->Width = SettingView.m_nEditorWidthInBrowser;
-		/*
-		if (RE_Edit->Left < TS_Browser->Width / 4){
-			RE_Edit->Left = TS_Browser->Width;
-		}
-		*/
-		Sp_BrowserRight->Left = (TS_Browser->Width - Sc_Y->Width - SettingView.m_nEditorWidthInBrowser) - Sp_BrowserRight->Width;
-		Sp_BrowserRight->Visible = true;
-		RE_Edit->Parent = TS_Browser;
-		RE_Edit->Left = TS_Browser->Width - Sc_Y->Width - SettingView.m_nEditorWidthInBrowser;
-		RE_Edit->Align = alRight;
-		break;
+        RE_Edit->Width = SettingView.m_nEditorWidthInBrowser;
+        /*
+        if (RE_Edit->Left < TS_Browser->Width / 4){
+            RE_Edit->Left = TS_Browser->Width;
+        }
+        */
+        Sp_BrowserRight->Left = (TS_Browser->Width - Sc_Y->Width - SettingView.m_nEditorWidthInBrowser) - Sp_BrowserRight->Width;
+        Sp_BrowserRight->Visible = true;
+        RE_Edit->Parent = TS_Browser;
+        RE_Edit->Left = TS_Browser->Width - Sc_Y->Width - SettingView.m_nEditorWidthInBrowser;
+        RE_Edit->Align = alRight;
+        break;
     case 2:
         //Browser下
         if (SettingView.m_nEditorHeightInBrowser == 0 || SettingView.m_nEditorHeightInBrowser >= TS_Browser->Height){
@@ -2849,9 +2849,9 @@ void TFo_Main::SetTextEditPos()
         Sp_BrowserBottom->Top = TS_Browser->Height - Pa_BrowserBottom->Height - SettingView.m_nEditorHeightInBrowser - Sp_BrowserBottom->Height;
         Sp_BrowserBottom->Visible = true;
         RE_Edit->Top = TS_Browser->Height - Pa_BrowserBottom->Height - SettingView.m_nEditorHeightInBrowser;
-		RE_Edit->Parent = TS_Browser;
-		RE_Edit->Align = alBottom;
-		break;
+        RE_Edit->Parent = TS_Browser;
+        RE_Edit->Align = alBottom;
+        break;
     }
 }
 //---------------------------------------------------------------------------
@@ -2952,27 +2952,27 @@ void TFo_Main::SetEdTitleBPos(){
             if (ticker){
                 tickerheight = lineheight * 0.8f;
             }
-		}
+        }
 
-		Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2;
-		Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight;
+        Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2;
+        Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight;
 
-		/*
-		if (Fo_FullScreen->Visible){
-			Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2;
-			Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight;
-		}else{
-			//PB_Browserが置いてあるパネルの縁取りの分の座標2ドットを足している
-			Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2 + 2;
-			Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight + 2;
-		}
-		*/
+        /*
+        if (Fo_FullScreen->Visible){
+            Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2;
+            Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight;
+        }else{
+            //PB_Browserが置いてあるパネルの縁取りの分の座標2ドットを足している
+            Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2 + 2;
+            Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight + 2;
+        }
+        */
     }
 }
 //---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormShow(TObject *Sender)
 {
-	//言語メニュー
+    //言語メニュー
     TStringList *SL = new TStringList();
     FileListCreator(ExtractFileDir(ParamStr(0)), SL, ".lng", false);
     for (int i = 0 ; i < SL->Count ; i++){
@@ -2992,61 +2992,63 @@ void __fastcall TFo_Main::FormShow(TObject *Sender)
     PC_Client->Align = alClient;
     Pa_Editor->Align = alClient;
     RE_Edit->Align = alClient;
-	Ti_Check->Enabled = true;
+    Ti_Check->Enabled = true;
 
-	Pa_Files->Width = SettingView.m_nFileListWidth;//145;
-	Pa_List->Width = SettingView.m_nCardListWidth;//185;
-	LB_Link->Height = SettingView.m_nLinkListHeight;
-	Pa_EditorRelated->Width = SettingView.m_nEditorRelatedWidth;
-	Pa_GlobalSearch->Width = SettingView.m_nGlobalSearchWidth;
-	Pa_Client->Align = alClient;
-	Pa_Link->Align = alClient;
-	Pa_Browser->Align = alClient;
-	PB_Browser->Align = alClient;
+    Pa_Files->Width = SettingView.m_nFileListWidth;//145;
+    Pa_List->Width = SettingView.m_nCardListWidth;//185;
+    LB_Link->Height = SettingView.m_nLinkListHeight;
+    Pa_EditorRelated->Width = SettingView.m_nEditorRelatedWidth;
+    Pa_GlobalSearch->Width = SettingView.m_nGlobalSearchWidth;
+    Pa_Client->Align = alClient;
+    Pa_Link->Align = alClient;
+    Pa_Browser->Align = alClient;
+    PB_Browser->Align = alClient;
 
-	LB_List->Align = alClient;
-	LB_FileList->Align = alClient;
+    LB_List->Align = alClient;
+    LB_FileList->Align = alClient;
 
-	PC_Client->ActivePage = TS_Browser;
+    PC_Client->ActivePage = TS_Browser;
 
-	SB_Status->Visible = SettingView.m_bStatusBar;
+    SB_Status->Visible = SettingView.m_bStatusBar;
 
-	PB_Drawing->Align = alClient;
+    PB_Drawing->Align = alClient;
 
-	PB_Statistics->Align = alClient;
+    PB_Statistics->Align = alClient;
 
-	PB_GlobalSearch->Align = alClient;
+    PB_GlobalSearch->Align = alClient;
 
-	ParentBackground = false;
-	Pa_Files->ParentBackground = false;
-	Pa_FilesTop->ParentBackground = false;
-	Pa_FilesBottom->ParentBackground = false;
-	Pa_List->ParentBackground = false;
-	Pa_ListTop->ParentBackground = false;
-	Pa_ListBottom->ParentBackground = false;
-	Pa_Client->ParentBackground = false;
-	Pa_Card->ParentBackground = false;
-	Pa_Link->ParentBackground = false;
-	Pa_BrowserTop->ParentBackground = false;
-	Pa_Browser->ParentBackground = false;
-	Pa_EditorTop->ParentBackground = false;
-	Pa_DrawingTop->ParentBackground = false;
-	Pa_StatisticsTop->ParentBackground = false;
-	Pa_GlobalSearch->ParentBackground = false;
-	Pa_GlobalSearchTop->ParentBackground = false;
-	Pa_SearchResultBottom->ParentBackground = false;
+    ParentBackground = false;
+    Pa_Files->ParentBackground = false;
+    Pa_FilesTop->ParentBackground = false;
+    Pa_FilesBottom->ParentBackground = false;
+    Pa_List->ParentBackground = false;
+    Pa_ListTop->ParentBackground = false;
+    Pa_ListBottom->ParentBackground = false;
+    Pa_Client->ParentBackground = false;
+    Pa_Card->ParentBackground = false;
+    Pa_Link->ParentBackground = false;
+    Pa_BrowserTop->ParentBackground = false;
+    Pa_Browser->ParentBackground = false;
+    Pa_EditorTop->ParentBackground = false;
+    Pa_DrawingTop->ParentBackground = false;
+    Pa_StatisticsTop->ParentBackground = false;
+    Pa_GlobalSearch->ParentBackground = false;
+    Pa_GlobalSearchTop->ParentBackground = false;
+    Pa_SearchResultBottom->ParentBackground = false;
 
 
-	RefreshRecent("");
+    RefreshRecent("");
 
-	if (ParamCount() > 0){
-		LoadSub(ParamStr(1));
-	}else{
-		m_nTargetCard = 0;
-	}
+    if (ParamCount() > 0){
+        LoadSub(ParamStr(1));
+    }else{
+        m_nTargetCard = 0;
+    }
 
     Randomize();
 
+    /*
+    //起動時の更新チェック
     if (SettingFile.m_bCheckNew) if (IsInternetConnected()){
         AnsiString S;
         GetHtml(InfoURL, S);
@@ -3057,6 +3059,7 @@ void __fastcall TFo_Main::FormShow(TObject *Sender)
             MH_CheckLatestClick(Sender);
         }
     }
+    */
 
     if (SettingView.m_nSpecialPaint){
         SettingView.m_bFileList = false;
@@ -3067,7 +3070,7 @@ void __fastcall TFo_Main::FormShow(TObject *Sender)
         TB_Zoom->Left = - TB_Zoom->Width;
     }
 
-	FormResize(Sender);
+    FormResize(Sender);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormClose(TObject *Sender, TCloseAction &Action)
@@ -3182,61 +3185,61 @@ void TFo_Main::RefreshLaStatus()
             }
             if (ccount > 1){
                 S +=
-					IntToStr(ccount) +
-					AnsiString(" ") +
-					MLText.Cards +
-					AnsiString("  ");
-			}
+                    IntToStr(ccount) +
+                    AnsiString(" ") +
+                    MLText.Cards +
+                    AnsiString("  ");
+            }
 
-			//Label
-			S +=
-				IntToStr(Card->m_Labels->Count) +
-				AnsiString(" ") +
-				MLText.Labels +
-				AnsiString("  ");
+            //Label
+            S +=
+                IntToStr(Card->m_Labels->Count) +
+                AnsiString(" ") +
+                MLText.Labels +
+                AnsiString("  ");
 
-			//LinkNum
-			int lcount = 0;
-			for (int il = 0 ; il < m_Document->m_Links->Count ; il++){
-				TLink *Link = m_Document->GetLinkByIndex(il);
-				if (Link->m_nFromID == Card->m_nID || Link->m_nDestID == Card->m_nID){
-					lcount ++;
-				}
-			}
-			S +=
-				IntToStr(lcount)+
-				AnsiString(" ") +
-				MLText.Links +
-				AnsiString("  ");
+            //LinkNum
+            int lcount = 0;
+            for (int il = 0 ; il < m_Document->m_Links->Count ; il++){
+                TLink *Link = m_Document->GetLinkByIndex(il);
+                if (Link->m_nFromID == Card->m_nID || Link->m_nDestID == Card->m_nID){
+                    lcount ++;
+                }
+            }
+            S +=
+                IntToStr(lcount)+
+                AnsiString(" ") +
+                MLText.Links +
+                AnsiString("  ");
 
-			//文字数
-			int line = RE_Edit->Perform(EM_LINEFROMCHAR, -1, 0);
-			S += AnsiString("X : ") + IntToStr(RE_Edit->SelStart - RE_Edit->Perform(EM_LINEINDEX, line, 0) + 1) + AnsiString("  ");
+            //文字数
+            int line = RE_Edit->Perform(EM_LINEFROMCHAR, -1, 0);
+            S += AnsiString("X : ") + IntToStr(RE_Edit->SelStart - RE_Edit->Perform(EM_LINEINDEX, line, 0) + 1) + AnsiString("  ");
 
-			S +=
-				MLText.Line + AnsiString(" : ") + IntToStr(line + 1) +
-				AnsiString("/") + IntToStr(Card->m_Lines->Count) + AnsiString("  ");
-			S +=
-				MLText.Len + AnsiString(" : ") + IntToStr(WideString(RE_Edit->Text).SubString(1, RE_Edit->SelStart + 1).Length() - line * 2) +
-				AnsiString("/") + IntToStr(WideString(Card->m_Lines->Text).Length() - Card->m_Lines->Count * 2) + AnsiString("  ");
-			S +=
-				MLText.Size + AnsiString(" : ") + /*SizeToStr(RE_Edit->SelStart + 1) +
-				AnsiString("/") + */SizeToStr(Card->m_Lines->Text.Length()) + AnsiString("  ");
+            S +=
+                MLText.Line + AnsiString(" : ") + IntToStr(line + 1) +
+                AnsiString("/") + IntToStr(Card->m_Lines->Count) + AnsiString("  ");
+            S +=
+                MLText.Len + AnsiString(" : ") + IntToStr(WideString(RE_Edit->Text).SubString(1, RE_Edit->SelStart + 1).Length() - line * 2) +
+                AnsiString("/") + IntToStr(WideString(Card->m_Lines->Text).Length() - Card->m_Lines->Count * 2) + AnsiString("  ");
+            S +=
+                MLText.Size + AnsiString(" : ") + /*SizeToStr(RE_Edit->SelStart + 1) +
+                AnsiString("/") + */SizeToStr(Card->m_Lines->Text.Length()) + AnsiString("  ");
 
-			SB_Status->Panels->Items[0]->Text = S;
+            SB_Status->Panels->Items[0]->Text = S;
 
-			S = "";
-			//Date
-			S += MLText.Created + AnsiString(" : ") + DateTimeToStr(Card->m_fCreated) + AnsiString("  ");
-			S += MLText.Edited + AnsiString(" : ") + DateTimeToStr(Card->m_fUpdated) + AnsiString("  ");
-			S += MLText.Viewed + AnsiString(" : ") + DateTimeToStr(Card->m_fViewed) + AnsiString("  ");
+            S = "";
+            //Date
+            S += MLText.Created + AnsiString(" : ") + DateTimeToStr(Card->m_fCreated) + AnsiString("  ");
+            S += MLText.Edited + AnsiString(" : ") + DateTimeToStr(Card->m_fUpdated) + AnsiString("  ");
+            S += MLText.Viewed + AnsiString(" : ") + DateTimeToStr(Card->m_fViewed) + AnsiString("  ");
 
-			SB_Status->Panels->Items[1]->Text = S;
-		}
-	}else{
-		SB_Status->Panels->Items[0]->Text = "";
-		SB_Status->Panels->Items[1]->Text = "";
-	}
+            SB_Status->Panels->Items[1]->Text = S;
+        }
+    }else{
+        SB_Status->Panels->Items[0]->Text = "";
+        SB_Status->Panels->Items[1]->Text = "";
+    }
 }
 //---------------------------------------------------------------------------
 void __fastcall TFo_Main::PL_DeleteCardClick(TObject *Sender)
@@ -3293,7 +3296,7 @@ bool TFo_Main::SaveCheck()
                 //保存に成功
                 return true;
             }else{
-				//保存に失敗
+                //保存に失敗
                 return false;
             }
         case ID_NO:
@@ -3445,96 +3448,96 @@ void TFo_Main::RefreshLinks()
 //---------------------------------------------------------------------------
 bool TFo_Main::Save()
 {
-	if (m_Document->m_bReadOnly){
-		//読み込み専用ならなにもしない
-		return false;
-	}
+    if (m_Document->m_bReadOnly){
+        //読み込み専用ならなにもしない
+        return false;
+    }
 
-	//上書きもしくは名前をつけて保存
+    //上書きもしくは名前をつけて保存
 
-	if (m_Document->m_FN == ""){
-		//ファイル名がないので名前をつけて保存
-		return SaveAs();
-	}
+    if (m_Document->m_FN == ""){
+        //ファイル名がないので名前をつけて保存
+        return SaveAs();
+    }
 
-	//保存処理
-	TCursor crbak = Screen->Cursor;
-	Screen->Cursor = crHourGlass;
+    //保存処理
+    TCursor crbak = Screen->Cursor;
+    Screen->Cursor = crHourGlass;
 
-	m_Document->m_nCardID = m_nTargetCard;
-	Ti_Check->Enabled = false;
-	Application->ProcessMessages();
+    m_Document->m_nCardID = m_nTargetCard;
+    Ti_Check->Enabled = false;
+    Application->ProcessMessages();
 
-	//表示設定反映
-	fReqZoom = TB_Zoom->Position / 2000.0;
-	fReqX = Sc_X->Position / 10000.0;
-	fReqY = Sc_Y->Position / 10000.0;
-	bReqArrange = SB_Arrange->Down;
-	nReqArrangeMode = Bu_ArrangeType->Tag;
-	bReqAutoScroll = SB_AutoScroll->Down;
-	bReqAutoZoom = SB_AutoZoom->Down;
-	bReqSizeLimitation = SettingView.m_bSizeLimitation;
-	bReqLinkLimitation = SettingView.m_bLinkLimitation;
-	bReqDateLimitation = SettingView.m_bDateLimitation;
-	nReqSizeLimitation = SettingView.m_nSizeLimitation;
-	nReqLinkLimitation = SettingView.m_nLinkLimitation;
-	bReqLinkDirection = SettingView.m_bLinkDirection;
-	bReqLinkBackward = SettingView.m_bLinkBackward;
-	nReqLinkTarget = SettingView.m_nLinkTarget;
-	nReqDateLimitation = SettingView.m_nDateLimitation;
-	ReqDateLimitationDateType = SettingView.m_DateLimitationDateType;
-	ReqDateLimitationType = SettingView.m_DateLimitationType;
+    //表示設定反映
+    fReqZoom = TB_Zoom->Position / 2000.0;
+    fReqX = Sc_X->Position / 10000.0;
+    fReqY = Sc_Y->Position / 10000.0;
+    bReqArrange = SB_Arrange->Down;
+    nReqArrangeMode = Bu_ArrangeType->Tag;
+    bReqAutoScroll = SB_AutoScroll->Down;
+    bReqAutoZoom = SB_AutoZoom->Down;
+    bReqSizeLimitation = SettingView.m_bSizeLimitation;
+    bReqLinkLimitation = SettingView.m_bLinkLimitation;
+    bReqDateLimitation = SettingView.m_bDateLimitation;
+    nReqSizeLimitation = SettingView.m_nSizeLimitation;
+    nReqLinkLimitation = SettingView.m_nLinkLimitation;
+    bReqLinkDirection = SettingView.m_bLinkDirection;
+    bReqLinkBackward = SettingView.m_bLinkBackward;
+    nReqLinkTarget = SettingView.m_nLinkTarget;
+    nReqDateLimitation = SettingView.m_nDateLimitation;
+    ReqDateLimitationDateType = SettingView.m_DateLimitationDateType;
+    ReqDateLimitationType = SettingView.m_DateLimitationType;
 
-	//保存
-	bool result = m_Document->Save();
+    //保存
+    bool result = m_Document->Save();
 
-	//リクエストリセット
-	fReqZoom = -1000.0f;
-	fReqX = -1000.0f;
-	fReqY = -1000.0f;
-	bReqArrange = -1;
-	nReqArrangeMode = -1;
-	bReqAutoScroll = -1;
-	bReqAutoZoom = -1;
-	bReqSizeLimitation = -1;
-	bReqLinkLimitation = -1;
-	bReqDateLimitation = -1;
-	nReqSizeLimitation = -1;
-	nReqLinkLimitation = -1;
-	bReqLinkDirection = -1;
-	bReqLinkBackward = -1;
-	nReqLinkTarget = -2;
-	nReqDateLimitation = -1;
-	ReqDateLimitationDateType = -1;
-	ReqDateLimitationType = -1;
+    //リクエストリセット
+    fReqZoom = -1000.0f;
+    fReqX = -1000.0f;
+    fReqY = -1000.0f;
+    bReqArrange = -1;
+    nReqArrangeMode = -1;
+    bReqAutoScroll = -1;
+    bReqAutoZoom = -1;
+    bReqSizeLimitation = -1;
+    bReqLinkLimitation = -1;
+    bReqDateLimitation = -1;
+    nReqSizeLimitation = -1;
+    nReqLinkLimitation = -1;
+    bReqLinkDirection = -1;
+    bReqLinkBackward = -1;
+    nReqLinkTarget = -2;
+    nReqDateLimitation = -1;
+    ReqDateLimitationDateType = -1;
+    ReqDateLimitationType = -1;
 
-	if (!result) {
-		ShowMessage(MLText.FailedToSave + m_Document->m_FN + AnsiString("."));
-	}
-	Ti_Check->Enabled = true;
-	if (result && m_bContinuousLoad){
-		m_nCLFileAge = FileAge(m_Document->m_FN);
-	}
+    if (!result) {
+        ShowMessage(MLText.FailedToSave + m_Document->m_FN + AnsiString("."));
+    }
+    Ti_Check->Enabled = true;
+    if (result && m_bContinuousLoad){
+        m_nCLFileAge = FileAge(m_Document->m_FN);
+    }
 
-	//最近使ったファイル更新
-	RefreshRecent(m_Document->m_FN);
+    //最近使ったファイル更新
+    RefreshRecent(m_Document->m_FN);
 
-	//画面左のファイルリスト更新
-	RefreshFileList();
+    //画面左のファイルリスト更新
+    RefreshFileList();
 
-	Screen->Cursor = crbak;
+    Screen->Cursor = crbak;
 
-	return result;
+    return result;
 }
 //---------------------------------------------------------------------------
 bool TFo_Main::SaveAs()
 {
-	if (m_Document->m_bReadOnly){
-		//読み込み専用ならなにもしない
-		return false;
-	}
+    if (m_Document->m_bReadOnly){
+        //読み込み専用ならなにもしない
+        return false;
+    }
 
-	//名前をつけて保存
+    //名前をつけて保存
 
     if (SD->Execute()){
         //ファイル名が決まった
@@ -3690,16 +3693,16 @@ void __fastcall TFo_Main::ME_CutClick(TObject *Sender)
         }else if (Ed_LinkTitle->Focused()){
             Ed_LinkTitle->CutToClipboard();
         }else if (LB_List->Focused() || PC_Client->ActivePage == TS_Browser){
-			BackupSub(ME_Cut->Caption);
-			m_Document->CopyToClipboard();
-			m_bDoNotBackup = true;
-			PL_DeleteCardClick(Sender);
-			m_bDoNotBackup = false;
-		}else if (PC_Client->ActivePage == TS_Drawing){
-			BackupSub(ME_Cut->Caption);
-			m_Drawing->Cut();
-			ApplyDrawing();
-		}
+            BackupSub(ME_Cut->Caption);
+            m_Document->CopyToClipboard();
+            m_bDoNotBackup = true;
+            PL_DeleteCardClick(Sender);
+            m_bDoNotBackup = false;
+        }else if (PC_Client->ActivePage == TS_Drawing){
+            BackupSub(ME_Cut->Caption);
+            m_Drawing->Cut();
+            ApplyDrawing();
+        }
     }
 }
 //---------------------------------------------------------------------------
@@ -3722,15 +3725,15 @@ void __fastcall TFo_Main::ME_CopyClick(TObject *Sender)
         }else if (LB_List->Focused() || PC_Client->ActivePage == TS_Browser){
             m_Document->CopyToClipboard();
         }else if (PC_Client->ActivePage == TS_Drawing){
-			m_Drawing->Copy();
-		}
+            m_Drawing->Copy();
+        }
     }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::ME_PasteClick(TObject *Sender)
 {
-	if (Ed_FindCard->Focused()){
+    if (Ed_FindCard->Focused()){
         Ed_FindCard->PasteFromClipboard();
     }else {
         m_nLastModified = 0;
@@ -3751,35 +3754,35 @@ void __fastcall TFo_Main::ME_PasteClick(TObject *Sender)
             DispPosToCardPos(0, 0, cx1, dummy);
             DispPosToCardPos(16, 0, cx2, dummy);
             m_Document->PasteFromClipboard(cx2 - cx1);
-		}else if (PC_Client->ActivePage == TS_Drawing){
-			BackupSub(ME_Paste->Caption);
-			m_Drawing->Paste();
-			ApplyDrawing();
-		}
+        }else if (PC_Client->ActivePage == TS_Drawing){
+            BackupSub(ME_Paste->Caption);
+            m_Drawing->Paste();
+            ApplyDrawing();
+        }
     }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::ME_DeleteClick(TObject *Sender)
 {
-	if (Ed_FindCard->Focused()){
-		Ed_FindCard->ClearSelection();
-	}else {
-		m_nLastModified = 0;
-		m_nLastSelLength = RE_Edit->SelLength;
-		if (RE_Edit->Focused()){
-			RE_Edit->ClearSelection();
-		}else if (Ed_Title->Focused()){
-			Ed_Title->ClearSelection();
-		}else if (Ed_TitleB->Focused()){
-			Ed_TitleB->ClearSelection();
-		}else if (Ed_LinkTitle->Focused()){
-			Ed_LinkTitle->ClearSelection();
-		}else if (LB_List->Focused() || PC_Client->ActivePage == TS_Browser){
-			PL_DeleteCardClick(Sender);
-		}else if (PC_Client->ActivePage == TS_Drawing){
-			m_Drawing->DDelete();
-			ApplyDrawing();
+    if (Ed_FindCard->Focused()){
+        Ed_FindCard->ClearSelection();
+    }else {
+        m_nLastModified = 0;
+        m_nLastSelLength = RE_Edit->SelLength;
+        if (RE_Edit->Focused()){
+            RE_Edit->ClearSelection();
+        }else if (Ed_Title->Focused()){
+            Ed_Title->ClearSelection();
+        }else if (Ed_TitleB->Focused()){
+            Ed_TitleB->ClearSelection();
+        }else if (Ed_LinkTitle->Focused()){
+            Ed_LinkTitle->ClearSelection();
+        }else if (LB_List->Focused() || PC_Client->ActivePage == TS_Browser){
+            PL_DeleteCardClick(Sender);
+        }else if (PC_Client->ActivePage == TS_Drawing){
+            m_Drawing->DDelete();
+            ApplyDrawing();
         }
     }
 }
@@ -3841,12 +3844,12 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex)
     TFont *F = C->Font;
 
     int imagex = 100;//イメージ倍率
-	bool Drawing = false;
-	TCardVideo *Video = NULL;
+    bool Drawing = false;
+    TCardVideo *Video = NULL;
     TCardImage *Image = NULL;
     if (Card){
-		Drawing = SettingView.m_bDrawingVisible && (Card->m_Drawing->Count > 0);
-		if (SettingView.m_bVideoVisible && Card->m_VideoFN != ""){
+        Drawing = SettingView.m_bDrawingVisible && (Card->m_Drawing->Count > 0);
+        if (SettingView.m_bVideoVisible && Card->m_VideoFN != ""){
             Video = SearchVideo(Card->m_VideoFN);
         }
         if (SettingView.m_bImageVisible && !Video && Card->m_ImageFN != ""){
@@ -3855,7 +3858,7 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex)
     }
 
     TStringList *Title = new TStringList();
-	WideString S = DecodeES(m_CardTitle[cardindex]);
+    WideString S = DecodeES(m_CardTitle[cardindex]);
     int lines = CountStr(S, "\n") + 1;
     if (lines <= 1){
         Title->Add(S);
@@ -3878,15 +3881,15 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex)
     }
     m_CardHeight[cardindex] = lineheight * lines + tickerheight + Space;
 
-	if (Drawing) {
-		imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
-		m_CardHeight[cardindex] += SettingView.m_nImageLimitation * 0.75 * imagex * 0.01;
-	}
+    if (Drawing) {
+        imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
+        m_CardHeight[cardindex] += SettingView.m_nImageLimitation * 0.75 * imagex * 0.01;
+    }
 
-	VIDEOINFOHEADER *vi = NULL;
+    VIDEOINFOHEADER *vi = NULL;
     if (Video){
         vi = Video->m_Video->GetVideoInfoHeader();
-		if (Video->m_bExist && vi){
+        if (Video->m_bExist && vi){
             imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
             if (vi->bmiHeader.biHeight > vi->bmiHeader.biWidth){
                 //Y方向の方が大きい
@@ -3938,17 +3941,17 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex)
         if (w > m_CardWidth[cardindex]){
             m_CardWidth[cardindex] = w;
         }
-	}
-	if (Drawing) if (m_CardWidth[cardindex] < (SettingView.m_nImageLimitation * imagex) / 100 + Space){
-		m_CardWidth[cardindex] = (SettingView.m_nImageLimitation * imagex) / 100 + Space;
-	}
-	if (Video) if (m_CardWidth[cardindex] < (vi->bmiHeader.biWidth * imagex) / 100 + Space){
-		m_CardWidth[cardindex] = (vi->bmiHeader.biWidth * imagex) / 100 + Space;
-	}
-	if (Image) if (m_CardWidth[cardindex] < (Image->m_Image->Width * imagex) / 100 + Space){
-		m_CardWidth[cardindex] = (Image->m_Image->Width * imagex) / 100 + Space;
-	}
-	F->Height = OrgFontHeight;
+    }
+    if (Drawing) if (m_CardWidth[cardindex] < (SettingView.m_nImageLimitation * imagex) / 100 + Space){
+        m_CardWidth[cardindex] = (SettingView.m_nImageLimitation * imagex) / 100 + Space;
+    }
+    if (Video) if (m_CardWidth[cardindex] < (vi->bmiHeader.biWidth * imagex) / 100 + Space){
+        m_CardWidth[cardindex] = (vi->bmiHeader.biWidth * imagex) / 100 + Space;
+    }
+    if (Image) if (m_CardWidth[cardindex] < (Image->m_Image->Width * imagex) / 100 + Space){
+        m_CardWidth[cardindex] = (Image->m_Image->Width * imagex) / 100 + Space;
+    }
+    F->Height = OrgFontHeight;
 }
 //---------------------------------------------------------------------------
 void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor HMColor, int option)
@@ -3966,15 +3969,15 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
     TColor PColor = P->Color;//色保存
     TColor BColor = B->Color;
 
-	int imagex = 100;//イメージ倍率
-	bool Drawing = false;
-	TCardVideo *Video = NULL;
-	TCardImage *Image = NULL;
-	if (Card){
-		Drawing = SettingView.m_bDrawingVisible && (Card->m_Drawing->Count > 0);
-		if (SettingView.m_bVideoVisible && !Drawing && Card->m_VideoFN != ""){
-			Video = SearchVideo(Card->m_VideoFN);
-		}
+    int imagex = 100;//イメージ倍率
+    bool Drawing = false;
+    TCardVideo *Video = NULL;
+    TCardImage *Image = NULL;
+    if (Card){
+        Drawing = SettingView.m_bDrawingVisible && (Card->m_Drawing->Count > 0);
+        if (SettingView.m_bVideoVisible && !Drawing && Card->m_VideoFN != ""){
+            Video = SearchVideo(Card->m_VideoFN);
+        }
         if (SettingView.m_bImageVisible && !Drawing && !Video && Card->m_ImageFN != ""){
             Image = SearchImage(Card->m_ImageFN);
         }
@@ -4002,32 +4005,32 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
             tickerheight = lineheight * 0.8f;
         }
     }
-	m_CardHeight[cardindex] = lineheight * lines + tickerheight + Space;
+    m_CardHeight[cardindex] = lineheight * lines + tickerheight + Space;
 
-	if (Drawing) {
+    if (Drawing) {
         imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
-		m_CardHeight[cardindex] += SettingView.m_nImageLimitation * 0.75 * imagex * 0.01;
-	}
+        m_CardHeight[cardindex] += SettingView.m_nImageLimitation * 0.75 * imagex * 0.01;
+    }
 
-	VIDEOINFOHEADER *vi = NULL;
-	if (Video){
-		vi = Video->m_Video->GetVideoInfoHeader();
-		if (Video->m_bExist && vi){
-			imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
-			if (vi->bmiHeader.biHeight > vi->bmiHeader.biWidth){
-				//Y方向の方が大きい
-				if (vi->bmiHeader.biHeight > SettingView.m_nImageLimitation){
-					imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biHeight;
-				}
-			}else{
-				//X方向の方が大きい
-				if (vi->bmiHeader.biWidth > SettingView.m_nImageLimitation){
-					imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biWidth;
-				}
-			}
-			m_CardHeight[cardindex] += (vi->bmiHeader.biHeight * imagex) / 100;
-		}else{
-			Video = NULL;
+    VIDEOINFOHEADER *vi = NULL;
+    if (Video){
+        vi = Video->m_Video->GetVideoInfoHeader();
+        if (Video->m_bExist && vi){
+            imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
+            if (vi->bmiHeader.biHeight > vi->bmiHeader.biWidth){
+                //Y方向の方が大きい
+                if (vi->bmiHeader.biHeight > SettingView.m_nImageLimitation){
+                    imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biHeight;
+                }
+            }else{
+                //X方向の方が大きい
+                if (vi->bmiHeader.biWidth > SettingView.m_nImageLimitation){
+                    imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biWidth;
+                }
+            }
+            m_CardHeight[cardindex] += (vi->bmiHeader.biHeight * imagex) / 100;
+        }else{
+            Video = NULL;
         }
     }
     if (Image){
@@ -4054,7 +4057,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
     int top = m_CardY[cardindex] - m_CardHeight[cardindex] / 2;
     int bottom = m_CardY[cardindex] + m_CardHeight[cardindex] / 2;
     int bottom2 = bottom;
-	if (option & 0x1){
+    if (option & 0x1){
         bottom2 += m_nFontHeight / 2;
     }
 
@@ -4072,15 +4075,15 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
             if (w > m_CardWidth[cardindex]){
                 m_CardWidth[cardindex] = w;
             }
-		}
-		if (Drawing) if (m_CardWidth[cardindex] < (SettingView.m_nImageLimitation * imagex) / 100 + Space){
-			m_CardWidth[cardindex] = (SettingView.m_nImageLimitation * imagex) / 100 + Space;
-		}
-		if (Video) if (m_CardWidth[cardindex] < (vi->bmiHeader.biWidth * imagex) / 100 + Space){
-			m_CardWidth[cardindex] = (vi->bmiHeader.biWidth * imagex) / 100 + Space;
-		}
-		if (Image) if (m_CardWidth[cardindex] < (Image->m_Image->Width * imagex) / 100 + Space){
-			m_CardWidth[cardindex] = (Image->m_Image->Width * imagex) / 100 + Space;
+        }
+        if (Drawing) if (m_CardWidth[cardindex] < (SettingView.m_nImageLimitation * imagex) / 100 + Space){
+            m_CardWidth[cardindex] = (SettingView.m_nImageLimitation * imagex) / 100 + Space;
+        }
+        if (Video) if (m_CardWidth[cardindex] < (vi->bmiHeader.biWidth * imagex) / 100 + Space){
+            m_CardWidth[cardindex] = (vi->bmiHeader.biWidth * imagex) / 100 + Space;
+        }
+        if (Image) if (m_CardWidth[cardindex] < (Image->m_Image->Width * imagex) / 100 + Space){
+            m_CardWidth[cardindex] = (Image->m_Image->Width * imagex) / 100 + Space;
         }
         int left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2;
         int right = m_CardX[cardindex] + m_CardWidth[cardindex] / 2;
@@ -4109,7 +4112,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                     switch (drawtimes){
                     case 2:
                         //下半分
-						MyRgn = ::CreateRectRgn(m_nXOffset, m_nYOffset + m_CardY[cardindex], m_nXOffset + m_nBrowserWidth, m_nYOffset + m_nBrowserHeight);
+                        MyRgn = ::CreateRectRgn(m_nXOffset, m_nYOffset + m_CardY[cardindex], m_nXOffset + m_nBrowserWidth, m_nYOffset + m_nBrowserHeight);
                         break;
                     case 1:
                         //上半分
@@ -4145,7 +4148,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                 case 3://RRect2
                     C->RoundRect(
                         m_nXOffset + left,
-						m_nYOffset + top,
+                        m_nYOffset + top,
                         m_nXOffset + right,
                         m_nYOffset + bottom,
                         m_CardHeight[cardindex], m_CardHeight[cardindex]);
@@ -4181,7 +4184,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                         //左上
                         ps[0].x = m_nXOffset + left + m_CardHeight[cardindex] / 3;
                         ps[0].y = m_nYOffset + top;
-						//右上
+                        //右上
                         ps[1].x = m_nXOffset + right - m_CardHeight[cardindex] / 3;
                         ps[1].y = m_nYOffset + top;
                         //右
@@ -4217,7 +4220,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                         C->Polygon(ps, 3);
                     }
                     break;
-				case 8://台形下
+                case 8://台形下
                     {
                         TPoint ps[4];
                         //左上
@@ -4253,7 +4256,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                     {
                         TPoint ps[3];
                         //上
-						ps[0].x = m_nXOffset + (left + right) / 2;
+                        ps[0].x = m_nXOffset + (left + right) / 2;
                         ps[0].y = m_nYOffset + (top + bottom) / 2 - Space;
                         //下右
                         ps[1].x = m_nXOffset + (left + right) / 2 + Space * (1.7320508 / 2);
@@ -4289,7 +4292,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                         ps[1].x = m_nXOffset + (left + right) / 2 + Space;
                         ps[1].y = m_nYOffset + (top + bottom) / 2;
                         //下
-						ps[2].x = m_nXOffset + (left + right) / 2;
+                        ps[2].x = m_nXOffset + (left + right) / 2;
                         ps[2].y = m_nYOffset + (top + bottom) / 2 + Space;
                         //左
                         ps[3].x = m_nXOffset + (left + right) / 2 - Space;
@@ -4325,7 +4328,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                         ps[1].y = m_nYOffset + (top + bottom) / 2 - cos(M_PI / 5 * 1) * c;
                         ps[2].x = m_nXOffset + (left + right) / 2 + sin(M_PI / 5 * 2) * Space;
                         ps[2].y = m_nYOffset + (top + bottom) / 2 - cos(M_PI / 5 * 2) * Space;
-						ps[3].x = m_nXOffset + (left + right) / 2 + sin(M_PI / 5 * 3) * c;
+                        ps[3].x = m_nXOffset + (left + right) / 2 + sin(M_PI / 5 * 3) * c;
                         ps[3].y = m_nYOffset + (top + bottom) / 2 - cos(M_PI / 5 * 3) * c;
                         ps[4].x = m_nXOffset + (left + right) / 2 + sin(M_PI / 5 * 4) * Space;
                         ps[4].y = m_nYOffset + (top + bottom) / 2 - cos(M_PI / 5 * 4) * Space;
@@ -4394,93 +4397,93 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor
                     m_nYOffset + bottom - Space / 4);
             }
 
-			//絵の描画
-			if (Drawing) {
-				if ((option & 0x1) == 0){
-					HRGN MyRgn, RgnBak;
-					MyRgn = ::CreateRectRgn(
-						m_nXOffset + left + Space / 2,
-						m_nYOffset + top + Space / 2,
-						m_nXOffset + left + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100,
-						m_nYOffset + top + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100 * 0.75);
-					RgnBak = ::CreateRectRgn(0, 0, 0, 0);
-					int exist = ::GetClipRgn(C->Handle, RgnBak);
-					if (exist){
-						HRGN CmbRgn;
-						CmbRgn = ::CreateRectRgn(0, 0, 0, 0);
-						::CombineRgn(CmbRgn, MyRgn, RgnBak, RGN_AND);
-						::SelectClipRgn(C->Handle, CmbRgn);
-						::DeleteObject(CmbRgn);
-					}else{
-						::SelectClipRgn(C->Handle, MyRgn);
-					}
+            //絵の描画
+            if (Drawing) {
+                if ((option & 0x1) == 0){
+                    HRGN MyRgn, RgnBak;
+                    MyRgn = ::CreateRectRgn(
+                        m_nXOffset + left + Space / 2,
+                        m_nYOffset + top + Space / 2,
+                        m_nXOffset + left + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100,
+                        m_nYOffset + top + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100 * 0.75);
+                    RgnBak = ::CreateRectRgn(0, 0, 0, 0);
+                    int exist = ::GetClipRgn(C->Handle, RgnBak);
+                    if (exist){
+                        HRGN CmbRgn;
+                        CmbRgn = ::CreateRectRgn(0, 0, 0, 0);
+                        ::CombineRgn(CmbRgn, MyRgn, RgnBak, RGN_AND);
+                        ::SelectClipRgn(C->Handle, CmbRgn);
+                        ::DeleteObject(CmbRgn);
+                    }else{
+                        ::SelectClipRgn(C->Handle, MyRgn);
+                    }
 
-					TRect R = Rect(
-						m_nXOffset + left + Space / 2,
-						m_nYOffset + top + Space / 2 - (SettingView.m_nImageLimitation * imagex) / 100 * 0.125,
-						m_nXOffset + left + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100,
-						m_nYOffset + top + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100 * 0.875
-						);
+                    TRect R = Rect(
+                        m_nXOffset + left + Space / 2,
+                        m_nYOffset + top + Space / 2 - (SettingView.m_nImageLimitation * imagex) / 100 * 0.125,
+                        m_nXOffset + left + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100,
+                        m_nYOffset + top + Space / 2 + (SettingView.m_nImageLimitation * imagex) / 100 * 0.875
+                        );
 
-					Card->m_Drawing->Draw(C, R);
+                    Card->m_Drawing->Draw(C, R);
 
-					if (exist){
-						::SelectClipRgn(C->Handle, RgnBak);
-					}else{
-						::SelectClipRgn(C->Handle, NULL);
-					}
-					::DeleteObject(RgnBak);
-					::DeleteObject(MyRgn);
-				}/*else{
-					//影
-					B->Style = bsSolid;
-					C->FillRect(
-						Rect(
-							m_nXOffset + left + Space / 2,
-							m_nYOffset + top + Space / 2,
-							m_nXOffset + left + Space / 2 + SettingView.m_nImageLimitation,
-							m_nYOffset + top + Space / 2 + SettingView.m_nImageLimitation * 0.75
-						));
-				}
-				*/
-			}
+                    if (exist){
+                        ::SelectClipRgn(C->Handle, RgnBak);
+                    }else{
+                        ::SelectClipRgn(C->Handle, NULL);
+                    }
+                    ::DeleteObject(RgnBak);
+                    ::DeleteObject(MyRgn);
+                }/*else{
+                    //影
+                    B->Style = bsSolid;
+                    C->FillRect(
+                        Rect(
+                            m_nXOffset + left + Space / 2,
+                            m_nYOffset + top + Space / 2,
+                            m_nXOffset + left + Space / 2 + SettingView.m_nImageLimitation,
+                            m_nYOffset + top + Space / 2 + SettingView.m_nImageLimitation * 0.75
+                        ));
+                }
+                */
+            }
 
-			//ビデオ描画
-			if (Video){
-				if ((option & 0x1) == 0){
-					//影ではない
-					Graphics::TBitmap *BMP = new Graphics::TBitmap();
-					Video->m_Video->GetBMP(BMP);
-					if (imagex == 100){
-						C->Draw(
-							m_nXOffset + left + Space / 2,
-							m_nYOffset + top + Space / 2,
-							BMP
-							);
-					}else{
-						C->StretchDraw(
-							Rect(
-								m_nXOffset + left + Space / 2,
-								m_nYOffset + top + Space / 2,
-								m_nXOffset + left + Space / 2 + (imagex * vi->bmiHeader.biWidth) / 100,
-								m_nYOffset + top + Space / 2 + (imagex * vi->bmiHeader.biHeight) / 100
-								),
-							BMP
-							);
-					}
-					delete BMP;
-				}else{
-					//影
-					B->Style = bsSolid;
-					C->FillRect(
-						Rect(
-							m_nXOffset + left + Space / 2,
-							m_nYOffset + top + Space / 2,
-							m_nXOffset + left + Space / 2 + (imagex * vi->bmiHeader.biWidth) / 100,
-							m_nYOffset + top + Space / 2 + (imagex * vi->bmiHeader.biHeight) / 100
-						));
-				}
-			}
+            //ビデオ描画
+            if (Video){
+                if ((option & 0x1) == 0){
+                    //影ではない
+                    Graphics::TBitmap *BMP = new Graphics::TBitmap();
+                    Video->m_Video->GetBMP(BMP);
+                    if (imagex == 100){
+                        C->Draw(
+                            m_nXOffset + left + Space / 2,
+                            m_nYOffset + top + Space / 2,
+                            BMP
+                            );
+                    }else{
+                        C->StretchDraw(
+                            Rect(
+                                m_nXOffset + left + Space / 2,
+                                m_nYOffset + top + Space / 2,
+                                m_nXOffset + left + Space / 2 + (imagex * vi->bmiHeader.biWidth) / 100,
+                                m_nYOffset + top + Space / 2 + (imagex * vi->bmiHeader.biHeight) / 100
+                                ),
+                            BMP
+                            );
+                    }
+                    delete BMP;
+                }else{
+                    //影
+                    B->Style = bsSolid;
+                    C->FillRect(
+                        Rect(
+                            m_nXOffset + left + Space / 2,
+                            m_nYOffset + top + Space / 2,
+                            m_nXOffset + left + Space / 2 + (imagex * vi->bmiHeader.biWidth) / 100,
+                            m_nYOffset + top + Space / 2 + (imagex * vi->bmiHeader.biHeight) / 100
+                        ));
+                }
+            }
 
             //イメージ描画
             if (Image){
@@ -4741,409 +4744,409 @@ void TFo_Main::DrawFocusCursor(TCanvas *C, float fx, float fy, float fw, float f
 
     for (int i = 0 ; i < 2 ; i++){
         if (i == 0){
-			P->Color = TColor(m_nBGColor);
-			P->Width = m_fFontZoom * 5;
-		}else{
-			P->Color = color;
-			P->Width = m_fFontZoom * 3;
-		}
-		//左上
-		C->MoveTo(m_nXOffset + fx - fw * 0.5f + space, m_nYOffset + fy - fh * 0.5f);
-		C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy - fh * 0.5f);
-		C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy - fh * 0.5f + space);
+            P->Color = TColor(m_nBGColor);
+            P->Width = m_fFontZoom * 5;
+        }else{
+            P->Color = color;
+            P->Width = m_fFontZoom * 3;
+        }
+        //左上
+        C->MoveTo(m_nXOffset + fx - fw * 0.5f + space, m_nYOffset + fy - fh * 0.5f);
+        C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy - fh * 0.5f);
+        C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy - fh * 0.5f + space);
 
-		//右上
-		C->MoveTo(m_nXOffset + fx + fw * 0.5f - space, m_nYOffset + fy - fh * 0.5f);
-		C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy - fh * 0.5f);
-		C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy - fh * 0.5f + space);
+        //右上
+        C->MoveTo(m_nXOffset + fx + fw * 0.5f - space, m_nYOffset + fy - fh * 0.5f);
+        C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy - fh * 0.5f);
+        C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy - fh * 0.5f + space);
 
-		//左下
-		C->MoveTo(m_nXOffset + fx - fw * 0.5f + space, m_nYOffset + fy + fh * 0.5f);
-		C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy + fh * 0.5f);
-		C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy + fh * 0.5f - space);
+        //左下
+        C->MoveTo(m_nXOffset + fx - fw * 0.5f + space, m_nYOffset + fy + fh * 0.5f);
+        C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy + fh * 0.5f);
+        C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy + fh * 0.5f - space);
 
-		//右下
-		C->MoveTo(m_nXOffset + fx + fw * 0.5f - space, m_nYOffset + fy + fh * 0.5f);
-		C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy + fh * 0.5f);
-		C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy + fh * 0.5f - space);
-	}
+        //右下
+        C->MoveTo(m_nXOffset + fx + fw * 0.5f - space, m_nYOffset + fy + fh * 0.5f);
+        C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy + fh * 0.5f);
+        C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy + fh * 0.5f - space);
+    }
 }
 //---------------------------------------------------------------------------
 void TFo_Main::DrawPatternLine(TCanvas *C, int Pattern, int X1, int Y1, int X2, int Y2, int penwidth)
 {
-	//線の長さ
-	float xd = X2 - X1;
-	float yd = Y2 - Y1;
-	float len = sqrt(xd * xd + yd * yd);
-	if (len == 0.0f) {
-		return;
-	}
-	float xstep = xd / len;
-	float ystep = yd / len;
+    //線の長さ
+    float xd = X2 - X1;
+    float yd = Y2 - Y1;
+    float len = sqrt(xd * xd + yd * yd);
+    if (len == 0.0f) {
+        return;
+    }
+    float xstep = xd / len;
+    float ystep = yd / len;
 
-	int Pat[16];
-	int PatNum;
-	switch (Pattern){
-	case 0://3-3-点線
-		Pat[0] = 3;
-		Pat[1] = 3;
-		PatNum = 2;
-		break;
-	case 1://9-3-破線
-		Pat[0] = 9;
-		Pat[1] = 3;
-		PatNum = 2;
-		break;
-	case 2://9-3-3-破線
-		Pat[0] = 9;
-		Pat[1] = 3;
-		Pat[2] = 3;
-		Pat[3] = 3;
-		PatNum = 4;
-		break;
-	case 3://9-3-3-破線
-		Pat[0] = 9;
-		Pat[1] = 3;
-		Pat[2] = 3;
-		Pat[3] = 3;
-		Pat[4] = 3;
-		Pat[5] = 3;
-		PatNum = 6;
-		break;
-	}
+    int Pat[16];
+    int PatNum;
+    switch (Pattern){
+    case 0://3-3-点線
+        Pat[0] = 3;
+        Pat[1] = 3;
+        PatNum = 2;
+        break;
+    case 1://9-3-破線
+        Pat[0] = 9;
+        Pat[1] = 3;
+        PatNum = 2;
+        break;
+    case 2://9-3-3-破線
+        Pat[0] = 9;
+        Pat[1] = 3;
+        Pat[2] = 3;
+        Pat[3] = 3;
+        PatNum = 4;
+        break;
+    case 3://9-3-3-破線
+        Pat[0] = 9;
+        Pat[1] = 3;
+        Pat[2] = 3;
+        Pat[3] = 3;
+        Pat[4] = 3;
+        Pat[5] = 3;
+        PatNum = 6;
+        break;
+    }
 
-	for (int i = 0 ; i < PatNum ; i++){
-		Pat[i] *= penwidth;
-	}
+    for (int i = 0 ; i < PatNum ; i++){
+        Pat[i] *= penwidth;
+    }
 
-	float pos = 0.0f;
-	int ppos = 0;
-	while (pos < len - 1){
-		C->MoveTo(X1 + xstep * pos, Y1 + ystep * pos);
-		pos += Pat[ppos++];
-		if (pos > len){
-			pos = len;
-		}
-		C->LineTo(X1 + xstep * pos, Y1 + ystep * pos);
-		pos += Pat[ppos++];
-		if (ppos >= PatNum){
-			ppos = 0;
-		}
-	}
+    float pos = 0.0f;
+    int ppos = 0;
+    while (pos < len - 1){
+        C->MoveTo(X1 + xstep * pos, Y1 + ystep * pos);
+        pos += Pat[ppos++];
+        if (pos > len){
+            pos = len;
+        }
+        C->LineTo(X1 + xstep * pos, Y1 + ystep * pos);
+        pos += Pat[ppos++];
+        if (ppos >= PatNum){
+            ppos = 0;
+        }
+    }
 }
 
 void CurvePosToXY(float pos, float &x0, float &y0)
 {
-	/*
-	x0 = sin(pos) * 0.5;
-	if (pos > M_PI * 0.5) {
-		x0 = 1.0f - x0;
-	}
-	y0 = (sin(pos - M_PI * 0.5) + 1.0) * 0.5;
-	*/
-	x0 = sqrt(fabs(sin(pos))) * 0.5;
-	if (pos > M_PI * 0.5) {
-		x0 = 1.0f - x0;
-	}
-	y0 = (sin(pos - M_PI * 0.5) + 1.0) * 0.5;
+    /*
+    x0 = sin(pos) * 0.5;
+    if (pos > M_PI * 0.5) {
+        x0 = 1.0f - x0;
+    }
+    y0 = (sin(pos - M_PI * 0.5) + 1.0) * 0.5;
+    */
+    x0 = sqrt(fabs(sin(pos))) * 0.5;
+    if (pos > M_PI * 0.5) {
+        x0 = 1.0f - x0;
+    }
+    y0 = (sin(pos - M_PI * 0.5) + 1.0) * 0.5;
 }
 
 void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2, int Y2, int penwidth, int direction)
 {
-	//曲線描画
-	//線の長さ
-	float xd = X2 - X1;
-	float yd = Y2 - Y1;
-	float len = sqrt(xd * xd + yd * yd) * sqrt(2);
-	if (len == 0.0f) {
-		return;
-	}
-	float radstep = M_PI / len;
+    //曲線描画
+    //線の長さ
+    float xd = X2 - X1;
+    float yd = Y2 - Y1;
+    float len = sqrt(xd * xd + yd * yd) * sqrt(2);
+    if (len == 0.0f) {
+        return;
+    }
+    float radstep = M_PI / len;
 
-	int Pat[16];
-	int PatNum;
-	switch (Pattern){
-	case 0://3-3-点線
-		Pat[0] = 3;
-		Pat[1] = 3;
-		PatNum = 2;
-		break;
-	case 1://9-3-破線
-		Pat[0] = 9;
-		Pat[1] = 3;
-		PatNum = 2;
-		break;
-	case 2://9-3-3-破線
-		Pat[0] = 9;
-		Pat[1] = 3;
-		Pat[2] = 3;
-		Pat[3] = 3;
-		PatNum = 4;
-		break;
-	case 3://9-3-3-破線
-		Pat[0] = 9;
-		Pat[1] = 3;
-		Pat[2] = 3;
-		Pat[3] = 3;
-		Pat[4] = 3;
-		Pat[5] = 3;
-		PatNum = 6;
-		break;
-	default:
-		Pat[0] = 2;
-		PatNum = 1;
-	}
+    int Pat[16];
+    int PatNum;
+    switch (Pattern){
+    case 0://3-3-点線
+        Pat[0] = 3;
+        Pat[1] = 3;
+        PatNum = 2;
+        break;
+    case 1://9-3-破線
+        Pat[0] = 9;
+        Pat[1] = 3;
+        PatNum = 2;
+        break;
+    case 2://9-3-3-破線
+        Pat[0] = 9;
+        Pat[1] = 3;
+        Pat[2] = 3;
+        Pat[3] = 3;
+        PatNum = 4;
+        break;
+    case 3://9-3-3-破線
+        Pat[0] = 9;
+        Pat[1] = 3;
+        Pat[2] = 3;
+        Pat[3] = 3;
+        Pat[4] = 3;
+        Pat[5] = 3;
+        PatNum = 6;
+        break;
+    default:
+        Pat[0] = 2;
+        PatNum = 1;
+    }
 
-	TList *Ps = NULL;
-	if (Pattern >= 4) {
-		Ps = new TList();
-	}
+    TList *Ps = NULL;
+    if (Pattern >= 4) {
+        Ps = new TList();
+    }
 
-	for (int i = 0 ; i < PatNum ; i++){
-		Pat[i] *= penwidth;
-	}
+    for (int i = 0 ; i < PatNum ; i++){
+        Pat[i] *= penwidth;
+    }
 
-	float pos = 0.0f;//< PI
-	int ppos = 0;
-	while (pos < M_PI){
-		float lastx, lasty;
-		{
-			float x0, y0;
-			CurvePosToXY(pos, x0, y0);
+    float pos = 0.0f;//< PI
+    int ppos = 0;
+    while (pos < M_PI){
+        float lastx, lasty;
+        {
+            float x0, y0;
+            CurvePosToXY(pos, x0, y0);
 
-			lastx = xd * x0;
-			lasty = yd * y0;
-			if (Pattern < 4) {
-				C->MoveTo(X1 + lastx, Y1 + lasty);
-			}else{
-				Ps->Add((void*)*(int*)&lastx);
-				Ps->Add((void*)*(int*)&lasty);
-			}
-		}
+            lastx = xd * x0;
+            lasty = yd * y0;
+            if (Pattern < 4) {
+                C->MoveTo(X1 + lastx, Y1 + lasty);
+            }else{
+                Ps->Add((void*)*(int*)&lastx);
+                Ps->Add((void*)*(int*)&lasty);
+            }
+        }
 
-		while (pos < M_PI){
-			pos += radstep;
-			float x0, y0;
-			CurvePosToXY(pos, x0, y0);
+        while (pos < M_PI){
+            pos += radstep;
+            float x0, y0;
+            CurvePosToXY(pos, x0, y0);
 
-			if ((lastx - xd * x0) * (lastx - xd * x0) + (lasty - yd * y0) * (lasty - yd * y0) > Pat[ppos] * Pat[ppos]) {
-				break;
-			}
-		}
-		ppos++;
-		//pos += Pat[ppos++] * radstep;
-		if (pos > M_PI){
-			pos = M_PI;
-		}
-		{
-			float x0, y0;
-			CurvePosToXY(pos, x0, y0);
+            if ((lastx - xd * x0) * (lastx - xd * x0) + (lasty - yd * y0) * (lasty - yd * y0) > Pat[ppos] * Pat[ppos]) {
+                break;
+            }
+        }
+        ppos++;
+        //pos += Pat[ppos++] * radstep;
+        if (pos > M_PI){
+            pos = M_PI;
+        }
+        {
+            float x0, y0;
+            CurvePosToXY(pos, x0, y0);
 
-			lastx = xd * x0;
-			lasty = yd * y0;
-			if (Pattern < 4) {
-				C->LineTo(X1 + lastx, Y1 + lasty);
-			}else{
-				Ps->Add((void*)*(int*)&lastx);
-				Ps->Add((void*)*(int*)&lasty);
-			}
-		}
-		if (ppos < PatNum) {
-			while (pos < M_PI){
-				pos += radstep;
-				float x0 = sin(pos) * 0.5;
-				if (pos > M_PI * 0.5) {
-					x0 = 1.0f - x0;
-				}
-				float y0 = (sin(pos - M_PI * 0.5) + 1.0) * 0.5;
-				if ((lastx - xd * x0) * (lastx - xd * x0) + (lasty - yd * y0) * (lasty - yd * y0) > Pat[ppos] * Pat[ppos]) {
-					break;
-				}
-			}
-			ppos++;
-			//pos += Pat[ppos++] * radstep;
-		}
-		if (ppos >= PatNum){
-			ppos = 0;
-		}
-	}
+            lastx = xd * x0;
+            lasty = yd * y0;
+            if (Pattern < 4) {
+                C->LineTo(X1 + lastx, Y1 + lasty);
+            }else{
+                Ps->Add((void*)*(int*)&lastx);
+                Ps->Add((void*)*(int*)&lasty);
+            }
+        }
+        if (ppos < PatNum) {
+            while (pos < M_PI){
+                pos += radstep;
+                float x0 = sin(pos) * 0.5;
+                if (pos > M_PI * 0.5) {
+                    x0 = 1.0f - x0;
+                }
+                float y0 = (sin(pos - M_PI * 0.5) + 1.0) * 0.5;
+                if ((lastx - xd * x0) * (lastx - xd * x0) + (lasty - yd * y0) * (lasty - yd * y0) > Pat[ppos] * Pat[ppos]) {
+                    break;
+                }
+            }
+            ppos++;
+            //pos += Pat[ppos++] * radstep;
+        }
+        if (ppos >= PatNum){
+            ppos = 0;
+        }
+    }
 
-	if (Ps) {
-		int count = Ps->Count / 2;
-		TPoint *ps = new TPoint[count * 2];
-		TPen *P = C->Pen;
-		TBrush *B = C->Brush;
-		P->Style = psClear;
-		B->Style = bsSolid;
-		B->Color = P->Color;
-		for (int i2 = 0 ; i2 < 2 ; i2++) {
-			float rad = 0.0f;
-			for (int i = 0 ; i < count ; i++) {
-				int l;
-				l = (int)Ps->Items[i * 2];
-				float X1_ = *(float*)&l;
-				l = (int)Ps->Items[i * 2 + 1];
-				float Y1_ = *(float*)&l;
-				if (i < count - 1) {
-					l = (int)Ps->Items[(i + 1) * 2];
-					float X2_ = *(float*)&l;
-					l = (int)Ps->Items[(i + 1) * 2 + 1];
-					float Y2_ = *(float*)&l;
-					if (Y2_ != Y1_|| X2_ != X1_) {
-						rad = atan2(
-							Y2_ - Y1_,
-							X2_ - X1_);
-					}
-				}
-				float size = m_nFontHeight / 6.0f;
-				if (direction | 0x1) {
-					size = ((count - i) * m_nFontHeight) / (3.0f * count) - i2 * 0.5;
-				}
-				if (direction | 0x2) {
-					size += P->Width * 0.33f;
-				}
-				if (i2) {
-					ps[i].x = X1 + X1_ - cos(rad + M_PI * 0.5) * size;
-					ps[i].y = Y1 + Y1_ - sin(rad + M_PI * 0.5) * size;
-				}else{
-					ps[i].x = X1 + X1_ - cos(rad - M_PI * 0.5) * size;
-					ps[i].y = Y1 + Y1_ - sin(rad - M_PI * 0.5) * size;
-				}
-				ps[count * 2 - 1 - i].x = X1 + X1_;
-				ps[count * 2 - 1 - i].y = Y1 + Y1_;
-			}
-			C->Polygon(ps, count * 2 - 1);
-			B->Color = HalfColor(B->Color, 0xffffff, 0.25f);
-		}
-		delete[] ps;
-		delete Ps;
-	}
+    if (Ps) {
+        int count = Ps->Count / 2;
+        TPoint *ps = new TPoint[count * 2];
+        TPen *P = C->Pen;
+        TBrush *B = C->Brush;
+        P->Style = psClear;
+        B->Style = bsSolid;
+        B->Color = P->Color;
+        for (int i2 = 0 ; i2 < 2 ; i2++) {
+            float rad = 0.0f;
+            for (int i = 0 ; i < count ; i++) {
+                int l;
+                l = (int)Ps->Items[i * 2];
+                float X1_ = *(float*)&l;
+                l = (int)Ps->Items[i * 2 + 1];
+                float Y1_ = *(float*)&l;
+                if (i < count - 1) {
+                    l = (int)Ps->Items[(i + 1) * 2];
+                    float X2_ = *(float*)&l;
+                    l = (int)Ps->Items[(i + 1) * 2 + 1];
+                    float Y2_ = *(float*)&l;
+                    if (Y2_ != Y1_|| X2_ != X1_) {
+                        rad = atan2(
+                            Y2_ - Y1_,
+                            X2_ - X1_);
+                    }
+                }
+                float size = m_nFontHeight / 6.0f;
+                if (direction | 0x1) {
+                    size = ((count - i) * m_nFontHeight) / (3.0f * count) - i2 * 0.5;
+                }
+                if (direction | 0x2) {
+                    size += P->Width * 0.33f;
+                }
+                if (i2) {
+                    ps[i].x = X1 + X1_ - cos(rad + M_PI * 0.5) * size;
+                    ps[i].y = Y1 + Y1_ - sin(rad + M_PI * 0.5) * size;
+                }else{
+                    ps[i].x = X1 + X1_ - cos(rad - M_PI * 0.5) * size;
+                    ps[i].y = Y1 + Y1_ - sin(rad - M_PI * 0.5) * size;
+                }
+                ps[count * 2 - 1 - i].x = X1 + X1_;
+                ps[count * 2 - 1 - i].y = Y1 + Y1_;
+            }
+            C->Polygon(ps, count * 2 - 1);
+            B->Color = HalfColor(B->Color, 0xffffff, 0.25f);
+        }
+        delete[] ps;
+        delete Ps;
+    }
 }
 //---------------------------------------------------------------------------
 void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2, int Y2, TColor HMColor, int option)
 {
-	//リンク描画
+    //リンク描画
 
-	if (!SettingView.m_bLinkVisible){
-		//描画しない
-		return;
-	}
+    if (!SettingView.m_bLinkVisible){
+        //描画しない
+        return;
+    }
 
-	TPen *P = C->Pen;
-	TBrush *B = C->Brush;
-	int penwidth = P->Width;
+    TPen *P = C->Pen;
+    TBrush *B = C->Brush;
+    int penwidth = P->Width;
 
-	int shape = SettingView.m_nLinkDefaultShape;
-	if (Link){
-		shape = Link->m_nShape;
-	}
+    int shape = SettingView.m_nLinkDefaultShape;
+    if (Link){
+        shape = Link->m_nShape;
+    }
 
-	float rad = 0.0;
-	if (Y2 != Y1 || X2 != X1){
-		if (shape < 6) {
-			//直線
-			rad = atan2(Y2 - Y1, X2 - X1);
-		}else{
-			//曲線
-			rad = atan2(pow(abs(Y2 - Y1), 1.73) * (-1 + (Y2 > Y1) * 2), X2 - X1);
-		}
-	}
+    float rad = 0.0;
+    if (Y2 != Y1 || X2 != X1){
+        if (shape < 6) {
+            //直線
+            rad = atan2(Y2 - Y1, X2 - X1);
+        }else{
+            //曲線
+            rad = atan2(pow(abs(Y2 - Y1), 1.73) * (-1 + (Y2 > Y1) * 2), X2 - X1);
+        }
+    }
 
-	bool barrow;
-	if (Link){
-		barrow = Link->m_bDirection;
-	}else{
-		barrow = true;
-	}
-	barrow &= SettingView.m_bLinkDirectionVisible;
+    bool barrow;
+    if (Link){
+        barrow = Link->m_bDirection;
+    }else{
+        barrow = true;
+    }
+    barrow &= SettingView.m_bLinkDirectionVisible;
 
-	switch (shape){
-	case 0:
-	case 1:
-	case 2:
-	case 3:
-	case 4:
-	case 6:
-	case 7:
-	case 8:
-	case 9:
-	case 10:
-	case 11:
-		//通常矢印
-		{
-			P->Style = psSolid;
-			//P->Style = psDashDot;
+    switch (shape){
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+        //通常矢印
+        {
+            P->Style = psSolid;
+            //P->Style = psDashDot;
 
-			if (option & 0x2){
-				//縁取り
-				TColor pcbak = P->Color;
-				int pwbak = P->Width;
-				P->Color = TColor(HMColor);//InverseColor(pcbak);
-				P->Width = C->Pen->Width * 3;
-				//int FontHeightBak = m_nFontHeight;
+            if (option & 0x2){
+                //縁取り
+                TColor pcbak = P->Color;
+                int pwbak = P->Width;
+                P->Color = TColor(HMColor);//InverseColor(pcbak);
+                P->Width = C->Pen->Width * 3;
+                //int FontHeightBak = m_nFontHeight;
 
-				switch (shape){
-				case 1:
-				case 2:
-				case 3:
-				case 4:
-					DrawPatternLine(C, shape - 1, X1, Y1, X2, Y2, penwidth);
-					break;
-				case 6:
-				case 7:
-				case 8:
-				case 9:
-				case 10:
-				case 11:
-					DrawCurvedLine(C, shape - 7, X1, Y1, X2, Y2, penwidth, barrow | 0x2);
-					break;
-				default:
-					C->MoveTo(X1, Y1);
-					C->LineTo(X2, Y2);
-					break;
-				}
+                switch (shape){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    DrawPatternLine(C, shape - 1, X1, Y1, X2, Y2, penwidth);
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                    DrawCurvedLine(C, shape - 7, X1, Y1, X2, Y2, penwidth, barrow | 0x2);
+                    break;
+                default:
+                    C->MoveTo(X1, Y1);
+                    C->LineTo(X2, Y2);
+                    break;
+                }
 
-				//リンク方向
-				if (barrow && shape < 11){
-					float mX = (X1 + X2) / 2;
-					float mY = (Y1 + Y2) / 2;
-					if (Y2 != Y1 || X2 != X1){
-						C->MoveTo(mX - cos(rad + 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3, mY - sin(rad + 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3);
-						C->LineTo(mX, mY);
-						C->MoveTo(mX - cos(rad - 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3, mY - sin(rad - 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3);
-						C->LineTo(mX, mY);
-					}
-				}
-				P->Color = pcbak;
-				P->Width = pwbak;
-			}
+                //リンク方向
+                if (barrow && shape < 11){
+                    float mX = (X1 + X2) / 2;
+                    float mY = (Y1 + Y2) / 2;
+                    if (Y2 != Y1 || X2 != X1){
+                        C->MoveTo(mX - cos(rad + 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3, mY - sin(rad + 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3);
+                        C->LineTo(mX, mY);
+                        C->MoveTo(mX - cos(rad - 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3, mY - sin(rad - 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3);
+                        C->LineTo(mX, mY);
+                    }
+                }
+                P->Color = pcbak;
+                P->Width = pwbak;
+            }
 
-			switch (shape){
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-				DrawPatternLine(C, shape - 1, X1, Y1, X2, Y2, penwidth);
-				break;
-			case 6:
-			case 7:
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-				DrawCurvedLine(C, shape - 7, X1, Y1, X2, Y2, penwidth, barrow);
-				break;
-			default:
-				C->MoveTo(X1, Y1);
-				C->LineTo(X2, Y2);
-				break;
-			}
+            switch (shape){
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                DrawPatternLine(C, shape - 1, X1, Y1, X2, Y2, penwidth);
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+                DrawCurvedLine(C, shape - 7, X1, Y1, X2, Y2, penwidth, barrow);
+                break;
+            default:
+                C->MoveTo(X1, Y1);
+                C->LineTo(X2, Y2);
+                break;
+            }
 
-			//リンク方向
-			if (barrow && shape < 11){
+            //リンク方向
+            if (barrow && shape < 11){
                 float mX = (X1 + X2) / 2;
                 float mY = (Y1 + Y2) / 2;
-				if (Y2 != Y1 || X2 != X1){
+                if (Y2 != Y1 || X2 != X1){
                     C->MoveTo(mX - cos(rad + 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3, mY - sin(rad + 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3);
                     C->LineTo(mX, mY);
                     C->MoveTo(mX - cos(rad - 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3, mY - sin(rad - 0.1 * 2 * M_PI) * (m_nFontHeight * 2) / 3);
@@ -5162,31 +5165,31 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2, int Y2
                 P->Style = psSolid;
 
                 if (barrow){
-					TPoint ps[3];
-					ps[0].x = X1 - cos(rad + M_PI * 0.5) * m_nFontHeight / 3;
-					ps[0].y = Y1 - sin(rad + M_PI * 0.5) * m_nFontHeight / 3;
-					ps[1].x = X1 - cos(rad - M_PI * 0.5) * m_nFontHeight / 3;
-					ps[1].y = Y1 - sin(rad - M_PI * 0.5) * m_nFontHeight / 3;
+                    TPoint ps[3];
+                    ps[0].x = X1 - cos(rad + M_PI * 0.5) * m_nFontHeight / 3;
+                    ps[0].y = Y1 - sin(rad + M_PI * 0.5) * m_nFontHeight / 3;
+                    ps[1].x = X1 - cos(rad - M_PI * 0.5) * m_nFontHeight / 3;
+                    ps[1].y = Y1 - sin(rad - M_PI * 0.5) * m_nFontHeight / 3;
 
-					ps[2].x = X2;
-					ps[2].y = Y2;
-					C->Polygon(ps, 2);
-				}else{
-					TPoint ps[4];
-					ps[0].x = X1 - cos(rad + M_PI * 0.5) * m_nFontHeight / 6;
-					ps[0].y = Y1 - sin(rad + M_PI * 0.5) * m_nFontHeight / 6;
-					ps[3].x = X2 - cos(rad + M_PI * 0.5) * m_nFontHeight / 6;
-					ps[3].y = Y2 - sin(rad + M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[2].x = X2;
+                    ps[2].y = Y2;
+                    C->Polygon(ps, 2);
+                }else{
+                    TPoint ps[4];
+                    ps[0].x = X1 - cos(rad + M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[0].y = Y1 - sin(rad + M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[3].x = X2 - cos(rad + M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[3].y = Y2 - sin(rad + M_PI * 0.5) * m_nFontHeight / 6;
 
-					ps[1].x = X1 - cos(rad - M_PI * 0.5) * m_nFontHeight / 6;
-					ps[1].y = Y1 - sin(rad - M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[1].x = X1 - cos(rad - M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[1].y = Y1 - sin(rad - M_PI * 0.5) * m_nFontHeight / 6;
 
-					ps[2].x = X2 - cos(rad - M_PI * 0.5) * m_nFontHeight / 6;
-					ps[2].y = Y2 - sin(rad - M_PI * 0.5) * m_nFontHeight / 6;
-					C->Polygon(ps, 3);
-				}
+                    ps[2].x = X2 - cos(rad - M_PI * 0.5) * m_nFontHeight / 6;
+                    ps[2].y = Y2 - sin(rad - M_PI * 0.5) * m_nFontHeight / 6;
+                    C->Polygon(ps, 3);
+                }
 
-				P->Color = pcbak;
+                P->Color = pcbak;
             }
 
             B->Color = P->Color;
@@ -5314,18 +5317,18 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender)
 
 
     //サイズ決定
-	if (Fo_FullScreen->Visible){
-		if (Fo_FullScreen->Width > 0 && Fo_FullScreen->Height > 0) {
-			m_nBrowserWidth = Fo_FullScreen->Width;
-			m_nBrowserHeight = Fo_FullScreen->Height;
-		}
-		rgnexist = ::GetClipRgn(Fo_FullScreen->Canvas->Handle, RgnBak);
-	}else{
-		if (PB_Browser->Width > 0 && PB_Browser->Height > 0) {
-			m_nBrowserWidth = PB_Browser->Width;
-			m_nBrowserHeight = PB_Browser->Height;
-		}
-		rgnexist = ::GetClipRgn(PB_Browser->Canvas->Handle, RgnBak);
+    if (Fo_FullScreen->Visible){
+        if (Fo_FullScreen->Width > 0 && Fo_FullScreen->Height > 0) {
+            m_nBrowserWidth = Fo_FullScreen->Width;
+            m_nBrowserHeight = Fo_FullScreen->Height;
+        }
+        rgnexist = ::GetClipRgn(Fo_FullScreen->Canvas->Handle, RgnBak);
+    }else{
+        if (PB_Browser->Width > 0 && PB_Browser->Height > 0) {
+            m_nBrowserWidth = PB_Browser->Width;
+            m_nBrowserHeight = PB_Browser->Height;
+        }
+        rgnexist = ::GetClipRgn(PB_Browser->Canvas->Handle, RgnBak);
     }
     m_nXOffset = 0;
     m_nYOffset = 0;
@@ -5489,7 +5492,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder, bool drawother
             for (int i = 0 ; i < m_Document->m_Labels[0]->Count ; i++){
                 int il = draworder[i];
                 TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
-				if (Label->m_bEnable && !Label->m_bFold){
+                if (Label->m_bEnable && !Label->m_bFold){
                     //有効かつFoldされていないラベル
 
                     if ((first && drawtoporder) || (!first && drawothers)){
@@ -5525,7 +5528,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder, bool drawother
                             }
 
                             if (StDev[0] > 0.0f && StDev[1] > 0.0f){
-								for (int i = 0 ; i < 2 ; i++){
+                                for (int i = 0 ; i < 2 ; i++){
                                     StDev[i] = sqrt(StDev[i] / count);
                                 }
                                 Cov = Cov / count;
@@ -5561,7 +5564,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder, bool drawother
                                     F->Height = (RE_Edit->Font->Height * Label->m_nSize * m_fFontZoom) * 0.01;
                                     F->Style = TFontStyles() << fsBold;
                                     C->TextOut(
-										Mean[0] + m_nXOffset - C->TextWidth(Label->m_Name) * 0.5,
+                                        Mean[0] + m_nXOffset - C->TextWidth(Label->m_Name) * 0.5,
                                         (Mean[1] - StDev[1] * 2.1f) + m_nYOffset + C->TextHeight(Label->m_Name) * 0.5,
                                         Label->m_Name);
                                 }
@@ -5597,7 +5600,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder, bool drawother
                                     OrgMinY = Card->m_fY;
                                 }
                                 if (count == 0 || MinY > m_CardY[i] - (m_CardHeight[i] >> 1)){
-									MinY = m_CardY[i] - (m_CardHeight[i] >> 1);
+                                    MinY = m_CardY[i] - (m_CardHeight[i] >> 1);
                                 }
                                 if (count == 0 || MaxX < m_CardX[i] + (m_CardWidth[i] >> 1)){
                                     MaxX = m_CardX[i] + (m_CardWidth[i] >> 1);
@@ -5631,9 +5634,9 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder, bool drawother
                                 space,
                                 space);
 
-							if (SettingView.m_bLabelNameVisible){
+                            if (SettingView.m_bLabelNameVisible){
                                 F->Color = (TColor)Label->m_nColor;
-								F->Height = (RE_Edit->Font->Height * Label->m_nSize * m_fFontZoom) * 0.01;
+                                F->Height = (RE_Edit->Font->Height * Label->m_nSize * m_fFontZoom) * 0.01;
                                 F->Style = TFontStyles() << fsBold;
                                 B->Style = bsClear;
                                 if (OrgMinY < 0.4f){
@@ -5667,9 +5670,9 @@ TColor TFo_Main::GetCardColor(TCard *Card, float &SizeX)
     for (int il = 0 ; il < Card->m_Labels->Count ; il++){
         TCardLabel *Label = m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1);
         if (Label->m_bEnable){
-			c = HalfColor(c, (TColor)Label->m_nColor, 1.0f / (count + 1));
+            c = HalfColor(c, (TColor)Label->m_nColor, 1.0f / (count + 1));
             SizeX *= m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1)->m_nSize / 100.0f;
-			count ++;
+            count ++;
         }
     }
 
@@ -5703,9 +5706,9 @@ void TFo_Main::PaintSub(TCanvas *C)
             delete[] m_CardRelated;
             delete[] m_CardAssign;
             delete[] m_CardShape;
-			delete[] m_CardX;
+            delete[] m_CardX;
             delete[] m_CardY;
-			delete[] m_CardWidth;
+            delete[] m_CardWidth;
             delete[] m_CardHeight;
         }
         m_CardVisible = new bool[m_Document->m_Cards->Count];
@@ -5725,7 +5728,7 @@ void TFo_Main::PaintSub(TCanvas *C)
         if (m_LinkVisible != NULL){
             delete[] m_LinkVisible;
         }
-		m_LinkVisible = new bool[m_Document->m_Links->Count];
+        m_LinkVisible = new bool[m_Document->m_Links->Count];
     }
     memset(m_CardRelated, 0, sizeof(bool) * m_Document->m_Cards->Count);
     for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
@@ -5739,9 +5742,9 @@ void TFo_Main::PaintSub(TCanvas *C)
     float mpyx = Zoom * 0.9f * m_nBrowserWidth;
     float mpyy = Zoom * 0.9f * m_nBrowserHeight;
     for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
-		TCard *Card = m_Document->GetCardByIndex(i);
+        TCard *Card = m_Document->GetCardByIndex(i);
         m_CardVisible[i] = Card->m_bVisible;
-		m_CardTitle[i] = Card->m_Title;
+        m_CardTitle[i] = Card->m_Title;
 
         /*
         m_CardX[i] = (((x * 0.9f + 0.05f) - (Sc_X->Position - 5000.0f) * 0.0001f) - 0.5f) * Zoom + 0.5f;
@@ -5761,7 +5764,7 @@ void TFo_Main::PaintSub(TCanvas *C)
         m_CardX[i] = x;
 
         float scrolly = (Sc_Y->Position - 5000.0f) * 0.0001f;
-		float y = Card->m_fY;
+        float y = Card->m_fY;
         y = y * 0.9f + 0.05f;
         y -= scrolly;
         y = (y - 0.5f) * Zoom + 0.5f;
@@ -5775,9 +5778,9 @@ void TFo_Main::PaintSub(TCanvas *C)
     TBrush *B = C->Brush;
     TPen *P = C->Pen;
     TFont *F = C->Font;
-	F->Name = RE_Edit->Font->Name;
+    F->Name = RE_Edit->Font->Name;
     F->Charset = RE_Edit->Font->Charset;
-	F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
+    F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
     m_nFontHeight = C->TextHeight(" ");
 
     //背景塗りつぶし
@@ -5797,7 +5800,7 @@ void TFo_Main::PaintSub(TCanvas *C)
             int startx = 0, starty = 0, endx = 0, endy = 0;
             if (SettingView.m_bTileWallPaper){
                 startx = -4;
-				endx = 4;
+                endx = 4;
                 starty = -4;
                 endy = 4;
             }
@@ -5811,9 +5814,9 @@ void TFo_Main::PaintSub(TCanvas *C)
                         if (right >= 0 && left < m_nBrowserWidth){
                             C->StretchDraw(
                                 Rect(
-									left + m_nXOffset,
+                                    left + m_nXOffset,
                                     top + m_nYOffset,
-									right + m_nXOffset,
+                                    right + m_nXOffset,
                                     bottom + m_nYOffset),
                                 Im_Wall->Picture->Graphic);
                         }
@@ -5833,7 +5836,7 @@ void TFo_Main::PaintSub(TCanvas *C)
         //カードの本文描画
         F->Color = (TColor)HalfColor(m_nBGColor, m_nFGColor, 0.33);
         B->Style = bsClear;
-		int height = C->TextHeight(" ") * 1.3;
+        int height = C->TextHeight(" ") * 1.3;
         int x = (m_nFontHeight * 2) / 3;
         int y = (m_nFontHeight * 2) / 3;
         if (SettingView.m_bTextCentering){
@@ -5847,9 +5850,9 @@ void TFo_Main::PaintSub(TCanvas *C)
             x = (m_nBrowserWidth - maxwidth) >> 1;
             if (x < (m_nFontHeight * 2) / 3){
                 x = (m_nFontHeight * 2) / 3;
-			}
+            }
             int maxheight = height * RE_Edit->Lines->Count;
-			y = (m_nBrowserHeight - maxheight) >> 1;
+            y = (m_nBrowserHeight - maxheight) >> 1;
             if (y < (m_nFontHeight * 2) / 3){
                 y = (m_nFontHeight * 2) / 3;
             }
@@ -5869,7 +5872,7 @@ void TFo_Main::PaintSub(TCanvas *C)
         LinkCard1Index[i2] = m_Document->SearchCardIndex(Link->m_nFromID);
         LinkCard2Index[i2] = m_Document->SearchCardIndex(Link->m_nDestID);
 
-		bool visible = Link->m_bVisible;
+        bool visible = Link->m_bVisible;
 
         if (visible){
             if (LinkCard1Index[i2] >= 0 && LinkCard2Index[i2] >= 0){
@@ -5883,9 +5886,9 @@ void TFo_Main::PaintSub(TCanvas *C)
         Link->m_bVisible = visible;
     }
 
-	//スコア計算。LinkVisibleが必要なのでこの位置
+    //スコア計算。LinkVisibleが必要なのでこの位置
     if (SettingView.m_bScore){
-		IterScore();
+        IterScore();
     }
 
     //リンクの関係設定
@@ -5905,7 +5908,7 @@ void TFo_Main::PaintSub(TCanvas *C)
     }
     if (SettingView.m_bLinkLimitation && SettingView.m_nLinkTarget >= 0){
         int card1index = m_Document->SearchCardIndex(SettingView.m_nLinkTarget);
-		m_CardRelated[card1index] = true;
+        m_CardRelated[card1index] = true;
     }
 
     //ラベルfold
@@ -5921,7 +5924,7 @@ void TFo_Main::PaintSub(TCanvas *C)
     //　カード名をラベル名にする）
 
     //カードループ
-	//まず全てのカードのfold状態を調べる
+    //まず全てのカードのfold状態を調べる
     for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i]){
         TCard *Card = m_Document->GetCardByIndex(i);
         Card->m_bLabelIsFold = m_Document->LabelIsFold(Card);
@@ -5941,7 +5944,7 @@ void TFo_Main::PaintSub(TCanvas *C)
                         S += ", ";
                     }
                     S += Label->m_Name;
-				}
+                }
             }
             m_CardTitle[i] = S;
 
@@ -5955,9 +5958,9 @@ void TFo_Main::PaintSub(TCanvas *C)
                     TCard *Card2 = m_Document->GetCardByIndex(i2);
 
                     if (m_Document->LabelIsSame(Card, Card2)){
-						//同じラベル構造のカード
+                        //同じラベル構造のカード
 
-						//最後に見つかった同じラベル構造のカードに座標をアサインする
+                        //最後に見つかった同じラベル構造のカードに座標をアサインする
                         m_CardAssign[i2] = i;
 
                         m_CardRelated[i2] = true;
@@ -5977,7 +5980,7 @@ void TFo_Main::PaintSub(TCanvas *C)
                                 }
                             }
                         }
-					}
+                    }
                 }
             }else if (m_CardAssign[i] == i){
                 //選択中のカードでなく、代表カード
@@ -5991,9 +5994,9 @@ void TFo_Main::PaintSub(TCanvas *C)
 
                         //最初に見つかった同じラベル構造のカードに座標をアサインする
                         //選択中でないカードは、一番裏（最初のほう）のカードにAssignされる
-						m_CardAssign[i2] = i;
+                        m_CardAssign[i2] = i;
                     }
-				}
+                }
             }else{
                 //選択中のカードでもなく、代表カードでない
 
@@ -6027,9 +6030,9 @@ void TFo_Main::PaintSub(TCanvas *C)
 
     //Foldされたものの中でShapeの多数決を取る
     int *shapevote = new int[IL_Shape->Count];
-	for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i] && m_CardAssign[i] == i){
+    for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i] && m_CardAssign[i] == i){
         //表示対象カードで代表カード
-		TCard *Card = m_Document->GetCardByIndex(i);
+        TCard *Card = m_Document->GetCardByIndex(i);
 
         if (Card->m_bLabelIsFold){
             //Foldされている
@@ -6049,7 +6052,7 @@ void TFo_Main::PaintSub(TCanvas *C)
             int max = 0;
             for (int i2 = 0 ; i2 < IL_Shape->Count ; i2++){
                 if (shapevote[i2] > max){
-					max = shapevote[i2];
+                    max = shapevote[i2];
                     maxindex = i2;
                 }
             }
@@ -6063,9 +6066,9 @@ void TFo_Main::PaintSub(TCanvas *C)
     delete[] shapevote;
 
     int *draworder = new int[m_Document->m_Cards->Count];
-	memset(draworder, 0, sizeof(int) * m_Document->m_Cards->Count);
+    memset(draworder, 0, sizeof(int) * m_Document->m_Cards->Count);
     for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
-		int vo = m_Document->GetCardByIndex(i)->m_nViewedOrder;
+        int vo = m_Document->GetCardByIndex(i)->m_nViewedOrder;
         draworder[vo] = i;
     }
 
@@ -6085,7 +6088,7 @@ void TFo_Main::PaintSub(TCanvas *C)
 
                 if ((ic >= m_Document->m_Cards->Count - 3 && m_bShowRecent) || m_nTargetCard == Card->m_nID){
                     //最近表示したカード強調
-					F->Style = TFontStyles() << fsBold;
+                    F->Style = TFontStyles() << fsBold;
                 }else{
                     F->Style = TFontStyles();
                 }
@@ -6099,9 +6102,9 @@ void TFo_Main::PaintSub(TCanvas *C)
 
                 float SizeX = Card->m_nSize;
                 if (m_Document->CountEnableLabel(Card)){
-					//ラベルあり
+                    //ラベルあり
                     for (int il = 0 ; il < Card->m_Labels->Count ; il++){
-						TCardLabel *Label = m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1);
+                        TCardLabel *Label = m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1);
                         if (Label->m_bEnable){
                             SizeX *= m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1)->m_nSize / 100.0f;
                         }
@@ -6121,7 +6124,7 @@ void TFo_Main::PaintSub(TCanvas *C)
                     P->Color = HalfColor(HalfColor(m_nFGColor, m_nBGColor, 0.5f), 0x0, 0.33f);
                     B->Color = P->Color;
                     B->Style = bsSolid;
-					F->Color = P->Color;
+                    F->Color = P->Color;
                     DrawCard(C, Card, (int)SizeX, i, HMColor, 0x1);
 
                     m_nXOffset = xoffsetbak;
@@ -6133,12 +6136,12 @@ void TFo_Main::PaintSub(TCanvas *C)
         }
     }
 
-	int linkoption = 0;
-	if (SettingView.m_bLinkShadow){
-		linkoption |= 0x1;
-	}
-	if (SettingView.m_bLinkHemming){
-		linkoption |= 0x2;
+    int linkoption = 0;
+    if (SettingView.m_bLinkShadow){
+        linkoption |= 0x1;
+    }
+    if (SettingView.m_bLinkHemming){
+        linkoption |= 0x2;
     }
 
     //リンクの影
@@ -6157,132 +6160,132 @@ void TFo_Main::PaintSub(TCanvas *C)
 
             P->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.5);
             Link->m_Color = P->Color;
-			DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2], HMColor, 0x1);
-		}
+            DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2], HMColor, 0x1);
+        }
 
-		m_nXOffset = xoffsetbak;
-		m_nYOffset = yoffsetbak;
-	}
+        m_nXOffset = xoffsetbak;
+        m_nYOffset = yoffsetbak;
+    }
 
-	//ラベルを囲む円、四角
-	DrawLabelCircleRect(C, !SettingView.m_bLavelCRFocusedOnTop, true);
+    //ラベルを囲む円、四角
+    DrawLabelCircleRect(C, !SettingView.m_bLavelCRFocusedOnTop, true);
 
-	//フォントを元に戻す
-	F->Style = TFontStyles();
-	F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
+    //フォントを元に戻す
+    F->Style = TFontStyles();
+    F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
 
-	//リンク描画（無関係）
-	P->Width = (int)(3 * m_fFontZoom);
-	F->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.5);
+    //リンク描画（無関係）
+    P->Width = (int)(3 * m_fFontZoom);
+    F->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.5);
 
-	for (int i2 = 0 ; i2 < m_Document->m_Links->Count ; i2++) if (m_LinkVisible[i2]){
-		TLink *Link = m_Document->GetLinkByIndex(i2);
+    for (int i2 = 0 ; i2 < m_Document->m_Links->Count ; i2++) if (m_LinkVisible[i2]){
+        TLink *Link = m_Document->GetLinkByIndex(i2);
 
-		if (!(m_CardRelated[LinkCard1Index[i2]] && m_CardRelated[LinkCard2Index[i2]])){
-			//無関係なリンク
+        if (!(m_CardRelated[LinkCard1Index[i2]] && m_CardRelated[LinkCard2Index[i2]])){
+            //無関係なリンク
 
-			if (Link->m_Labels->Count == 0){
-				P->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.25);
-			}else{
-				TColor c = (TColor)0;
-				for (int il = 0 ; il < Link->m_Labels->Count ; il++){
-					TCardLabel *Label = m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1);
-					c = HalfColor(c, (TColor)Label->m_nColor, 1.0f / (il + 1));
-				}
-				P->Color = c;
-			}
+            if (Link->m_Labels->Count == 0){
+                P->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.25);
+            }else{
+                TColor c = (TColor)0;
+                for (int il = 0 ; il < Link->m_Labels->Count ; il++){
+                    TCardLabel *Label = m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1);
+                    c = HalfColor(c, (TColor)Label->m_nColor, 1.0f / (il + 1));
+                }
+                P->Color = c;
+            }
 
-			if ((Bu_ArrangeType->Tag % 100 > 2 && Bu_ArrangeType->Tag <= 499) ||
-				(Bu_ArrangeType->Tag >= 500 && Bu_ArrangeType->Tag <= 999)){
-				//リンクが重要でないArrangeではリンクの色を薄く
-				P->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
-			}else if (Bu_ArrangeType->Tag >=1000 && Bu_ArrangeType->Tag <= 1999){
-				//階層表示
-				TCard *From = m_Document->GetCard(Link->m_nFromID);
-				TCard *Dest = m_Document->GetCard(Link->m_nDestID);
-				if (From->m_nParentID != Dest->m_nID && Dest->m_nParentID != From->m_nID){
-					P->Color = HalfColor(P->Color, m_nBGColor, 0.75f);
-				}
-			}
+            if ((Bu_ArrangeType->Tag % 100 > 2 && Bu_ArrangeType->Tag <= 499) ||
+                (Bu_ArrangeType->Tag >= 500 && Bu_ArrangeType->Tag <= 999)){
+                //リンクが重要でないArrangeではリンクの色を薄く
+                P->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
+            }else if (Bu_ArrangeType->Tag >=1000 && Bu_ArrangeType->Tag <= 1999){
+                //階層表示
+                TCard *From = m_Document->GetCard(Link->m_nFromID);
+                TCard *Dest = m_Document->GetCard(Link->m_nDestID);
+                if (From->m_nParentID != Dest->m_nID && Dest->m_nParentID != From->m_nID){
+                    P->Color = HalfColor(P->Color, m_nBGColor, 0.75f);
+                }
+            }
 
-			//無関係なリンク
-			Link->m_Color = P->Color;
-			DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2], HMColor, linkoption);
-		}
-	}
+            //無関係なリンク
+            Link->m_Color = P->Color;
+            DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2], HMColor, linkoption);
+        }
+    }
 
-	//カード描画（無関係）
-	P->Style = psSolid;
-	B->Style = bsSolid;
-	F->Color = (TColor)m_nFGColor;
-	for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++){
-		int i = draworder[ic];
-		//int i = ic;
-		TCard *Card = m_Document->GetCardByIndex(i);
+    //カード描画（無関係）
+    P->Style = psSolid;
+    B->Style = bsSolid;
+    F->Color = (TColor)m_nFGColor;
+    for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++){
+        int i = draworder[ic];
+        //int i = ic;
+        TCard *Card = m_Document->GetCardByIndex(i);
 
-		if (!m_CardRelated[i] && m_CardAssign[i] == i && Card->m_bVisible && Card->m_nID != m_nTargetCard){
-			//無関係なカード
-			if (ic >= m_Document->m_Cards->Count - 3 && m_bShowRecent){
-				//最近表示したカード強調
-				F->Style = TFontStyles() << fsBold;
-				P->Width = (int)(3 * m_fFontZoom);
-			}else{
-				F->Style = TFontStyles();
-				P->Width = (int)(1 * m_fFontZoom);
-			}
+        if (!m_CardRelated[i] && m_CardAssign[i] == i && Card->m_bVisible && Card->m_nID != m_nTargetCard){
+            //無関係なカード
+            if (ic >= m_Document->m_Cards->Count - 3 && m_bShowRecent){
+                //最近表示したカード強調
+                F->Style = TFontStyles() << fsBold;
+                P->Width = (int)(3 * m_fFontZoom);
+            }else{
+                F->Style = TFontStyles();
+                P->Width = (int)(1 * m_fFontZoom);
+            }
 
-			float SizeX = Card->m_nSize;
-			if (m_Document->CountEnableLabel(Card)){
-				//ラベルあり（ラベルの色にする）
-				TColor c = GetCardColor(Card, SizeX);
-				P->Color = HalfColor(c, m_nBGColor, 0.33f);
-				B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
-			}else{
-				//ラベルなし
-				P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
-				//B->Color = TColor(m_nBGColor);//HalfColor(P->Color, m_nBGColor, 0.75f);
-				B->Color = HalfColor(P->Color, m_nBGColor, 0.875f);
+            float SizeX = Card->m_nSize;
+            if (m_Document->CountEnableLabel(Card)){
+                //ラベルあり（ラベルの色にする）
+                TColor c = GetCardColor(Card, SizeX);
+                P->Color = HalfColor(c, m_nBGColor, 0.33f);
+                B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
+            }else{
+                //ラベルなし
+                P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
+                //B->Color = TColor(m_nBGColor);//HalfColor(P->Color, m_nBGColor, 0.75f);
+                B->Color = HalfColor(P->Color, m_nBGColor, 0.875f);
             }
 
             Card->m_Color = P->Color;
-			DrawCard(C, Card, (int)SizeX, i, HMColor, 0);
+            DrawCard(C, Card, (int)SizeX, i, HMColor, 0);
         }
     }
 
     //リンク描画（関係あり）
-	P->Style = psSolid;
-	P->Width = (int)(3 * m_fFontZoom);
-	F->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.25);
-	F->Style = TFontStyles();
-	for (int i2 = 0 ; i2 < m_Document->m_Links->Count ; i2++) if (m_LinkVisible[i2] && m_nTargetLink != i2){
+    P->Style = psSolid;
+    P->Width = (int)(3 * m_fFontZoom);
+    F->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.25);
+    F->Style = TFontStyles();
+    for (int i2 = 0 ; i2 < m_Document->m_Links->Count ; i2++) if (m_LinkVisible[i2] && m_nTargetLink != i2){
 
-		if (m_CardRelated[LinkCard1Index[i2]] && m_CardRelated[LinkCard2Index[i2]]){
+        if (m_CardRelated[LinkCard1Index[i2]] && m_CardRelated[LinkCard2Index[i2]]){
 
-			TLink *Link = m_Document->GetLinkByIndex(i2);
+            TLink *Link = m_Document->GetLinkByIndex(i2);
 
-			if (Link->m_Labels->Count == 0){
-				P->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.125);//(TColor)m_nFGColor;
-			}else{
-				TColor c = (TColor)0;
-				for (int il = 0 ; il < Link->m_Labels->Count ; il++){
-					TCardLabel *Label = m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1);
-					c = HalfColor(c, (TColor)Label->m_nColor, 1.0f / (il + 1));
-				}
-				P->Color = c;
-			}
+            if (Link->m_Labels->Count == 0){
+                P->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.125);//(TColor)m_nFGColor;
+            }else{
+                TColor c = (TColor)0;
+                for (int il = 0 ; il < Link->m_Labels->Count ; il++){
+                    TCardLabel *Label = m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1);
+                    c = HalfColor(c, (TColor)Label->m_nColor, 1.0f / (il + 1));
+                }
+                P->Color = c;
+            }
 
-			if ((Bu_ArrangeType->Tag % 100 > 2 && Bu_ArrangeType->Tag <= 499) ||
-				(Bu_ArrangeType->Tag >= 500 && Bu_ArrangeType->Tag <= 999)){
-				//リンクが重要でないArrangeではリンクの色を薄く
-				P->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
-			}
+            if ((Bu_ArrangeType->Tag % 100 > 2 && Bu_ArrangeType->Tag <= 499) ||
+                (Bu_ArrangeType->Tag >= 500 && Bu_ArrangeType->Tag <= 999)){
+                //リンクが重要でないArrangeではリンクの色を薄く
+                P->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
+            }
 
-			//関係あるリンク
-			Link->m_Color = P->Color;
-			TColor HMColor2 = HalfColor(m_nFGColor, m_nBGColor, 0.5);//HalfColor(HMColor, m_nFGColor, 0.5)
-			DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2], HMColor2, linkoption | 0x02);
-		}
-	}
+            //関係あるリンク
+            Link->m_Color = P->Color;
+            TColor HMColor2 = HalfColor(m_nFGColor, m_nBGColor, 0.5);//HalfColor(HMColor, m_nFGColor, 0.5)
+            DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2], HMColor2, linkoption | 0x02);
+        }
+    }
 
     P->Color = (TColor)m_nFGColor;
     if (m_bMDownBrowser == 1 && m_nTargetCard >= 0 && (SB_Line->Down || SB_ToolLinkLabel->Down)){
@@ -6298,7 +6301,7 @@ void TFo_Main::PaintSub(TCanvas *C)
             int card1index = m_Document->SearchCardIndex(m_nTargetCard);
             int card2index = m_Document->SearchCardIndex(m_nTargetCard2);
 
-			DrawLink(C, NULL, card1index, card2index, HMColor, linkoption);
+            DrawLink(C, NULL, card1index, card2index, HMColor, linkoption);
         }else if (m_bMDownBrowser && m_nTargetCard >= 0){
             //リンク線追加中（相手無し）
             int card1index = m_Document->SearchCardIndex(m_nTargetCard);
@@ -6310,71 +6313,71 @@ void TFo_Main::PaintSub(TCanvas *C)
         }
     }
 
-	//リンク描画（操作中）
-	P->Color = (TColor)m_nFGColor;
-	P->Style = psSolid;
-	P->Width = (int)(3 * m_fFontZoom);
-	F->Color = (TColor)m_nFGColor;
-	if (m_nTargetLink >= 0){
-		//選択中
-		int i2 = m_nTargetLink;
-		TLink *Link = m_Document->GetLinkByIndex(i2);
-		if (Link){
-			//ラベルによる色
-			if (Link->m_Labels->Count == 0){
-				P->Color = (TColor)m_nFGColor;
-			}else{
-				TColor c = (TColor)0;
-				for (int il = 0 ; il < Link->m_Labels->Count ; il++){
-					c = HalfColor(c, (TColor)m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1)->m_nColor, 1.0f / (il + 1));
-				}
-				P->Color = c;
-			}
+    //リンク描画（操作中）
+    P->Color = (TColor)m_nFGColor;
+    P->Style = psSolid;
+    P->Width = (int)(3 * m_fFontZoom);
+    F->Color = (TColor)m_nFGColor;
+    if (m_nTargetLink >= 0){
+        //選択中
+        int i2 = m_nTargetLink;
+        TLink *Link = m_Document->GetLinkByIndex(i2);
+        if (Link){
+            //ラベルによる色
+            if (Link->m_Labels->Count == 0){
+                P->Color = (TColor)m_nFGColor;
+            }else{
+                TColor c = (TColor)0;
+                for (int il = 0 ; il < Link->m_Labels->Count ; il++){
+                    c = HalfColor(c, (TColor)m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1)->m_nColor, 1.0f / (il + 1));
+                }
+                P->Color = c;
+            }
 
-			Link->m_Color = P->Color;
-			if (!m_bMDownBrowserMoved || m_bMDownBrowser <= 1){
-				//ドラッグしていない
-				int pos = m_nFocusCursorPos;
-				float br = 0.0f;
-				if (pos % 100 < 50){
-					br = 0.4f;
-				}else{
-				}
-				TColor HMColor2 = HalfColor(m_nFGColor, m_nBGColor, br);//HalfColor(HMColor, m_nFGColor, 0.5)
-				DrawLink(C, Link, LinkCard1Index[m_nTargetLink], LinkCard2Index[m_nTargetLink], HMColor2, linkoption | 0x2);
-			}else switch (m_bMDownBrowser){
-			case 2:
-				//Dest変更中
-				if (m_nTargetCard2 >= 0){
-					//相手がいる
-					int index = m_Document->SearchCardIndex(m_nTargetCard2);
-					DrawLink(C, Link, LinkCard1Index[m_nTargetLink], index, HMColor, linkoption);
-				}else{
-					//相手がいない
-					float X1 = m_CardX[LinkCard1Index[m_nTargetLink]];
-					float Y1 = m_CardY[LinkCard1Index[m_nTargetLink]];
-					DrawLink2(C, Link, X1, Y1, m_nMDownTargetX, m_nMDownTargetY, HMColor, linkoption);
-				}
-				break;
-			case 3:
-				//From変更中
-				if (m_nTargetCard2 >= 0){
-					//相手がいる
-					int index = m_Document->SearchCardIndex(m_nTargetCard2);
-					DrawLink(C, Link, index, LinkCard2Index[m_nTargetLink], HMColor, linkoption);
-				}else{
-					//相手がいない
-					float X1 = m_CardX[LinkCard2Index[m_nTargetLink]];
-					float Y1 = m_CardY[LinkCard2Index[m_nTargetLink]];
-					DrawLink2(C, Link, m_nMDownTargetX, m_nMDownTargetY, X1, Y1, HMColor, linkoption);
-				}
-				break;
-			}
-		}
-	}
+            Link->m_Color = P->Color;
+            if (!m_bMDownBrowserMoved || m_bMDownBrowser <= 1){
+                //ドラッグしていない
+                int pos = m_nFocusCursorPos;
+                float br = 0.0f;
+                if (pos % 100 < 50){
+                    br = 0.4f;
+                }else{
+                }
+                TColor HMColor2 = HalfColor(m_nFGColor, m_nBGColor, br);//HalfColor(HMColor, m_nFGColor, 0.5)
+                DrawLink(C, Link, LinkCard1Index[m_nTargetLink], LinkCard2Index[m_nTargetLink], HMColor2, linkoption | 0x2);
+            }else switch (m_bMDownBrowser){
+            case 2:
+                //Dest変更中
+                if (m_nTargetCard2 >= 0){
+                    //相手がいる
+                    int index = m_Document->SearchCardIndex(m_nTargetCard2);
+                    DrawLink(C, Link, LinkCard1Index[m_nTargetLink], index, HMColor, linkoption);
+                }else{
+                    //相手がいない
+                    float X1 = m_CardX[LinkCard1Index[m_nTargetLink]];
+                    float Y1 = m_CardY[LinkCard1Index[m_nTargetLink]];
+                    DrawLink2(C, Link, X1, Y1, m_nMDownTargetX, m_nMDownTargetY, HMColor, linkoption);
+                }
+                break;
+            case 3:
+                //From変更中
+                if (m_nTargetCard2 >= 0){
+                    //相手がいる
+                    int index = m_Document->SearchCardIndex(m_nTargetCard2);
+                    DrawLink(C, Link, index, LinkCard2Index[m_nTargetLink], HMColor, linkoption);
+                }else{
+                    //相手がいない
+                    float X1 = m_CardX[LinkCard2Index[m_nTargetLink]];
+                    float Y1 = m_CardY[LinkCard2Index[m_nTargetLink]];
+                    DrawLink2(C, Link, m_nMDownTargetX, m_nMDownTargetY, X1, Y1, HMColor, linkoption);
+                }
+                break;
+            }
+        }
+    }
 
-	delete[] LinkCard1Index;
-	delete[] LinkCard2Index;
+    delete[] LinkCard1Index;
+    delete[] LinkCard2Index;
 
     //カード描画（関係あり）
     //for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
@@ -6392,8 +6395,8 @@ void TFo_Main::PaintSub(TCanvas *C)
                 F->Style = TFontStyles() << fsBold;
             }else{
                 F->Style = TFontStyles();
-			}
-			float SizeX = Card->m_nSize;
+            }
+            float SizeX = Card->m_nSize;
             if (m_Document->CountEnableLabel(Card)){
                 //ラベルあり（ラベルの色にする）
                 TColor c = GetCardColor(Card, SizeX);
@@ -6429,7 +6432,7 @@ void TFo_Main::PaintSub(TCanvas *C)
     for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
         TCard *Card = m_Document->GetCardByIndex(i);
 
-		if (Card->m_nID == m_nTargetCard){
+        if (Card->m_nID == m_nTargetCard){
             //編集中のカード
             F->Style = TFontStyles() << fsBold;
 
@@ -7216,8 +7219,8 @@ bool TFo_Main::BrowserAutoScroll()
                 (m_CardRelated[i] ||
                  (m_nTargetCard == -1 && m_nTargetLink == -1) ||
                  (m_bShowRecent && Card->m_nViewedOrder >= m_Document->m_Cards->Count - 3) ||
-				 Card->m_bSelected ||
-				 SettingView.m_bLinkLimitation
+                 Card->m_bSelected ||
+                 SettingView.m_bLinkLimitation
                 )
                ){
                 float f;
@@ -7336,58 +7339,58 @@ bool TFo_Main::CheckTreeButton(int index, int X, int Y)
 
 double DistanceToLine(int X, int Y, double X1, double Y1, double X2, double Y2)
 {
-	/*
-	double dtosource =
-		(X1 - X) * (X1 - X) +
-		(Y1 - Y) * (Y1 - Y);//Sourceまでの距離^2
-	double dtodest =
-		(X2 - X) * (X2 - X) +
-		(Y2 - Y) * (Y2 - Y);//Destまでの距離^2
+    /*
+    double dtosource =
+        (X1 - X) * (X1 - X) +
+        (Y1 - Y) * (Y1 - Y);//Sourceまでの距離^2
+    double dtodest =
+        (X2 - X) * (X2 - X) +
+        (Y2 - Y) * (Y2 - Y);//Destまでの距離^2
     */
-	double K1, K2;
-	if (X2 != X1){
-		K1 = (Y2 - Y1) / (X2 - X1);
-	}else{
-		K1 = 100000000000.0;
-	}
-	if (Y2 != Y1){
-		K2 = (X2 - X1) / (Y2 - Y1);
-	}else{
-		K2 = 100000000000.0;
-	}
-	double LX = (K1 * X1 + K2 * X - Y1 + Y) / (K1 + K2);
-	double LY = K1 * ((K1 * X1 + K2 * X - Y1 + Y) / (K1 + K2) - X1) + Y1;
+    double K1, K2;
+    if (X2 != X1){
+        K1 = (Y2 - Y1) / (X2 - X1);
+    }else{
+        K1 = 100000000000.0;
+    }
+    if (Y2 != Y1){
+        K2 = (X2 - X1) / (Y2 - Y1);
+    }else{
+        K2 = 100000000000.0;
+    }
+    double LX = (K1 * X1 + K2 * X - Y1 + Y) / (K1 + K2);
+    double LY = K1 * ((K1 * X1 + K2 * X - Y1 + Y) / (K1 + K2) - X1) + Y1;
 
-	double S = 0.5;
-	if (fabs(X1 - X2) > 0.0 || fabs(Y1 - Y2) > 0.0){
-		if (fabs(X1 - X2) > fabs(Y1 - Y2)){
-			S = (LX - X1) / (X2 - X1);
-		}else{
-			S = (LY - Y1) / (Y2 - Y1);
-		}
-	}
+    double S = 0.5;
+    if (fabs(X1 - X2) > 0.0 || fabs(Y1 - Y2) > 0.0){
+        if (fabs(X1 - X2) > fabs(Y1 - Y2)){
+            S = (LX - X1) / (X2 - X1);
+        }else{
+            S = (LY - Y1) / (Y2 - Y1);
+        }
+    }
 
-	if (S < 0.0){
-		S = 0.0;
-	}
-	if (S > 1.0){
-		S = 1.0;
-	}
+    if (S < 0.0){
+        S = 0.0;
+    }
+    if (S > 1.0){
+        S = 1.0;
+    }
 
-	LX = X1 * (1 - S) + X2 * S;
-	LY = Y1 * (1 - S) + Y2 * S;
+    LX = X1 * (1 - S) + X2 * S;
+    LY = Y1 * (1 - S) + Y2 * S;
 
-	S = sqrt((LX - X) * (LX - X) + (LY - Y) * (LY - Y));
+    S = sqrt((LX - X) * (LX - X) + (LY - Y) * (LY - Y));
 
-	return S;
+    return S;
 }
 
 void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
-	  TMouseButton Button, TShiftState Shift, int X, int Y)
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-	m_nMDownBrowserX = X;
-	m_nMDownBrowserY = Y;
-	m_nMDownTargetX = X;
+    m_nMDownBrowserX = X;
+    m_nMDownBrowserY = Y;
+    m_nMDownTargetX = X;
     m_nMDownTargetY = Y;
 
     if (PC_Client->ActivePage != TS_Browser || m_bDblClicked || m_CardVisible == NULL){
@@ -7411,7 +7414,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
     if (Fo_FullScreen->Visible){
     }else{
         TB_Zoom->SetFocus();
-	}
+    }
     */
     m_bTitleEditRequested = false;
     //m_bTextEditRequested = false;
@@ -7419,7 +7422,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
     if (SettingView.m_bOverview && Button == mbLeft){
         if (X >= m_nOVXOffset && X < m_nOVXOffset + m_nOVWidth &&
             Y >= m_nOVYOffset && Y < m_nOVYOffset + m_nOVHeight){
-			//Overview上がクリックされた
+            //Overview上がクリックされた
 
             m_bMDownBrowser = 4;
             m_fBrowserScrollRatio = 0.0f;
@@ -7443,7 +7446,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                 if (fsize < 13){
                     fsize = 13;
                 }
-				int fright = m_CardX[i] + m_CardWidth[i] / 2 - m_nFontHeight + fsize;
+                int fright = m_CardX[i] + m_CardWidth[i] / 2 - m_nFontHeight + fsize;
                 int fbottom = m_CardY[i] + m_CardHeight[i] / 2 - m_nFontHeight / 2 + fsize;
                 if (X >= fleft && X < fright && Y >= ftop && Y < fbottom){
                     Card->m_bFold = !Card->m_bFold;
@@ -7451,7 +7454,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                     m_Document->RefreshList();
                     return;
                 }
-			}
+            }
         }
     }
     */
@@ -7475,7 +7478,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                 Y < m_CardY[i] + m_CardHeight[i] / 2){
                 aindex = i;
             }
-		}
+        }
     }
 
     //描画順序
@@ -7483,7 +7486,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
     memset(draworder, 0, sizeof(int) * m_Document->m_Cards->Count);
     for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
         int vo = m_Document->GetCardByIndex(i)->m_nViewedOrder;
-		draworder[vo] = i;
+        draworder[vo] = i;
     }
 
     //関連カード
@@ -7507,7 +7510,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
     for (int ic = m_Document->m_Cards->Count - 1 ; ic >= 0 && aindex == -1 ; ic--){
         int i = draworder[ic];
         if (m_CardVisible[i] && m_CardAssign[i] == i){
-			if (CheckTreeButton(i, X, Y)){
+            if (CheckTreeButton(i, X, Y)){
                 return;
             }else if (X >= m_CardX[i] - m_CardWidth[i] / 2 &&
                 X < m_CardX[i] + m_CardWidth[i] / 2 &&
@@ -7515,7 +7518,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                 Y < m_CardY[i] + m_CardHeight[i] / 2){
                 aindex = i;
             }
-		}
+        }
     }
     delete[] draworder;
 
@@ -7539,7 +7542,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
             Card->m_bSelected = !Card->m_bSelected;
         }
         m_nTargetCard = lastcard;
-		m_bMDownBrowser = 0;
+        m_bMDownBrowser = 0;
         return;
     */
     }else if (aindex >= 0){
@@ -7547,7 +7550,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 
         int i = aindex;
         TCard *Card = m_Document->GetCardByIndex(i);
-		m_nTargetCard = Card->m_nID;
+        m_nTargetCard = Card->m_nID;
 
         if (!Shift.Contains(ssCtrl) && Button != mbRight && !Card->m_bSelected){
             //選択クリア
@@ -7571,7 +7574,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                         Card->m_Labels->AddLabel(m_nToolLabel);
                     }else{
                         BackupSub(MLText.DeleteLabel);
-						Card->m_Labels->Clear();
+                        Card->m_Labels->Clear();
                     }
                     m_Document->RefreshLabel();
                 }
@@ -7579,7 +7582,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                 if (Shift.Contains(ssShift) && Shift.Contains(ssCtrl)){
                     //Ctrlキー+Shiftを押しながらのクリック（外部リンク）
                     TStringList *SL = new TStringList();
-					for (int i2 = 0 ; i2 < Card->m_Lines->Count ; i2++){
+                    for (int i2 = 0 ; i2 < Card->m_Lines->Count ; i2++){
                         if (IsFileNameOrURL(Card->m_Lines->Strings[i2])){
                             SL->Add(Card->m_Lines->Strings[i2]);
                         }
@@ -7603,7 +7606,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                             MI->Caption = SL->Strings[i];
                             MI->OnClick = PM_ExtLinkClick;
                             MI_ExtLink->Add(MI);
-							Po_ExtLink->Items->Add(MI);
+                            Po_ExtLink->Items->Add(MI);
                         }
                         TPoint P;
                         P.x = ((TControl*)Sender)->Left + X;
@@ -7635,7 +7638,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                     if (b){
                         m_bTitleEditRequested = true;
                     }
-				}else if (Shift.Contains(ssShift) && !Shift.Contains(ssCtrl)){
+                }else if (Shift.Contains(ssShift) && !Shift.Contains(ssCtrl)){
                     //Shiftキーを押しながらのクリック（リンクを貼る）
                     if (lastcard >= 0){
                         BackupSub(MI_NewLink->Caption);
@@ -7643,7 +7646,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
                         Link->m_nFromID = lastcard;
                         Link->m_nDestID = m_nTargetCard;
 
-						if (SB_ToolLinkLabel->Down && m_nToolLinkLabel > 0){
+                        if (SB_ToolLinkLabel->Down && m_nToolLinkLabel > 0){
                             //デフォルトリンクラベルあり
                             Link->m_Labels->AddLabel(m_nToolLinkLabel);
                         }
@@ -7667,7 +7670,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
             //選択クリアせず
             m_nTargetCard = lastcard;
             if (!Shift.Contains(ssShift)){
-				m_bMDownBrowser = 0;
+                m_bMDownBrowser = 0;
                 return;
             }
         }else{
@@ -7675,7 +7678,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
             for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
                 TCard *Card = m_Document->GetCardByIndex(i);
                 Card->m_bSelected = false;
-			}
+            }
         }
 
         if (Shift.Contains(ssShift)){
@@ -7692,73 +7695,73 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
         bool editdest = false;
         int count = 0;
 
-		//カードが選択されていない
-		for (int i = 0 ; i < m_Document->m_Links->Count ; i++) if (m_LinkVisible[i]){
-			TLink *Link = m_Document->GetLinkByIndex(i);
-			int card1index = m_Document->SearchCardIndex(Link->m_nFromID);
-			int card2index = m_Document->SearchCardIndex(Link->m_nDestID);
-			if (m_CardVisible[card1index] && m_CardVisible[card2index]){
-				//リンクが表示されている（Linkをラベルで表示非表示するようになったら、それも考慮する必要あり）
-				//TCard *Card1 = m_Document->GetCardByIndex(card1index);
-				//TCard *Card2 = m_Document->GetCardByIndex(card2index);
+        //カードが選択されていない
+        for (int i = 0 ; i < m_Document->m_Links->Count ; i++) if (m_LinkVisible[i]){
+            TLink *Link = m_Document->GetLinkByIndex(i);
+            int card1index = m_Document->SearchCardIndex(Link->m_nFromID);
+            int card2index = m_Document->SearchCardIndex(Link->m_nDestID);
+            if (m_CardVisible[card1index] && m_CardVisible[card2index]){
+                //リンクが表示されている（Linkをラベルで表示非表示するようになったら、それも考慮する必要あり）
+                //TCard *Card1 = m_Document->GetCardByIndex(card1index);
+                //TCard *Card2 = m_Document->GetCardByIndex(card2index);
 
-				double X1 = m_CardX[card1index];
-				double Y1 = m_CardY[card1index];
-				double X2 = m_CardX[card2index];
-				double Y2 = m_CardY[card2index];
+                double X1 = m_CardX[card1index];
+                double Y1 = m_CardY[card1index];
+                double X2 = m_CardX[card2index];
+                double Y2 = m_CardY[card2index];
 
-				double S = 100.0f;
-				if (Link->m_nShape < 6) {
-					//直線
-					S = DistanceToLine(X, Y, X1, Y1, X2, Y2);
-				}else{
-					//曲線
-					//線の長さ
-					float xd = X2 - X1;
-					float yd = Y2 - Y1;
-					float len = sqrt(xd * xd + yd * yd) * sqrt(2);
-					if (len > 0.0f) {
-						float radstep = M_PI / len;
+                double S = 100.0f;
+                if (Link->m_nShape < 6) {
+                    //直線
+                    S = DistanceToLine(X, Y, X1, Y1, X2, Y2);
+                }else{
+                    //曲線
+                    //線の長さ
+                    float xd = X2 - X1;
+                    float yd = Y2 - Y1;
+                    float len = sqrt(xd * xd + yd * yd) * sqrt(2);
+                    if (len > 0.0f) {
+                        float radstep = M_PI / len;
 
-						float pos = radstep;//< PI
-						float lastx = 0.0f, lasty = 0.0f;
-						while (pos < M_PI){
-							float x0, y0;
-							CurvePosToXY(pos, x0, y0);
-							double S1 = DistanceToLine(X, Y, X1 + lastx, Y1 + lasty, X1 + xd * x0, Y1 + yd * y0);
-							lastx = xd * x0;
-							lasty = yd * y0;
-							pos += radstep;
-							if (S1 < S) {
-                            	S = S1;    
-							}
-						}
-					}
-				}
-				if (S < mind || count++ == 0){
-					mind = S;
-					min = i;
-					editdest =
-						(X - X1) * (X - X1) + (Y - Y1) * (Y - Y1) >
-						(X - X2) * (X - X2) + (Y - Y2) * (Y - Y2);
-				}
-			}
-		}
-		if (mind < 4 && count){
-			m_nTargetLink = min;
+                        float pos = radstep;//< PI
+                        float lastx = 0.0f, lasty = 0.0f;
+                        while (pos < M_PI){
+                            float x0, y0;
+                            CurvePosToXY(pos, x0, y0);
+                            double S1 = DistanceToLine(X, Y, X1 + lastx, Y1 + lasty, X1 + xd * x0, Y1 + yd * y0);
+                            lastx = xd * x0;
+                            lasty = yd * y0;
+                            pos += radstep;
+                            if (S1 < S) {
+                                S = S1;    
+                            }
+                        }
+                    }
+                }
+                if (S < mind || count++ == 0){
+                    mind = S;
+                    min = i;
+                    editdest =
+                        (X - X1) * (X - X1) + (Y - Y1) * (Y - Y1) >
+                        (X - X2) * (X - X2) + (Y - Y2) * (Y - Y2);
+                }
+            }
+        }
+        if (mind < 4 && count){
+            m_nTargetLink = min;
 
-			if (Button == mbLeft){
-				if (SB_ToolLinkLabel->Down){
-					TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
-					if (m_nToolLinkLabel > 0){
-						BackupSub(MLText.AddLabel);
-						Link->m_Labels->AddLabel(m_nToolLinkLabel);
-					}else{
-						BackupSub(MLText.DeleteLabel);
-						Link->m_Labels->Clear();
-					}
-					m_Document->RefreshLabel();
-				}
+            if (Button == mbLeft){
+                if (SB_ToolLinkLabel->Down){
+                    TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
+                    if (m_nToolLinkLabel > 0){
+                        BackupSub(MLText.AddLabel);
+                        Link->m_Labels->AddLabel(m_nToolLinkLabel);
+                    }else{
+                        BackupSub(MLText.DeleteLabel);
+                        Link->m_Labels->Clear();
+                    }
+                    m_Document->RefreshLabel();
+                }
 
                 if (editdest){
                     m_bMDownBrowser = 2;
@@ -7932,7 +7935,7 @@ void TFo_Main::DispPosToCardPos(float dx, float dy, float &cx, float &cy)
     cx = dx;
     cy = dy;
 
-	//Client to 0-1
+    //Client to 0-1
     cx /= m_nBrowserWidth;
     cy /= m_nBrowserHeight;
 
@@ -8846,7 +8849,7 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
         if (m_nTargetLink >= 0 && !Ed_LinkTitle->Focused()){
             Ed_LinkTitle->SelectAll();
             Ed_LinkTitle->SetFocus();
-			keybd_event(Key, 0, 0, 0);
+            keybd_event(Key, 0, 0, 0);
             keybd_event(Key, 0, KEYEVENTF_KEYUP, 0);
         }else{
             m_bTitleEditRequested = true;
@@ -8863,8 +8866,8 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
         //図形描画画面
         if (Key == 46){
             m_Drawing->DDelete();
-			ApplyDrawing();
-			Key = 0;
+            ApplyDrawing();
+            Key = 0;
         }
     }
 }
@@ -8882,7 +8885,7 @@ void __fastcall TFo_Main::MVF_MagnifyClick(TObject *Sender)
 {
     int last = UD_Size->Position;
     UD_Size->Position = UD_Size->Position * 1.5;
-	if (UD_Size->Position > SettingView.m_Font->Size && last < SettingView.m_Font->Size){
+    if (UD_Size->Position > SettingView.m_Font->Size && last < SettingView.m_Font->Size){
         UD_Size->Position = SettingView.m_Font->Size;
     }
     if (UD_Size->Position > UD_Size->Max){
@@ -8918,7 +8921,7 @@ void __fastcall TFo_Main::MVL_LinkClick(TObject *Sender)
 void __fastcall TFo_Main::MVL_LinkDirectionClick(TObject *Sender)
 {
     SettingView.m_bLinkDirectionVisible = !SettingView.m_bLinkDirectionVisible;
-	m_bRedrawRequested = true;
+    m_bRedrawRequested = true;
 }
 //---------------------------------------------------------------------------
 
@@ -8954,7 +8957,7 @@ void __fastcall TFo_Main::MI_NewCardClick(TObject *Sender)
     CloseEditBox();
     CloseTextEditBox();
     if (PC_Client->ActivePage == TS_Browser){
-		SetEdTitleBPos();
+        SetEdTitleBPos();
         Ed_TitleB->Visible = true;
         Ed_TitleB->SetFocus();
     }else{
@@ -8966,14 +8969,14 @@ void __fastcall TFo_Main::MI_NewCardClick(TObject *Sender)
 
 void __fastcall TFo_Main::ME_FindClick(TObject *Sender)
 {
-	WideString SelText = GetSelText();
-	if (SelText.Length()){
-		SearchKeyword = SelText;
-	}
-	Ed_Title->SelLength = 0;
-	RE_Edit->SelLength = 0;
-	Fo_Search->bReplace = false;
-	Fo_Search->Show();
+    WideString SelText = GetSelText();
+    if (SelText.Length()){
+        SearchKeyword = SelText;
+    }
+    Ed_Title->SelLength = 0;
+    RE_Edit->SelLength = 0;
+    Fo_Search->bReplace = false;
+    Fo_Search->Show();
     Fo_Search->Ch_Backward->Checked = Sender == (TObject*)ME_FindPrevious;
     Fo_Search->Ch_GlobalSearch->Checked = Sender != (TObject*)ME_FindNext && Sender != (TObject*)ME_FindPrevious;
 }
@@ -8987,13 +8990,13 @@ void __fastcall TFo_Main::ME_FindNextClick(TObject *Sender)
         }else{
             bSearchRequest = (bLastSearchRequest & 0x30) | 0x03;
         }
-	}else{
-		if (bLastSearchRequest & 0x100) {
-			ME_ReplaceClick(Sender);
-		}else{
-			ME_FindClick(Sender);
-		}
-	}
+    }else{
+        if (bLastSearchRequest & 0x100) {
+            ME_ReplaceClick(Sender);
+        }else{
+            ME_FindClick(Sender);
+        }
+    }
 }
 
 //---------------------------------------------------------------------------
@@ -9031,7 +9034,7 @@ void TFo_Main::GlobalSearch(int SearchRequest)
             //非表示かつ、非表示カードが検索対称に入っていない
         }else{
             if (SearchRequest & 0x1){
-				//タイトルから検索
+                //タイトルから検索
                 if (SearchRequest & 0x10){
                     //大文字と小文字を区別しない
                     WideString Target = WideLowerCase(WideString(Card->m_Title));
@@ -9058,106 +9061,106 @@ void TFo_Main::GlobalSearch(int SearchRequest)
         }
     }
 
-	Screen->Cursor = crDefault;
+    Screen->Cursor = crDefault;
 }
 //---------------------------------------------------------------------------
 int TFo_Main::ReplaceAll(int SearchRequest)
 {
-	if (m_Document->m_Cards->Count == 0){
-		//カードが無い
-		return false;
-	}
+    if (m_Document->m_Cards->Count == 0){
+        //カードが無い
+        return false;
+    }
 
-	Screen->Cursor = crHourGlass;
+    Screen->Cursor = crHourGlass;
 
-	int Replaced = 0;
-	bool Backup = false;
+    int Replaced = 0;
+    bool Backup = false;
 
-	for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++){
-		TCard *Card = m_Document->GetCardByIndex(ic);
-		int foundat;
-		if (!Card->m_bVisible && !(SearchRequest & 0x20)){
-			//非表示かつ、非表示カードが検索対称に入っていない
-		}else{
-			if (SearchRequest & 0x1){
-				int lastpos = 1;
-				//タイトルから検索
-				WideString S = Card->m_Title;
-				while (true){
-					if (SearchRequest & 0x10){
-						//大文字と小文字を区別しない
-						WideString Target = WideLowerCase(S);
-						Target = Target.SubString(lastpos, Target.Length());
-						foundat = Target.Pos(WideLowerCase(SearchKeyword)) + lastpos - 1;
-					}else{
-						//大文字と小文字を区別
-						WideString Target = S.SubString(lastpos, S.Length());
-						foundat = Target.Pos(SearchKeyword) + lastpos - 1;
-					}
-					if (foundat < lastpos) {
-						break;
-					}else{
-						S = S.SubString(1, foundat - 1) + ReplaceKeyword + S.SubString(foundat + SearchKeyword.Length(), S.Length());
-						lastpos = foundat + ReplaceKeyword.Length();
-						Replaced++;
-					}
-				}
-				if (S != Card->m_Title) {
-					if (!Backup) {
-						BackupSub(ME_Replace->Caption);
-						Backup = true;
-					}
-					m_Document->SetCardTitle(Card, AnsiString(S).c_str());
-				}
-			}
-			if (SearchRequest & 0x2){
-				int lastpos = 1;
-				//本文から検索
-				WideString S = Card->m_Lines->Text;
-				while (true){
-					if (SearchRequest & 0x10){
-						WideString Target = WideLowerCase(S);
-						Target = Target.SubString(lastpos, Target.Length());
-						foundat = Target.Pos(WideLowerCase(SearchKeyword)) + lastpos - 1;
-					}else{
-						WideString Target = S.SubString(lastpos, S.Length());
-						foundat = Target.Pos(SearchKeyword) + lastpos - 1;
-					}
-					if (foundat < lastpos) {
-						break;
-					}else{
-						S = S.SubString(1, foundat - 1) + ReplaceKeyword + S.SubString(foundat + SearchKeyword.Length(), S.Length());
-						lastpos = foundat + ReplaceKeyword.Length();
-						Replaced++;
-					}
-				}
-				if (S != Card->m_Lines->Text) {
-					if (!Backup) {
-						BackupSub(ME_Replace->Caption);
-						Backup = true;
-					}
-					m_Document->SetCardText(Card, AnsiString(S).c_str());
-				}
-			}
-		}
-	}
+    for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++){
+        TCard *Card = m_Document->GetCardByIndex(ic);
+        int foundat;
+        if (!Card->m_bVisible && !(SearchRequest & 0x20)){
+            //非表示かつ、非表示カードが検索対称に入っていない
+        }else{
+            if (SearchRequest & 0x1){
+                int lastpos = 1;
+                //タイトルから検索
+                WideString S = Card->m_Title;
+                while (true){
+                    if (SearchRequest & 0x10){
+                        //大文字と小文字を区別しない
+                        WideString Target = WideLowerCase(S);
+                        Target = Target.SubString(lastpos, Target.Length());
+                        foundat = Target.Pos(WideLowerCase(SearchKeyword)) + lastpos - 1;
+                    }else{
+                        //大文字と小文字を区別
+                        WideString Target = S.SubString(lastpos, S.Length());
+                        foundat = Target.Pos(SearchKeyword) + lastpos - 1;
+                    }
+                    if (foundat < lastpos) {
+                        break;
+                    }else{
+                        S = S.SubString(1, foundat - 1) + ReplaceKeyword + S.SubString(foundat + SearchKeyword.Length(), S.Length());
+                        lastpos = foundat + ReplaceKeyword.Length();
+                        Replaced++;
+                    }
+                }
+                if (S != Card->m_Title) {
+                    if (!Backup) {
+                        BackupSub(ME_Replace->Caption);
+                        Backup = true;
+                    }
+                    m_Document->SetCardTitle(Card, AnsiString(S).c_str());
+                }
+            }
+            if (SearchRequest & 0x2){
+                int lastpos = 1;
+                //本文から検索
+                WideString S = Card->m_Lines->Text;
+                while (true){
+                    if (SearchRequest & 0x10){
+                        WideString Target = WideLowerCase(S);
+                        Target = Target.SubString(lastpos, Target.Length());
+                        foundat = Target.Pos(WideLowerCase(SearchKeyword)) + lastpos - 1;
+                    }else{
+                        WideString Target = S.SubString(lastpos, S.Length());
+                        foundat = Target.Pos(SearchKeyword) + lastpos - 1;
+                    }
+                    if (foundat < lastpos) {
+                        break;
+                    }else{
+                        S = S.SubString(1, foundat - 1) + ReplaceKeyword + S.SubString(foundat + SearchKeyword.Length(), S.Length());
+                        lastpos = foundat + ReplaceKeyword.Length();
+                        Replaced++;
+                    }
+                }
+                if (S != Card->m_Lines->Text) {
+                    if (!Backup) {
+                        BackupSub(ME_Replace->Caption);
+                        Backup = true;
+                    }
+                    m_Document->SetCardText(Card, AnsiString(S).c_str());
+                }
+            }
+        }
+    }
 
-	if (Replaced) {
+    if (Replaced) {
         m_Document->RefreshList();
-	}
-	Screen->Cursor = crDefault;
+    }
+    Screen->Cursor = crDefault;
 
-	return Replaced;
+    return Replaced;
 }
 //---------------------------------------------------------------------------
 void TFo_Main::Search(int SearchRequest)
 {
-	if (m_Document->m_Cards->Count == 0){
-		//カードが無い
-		return;
-	}
+    if (m_Document->m_Cards->Count == 0){
+        //カードが無い
+        return;
+    }
 
-	m_bSearching = true;
+    m_bSearching = true;
 
     Screen->Cursor = crHourGlass;
 
@@ -9176,32 +9179,32 @@ void TFo_Main::Search(int SearchRequest)
     int StartTarget = 0;
     int StartPos = 0;
     if (RE_Edit->Focused()){
-		//文章編集中
-		StartTarget = 1;
-		if ((SearchRequest & 0x100) && ((GetSelText() == SearchKeyword) || ((SearchRequest & 0x10) && (WideLowerCase(GetSelText()) == WideLowerCase(SearchKeyword))))) {
-			//置換
-			BackupSub(ME_Replace->Caption);
-			WideString S = RE_Edit->Text;
-			int selstartbak = RE_Edit->SelStart;
-			RE_Edit->Text = S.SubString(1, RE_Edit->SelStart) + ReplaceKeyword + S.SubString(1 + RE_Edit->SelStart + RE_Edit->SelLength, S.Length());
-			RE_Edit->SelStart = selstartbak;
-			RE_Edit->SelLength = ReplaceKeyword.Length();
-		}
-		if (SearchRequest & 0x80){
-			//後ろ向き検索
-			StartPos = RE_Edit->SelStart;
+        //文章編集中
+        StartTarget = 1;
+        if ((SearchRequest & 0x100) && ((GetSelText() == SearchKeyword) || ((SearchRequest & 0x10) && (WideLowerCase(GetSelText()) == WideLowerCase(SearchKeyword))))) {
+            //置換
+            BackupSub(ME_Replace->Caption);
+            WideString S = RE_Edit->Text;
+            int selstartbak = RE_Edit->SelStart;
+            RE_Edit->Text = S.SubString(1, RE_Edit->SelStart) + ReplaceKeyword + S.SubString(1 + RE_Edit->SelStart + RE_Edit->SelLength, S.Length());
+            RE_Edit->SelStart = selstartbak;
+            RE_Edit->SelLength = ReplaceKeyword.Length();
+        }
+        if (SearchRequest & 0x80){
+            //後ろ向き検索
+            StartPos = RE_Edit->SelStart;
             /*
-			if (RE_Edit->SelLength){
+            if (RE_Edit->SelLength){
                 StartPos = RE_Edit->SelStart;
             }else{
                 StartPos = (RE_Edit->Text).Length();
-			}
+            }
             */
         }else{
             //前向き検索
             StartPos = RE_Edit->SelStart + RE_Edit->SelLength;
-			/*
-			if (RE_Edit->SelLength){
+            /*
+            if (RE_Edit->SelLength){
                 StartPos = RE_Edit->SelStart + RE_Edit->SelLength;
             }else{
                 StartPos = 0;
@@ -9211,16 +9214,16 @@ void TFo_Main::Search(int SearchRequest)
     }else if (m_nTargetCard >= 0){
         //カード選択中
         StartTarget = 0;
-		if ((SearchRequest & 0x100) && ((GetSelText() == SearchKeyword) || ((SearchRequest & 0x10) && (WideLowerCase(GetSelText()) == WideLowerCase(SearchKeyword))))) {
-			//置換
-			BackupSub(ME_Replace->Caption);
-			WideString S = Ed_Title->Text;
-			int selstartbak = Ed_Title->SelStart;
-			Ed_Title->Text = S.SubString(1, Ed_Title->SelStart) + ReplaceKeyword + S.SubString(1 + Ed_Title->SelStart + Ed_Title->SelLength, S.Length());
-			Ed_Title->SelStart = selstartbak;
-			Ed_Title->SelLength = ReplaceKeyword.Length();
-		}
-		if (SearchRequest & 0x80){
+        if ((SearchRequest & 0x100) && ((GetSelText() == SearchKeyword) || ((SearchRequest & 0x10) && (WideLowerCase(GetSelText()) == WideLowerCase(SearchKeyword))))) {
+            //置換
+            BackupSub(ME_Replace->Caption);
+            WideString S = Ed_Title->Text;
+            int selstartbak = Ed_Title->SelStart;
+            Ed_Title->Text = S.SubString(1, Ed_Title->SelStart) + ReplaceKeyword + S.SubString(1 + Ed_Title->SelStart + Ed_Title->SelLength, S.Length());
+            Ed_Title->SelStart = selstartbak;
+            Ed_Title->SelLength = ReplaceKeyword.Length();
+        }
+        if (SearchRequest & 0x80){
             //後ろ向き検索
             StartPos = Ed_Title->SelStart;
             /*
@@ -9282,7 +9285,7 @@ void TFo_Main::Search(int SearchRequest)
             if (SearchRequest & 0x1){
                 //タイトルから検索
                 int ToEnd;
-				WideString Target;
+                WideString Target;
                 if (SearchRequest & 0x10){
                     //大文字と小文字を区別しない
                     Target = WideLowerCase(WideString(Card->m_Title));
@@ -9318,7 +9321,7 @@ void TFo_Main::Search(int SearchRequest)
                     foundat = Target.SubString(Pos + 1, ToEnd).Pos(Key);
                     if (foundat > 0){
                         foundat += Pos;
-					}else{
+                    }else{
                         foundat = -1;
                     }
                 }
@@ -9354,7 +9357,7 @@ void TFo_Main::Search(int SearchRequest)
                 if (SearchRequest & 0x80){
                     //後ろ向き検索
                     if (resetpos){
-						Pos = Target.Length();
+                        Pos = Target.Length();
                     }
                     int pos2 = 1, len = Pos;
                     while (true){
@@ -9390,7 +9393,7 @@ void TFo_Main::Search(int SearchRequest)
 
                 if (foundat >= 0){
                     //見つかった
-					m_Document->ClearCardSelection();
+                    m_Document->ClearCardSelection();
                     m_nTargetCard = Card->m_nID;
                     Card->m_bSelected = true;
                     m_nTargetLink = -1;
@@ -9426,7 +9429,7 @@ void TFo_Main::Search(int SearchRequest)
 
         //全体を通して見つからなかったチェック
         if (NotFound){
-			break;
+            break;
         }
         if (CardIndex == StartCard && Target == StartTarget){
             //見つからなかった
@@ -9439,11 +9442,11 @@ void TFo_Main::Search(int SearchRequest)
     Screen->Cursor = crDefault;
 
     if (!Found){
-		ShowMessage(
+        ShowMessage(
             AnsiString("\"") +
             SearchKeyword +
-			AnsiString("\"") +
-			MLText.NotFound);
+            AnsiString("\"") +
+            MLText.NotFound);
     }
 
     //更新再開
@@ -9463,7 +9466,7 @@ void TFo_Main::Search(int SearchRequest)
     RefreshLabel();
     if (PC_Client->ActivePage == TS_Editor){
         LB_List->Invalidate();
-		RE_Edit->Invalidate();
+        RE_Edit->Invalidate();
         LB_Link->Invalidate();
     }else if (PC_Client->ActivePage == TS_Browser){
         PB_Browser->Invalidate();
@@ -9499,7 +9502,7 @@ WideString TFo_Main::GetSelText()
         Key = Ed_TitleB->Text;
         SelStart = Ed_TitleB->SelStart;
         SelLength = Ed_TitleB->SelLength;
-	}else if (Ed_LinkTitle->Focused()){
+    }else if (Ed_LinkTitle->Focused()){
         Key = Ed_LinkTitle->Text;
         SelStart = Ed_LinkTitle->SelStart;
         SelLength = Ed_LinkTitle->SelLength;
@@ -9535,7 +9538,7 @@ void __fastcall TFo_Main::ME_WebSearchClick(TObject *Sender)
     AnsiString S =
         Setting2Function.m_WebSearch->Values[Setting2Function.m_WebSearch->Names[MI->Tag]] +
         HTTPEncode(UTF8Encode(Key));
-		/*
+        /*
         AnsiString("\"") +
         HTTPEncode(UTF8Encode(RE_Edit->SelText)) +
         AnsiString("\"");
@@ -9601,13 +9604,13 @@ void __fastcall TFo_Main::MI_NewLabelClick(TObject *Sender)
     if (m_nTargetCard >= 0){
         Fo_EditText = new TFo_EditText(this);
         Fo_EditText->La_Text->Caption = MLText.LabelName + ":";
-		Fo_EditText->Caption = DeleteActionKey(MI_NewLabel->Caption);
+        Fo_EditText->Caption = DeleteActionKey(MI_NewLabel->Caption);
         Fo_EditText->ShowModal();
         if (Fo_EditText->ModalResult == mrOk && Fo_EditText->Ed_Text->Text != ""){
             BackupSub(MI_NewLabel->Caption);
 
             TCardLabel *Label = m_Document->NewLabel(0);
-			Label->m_Name = Fo_EditText->Ed_Text->Text;
+            Label->m_Name = Fo_EditText->Ed_Text->Text;
             Label->m_nColor = GetColor(rand() % 10001 / 10000.0, 0, 255);
 
             /*
@@ -9643,7 +9646,7 @@ void TFo_Main::LinkLimitationSub(int targetcard, int targetlink, int linkdepth, 
 
     int startingscore = linkdepth < 11 ? linkdepth + 1 : 0xffff;
 
-	if (targetcard >= 0){
+    if (targetcard >= 0){
         //カードから辿る
         int idx = m_Document->SearchCardIndex(targetcard);
         if (idx >= 0){
@@ -9679,7 +9682,7 @@ void TFo_Main::LinkLimitationSub(int targetcard, int targetlink, int linkdepth, 
                 TLink *Link = m_Document->GetLinkByIndex(il);
                 if (Link->m_bVisible){
                     int targetidx = -1;
-					if (Link->m_nFromID == id &&
+                    if (Link->m_nFromID == id &&
                         (!linkdirection ||
                          !linkbackward ||
                          !Link->m_bDirection)){
@@ -9715,7 +9718,7 @@ void TFo_Main::LinkLimitationSub(int targetcard, int targetlink, int linkdepth, 
 //---------------------------------------------------------------------------
 void TFo_Main::SetCardVisible(bool bFoldTree)
 {
-	//表示するカード決定
+    //表示するカード決定
 
     if (m_nAnimation > 0 && m_nAnimation != 3){
         //ランダムカードの場合Visibleを設定しない
@@ -9751,7 +9754,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree)
         int *IFound = new int[m_Document->m_Cards->Count];
         memset(IFound, 0, sizeof(int) * m_Document->m_Cards->Count);
 
-		int startingscore = SettingView.m_nLinkLimitation < 11 ? SettingView.m_nLinkLimitation + 1 : 0xffff;
+        int startingscore = SettingView.m_nLinkLimitation < 11 ? SettingView.m_nLinkLimitation + 1 : 0xffff;
 
         if (m_nTargetCard >= 0){
             //カードから辿る
@@ -9787,7 +9790,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree)
                     TLink *Link = m_Document->GetLinkByIndex(il);
                     if (Link->m_bVisible){
                         int targetidx = -1;
-						if (Link->m_nFromID == id &&
+                        if (Link->m_nFromID == id &&
                             (!SettingView.m_bLinkDirection ||
                              !SettingView.m_bLinkBackward ||
                              !Link->m_bDirection)){
@@ -9823,7 +9826,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree)
         if (SettingView.m_nLinkTarget >= 0){
             //TargetCardまでの間にあるリンクだけ表示
             int idx2 = m_Document->SearchCardIndex(SettingView.m_nLinkTarget);
-			if (idx2 >= 0){
+            if (idx2 >= 0){
                 if (Score[idx2] > 0){
                     int *Score2 = new int[m_Document->m_Cards->Count];
                     memset(Score2, 0, sizeof(int) * m_Document->m_Cards->Count);
@@ -9859,7 +9862,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree)
             //本当は、ここで絞り込まれたカードからさらに指定リンクで辿れるルートかを判断する必要あり？
         }
 
-		for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++){
+        for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++){
             TCard *Card = m_Document->GetCardByIndex(ic);
             Card->m_bVisible &= Score[ic] > 0;
         }
@@ -9895,7 +9898,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree)
     }
     
     //選択中カードを見せる
-	if (m_nTargetCard >= 0){
+    if (m_nTargetCard >= 0){
         TCard *Card = m_Document->GetCard(m_nTargetCard);
         if (Card){
             Card->m_bVisible = true;
@@ -9931,7 +9934,7 @@ void TFo_Main::FilteringCard()
         if (Card->m_bVisible){
             if (Card->m_Labels->Count){
                 bool visible = false;
-				for (int il = 0 ; il < Card->m_Labels->Count && !visible ; il++){
+                for (int il = 0 ; il < Card->m_Labels->Count && !visible ; il++){
                     visible |= m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1)->m_bShow;
                 }
                 Card->m_bVisible &= visible;
@@ -9967,7 +9970,7 @@ void TFo_Main::FilteringCard()
                 for (int il = 0 ; il < Link->m_Labels->Count && visible ; il++){
                     TCardLabel *Label = m_Document->GetLabelByIndex(1, Link->m_Labels->GetLabel(il) - 1);
                     visible &= !Label->m_bHide;
-				}
+                }
             }else if (m_nTargetLink != i2){
                 visible = SettingView.m_bNoLinkLabelVisible;
             }
@@ -10003,7 +10006,7 @@ void TFo_Main::FilteringCard()
             switch (SettingView.m_DateLimitationDateType){
             case 0: currentdate = Card->m_nCreatedOrder; break;
             case 1: currentdate = Card->m_nUpdatedOrder; break;
-			case 2: currentdate = Card->m_nViewedOrder; break;
+            case 2: currentdate = Card->m_nViewedOrder; break;
             }
         }
         for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
@@ -10039,7 +10042,7 @@ void TFo_Main::FilteringCard()
                     }
                     break;
                 case 4:
-					//Newer
+                    //Newer
                     if (currentdate > -1.0f){
                         Card->m_bVisible &=
                             date >= currentdate &&
@@ -10075,7 +10078,7 @@ void __fastcall TFo_Main::Bu_Label0Click(TObject *Sender)
 
     TPoint P;
     P.x = Bu_Label[index]->Left;
-	P.y = Bu_Label[index]->Top;
+    P.y = Bu_Label[index]->Top;
     P = Pa_Card->ClientToScreen(P);
     Po_Label->Popup(P.x, P.y);
 }
@@ -10111,7 +10114,7 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender)
         }
     }else{
         //既存ラベルの編集
-		if (label == 0){
+        if (label == 0){
             //ラベル削除
             BackupSub(MLText.DeleteLabel);
             DelLabel = Card->m_Labels->GetLabel(index);
@@ -10147,7 +10150,7 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender)
                             }
                         }
                     }else{
-						//削除すべきラベルを持っていない→単純追加
+                        //削除すべきラベルを持っていない→単純追加
                         Card->m_Labels->AddLabel(label);
                     }
                 }else{
@@ -10196,8 +10199,8 @@ void __fastcall TFo_Main::ME_LabelClick(TObject *Sender)
     Fo_LabelEdit->m_Document = m_Document;
     Fo_LabelEdit->m_UndoRedo = m_UndoRedo;
     Fo_LabelEdit->m_LType = 0;
-	Fo_LabelEdit->Caption = DeleteActionKey(ME_Label->Caption);
-	Fo_LabelEdit->ShowModal();
+    Fo_LabelEdit->Caption = DeleteActionKey(ME_Label->Caption);
+    Fo_LabelEdit->ShowModal();
     Fo_LabelEdit->Release();
     m_bRedrawRequested = true;
 }
@@ -10220,7 +10223,7 @@ void __fastcall TFo_Main::MH_ContentsClick(TObject *Sender)
     AnsiString S2 =
         AnsiString("\"") +
         AnsiString(ExtractFilePath(ParamStr(0))) +
-		AnsiString("help.fip\"");
+        AnsiString("help.fip\"");
     ShellExecute(Handle, NULL,
         S.c_str(),
         S2.c_str(), NULL, SW_SHOW);
@@ -10292,23 +10295,23 @@ void __fastcall TFo_Main::Bu_LinkDirectionInverseClick(TObject *Sender)
     int bak = Link->m_nFromID;
     Link->m_nFromID = Link->m_nDestID;
     Link->m_nDestID = bak;
-	m_Document->RefreshList();
+    m_Document->RefreshList();
     m_Document->RefreshLink();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::ME_LinkLabelClick(TObject *Sender)
 {
-	if (SB_ToolLinkLabel->Down){
-		SB_Cursor->Down = true;
-	}
+    if (SB_ToolLinkLabel->Down){
+        SB_Cursor->Down = true;
+    }
 
-	Fo_LabelEdit = new TFo_LabelEdit(this);
-	Fo_LabelEdit->m_Document = m_Document;
-	Fo_LabelEdit->m_UndoRedo = m_UndoRedo;
-	Fo_LabelEdit->m_LType = 1;
-	Fo_LabelEdit->Caption = DeleteActionKey(ME_LinkLabel->Caption);
-	Fo_LabelEdit->ShowModal();
+    Fo_LabelEdit = new TFo_LabelEdit(this);
+    Fo_LabelEdit->m_Document = m_Document;
+    Fo_LabelEdit->m_UndoRedo = m_UndoRedo;
+    Fo_LabelEdit->m_LType = 1;
+    Fo_LabelEdit->Caption = DeleteActionKey(ME_LinkLabel->Caption);
+    Fo_LabelEdit->ShowModal();
     Fo_LabelEdit->Release();
     m_bRedrawRequested = true;
 }
@@ -10329,7 +10332,7 @@ void __fastcall TFo_Main::Bu_LinkLabel0Click(TObject *Sender)
             //ラベルあり
             ((TMenuItem*)MI_LinkLabels->Items[Link->m_Labels->GetLabel(index) - 1])->Checked = true;
         }
-	}
+    }
     Po_LinkLabel->Tag = index;
 
     TPoint P;
@@ -10365,7 +10368,7 @@ void __fastcall TFo_Main::PL_NoLinkLabelClick(TObject *Sender)
             //ラベル追加
             BackupSub(MLText.AddLabel);
             Link->m_Labels->AddLabel(label);
-		}
+        }
     }else{
         //既存ラベルの編集
         if (label == 0){
@@ -10389,53 +10392,53 @@ void __fastcall TFo_Main::SB_ViewClick(TObject *Sender)
 
     TPoint P;
     P.x = SB_View->Left;
-	P.y = SB_View->Top;
-	P = Pa_BrowserTop->ClientToScreen(P);
-	Fo_View->Left = P.x;
-	Fo_View->Top = P.y;
-	Fo_View->Show();
+    P.y = SB_View->Top;
+    P = Pa_BrowserTop->ClientToScreen(P);
+    Fo_View->Left = P.x;
+    Fo_View->Top = P.y;
+    Fo_View->Show();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MI_NewLinkLabelClick(TObject *Sender)
 {
-	if (m_nTargetLink >= 0){
-		Fo_EditText = new TFo_EditText(this);
-		Fo_EditText->La_Text->Caption = MLText.LabelName + ":";
-		Fo_EditText->Caption = DeleteActionKey(MI_NewLinkLabel->Caption);
-		Fo_EditText->ShowModal();
-		if (Fo_EditText->ModalResult == mrOk && Fo_EditText->Ed_Text->Text != ""){
-			BackupSub(MI_NewLinkLabel->Caption);
+    if (m_nTargetLink >= 0){
+        Fo_EditText = new TFo_EditText(this);
+        Fo_EditText->La_Text->Caption = MLText.LabelName + ":";
+        Fo_EditText->Caption = DeleteActionKey(MI_NewLinkLabel->Caption);
+        Fo_EditText->ShowModal();
+        if (Fo_EditText->ModalResult == mrOk && Fo_EditText->Ed_Text->Text != ""){
+            BackupSub(MI_NewLinkLabel->Caption);
 
-			TCardLabel *Label = m_Document->NewLabel(1);
-			Label->m_Name = Fo_EditText->Ed_Text->Text;
-			Label->m_nColor = GetColor(rand() % 10001 / 10000.0, 0, 255);
+            TCardLabel *Label = m_Document->NewLabel(1);
+            Label->m_Name = Fo_EditText->Ed_Text->Text;
+            Label->m_nColor = GetColor(rand() % 10001 / 10000.0, 0, 255);
 
-			TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
-			Link->m_Labels->AddLabel(m_Document->m_Labels[1]->Count);
-		}
-		Fo_EditText->Release();
-	}
+            TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
+            Link->m_Labels->AddLabel(m_Document->m_Labels[1]->Count);
+        }
+        Fo_EditText->Release();
+    }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MA_RandomFlashClick(TObject *Sender)
 {
-	m_nAnimation = 1;
-	m_nAnimationCount = 0;
-	PC_Client->ActivePage = TS_Browser;
-	SettingView.m_bAnimationPaused = false;
+    m_nAnimation = 1;
+    m_nAnimationCount = 0;
+    PC_Client->ActivePage = TS_Browser;
+    SettingView.m_bAnimationPaused = false;
 
-	if (!m_DocBeforeAnimation){
-		m_DocBeforeAnimation = new TDocument(*m_Document);
-	}
-	m_nTargetCard = -1;
-	m_nTargetLink = -1;
-	m_Document->ClearCardSelection();
+    if (!m_DocBeforeAnimation){
+        m_DocBeforeAnimation = new TDocument(*m_Document);
+    }
+    m_nTargetCard = -1;
+    m_nTargetLink = -1;
+    m_Document->ClearCardSelection();
 
-	//MM_Menu->Enabled = false;//アニメーション中の編集を避けるため
-	m_nAnimationBak_ArrangeType = Bu_ArrangeType->Tag;
-	m_bAnimationBak_Arrange = SB_Arrange->Down;
+    //MM_Menu->Enabled = false;//アニメーション中の編集を避けるため
+    m_nAnimationBak_ArrangeType = Bu_ArrangeType->Tag;
+    m_bAnimationBak_Arrange = SB_Arrange->Down;
     m_bAnimationBak_AutoScroll = SB_AutoScroll->Down;
     m_bAnimationBak_AutoZoom = SB_AutoZoom->Down;
 
@@ -11357,62 +11360,62 @@ void __fastcall TFo_Main::PL_CardPropertyClick(TObject *Sender)
 
         //Title
         S +=
-			MLText.Title + AnsiString(" : ") + Card->m_Title;
-		S += ret;
+            MLText.Title + AnsiString(" : ") + Card->m_Title;
+        S += ret;
 
-		S += ret;
+        S += ret;
 
-		//Label
-		if (Card->m_Labels->Count){
-			S += MLText.Labels + AnsiString(" : ");
-			for (int i = 0 ; i < Card->m_Labels->Count ; i++){
-				if (i > 0){
-					S += ", ";
-				}
-				S += m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(i) - 1)->m_Name;
-			}
-			S += ret;
-		}else{
-			S += MLText.Labels + AnsiString(" : 0");
-			S += ret;
-		}
+        //Label
+        if (Card->m_Labels->Count){
+            S += MLText.Labels + AnsiString(" : ");
+            for (int i = 0 ; i < Card->m_Labels->Count ; i++){
+                if (i > 0){
+                    S += ", ";
+                }
+                S += m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(i) - 1)->m_Name;
+            }
+            S += ret;
+        }else{
+            S += MLText.Labels + AnsiString(" : 0");
+            S += ret;
+        }
 
-		S += ret;
+        S += ret;
 
-		//LinkNum
-		int count = 0;
-		for (int il = 0 ; il < m_Document->m_Links->Count ; il++){
-			TLink *Link = m_Document->GetLinkByIndex(il);
-			if (Link->m_nFromID == Card->m_nID || Link->m_nDestID == Card->m_nID){
+        //LinkNum
+        int count = 0;
+        for (int il = 0 ; il < m_Document->m_Links->Count ; il++){
+            TLink *Link = m_Document->GetLinkByIndex(il);
+            if (Link->m_nFromID == Card->m_nID || Link->m_nDestID == Card->m_nID){
                 count ++;
             }
         }
-		S += MLText.Links + AnsiString(" : ") + IntToStr(count);
-		S += ret;
+        S += MLText.Links + AnsiString(" : ") + IntToStr(count);
+        S += ret;
 
-		S += ret;
+        S += ret;
 
-		S += MLText.Size + AnsiString(" : ") + SizeToStr(Card->m_Lines->Text.Length());
-		S += ret;
+        S += MLText.Size + AnsiString(" : ") + SizeToStr(Card->m_Lines->Text.Length());
+        S += ret;
 
-		S += ret;
+        S += ret;
 
-		//Date
-		S += MLText.Created + AnsiString(" : ") + DateTimeToStr(Card->m_fCreated);
-		S += ret;
-		S += MLText.Edited + AnsiString(" : ") + DateTimeToStr(Card->m_fUpdated);
-		S += ret;
-		S += MLText.Viewed + AnsiString(" : ") + DateTimeToStr(Card->m_fViewed);
+        //Date
+        S += MLText.Created + AnsiString(" : ") + DateTimeToStr(Card->m_fCreated);
+        S += ret;
+        S += MLText.Edited + AnsiString(" : ") + DateTimeToStr(Card->m_fUpdated);
+        S += ret;
+        S += MLText.Viewed + AnsiString(" : ") + DateTimeToStr(Card->m_fViewed);
 
 
-		Application->MessageBox(S.c_str(), DeleteActionKey(PL_CardProperty->Caption).c_str(), 0);
-	}
+        Application->MessageBox(S.c_str(), DeleteActionKey(PL_CardProperty->Caption).c_str(), 0);
+    }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MH_CheckLatestClick(TObject *Sender)
 {
-	ExitFullScreen();
+    ExitFullScreen();
 
     Fo_Information = new TFo_Information(this);
     Fo_Information->Show();
@@ -11421,7 +11424,7 @@ void __fastcall TFo_Main::MH_CheckLatestClick(TObject *Sender)
 
 void __fastcall TFo_Main::MH_EnableSpecialMenuClick(TObject *Sender)
 {
-	M_Special->Visible = true;
+    M_Special->Visible = true;
     /*
     //リンク反転
     for (int i = 0 ; i < m_Document->m_Links->Count ; i++){
@@ -11757,13 +11760,13 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender)
             SL->Add("</noframes>");
             SL->Add("</frameset>");
             SL->Add("</html>");
-			try{
-				SL->SaveToFile(SD_Html->FileName);
-			}
-			catch(...){
-				ShowMessage(MLText.FailedToSave + SD_Html->FileName + AnsiString("."));
-			}
-			delete SL;
+            try{
+                SL->SaveToFile(SD_Html->FileName);
+            }
+            catch(...){
+                ShowMessage(MLText.FailedToSave + SD_Html->FileName + AnsiString("."));
+            }
+            delete SL;
         }
 
         //cards.html
@@ -11790,15 +11793,15 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender)
                     "</a><br>");
             }
             SL->Add("<hr>");
-			try{
-				SL->SaveToFile(
-					ExtractFilePath(SD_Html->FileName) + "cards.html");
-			}
-			catch(...){
-				ShowMessage(MLText.FailedToSave + ExtractFilePath(SD_Html->FileName) + "cards.html" + AnsiString("."));
-			}
-			delete SL;
-		}
+            try{
+                SL->SaveToFile(
+                    ExtractFilePath(SD_Html->FileName) + "cards.html");
+            }
+            catch(...){
+                ShowMessage(MLText.FailedToSave + ExtractFilePath(SD_Html->FileName) + "cards.html" + AnsiString("."));
+            }
+            delete SL;
+        }
 
 
         if (m_Document->m_FN != ""){
@@ -11925,14 +11928,14 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender)
             SL->Add("</body>");
             SL->Add("</html>");
 
-			try{
-				SL->SaveToFile(
-					ExtractFilePath(SD_Html->FileName) + IntToStr(i + 1) + ".html");
-			}
-			catch(...){
-				ShowMessage(MLText.FailedToSave + ExtractFilePath(SD_Html->FileName) + IntToStr(i + 1) + ".html" + AnsiString("."));
-			}
-			delete SL;
+            try{
+                SL->SaveToFile(
+                    ExtractFilePath(SD_Html->FileName) + IntToStr(i + 1) + ".html");
+            }
+            catch(...){
+                ShowMessage(MLText.FailedToSave + ExtractFilePath(SD_Html->FileName) + IntToStr(i + 1) + ".html" + AnsiString("."));
+            }
+            delete SL;
         }
     }
 }
@@ -12165,13 +12168,13 @@ void __fastcall TFo_Main::PC_ClientChange(TObject *Sender)
 {
     if (PC_Client->ActivePage == TS_Editor){
         CloseTextEditBox();
-	}
-	/*
-	if (PC_Client->ActivePage == TS_Drawing){
-		m_Drawing->SetTool(0);
-		SB_DCursor->Down = true;
-	}
-	*/
+    }
+    /*
+    if (PC_Client->ActivePage == TS_Drawing){
+        m_Drawing->SetTool(0);
+        SB_DCursor->Down = true;
+    }
+    */
     m_fStatisticsPos = 0.5f;//グラフの立ち上がりを0.5に
     /*
     if (PC_Client->ActivePage == TS_Browser){
@@ -12309,51 +12312,51 @@ void __fastcall TFo_Main::MVO_ChangeBackgroundColorClick(TObject *Sender)
 void __fastcall TFo_Main::MVO_ChangeFourgroundColorClick(TObject *Sender)
 {
     CD->Color = (TColor)SettingView.m_nFourgroundColor;
-	if (CD->Execute()){
-		SettingView.m_nFourgroundColor = (int)CD->Color;
-		PB_BrowserPaint(Sender);
-	}
+    if (CD->Execute()){
+        SettingView.m_nFourgroundColor = (int)CD->Color;
+        PB_BrowserPaint(Sender);
+    }
 }
 //---------------------------------------------------------------------------
 void TFo_Main::ApplyLanguageSetting()
 {
-	if (!FileExists(LanguageFileName())){
-		return;
+    if (!FileExists(LanguageFileName())){
+        return;
     }
     TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	//メインウインドウ
-	TS_Browser->Caption = Ini->ReadString("MainWnd", "TS_Browser", TS_Browser->Caption);//ブラウザ
-	TS_Editor->Caption = Ini->ReadString("MainWnd", "TS_Editor", TS_Editor->Caption);//エディタ
-	TS_Drawing->Caption = Ini->ReadString("MainWnd", "TS_Drawing", TS_Drawing->Caption);//図
-	TS_Statistics->Caption = Ini->ReadString("MainWnd", "TS_Statistics", TS_Statistics->Caption);//統計
-	La_Files->Caption = Ini->ReadString("MainWnd", "La_Files", La_Files->Caption);//ファイル
-	La_Cards->Caption = Ini->ReadString("MainWnd", "La_Cards", La_Cards->Caption);//カード
-	La_Card->Caption = Ini->ReadString("MainWnd", "La_Card", La_Card->Caption);//カード
-	La_Title->Caption = Ini->ReadString("MainWnd", "La_Title", La_Title->Caption);//名前
-	La_Size->Caption = Ini->ReadString("MainWnd", "La_Size", La_Size->Caption);//サイズ
-	La_Label->Caption = Ini->ReadString("MainWnd", "La_Label", La_Label->Caption);//ラベル
-	La_Link->Caption = Ini->ReadString("MainWnd", "La_Link", La_Link->Caption);//リンク
-	La_LinkTitle->Caption = Ini->ReadString("MainWnd", "La_Title", La_LinkTitle->Caption);//名前
-	Ch_LinkDirection->Caption = Ini->ReadString("MainWnd", "Ch_LinkDirection", Ch_LinkDirection->Caption);//向き
-	Bu_LinkDirectionInverse->Caption = Ini->ReadString("MainWnd", "Bu_LinkDirectionInverse", Bu_LinkDirectionInverse->Caption);//反転
-	La_LinkLabel->Caption = Ini->ReadString("MainWnd", "La_Label", La_LinkLabel->Caption);//ラベル
-	La_Arrange->Caption = Ini->ReadString("MainWnd", "La_Arrange", La_Arrange->Caption);//自動整理
-	La_Zoom->Caption = Ini->ReadString("MainWnd", "La_Zoom", La_Zoom->Caption);//ズーム
-	Bu_Shuffle->Caption = Ini->ReadString("MainWnd", "Bu_Shuffle", Bu_Shuffle->Caption);//シャッフル
-	SB_AutoScroll->Caption = Ini->ReadString("MainWnd", "SB_AutoScroll", SB_AutoScroll->Caption);//オートスクロール
-	SB_AutoZoom->Caption = Ini->ReadString("MainWnd", "SB_AutoZoom", SB_AutoZoom->Caption);//オートズーム
-	Bu_FindCard->Caption = Ini->ReadString("MainWnd", "Bu_FindCard", Bu_FindCard->Caption);//検索
-	SB_EditorRelated->Caption = Ini->ReadString("MainWnd", "SB_EditorRelated", SB_EditorRelated->Caption);//関連テキスト
-	La_PenColor->Caption = Ini->ReadString("MainWnd", "La_PenColor", La_PenColor->Caption);//色:
-	La_PenColorDefault->Caption = Ini->ReadString("MainWnd", "La_PenColorDefault", La_PenColorDefault->Caption);//自動
-	La_DZoom->Caption = Ini->ReadString("MainWnd", "La_Zoom", La_DZoom->Caption);//ズーム
-	La_StatisticsKey->Caption = Ini->ReadString("MainWnd", "La_StatisticsKey", La_StatisticsKey->Caption);//キー
-	SB_StatisticsSort->Caption = Ini->ReadString("MainWnd", "SB_StatisticsSort", SB_StatisticsSort->Caption);//ソート
-	La_GlobalSearchTop->Caption = Ini->ReadString("MainWnd", "La_GlobalSearchTop", La_GlobalSearchTop->Caption);
+    //メインウインドウ
+    TS_Browser->Caption = Ini->ReadString("MainWnd", "TS_Browser", TS_Browser->Caption);//ブラウザ
+    TS_Editor->Caption = Ini->ReadString("MainWnd", "TS_Editor", TS_Editor->Caption);//エディタ
+    TS_Drawing->Caption = Ini->ReadString("MainWnd", "TS_Drawing", TS_Drawing->Caption);//図
+    TS_Statistics->Caption = Ini->ReadString("MainWnd", "TS_Statistics", TS_Statistics->Caption);//統計
+    La_Files->Caption = Ini->ReadString("MainWnd", "La_Files", La_Files->Caption);//ファイル
+    La_Cards->Caption = Ini->ReadString("MainWnd", "La_Cards", La_Cards->Caption);//カード
+    La_Card->Caption = Ini->ReadString("MainWnd", "La_Card", La_Card->Caption);//カード
+    La_Title->Caption = Ini->ReadString("MainWnd", "La_Title", La_Title->Caption);//名前
+    La_Size->Caption = Ini->ReadString("MainWnd", "La_Size", La_Size->Caption);//サイズ
+    La_Label->Caption = Ini->ReadString("MainWnd", "La_Label", La_Label->Caption);//ラベル
+    La_Link->Caption = Ini->ReadString("MainWnd", "La_Link", La_Link->Caption);//リンク
+    La_LinkTitle->Caption = Ini->ReadString("MainWnd", "La_Title", La_LinkTitle->Caption);//名前
+    Ch_LinkDirection->Caption = Ini->ReadString("MainWnd", "Ch_LinkDirection", Ch_LinkDirection->Caption);//向き
+    Bu_LinkDirectionInverse->Caption = Ini->ReadString("MainWnd", "Bu_LinkDirectionInverse", Bu_LinkDirectionInverse->Caption);//反転
+    La_LinkLabel->Caption = Ini->ReadString("MainWnd", "La_Label", La_LinkLabel->Caption);//ラベル
+    La_Arrange->Caption = Ini->ReadString("MainWnd", "La_Arrange", La_Arrange->Caption);//自動整理
+    La_Zoom->Caption = Ini->ReadString("MainWnd", "La_Zoom", La_Zoom->Caption);//ズーム
+    Bu_Shuffle->Caption = Ini->ReadString("MainWnd", "Bu_Shuffle", Bu_Shuffle->Caption);//シャッフル
+    SB_AutoScroll->Caption = Ini->ReadString("MainWnd", "SB_AutoScroll", SB_AutoScroll->Caption);//オートスクロール
+    SB_AutoZoom->Caption = Ini->ReadString("MainWnd", "SB_AutoZoom", SB_AutoZoom->Caption);//オートズーム
+    Bu_FindCard->Caption = Ini->ReadString("MainWnd", "Bu_FindCard", Bu_FindCard->Caption);//検索
+    SB_EditorRelated->Caption = Ini->ReadString("MainWnd", "SB_EditorRelated", SB_EditorRelated->Caption);//関連テキスト
+    La_PenColor->Caption = Ini->ReadString("MainWnd", "La_PenColor", La_PenColor->Caption);//色:
+    La_PenColorDefault->Caption = Ini->ReadString("MainWnd", "La_PenColorDefault", La_PenColorDefault->Caption);//自動
+    La_DZoom->Caption = Ini->ReadString("MainWnd", "La_Zoom", La_DZoom->Caption);//ズーム
+    La_StatisticsKey->Caption = Ini->ReadString("MainWnd", "La_StatisticsKey", La_StatisticsKey->Caption);//キー
+    SB_StatisticsSort->Caption = Ini->ReadString("MainWnd", "SB_StatisticsSort", SB_StatisticsSort->Caption);//ソート
+    La_GlobalSearchTop->Caption = Ini->ReadString("MainWnd", "La_GlobalSearchTop", La_GlobalSearchTop->Caption);
 
-	//メインメニュー
-	M_File->Caption = Ini->ReadString("MainWnd", "M_File", M_File->Caption);//ファイル(&F)
+    //メインメニュー
+    M_File->Caption = Ini->ReadString("MainWnd", "M_File", M_File->Caption);//ファイル(&F)
     MF_New->Caption = Ini->ReadString("MainWnd", "MF_New", MF_New->Caption);
     MF_Open->Caption = Ini->ReadString("MainWnd", "MF_Open", MF_Open->Caption);//開く(&O)...
     MF_Save->Caption = Ini->ReadString("MainWnd", "MF_Save", MF_Save->Caption);//上書き保存(&S)
@@ -12370,7 +12373,7 @@ void TFo_Main::ApplyLanguageSetting()
     MFE_TxtFile->Caption = Ini->ReadString("MainWnd", "MFE_TxtFile", MFE_TxtFile->Caption);//テキストファイル(&T)...
     MFE_TxtFiles->Caption = Ini->ReadString("MainWnd", "MFE_TxtFiles", MFE_TxtFiles->Caption);//複数のテキストファイル(&X)...
     MFE_HierarchicalTextFile->Caption = Ini->ReadString("MainWnd", "MFE_HierarchicalTextFile", MFE_HierarchicalTextFile->Caption);
-	MFE_HtmlFiles->Caption = Ini->ReadString("MainWnd", "MFE_HtmlFiles", MFE_HtmlFiles->Caption);//Htmlファイル(&H)...
+    MFE_HtmlFiles->Caption = Ini->ReadString("MainWnd", "MFE_HtmlFiles", MFE_HtmlFiles->Caption);//Htmlファイル(&H)...
     MFE_BMPFile->Caption = Ini->ReadString("MainWnd", "MFE_BMPFile", MFE_BMPFile->Caption);
     MFE_JPEGFile->Caption = Ini->ReadString("MainWnd", "MFE_JPEGFile", MFE_JPEGFile->Caption);
     MFE_ClipboardCardTitle->Caption = Ini->ReadString("MainWnd", "MFE_ClipboardCardTitle", MFE_ClipboardCardTitle->Caption);
@@ -12379,20 +12382,20 @@ void TFo_Main::ApplyLanguageSetting()
     MF_PrintImage->Caption = Ini->ReadString("MainWnd", "MF_PrintImage", MF_PrintImage->Caption);//ブラウザ表示を印刷(&P)...
     MF_Exit->Caption = Ini->ReadString("MainWnd", "MF_Exit", MF_Exit->Caption);//終了(&X)
     M_Edit->Caption = Ini->ReadString("MainWnd", "M_Edit", M_Edit->Caption);//編集(&E)
-	ME_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", ME_Undo->Caption);//元に戻す(&U)
+    ME_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", ME_Undo->Caption);//元に戻す(&U)
     ME_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", ME_Redo->Caption);
     ME_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", ME_Cut->Caption);//切り取り(&T)
     ME_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy", ME_Copy->Caption);//コピー(&C)
     ME_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", ME_Paste->Caption);//貼り付け(&P)
     ME_Delete->Caption = Ini->ReadString("MainWnd", "ME_Delete", ME_Delete->Caption);//削除(&D)
     ME_SelectAll->Caption = Ini->ReadString("MainWnd", "ME_SelectAll", ME_SelectAll->Caption);//全て選択(&A)
-	ME_Find->Caption = Ini->ReadString("MainWnd", "ME_Find", ME_Find->Caption);//検索(&F)
-	ME_Replace->Caption = Ini->ReadString("MainWnd", "ME_Replace", ME_Replace->Caption);//(&E)
-	ME_FindNext->Caption = Ini->ReadString("MainWnd", "ME_FindNext", ME_FindNext->Caption);//次を検索(&N)
-	ME_FindPrevious->Caption = Ini->ReadString("MainWnd", "ME_FindPrevious", ME_FindPrevious->Caption);//前を検索(&V)
+    ME_Find->Caption = Ini->ReadString("MainWnd", "ME_Find", ME_Find->Caption);//検索(&F)
+    ME_Replace->Caption = Ini->ReadString("MainWnd", "ME_Replace", ME_Replace->Caption);//(&E)
+    ME_FindNext->Caption = Ini->ReadString("MainWnd", "ME_FindNext", ME_FindNext->Caption);//次を検索(&N)
+    ME_FindPrevious->Caption = Ini->ReadString("MainWnd", "ME_FindPrevious", ME_FindPrevious->Caption);//前を検索(&V)
     ME_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch", ME_WebSearch->Caption);//W
     MD_SortCard->Caption = Ini->ReadString("MainWnd", "MD_SortCard", MD_SortCard->Caption);//カードの並び替え(&S)
-	MDS_Title->Caption = Ini->ReadString("MainWnd", "MDS_Title", MDS_Title->Caption);//タイトル(&T)
+    MDS_Title->Caption = Ini->ReadString("MainWnd", "MDS_Title", MDS_Title->Caption);//タイトル(&T)
     MDS_Title_I->Caption = Ini->ReadString("MainWnd", "MDS_Title_I", MDS_Title_I->Caption);//タイトル（降順）(&T)
     MDS_Date_Created->Caption = Ini->ReadString("MainWnd", "MDS_Date_Created", MDS_Date_Created->Caption);//作成日時(&C)
     MDS_Date_Created_I->Caption = Ini->ReadString("MainWnd", "MDS_Date_Created_I", MDS_Date_Created_I->Caption);//作成日時（降順）(&R)
@@ -12403,7 +12406,7 @@ void TFo_Main::ApplyLanguageSetting()
     MDS_Score->Caption = Ini->ReadString("MainWnd", "MDS_Score", MDS_Score->Caption);//スコア(&S)
     MDS_Score_I->Caption = Ini->ReadString("MainWnd", "MDS_Score_I", MDS_Score_I->Caption);//スコア（降順）(&O)
     MDS_Shuffle->Caption = Ini->ReadString("MainWnd", "MDS_Shuffle", MDS_Shuffle->Caption);//シャッフル(&H)
-	ME_BatchConversion->Caption = Ini->ReadString("MainWnd", "ME_BatchConversion", ME_BatchConversion->Caption);//一括変更(&B)
+    ME_BatchConversion->Caption = Ini->ReadString("MainWnd", "ME_BatchConversion", ME_BatchConversion->Caption);//一括変更(&B)
     MEC_AllCards->Caption = Ini->ReadString("MainWnd", "MEC_AllCards", MEC_AllCards->Caption);//全てのカードの形(&C)
     MEC_AllLinks->Caption = Ini->ReadString("MainWnd", "MEC_AllLinks", MEC_AllLinks->Caption);//全てのリンクの形(&L)
     MEC_AllLinksDirection->Caption = Ini->ReadString("MainWnd", "MEC_AllLinksDirection", MEC_AllLinksDirection->Caption);//全てのリンクの向き(&D)
@@ -12425,7 +12428,7 @@ void TFo_Main::ApplyLanguageSetting()
     MA_RandomMap->Caption = Ini->ReadString("MainWnd", "MA_RandomMap", MA_RandomMap->Caption);//ランダムカード2(&2)
     MA_RandomTrace->Caption = Ini->ReadString("MainWnd", "MA_RandomTrace", MA_RandomTrace->Caption);//ランダムトレース(&T)
     M_View->Caption = Ini->ReadString("MainWnd", "M_View", M_View->Caption);//表示(&V)
-	MV_Font->Caption = Ini->ReadString("MainWnd", "MV_Font", MV_Font->Caption);//フォント(&F)
+    MV_Font->Caption = Ini->ReadString("MainWnd", "MV_Font", MV_Font->Caption);//フォント(&F)
     MVF_DefaultSize->Caption = Ini->ReadString("MainWnd", "MVF_DefaultSize", MVF_DefaultSize->Caption);//標準サイズ(&D)
     MVF_Magnify->Caption = Ini->ReadString("MainWnd", "MVF_Magnify", MVF_Magnify->Caption);//拡大(&M)
     MVF_Reduce->Caption = Ini->ReadString("MainWnd", "MVF_Reduce", MVF_Reduce->Caption);//縮小(&R)
@@ -12437,10 +12440,10 @@ void TFo_Main::ApplyLanguageSetting()
     MVC_Ticker1Line->Caption = Ini->ReadString("MainWnd", "MVC_Ticker1Line", MVC_Ticker1Line->Caption);
     MVC_Ticker2Lines->Caption = Ini->ReadString("MainWnd", "MVC_Ticker2Lines", MVC_Ticker2Lines->Caption);
     MVC_Image->Caption = Ini->ReadString("MainWnd", "MVC_Image", MVC_Image->Caption);//イメージ(&I)
-	MVC_Video->Caption = Ini->ReadString("MainWnd", "MVC_Video", MVC_Video->Caption);//ビデオ(&V)
+    MVC_Video->Caption = Ini->ReadString("MainWnd", "MVC_Video", MVC_Video->Caption);//ビデオ(&V)
     MVC_Drawing->Caption = Ini->ReadString("MainWnd", "MVC_Drawing", MVC_Drawing->Caption);//図(&D)
-	MV_Link->Caption = Ini->ReadString("MainWnd", "MV_Link", MV_Link->Caption);//リンク(&L)
-	MVL_Link->Caption = Ini->ReadString("MainWnd", "MVL_Link", MVL_Link->Caption);//リンク線(&L)
+    MV_Link->Caption = Ini->ReadString("MainWnd", "MV_Link", MV_Link->Caption);//リンク(&L)
+    MVL_Link->Caption = Ini->ReadString("MainWnd", "MVL_Link", MVL_Link->Caption);//リンク線(&L)
     MVL_LinkHemming->Caption = Ini->ReadString("MainWnd", "MVL_LinkHemming", MVL_LinkHemming->Caption);
     MVL_LinkShadow->Caption = Ini->ReadString("MainWnd", "MVL_LinkShadow", MVL_LinkShadow->Caption);
     MVL_LinkDirection->Caption = Ini->ReadString("MainWnd", "MVL_LinkDirection", MVL_LinkDirection->Caption);//リンクの方向(&D)
@@ -12451,7 +12454,7 @@ void TFo_Main::ApplyLanguageSetting()
     MVL_LabelName->Caption = Ini->ReadString("MainWnd", "MVL_LabelName", MVL_LabelName->Caption);//ラベルの円(&N)
     MV_Text->Caption = Ini->ReadString("MainWnd", "MV_Text", MV_Text->Caption);//本文テキスト(&T)
     MVT_Text->Caption = Ini->ReadString("MainWnd", "MVT_Text", MVT_Text->Caption);//本文テキスト(&T)
-	MVT_Centering->Caption = Ini->ReadString("MainWnd", "MVT_Centering", MVT_Centering->Caption);//センタリング(&C)
+    MVT_Centering->Caption = Ini->ReadString("MainWnd", "MVT_Centering", MVT_Centering->Caption);//センタリング(&C)
     MVT_WordWrap->Caption = Ini->ReadString("MainWnd", "MVT_WordWrap", MVT_WordWrap->Caption);//右端で折り返す(&W)
     MVT_EditInBrowser->Caption = Ini->ReadString("MainWnd", "MVT_EditInBrowser", MVT_EditInBrowser->Caption);
     MVT_AlwaysShowEditor->Caption = Ini->ReadString("MainWnd", "MVT_AlwaysShowEditor", MVT_AlwaysShowEditor->Caption);
@@ -12461,7 +12464,7 @@ void TFo_Main::ApplyLanguageSetting()
     MV_Others->Caption = Ini->ReadString("MainWnd", "MV_Others", MV_Others->Caption);//その他(&O)
     MV_Score->Caption = Ini->ReadString("MainWnd", "MV_Score", MV_Score->Caption);//スコア(&S)
     MVS_Score->Caption = Ini->ReadString("MainWnd", "MVS_Score", MVS_Score->Caption);//スコア(&S)
-	MVS_Authenticity->Caption = Ini->ReadString("MainWnd", "MVS_Authenticity", MVS_Authenticity->Caption);//信頼度(&A)
+    MVS_Authenticity->Caption = Ini->ReadString("MainWnd", "MVS_Authenticity", MVS_Authenticity->Caption);//信頼度(&A)
     MVS_StartingPoint->Caption = Ini->ReadString("MainWnd", "MVS_StartingPoint", MVS_StartingPoint->Caption);//開始地点(&S)
     MVS_Destination->Caption = Ini->ReadString("MainWnd", "MVS_Destination", MVS_Destination->Caption);//目的地(&D)
     MVS_Links_Out->Caption = Ini->ReadString("MainWnd", "MVS_Links_Out", MVS_Links_Out->Caption);//リンク数（出力）(&O)
@@ -12485,180 +12488,180 @@ void TFo_Main::ApplyLanguageSetting()
     MVO_BGAnimationType->Caption = Ini->ReadString("MainWnd", "MVO_BGAnimationType", MVO_BGAnimationType->Caption);//&K
     MVO_NoScrollLag->Caption = Ini->ReadString("MainWnd", "MVO_NoScrollLag", MVO_NoScrollLag->Caption);//&N
     MVO_CursorAnimation->Caption = Ini->ReadString("MainWnd", "MVO_CursorAnimation", MVO_CursorAnimation->Caption);//&U
-	MVOB_MovingLine->Caption = Ini->ReadString("MainWnd", "MVOB_MovingLine", MVOB_MovingLine->Caption);//&M
-	MVOB_Bubble->Caption = Ini->ReadString("MainWnd", "MVOB_Bubble", MVOB_Bubble->Caption);//&B
-	MVOB_Snow->Caption = Ini->ReadString("MainWnd", "MVOB_Snow", MVOB_Snow->Caption);//&S
-	MVOB_CherryBlossom->Caption = Ini->ReadString("MainWnd", "MVOB_CherryBlossom", MVOB_CherryBlossom->Caption);//&C
-	MV_ChangeLanguage->Caption = Ini->ReadString("MainWnd", "MV_ChangeLanguage", MV_ChangeLanguage->Caption);//言語の変更(&H)
-	MV_FullScreen->Caption = Ini->ReadString("MainWnd", "MV_FullScreen", MV_FullScreen->Caption);//フルスクリーン表示(&U)
-	MV_StatusBar->Caption = Ini->ReadString("MainWnd", "MV_StatusBar", MV_StatusBar->Caption);//ステータスバー(&B)
-	M_Help->Caption = Ini->ReadString("MainWnd", "M_Help", M_Help->Caption);//ヘルプ(&H)
-	MH_Contents->Caption = Ini->ReadString("MainWnd", "MH_Contents", MH_Contents->Caption);//目次(&C)...
-	MH_FrieveSite->Caption = Ini->ReadString("MainWnd", "MH_FrieveSite", MH_FrieveSite->Caption);//Frieveのサイト(&F)...
-	MH_FIPSite->Caption = Ini->ReadString("MainWnd", "MH_FIPSite", MH_FIPSite->Caption);//Frieve Editorのサイト(&O)...
-	MH_CheckLatest->Caption = Ini->ReadString("MainWnd", "MH_CheckLatest", MH_CheckLatest->Caption);//最新バージョンを確認(&L)...
-	MH_About->Caption = Ini->ReadString("MainWnd", "MH_About", MH_About->Caption);//バージョン情報(&A)...
+    MVOB_MovingLine->Caption = Ini->ReadString("MainWnd", "MVOB_MovingLine", MVOB_MovingLine->Caption);//&M
+    MVOB_Bubble->Caption = Ini->ReadString("MainWnd", "MVOB_Bubble", MVOB_Bubble->Caption);//&B
+    MVOB_Snow->Caption = Ini->ReadString("MainWnd", "MVOB_Snow", MVOB_Snow->Caption);//&S
+    MVOB_CherryBlossom->Caption = Ini->ReadString("MainWnd", "MVOB_CherryBlossom", MVOB_CherryBlossom->Caption);//&C
+    MV_ChangeLanguage->Caption = Ini->ReadString("MainWnd", "MV_ChangeLanguage", MV_ChangeLanguage->Caption);//言語の変更(&H)
+    MV_FullScreen->Caption = Ini->ReadString("MainWnd", "MV_FullScreen", MV_FullScreen->Caption);//フルスクリーン表示(&U)
+    MV_StatusBar->Caption = Ini->ReadString("MainWnd", "MV_StatusBar", MV_StatusBar->Caption);//ステータスバー(&B)
+    M_Help->Caption = Ini->ReadString("MainWnd", "M_Help", M_Help->Caption);//ヘルプ(&H)
+    MH_Contents->Caption = Ini->ReadString("MainWnd", "MH_Contents", MH_Contents->Caption);//目次(&C)...
+    MH_FrieveSite->Caption = Ini->ReadString("MainWnd", "MH_FrieveSite", MH_FrieveSite->Caption);//Frieveのサイト(&F)...
+    MH_FIPSite->Caption = Ini->ReadString("MainWnd", "MH_FIPSite", MH_FIPSite->Caption);//Frieve Editorのサイト(&O)...
+    MH_CheckLatest->Caption = Ini->ReadString("MainWnd", "MH_CheckLatest", MH_CheckLatest->Caption);//最新バージョンを確認(&L)...
+    MH_About->Caption = Ini->ReadString("MainWnd", "MH_About", MH_About->Caption);//バージョン情報(&A)...
 
-	//ポップアップメニュー（エディタ）
-	PE_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PE_Undo->Caption);//元に戻す(&U)
-	PE_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PE_Redo->Caption);
-	PE_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", PE_Cut->Caption);//切り取り(&T)
-	PE_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy", PE_Copy->Caption);//コピー(&C)
-	PE_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", PE_Paste->Caption);//貼り付け(&P)
-	PE_Delete->Caption = Ini->ReadString("MainWnd", "ME_Delete", PE_Delete->Caption);//削除(&D)
-	PE_SelectAll->Caption = Ini->ReadString("MainWnd", "ME_SelectAll", PE_SelectAll->Caption);//全て選択(&A)
-	PE_CutToNewCard->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCard", PE_CutToNewCard->Caption);
-	PE_CutToNewCardTitle->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCardTitle", PE_CutToNewCardTitle->Caption);
-	PE_CutToNewCardTitleWithLink->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCardTitleWithLink", PE_CutToNewCardTitleWithLink->Caption);
+    //ポップアップメニュー（エディタ）
+    PE_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PE_Undo->Caption);//元に戻す(&U)
+    PE_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PE_Redo->Caption);
+    PE_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", PE_Cut->Caption);//切り取り(&T)
+    PE_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy", PE_Copy->Caption);//コピー(&C)
+    PE_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", PE_Paste->Caption);//貼り付け(&P)
+    PE_Delete->Caption = Ini->ReadString("MainWnd", "ME_Delete", PE_Delete->Caption);//削除(&D)
+    PE_SelectAll->Caption = Ini->ReadString("MainWnd", "ME_SelectAll", PE_SelectAll->Caption);//全て選択(&A)
+    PE_CutToNewCard->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCard", PE_CutToNewCard->Caption);
+    PE_CutToNewCardTitle->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCardTitle", PE_CutToNewCardTitle->Caption);
+    PE_CutToNewCardTitleWithLink->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCardTitleWithLink", PE_CutToNewCardTitleWithLink->Caption);
 
-	//ポップアップメニュー（リスト）
-	PL_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PL_NewCard->Caption);//新規カード(&C)
-	PL_DeleteCard->Caption = Ini->ReadString("MainWnd", "PM_DeleteCard", PL_DeleteCard->Caption);
-	PL_CardProperty->Caption = Ini->ReadString("MainWnd", "PM_Property", PL_CardProperty->Caption);
+    //ポップアップメニュー（リスト）
+    PL_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PL_NewCard->Caption);//新規カード(&C)
+    PL_DeleteCard->Caption = Ini->ReadString("MainWnd", "PM_DeleteCard", PL_DeleteCard->Caption);
+    PL_CardProperty->Caption = Ini->ReadString("MainWnd", "PM_Property", PL_CardProperty->Caption);
 
-	PI_NewLink->Caption = Ini->ReadString("MainWnd", "MI_NewLink", PI_NewLink->Caption);
-	PI_DeleteLink->Caption = Ini->ReadString("MainWnd", "PM_DeleteLink", PI_DeleteLink->Caption);
+    PI_NewLink->Caption = Ini->ReadString("MainWnd", "MI_NewLink", PI_NewLink->Caption);
+    PI_DeleteLink->Caption = Ini->ReadString("MainWnd", "PM_DeleteLink", PI_DeleteLink->Caption);
 
-	//ポップアップメニュー（ブラウザ）
-	PBN_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select", PBN_Select->Caption);
-	PBN_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link", PBN_Link->Caption);
-	PBN_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PBN_Undo->Caption);//元に戻す(&U)
-	PBN_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PBN_Redo->Caption);
-	PBN_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", PBN_Paste->Caption);//貼り付け(&P)
-	PBN_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PBN_NewCard->Caption);//新規カード(&C)
+    //ポップアップメニュー（ブラウザ）
+    PBN_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select", PBN_Select->Caption);
+    PBN_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link", PBN_Link->Caption);
+    PBN_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PBN_Undo->Caption);//元に戻す(&U)
+    PBN_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PBN_Redo->Caption);
+    PBN_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", PBN_Paste->Caption);//貼り付け(&P)
+    PBN_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PBN_NewCard->Caption);//新規カード(&C)
 
-	PBC_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select", PBC_Select->Caption);
-	PBC_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link", PBC_Link->Caption);
-	PBC_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PBN_Undo->Caption);//元に戻す(&U)
-	PBC_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PBN_Redo->Caption);
-	PBC_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", PBC_Cut->Caption);//切り取り(&T)
-	PBC_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy", PBC_Copy->Caption);//コピー(&C)
-	PBC_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", PBC_Paste->Caption);//貼り付け(&P)
-	PBC_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch", ME_WebSearch->Caption);//W
-	PBC_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PBC_NewCard->Caption);//新規カード(&C)
-	PBC_NewChildCard->Caption = Ini->ReadString("MainWnd", "PM_NewChildCard", PBC_NewChildCard->Caption);
-	PBC_NewBrotherCard->Caption = Ini->ReadString("MainWnd", "PM_NewBrotherCard", PBC_NewBrotherCard->Caption);
-	PBC_NewLink->Caption = Ini->ReadString("MainWnd", "MI_NewLink", PBC_NewLink->Caption);
-	PBC_NewExtLink->Caption = Ini->ReadString("MainWnd", "MI_NewExtLink", PBC_NewExtLink->Caption);
-	PBC_NewLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLabel", PBC_NewLabel->Caption);
-	PBC_DeleteCard->Caption = Ini->ReadString("MainWnd", "PM_DeleteCard", PBC_DeleteCard->Caption);
-	PBC_SetAsDefault->Caption = Ini->ReadString("MainWnd", "PM_SetAsDefault", PBC_SetAsDefault->Caption);
-	PBC_Property->Caption = Ini->ReadString("MainWnd", "PM_Property", PBC_Property->Caption);
+    PBC_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select", PBC_Select->Caption);
+    PBC_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link", PBC_Link->Caption);
+    PBC_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PBN_Undo->Caption);//元に戻す(&U)
+    PBC_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PBN_Redo->Caption);
+    PBC_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", PBC_Cut->Caption);//切り取り(&T)
+    PBC_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy", PBC_Copy->Caption);//コピー(&C)
+    PBC_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste", PBC_Paste->Caption);//貼り付け(&P)
+    PBC_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch", ME_WebSearch->Caption);//W
+    PBC_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PBC_NewCard->Caption);//新規カード(&C)
+    PBC_NewChildCard->Caption = Ini->ReadString("MainWnd", "PM_NewChildCard", PBC_NewChildCard->Caption);
+    PBC_NewBrotherCard->Caption = Ini->ReadString("MainWnd", "PM_NewBrotherCard", PBC_NewBrotherCard->Caption);
+    PBC_NewLink->Caption = Ini->ReadString("MainWnd", "MI_NewLink", PBC_NewLink->Caption);
+    PBC_NewExtLink->Caption = Ini->ReadString("MainWnd", "MI_NewExtLink", PBC_NewExtLink->Caption);
+    PBC_NewLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLabel", PBC_NewLabel->Caption);
+    PBC_DeleteCard->Caption = Ini->ReadString("MainWnd", "PM_DeleteCard", PBC_DeleteCard->Caption);
+    PBC_SetAsDefault->Caption = Ini->ReadString("MainWnd", "PM_SetAsDefault", PBC_SetAsDefault->Caption);
+    PBC_Property->Caption = Ini->ReadString("MainWnd", "PM_Property", PBC_Property->Caption);
 
-	PBL_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select", PBL_Select->Caption);
-	PBL_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link", PBL_Link->Caption);
-	PBL_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PBL_Undo->Caption);//元に戻す(&U)
-	PBL_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PBL_Redo->Caption);
-	PBL_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch", ME_WebSearch->Caption);//W
-	PBL_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PBL_NewCard->Caption);//新規カード(&C)
-	PBL_InsertCard->Caption = Ini->ReadString("MainWnd", "PM_InsertCard", PBL_InsertCard->Caption);
-	PBL_NewLinkLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLinkLabel", PBL_NewLinkLabel->Caption);
-	PBL_DeleteLink->Caption = Ini->ReadString("MainWnd", "PM_DeleteLink", PBL_DeleteLink->Caption);
-	PBL_SetAsDefault->Caption = Ini->ReadString("MainWnd", "PM_SetAsDefault", PBL_SetAsDefault->Caption);
+    PBL_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select", PBL_Select->Caption);
+    PBL_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link", PBL_Link->Caption);
+    PBL_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo", PBL_Undo->Caption);//元に戻す(&U)
+    PBL_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PBL_Redo->Caption);
+    PBL_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch", ME_WebSearch->Caption);//W
+    PBL_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard", PBL_NewCard->Caption);//新規カード(&C)
+    PBL_InsertCard->Caption = Ini->ReadString("MainWnd", "PM_InsertCard", PBL_InsertCard->Caption);
+    PBL_NewLinkLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLinkLabel", PBL_NewLinkLabel->Caption);
+    PBL_DeleteLink->Caption = Ini->ReadString("MainWnd", "PM_DeleteLink", PBL_DeleteLink->Caption);
+    PBL_SetAsDefault->Caption = Ini->ReadString("MainWnd", "PM_SetAsDefault", PBL_SetAsDefault->Caption);
 
-	//ポップアップメニュー（アレンジ）
-	PAT_Normalize->Caption = Ini->ReadString("MainWnd", "PAT_Normalize", PAT_Normalize->Caption);//ノーマライズ(&N)
-	PAT_Repulsion->Caption = Ini->ReadString("MainWnd", "PAT_Repulsion", PAT_Repulsion->Caption);//反発(&R)
-	PAT_Link->Caption = Ini->ReadString("MainWnd", "PAT_Link", PAT_Link->Caption);//リンク(&N)
-	PAT_Label->Caption = Ini->ReadString("MainWnd", "PAT_Label", PAT_Label->Caption);//ラベル(&A)
-	PAT_Index->Caption = Ini->ReadString("MainWnd", "PAT_Index", PAT_Index->Caption);//順序(&I)
-	PAT_SoftLink->Caption = Ini->ReadString("MainWnd", "PAT_SoftLink", PAT_SoftLink->Caption);//リンク(ソフト)(&K)
-	PAT_SoftLabel->Caption = Ini->ReadString("MainWnd", "PAT_SoftLabel", PAT_SoftLabel->Caption);//ラベル(ソフト)(&B)
-	PAT_SoftIndex->Caption = Ini->ReadString("MainWnd", "PAT_SoftIndex", PAT_SoftIndex->Caption);//順序(ソフト)(&D)
-	PAT_Matrix->Caption = Ini->ReadString("MainWnd", "PAT_Matrix", PAT_Matrix->Caption);//マトリクス(&M)
-	PAT_MatrixIndex->Caption = Ini->ReadString("MainWnd", "PAT_MatrixIndex", PAT_MatrixIndex->Caption);//順序(マトリクス)(&E)
-	PAT_Similarity->Caption = Ini->ReadString("MainWnd", "PAT_Similarity", PAT_Similarity->Caption);//類似度(&S)
-	PAT_SimilaritySoft->Caption = Ini->ReadString("MainWnd", "PAT_SimilaritySoft", PAT_SimilaritySoft->Caption);//類似度(ソフト)
-	PAT_TreeRadial->Caption = Ini->ReadString("MainWnd", "PAT_TreeRadial", PAT_TreeRadial->Caption);//ツリー(放射状)(&T)
+    //ポップアップメニュー（アレンジ）
+    PAT_Normalize->Caption = Ini->ReadString("MainWnd", "PAT_Normalize", PAT_Normalize->Caption);//ノーマライズ(&N)
+    PAT_Repulsion->Caption = Ini->ReadString("MainWnd", "PAT_Repulsion", PAT_Repulsion->Caption);//反発(&R)
+    PAT_Link->Caption = Ini->ReadString("MainWnd", "PAT_Link", PAT_Link->Caption);//リンク(&N)
+    PAT_Label->Caption = Ini->ReadString("MainWnd", "PAT_Label", PAT_Label->Caption);//ラベル(&A)
+    PAT_Index->Caption = Ini->ReadString("MainWnd", "PAT_Index", PAT_Index->Caption);//順序(&I)
+    PAT_SoftLink->Caption = Ini->ReadString("MainWnd", "PAT_SoftLink", PAT_SoftLink->Caption);//リンク(ソフト)(&K)
+    PAT_SoftLabel->Caption = Ini->ReadString("MainWnd", "PAT_SoftLabel", PAT_SoftLabel->Caption);//ラベル(ソフト)(&B)
+    PAT_SoftIndex->Caption = Ini->ReadString("MainWnd", "PAT_SoftIndex", PAT_SoftIndex->Caption);//順序(ソフト)(&D)
+    PAT_Matrix->Caption = Ini->ReadString("MainWnd", "PAT_Matrix", PAT_Matrix->Caption);//マトリクス(&M)
+    PAT_MatrixIndex->Caption = Ini->ReadString("MainWnd", "PAT_MatrixIndex", PAT_MatrixIndex->Caption);//順序(マトリクス)(&E)
+    PAT_Similarity->Caption = Ini->ReadString("MainWnd", "PAT_Similarity", PAT_Similarity->Caption);//類似度(&S)
+    PAT_SimilaritySoft->Caption = Ini->ReadString("MainWnd", "PAT_SimilaritySoft", PAT_SimilaritySoft->Caption);//類似度(ソフト)
+    PAT_TreeRadial->Caption = Ini->ReadString("MainWnd", "PAT_TreeRadial", PAT_TreeRadial->Caption);//ツリー(放射状)(&T)
 
-	//ポップアップメニュー（統計）
-	PMSK_Label->Caption = Ini->ReadString("MainWnd", "PMSK_Label", PMSK_Label->Caption);//ラベル(&L)
-	PMSK_NumberOfLink->Caption = Ini->ReadString("MainWnd", "PMSK_NumberOfLink", PMSK_NumberOfLink->Caption);//リンク数(&N)
-	PMSK_CreatedDate->Caption = Ini->ReadString("MainWnd", "PMSK_CreatedDate", PMSK_CreatedDate->Caption);//作成日時(&C)
-	PMSK_EditedDate->Caption = Ini->ReadString("MainWnd", "PMSK_EditedDate", PMSK_EditedDate->Caption);//編集日時(&E)
-	PMSK_ViewedDate->Caption = Ini->ReadString("MainWnd", "PMSK_ViewedDate", PMSK_ViewedDate->Caption);//閲覧日時(&V)
-	PMSKL_Total->Caption = Ini->ReadString("MainWnd", "PMSKL_Total", PMSKL_Total->Caption);//合計(&T)
-	PMSKL_Source->Caption = Ini->ReadString("MainWnd", "PMSKL_Source", PMSKL_Source->Caption);//リンク元(&S)
-	PMSKL_Destination->Caption = Ini->ReadString("MainWnd", "PMSKL_Destination", PMSKL_Destination->Caption);//リンク先(&D)
-	PMSKC_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year", PMSKC_Year->Caption);//年毎に集計(&Y)
-	PMSKC_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month", PMSKC_Month->Caption);//月毎に集計(&M)
-	PMSKC_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day", PMSKC_Day->Caption);//日毎に集計(&D)
-	PMSKC_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week", PMSKC_Week->Caption);//週毎に集計(&W)
-	PMSKC_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour", PMSKC_Hour->Caption);//時間毎に集計(&H)
-	PMSKE_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year", PMSKE_Year->Caption);//年毎に集計(&Y)
-	PMSKE_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month", PMSKE_Month->Caption);//月毎に集計(&M)
-	PMSKE_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day", PMSKE_Day->Caption);//日毎に集計(&D)
-	PMSKE_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week", PMSKE_Week->Caption);//週毎に集計(&W)
-	PMSKE_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour", PMSKE_Hour->Caption);//時間毎に集計(&H)
-	PMSKV_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year", PMSKV_Year->Caption);//年毎に集計(&Y)
-	PMSKV_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month", PMSKV_Month->Caption);//月毎に集計(&M)
-	PMSKV_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day", PMSKV_Day->Caption);//日毎に集計(&D)
-	PMSKV_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week", PMSKV_Week->Caption);//週毎に集計(&W)
-	PMSKV_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour", PMSKV_Hour->Caption);//時間毎に集計(&H)
+    //ポップアップメニュー（統計）
+    PMSK_Label->Caption = Ini->ReadString("MainWnd", "PMSK_Label", PMSK_Label->Caption);//ラベル(&L)
+    PMSK_NumberOfLink->Caption = Ini->ReadString("MainWnd", "PMSK_NumberOfLink", PMSK_NumberOfLink->Caption);//リンク数(&N)
+    PMSK_CreatedDate->Caption = Ini->ReadString("MainWnd", "PMSK_CreatedDate", PMSK_CreatedDate->Caption);//作成日時(&C)
+    PMSK_EditedDate->Caption = Ini->ReadString("MainWnd", "PMSK_EditedDate", PMSK_EditedDate->Caption);//編集日時(&E)
+    PMSK_ViewedDate->Caption = Ini->ReadString("MainWnd", "PMSK_ViewedDate", PMSK_ViewedDate->Caption);//閲覧日時(&V)
+    PMSKL_Total->Caption = Ini->ReadString("MainWnd", "PMSKL_Total", PMSKL_Total->Caption);//合計(&T)
+    PMSKL_Source->Caption = Ini->ReadString("MainWnd", "PMSKL_Source", PMSKL_Source->Caption);//リンク元(&S)
+    PMSKL_Destination->Caption = Ini->ReadString("MainWnd", "PMSKL_Destination", PMSKL_Destination->Caption);//リンク先(&D)
+    PMSKC_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year", PMSKC_Year->Caption);//年毎に集計(&Y)
+    PMSKC_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month", PMSKC_Month->Caption);//月毎に集計(&M)
+    PMSKC_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day", PMSKC_Day->Caption);//日毎に集計(&D)
+    PMSKC_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week", PMSKC_Week->Caption);//週毎に集計(&W)
+    PMSKC_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour", PMSKC_Hour->Caption);//時間毎に集計(&H)
+    PMSKE_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year", PMSKE_Year->Caption);//年毎に集計(&Y)
+    PMSKE_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month", PMSKE_Month->Caption);//月毎に集計(&M)
+    PMSKE_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day", PMSKE_Day->Caption);//日毎に集計(&D)
+    PMSKE_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week", PMSKE_Week->Caption);//週毎に集計(&W)
+    PMSKE_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour", PMSKE_Hour->Caption);//時間毎に集計(&H)
+    PMSKV_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year", PMSKV_Year->Caption);//年毎に集計(&Y)
+    PMSKV_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month", PMSKV_Month->Caption);//月毎に集計(&M)
+    PMSKV_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day", PMSKV_Day->Caption);//日毎に集計(&D)
+    PMSKV_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week", PMSKV_Week->Caption);//週毎に集計(&W)
+    PMSKV_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour", PMSKV_Hour->Caption);//時間毎に集計(&H)
 
-	//その他のテキスト
+    //その他のテキスト
 
-	MLText.Cards = Ini->ReadString("Common", "Cards", MLText.Cards);
-	MLText.Links = Ini->ReadString("Common", "Links", MLText.Links);
-	MLText.Labels = Ini->ReadString("Common", "Labels", MLText.Labels);
-	MLText.Line = Ini->ReadString("Common", "Line", MLText.Line);
-	MLText.Len = Ini->ReadString("Common", "Len", MLText.Len);
-	MLText.Size = Ini->ReadString("Common", "Size", MLText.Size);
-	MLText.Title = Ini->ReadString("Common", "Title", MLText.Title);
-	MLText.Created = Ini->ReadString("Common", "Created", MLText.Created);
-	MLText.Edited = Ini->ReadString("Common", "Edited", MLText.Edited);
-	MLText.Viewed = Ini->ReadString("Common", "Viewed", MLText.Viewed);
-	MLText.Hits = Ini->ReadString("Common", "Hits", MLText.Hits);
+    MLText.Cards = Ini->ReadString("Common", "Cards", MLText.Cards);
+    MLText.Links = Ini->ReadString("Common", "Links", MLText.Links);
+    MLText.Labels = Ini->ReadString("Common", "Labels", MLText.Labels);
+    MLText.Line = Ini->ReadString("Common", "Line", MLText.Line);
+    MLText.Len = Ini->ReadString("Common", "Len", MLText.Len);
+    MLText.Size = Ini->ReadString("Common", "Size", MLText.Size);
+    MLText.Title = Ini->ReadString("Common", "Title", MLText.Title);
+    MLText.Created = Ini->ReadString("Common", "Created", MLText.Created);
+    MLText.Edited = Ini->ReadString("Common", "Edited", MLText.Edited);
+    MLText.Viewed = Ini->ReadString("Common", "Viewed", MLText.Viewed);
+    MLText.Hits = Ini->ReadString("Common", "Hits", MLText.Hits);
 
-	MLText.EditCardTitle = Ini->ReadString("Common", "EditCardTitle", MLText.EditCardTitle);
-	MLText.EditCardText = Ini->ReadString("Common", "EditCardText", MLText.EditCardText);
-	MLText.EditLinkTitle = Ini->ReadString("Common", "EditLinkTitle", MLText.EditLinkTitle);
-	MLText.EditDrawing = Ini->ReadString("Common", "EditDrawing", MLText.EditDrawing);
+    MLText.EditCardTitle = Ini->ReadString("Common", "EditCardTitle", MLText.EditCardTitle);
+    MLText.EditCardText = Ini->ReadString("Common", "EditCardText", MLText.EditCardText);
+    MLText.EditLinkTitle = Ini->ReadString("Common", "EditLinkTitle", MLText.EditLinkTitle);
+    MLText.EditDrawing = Ini->ReadString("Common", "EditDrawing", MLText.EditDrawing);
 
-	MLText.ChangeSize = Ini->ReadString("Common", "ChangeSize", MLText.ChangeSize);
-	MLText.FixCardPosition = Ini->ReadString("Common", "FixCardPosition", MLText.FixCardPosition);
-	MLText.SetAsRootCard = Ini->ReadString("Common", "SetAsRootCard", MLText.SetAsRootCard);
+    MLText.ChangeSize = Ini->ReadString("Common", "ChangeSize", MLText.ChangeSize);
+    MLText.FixCardPosition = Ini->ReadString("Common", "FixCardPosition", MLText.FixCardPosition);
+    MLText.SetAsRootCard = Ini->ReadString("Common", "SetAsRootCard", MLText.SetAsRootCard);
 
-	MLText.EditLink = Ini->ReadString("Common", "EditLink", MLText.EditLink);
+    MLText.EditLink = Ini->ReadString("Common", "EditLink", MLText.EditLink);
 
-	MLText.AddLabel = Ini->ReadString("Common", "AddLabel", MLText.AddLabel);
-	MLText.DeleteLabel = Ini->ReadString("Common", "DeleteLabel", MLText.DeleteLabel);
-	MLText.ChangeLabel = Ini->ReadString("Common", "ChangeLabel", MLText.ChangeLabel);
-	MLText.LabelName = Ini->ReadString("Common", "LabelName", MLText.LabelName);
-	MLText.SelectLinkDestination = Ini->ReadString("Common", "SelectLinkDestination", MLText.SelectLinkDestination);
-	MLText.SelectLabelOfDestination = Ini->ReadString("Common", "SelectLabelOfDestination", MLText.SelectLabelOfDestination);
-	MLText.SelectLabel = Ini->ReadString("Common", "SelectLabel", MLText.SelectLabel);
+    MLText.AddLabel = Ini->ReadString("Common", "AddLabel", MLText.AddLabel);
+    MLText.DeleteLabel = Ini->ReadString("Common", "DeleteLabel", MLText.DeleteLabel);
+    MLText.ChangeLabel = Ini->ReadString("Common", "ChangeLabel", MLText.ChangeLabel);
+    MLText.LabelName = Ini->ReadString("Common", "LabelName", MLText.LabelName);
+    MLText.SelectLinkDestination = Ini->ReadString("Common", "SelectLinkDestination", MLText.SelectLinkDestination);
+    MLText.SelectLabelOfDestination = Ini->ReadString("Common", "SelectLabelOfDestination", MLText.SelectLabelOfDestination);
+    MLText.SelectLabel = Ini->ReadString("Common", "SelectLabel", MLText.SelectLabel);
 
-	MLText.Color = Ini->ReadString("Common", "Color", MLText.Color);
+    MLText.Color = Ini->ReadString("Common", "Color", MLText.Color);
 
-	MLText.ArrangeCards = Ini->ReadString("Common", "ArrangeCards", MLText.ArrangeCards);
+    MLText.ArrangeCards = Ini->ReadString("Common", "ArrangeCards", MLText.ArrangeCards);
 
-	MLText.ProcessingTextAnalysis = Ini->ReadString("Common", "ProcessingTextAnalysis", MLText.ProcessingTextAnalysis);
+    MLText.ProcessingTextAnalysis = Ini->ReadString("Common", "ProcessingTextAnalysis", MLText.ProcessingTextAnalysis);
 
-	MLText.Enable  = Ini->ReadString("Common", "Enable", MLText.Enable);//有効
-	MLText.Fold  = Ini->ReadString("Common", "Fold", MLText.Fold);//折畳
-	MLText.Show  = Ini->ReadString("Common", "Show", MLText.Show);//表示
-	MLText.Hide  = Ini->ReadString("Common", "Hide", MLText.Hide);//隠蔽
-	MLText.NoAssign  = Ini->ReadString("Common", "NoAssign", MLText.NoAssign);//未指定
-	MLText.NoLabel  = Ini->ReadString("Common", "NoLabel", MLText.NoLabel);//ラベルなし
-	MLText.SelectTargetCard  = Ini->ReadString("Common", "SelectTargetCard", MLText.SelectTargetCard);//リンク先カードの選択
-	MLText.Old  = Ini->ReadString("Common", "Old", MLText.Old);//古い順
-	MLText.New  = Ini->ReadString("Common", "New", MLText.New);//新しい順
-	MLText.Near  = Ini->ReadString("Common", "Near", MLText.Near);//近い順
-	MLText.Older  = Ini->ReadString("Common", "Older", MLText.Older);//より古い
-	MLText.Newer  = Ini->ReadString("Common", "Newer", MLText.Newer);//より新しい
-	MLText.SaveCheck = Ini->ReadString("Common", "SaveCheck", MLText.SaveCheck);
-	MLText.FailedToSave = Ini->ReadString("Common", "FailedToSave", MLText.FailedToSave);
-	MLText.NotFound = Ini->ReadString("Common", "NotFound", MLText.NotFound);
-	MLText.AANotEnoughMemory = Ini->ReadString("Common", "AANotEnoughMemory", MLText.AANotEnoughMemory);
-	delete Ini;
+    MLText.Enable  = Ini->ReadString("Common", "Enable", MLText.Enable);//有効
+    MLText.Fold  = Ini->ReadString("Common", "Fold", MLText.Fold);//折畳
+    MLText.Show  = Ini->ReadString("Common", "Show", MLText.Show);//表示
+    MLText.Hide  = Ini->ReadString("Common", "Hide", MLText.Hide);//隠蔽
+    MLText.NoAssign  = Ini->ReadString("Common", "NoAssign", MLText.NoAssign);//未指定
+    MLText.NoLabel  = Ini->ReadString("Common", "NoLabel", MLText.NoLabel);//ラベルなし
+    MLText.SelectTargetCard  = Ini->ReadString("Common", "SelectTargetCard", MLText.SelectTargetCard);//リンク先カードの選択
+    MLText.Old  = Ini->ReadString("Common", "Old", MLText.Old);//古い順
+    MLText.New  = Ini->ReadString("Common", "New", MLText.New);//新しい順
+    MLText.Near  = Ini->ReadString("Common", "Near", MLText.Near);//近い順
+    MLText.Older  = Ini->ReadString("Common", "Older", MLText.Older);//より古い
+    MLText.Newer  = Ini->ReadString("Common", "Newer", MLText.Newer);//より新しい
+    MLText.SaveCheck = Ini->ReadString("Common", "SaveCheck", MLText.SaveCheck);
+    MLText.FailedToSave = Ini->ReadString("Common", "FailedToSave", MLText.FailedToSave);
+    MLText.NotFound = Ini->ReadString("Common", "NotFound", MLText.NotFound);
+    MLText.AANotEnoughMemory = Ini->ReadString("Common", "AANotEnoughMemory", MLText.AANotEnoughMemory);
+    delete Ini;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MVL_LabelNameClick(TObject *Sender)
 {
-	SettingView.m_bLabelNameVisible = !SettingView.m_bLabelNameVisible;
-	m_bRedrawRequested = true;
+    SettingView.m_bLabelNameVisible = !SettingView.m_bLabelNameVisible;
+    m_bRedrawRequested = true;
 }
 //---------------------------------------------------------------------------
 
@@ -12666,10 +12669,10 @@ void __fastcall TFo_Main::MVL_LabelNameClick(TObject *Sender)
 
 void __fastcall TFo_Main::MFE_TxtFileCardTitleClick(TObject *Sender)
 {
-	if (SD_Txt->Execute()){
-		ExportCardText(0, true, SD_Txt->FileName);
-		/*
-		TStringList *SL = new TStringList();
+    if (SD_Txt->Execute()){
+        ExportCardText(0, true, SD_Txt->FileName);
+        /*
+        TStringList *SL = new TStringList();
 
         for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
             TCard *Card = m_Document->GetCardByIndex(i);
@@ -12920,11 +12923,11 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender)
         WideString WS;
         for (int i2 = 0 ; i2 < TD->m_Gram[i]->Count ; i2++){
             if (TD->m_Gram[i]->Enabled(i2)){
-				WS +=
-					TD->m_Gram[i]->Strings(i2) +
-					WideString("(") +
-					IntToStr(TD->m_Gram[i]->Values(i2)) +
-					WideString("),");
+                WS +=
+                    TD->m_Gram[i]->Strings(i2) +
+                    WideString("(") +
+                    IntToStr(TD->m_Gram[i]->Values(i2)) +
+                    WideString("),");
             }
             //RE_Edit->Lines->Add(TD->m_Gram[i]->Strings(i2));
         }
@@ -13061,7 +13064,7 @@ void __fastcall TFo_Main::PAT_ArrangeTypeClick(TObject *Sender)
 void TFo_Main::PrepareArrange()
 {
     if (SB_Arrange->Down){
-		switch (Bu_ArrangeType->Tag){
+        switch (Bu_ArrangeType->Tag){
         //case 200://200の際はIterationの中で毎回呼ぶ
         case 202://Matrix(Link)
         case 203://Matrix(Label)
@@ -13101,7 +13104,7 @@ void TFo_Main::RefreshSimMatrix()
     Fo_Progress->PFunc = this;
     Fo_Progress->Left = Fo_Main->Left + Fo_Main->Width / 2;
     Fo_Progress->Top = Fo_Main->Top + Fo_Main->Height / 2;
-	Fo_Progress->La_Progress->Caption = MLText.ProcessingTextAnalysis;
+    Fo_Progress->La_Progress->Caption = MLText.ProcessingTextAnalysis;
     Fo_Progress->ShowModal();
 /*
     int doccount = m_Document->m_Cards->Count;
@@ -13477,7 +13480,7 @@ void __fastcall TFo_Main::MV_EditorClick(TObject *Sender)
 
 void __fastcall TFo_Main::MVC_VideoClick(TObject *Sender)
 {
-	SettingView.m_bVideoVisible = !SettingView.m_bVideoVisible;
+    SettingView.m_bVideoVisible = !SettingView.m_bVideoVisible;
     m_bRedrawRequested = true;
 }
 //---------------------------------------------------------------------------
@@ -13862,15 +13865,15 @@ void TFo_Main::ExportCardText(int operation, bool btitle, AnsiString Text)
     }
 
     switch (operation){
-	case 0:
-		try{
-			SL->SaveToFile(Text);
-		}
-		catch(...){
-			ShowMessage(MLText.FailedToSave + SD_Txt->FileName + AnsiString("."));
-		}
-		break;
-	case 1:
+    case 0:
+        try{
+            SL->SaveToFile(Text);
+        }
+        catch(...){
+            ShowMessage(MLText.FailedToSave + SD_Txt->FileName + AnsiString("."));
+        }
+        break;
+    case 1:
         Clipboard()->SetTextBuf(SL->Text.c_str());
         break;
     }
@@ -15119,7 +15122,7 @@ TSRectToCard::~TSRectToCard()
 //---------------------------------------------------------------------------
 void TFo_Main::ClearStatisticsRectToCard()
 {
-	for (int i = 0 ; i < m_StatisticsRectToCard->Count ; i++){
+    for (int i = 0 ; i < m_StatisticsRectToCard->Count ; i++){
         delete (TSRectToCard *)m_StatisticsRectToCard->Items[i];
     }
     m_StatisticsRectToCard->Clear();
@@ -15148,7 +15151,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender)
     B->Style = bsSolid;
     C->FillRect(Rect(0, 0, BMP->Width, BMP->Height));
 
-	ClearStatisticsRectToCard();
+    ClearStatisticsRectToCard();
 
     {
         //棒グラフ
@@ -15516,7 +15519,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender)
                 order = 100000;
             }
             F->Color = TColor(m_nFGColor);
-			for (int i = 0 ; i <= max ; i += order){
+            for (int i = 0 ; i <= max ; i += order){
                 AnsiString v = IntToStr(i);
                 int x = leftmargin + textwidth + leftmargin * 2 + barwidth * i / max;
                 C->TextOut(
@@ -15664,8 +15667,8 @@ void TFo_Main::LinktoAllCardswithDesignatedLabel(TList *IDs)
 void __fastcall TFo_Main::MI_LinktoAllCardswithDesignatedLabelClick(
       TObject *Sender)
 {
-	Fo_Select = new TFo_Select(this);
-	Fo_Select->m_Document = m_Document;
+    Fo_Select = new TFo_Select(this);
+    Fo_Select->m_Document = m_Document;
     Fo_Select->Caption = MLText.SelectLabelOfDestination;
     Fo_Select->m_nType = 1;
     Fo_Select->m_bMultiSelect = true;
@@ -15682,8 +15685,8 @@ void __fastcall TFo_Main::MI_LinktoAllCardswithDesignatedLabelClick(
 void __fastcall TFo_Main::MI_NewCardLinkstoAllCardswithDesignatedLabelClick(
       TObject *Sender)
 {
-	Fo_Select = new TFo_Select(this);
-	Fo_Select->m_Document = m_Document;
+    Fo_Select = new TFo_Select(this);
+    Fo_Select->m_Document = m_Document;
     Fo_Select->Caption = MLText.SelectLabelOfDestination;
     Fo_Select->m_nType = 1;
     Fo_Select->m_bMultiSelect = true;
@@ -15739,8 +15742,8 @@ void __fastcall TFo_Main::MI_NewCardLinkstoAllCardswithDesignatedLabelClick(
 void __fastcall TFo_Main::MI_AddDesignatedLabeltoAllDestinationCardsClick(
       TObject *Sender)
 {
-	Fo_Select = new TFo_Select(this);
-	Fo_Select->m_Document = m_Document;
+    Fo_Select = new TFo_Select(this);
+    Fo_Select->m_Document = m_Document;
     Fo_Select->Caption = MLText.SelectLabel;
     Fo_Select->m_nType = 1;
     Fo_Select->m_bMultiSelect = true;
@@ -15828,7 +15831,7 @@ void __fastcall TFo_Main::PM_StatisticKeyClick(TObject *Sender)
 
 void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender)
 {
-	//バックグラウンドバッファ作成
+    //バックグラウンドバッファ作成
     Graphics::TBitmap *BMP = new Graphics::TBitmap();
     BMP->Width = PB_Drawing->Width;
     BMP->Height = PB_Drawing->Height;
@@ -15857,131 +15860,131 @@ void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender)
         leftspace = (BMP->Width - sqrsize) / 2;
     }else{
         topspace = (BMP->Height - sqrsize) / 2;
-	}
-	float zoom = TB_DZoom->Position * 0.0001f;
-	m_DrawingRect = Rect(
-		leftspace + sqrsize / 2 - sqrsize * zoom * 0.5,
-		topspace + sqrsize / 2 - sqrsize * zoom * 0.5,
-		leftspace + sqrsize / 2 + sqrsize * zoom * 0.5,
-		topspace + sqrsize / 2 + sqrsize * zoom * 0.5
-		);
-	P->Width = 1;
-	P->Style = psDot;
-	P->Color = TColor(m_nFGColor);
-	B->Style = bsClear;
-	C->Rectangle(
-		leftspace + sqrsize / 2 - sqrsize * zoom * 0.5,
-		topspace + sqrsize / 2 - sqrsize * zoom * 0.375,
-		leftspace + sqrsize / 2 + sqrsize * zoom * 0.5,
-		topspace + sqrsize / 2 + sqrsize * zoom * 0.375
+    }
+    float zoom = TB_DZoom->Position * 0.0001f;
+    m_DrawingRect = Rect(
+        leftspace + sqrsize / 2 - sqrsize * zoom * 0.5,
+        topspace + sqrsize / 2 - sqrsize * zoom * 0.5,
+        leftspace + sqrsize / 2 + sqrsize * zoom * 0.5,
+        topspace + sqrsize / 2 + sqrsize * zoom * 0.5
+        );
+    P->Width = 1;
+    P->Style = psDot;
+    P->Color = TColor(m_nFGColor);
+    B->Style = bsClear;
+    C->Rectangle(
+        leftspace + sqrsize / 2 - sqrsize * zoom * 0.5,
+        topspace + sqrsize / 2 - sqrsize * zoom * 0.375,
+        leftspace + sqrsize / 2 + sqrsize * zoom * 0.5,
+        topspace + sqrsize / 2 + sqrsize * zoom * 0.375
         );
 
     //図形描画
     P->Color = TColor(m_nFGColor);
-	B->Color = TColor(m_nFGColor);
+    B->Color = TColor(m_nFGColor);
     P->Width = 3;
-	m_Drawing->Draw(C, m_DrawingRect);
+    m_Drawing->Draw(C, m_DrawingRect);
 
-	//カードプレビュー表示
-	/*
-	現在DrawCardがブラウザへの描画しか考慮していないためシンプルに実現できない
-	具体的には、m_CardXなどの情報が必要（PaintSub内で更新している）
-	これをプレビュー毎に作りなおさなければならない
+    //カードプレビュー表示
+    /*
+    現在DrawCardがブラウザへの描画しか考慮していないためシンプルに実現できない
+    具体的には、m_CardXなどの情報が必要（PaintSub内で更新している）
+    これをプレビュー毎に作りなおさなければならない
 
-	int idx = m_Document->SearchCardIndex(m_nTargetCard);
-	if (idx >= 0) {
-		TCard *Card = m_Document->GetCardByIndex(idx);
-		if (Card) {
-			TColor HMColor = TColor(m_nBGColor);
-			float SizeX = Card->m_nSize;
-			if (m_Document->CountEnableLabel(Card)){
-				//ラベルあり（ラベルの色にする）
-				TColor c = GetCardColor(Card, SizeX);
-				P->Color = HalfColor(c, m_nBGColor, 0.33f);
-				B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
-			}else{
-				//ラベルなし
-				P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
-				//B->Color = TColor(m_nBGColor);//HalfColor(P->Color, m_nBGColor, 0.75f);
-				B->Color = HalfColor(P->Color, m_nBGColor, 0.875f);
-			}
+    int idx = m_Document->SearchCardIndex(m_nTargetCard);
+    if (idx >= 0) {
+        TCard *Card = m_Document->GetCardByIndex(idx);
+        if (Card) {
+            TColor HMColor = TColor(m_nBGColor);
+            float SizeX = Card->m_nSize;
+            if (m_Document->CountEnableLabel(Card)){
+                //ラベルあり（ラベルの色にする）
+                TColor c = GetCardColor(Card, SizeX);
+                P->Color = HalfColor(c, m_nBGColor, 0.33f);
+                B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
+            }else{
+                //ラベルなし
+                P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
+                //B->Color = TColor(m_nBGColor);//HalfColor(P->Color, m_nBGColor, 0.75f);
+                B->Color = HalfColor(P->Color, m_nBGColor, 0.875f);
+            }
 
-			Card->m_Color = P->Color;
-			DrawCard(C, Card, (int)SizeX, idx, HMColor, 0);
-		}
-	}
-	*/
+            Card->m_Color = P->Color;
+            DrawCard(C, Card, (int)SizeX, idx, HMColor, 0);
+        }
+    }
+    */
 
-	//フォアグラウンドに描画
+    //フォアグラウンドに描画
     PB_Drawing->Canvas->Draw(0, 0, BMP);
 
     //BMP破棄
-	delete BMP;
+    delete BMP;
 
-	m_Drawing->m_bDrawRequest = false;
+    m_Drawing->m_bDrawRequest = false;
 }
 //---------------------------------------------------------------------------
 void TFo_Main::ApplyDrawing()
 {
-	TCard *Card = m_Document->GetCard(m_nCurrentCard);
-	if (Card && m_Drawing->m_bModified) {
-		m_Drawing->m_bModified = false;
-		BackupSub(MLText.EditDrawing);
-		delete Card->m_Drawing;
-		Card->m_Drawing = new TDrawing(*m_Drawing);
-	}
+    TCard *Card = m_Document->GetCard(m_nCurrentCard);
+    if (Card && m_Drawing->m_bModified) {
+        m_Drawing->m_bModified = false;
+        BackupSub(MLText.EditDrawing);
+        delete Card->m_Drawing;
+        Card->m_Drawing = new TDrawing(*m_Drawing);
+    }
 }
 
 void __fastcall TFo_Main::PB_DrawingMouseDown(TObject *Sender,
-	  TMouseButton Button, TShiftState Shift, int X, int Y)
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
     TB_DZoom->SetFocus();
-	if (Button == mbLeft){
-		m_Drawing->m_nPenColor = TColor(0x7fffffff);
-		if (Sh_DColor->Pen->Width > 1) {
-			m_Drawing->m_nPenColor = Sh_DColor->Brush->Color;
-		}
-		m_Drawing->SetTool(m_DrawingTool);
-		m_Drawing->MouseDown(
-			(X - m_DrawingRect.left) * 1.0 / (m_DrawingRect.right - m_DrawingRect.left),
-			(Y - m_DrawingRect.top) * 1.0 / (m_DrawingRect.bottom - m_DrawingRect.top),
-			m_DrawingRect.right - m_DrawingRect.left,
-			Shift
-			);
-		PB_DrawingPaint(Sender);
-	}
+    if (Button == mbLeft){
+        m_Drawing->m_nPenColor = TColor(0x7fffffff);
+        if (Sh_DColor->Pen->Width > 1) {
+            m_Drawing->m_nPenColor = Sh_DColor->Brush->Color;
+        }
+        m_Drawing->SetTool(m_DrawingTool);
+        m_Drawing->MouseDown(
+            (X - m_DrawingRect.left) * 1.0 / (m_DrawingRect.right - m_DrawingRect.left),
+            (Y - m_DrawingRect.top) * 1.0 / (m_DrawingRect.bottom - m_DrawingRect.top),
+            m_DrawingRect.right - m_DrawingRect.left,
+            Shift
+            );
+        PB_DrawingPaint(Sender);
+    }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::PB_DrawingMouseMove(TObject *Sender,
-	  TShiftState Shift, int X, int Y)
+      TShiftState Shift, int X, int Y)
 {
-	m_Drawing->MouseMove(
-		(X - m_DrawingRect.left) * 1.0 / (m_DrawingRect.right - m_DrawingRect.left),
-		(Y - m_DrawingRect.top) * 1.0 / (m_DrawingRect.bottom - m_DrawingRect.top)
-		);
-	PB_DrawingPaint(Sender);
+    m_Drawing->MouseMove(
+        (X - m_DrawingRect.left) * 1.0 / (m_DrawingRect.right - m_DrawingRect.left),
+        (Y - m_DrawingRect.top) * 1.0 / (m_DrawingRect.bottom - m_DrawingRect.top)
+        );
+    PB_DrawingPaint(Sender);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::PB_DrawingMouseUp(TObject *Sender,
-	  TMouseButton Button, TShiftState Shift, int X, int Y)
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-	if (Button == mbLeft){
-		m_Drawing->MouseUp(
-			(X - m_DrawingRect.left) * 1.0 / (m_DrawingRect.right - m_DrawingRect.left),
-			(Y - m_DrawingRect.top) * 1.0 / (m_DrawingRect.bottom - m_DrawingRect.top)
-			);
-		PB_DrawingPaint(Sender);
-		ApplyDrawing();
-	}
+    if (Button == mbLeft){
+        m_Drawing->MouseUp(
+            (X - m_DrawingRect.left) * 1.0 / (m_DrawingRect.right - m_DrawingRect.left),
+            (Y - m_DrawingRect.top) * 1.0 / (m_DrawingRect.bottom - m_DrawingRect.top)
+            );
+        PB_DrawingPaint(Sender);
+        ApplyDrawing();
+    }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::SB_DrawingToolClick(TObject *Sender)
 {
-	m_DrawingTool = ((TSpeedButton*)Sender)->Tag;
-	m_Drawing->ClearSelection();
+    m_DrawingTool = ((TSpeedButton*)Sender)->Tag;
+    m_Drawing->ClearSelection();
 }
 //---------------------------------------------------------------------------
 
@@ -15990,39 +15993,39 @@ void __fastcall TFo_Main::SB_DrawingToolClick(TObject *Sender)
 
 void __fastcall TFo_Main::Bu_DColorClick(TObject *Sender)
 {
-	CD_Color->Color = Sh_DColor->Brush->Color;
-	if (CD_Color->Execute()){
-		Sh_DColor->Brush->Color = CD_Color->Color;
-		Sh_DColorMouseDown(Sender, mbLeft, TShiftState(), 0, 0);
-	}
+    CD_Color->Color = Sh_DColor->Brush->Color;
+    if (CD_Color->Execute()){
+        Sh_DColor->Brush->Color = CD_Color->Color;
+        Sh_DColorMouseDown(Sender, mbLeft, TShiftState(), 0, 0);
+    }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::Sh_DColorDefaultMouseDown(TObject *Sender,
-	  TMouseButton Button, TShiftState Shift, int X, int Y)
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-	Sh_DColorDefault->Pen->Width = 3;
-	Sh_DColor->Pen->Width = 1;
-	m_Drawing->ChangePenColor(TColor(0x7fffffff));
-	PB_DrawingPaint(Sender);
-	ApplyDrawing();
+    Sh_DColorDefault->Pen->Width = 3;
+    Sh_DColor->Pen->Width = 1;
+    m_Drawing->ChangePenColor(TColor(0x7fffffff));
+    PB_DrawingPaint(Sender);
+    ApplyDrawing();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::Sh_DColorMouseDown(TObject *Sender,
-	  TMouseButton Button, TShiftState Shift, int X, int Y)
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-	Sh_DColorDefault->Pen->Width = 1;
-	Sh_DColor->Pen->Width = 3;
-	m_Drawing->ChangePenColor(Sh_DColor->Brush->Color);
-	PB_DrawingPaint(Sender);
-	ApplyDrawing();
+    Sh_DColorDefault->Pen->Width = 1;
+    Sh_DColor->Pen->Width = 3;
+    m_Drawing->ChangePenColor(Sh_DColor->Brush->Color);
+    PB_DrawingPaint(Sender);
+    ApplyDrawing();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MVC_DrawingClick(TObject *Sender)
 {
-	SettingView.m_bDrawingVisible = !SettingView.m_bDrawingVisible;
+    SettingView.m_bDrawingVisible = !SettingView.m_bDrawingVisible;
     m_bRedrawRequested = true;
 }
 //---------------------------------------------------------------------------
@@ -16030,50 +16033,50 @@ void __fastcall TFo_Main::MVC_DrawingClick(TObject *Sender)
 
 void __fastcall TFo_Main::MFE_HierarchicalTextFileClick(TObject *Sender)
 {
-	TCard *Card = m_Document->GetCard(m_nTargetCard);
-	if (Card) {
-		//デフォルトのカード名を現在のカードのタイトルにする
-		SD_Txt->FileName = Card->m_Title;
-		if (SD_Txt->Execute()){
-			TStringList *SL = new TStringList();
-			ExportHierarchicalText(SL, 1, ".", Card);
-			try{
-				SL->SaveToFile(SD_Txt->FileName);
-			}
-			catch(...){
-				ShowMessage(MLText.FailedToSave + SD_Txt->FileName + AnsiString("."));
-			}
-			delete SL;
-		}
-	}
+    TCard *Card = m_Document->GetCard(m_nTargetCard);
+    if (Card) {
+        //デフォルトのカード名を現在のカードのタイトルにする
+        SD_Txt->FileName = Card->m_Title;
+        if (SD_Txt->Execute()){
+            TStringList *SL = new TStringList();
+            ExportHierarchicalText(SL, 1, ".", Card);
+            try{
+                SL->SaveToFile(SD_Txt->FileName);
+            }
+            catch(...){
+                ShowMessage(MLText.FailedToSave + SD_Txt->FileName + AnsiString("."));
+            }
+            delete SL;
+        }
+    }
 }
 //---------------------------------------------------------------------------
 void TFo_Main::ExportHierarchicalText(TStringList *SL, int CurrentLevel, AnsiString HChar,
-	TCard *CurrentParent){
-	//階層テキスト出力のためのサブルーチン。CurrentParentにぶら下がっているすべてのカードについて、その下の階層を出力させる。このルーチンは再帰的に呼ばれる
-	for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++) {
-		TCard *Card = m_Document->GetCardByIndex(ic);
-		if (Card) {
-			if (Card->m_nParentID == CurrentParent->m_nID) {
-				//現在の親にぶら下がっているカード
+    TCard *CurrentParent){
+    //階層テキスト出力のためのサブルーチン。CurrentParentにぶら下がっているすべてのカードについて、その下の階層を出力させる。このルーチンは再帰的に呼ばれる
+    for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++) {
+        TCard *Card = m_Document->GetCardByIndex(ic);
+        if (Card) {
+            if (Card->m_nParentID == CurrentParent->m_nID) {
+                //現在の親にぶら下がっているカード
 
-				//カードタイトル出力
-				AnsiString S;
-				for (int ih = 0 ; ih < CurrentLevel ; ih++) {
-					S += HChar;
-				}
-				SL->Add(S + Card->m_Title);
+                //カードタイトル出力
+                AnsiString S;
+                for (int ih = 0 ; ih < CurrentLevel ; ih++) {
+                    S += HChar;
+                }
+                SL->Add(S + Card->m_Title);
 
-				//カードの内容出力
-				for (int il = 0 ; il < Card->m_Lines->Count ; il++) {
-					SL->Add(Card->m_Lines->Strings[il]);
-				}
+                //カードの内容出力
+                for (int il = 0 ; il < Card->m_Lines->Count ; il++) {
+                    SL->Add(Card->m_Lines->Strings[il]);
+                }
 
-				//下位カードの内容出力
-				ExportHierarchicalText(SL, CurrentLevel + 1, HChar, Card);
-			}
-		}
-	}
+                //下位カードの内容出力
+                ExportHierarchicalText(SL, CurrentLevel + 1, HChar, Card);
+            }
+        }
+    }
 }
 //---------------------------------------------------------------------------
 
@@ -16084,11 +16087,11 @@ void __fastcall TFo_Main::ME_ReplaceClick(TObject *Sender)
         SearchKeyword = SelText;
     }
     Ed_Title->SelLength = 0;
-	RE_Edit->SelLength = 0;
-	Fo_Search->bReplace = true;
-	Fo_Search->Show();
+    RE_Edit->SelLength = 0;
+    Fo_Search->bReplace = true;
+    Fo_Search->Show();
     Fo_Search->Ch_Backward->Checked = Sender == (TObject*)ME_FindPrevious;
-	Fo_Search->Ch_GlobalSearch->Checked = Sender != (TObject*)ME_FindNext && Sender != (TObject*)ME_FindPrevious;
+    Fo_Search->Ch_GlobalSearch->Checked = Sender != (TObject*)ME_FindNext && Sender != (TObject*)ME_FindPrevious;
 }
 //---------------------------------------------------------------------------
 
@@ -16105,138 +16108,138 @@ void __fastcall TFo_Main::MS_ResetAllDatesClick(TObject *Sender)
 
 void __fastcall TFo_Main::MS_OutputWordNgramClick(TObject *Sender)
 {
-	if (!SD_CSV->Execute()) {
+    if (!SD_CSV->Execute()) {
         return;
-	}
+    }
 
     int doccount = m_Document->m_Cards->Count;
 
-	//全文章を文字N-gramに分解
-	TWideStringList *WS = new TWideStringList();
-	for (int i = 0 ; i < doccount ; i++){
-		TCard *Card = m_Document->GetCardByIndex(i);
-		WS->Add(Card->m_Lines->Text);
-	}
+    //全文章を文字N-gramに分解
+    TWideStringList *WS = new TWideStringList();
+    for (int i = 0 ; i < doccount ; i++){
+        TCard *Card = m_Document->GetCardByIndex(i);
+        WS->Add(Card->m_Lines->Text);
+    }
 
-	float fdummy;
-	bool bdummy = false;
-	const int n = 16;//up to 16-gram
-	TTextDecomposer *TD = new TTextDecomposer(WS, n, 0, 0.0f, 0.0f, fdummy, bdummy, 0x1);
+    float fdummy;
+    bool bdummy = false;
+    const int n = 16;//up to 16-gram
+    TTextDecomposer *TD = new TTextDecomposer(WS, n, 0, 0.0f, 0.0f, fdummy, bdummy, 0x1);
 
-	//文字N-gramをファイルに出力
-	FILE *F = fopen(SD_CSV->FileName.c_str(), "wt");
+    //文字N-gramをファイルに出力
+    FILE *F = fopen(SD_CSV->FileName.c_str(), "wt");
     fprintf(F, "String,Freq\n");
 
-	int currentindex[n];
-	for (int i = 0 ; i < TD->m_nMaxCombi ; i++){
-		TD->m_Gram[i]->SortValue();
-		currentindex[i] = TD->m_Gram[i]->Count - 1;
-	}
+    int currentindex[n];
+    for (int i = 0 ; i < TD->m_nMaxCombi ; i++){
+        TD->m_Gram[i]->SortValue();
+        currentindex[i] = TD->m_Gram[i]->Count - 1;
+    }
 
-	while (true){
-    	//一番頻度の多い文字列を探す
-		int max = 0;
-		int maxindex = 0;
-		for (int in = n - 1 ; in >= 0 ; in--) if (currentindex[in] >= 0){
-			int v = TD->m_Gram[in]->Values(currentindex[in]);
-			if (v > max) {
-				max = v;
-				maxindex = in;    
-			}
-		}
-		if (!max) {
-			//もう文字列がないので終了
-			break;
-		}
+    while (true){
+        //一番頻度の多い文字列を探す
+        int max = 0;
+        int maxindex = 0;
+        for (int in = n - 1 ; in >= 0 ; in--) if (currentindex[in] >= 0){
+            int v = TD->m_Gram[in]->Values(currentindex[in]);
+            if (v > max) {
+                max = v;
+                maxindex = in;    
+            }
+        }
+        if (!max) {
+            //もう文字列がないので終了
+            break;
+        }
 
-		//一番頻度の多かった文字列から順に出力
-		while (currentindex[maxindex] >= 0){
-			if (TD->m_Gram[maxindex]->Enabled(currentindex[maxindex])) {
-				int v = TD->m_Gram[maxindex]->Values(currentindex[maxindex]);
-				if (v == max) {
-					AnsiString S = TD->m_Gram[maxindex]->Strings(currentindex[maxindex]);
-					if (!(S.Pos("\"") || S.Pos("\n")  || S.Pos("\r")|| S.Pos("\t"))) {
-						//書き出せない文字は入っていない
-						fprintf(F, "%s,%d\n", S.c_str(), v);
-					}
-					currentindex[maxindex]--;
-				}else {
-					//頻度が減ったら終わり
-					break;
-				}
-			}else {
-				currentindex[maxindex]--;
-			}
-		}
-	}
+        //一番頻度の多かった文字列から順に出力
+        while (currentindex[maxindex] >= 0){
+            if (TD->m_Gram[maxindex]->Enabled(currentindex[maxindex])) {
+                int v = TD->m_Gram[maxindex]->Values(currentindex[maxindex]);
+                if (v == max) {
+                    AnsiString S = TD->m_Gram[maxindex]->Strings(currentindex[maxindex]);
+                    if (!(S.Pos("\"") || S.Pos("\n")  || S.Pos("\r")|| S.Pos("\t"))) {
+                        //書き出せない文字は入っていない
+                        fprintf(F, "%s,%d\n", S.c_str(), v);
+                    }
+                    currentindex[maxindex]--;
+                }else {
+                    //頻度が減ったら終わり
+                    break;
+                }
+            }else {
+                currentindex[maxindex]--;
+            }
+        }
+    }
 
-	fclose(F);
+    fclose(F);
 
-	delete TD;
+    delete TD;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MS_TextAnalysisTestClick(TObject *Sender)
 {
-	PC_Client->ActivePage = TS_Editor;
-	Bu_TestClick(Sender);
+    PC_Client->ActivePage = TS_Editor;
+    Bu_TestClick(Sender);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MS_ImportCSVClick(TObject *Sender)
 {
-	if (!OD_CSV->Execute()) {
-    	return;
-	}
+    if (!OD_CSV->Execute()) {
+        return;
+    }
 
-	BackupSub(MS_ImportCSV->Caption);
+    BackupSub(MS_ImportCSV->Caption);
 
-	TStringList *SL = new TStringList();
-	SL->LoadFromFile(OD_CSV->FileName);
+    TStringList *SL = new TStringList();
+    SL->LoadFromFile(OD_CSV->FileName);
 
-	WideString S = SL->Strings[0];
-	SplitStrBy(S, ",");
+    WideString S = SL->Strings[0];
+    SplitStrBy(S, ",");
 
-	TStringList *Tags = new TStringList();
-	int FirstLabel = m_Document->m_Labels[0]->Count + 1;
-	while (S != ""){
-		WideString S2 = SplitStrBy(S, ",");
-		Tags->Add(S2);
-		TCardLabel *Label = m_Document->NewLabel(0);
-		Label->m_Name = S2;
-	}
+    TStringList *Tags = new TStringList();
+    int FirstLabel = m_Document->m_Labels[0]->Count + 1;
+    while (S != ""){
+        WideString S2 = SplitStrBy(S, ",");
+        Tags->Add(S2);
+        TCardLabel *Label = m_Document->NewLabel(0);
+        Label->m_Name = S2;
+    }
 
-	for (int i = 1 ; i < SL->Count ; i++){
-		TCard *Card = m_Document->NewCard(m_Document->m_Cards->Count);
-		WideString S = SL->Strings[i];
-		WideString S2;
-		if (S.SubString(1, 1) == "\"") {
-			S = S.SubString(2, S.Length());
-			while (true) {
-				int p1 = S.Pos("\"\"");
-				int p2 = S.Pos("\",");
-				if (p1 && (p1 < p2)) {
-					S2 += S.SubString(1, p1);
-					S = S.SubString(p1 + 2, S.Length());    
-				}else{
-                	break;
-				}
-			}
-			S2 += SplitStrBy(S, "\",");
-		}else{
-	        S2 = SplitStrBy(S, ",");
-		}
-		Card->m_Lines->Text = S2;
+    for (int i = 1 ; i < SL->Count ; i++){
+        TCard *Card = m_Document->NewCard(m_Document->m_Cards->Count);
+        WideString S = SL->Strings[i];
+        WideString S2;
+        if (S.SubString(1, 1) == "\"") {
+            S = S.SubString(2, S.Length());
+            while (true) {
+                int p1 = S.Pos("\"\"");
+                int p2 = S.Pos("\",");
+                if (p1 && (p1 < p2)) {
+                    S2 += S.SubString(1, p1);
+                    S = S.SubString(p1 + 2, S.Length());    
+                }else{
+                    break;
+                }
+            }
+            S2 += SplitStrBy(S, "\",");
+        }else{
+            S2 = SplitStrBy(S, ",");
+        }
+        Card->m_Lines->Text = S2;
 
-		for (int it = 0 ; it < Tags->Count ; it++) {
-			if (SplitStrBy(S, ",") == "1"){
-				Card->m_Labels->AddLabel(FirstLabel + it);
-			}
-		}
-	}
+        for (int it = 0 ; it < Tags->Count ; it++) {
+            if (SplitStrBy(S, ",") == "1"){
+                Card->m_Labels->AddLabel(FirstLabel + it);
+            }
+        }
+    }
 
-	delete Tags;
-	delete SL;
+    delete Tags;
+    delete SL;
 }
 //---------------------------------------------------------------------------
 

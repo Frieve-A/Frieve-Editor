@@ -25,7 +25,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
          Application->Initialize();
          Application->Title = AppTitle;
          Application->Title = "Frieve Editor";
-		Application->CreateForm(__classid(TFo_Main), &Fo_Main);
+        Application->CreateForm(__classid(TFo_Main), &Fo_Main);
          Application->CreateForm(__classid(TFo_Search), &Fo_Search);
          Application->CreateForm(__classid(TFo_View), &Fo_View);
          Application->CreateForm(__classid(TFo_RandomAnimation), &Fo_RandomAnimation);

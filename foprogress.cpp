@@ -14,14 +14,14 @@ TFo_Progress *Fo_Progress;
 //---------------------------------------------------------------------------
 void TFo_Progress::ApplyLanguageSetting()
 {
-	if (!FileExists(LanguageFileName())){
-		return;
-	}
-	TFastIni *Ini = new TFastIni(LanguageFileName());
+    if (!FileExists(LanguageFileName())){
+        return;
+    }
+    TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	Bu_Cancel->Caption = Ini->ReadString("Dialog", "Bu_Cancel", Bu_Cancel->Caption);
+    Bu_Cancel->Caption = Ini->ReadString("Dialog", "Bu_Cancel", Bu_Cancel->Caption);
 
-	delete Ini;
+    delete Ini;
 }
 //---------------------------------------------------------------------------
 __fastcall TFo_Progress::TFo_Progress(TComponent* Owner)
@@ -43,7 +43,7 @@ void __fastcall TFo_Progress::FormActivate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFo_Progress::FormShow(TObject *Sender)
 {
-	ApplyLanguageSetting();
+    ApplyLanguageSetting();
 
     PG_Progress->Position = 0;
     Width = 0;

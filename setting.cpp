@@ -11,64 +11,64 @@ TMLText MLText;
 //---------------------------------------------------------------------------
 TMLText::TMLText()
 {
-	Cards = "Cards";//カード
-	Links = "Links";//リンク
-	Labels = "Labels";//ラベル
-	Line = "Line";//行
-	Len = "Len";//文字
-	Size = "Size";//サイズ
-	Title = "Title";//名前
-	Created = "Created";//作成日時
-	Edited = "Edited";//編集日時
-	Viewed = "Viewed";//閲覧日時
-	Hits = "Hits";//件
+    Cards = "Cards";//カード
+    Links = "Links";//リンク
+    Labels = "Labels";//ラベル
+    Line = "Line";//行
+    Len = "Len";//文字
+    Size = "Size";//サイズ
+    Title = "Title";//名前
+    Created = "Created";//作成日時
+    Edited = "Edited";//編集日時
+    Viewed = "Viewed";//閲覧日時
+    Hits = "Hits";//件
 
-	EditCardTitle = "Edit Card Title";
-	EditCardText = "Edit Card Text";
-	EditLinkTitle = "Edit Link Title";
-	EditDrawing = "Edit Drawing";
+    EditCardTitle = "Edit Card Title";
+    EditCardText = "Edit Card Text";
+    EditLinkTitle = "Edit Link Title";
+    EditDrawing = "Edit Drawing";
 
-	ChangeSize = "Change Size";//サイズの変更
-	FixCardPosition = "Fix Card Position";//カード位置の固定
-	SetAsRootCard = "Set as Root Card";//ルートカードに指定
+    ChangeSize = "Change Size";//サイズの変更
+    FixCardPosition = "Fix Card Position";//カード位置の固定
+    SetAsRootCard = "Set as Root Card";//ルートカードに指定
 
-	EditLink = "Edit Link";//リンクの編集
+    EditLink = "Edit Link";//リンクの編集
 
-	AddLabel = "Add Label";//ラベルの追加
-	DeleteLabel = "Delete Label";//ラベルの削除
-	ChangeLabel = "Change Label";//ラベルの変更
-	LabelName = "Label Name";//ラベル名
-	SelectLinkDestination = "Select Destination";
-	SelectLabelOfDestination = "Select Label of Destination";
-	SelectLabel = "Select Label";
+    AddLabel = "Add Label";//ラベルの追加
+    DeleteLabel = "Delete Label";//ラベルの削除
+    ChangeLabel = "Change Label";//ラベルの変更
+    LabelName = "Label Name";//ラベル名
+    SelectLinkDestination = "Select Destination";
+    SelectLabelOfDestination = "Select Label of Destination";
+    SelectLabel = "Select Label";
 
-	Color = "Color";
+    Color = "Color";
 
-	ArrangeCards = "Arrange Cards";
+    ArrangeCards = "Arrange Cards";
 
-	ProcessingTextAnalysis = "Processing text analysis...";
+    ProcessingTextAnalysis = "Processing text analysis...";
 
-	Enable = "Enable";//有効
-	Fold = "Fold";//折畳
-	Show = "Show";//表示
-	Hide = "Hide";//隠蔽
-	NoAssign = "No Assign";//未指定
-	NoLabel = "No Label";//ラベルなし
-	SelectTargetCard = "Select Target Card";//リンク先カードの選択
-	Old = "Old";//古い順
-	New = "New";//新しい順
-	Near = "Near";//近い順
-	Older = "Older";//より古い
-	Newer = "Newer";//より新しい
-	SaveCheck = "This document has changed. Save?";
-	FailedToSave = "Failed to save ";
-	NotFound = " is not found.";
-	AANotEnoughMemory = "Anti-Aliasing : Not enough memory";
+    Enable = "Enable";//有効
+    Fold = "Fold";//折畳
+    Show = "Show";//表示
+    Hide = "Hide";//隠蔽
+    NoAssign = "No Assign";//未指定
+    NoLabel = "No Label";//ラベルなし
+    SelectTargetCard = "Select Target Card";//リンク先カードの選択
+    Old = "Old";//古い順
+    New = "New";//新しい順
+    Near = "Near";//近い順
+    Older = "Older";//より古い
+    Newer = "Newer";//より新しい
+    SaveCheck = "This document has changed. Save?";
+    FailedToSave = "Failed to save ";
+    NotFound = " is not found.";
+    AANotEnoughMemory = "Anti-Aliasing : Not enough memory";
 }
 //---------------------------------------------------------------------------
 AnsiString LanguageFileName()
 {
-	return ExtractFilePath(ParamStr(0)) + SettingView.m_Language + ".lng";
+    return ExtractFilePath(ParamStr(0)) + SettingView.m_Language + ".lng";
 }
 //---------------------------------------------------------------------------
 TSettingView::TSettingView()
@@ -98,7 +98,7 @@ TSettingView::TSettingView()
     m_bImageVisible = true;
     m_bVideoVisible = true;
     m_bDrawingVisible = true;
-	m_nImageLimitation = 80;
+    m_nImageLimitation = 80;
     m_bMagnifyFocused = false;
 
     m_bTextVisible = true;
@@ -210,10 +210,10 @@ void TSettingView::WriteToIni(TIniFile *Ini, AnsiString Section)
     Ini->WriteBool(Section, "CardShadow", m_bCardShadow);
     Ini->WriteBool(Section, "CardGradation", m_bCardGradation);
     Ini->WriteBool(Section, "ImageVisible", m_bImageVisible);
-	Ini->WriteBool(Section, "VideoVisible", m_bVideoVisible);
-	Ini->WriteBool(Section, "DrawingVisible", m_bDrawingVisible);
-	Ini->WriteInteger(Section, "ImageLimitation", m_nImageLimitation);
-	Ini->WriteBool(Section, "MagnifyFocused", m_bMagnifyFocused);
+    Ini->WriteBool(Section, "VideoVisible", m_bVideoVisible);
+    Ini->WriteBool(Section, "DrawingVisible", m_bDrawingVisible);
+    Ini->WriteInteger(Section, "ImageLimitation", m_nImageLimitation);
+    Ini->WriteBool(Section, "MagnifyFocused", m_bMagnifyFocused);
 
     Ini->WriteBool(Section, "TextVisible", m_bTextVisible);
     Ini->WriteBool(Section, "TextCentering", m_bTextCentering);
@@ -268,13 +268,13 @@ void TSettingView::WriteToIni(TIniFile *Ini, AnsiString Section)
 //---------------------------------------------------------------------------
 void TSettingView::ReadFromIni(TFastIni *Ini, AnsiString Section)
 {
-	m_Font->Name = Ini->ReadString(Section, "FontName", m_Font->Name);
-	m_Font->Charset = Ini->ReadInteger(Section, "FontCharSet", m_Font->Charset);
-	m_Font->Size = Ini->ReadInteger(Section, "FontSize", m_Font->Size);
+    m_Font->Name = Ini->ReadString(Section, "FontName", m_Font->Name);
+    m_Font->Charset = Ini->ReadInteger(Section, "FontCharSet", m_Font->Charset);
+    m_Font->Size = Ini->ReadInteger(Section, "FontSize", m_Font->Size);
 
-	m_nLinkDefaultShape = Ini->ReadInteger(Section, "LinkDefaultShape", m_nLinkDefaultShape);
-	m_bLinkShadow = Ini->ReadBool(Section, "LinkShadow", m_bLinkShadow);
-	m_bLinkHemming = Ini->ReadBool(Section, "LinkHemming", m_bLinkHemming);
+    m_nLinkDefaultShape = Ini->ReadInteger(Section, "LinkDefaultShape", m_nLinkDefaultShape);
+    m_bLinkShadow = Ini->ReadBool(Section, "LinkShadow", m_bLinkShadow);
+    m_bLinkHemming = Ini->ReadBool(Section, "LinkHemming", m_bLinkHemming);
     m_bLinkVisible = Ini->ReadBool(Section, "LinkVisible", m_bLinkVisible);
     m_bLinkDirectionVisible = Ini->ReadBool(Section, "LinkDirectionVisible", m_bLinkDirectionVisible);
     m_bLinkNameVisible = Ini->ReadBool(Section, "LinkNameVisible", m_bLinkNameVisible);
@@ -296,16 +296,16 @@ void TSettingView::ReadFromIni(TFastIni *Ini, AnsiString Section)
     m_bImageVisible = Ini->ReadBool(Section, "ImageVisible", m_bImageVisible);
     m_bVideoVisible = Ini->ReadBool(Section, "VideoVisible", m_bVideoVisible);
     m_bDrawingVisible = Ini->ReadBool(Section, "DrawingVisible", m_bDrawingVisible);
-	m_nImageLimitation = Ini->ReadInteger(Section, "ImageLimitation", m_nImageLimitation);
+    m_nImageLimitation = Ini->ReadInteger(Section, "ImageLimitation", m_nImageLimitation);
     m_bMagnifyFocused = Ini->ReadBool(Section, "MagnifyFocused", m_bMagnifyFocused);
 
     m_bTextVisible = Ini->ReadBool(Section, "TextVisible", m_bTextVisible);
-	m_bTextCentering = Ini->ReadBool(Section, "TextCentering", m_bTextCentering);
+    m_bTextCentering = Ini->ReadBool(Section, "TextCentering", m_bTextCentering);
     m_bTextWordWrap = Ini->ReadBool(Section, "TextWordWrap", m_bTextWordWrap);
     m_bEditInBrowser = Ini->ReadBool(Section, "EditInBrowser", m_bEditInBrowser);
     m_bEditInBrowserAlways = Ini->ReadBool(Section, "EditInBrowserAlways", m_bEditInBrowserAlways);
     m_nEditInBrowserPos = Ini->ReadInteger(Section, "EditInBrowserPos", m_nEditInBrowserPos);
-	m_nEditorWidthInBrowser = Ini->ReadInteger(Section, "EditorWidthInBrowser", m_nEditorWidthInBrowser);
+    m_nEditorWidthInBrowser = Ini->ReadInteger(Section, "EditorWidthInBrowser", m_nEditorWidthInBrowser);
     m_nEditorHeightInBrowser = Ini->ReadInteger(Section, "EditorHeightInBrowser", m_nEditorHeightInBrowser);
 
     m_bScore = Ini->ReadBool(Section, "Score", m_bScore);
@@ -331,15 +331,15 @@ void TSettingView::ReadFromIni(TFastIni *Ini, AnsiString Section)
     m_nBGAnimationType = Ini->ReadInteger(Section, "BGAnimationType", m_nBGAnimationType);
     m_bNoScrollLag = Ini->ReadBool(Section, "NoScrollLag", m_bNoScrollLag);
 
-	m_bOverview = Ini->ReadBool(Section, "Overview", m_bOverview);
-	m_bTickerVisible = Ini->ReadBool(Section, "TickerVisible", m_bTickerVisible);
-	m_nTickerLines = Ini->ReadInteger(Section, "TickerLines", m_nTickerLines);
+    m_bOverview = Ini->ReadBool(Section, "Overview", m_bOverview);
+    m_bTickerVisible = Ini->ReadBool(Section, "TickerVisible", m_bTickerVisible);
+    m_nTickerLines = Ini->ReadInteger(Section, "TickerLines", m_nTickerLines);
 
-	m_Language = Ini->ReadString(Section, "Language", m_Language);
-	if (m_Language == "Japanese" && m_Font->Charset != SHIFTJIS_CHARSET) {
-		//文字化け対策。日本語を選択している場合は自動で文字セットをSHIFTJISにする
-		m_Font->Charset = SHIFTJIS_CHARSET;
-	}
+    m_Language = Ini->ReadString(Section, "Language", m_Language);
+    if (m_Language == "Japanese" && m_Font->Charset != SHIFTJIS_CHARSET) {
+        //文字化け対策。日本語を選択している場合は自動で文字セットをSHIFTJISにする
+        m_Font->Charset = SHIFTJIS_CHARSET;
+    }
 
     m_nFileListWidth = Ini->ReadInteger(Section, "FileListWidth", m_nFileListWidth);
     m_nCardListWidth = Ini->ReadInteger(Section, "CardListWidth", m_nCardListWidth);

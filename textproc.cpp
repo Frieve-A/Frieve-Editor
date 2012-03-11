@@ -451,14 +451,14 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi, int maxcount
         for (int ic = 0 ; ic < SL->Count ; ic++){
             //小文字化
             //WideString WS = SL->Strings(ic);
-			WideString WS;
-			if (option & 0x1) {
-				//小文字化禁止
-				WS = SL->Strings(ic);
-			}else{
-            	//通常はロバストネスのため小文字に統一
-				WS = WideLowerCase(SL->Strings(ic));
-			}
+            WideString WS;
+            if (option & 0x1) {
+                //小文字化禁止
+                WS = SL->Strings(ic);
+            }else{
+                //通常はロバストネスのため小文字に統一
+                WS = WideLowerCase(SL->Strings(ic));
+            }
 
             //if (i > 0){
                 #ifdef DEBUG_SPEEDTUNE
@@ -672,7 +672,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi, int maxcount
                 count++;
                 gram->Values(gram->Count - 1) = count;
                 if (maxcount > 0 && count >= maxcount){
-					gram->Enabled(gram->Count - 1) = false;
+                    gram->Enabled(gram->Count - 1) = false;
                     #ifdef DEBUG_SPEEDTUNE
                     debug_shortdeleted++;
                     #endif
@@ -771,7 +771,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi, int maxcount
     for (int i = 0 ; i < m_nMaxCombi ; i++){
         TWSandValueList *gram = m_Gram[i];
         int gramcount = gram->Count;
-		for (int i3 = 0 ; i3 < gramcount ; i3++) if (gram->Enabled(i3)){
+        for (int i3 = 0 ; i3 < gramcount ; i3++) if (gram->Enabled(i3)){
             #ifdef DEBUG_SPEEDTUNE
             debug_totalremain++;
             #endif
@@ -1010,7 +1010,7 @@ void TWSandValueList::Sort2()
 //値でソート
 void TWSandValueList::SortValue()
 {
-	TFListforTP::Sort(WSandValueSortCompareValue);
+    TFListforTP::Sort(WSandValueSortCompareValue);
 }
 //---------------------------------------------------------------------------
 int TWSandValueList::Search(int from, int to, WideString &Key)

@@ -35,7 +35,7 @@ public:
 
 class TDSDecoder : public TThread, ISampleGrabberCB
 {
-public:		// ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TDSDecoder(bool CreateSuspended);
     void __fastcall Execute();
 
@@ -73,22 +73,22 @@ public:		// ユーザー宣言
     WAVEFORMATEX *pWaveFormatEx;
     AM_MEDIA_TYPE am_media_type;
 
-	STDMETHODIMP_(ULONG) AddRef() { return 2; }
+    STDMETHODIMP_(ULONG) AddRef() { return 2; }
 
-	STDMETHODIMP_(ULONG) Release() { return 1; }
+    STDMETHODIMP_(ULONG) Release() { return 1; }
 
-	STDMETHODIMP QueryInterface(REFIID riid, void ** ppv){
+    STDMETHODIMP QueryInterface(REFIID riid, void ** ppv){
 
-		if( riid == IID_ISampleGrabberCB || riid == IID_IUnknown ){
+        if( riid == IID_ISampleGrabberCB || riid == IID_IUnknown ){
 
-			//*ppv = (void *) static_cast<ISampleGrabberCB*> ( this );
+            //*ppv = (void *) static_cast<ISampleGrabberCB*> ( this );
             *ppv = (void *)this;
-			return NOERROR;
+            return NOERROR;
 
-		}
+        }
 
-    	return E_NOINTERFACE;
-	}
+        return E_NOINTERFACE;
+    }
 
     HRESULT __stdcall SampleCB(
         double SampleTime,

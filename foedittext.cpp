@@ -12,19 +12,19 @@ TFo_EditText *Fo_EditText;
 //---------------------------------------------------------------------------
 void TFo_EditText::ApplyLanguageSetting()
 {
-	if (!FileExists(LanguageFileName())){
-		return;
-	}
-	TFastIni *Ini = new TFastIni(LanguageFileName());
+    if (!FileExists(LanguageFileName())){
+        return;
+    }
+    TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	Bu_OK->Caption = Ini->ReadString("Dialog", "Bu_OK", Bu_OK->Caption);
-	Bu_Cancel->Caption = Ini->ReadString("Dialog", "Bu_Cancel", Bu_Cancel->Caption);
+    Bu_OK->Caption = Ini->ReadString("Dialog", "Bu_OK", Bu_OK->Caption);
+    Bu_Cancel->Caption = Ini->ReadString("Dialog", "Bu_Cancel", Bu_Cancel->Caption);
 
-	delete Ini;
+    delete Ini;
 }
 //---------------------------------------------------------------------
 __fastcall TFo_EditText::TFo_EditText(TComponent* Owner)
-	: TForm(Owner)
+    : TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
@@ -37,7 +37,7 @@ void __fastcall TFo_EditText::Bu_CancelClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFo_EditText::FormShow(TObject *Sender)
 {
-	ApplyLanguageSetting();
+    ApplyLanguageSetting();
 
     Ed_Text->SelectAll();    
 }

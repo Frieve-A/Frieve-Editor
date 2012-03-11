@@ -75,14 +75,14 @@ public:
     AnsiString m_FN;//ファイル名
     bool m_bExist;//読み込み成功しているか
     bool m_bUsed;//使用されているか（更新チェック時に外部から使用）
-	TDSDecoder *m_Video;//ビデオ
+    TDSDecoder *m_Video;//ビデオ
 };
 
 //---------------------------------------------------------------------------
 
 class TFo_Main : public TForm, IProgress
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TPanel *Pa_List;
     TSplitter *Sp_Left;
     TTimer *Ti_Check;
@@ -125,13 +125,13 @@ __published:	// IDE 管理のコンポーネント
     TMemo *RE_Edit;
     TPanel *Pa_Card;
     TLabel *La_Title;
-	TLabel *La_Label;
+    TLabel *La_Label;
     TEdit *Ed_Title;
     TPanel *Pa_Top_;
     TLabel *Label2;
     TEdit *Ed_Size;
     TUpDown *UD_Size;
-	TLabel *La_Card;
+    TLabel *La_Card;
     TLabel *Label5;
     TLabel *Label6;
     TLabel *Label7;
@@ -165,7 +165,7 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *N4;
     TMenuItem *N5;
     TMenuItem *ME_Label;
-	TMenuItem *MH_EnableSpecialMenu;
+    TMenuItem *MH_EnableSpecialMenu;
     TMenuItem *MH_Contents;
     TMenuItem *N6;
     TMenuItem *MH_FrieveSite;
@@ -178,9 +178,9 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *MF_RecentFiles;
     TMenuItem *MF_RecentFolders;
     TPanel *Pa_Link;
-	TLabel *La_LinkTitle;
-	TLabel *La_LinkLabel;
-	TLabel *La_Link;
+    TLabel *La_LinkTitle;
+    TLabel *La_LinkLabel;
+    TLabel *La_Link;
     TLabel *Label11;
     TLabel *Label12;
     TLabel *Label13;
@@ -205,7 +205,7 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *N9;
     TListBox *LB_List;
     TPanel *Pa_ListTop;
-	TLabel *La_Cards;
+    TLabel *La_Cards;
     TMenuItem *N10;
     TMenuItem *PL_CardProperty;
     TMenuItem *MH_CheckLatest;
@@ -244,7 +244,7 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *MDS_Shuffle;
     TSpeedButton *SB_Shape;
     TImageList *IL_Shape;
-	TLabel *La_Size;
+    TLabel *La_Size;
     TEdit *Ed_CardSize;
     TUpDown *UD_CardSize;
     TSpeedButton *SB_LinkShape;
@@ -423,9 +423,9 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *N43;
     TPanel *Pa_Files;
     TListBox *LB_FileList;
-	TPanel *Pa_FilesTop;
+    TPanel *Pa_FilesTop;
     TLabel *La_Files;
-	TPanel *Pa_FilesBottom;
+    TPanel *Pa_FilesBottom;
     TSplitter *Sp_Left2;
     TMenuItem *MA_RandomJump;
     TMenuItem *MA_RandomMap;
@@ -470,7 +470,7 @@ __published:	// IDE 管理のコンポーネント
     TSplitter *Sp_BrowserRight;
     TSplitter *Sp_BrowserBottom;
     TTabSheet *TS_Statistics;
-	TPanel *Pa_StatisticsTop;
+    TPanel *Pa_StatisticsTop;
     TPaintBox *PB_Statistics;
     TScrollBar *Sc_StatisticsY;
     TMenuItem *N48;
@@ -479,11 +479,11 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *MI_AddDesignatedLabeltoAllDestinationCards;
     TSpeedButton *SB_StatisticsSort;
     TSpeedButton *Bu_StatisticsKey;
-	TLabel *La_StatisticsKey;
+    TLabel *La_StatisticsKey;
     TPopupMenu *PM_StatisticsKey;
-	TMenuItem *PMSK_Label;
+    TMenuItem *PMSK_Label;
     TMenuItem *PMSK_NumberOfLink;
-	TMenuItem *PMSK_CreatedDate;
+    TMenuItem *PMSK_CreatedDate;
     TMenuItem *PMSK_EditedDate;
     TMenuItem *PMSK_ViewedDate;
     TMenuItem *PMSKC_Year;
@@ -503,65 +503,65 @@ __published:	// IDE 管理のコンポーネント
     TMenuItem *PMSKV_Hour;
     TMenuItem *PMSKL_Total;
     TMenuItem *PMSKL_Source;
-	TMenuItem *PMSKL_Destination;
+    TMenuItem *PMSKL_Destination;
     TTabSheet *TS_Drawing;
     TPaintBox *PB_Drawing;
-	TPanel *Pa_BrowserTop;
-	TPanel *Pa_DrawingTop;
-	TLabel *La_DZoom;
-	TTrackBar *TB_DZoom;
-	TLabel *La_Zoom;
-	TSpeedButton *SB_Cursor;
-	TSpeedButton *SB_Line;
-	TSpeedButton *SB_View;
-	TSpeedButton *SB_ToolLabel;
-	TSpeedButton *SB_ToolLinkLabel;
-	TSpeedButton *SB_Arrange;
-	TSpeedButton *SB_AutoScroll;
-	TSpeedButton *SB_AutoZoom;
-	TSpeedButton *SB_ArrangeRefresh;
-	TLabel *La_Arrange;
-	TSpeedButton *Bu_ArrangeType;
-	TTrackBar *TB_Zoom;
-	TComboBox *Co_Arrange;
-	TButton *Bu_Shuffle;
-	TEdit *Ed_FindCard;
-	TButton *Bu_FindCard;
-	TSpeedButton *SB_DLine;
-	TSpeedButton *SB_FreeHand;
-	TSpeedButton *SB_DCursor;
-	TSpeedButton *SB_Circle;
-	TSpeedButton *SB_Text;
-	TSpeedButton *SB_Box;
-	TXPManifest *XPMan;
-	TPanel *Pa_Browser;
-	TPaintBox *PB_Browser;
-	TLabel *La_PenColor;
-	TShape *Sh_DColorDefault;
-	TLabel *La_PenColorDefault;
-	TShape *Sh_DColor;
-	TBitBtn *Bu_DColor;
-	TColorDialog *CD_Color;
-	TPopupMenu *PM_Drawing;
-	TMenuItem *PD_Undo;
-	TMenuItem *PD_Redo;
-	TMenuItem *MenuItem4;
-	TMenuItem *PD_Cut;
-	TMenuItem *PD_Copy;
-	TMenuItem *PD_Paste;
-	TMenuItem *PD_Delete;
-	TMenuItem *PD_SelectAll;
-	TMenuItem *MVC_Drawing;
-	TMenuItem *MFE_HierarchicalTextFile;
-	TMenuItem *ME_Replace;
-	TMenuItem *M_Special;
-	TMenuItem *MS_ResetAllDates;
-	TMenuItem *MS_Demo;
-	TMenuItem *MS_OutputWordNgram;
-	TSaveDialog *SD_CSV;
-	TMenuItem *MS_TextAnalysisTest;
-	TMenuItem *MS_ImportCSV;
-	TOpenDialog *OD_CSV;
+    TPanel *Pa_BrowserTop;
+    TPanel *Pa_DrawingTop;
+    TLabel *La_DZoom;
+    TTrackBar *TB_DZoom;
+    TLabel *La_Zoom;
+    TSpeedButton *SB_Cursor;
+    TSpeedButton *SB_Line;
+    TSpeedButton *SB_View;
+    TSpeedButton *SB_ToolLabel;
+    TSpeedButton *SB_ToolLinkLabel;
+    TSpeedButton *SB_Arrange;
+    TSpeedButton *SB_AutoScroll;
+    TSpeedButton *SB_AutoZoom;
+    TSpeedButton *SB_ArrangeRefresh;
+    TLabel *La_Arrange;
+    TSpeedButton *Bu_ArrangeType;
+    TTrackBar *TB_Zoom;
+    TComboBox *Co_Arrange;
+    TButton *Bu_Shuffle;
+    TEdit *Ed_FindCard;
+    TButton *Bu_FindCard;
+    TSpeedButton *SB_DLine;
+    TSpeedButton *SB_FreeHand;
+    TSpeedButton *SB_DCursor;
+    TSpeedButton *SB_Circle;
+    TSpeedButton *SB_Text;
+    TSpeedButton *SB_Box;
+    TXPManifest *XPMan;
+    TPanel *Pa_Browser;
+    TPaintBox *PB_Browser;
+    TLabel *La_PenColor;
+    TShape *Sh_DColorDefault;
+    TLabel *La_PenColorDefault;
+    TShape *Sh_DColor;
+    TBitBtn *Bu_DColor;
+    TColorDialog *CD_Color;
+    TPopupMenu *PM_Drawing;
+    TMenuItem *PD_Undo;
+    TMenuItem *PD_Redo;
+    TMenuItem *MenuItem4;
+    TMenuItem *PD_Cut;
+    TMenuItem *PD_Copy;
+    TMenuItem *PD_Paste;
+    TMenuItem *PD_Delete;
+    TMenuItem *PD_SelectAll;
+    TMenuItem *MVC_Drawing;
+    TMenuItem *MFE_HierarchicalTextFile;
+    TMenuItem *ME_Replace;
+    TMenuItem *M_Special;
+    TMenuItem *MS_ResetAllDates;
+    TMenuItem *MS_Demo;
+    TMenuItem *MS_OutputWordNgram;
+    TSaveDialog *SD_CSV;
+    TMenuItem *MS_TextAnalysisTest;
+    TMenuItem *MS_ImportCSV;
+    TOpenDialog *OD_CSV;
     void __fastcall FormCreate(TObject *Sender);
     void __fastcall FormDestroy(TObject *Sender);
     void __fastcall Ti_CheckTimer(TObject *Sender);
@@ -807,20 +807,20 @@ __published:	// IDE 管理のコンポーネント
     void __fastcall PB_DrawingMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
     void __fastcall SB_DrawingToolClick(TObject *Sender);
-	void __fastcall Bu_DColorClick(TObject *Sender);
-	void __fastcall Sh_DColorDefaultMouseDown(TObject *Sender, TMouseButton Button,
+    void __fastcall Bu_DColorClick(TObject *Sender);
+    void __fastcall Sh_DColorDefaultMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
-	void __fastcall Sh_DColorMouseDown(TObject *Sender, TMouseButton Button,
+    void __fastcall Sh_DColorMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
-	void __fastcall MVC_DrawingClick(TObject *Sender);
-	void __fastcall MFE_HierarchicalTextFileClick(TObject *Sender);
-	void __fastcall ME_ReplaceClick(TObject *Sender);
-	void __fastcall MS_ResetAllDatesClick(TObject *Sender);
-	void __fastcall MS_OutputWordNgramClick(TObject *Sender);
-	void __fastcall MS_TextAnalysisTestClick(TObject *Sender);
-	void __fastcall MS_ImportCSVClick(TObject *Sender);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+    void __fastcall MVC_DrawingClick(TObject *Sender);
+    void __fastcall MFE_HierarchicalTextFileClick(TObject *Sender);
+    void __fastcall ME_ReplaceClick(TObject *Sender);
+    void __fastcall MS_ResetAllDatesClick(TObject *Sender);
+    void __fastcall MS_OutputWordNgramClick(TObject *Sender);
+    void __fastcall MS_TextAnalysisTestClick(TObject *Sender);
+    void __fastcall MS_ImportCSVClick(TObject *Sender);
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_Main(TComponent* Owner);
 
 public:
@@ -1034,7 +1034,7 @@ private:
 
     void SetCardAssign();//Paint時以外でLabelのFoldを考慮する必要がある際に呼ぶ
 
-	bool TreeMode();//階層表示モードかどうかの判定
+    bool TreeMode();//階層表示モードかどうかの判定
 
     void LinktoAllCardswithDesignatedLabel(TList *IDs);//現在カードから指定ラベルIDを持つカードすべてにラベルを貼る
 
@@ -1048,8 +1048,8 @@ private:
 
     //保存用
     void ExportBMP(int operation, AnsiString Text);//ブラウザ画像を保存orコピー(0=BMP, 1=JPEG, 2=コピー）
-	void ExportCardText(int operation, bool btitle, AnsiString Text);//カード本文を保存orコピー
-	void ExportHierarchicalText(TStringList *SL, int CurrentLevel, AnsiString HChar, TCard *CurrentParent);//階層テキスト出力のためのサブルーチン。CurrentParentにぶら下がっているすべてのカードについて、その下の階層を出力させる。このルーチンは再帰的に呼ばれる
+    void ExportCardText(int operation, bool btitle, AnsiString Text);//カード本文を保存orコピー
+    void ExportHierarchicalText(TStringList *SL, int CurrentLevel, AnsiString HChar, TCard *CurrentParent);//階層テキスト出力のためのサブルーチン。CurrentParentにぶら下がっているすべてのカードについて、その下の階層を出力させる。このルーチンは再帰的に呼ばれる
 private:
     //描画用
     void CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex);
@@ -1058,9 +1058,9 @@ private:
     void DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex, TColor HMColor, int option);//0x1で影描画,0x2で縁取り
     void DrawLink(TCanvas *C, TLink *Link, int card1index, int card2index, TColor HMColor, int option);//0x1で影描画,0x2で縁取り
     void DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2, int Y2, TColor HMColor, int option);
-	void DrawPatternLine(TCanvas *C, int Pattern, int X1, int Y1, int X2, int Y2, int penwidth);
+    void DrawPatternLine(TCanvas *C, int Pattern, int X1, int Y1, int X2, int Y2, int penwidth);
     void DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2, int Y2, int penwidth, int direction);//曲線描画
-	void SetCardVisible(bool bFoldTree = true);//表示するカード決定
+    void SetCardVisible(bool bFoldTree = true);//表示するカード決定
     void Redraw();//全体再描画
     void PaintSub(TCanvas *C);
     TColor GetCardColor(TCard *Card, float &SizeX);//ラベルによるカードの基本色を取得
@@ -1098,40 +1098,40 @@ public:
     void IterScore_TextLength();
 public:
     //イメージリスト
-	TList *m_ImageList;
-	bool UpdateImageList();//帰り値は変更があったらtrue
-	inline TCardImage *GetImage(int index);
-	TCardImage *SearchImage(AnsiString FN);
+    TList *m_ImageList;
+    bool UpdateImageList();//帰り値は変更があったらtrue
+    inline TCardImage *GetImage(int index);
+    TCardImage *SearchImage(AnsiString FN);
 public:
-	//ビデオサムネイルリスト
-	TList *m_VideoList;
-	bool UpdateVideoList();//帰り値は変更があったらtrue
-	inline TCardVideo *GetVideo(int index);
-	TCardVideo *SearchVideo(AnsiString FN);
+    //ビデオサムネイルリスト
+    TList *m_VideoList;
+    bool UpdateVideoList();//帰り値は変更があったらtrue
+    inline TCardVideo *GetVideo(int index);
+    TCardVideo *SearchVideo(AnsiString FN);
 public:
-	//背景アニメーション
-	int m_BGAnimationBuf[BGANIMATIONOBJECTSIZE * BGANIMATIONMAXOBJECTS];//16int×256オブジェクト分
-	float m_fBGAnimationSpeed;//何秒分アニメーションするか
-	void BGAnimation(TCanvas *C);
-	void BGAnimation_MovingVHLine(TCanvas *C);
-	void BGAnimation_Bubble(TCanvas *C);
-	void BGAnimation_Snow(TCanvas *C);
-	void BGAnimation_CherryBlossom(TCanvas *C);
+    //背景アニメーション
+    int m_BGAnimationBuf[BGANIMATIONOBJECTSIZE * BGANIMATIONMAXOBJECTS];//16int×256オブジェクト分
+    float m_fBGAnimationSpeed;//何秒分アニメーションするか
+    void BGAnimation(TCanvas *C);
+    void BGAnimation_MovingVHLine(TCanvas *C);
+    void BGAnimation_Bubble(TCanvas *C);
+    void BGAnimation_Snow(TCanvas *C);
+    void BGAnimation_CherryBlossom(TCanvas *C);
 public:
-	//描画
-	TDrawing *m_Drawing;//現在描画中の絵
-	TRect m_DrawingRect;//描画領域
-	int m_DrawingTool;
-	void ApplyDrawing();//絵が編集されていたらUndoを作成し、編集結果をカードのデータに反映
+    //描画
+    TDrawing *m_Drawing;//現在描画中の絵
+    TRect m_DrawingRect;//描画領域
+    int m_DrawingTool;
+    void ApplyDrawing();//絵が編集されていたらUndoを作成し、編集結果をカードのデータに反映
 public:
     //統計
     float m_fStatisticsPos;//滑らかにグラフを立ち上げる係数（0.0～1.0）
-	TList *m_StatisticsRectToCard;//範囲選択したときに見せるカードのリスト
+    TList *m_StatisticsRectToCard;//範囲選択したときに見せるカードのリスト
     void ClearStatisticsRectToCard();
 public:
     /*
     //読み上げ
-	TAgent *m_Agent;
+    TAgent *m_Agent;
     IAgentCtlCharacter *m_AgentChar;
     TDirectSS *m_TTS;
     void LoadAgent();

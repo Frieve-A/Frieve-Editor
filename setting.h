@@ -54,7 +54,7 @@ public:
     bool m_bImageVisible;
     bool m_bVideoVisible;
     bool m_bDrawingVisible;
-	int m_nImageLimitation;
+    int m_nImageLimitation;
     bool m_bMagnifyFocused;//フォーカスされたカードを拡大
 
     //Text
@@ -201,24 +201,24 @@ extern TSetting2Function Setting2Function;
 class TMLText
 {
 public:
-	TMLText();
+    TMLText();
 public:
-	AnsiString Cards;//カード
-	AnsiString Links;//リンク
-	AnsiString Labels;//ラベル
-	AnsiString Line;//行
-	AnsiString Len;//文字
-	AnsiString Size;//サイズ
-	AnsiString Title;//名前
-	AnsiString Created;//作成日時
-	AnsiString Edited;//編集日時
-	AnsiString Viewed;//閲覧日時
-	AnsiString Hits;//件
+    AnsiString Cards;//カード
+    AnsiString Links;//リンク
+    AnsiString Labels;//ラベル
+    AnsiString Line;//行
+    AnsiString Len;//文字
+    AnsiString Size;//サイズ
+    AnsiString Title;//名前
+    AnsiString Created;//作成日時
+    AnsiString Edited;//編集日時
+    AnsiString Viewed;//閲覧日時
+    AnsiString Hits;//件
 
-	AnsiString EditCardTitle;
+    AnsiString EditCardTitle;
     AnsiString EditCardText;
-	AnsiString EditLinkTitle;
-	AnsiString EditDrawing;
+    AnsiString EditLinkTitle;
+    AnsiString EditDrawing;
 
     AnsiString ChangeSize;//サイズの変更
     AnsiString FixCardPosition;//カード位置の固定
@@ -228,34 +228,34 @@ public:
 
     AnsiString AddLabel;//ラベルの追加
     AnsiString DeleteLabel;//ラベルの削除
-	AnsiString ChangeLabel;//ラベルの変更
-	AnsiString LabelName;
-	AnsiString SelectLinkDestination;
-	AnsiString SelectLabelOfDestination;
-	AnsiString SelectLabel;
+    AnsiString ChangeLabel;//ラベルの変更
+    AnsiString LabelName;
+    AnsiString SelectLinkDestination;
+    AnsiString SelectLabelOfDestination;
+    AnsiString SelectLabel;
 
-	AnsiString Color;
+    AnsiString Color;
 
-	AnsiString ArrangeCards;
+    AnsiString ArrangeCards;
 
-	AnsiString ProcessingTextAnalysis;
+    AnsiString ProcessingTextAnalysis;
 
-	AnsiString Enable;//有効
-	AnsiString Fold;//折畳
-	AnsiString Show;//表示
-	AnsiString Hide;//隠蔽
-	AnsiString NoAssign;//未指定
-	AnsiString NoLabel;//ラベルなし
-	AnsiString SelectTargetCard;//リンク先カードの選択
-	AnsiString Old;//古い順
-	AnsiString New;//新しい順
-	AnsiString Near;//近い順
-	AnsiString Older;//より古い
-	AnsiString Newer;//より新しい
-	AnsiString SaveCheck;//データは変更されています。保存しますか？
-	AnsiString FailedToSave;
-	AnsiString NotFound;
-	AnsiString AANotEnoughMemory;
+    AnsiString Enable;//有効
+    AnsiString Fold;//折畳
+    AnsiString Show;//表示
+    AnsiString Hide;//隠蔽
+    AnsiString NoAssign;//未指定
+    AnsiString NoLabel;//ラベルなし
+    AnsiString SelectTargetCard;//リンク先カードの選択
+    AnsiString Old;//古い順
+    AnsiString New;//新しい順
+    AnsiString Near;//近い順
+    AnsiString Older;//より古い
+    AnsiString Newer;//より新しい
+    AnsiString SaveCheck;//データは変更されています。保存しますか？
+    AnsiString FailedToSave;
+    AnsiString NotFound;
+    AnsiString AANotEnoughMemory;
 };
 
 extern TMLText MLText;

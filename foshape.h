@@ -11,7 +11,7 @@
 //---------------------------------------------------------------------------
 class TFo_Shape : public TForm
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TPanel *Pa;
     TPaintBox *PB;
     void __fastcall FormDeactivate(TObject *Sender);
@@ -24,8 +24,8 @@ __published:	// IDE 管理のコンポーネント
           TShiftState Shift);
     void __fastcall PBMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_Shape(TComponent* Owner);
 
     TImageList *IL_Shape;

@@ -167,10 +167,10 @@ public:
     int m_nMaxSN;//最大シリアル番号(0～m_nMaxSN-1）のシリアルがついている
     TWSandValueList **m_Gram;//1~Nグラムの単語リストと出現回数
 public:
-	//maxcombi=N-gram
-	//maxcount=最大頻度。maxcountより何度も出てくる単語は使わない（句読点など意味のない文字の可能性があるため）
-	//pgmin、pgmax=プログレスバーの最大、最小値。表示しないなら両方ゼロ。pgposに現在の進捗位置が入る
-	TTextDecomposer(TWideStringList *SL, int maxcombi, int maxcount, float pgmin, float pgmax, float &pgpos, bool &terminated, int option = 0x0);
+    //maxcombi=N-gram
+    //maxcount=最大頻度。maxcountより何度も出てくる単語は使わない（句読点など意味のない文字の可能性があるため）
+    //pgmin、pgmax=プログレスバーの最大、最小値。表示しないなら両方ゼロ。pgposに現在の進捗位置が入る
+    TTextDecomposer(TWideStringList *SL, int maxcombi, int maxcount, float pgmin, float pgmax, float &pgpos, bool &terminated, int option = 0x0);
     virtual ~TTextDecomposer();
 public:
     //WideString *GetStr(int list, int index);

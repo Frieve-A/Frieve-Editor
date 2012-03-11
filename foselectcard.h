@@ -12,7 +12,7 @@
 //---------------------------------------------------------------------------
 class TFo_Select : public TForm
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TButton *Bu_OK;
     TButton *Bu_Cancel;
     TListBox *LB_Items;
@@ -22,8 +22,8 @@ __published:	// IDE 管理のコンポーネント
     void __fastcall LB_ItemsDblClick(TObject *Sender);
     void __fastcall FormCreate(TObject *Sender);
     void __fastcall FormDestroy(TObject *Sender);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_Select(TComponent* Owner);
 public:
     TDocument *m_Document;

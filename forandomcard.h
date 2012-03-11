@@ -12,7 +12,7 @@
 //---------------------------------------------------------------------------
 class TFo_RandomCard : public TForm
 {
-__published:	// IDE 管理のコンポーネント
+__published:    // IDE 管理のコンポーネント
     TLabel *Label1;
     TLabel *Label2;
     TTrackBar *TB_Cards;
@@ -28,8 +28,8 @@ __published:	// IDE 管理のコンポーネント
     void __fastcall FormShow(TObject *Sender);
     void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
-private:	// ユーザー宣言
-public:		// ユーザー宣言
+private:    // ユーザー宣言
+public:        // ユーザー宣言
     __fastcall TFo_RandomCard(TComponent* Owner);
 public:
     void SettingToGUI();

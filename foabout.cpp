@@ -16,28 +16,28 @@ void TFo_About::ApplyLanguageSetting()
     }
     TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	Caption = Ini->ReadString("About", "Caption", Caption);
+    Caption = Ini->ReadString("About", "Caption", Caption);
 
-	Bu_OK->Caption = Ini->ReadString("Dialog", "Bu_OK", Bu_OK->Caption);
+    Bu_OK->Caption = Ini->ReadString("Dialog", "Bu_OK", Bu_OK->Caption);
 
-	delete Ini;
+    delete Ini;
 }
 //---------------------------------------------------------------------
 __fastcall TFo_About::TFo_About(TComponent* AOwner)
-	: TForm(AOwner)
+    : TForm(AOwner)
 {
 }
 //---------------------------------------------------------------------
 void __fastcall TFo_About::FormShow(TObject *Sender)
 {
-	ApplyLanguageSetting();
+    ApplyLanguageSetting();
 
-	ProductName->Caption =
-		AnsiString(AppTitle) +
-		AnsiString(" Version ") +
-		FormatFloat("0.00", AppVersion / 100.0);
+    ProductName->Caption =
+        AnsiString(AppTitle) +
+        AnsiString(" Version ") +
+        FormatFloat("0.00", AppVersion / 100.0);
 
-	ProgramIcon->Picture->Assign(Application->Icon);
+    ProgramIcon->Picture->Assign(Application->Icon);
 }
 //---------------------------------------------------------------------
 

@@ -36,6 +36,7 @@ object Fo_Information: TFo_Information
     Height = 24
     Align = alBottom
     TabOrder = 1
+    Visible = False
     object Ch_DontCheckNew: TCheckBox
       Left = 8
       Top = 4

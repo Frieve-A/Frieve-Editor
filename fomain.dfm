@@ -134,10 +134,6 @@ object Fo_Main: TFo_Main
         Caption = 'Browser'
         ImageIndex = 1
         OnShow = TS_BrowserShow
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Im_Wall: TImage
           Left = 120
           Top = 47
@@ -433,7 +429,7 @@ object Fo_Main: TFo_Main
             Width = 73
             Height = 20
             Style = csDropDownList
-            ItemHeight = 0
+            ItemHeight = 12
             TabOrder = 1
             Visible = False
             Items.Strings = (
@@ -620,10 +616,6 @@ object Fo_Main: TFo_Main
       object TS_Drawing: TTabSheet
         Caption = 'Drawing'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PB_Drawing: TPaintBox
           Left = 3
           Top = 49
@@ -846,10 +838,6 @@ object Fo_Main: TFo_Main
       object TS_Statistics: TTabSheet
         Caption = 'Statistics'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PB_Statistics: TPaintBox
           Left = 0
           Top = 41
@@ -2037,6 +2025,7 @@ object Fo_Main: TFo_Main
       end
       object MV_Read: TMenuItem
         Caption = '&Read Aloud'
+        Visible = False
         object MVR_Read: TMenuItem
           Caption = '&Read Aroud'
           OnClick = MVR_ReadClick
@@ -2422,7 +2411,7 @@ object Fo_Main: TFo_Main
     Left = 384
     Top = 64
     Bitmap = {
-      494C0101100013000C001F000D00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01011000130010001F000D00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000007C000000410000000100200000000000F07D
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3855,7 +3844,7 @@ object Fo_Main: TFo_Main
     Left = 904
     Top = 64
     Bitmap = {
-      494C01010C000E000C001F000D00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C000E0010001F000D00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000007C000000340000000100200000000000C064
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
