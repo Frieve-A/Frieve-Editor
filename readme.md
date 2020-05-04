@@ -26,7 +26,7 @@ feditor.exe will be created at "build\win64\release".
 
 
 
-### How to use
+## How to use
 
 Open the help.fip file in the Frieve Editor. You can refer to the help created in the Frieve Editor (currently only available in Japanese).
 
@@ -62,8 +62,18 @@ Frieve Editorを起動し、help.fipを開きます。Frieve Editorにて作成�
 
 
 
-### 日本語化の方法
+## 日本語化の方法
 
 "resource/Japanese.lng"ファイルをfeditor.exeと同じフォルダに配置してFrieve Editorを起動します。
 
 Viewメニュー、Change Language...よりJapaneseを選択します。
+
+
+
+## デモ動画など
+
+アイデア発想法：Frieve Editorのご紹介とセルフブレストのすゝめ
+https://www.youtube.com/watch?v=0ZA-sX9m97Y
+
+アイデアプロセッサ Frieve Editor
+https://www.youtube.com/watch?v=lAkkPV_coTI
