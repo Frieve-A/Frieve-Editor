@@ -133,6 +133,10 @@ object Fo_Main: TFo_Main
         Caption = 'Browser'
         ImageIndex = 1
         OnShow = TS_BrowserShow
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Im_Wall: TImage
           Left = 150
           Top = 59
@@ -491,6 +495,10 @@ object Fo_Main: TFo_Main
       end
       object TS_Editor: TTabSheet
         Caption = 'Editor'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Sp_EditorRelated: TSplitter
           Left = 1024
           Top = 51
@@ -615,6 +623,10 @@ object Fo_Main: TFo_Main
       object TS_Drawing: TTabSheet
         Caption = 'Drawing'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object PB_Drawing: TPaintBox
           Left = 4
           Top = 61
@@ -837,6 +849,10 @@ object Fo_Main: TFo_Main
       object TS_Statistics: TTabSheet
         Caption = 'Statistics'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object PB_Statistics: TPaintBox
           Left = 0
           Top = 51

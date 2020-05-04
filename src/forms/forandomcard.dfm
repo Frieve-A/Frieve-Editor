@@ -14,7 +14,6 @@ object Fo_RandomCard: TFo_RandomCard
   FormStyle = fsStayOnTop
   KeyPreview = True
   OldCreateOrder = False
-  Position = poDefaultPosOnly
   OnDeactivate = FormDeactivate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
@@ -124,14 +123,9 @@ object Fo_RandomCard: TFo_RandomCard
     Height = 29
     Max = 30
     Min = 1
-    Orientation = trHorizontal
     Frequency = 5
     Position = 10
-    SelEnd = 0
-    SelStart = 0
     TabOrder = 0
-    TickMarks = tmBottomRight
-    TickStyle = tsAuto
     OnChange = TB_CardsChange
   end
   object TB_Speed: TTrackBar
@@ -141,14 +135,9 @@ object Fo_RandomCard: TFo_RandomCard
     Height = 29
     Max = 100
     Min = 1
-    Orientation = trHorizontal
     Frequency = 10
     Position = 30
-    SelEnd = 0
-    SelStart = 0
     TabOrder = 1
-    TickMarks = tmBottomRight
-    TickStyle = tsAuto
     OnChange = TB_SpeedChange
   end
 end

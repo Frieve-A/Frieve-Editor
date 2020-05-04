@@ -391,14 +391,14 @@
         <FormResources Include="forms\foshape.dfm"/>
         <FormResources Include="forms\foselectcard.dfm"/>
         <FormResources Include="forms\foinformation.dfm"/>
-        <FormResources Include="forms\fofullscreen.dfm"/>
         <FormResources Include="forms\folabeledit.dfm"/>
         <FormResources Include="forms\foabout.dfm"/>
+        <FormResources Include="forms\fofullscreen.dfm"/>
         <FormResources Include="forms\foedittext.dfm"/>
+        <FormResources Include="forms\fomain.dfm"/>
+        <FormResources Include="forms\forandomanimation.dfm"/>
         <FormResources Include="forms\foprogress.dfm"/>
         <FormResources Include="forms\forandomcard.dfm"/>
-        <FormResources Include="forms\forandomanimation.dfm"/>
-        <FormResources Include="forms\fomain.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -431,8 +431,8 @@
                 </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="forms\foedittext.dfm" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win64">
+                <DeployFile LocalName="src\forms\forandomanimation.dfm" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -442,19 +442,19 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="src\forms\foinformation.dfm" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="forms\foinformation.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\build\Win64\Release\feditor.exe" Configuration="Release" Class="ProjectOutput">
-                    <Platform Name="Win64">
-                        <RemoteName>feditor.exe</RemoteName>
+                <DeployFile LocalName="src\forms\foselectcard.dfm" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="forms\folabeledit.dfm" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="forms\foprogress.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -805,6 +805,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="forms\folabeledit.dfm" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Win64">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64260.dll" Class="DependencyModule">
                     <Platform Name="Win64">
                         <Overwrite>true</Overwrite>
@@ -837,25 +843,19 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="src\forms\forandomanimation.dfm" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
+                <DeployFile LocalName="..\build\Win64\Release\feditor.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>feditor.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="forms\foinformation.dfm" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="forms\foedittext.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="src\forms\foselectcard.dfm" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="forms\foprogress.dfm" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="src\forms\foinformation.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win64">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
