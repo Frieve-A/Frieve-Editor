@@ -1,0 +1,13 @@
+*.obj
+*.exe
+*.ilc
+*.ild
+*.ilf
+*.ils
+*.map
+*.tds
+*.ini
+*.d
+*.o
+*.~*~
+*.local
