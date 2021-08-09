@@ -14,13 +14,11 @@ This software runs on Windows.
 
 ## How to download and install
 
-Currently, version 1.32 can be downloaded from the following web site.
+Latest version for 64bit Windows can be downloaded from the following page.
 
-http://www.frieve.com/feditor/
+https://github.com/Frieve-A/Frieve-Editor/releases
 
-1. Click on "今すぐダウンロード" button to download.
-
-2. Unzip the downloaded zip file and run the exe file to launch the app. No installation is required.
+Unzip the downloaded zip file and run the exe file to launch the app. No installation is required.
 
 
 
@@ -44,6 +42,8 @@ You can open the help.fip file with a text editor and translate it with a transl
 
 
 
+
+
 ## Frieve Editorとは？
 
 Frieve Editorは複雑な思考や斬新なアイデアの発想を支援するアイデアプロセッサです。
@@ -64,11 +64,13 @@ https://www.youtube.com/watch?v=lAkkPV_coTI
 
 ## ダウンロードとインストール
 
-1. 以下のWebサイトよりFrieve Editorをダウンロードします。現状Version 1.32がダウンロードできます。
+以下のページよりFrieve Editorをダウンロードします。現状64bit Windows版のみが利用できます。
 
-http://www.frieve.com/feditor/
+https://github.com/Frieve-A/Frieve-Editor/releases
 
-2. ダウンロードしたzipファイルを解凍し、exeファイルを実行するとアプリが起動します（インストールは不要です）。
+ダウンロードしたzipファイルを解凍し、exeファイルを実行するとアプリが起動します（インストールは不要です）。
+
+メニュー表示を日本語化するには、Viewメニュー、Change LanguageからJapaneseを選択し、アプリを再起動します
 
 
 
@@ -87,15 +89,5 @@ https://www.embarcadero.com/jp/products/cbuilder/starter
 ## 使い方
 
 Frieve Editorを起動し、help.fipを開きます。Frieve Editorにて作成されたヘルプを参照することができます。
-
-
-
-## 日本語化の方法
-
-1. 自分でビルドした場合は、"resource/Japanese.lng"ファイルをfeditor.exeと同じフォルダに配置します（ダウンロードしたバイナリを利用する場合この手順は必要ありません）。
-
-2. Frieve Editorを起動します。
-
-3. Viewメニュー、Change Language...よりJapaneseを選択します。
 
 
