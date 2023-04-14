@@ -1178,7 +1178,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 
 	// 表示するカードの数を決める
 	int count = 0;
-	float minx, maxx, miny, maxy;
+	float minx = 0.0f, maxx = 1.0f, miny = 0.0f, maxy = 1.0f;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardAssign[i] == i) {
 			TCard *Card = m_Document->GetCardByIndex(i);

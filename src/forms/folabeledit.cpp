@@ -28,7 +28,9 @@ void TFo_LabelEdit::ApplyLanguageSetting() {
 }
 
 // ---------------------------------------------------------------------
-__fastcall TFo_LabelEdit::TFo_LabelEdit(TComponent* Owner) : TForm(Owner) {
+__fastcall TFo_LabelEdit::TFo_LabelEdit(TComponent* Owner) : TForm(Owner),
+	m_Document(NULL), m_UndoRedo(NULL), m_bEdited(false), m_LType(0),
+	m_nLastCol(0), m_nLastRow(0) {
 }
 
 // ---------------------------------------------------------------------------

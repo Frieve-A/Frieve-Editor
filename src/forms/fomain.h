@@ -24,6 +24,7 @@
 // #include "dsdecoder.h"
 #include "drawing.h"
 #include <System.ImageList.hpp>
+#include <Vcl.WinXCtrls.hpp>
 // #include "C:\My Documents\RAD Studio\5.0\Imports\HTTSLib_OCX.h"
 /*
  #include <OleCtrls.hpp>
@@ -63,6 +64,10 @@ public:
 	TGraphic *m_Image; // イメージ
 
 private:
+	TCardImage(const TCardImage &source);
+	TCardImage& operator=(const TCardImage &source);
+
+private:
 	Graphics::TBitmap *m_BMP; // BMPイメージ
 	TJPEGImage *m_Jpg; // Jpgイメージ
 };
@@ -79,6 +84,9 @@ public:
 	bool m_bUsed; // 使用されているか（更新チェック時に外部から使用）
 	// TDSDecoder *m_Video;//ビデオ
 	void *m_Video;
+private:
+	TCardVideo(const TCardVideo &source);
+	TCardVideo& operator=(const TCardVideo &source);
 };
 
 // ---------------------------------------------------------------------------
@@ -564,6 +572,10 @@ __published: // IDE 管理のコンポーネント
 	TPanel *Pa_Card;
 	TPanel *Pa_Link;
 	TPanel *Pa_Top;
+	TPopupMenu *PM_GPT;
+	TMenuItem *ME_GPT;
+	TMenuItem *Setting1;
+	TMenuItem *MS_GPTAPIKey;
 
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
@@ -818,6 +830,10 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall MS_OutputWordNgramClick(TObject *Sender);
 	void __fastcall MS_TextAnalysisTestClick(TObject *Sender);
 	void __fastcall MS_ImportCSVClick(TObject *Sender);
+	void __fastcall FormMouseWheel(TObject *Sender, TShiftState Shift, int WheelDelta,
+          TPoint &MousePos, bool &Handled);
+	void __fastcall ME_GPTClick(TObject *Sender);
+	void __fastcall MS_GPTAPIKeyClick(TObject *Sender);
 
 private: // ユーザー宣言
 public: // ユーザー宣言
@@ -1028,6 +1044,7 @@ private:
 	int ReplaceAll(int SearchRequest); // すべて置換。置換に成功した数を返す
 
 	TList *MI_WebSearch;
+	TList *MI_GPT;
 
 	WideString GetSelText(); // 現在選択中のテキストを得る
 	void __fastcall ME_WebSearchClick(TObject *Sender);
@@ -1204,9 +1221,6 @@ private:
 	// 整合性を取るため
 	bool m_bSkipAutoZoom;
 	bool m_bFileListDragging; // FileList使用中に消さないため
-
-	// 一時
-	void PaintSub_GUC(TCanvas *C);
 };
 
 // ---------------------------------------------------------------------------

@@ -1,17 +1,17 @@
 object Fo_Main: TFo_Main
   Left = 0
   Top = 325
-  ClientHeight = 560
-  ClientWidth = 1713
+  Caption = '&GPT API Key'
+  ClientHeight = 448
+  ClientWidth = 1370
   Color = clBtnFace
   Font.Charset = SHIFTJIS_CHARSET
   Font.Color = clWindowText
-  Font.Height = -15
+  Font.Height = -12
   Font.Name = #65325#65331' '#65328#12468#12471#12483#12463
   Font.Style = []
   KeyPreview = True
   Menu = MM_Menu
-  OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
   OnClose = FormClose
@@ -20,49 +20,66 @@ object Fo_Main: TFo_Main
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
   OnKeyUp = FormKeyUp
+  OnMouseWheel = FormMouseWheel
   OnResize = FormResize
   OnShow = FormShow
-  PixelsPerInch = 120
-  TextHeight = 15
+  TextHeight = 12
   object Sp_Left: TSplitter
-    Left = 31
-    Top = 41
-    Width = 4
-    Height = 519
+    Left = 25
+    Top = 33
+    Height = 415
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     AutoSnap = False
     Visible = False
   end
   object Sp_Left2: TSplitter
-    Left = 111
-    Top = 41
-    Width = 4
-    Height = 519
+    Left = 89
+    Top = 33
+    Height = 415
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     AutoSnap = False
   end
   object Sp_GlobalSearch: TSplitter
-    Left = 1450
-    Top = 41
-    Width = 4
-    Height = 519
+    Left = 1160
+    Top = 33
+    Height = 415
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     Align = alRight
     AutoSnap = False
     Visible = False
   end
   object Pa_List: TPanel
-    Left = 35
-    Top = 41
-    Width = 76
-    Height = 519
+    Left = 28
+    Top = 33
+    Width = 61
+    Height = 415
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     Align = alLeft
     BevelOuter = bvNone
-    Constraints.MinWidth = 20
+    Constraints.MinWidth = 16
     TabOrder = 0
     object LB_List: TListBox
       Left = 0
-      Top = 41
-      Width = 111
-      Height = 100
-      ItemHeight = 15
+      Top = 33
+      Width = 89
+      Height = 80
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      ItemHeight = 12
       MultiSelect = True
       PopupMenu = PM_List
       TabOrder = 0
@@ -73,39 +90,59 @@ object Fo_Main: TFo_Main
     end
     object Pa_ListBottom: TPanel
       Left = 0
-      Top = 494
-      Width = 76
-      Height = 25
+      Top = 395
+      Width = 61
+      Height = 20
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alBottom
       TabOrder = 2
       object La_Count: TLabel
-        Left = 10
-        Top = 5
-        Width = 103
-        Height = 15
+        Left = 8
+        Top = 4
+        Width = 83
+        Height = 12
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = '1 Cards, 0 Links'
       end
     end
     object Pa_ListTop: TPanel
       Left = 0
       Top = 0
-      Width = 76
-      Height = 41
+      Width = 61
+      Height = 33
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alTop
       TabOrder = 1
       OnResize = Pa_ListTopResize
       object La_Cards: TLabel
-        Left = 10
-        Top = 15
-        Width = 39
-        Height = 15
+        Left = 8
+        Top = 12
+        Width = 32
+        Height = 12
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Cards:'
       end
       object UD_Sort: TUpDown
-        Left = 45
-        Top = 5
-        Width = 21
-        Height = 31
+        Left = 36
+        Top = 4
+        Width = 17
+        Height = 25
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Min = -32768
         Max = 32767
         TabOrder = 0
@@ -115,74 +152,101 @@ object Fo_Main: TFo_Main
     end
   end
   object Pa_Client: TPanel
-    Left = 121
-    Top = 47
-    Width = 1301
-    Height = 331
+    Left = 97
+    Top = 38
+    Width = 1041
+    Height = 264
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     BevelOuter = bvNone
     TabOrder = 1
     object PC_Client: TPageControl
       Left = -1
-      Top = 50
-      Width = 1267
-      Height = 261
-      ActivePage = TS_Browser
+      Top = 39
+      Width = 1014
+      Height = 209
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      ActivePage = TS_Editor
       TabOrder = 0
       OnChange = PC_ClientChange
       object TS_Browser: TTabSheet
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Browser'
         ImageIndex = 1
         OnShow = TS_BrowserShow
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Im_Wall: TImage
-          Left = 150
-          Top = 59
-          Width = 131
-          Height = 131
+          Left = 120
+          Top = 47
+          Width = 105
+          Height = 105
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = True
           Visible = False
         end
         object Sp_BrowserRight: TSplitter
-          Left = 1255
-          Top = 51
-          Width = 4
-          Height = 154
+          Left = 1003
+          Top = 41
+          Height = 120
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alRight
           AutoSnap = False
           Visible = False
           OnMoved = Sp_BrowserRightMoved
-          ExplicitLeft = 1254
-          ExplicitHeight = 147
+          ExplicitLeft = 1004
+          ExplicitHeight = 123
         end
         object Sp_BrowserBottom: TSplitter
           Left = 0
-          Top = 205
-          Width = 1259
-          Height = 3
+          Top = 161
+          Width = 1006
+          Height = 2
           Cursor = crVSplit
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alBottom
           AutoSnap = False
           Visible = False
           OnMoved = Sp_BrowserBottomMoved
-          ExplicitTop = 198
-          ExplicitWidth = 1258
+          ExplicitTop = 164
+          ExplicitWidth = 1007
         end
         object Pa_BrowserBottom: TPanel
           Left = 0
-          Top = 208
-          Width = 1259
-          Height = 22
+          Top = 163
+          Width = 1006
+          Height = 18
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 0
           object Sc_X: TScrollBar
             Left = 0
             Top = 0
-            Width = 1237
-            Height = 22
+            Width = 989
+            Height = 18
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Align = alClient
             Max = 15000
             Min = -5000
@@ -193,20 +257,28 @@ object Fo_Main: TFo_Main
             OnChange = Sc_YChange
           end
           object Pa_BrowserBottomRight: TPanel
-            Left = 1237
+            Left = 989
             Top = 0
-            Width = 22
-            Height = 22
+            Width = 17
+            Height = 18
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Align = alRight
             BevelOuter = bvNone
             TabOrder = 1
           end
         end
         object Sc_Y: TScrollBar
-          Left = 1234
-          Top = 51
-          Width = 21
-          Height = 154
+          Left = 986
+          Top = 41
+          Width = 17
+          Height = 120
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alRight
           Kind = sbVertical
           Max = 15000
@@ -218,20 +290,28 @@ object Fo_Main: TFo_Main
           OnChange = Sc_YChange
         end
         object Bu_Enter: TButton
-          Left = 520
-          Top = 150
-          Width = 94
-          Height = 31
+          Left = 416
+          Top = 120
+          Width = 75
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Enter'
           Default = True
           TabOrder = 2
           OnClick = Bu_EnterClick
         end
         object Bu_BrowserTest: TButton
-          Left = 690
-          Top = 100
-          Width = 94
-          Height = 31
+          Left = 552
+          Top = 80
+          Width = 75
+          Height = 25
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Test'
           TabOrder = 3
           Visible = False
@@ -240,22 +320,34 @@ object Fo_Main: TFo_Main
         object Pa_BrowserTop: TPanel
           Left = 0
           Top = 0
-          Width = 1259
-          Height = 51
+          Width = 1006
+          Height = 41
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alTop
           TabOrder = 4
           object La_Zoom: TLabel
-            Left = 440
-            Top = 20
-            Width = 38
-            Height = 15
+            Left = 352
+            Top = 16
+            Width = 30
+            Height = 12
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Zoom:'
           end
           object SB_Cursor: TSpeedButton
-            Left = 10
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 8
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Down = True
             Glyph.Data = {
@@ -273,10 +365,14 @@ object Fo_Main: TFo_Main
               80088888888888888000888880888888888888888000}
           end
           object SB_Line: TSpeedButton
-            Left = 40
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 32
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -293,10 +389,14 @@ object Fo_Main: TFo_Main
               88888888888888888000888888888888888888888000}
           end
           object SB_View: TSpeedButton
-            Left = 139
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 111
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -314,10 +414,14 @@ object Fo_Main: TFo_Main
             OnClick = SB_ViewClick
           end
           object SB_ToolLabel: TSpeedButton
-            Left = 70
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 56
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -335,10 +439,14 @@ object Fo_Main: TFo_Main
             OnClick = SB_ToolLabelClick
           end
           object SB_ToolLinkLabel: TSpeedButton
-            Left = 100
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 80
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -356,20 +464,28 @@ object Fo_Main: TFo_Main
             OnClick = SB_ToolLinkLabelClick
           end
           object SB_Arrange: TSpeedButton
-            Left = 241
-            Top = 13
-            Width = 32
-            Height = 26
+            Left = 193
+            Top = 10
+            Width = 25
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             GroupIndex = 2
             Caption = 'ON'
             OnClick = SB_ArrangeClick
           end
           object SB_AutoScroll: TSpeedButton
-            Left = 723
-            Top = 13
-            Width = 112
-            Height = 26
+            Left = 578
+            Top = 10
+            Width = 90
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             GroupIndex = 3
             Down = True
@@ -377,19 +493,27 @@ object Fo_Main: TFo_Main
             OnClick = SB_AutoScrollClick
           end
           object SB_AutoZoom: TSpeedButton
-            Left = 843
-            Top = 13
-            Width = 112
-            Height = 26
+            Left = 674
+            Top = 10
+            Width = 90
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             GroupIndex = 4
             Caption = 'Auto Zoom'
           end
           object SB_ArrangeRefresh: TSpeedButton
-            Left = 390
-            Top = 13
-            Width = 31
-            Height = 26
+            Left = 312
+            Top = 10
+            Width = 25
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             Enabled = False
             Glyph.Data = {
@@ -401,37 +525,54 @@ object Fo_Main: TFo_Main
             OnClick = SB_ArrangeRefreshClick
           end
           object La_Arrange: TLabel
-            Left = 178
-            Top = 20
-            Width = 52
-            Height = 15
+            Left = 142
+            Top = 16
+            Width = 42
+            Height = 12
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Arrange:'
           end
           object Bu_ArrangeType: TSpeedButton
-            Left = 276
-            Top = 13
-            Width = 110
-            Height = 26
+            Left = 221
+            Top = 10
+            Width = 88
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             OnClick = Bu_ArrangeTypeClick
           end
           object TB_Zoom: TTrackBar
-            Left = 489
-            Top = 13
-            Width = 131
-            Height = 28
+            Left = 391
+            Top = 10
+            Width = 105
+            Height = 23
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             LineSize = 1000
             Max = 10000
             Min = -4000
             Position = -2000
             TabOrder = 0
+            ThumbLength = 16
             OnChange = TB_ZoomChange
             OnKeyDown = TB_ZoomKeyDown
           end
           object Co_Arrange: TComboBox
-            Left = 310
-            Top = 23
-            Width = 91
-            Height = 23
+            Left = 248
+            Top = 18
+            Width = 73
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Style = csDropDownList
             TabOrder = 1
             Visible = False
@@ -443,47 +584,67 @@ object Fo_Main: TFo_Main
               'Index')
           end
           object Bu_Shuffle: TButton
-            Left = 624
-            Top = 10
-            Width = 89
-            Height = 31
+            Left = 499
+            Top = 8
+            Width = 71
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Shuffle'
             TabOrder = 2
             TabStop = False
             OnClick = Bu_ShuffleClick
           end
           object Ed_FindCard: TEdit
-            Left = 963
-            Top = 13
-            Width = 112
-            Height = 23
+            Left = 770
+            Top = 10
+            Width = 90
+            Height = 20
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             TabOrder = 3
             OnChange = Ed_FindCardChange
             OnEnter = Ed_FindCardEnter
             OnExit = Ed_FindCardExit
           end
           object Bu_FindCard: TButton
-            Left = 1083
-            Top = 10
-            Width = 61
-            Height = 31
+            Left = 866
+            Top = 8
+            Width = 49
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Find'
             TabOrder = 4
             OnClick = Bu_FindCardClick
           end
         end
         object Pa_Browser: TPanel
-          Left = -3
-          Top = 49
-          Width = 146
-          Height = 136
+          Left = -2
+          Top = 39
+          Width = 116
+          Height = 109
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           BevelOuter = bvNone
           TabOrder = 5
           object PB_Browser: TPaintBox
             Left = 1
-            Top = 10
-            Width = 127
-            Height = 126
+            Top = 8
+            Width = 101
+            Height = 101
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             PopupMenu = PM_BNoSelect
             OnDblClick = PB_BrowserDblClick
             OnMouseDown = PB_BrowserMouseDown
@@ -494,42 +655,58 @@ object Fo_Main: TFo_Main
         end
       end
       object TS_Editor: TTabSheet
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Editor'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Sp_EditorRelated: TSplitter
-          Left = 1024
-          Top = 51
-          Height = 179
+          Left = 818
+          Top = 41
+          Height = 140
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alRight
           Visible = False
-          ExplicitLeft = 1023
-          ExplicitHeight = 175
+          ExplicitLeft = 819
+          ExplicitHeight = 143
         end
         object Pa_Editor: TPanel
           Left = 0
-          Top = 10
-          Width = 801
-          Height = 211
+          Top = 8
+          Width = 641
+          Height = 169
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           BevelOuter = bvNone
           TabOrder = 0
           object Splitter2: TSplitter
             Left = 0
-            Top = 76
-            Width = 801
-            Height = 4
+            Top = 61
+            Width = 641
+            Height = 3
             Cursor = crVSplit
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Align = alBottom
           end
           object LB_Link: TListBox
             Left = 0
-            Top = 80
-            Width = 801
-            Height = 131
+            Top = 64
+            Width = 641
+            Height = 105
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Align = alBottom
-            ItemHeight = 15
+            ItemHeight = 12
             PopupMenu = PM_Link
             TabOrder = 1
             OnClick = LB_LinkClick
@@ -537,12 +714,16 @@ object Fo_Main: TFo_Main
           end
           object RE_Edit: TMemo
             Left = 0
-            Top = 40
-            Width = 231
-            Height = 111
+            Top = 32
+            Width = 185
+            Height = 89
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Font.Charset = SHIFTJIS_CHARSET
             Font.Color = clWindowText
-            Font.Height = -15
+            Font.Height = -12
             Font.Name = #65325#65331' '#12468#12471#12483#12463
             Font.Pitch = fpFixed
             Font.Style = []
@@ -561,10 +742,14 @@ object Fo_Main: TFo_Main
             OnMouseUp = RE_EditMouseUp
           end
           object Bu_Test: TButton
-            Left = 690
-            Top = 50
-            Width = 94
-            Height = 31
+            Left = 552
+            Top = 40
+            Width = 75
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Test'
             TabOrder = 2
             Visible = False
@@ -572,19 +757,27 @@ object Fo_Main: TFo_Main
           end
         end
         object Pa_EditorRelated: TPanel
-          Left = 1027
-          Top = 51
-          Width = 232
-          Height = 179
+          Left = 821
+          Top = 41
+          Width = 185
+          Height = 140
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alRight
           BevelOuter = bvNone
           TabOrder = 2
           Visible = False
           object Me_EditorRelated: TMemo
             Left = 0
-            Top = 30
-            Width = 232
-            Height = 149
+            Top = 24
+            Width = 185
+            Height = 116
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Align = alClient
             ReadOnly = True
             ScrollBars = ssVertical
@@ -593,8 +786,12 @@ object Fo_Main: TFo_Main
           object Pa_EditorRelatedTop: TPanel
             Left = 0
             Top = 0
-            Width = 232
-            Height = 30
+            Width = 185
+            Height = 24
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Align = alTop
             Caption = 'Related Text'
             TabOrder = 1
@@ -604,15 +801,25 @@ object Fo_Main: TFo_Main
         object Pa_EditorTop: TPanel
           Left = 0
           Top = 0
-          Width = 1259
-          Height = 51
+          Width = 1006
+          Height = 41
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alTop
           TabOrder = 1
+          ExplicitLeft = -4
+          ExplicitTop = -4
           object SB_EditorRelated: TSpeedButton
-            Left = 8
-            Top = 13
-            Width = 101
-            Height = 26
+            Left = 6
+            Top = 10
+            Width = 81
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             GroupIndex = 3
             Caption = 'Related Text'
@@ -621,17 +828,21 @@ object Fo_Main: TFo_Main
         end
       end
       object TS_Drawing: TTabSheet
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Drawing'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PB_Drawing: TPaintBox
-          Left = 4
-          Top = 61
-          Width = 101
-          Height = 100
+          Left = 3
+          Top = 49
+          Width = 81
+          Height = 80
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           PopupMenu = PM_Drawing
           OnMouseDown = PB_DrawingMouseDown
           OnMouseMove = PB_DrawingMouseMove
@@ -641,22 +852,34 @@ object Fo_Main: TFo_Main
         object Pa_DrawingTop: TPanel
           Left = 0
           Top = 0
-          Width = 1259
-          Height = 51
+          Width = 1006
+          Height = 41
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alTop
           TabOrder = 0
           object La_DZoom: TLabel
-            Left = 408
-            Top = 20
-            Width = 38
-            Height = 15
+            Left = 326
+            Top = 16
+            Width = 30
+            Height = 12
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Zoom:'
           end
           object SB_DCursor: TSpeedButton
-            Left = 10
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 8
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Down = True
             Glyph.Data = {
@@ -676,10 +899,14 @@ object Fo_Main: TFo_Main
           end
           object SB_FreeHand: TSpeedButton
             Tag = 1
-            Left = 40
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 32
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -698,10 +925,14 @@ object Fo_Main: TFo_Main
           end
           object SB_DLine: TSpeedButton
             Tag = 2
-            Left = 70
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 56
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -720,10 +951,14 @@ object Fo_Main: TFo_Main
           end
           object SB_Box: TSpeedButton
             Tag = 3
-            Left = 100
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 80
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -742,10 +977,14 @@ object Fo_Main: TFo_Main
           end
           object SB_Circle: TSpeedButton
             Tag = 4
-            Left = 130
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 104
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -764,10 +1003,14 @@ object Fo_Main: TFo_Main
           end
           object SB_Text: TSpeedButton
             Tag = 5
-            Left = 160
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 128
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             GroupIndex = 1
             Glyph.Data = {
               72010000424D7201000000000000760000002800000015000000150000000100
@@ -786,55 +1029,80 @@ object Fo_Main: TFo_Main
             OnClick = SB_DrawingToolClick
           end
           object La_PenColor: TLabel
-            Left = 206
-            Top = 20
-            Width = 37
-            Height = 15
+            Left = 165
+            Top = 16
+            Width = 29
+            Height = 12
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Color:'
           end
           object Sh_DColorDefault: TShape
-            Left = 250
-            Top = 10
-            Width = 61
-            Height = 31
-            Pen.Width = 3
+            Left = 200
+            Top = 8
+            Width = 49
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
+            Pen.Width = 2
             OnMouseDown = Sh_DColorDefaultMouseDown
           end
           object La_PenColorDefault: TLabel
-            Left = 250
-            Top = 19
-            Width = 61
-            Height = 15
+            Left = 200
+            Top = 15
+            Width = 49
+            Height = 12
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Alignment = taCenter
             AutoSize = False
             Caption = 'Default'
             OnMouseDown = Sh_DColorDefaultMouseDown
           end
           object Sh_DColor: TShape
-            Left = 319
-            Top = 10
-            Width = 31
-            Height = 31
+            Left = 255
+            Top = 8
+            Width = 25
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Brush.Color = clGray
             OnMouseDown = Sh_DColorMouseDown
           end
           object TB_DZoom: TTrackBar
-            Left = 455
-            Top = 13
-            Width = 131
-            Height = 28
+            Left = 364
+            Top = 10
+            Width = 105
+            Height = 23
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             LineSize = 1000
             Max = 15000
             Min = 1000
             Position = 10000
             TabOrder = 0
+            ThumbLength = 16
             OnChange = PB_DrawingPaint
           end
           object Bu_DColor: TBitBtn
-            Left = 350
-            Top = 10
-            Width = 19
-            Height = 31
+            Left = 280
+            Top = 8
+            Width = 15
+            Height = 25
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Glyph.Data = {
               8A000000424D8A00000000000000760000002800000005000000050000000100
               0400000000001400000000000000000000001000000000000000000000000000
@@ -847,25 +1115,33 @@ object Fo_Main: TFo_Main
         end
       end
       object TS_Statistics: TTabSheet
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Statistics'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PB_Statistics: TPaintBox
           Left = 0
-          Top = 51
-          Width = 101
-          Height = 100
+          Top = 41
+          Width = 81
+          Height = 80
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           OnMouseDown = PB_StatisticsMouseDown
           OnPaint = PB_StatisticsPaint
         end
         object Sc_StatisticsY: TScrollBar
-          Left = 1237
-          Top = 51
-          Width = 22
-          Height = 179
+          Left = 989
+          Top = 41
+          Width = 17
+          Height = 140
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alRight
           Kind = sbVertical
           Max = 10000
@@ -877,33 +1153,49 @@ object Fo_Main: TFo_Main
         object Pa_StatisticsTop: TPanel
           Left = 0
           Top = 0
-          Width = 1259
-          Height = 51
+          Width = 1006
+          Height = 41
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Align = alTop
           TabOrder = 0
           object SB_StatisticsSort: TSpeedButton
-            Left = 239
-            Top = 13
-            Width = 64
-            Height = 26
+            Left = 191
+            Top = 10
+            Width = 51
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             AllowAllUp = True
             GroupIndex = 3
             Caption = 'Sort'
             OnClick = SB_StatisticsSortClick
           end
           object Bu_StatisticsKey: TSpeedButton
-            Left = 50
-            Top = 13
-            Width = 181
-            Height = 26
+            Left = 40
+            Top = 10
+            Width = 145
+            Height = 21
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Label'
             OnClick = Bu_StatisticsKeyClick
           end
           object La_StatisticsKey: TLabel
-            Left = 10
-            Top = 20
-            Width = 27
-            Height = 15
+            Left = 8
+            Top = 16
+            Width = 21
+            Height = 12
+            Margins.Left = 2
+            Margins.Top = 2
+            Margins.Right = 2
+            Margins.Bottom = 2
             Caption = 'Key:'
           end
         end
@@ -911,122 +1203,180 @@ object Fo_Main: TFo_Main
     end
     object SB_Status: TStatusBar
       Left = 0
-      Top = 312
-      Width = 1301
-      Height = 19
+      Top = 249
+      Width = 1041
+      Height = 15
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Panels = <
         item
-          Width = 450
+          Width = 360
         end
         item
-          Width = 1000
+          Width = 800
         end>
     end
     object Pa_Top: TPanel
       Left = 0
       Top = 0
-      Width = 1301
-      Height = 44
+      Width = 1041
+      Height = 35
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alTop
       TabOrder = 2
       object Pa_Card: TPanel
         Left = 1
         Top = 1
-        Width = 1299
-        Height = 42
+        Width = 1039
+        Height = 33
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitTop = -1
-        ExplicitHeight = 41
         object Label6: TLabel
-          Left = 310
-          Top = 26
-          Width = 41
-          Height = 15
+          Left = 248
+          Top = 21
+          Width = 34
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Edited:'
           Visible = False
         end
         object Label7: TLabel
-          Left = 570
-          Top = 26
-          Width = 48
-          Height = 15
+          Left = 456
+          Top = 21
+          Width = 39
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Viewed:'
           Visible = False
         end
         object La_Created: TLabel
-          Left = 120
-          Top = 26
-          Width = 8
-          Height = 15
+          Left = 96
+          Top = 21
+          Width = 6
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = '-'
           Visible = False
         end
         object La_Edited: TLabel
-          Left = 370
-          Top = 26
-          Width = 8
-          Height = 15
+          Left = 296
+          Top = 21
+          Width = 6
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = '-'
           Visible = False
         end
         object La_Title: TLabel
-          Left = 60
-          Top = 15
-          Width = 31
-          Height = 15
+          Left = 48
+          Top = 12
+          Width = 25
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Title:'
         end
         object La_Label: TLabel
-          Left = 540
-          Top = 15
-          Width = 36
-          Height = 15
+          Left = 432
+          Top = 12
+          Width = 29
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Label:'
         end
         object La_Card: TLabel
-          Left = 12
-          Top = 15
-          Width = 32
-          Height = 15
+          Left = 10
+          Top = 12
+          Width = 26
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Card:'
         end
         object Label5: TLabel
-          Left = 60
-          Top = 26
-          Width = 53
-          Height = 15
+          Left = 48
+          Top = 21
+          Width = 42
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Created:'
           Visible = False
         end
         object La_Viewed: TLabel
-          Left = 630
-          Top = 26
-          Width = 8
-          Height = 15
+          Left = 504
+          Top = 21
+          Width = 6
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = '-'
           Visible = False
         end
         object SB_Shape: TSpeedButton
-          Left = 409
-          Top = 8
-          Width = 51
-          Height = 26
+          Left = 327
+          Top = 6
+          Width = 41
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           OnClick = SB_ShapeClick
         end
         object La_Size: TLabel
-          Left = 303
-          Top = 15
-          Width = 30
-          Height = 15
+          Left = 242
+          Top = 12
+          Width = 23
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Size:'
         end
         object SB_Fix: TSpeedButton
-          Left = 470
-          Top = 8
-          Width = 26
-          Height = 26
+          Left = 376
+          Top = 6
+          Width = 21
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AllowAllUp = True
           GroupIndex = 1
           Glyph.Data = {
@@ -1044,10 +1394,14 @@ object Fo_Main: TFo_Main
           OnClick = SB_FixClick
         end
         object SB_Top: TSpeedButton
-          Left = 505
-          Top = 8
-          Width = 26
-          Height = 26
+          Left = 404
+          Top = 6
+          Width = 21
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AllowAllUp = True
           GroupIndex = 2
           Glyph.Data = {
@@ -1065,38 +1419,54 @@ object Fo_Main: TFo_Main
           OnClick = SB_TopClick
         end
         object Ed_Title: TEdit
-          Left = 96
-          Top = 8
-          Width = 191
-          Height = 26
+          Left = 77
+          Top = 6
+          Width = 153
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           TabOrder = 0
           OnChange = Ed_TitleChange
         end
         object Bu_Label0: TButton
-          Left = 590
-          Top = 8
-          Width = 101
-          Height = 26
+          Left = 472
+          Top = 6
+          Width = 81
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           TabOrder = 1
           Visible = False
           OnClick = Bu_Label0Click
         end
         object Ed_CardSize: TEdit
-          Left = 351
-          Top = 8
-          Width = 27
-          Height = 26
+          Left = 281
+          Top = 6
+          Width = 21
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           TabOrder = 2
           Text = '0'
           OnChange = Ed_CardSizeChange
         end
         object UD_CardSize: TUpDown
-          Left = 378
-          Top = 8
-          Width = 20
-          Height = 26
+          Left = 302
+          Top = 6
+          Width = 16
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Associate = Ed_CardSize
           Min = -8
           Max = 8
@@ -1107,122 +1477,180 @@ object Fo_Main: TFo_Main
       object Pa_Link: TPanel
         Left = 1
         Top = 1
-        Width = 1299
-        Height = 42
+        Width = 1039
+        Height = 33
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
         Visible = False
-        ExplicitTop = -1
-        ExplicitHeight = 41
         object Label12: TLabel
-          Left = 310
-          Top = 26
-          Width = 41
-          Height = 15
+          Left = 248
+          Top = 21
+          Width = 34
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Edited:'
           Visible = False
         end
         object Label13: TLabel
-          Left = 570
-          Top = 26
-          Width = 48
-          Height = 15
+          Left = 456
+          Top = 21
+          Width = 39
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Viewed:'
           Visible = False
         end
         object Label14: TLabel
-          Left = 120
-          Top = 26
-          Width = 8
-          Height = 15
+          Left = 96
+          Top = 21
+          Width = 6
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = '-'
           Visible = False
         end
         object Label11: TLabel
-          Left = 60
-          Top = 26
-          Width = 53
-          Height = 15
+          Left = 48
+          Top = 21
+          Width = 42
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Created:'
           Visible = False
         end
         object La_LinkTitle: TLabel
-          Left = 59
-          Top = 15
-          Width = 31
-          Height = 15
+          Left = 47
+          Top = 12
+          Width = 25
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Title:'
         end
         object La_LinkLabel: TLabel
-          Left = 540
-          Top = 15
-          Width = 36
-          Height = 15
+          Left = 432
+          Top = 12
+          Width = 29
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Label:'
         end
         object La_Link: TLabel
-          Left = 12
-          Top = 15
-          Width = 29
-          Height = 15
+          Left = 10
+          Top = 12
+          Width = 23
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Link:'
         end
         object Label15: TLabel
-          Left = 370
-          Top = 26
-          Width = 8
-          Height = 15
+          Left = 296
+          Top = 21
+          Width = 6
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = '-'
           Visible = False
         end
         object Label16: TLabel
-          Left = 630
-          Top = 26
-          Width = 8
-          Height = 15
+          Left = 504
+          Top = 21
+          Width = 6
+          Height = 12
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = '-'
           Visible = False
         end
         object SB_LinkShape: TSpeedButton
-          Left = 479
-          Top = 8
-          Width = 51
-          Height = 27
+          Left = 383
+          Top = 6
+          Width = 41
+          Height = 22
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           OnClick = SB_LinkShapeClick
         end
         object Bu_LinkLabel0: TButton
-          Left = 589
-          Top = 8
-          Width = 101
-          Height = 27
+          Left = 471
+          Top = 6
+          Width = 81
+          Height = 22
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           TabOrder = 0
           Visible = False
           OnClick = Bu_LinkLabel0Click
         end
         object Ch_LinkDirection: TCheckBox
-          Left = 300
-          Top = 11
-          Width = 81
-          Height = 21
+          Left = 240
+          Top = 9
+          Width = 65
+          Height = 17
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Direction'
           TabOrder = 1
           OnClick = Ch_LinkDirectionClick
         end
         object Bu_LinkDirectionInverse: TButton
-          Left = 394
-          Top = 8
-          Width = 64
-          Height = 27
+          Left = 315
+          Top = 6
+          Width = 51
+          Height = 22
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           Caption = 'Inverse'
           TabOrder = 2
           OnClick = Bu_LinkDirectionInverseClick
         end
         object Ed_LinkTitle: TEdit
-          Left = 95
-          Top = 8
-          Width = 191
-          Height = 26
+          Left = 76
+          Top = 6
+          Width = 153
+          Height = 21
+          Margins.Left = 2
+          Margins.Top = 2
+          Margins.Right = 2
+          Margins.Bottom = 2
           AutoSize = False
           TabOrder = 3
           OnChange = Ed_LinkTitleChange
@@ -1232,20 +1660,28 @@ object Fo_Main: TFo_Main
   end
   object Pa_Files: TPanel
     Left = 0
-    Top = 41
-    Width = 31
-    Height = 519
+    Top = 33
+    Width = 25
+    Height = 415
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     Align = alLeft
     BevelOuter = bvNone
-    Constraints.MinWidth = 20
+    Constraints.MinWidth = 16
     TabOrder = 3
     Visible = False
     object LB_FileList: TListBox
       Left = 0
-      Top = 41
-      Width = 111
-      Height = 100
-      ItemHeight = 15
+      Top = 33
+      Width = 89
+      Height = 80
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      ItemHeight = 12
       TabOrder = 0
       OnClick = LB_FileListClick
       OnDblClick = LB_FileListDblClick
@@ -1254,67 +1690,99 @@ object Fo_Main: TFo_Main
     end
     object Pa_FilesBottom: TPanel
       Left = 0
-      Top = 494
-      Width = 31
-      Height = 25
+      Top = 395
+      Width = 25
+      Height = 20
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alBottom
       TabOrder = 2
     end
     object Pa_FilesTop: TPanel
       Left = 0
       Top = 0
-      Width = 31
-      Height = 41
+      Width = 25
+      Height = 33
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alTop
       TabOrder = 1
       OnResize = Pa_ListTopResize
       object La_Files: TLabel
-        Left = 10
-        Top = 15
-        Width = 32
-        Height = 15
+        Left = 8
+        Top = 12
+        Width = 27
+        Height = 12
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Files:'
       end
     end
   end
   object Pa_GlobalSearch: TPanel
-    Left = 1454
-    Top = 41
-    Width = 259
-    Height = 519
+    Left = 1163
+    Top = 33
+    Width = 207
+    Height = 415
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     Align = alRight
     BevelOuter = bvNone
-    Constraints.MinWidth = 20
+    Constraints.MinWidth = 16
     TabOrder = 4
     Visible = False
     object PB_GlobalSearch: TPaintBox
-      Left = 10
-      Top = 50
-      Width = 131
-      Height = 131
+      Left = 8
+      Top = 40
+      Width = 105
+      Height = 105
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       OnMouseDown = PB_GlobalSearchMouseDown
       OnPaint = PB_GlobalSearchPaint
     end
     object Pa_GlobalSearchTop: TPanel
       Left = 0
       Top = 0
-      Width = 259
-      Height = 41
+      Width = 207
+      Height = 33
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alTop
       TabOrder = 0
       OnResize = Pa_ListTopResize
       object La_GlobalSearchTop: TLabel
-        Left = 50
-        Top = 15
-        Width = 100
-        Height = 15
+        Left = 40
+        Top = 12
+        Width = 80
+        Height = 12
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = 'Search Results:'
       end
       object SB_CloseGlobalSearch: TSpeedButton
-        Left = 8
-        Top = 8
-        Width = 26
-        Height = 26
+        Left = 6
+        Top = 6
+        Width = 21
+        Height = 21
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         AllowAllUp = True
         Glyph.Data = {
           42010000424D4201000000000000760000002800000011000000110000000100
@@ -1331,33 +1799,49 @@ object Fo_Main: TFo_Main
         OnClick = SB_CloseGlobalSearchClick
       end
       object La_SearchResultKeyword: TLabel
-        Left = 160
-        Top = 15
-        Width = 16
-        Height = 15
+        Left = 128
+        Top = 12
+        Width = 12
+        Height = 12
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = '""'
       end
     end
     object Pa_SearchResultBottom: TPanel
       Left = 0
-      Top = 494
-      Width = 259
-      Height = 25
+      Top = 395
+      Width = 207
+      Height = 20
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alBottom
       TabOrder = 1
       object La_GlobalSearchCount: TLabel
-        Left = 10
-        Top = 5
-        Width = 38
-        Height = 15
+        Left = 8
+        Top = 4
+        Width = 31
+        Height = 12
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
         Caption = '0 Hits'
       end
     end
     object Sc_GlobalSearch: TScrollBar
-      Left = 238
-      Top = 41
-      Width = 21
-      Height = 453
+      Left = 190
+      Top = 33
+      Width = 17
+      Height = 362
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Align = alRight
       Kind = sbVertical
       PageSize = 0
@@ -1369,32 +1853,48 @@ object Fo_Main: TFo_Main
   object Pa_Top_: TPanel
     Left = 0
     Top = 0
-    Width = 1713
-    Height = 41
+    Width = 1370
+    Height = 33
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
     Align = alTop
     TabOrder = 2
     Visible = False
     object Label2: TLabel
-      Left = 10
-      Top = 14
-      Width = 30
-      Height = 15
+      Left = 8
+      Top = 11
+      Width = 23
+      Height = 12
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Caption = 'Size:'
     end
     object Ed_Size: TEdit
-      Left = 50
-      Top = 6
-      Width = 51
-      Height = 23
+      Left = 40
+      Top = 5
+      Width = 41
+      Height = 20
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       TabOrder = 0
       Text = '9'
       OnChange = Ed_SizeChange
     end
     object UD_Size: TUpDown
-      Left = 101
-      Top = 6
-      Width = 20
-      Height = 23
+      Left = 81
+      Top = 5
+      Width = 16
+      Height = 20
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
       Associate = Ed_Size
       Min = 5
       Position = 9
@@ -1429,8 +1929,8 @@ object Fo_Main: TFo_Main
   end
   object MM_Menu: TMainMenu
     AutoHotkeys = maManual
-    Left = 224
-    Top = 192
+    Left = 112
+    Top = 8
     object M_File: TMenuItem
       Caption = '&File'
       object MF_New: TMenuItem
@@ -1594,6 +2094,12 @@ object Fo_Main: TFo_Main
         Caption = 'Select &All'
         ShortCut = 16449
         OnClick = ME_SelectAllClick
+      end
+      object ME_GPT: TMenuItem
+        Tag = -1
+        Caption = '&GPT'
+        ShortCut = 16455
+        OnClick = ME_GPTClick
       end
       object N3: TMenuItem
         Caption = '-'
@@ -2233,6 +2739,13 @@ object Fo_Main: TFo_Main
         OnClick = MV_EditTitleClick
       end
     end
+    object Setting1: TMenuItem
+      Caption = '&Setting'
+      object MS_GPTAPIKey: TMenuItem
+        Caption = '&GPT API Key...'
+        OnClick = MS_GPTAPIKeyClick
+      end
+    end
     object M_Help: TMenuItem
       Caption = '&Help'
       object MH_Contents: TMenuItem
@@ -2268,7 +2781,7 @@ object Fo_Main: TFo_Main
       end
     end
     object M_Special: TMenuItem
-      Caption = '&Special'
+      Caption = 'S&pecial'
       Visible = False
       object MS_ResetAllDates: TMenuItem
         Caption = '&Reset All Dates'
@@ -4896,5 +5409,9 @@ object Fo_Main: TFo_Main
     Filter = '*.csv|*.csv'
     Left = 416
     Top = 192
+  end
+  object PM_GPT: TPopupMenu
+    Left = 568
+    Top = 176
   end
 end

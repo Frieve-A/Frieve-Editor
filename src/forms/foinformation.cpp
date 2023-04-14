@@ -35,7 +35,7 @@ void __fastcall TFo_Information::FormShow(TObject *Sender) {
 	ApplyLanguageSetting();
 
 	WB->Align = alClient;
-	UnicodeString ws = InfoURL;
+	UnicodeString ws = ReleaseURL;
 	WB->Navigate(ws.c_str());
 	Ch_DontCheckNew->Checked = !SettingFile.m_bCheckNew;
 }
