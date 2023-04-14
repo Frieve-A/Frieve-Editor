@@ -522,7 +522,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 					int lastindex = 0;
 					int lastcount = lastgram->Count;
 
-					WideString *TSL; // 直前の文字列保存用
+					WideString *TSL = NULL; // 直前の文字列保存用
 
 					int tmp2count = Tmp2->Count;
 					for (int i3 = 0; i3 < tmp2count; i3++) {
@@ -572,7 +572,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 				else {
 
 					// 全ての組み合わせを残す
-					WideString *WSL;
+					WideString *WSL = NULL;
 
 					int tmp2count = Tmp2->Count;
 					for (int i3 = 0; i3 < tmp2count; i3++) {
@@ -1758,5 +1758,21 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
  }
  //---------------------------------------------------------------------------
  */
+String NormalizeLineBreaks(const String input, const String& lineBreak)
+{
+	String result = input;
 
+	// CR+LF -> LF
+	result = StringReplace(result, L"\r\n", L"\n", TReplaceFlags() << rfReplaceAll);
+
+	// CR -> LF
+	result = StringReplace(result, L"\r", L"\n", TReplaceFlags() << rfReplaceAll);
+
+	// LF -> CR + LF
+	result = StringReplace(result, L"\n", lineBreak, TReplaceFlags() << rfReplaceAll);
+
+
+	return result;
+}
+//---------------------------------------------------------------------------
 #pragma package(smart_init)

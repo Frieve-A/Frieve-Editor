@@ -75,6 +75,9 @@ public:
 	// ŒÝŠ·—p
 	void LoadFromFile(UnicodeString FN);
 	void SaveToFile(UnicodeString FN);
+
+private:
+	TCard& operator=(const TCard &source);
 };
 // ---------------------------------------------------------------------------
 #endif

@@ -722,10 +722,6 @@ void TDocument::RefreshCardLevel() {
 				if (count) {
 					// このカードへ張られたリンクがある
 
-					if (Card->m_Title == "マルチラベル") {
-						count = count;
-					}
-
 					// 現在のカードから戻る方向に親カードを探す
 					int startindex = 0;
 					for (int il = 0; il < count; il++) {
@@ -818,7 +814,6 @@ void TDocument::RefreshCardLevel() {
 						if (i2 < insindex) {
 							// 挿入位置より手前
 							// ありえないはず？
-							i2 = i2;
 						}
 						else if (i2 > insindex) {
 							// 挿入位置より後ろ＝間のカードinsindex<=x<i2を後ろに1つずつずらす

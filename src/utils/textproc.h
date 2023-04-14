@@ -27,6 +27,9 @@ public:
 	void FreeIDValue();
 	void Finalize(); // ソートされたIDとIndexのデータを作る
 	int SearchIndex(int ID); // IDのIndexを検索
+private:
+	TDMatrix(const TDMatrix &source);
+	TDMatrix& operator=(const TDMatrix &source);
 };
 
 // ---------------------------------------------------------------------------
@@ -177,7 +180,10 @@ public:
 		int option = 0x0);
 	virtual ~TTextDecomposer();
 	// WideString *GetStr(int list, int index);
-	};
+private:
+	TTextDecomposer(const TTextDecomposer &source);
+	TTextDecomposer& operator=(const TTextDecomposer &source);
+};
 
 // ---------------------------------------------------------------------------
 typedef struct SMatrixItem_ {
@@ -230,6 +236,9 @@ public:
 	void MergeCol(int block, float threshold, int target);
 
 	void Dummy(); // inlineが削除される問題逃れ
+private:
+	TSMatrix(const TSMatrix &source);
+	TSMatrix& operator=(const TSMatrix &source);
 };
 // ---------------------------------------------------------------------------
 /*
@@ -240,5 +249,6 @@ public:
  virtual ~TTextToFeature();
  };
  */
+String NormalizeLineBreaks(const String input, const String& lineBreak = L"\r\n");
 // ---------------------------------------------------------------------------
 #endif

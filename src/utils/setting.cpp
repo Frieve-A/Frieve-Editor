@@ -410,6 +410,8 @@ TSettingFile::TSettingFile() {
 	fepUnloadPlugIn = NULL;
 
 	m_WebSearch = "";
+
+	m_GPTAPIKey = "";
 }
 
 // ---------------------------------------------------------------------------
@@ -442,6 +444,8 @@ void TSettingFile::WriteToIni(TIniFile *Ini, UnicodeString Section) {
 	Ini->WriteInteger(Section, "UndoTimes", m_nUndoTimes);
 
 	Ini->WriteString(Section, "WebSearch", m_WebSearch);
+
+	Ini->WriteString(Section, "GPTAPIKey", m_GPTAPIKey);
 }
 
 // ---------------------------------------------------------------------------
@@ -483,16 +487,20 @@ void TSettingFile::ReadFromIni(TIniFile *Ini, UnicodeString Section) {
 	}
 
 	m_WebSearch = Ini->ReadString(Section, "WebSearch", m_WebSearch);
+
+	m_GPTAPIKey = Ini->ReadString(Section, "GPTAPIKey", m_GPTAPIKey);
 }
 
 // ---------------------------------------------------------------------------
 TSetting2Function::TSetting2Function() {
 	m_WebSearch = new TStringList();
+	m_GPT = new TStringList();
 }
 
 // ---------------------------------------------------------------------------
 TSetting2Function::~TSetting2Function() {
 	delete m_WebSearch;
+    delete m_GPT;
 }
 
 // ---------------------------------------------------------------------------
@@ -502,6 +510,8 @@ void TSetting2Function::WriteToIni(TIniFile *Ini) {
 // ---------------------------------------------------------------------------
 void TSetting2Function::ReadFromIni(TIniFile *Ini) {
 	Ini->ReadSectionValues("WebSearch", m_WebSearch);
+	m_GPTSystemPrompt = Ini->ReadString("GPTSystem", "SystemPrompt", "");
+	Ini->ReadSectionValues("GPT", m_GPT);
 }
 // ---------------------------------------------------------------------------
 

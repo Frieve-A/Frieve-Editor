@@ -18,9 +18,9 @@
 #define AppTitle "Frieve Editor"
 #define AppVersion 140
 #define FileVersion 007
-#define AppURL "http://www.frieve.com/"
-#define SoftURL "http://www.frieve.com/feditor/"
-#define InfoURL "http://www.frieve.com/feditor/info.html"
+#define AppURL "https://www.frieve.com/"
+#define SoftURL "https://www.frieve.com/software/frieve-editor"
+#define ReleaseURL "https://github.com/Frieve-A/Frieve-Editor/releases"
 
 class IDocCtrl {
 public:
@@ -226,6 +226,9 @@ public:
 	TUndoRedoData(TDocument *Doc, UnicodeString Name, int m_nCardID = -1,
 		int SelStart = 0, int SelLength = 0);
 	virtual ~TUndoRedoData();
+private:
+	TUndoRedoData(const TUndoRedoData &source);
+	TUndoRedoData& operator=(const TUndoRedoData &source);
 };
 
 class TUndoRedo {
@@ -253,6 +256,9 @@ public:
 	bool GetCanRedo(UnicodeString &editname);
 
 	int m_bChanged; // UndoÅARedoÇ™çsÇÌÇÍÇΩÇ±Ç∆Çé¶Ç∑
+private:
+	TUndoRedo(const TUndoRedo &source);
+	TUndoRedo& operator=(const TUndoRedo &source);
 };
 
 // ---------------------------------------------------------------------------

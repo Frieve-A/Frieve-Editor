@@ -22,6 +22,9 @@ public:
 	UnicodeString ReadString(UnicodeString Key, UnicodeString Default);
 	int ReadInteger(UnicodeString Key, int Default);
 	float ReadFloat(UnicodeString Key, float Default);
+private:
+	TFastIniSection(const TFastIniSection &source);
+	TFastIniSection& operator=(const TFastIniSection &source);
 };
 
 class TFastIni {
@@ -43,6 +46,9 @@ public:
 	bool ReadBool(UnicodeString Section, UnicodeString Key, int Default);
 	float ReadFloat(UnicodeString Section, UnicodeString Key, float Default);
 	void ReadSectionValues(UnicodeString Section, TStrings *S);
+private:
+	TFastIni(const TFastIni &source);
+	TFastIni& operator=(const TFastIni &source);
 };
 
 // ---------------------------------------------------------------------------

@@ -142,6 +142,9 @@ public:
 	// 一時
 	int m_nSpecialPaint;
 	UnicodeString m_SpecialCaption;
+private:
+	TSettingView(const TSettingView &source);
+	TSettingView& operator=(const TSettingView &source);
 };
 
 // ---------------------------------------------------------------------------
@@ -168,10 +171,16 @@ public:
 	UnicodeString m_PlugIn;
 	HINSTANCE m_hPlugIn; // プラグインハンドル（LoadLibrary）
 
+	//GPT
+    UnicodeString m_GPTAPIKey;
+
 	void __stdcall(*fepLoadPlugIn)(void);
 	void __stdcall(*fepTimeOut)(IDocCtrl * Doc);
 	bool __stdcall(*fepOperation)(IDocCtrl * Doc, wchar_t *operation);
 	void __stdcall(*fepUnloadPlugIn)(void);
+private:
+	TSettingFile(const TSettingFile &source);
+	TSettingFile& operator=(const TSettingFile &source);
 };
 
 // ---------------------------------------------------------------------------
@@ -184,8 +193,12 @@ public:
 	void WriteToIni(TIniFile *Ini);
 	void ReadFromIni(TIniFile *Ini);
 	// 設定
-
 	TStringList *m_WebSearch; // ネット検索設定
+	TStringList *m_GPT;//GPT設定
+    UnicodeString m_GPTSystemPrompt;//GPTシステムプロンプト
+private:
+	TSetting2Function(const TSetting2Function &source);
+	TSetting2Function& operator=(const TSetting2Function &source);
 };
 
 // ---------------------------------------------------------------------------
@@ -250,6 +263,9 @@ public:
 	UnicodeString FailedToSave;
 	UnicodeString NotFound;
 	UnicodeString AANotEnoughMemory;
+private:
+	TMLText(const TMLText &source);
+	TMLText& operator=(const TMLText &source);
 };
 
 extern TMLText MLText;
