@@ -141,29 +141,29 @@ void __fastcall TFo_Main::WMEraseBkgnd(TWMEraseBkgnd &msg) {
 void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes) {
 	int fcount = DragQueryFile((HDROP)mes.Drop, 0xFFFFFFFF, NULL, 0);
 
-	// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éHOpenF•s–¾
-	// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚çOpen‚©Insert‚©•s–¾
-	// •¡”ƒtƒ@ƒCƒ‹‚©‚Âfip‚ª¬‚¶‚Á‚Ä‚¢‚½‚çInsert
-	// fipAtxtˆÈŠO‚ª¬‚´‚Á‚Ä‚¢‚½‚çInsert
-	// Šî–{ŠJ‚­‚ÅACtrlƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©Aã‹LğŒ‚É‚æ‚èInsert‚Æ”»’f‚³‚ê‚½‚ç‘}“üH
+	// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ï¼ŸOpenï¼šä¸æ˜
+	// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãŸã‚‰Openã‹Insertã‹ä¸æ˜
+	// è¤‡æ•°ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã¤fipãŒæ··ã˜ã£ã¦ã„ãŸã‚‰Insert
+	// fipã€txtä»¥å¤–ãŒæ··ã–ã£ã¦ã„ãŸã‚‰Insert
+	// åŸºæœ¬é–‹ãã§ã€Ctrlã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã€ä¸Šè¨˜æ¡ä»¶ã«ã‚ˆã‚ŠInsertã¨åˆ¤æ–­ã•ã‚ŒãŸã‚‰æŒ¿å…¥ï¼Ÿ
 
-	// ¨‚Æ‚è‚ ‚¦‚¸A2ŒÂˆÈã‚¾‚Á‚½‚èfip‚¶‚á‚È‚©‚Á‚½‚ç‘S‚ÄŠO•”ƒŠƒ“ƒN‚Æ‚·‚é
+	// â†’ã¨ã‚Šã‚ãˆãšã€2å€‹ä»¥ä¸Šã ã£ãŸã‚Šfipã˜ã‚ƒãªã‹ã£ãŸã‚‰å…¨ã¦å¤–éƒ¨ãƒªãƒ³ã‚¯ã¨ã™ã‚‹
 
 	if (fcount > 0) {
 		wchar_t FN[MAX_PATH];
 		DragQueryFile((HDROP)mes.Drop, 0, FN, MAX_PATH);
 
 		if (fcount > 1 || LowerCase(ExtractFileExt(FN)) != ".fip") {
-			// ŠO•”ƒŠƒ“ƒN‘}“ü
+			// å¤–éƒ¨ãƒªãƒ³ã‚¯æŒ¿å…¥
 			if (m_nTargetCard >= 0 && m_nTargetCard == m_nCurrentCard) {
-				// Œ»İƒJ[ƒh‚É‘}“ü
+				// ç¾åœ¨ã‚«ãƒ¼ãƒ‰ã«æŒ¿å…¥
 				for (int i = 0; i < fcount; i++) {
 					DragQueryFile((HDROP)mes.Drop, i, FN, MAX_PATH);
 					RE_Edit->Lines->Add(FN);
 				}
 			}
 			else {
-				// ƒJ[ƒh‚ğì¬‚µ‚Ä‘}“ü
+				// ã‚«ãƒ¼ãƒ‰ã‚’ä½œæˆã—ã¦æŒ¿å…¥
 				m_Document->ClearCardSelection();
 				for (int i = 0; i < fcount; i++) {
 					DragQueryFile((HDROP)mes.Drop, i, FN, MAX_PATH);
@@ -184,7 +184,7 @@ void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes) {
 			}
 		}
 		else {
-			// ŠJ‚­
+			// é–‹ã
 			if (SaveCheck()) {
 				LoadSub(FN);
 			}
@@ -195,113 +195,113 @@ void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes) {
 
 __fastcall TFo_Main::TFo_Main(TComponent* Owner) : TForm(Owner),
 	m_Document(NULL),
-	// Undoƒoƒbƒtƒ@
+	// Undoãƒãƒƒãƒ•ã‚¡
 	m_UndoRedo(NULL),
-	// •\¦XV—p
+	// è¡¨ç¤ºæ›´æ–°ç”¨
 	m_nRefreshListCount(0),
 	m_nRefreshLinkCount(0),
 	m_nRefreshLabelCount(0),
-	m_nTargetCard(0),  // •ÒW’†‚ÌƒJ[ƒh
-	m_nTargetLink(0),  // •ÒW’†‚ÌƒŠƒ“ƒN
-	m_nTargetCard2(0),  // ƒŠƒ“ƒNæƒJ[ƒh
-	m_nCurrentCard(0),  // •\¦’†‚ÌƒJ[ƒhiTargetCard‚ÆˆÙ‚È‚Á‚½‚ç‰æ–ÊXVj
-	m_nCurrentLink(0),  // •\¦’†‚ÌƒŠƒ“ƒNiTargetLink‚ÆˆÙ‚È‚Á‚½‚ç‰æ–ÊXVj
+	m_nTargetCard(0),  // ç·¨é›†ä¸­ã®ã‚«ãƒ¼ãƒ‰
+	m_nTargetLink(0),  // ç·¨é›†ä¸­ã®ãƒªãƒ³ã‚¯
+	m_nTargetCard2(0),  // ãƒªãƒ³ã‚¯å…ˆã‚«ãƒ¼ãƒ‰
+	m_nCurrentCard(0),  // è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ï¼ˆTargetCardã¨ç•°ãªã£ãŸã‚‰ç”»é¢æ›´æ–°ï¼‰
+	m_nCurrentLink(0),  // è¡¨ç¤ºä¸­ã®ãƒªãƒ³ã‚¯ï¼ˆTargetLinkã¨ç•°ãªã£ãŸã‚‰ç”»é¢æ›´æ–°ï¼‰
 
-	m_LinkIndexes(NULL),  // •\¦’†‚ÌƒŠƒ“ƒNIndex
+	m_LinkIndexes(NULL),  // è¡¨ç¤ºä¸­ã®ãƒªãƒ³ã‚¯Index
 
-	// ƒ‰ƒxƒ‹
+	// ãƒ©ãƒ™ãƒ«
 	MI_Labels(NULL),
 	MI_LinkLabels(NULL),
 
-	m_nToolLabel(0),  // ƒ‰ƒxƒ‹•t‚¯ƒ{ƒ^ƒ“‚Å•t‚¯‚éƒ‰ƒxƒ‹
-	m_nToolLinkLabel(0),  // ƒ‰ƒxƒ‹•t‚¯ƒ{ƒ^ƒ“‚Å•t‚¯‚éƒ‰ƒxƒ‹
+	m_nToolLabel(0),  // ãƒ©ãƒ™ãƒ«ä»˜ã‘ãƒœã‚¿ãƒ³ã§ä»˜ã‘ã‚‹ãƒ©ãƒ™ãƒ«
+	m_nToolLinkLabel(0),  // ãƒ©ãƒ™ãƒ«ä»˜ã‘ãƒœã‚¿ãƒ³ã§ä»˜ã‘ã‚‹ãƒ©ãƒ™ãƒ«
 
-	// ƒuƒ‰ƒEƒU•\¦
+	// ãƒ–ãƒ©ã‚¦ã‚¶è¡¨ç¤º
 	m_nBrowserWidth(0), m_nBrowserHeight(),
 	m_nBGColor(0), m_nFGColor(0),
 	m_fFontZoom(1.0f),
-	m_nXOffset(0), m_nYOffset(0),  // ƒvƒŠƒ“ƒ^•\¦‚ÌƒIƒtƒZƒbƒg
+	m_nXOffset(0), m_nYOffset(0),  // ãƒ—ãƒªãƒ³ã‚¿è¡¨ç¤ºæ™‚ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 
-	m_nTmpCardsCount(0),  // ˆÈ‰º‚Ìˆê•Ï”Ši”[êŠ‚ÌƒTƒCƒYi”‚ª•Ï‚í‚Á‚Ä‚¢‚½‚çPaintSub‚Åƒƒ‚ƒŠÄŠm•Ûj
-	m_nTmpLinksCount(0),  // ˆÈ‰º‚Ìˆê•Ï”Ši”[êŠ‚ÌƒTƒCƒYi”‚ª•Ï‚í‚Á‚Ä‚¢‚½‚çPaintSub‚Åƒƒ‚ƒŠÄŠm•Ûj
+	m_nTmpCardsCount(0),  // ä»¥ä¸‹ã®ä¸€æ™‚å¤‰æ•°æ ¼ç´å ´æ‰€ã®ã‚µã‚¤ã‚ºï¼ˆæ•°ãŒå¤‰ã‚ã£ã¦ã„ãŸã‚‰PaintSubã§ãƒ¡ãƒ¢ãƒªå†ç¢ºä¿ï¼‰
+	m_nTmpLinksCount(0),  // ä»¥ä¸‹ã®ä¸€æ™‚å¤‰æ•°æ ¼ç´å ´æ‰€ã®ã‚µã‚¤ã‚ºï¼ˆæ•°ãŒå¤‰ã‚ã£ã¦ã„ãŸã‚‰PaintSubã§ãƒ¡ãƒ¢ãƒªå†ç¢ºä¿ï¼‰
 	m_CardVisible(NULL),
 	m_LinkVisible(NULL),
-	m_CardTitle(NULL),  // ˆêƒJ[ƒhƒ^ƒCƒgƒ‹iTitle‚ÍFold‚³‚ê‚Ä‚¢‚é‚Æ•Ï‚í‚éj
+	m_CardTitle(NULL),  // ä¸€æ™‚ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ï¼ˆTitleã¯Foldã•ã‚Œã¦ã„ã‚‹ã¨å¤‰ã‚ã‚‹ï¼‰
 	m_CardRelated(NULL),
-	m_CardAssign(NULL),  // Fold—pB‚±‚ê‚Ì¦‚·”Ô†‚ÌƒJ[ƒh‚Æ‚µ‚ÄˆÚ“®‚·‚é
-	m_CardShape(NULL),  // ƒJ[ƒh‚ÌŒ`iˆêBFold‚³‚ê‚Ä‚¢‚é‚Æ‚«‚Í‘½”Œˆ‚ÅŒˆ‚Ü‚éj
-	// ƒJ[ƒh‚ÌƒTƒCƒY‚à–{“–‚ÍFold‚³‚ê‚Ä‚¢‚é•½‹Ï‚É‚·‚é‚×‚«IH
-	m_CardX(NULL),  // •\¦‚·‚éÀÀ•Wi‰æ–ÊƒTƒCƒY‚Íl—¶‚µ‚È‚¢j
-	m_CardY(NULL),  // •\¦‚·‚éÀÀ•Wi‰æ–ÊƒTƒCƒY‚Íl—¶‚µ‚È‚¢j
-	m_CardWidth(NULL),  // •iÀÀ•WBPixelj
-	m_CardHeight(NULL),  // ‚‚³iÀÀ•WBPixelj
+	m_CardAssign(NULL),  // Foldç”¨ã€‚ã“ã‚Œã®ç¤ºã™ç•ªå·ã®ã‚«ãƒ¼ãƒ‰ã¨ã—ã¦ç§»å‹•ã™ã‚‹
+	m_CardShape(NULL),  // ã‚«ãƒ¼ãƒ‰ã®å½¢ï¼ˆä¸€æ™‚ã€‚Foldã•ã‚Œã¦ã„ã‚‹ã¨ãã¯å¤šæ•°æ±ºã§æ±ºã¾ã‚‹ï¼‰
+	// ã‚«ãƒ¼ãƒ‰ã®ã‚µã‚¤ã‚ºã‚‚æœ¬å½“ã¯Foldã•ã‚Œã¦ã„ã‚‹å¹³å‡ã«ã™ã‚‹ã¹ãï¼ï¼Ÿ
+	m_CardX(NULL),  // è¡¨ç¤ºã™ã‚‹å®Ÿåº§æ¨™ï¼ˆç”»é¢ã‚µã‚¤ã‚ºã¯è€ƒæ…®ã—ãªã„ï¼‰
+	m_CardY(NULL),  // è¡¨ç¤ºã™ã‚‹å®Ÿåº§æ¨™ï¼ˆç”»é¢ã‚µã‚¤ã‚ºã¯è€ƒæ…®ã—ãªã„ï¼‰
+	m_CardWidth(NULL),  // å¹…ï¼ˆå®Ÿåº§æ¨™ã€‚Pixelï¼‰
+	m_CardHeight(NULL),  // é«˜ã•ï¼ˆå®Ÿåº§æ¨™ã€‚Pixelï¼‰
 	m_nFontHeight(NULL),
-	m_fZoomSD(1.0f),  // Zoom‚·‚é•W€•Î·B0.21‚ª•W€B¬‚³‚­‚·‚é‚ÆL‚¢”ÍˆÍ‚ğ•\¦
-	m_fTickerSpeed(1.0f),  // Ticker‚ÌˆÚ“®—Ê
+	m_fZoomSD(1.0f),  // Zoomã™ã‚‹æ¨™æº–åå·®ã€‚0.21ãŒæ¨™æº–ã€‚å°ã•ãã™ã‚‹ã¨åºƒã„ç¯„å›²ã‚’è¡¨ç¤º
+	m_fTickerSpeed(1.0f),  // Tickerã®ç§»å‹•é‡
 	m_nLastTimeOut(0),
 	m_bRedrawRequested(false),
 
-	// ƒtƒŒ[ƒ€ƒŒ[ƒgŒvZ
+	// ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ãƒ¼ãƒˆè¨ˆç®—
 	m_fFPS(1.0f),
 	m_nFPSCount(0),
 	m_nLastFPSTime(0),
 
-	// ƒAƒŒƒ“ƒW
-	m_SimMatrix(NULL), // ƒJ[ƒh–ˆ‚Ì—Ş—“xMatrix
+	// ã‚¢ãƒ¬ãƒ³ã‚¸
+	m_SimMatrix(NULL), // ã‚«ãƒ¼ãƒ‰æ¯ã®é¡ä¼¼åº¦Matrix
 
 
 
-	// ƒAƒŒƒ“ƒWiŠiqó”z’uj
-	m_nMatrixWidth(1),  // Šiqó”z’u‚ÌÛ‚Ì•
-	m_nMatrixHeight(1),  // Šiqó”z’u‚ÌÛ‚Ì‚‚³
+	// ã‚¢ãƒ¬ãƒ³ã‚¸ï¼ˆæ ¼å­çŠ¶é…ç½®ï¼‰
+	m_nMatrixWidth(1),  // æ ¼å­çŠ¶é…ç½®ã®éš›ã®å¹…
+	m_nMatrixHeight(1),  // æ ¼å­çŠ¶é…ç½®ã®éš›ã®é«˜ã•
 
 	// AutoScroll
-	m_fBrowserScrollRatio(1.0f),  // ƒXƒNƒ[ƒ‹—Ê
-	m_fBrowserScrollLastD(1.0f),  // ÅŒã‚Ìƒ^[ƒQƒbƒg‚Ü‚Å‚Ì‹——£
-	m_nScrollTargetX(0),  // Overview‚©‚ç‚ÌƒXƒNƒ[ƒ‹—v‹
+	m_fBrowserScrollRatio(1.0f),  // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é‡
+	m_fBrowserScrollLastD(1.0f),  // æœ€å¾Œã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¾ã§ã®è·é›¢
+	m_nScrollTargetX(0),  // Overviewã‹ã‚‰ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«è¦æ±‚
 	m_nScrollTargetY(0),
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“
-	m_DocBeforeAnimation(NULL),  // ƒAƒjƒ[ƒVƒ‡ƒ“‘O‚ÌƒhƒLƒ…ƒƒ“ƒg‚ğƒoƒbƒNƒAƒbƒv
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
+	m_DocBeforeAnimation(NULL),  // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å‰ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	m_nAnimation(0),
-	// ƒAƒjƒ[ƒVƒ‡ƒ“’†‚©‚Ç‚¤‚©B0=ƒAƒjƒ[ƒVƒ‡ƒ“–³‚µA1=RandomCardA2=RandomCard2A3=RandomTrace
-	m_nAnimationCount(0),  // ƒAƒjƒ[ƒVƒ‡ƒ“‚Ìisó‹µig‚¢•û‚ÍƒAƒjƒ[ƒVƒ‡ƒ“‚É‚æ‚éj
-	// ƒAƒjƒ[ƒVƒ‡ƒ“’†‚ÌŠeíƒoƒbƒNƒAƒbƒv
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã‹ã©ã†ã‹ã€‚0=ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç„¡ã—ã€1=RandomCardã€2=RandomCard2ã€3=RandomTrace
+	m_nAnimationCount(0),  // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®é€²è¡ŒçŠ¶æ³ï¼ˆä½¿ã„æ–¹ã¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚ˆã‚‹ï¼‰
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®å„ç¨®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	m_nAnimationBak_ArrangeType(0),
 	m_bAnimationBak_Arrange(false),
 	m_bAnimationBak_AutoScroll(false),
 	m_bAnimationBak_AutoZoom(false),
 	m_nAnimation_LastCard(0),
 
-	// ƒtƒ@ƒCƒ‹
+	// ãƒ•ã‚¡ã‚¤ãƒ«
 	Ini(NULL),
 
 
-	// ƒ^ƒCƒgƒ‹“ü—Í
+	// ã‚¿ã‚¤ãƒˆãƒ«å…¥åŠ›
 	Ed_TitleB(NULL),
 
-	// ‘€ì—p
-	m_bMDownBrowser(0),  // 1=’Êíƒhƒ‰ƒbƒOA2=ƒŠƒ“ƒN‚ÌDest•ÒWA3=ƒŠƒ“ƒN‚ÌFrom•ÒW
+	// æ“ä½œç”¨
+	m_bMDownBrowser(0),  // 1=é€šå¸¸ãƒ‰ãƒ©ãƒƒã‚°ã€2=ãƒªãƒ³ã‚¯ã®Destç·¨é›†ã€3=ãƒªãƒ³ã‚¯ã®Fromç·¨é›†
 	m_bDblClicked(0),
 	m_bTitleEditRequested(false),
 	m_bTextEditRequested(false),
 	m_uMDownBrowserLast(0),
-	m_bMDownBrowserMoved(false),  // ƒ}ƒEƒXƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚©‚ç“®‚¢‚½‚©‚Ç‚¤‚©
+	m_bMDownBrowserMoved(false),  // ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã‹ã‚‰å‹•ã„ãŸã‹ã©ã†ã‹
 	m_nMDownBrowserOffsetX(0),
 	m_nMDownBrowserOffsetY(0),
-	m_nMDownBrowserX(0),  // ƒ}ƒEƒX‚ğ‰Ÿ‚µ‚½‚Æ‚«‚ÌÀ•W
+	m_nMDownBrowserX(0),  // ãƒã‚¦ã‚¹ã‚’æŠ¼ã—ãŸã¨ãã®åº§æ¨™
 	m_nMDownBrowserY(0),
-	m_nMDownTargetX(0),  // ƒŠƒ“ƒNüæ
+	m_nMDownTargetX(0),  // ãƒªãƒ³ã‚¯ç·šå…ˆ
 	m_nMDownTargetY(0),
 	m_nMDownBrowserScrollX(0),
 	m_nMDownBrowserScrollY(0),
-	m_bShowRecent(false),  // Å‹ß•\¦‚µ‚½ƒJ[ƒh‚ğ‹­’²•\¦iƒXƒy[ƒXƒL[j
+	m_bShowRecent(false),  // æœ€è¿‘è¡¨ç¤ºã—ãŸã‚«ãƒ¼ãƒ‰ã‚’å¼·èª¿è¡¨ç¤ºï¼ˆã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ï¼‰
 
 
-	// ŒŸõ
+	// æ¤œç´¢
 	m_bSearching(false),
 
-	m_GlobalSearchResult(NULL),  // ƒOƒ[ƒoƒ‹ŒŸõŒ‹‰Êiƒqƒbƒg‚µ‚½ƒJ[ƒhID‚ÌƒŠƒXƒgj
+	m_GlobalSearchResult(NULL),  // ã‚°ãƒ­ãƒ¼ãƒãƒ«æ¤œç´¢çµæœï¼ˆãƒ’ãƒƒãƒˆã—ãŸã‚«ãƒ¼ãƒ‰IDã®ãƒªã‚¹ãƒˆï¼‰
 	m_GlobalSearchItemHeight(0),
 	m_GlobalSearchOption(0),
 	m_GlobalSearchCursorIndex(0),
@@ -309,22 +309,22 @@ __fastcall TFo_Main::TFo_Main(TComponent* Owner) : TForm(Owner),
 	MI_WebSearch(NULL),
     MI_GPT(NULL),
 
-	// UndoARedo—p
-	m_nLastModified(0),  // ÅŒã‚ÉƒeƒLƒXƒg‚ğ•ÒW‚µ‚½ŠÔiUndo—p‚ÉƒoƒbƒNƒAƒbƒv‚·‚éÛg—pj
+	// Undoã€Redoç”¨
+	m_nLastModified(0),  // æœ€å¾Œã«ãƒ†ã‚­ã‚¹ãƒˆã‚’ç·¨é›†ã—ãŸæ™‚é–“ï¼ˆUndoç”¨ã«ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã™ã‚‹éš›ä½¿ç”¨ï¼‰
 	m_nNextCardID(0), m_nNextSelStart(0), m_nNextSelLength(0),
-	// Undo,Redo‚É‚æ‚éƒGƒfƒBƒ^‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚ÌˆÚ“®
+	// Undo,Redoã«ã‚ˆã‚‹ã‚¨ãƒ‡ã‚£ã‚¿ã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®ç§»å‹•
 	m_nLastSelLength(0),
-	m_bDoNotBackup(false),  // •¡‡•ÒW‚Ì‚½‚ßA×‚©‚¢•ÒW’†‚ÌUndo—pƒoƒbƒNƒAƒbƒv‚ğ‹Ö~
+	m_bDoNotBackup(false),  // è¤‡åˆç·¨é›†ã®ãŸã‚ã€ç´°ã‹ã„ç·¨é›†ä¸­ã®Undoç”¨ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ç¦æ­¢
 
-	// overviewÀ•W
+	// overviewåº§æ¨™
 	m_nOVWidth(1),
 	m_nOVXOffset(0),
 	m_nOVHeight(1),
 	m_nOVYOffset(0),
 
-	// Focus‚ğ¦‚·Cursor‚ÌˆÊ’ui0“®‚«n‚ß`100“’Bj
+	// Focusã‚’ç¤ºã™Cursorã®ä½ç½®ï¼ˆ0å‹•ãå§‹ã‚ï½100åˆ°é”ï¼‰
 	m_nFocusCursorPos(0),
-	m_nLastTarget(0),  // ’¼‘O‚Ìƒ^[ƒQƒbƒgƒJ[ƒh
+	m_nLastTarget(0),  // ç›´å‰ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚«ãƒ¼ãƒ‰
 
 
 	MI_ExtLink(NULL),
@@ -333,26 +333,26 @@ __fastcall TFo_Main::TFo_Main(TComponent* Owner) : TForm(Owner),
 	m_fMaxScore(1.0f),
 	m_ImageList(NULL),
 	m_VideoList(NULL),
-	m_fBGAnimationSpeed(1.0f), // ‰½•b•ªƒAƒjƒ[ƒVƒ‡ƒ“‚·‚é‚©
+	m_fBGAnimationSpeed(1.0f), // ä½•ç§’åˆ†ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã™ã‚‹ã‹
 
-	// •`‰æ
-	m_Drawing(NULL),  // Œ»İ•`‰æ’†‚ÌŠG
+	// æç”»
+	m_Drawing(NULL),  // ç¾åœ¨æç”»ä¸­ã®çµµ
 	m_DrawingTool(0),
 
-	// “Œv
-	m_fStatisticsPos(0.0),  // ŠŠ‚ç‚©‚ÉƒOƒ‰ƒt‚ğ—§‚¿ã‚°‚éŒW”i0.0`1.0j
-	m_StatisticsRectToCard(NULL),  // ”ÍˆÍ‘I‘ğ‚µ‚½‚Æ‚«‚ÉŒ©‚¹‚éƒJ[ƒh‚ÌƒŠƒXƒg
+	// çµ±è¨ˆ
+	m_fStatisticsPos(0.0),  // æ»‘ã‚‰ã‹ã«ã‚°ãƒ©ãƒ•ã‚’ç«‹ã¡ä¸Šã’ã‚‹ä¿‚æ•°ï¼ˆ0.0ï½1.0ï¼‰
+	m_StatisticsRectToCard(NULL),  // ç¯„å›²é¸æŠã—ãŸã¨ãã«è¦‹ã›ã‚‹ã‚«ãƒ¼ãƒ‰ã®ãƒªã‚¹ãƒˆ
 
-	// ˜A‘±“Ç‚İ‚İi•ÒW’†ƒtƒ@ƒCƒ‹‚ÉXV‚ª‚ ‚Á‚½‚ç‚·‚®“Ç‚İ‚İj
+	// é€£ç¶šèª­ã¿è¾¼ã¿ï¼ˆç·¨é›†ä¸­ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›´æ–°ãŒã‚ã£ãŸã‚‰ã™ãèª­ã¿è¾¼ã¿ï¼‰
 	m_bContinuousLoad(false),
-	m_nCLFileAge(0),  // ˜A‘±“Ç‚İ‚İ‚·‚éƒtƒ@ƒCƒ‹‚Ìƒ^ƒCƒ€ƒXƒ^ƒ“ƒv
+	m_nCLFileAge(0),  // é€£ç¶šèª­ã¿è¾¼ã¿ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—
 
-	// ƒfƒ‚
+	// ãƒ‡ãƒ¢
 	m_DemoStrings(NULL),
 	m_nDemoIndex(0),
-	// ®‡«‚ğæ‚é‚½‚ß
+	// æ•´åˆæ€§ã‚’å–ã‚‹ãŸã‚
 	m_bSkipAutoZoom(false),
-	m_bFileListDragging(false)  // FileListg—p’†‚ÉÁ‚³‚È‚¢‚½‚ß
+	m_bFileListDragging(false)  // FileListä½¿ç”¨ä¸­ã«æ¶ˆã•ãªã„ãŸã‚
 {
 	memset(Bu_Label, 0, sizeof(Bu_Label));
 	memset(Bu_LinkLabel, 0, sizeof(Bu_LinkLabel));
@@ -373,8 +373,8 @@ void TFo_Main::BackupSub(UnicodeString Action) {
 		m_UndoRedo->Backup(m_Document, DeleteActionKey(Action).c_str());
 		/*
 		 if (m_DocBeforeAnimation){
-		 //ƒAƒjƒ[ƒVƒ‡ƒ“’†‚É•ÒW‚ª‚ ‚Á‚½‚çAƒAƒjƒ[ƒVƒ‡ƒ“‘O‚É–ß‚³‚È‚¢‚æ‚¤‚É‚·‚é
-		 //Œ»óUndoRedoˆÈŠOAƒAƒjƒ[ƒVƒ‡ƒ“‚©‚ç”²‚¯‚é‚à‚Ì‚Î‚©‚è‚¾‚©‚ç•K—v‚È‚µ
+		 //ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã«ç·¨é›†ãŒã‚ã£ãŸã‚‰ã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å‰ã«æˆ»ã•ãªã„ã‚ˆã†ã«ã™ã‚‹
+		 //ç¾çŠ¶UndoRedoä»¥å¤–ã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‹ã‚‰æŠœã‘ã‚‹ã‚‚ã®ã°ã‹ã‚Šã ã‹ã‚‰å¿…è¦ãªã—
 
 		 delete m_DocBeforeAnimation;
 		 m_DocBeforeAnimation = NULL;
@@ -385,13 +385,13 @@ void TFo_Main::BackupSub(UnicodeString Action) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::RefreshRecent(UnicodeString FN) {
-	// —š—ğXV
+	// å±¥æ­´æ›´æ–°
 	if (FN != "" && FN != (ExtractFilePath(ParamStr(0)) +
 		UnicodeString("help.fip"))) {
-		// ƒtƒ@ƒCƒ‹–¼
+		// ãƒ•ã‚¡ã‚¤ãƒ«å
 		for (int i = 0; i < 10; i++) {
 			if (SettingFile.m_RecentFiles[i] == FN) {
-				// Šù‚ÉƒŠƒXƒg‚É‚ ‚éê‡
+				// æ—¢ã«ãƒªã‚¹ãƒˆã«ã‚ã‚‹å ´åˆ
 				if (i > 0) {
 					for (int i2 = i; i2 >= 1; i2--) {
 						SettingFile.m_RecentFiles[i2] =
@@ -404,7 +404,7 @@ void TFo_Main::RefreshRecent(UnicodeString FN) {
 		}
 
 		if (SettingFile.m_RecentFiles[0] != FN) {
-			// d•¡–³‚µ
+			// é‡è¤‡ç„¡ã—
 			for (int i = 9; i >= 1; i--) {
 				SettingFile.m_RecentFiles[i] = SettingFile.m_RecentFiles[i - 1];
 			}
@@ -413,10 +413,10 @@ void TFo_Main::RefreshRecent(UnicodeString FN) {
 
 		FN = ExtractFilePath(FN);
 
-		// ƒtƒHƒ‹ƒ_–¼
+		// ãƒ•ã‚©ãƒ«ãƒ€å
 		for (int i = 0; i < 10; i++) {
 			if (SettingFile.m_RecentFolders[i] == FN) {
-				// Šù‚ÉƒŠƒXƒg‚É‚ ‚éê‡
+				// æ—¢ã«ãƒªã‚¹ãƒˆã«ã‚ã‚‹å ´åˆ
 				if (i > 0) {
 					for (int i2 = i; i2 >= 1; i2--) {
 						SettingFile.m_RecentFolders[i2] =
@@ -429,7 +429,7 @@ void TFo_Main::RefreshRecent(UnicodeString FN) {
 		}
 
 		if (SettingFile.m_RecentFolders[0] != FN) {
-			// d•¡–³‚µ
+			// é‡è¤‡ç„¡ã—
 			for (int i = 9; i >= 1; i--) {
 				SettingFile.m_RecentFolders[i] =
 					SettingFile.m_RecentFolders[i - 1];
@@ -439,7 +439,7 @@ void TFo_Main::RefreshRecent(UnicodeString FN) {
 
 	}
 
-	// ƒƒjƒ…[XV
+	// ãƒ¡ãƒ‹ãƒ¥ãƒ¼æ›´æ–°
 	for (int i = 0; i < 10; i++) {
 		if (SettingFile.m_RecentFiles[i] != "") {
 			if (i < 9) {
@@ -501,7 +501,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 	 m_AgentChar = NULL;
 	 */
 
-	// ‰Šúİ’è‚ğ‚‘¬“Ç‚İ‚İ
+	// åˆæœŸè¨­å®šã‚’é«˜é€Ÿèª­ã¿è¾¼ã¿
 	Ini = new TIniFile(ExtractFilePath(ParamStr(0)) + "setting.ini");
 	SettingFile.ReadFromIni(Ini, "File");
 	SettingView.ReadFromIni(Ini, "View");
@@ -548,7 +548,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 
 	m_LinkIndexes = new TList();
 
-	// Recentƒƒjƒ…[
+	// Recentãƒ¡ãƒ‹ãƒ¥ãƒ¼
 	for (int i = 0; i < 10; i++) {
 		MI_RecentFiles[i] = new TMenuItem(MF_RecentFiles);
 		MI_RecentFiles[i]->Tag = i;
@@ -563,7 +563,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 		MF_RecentFolders->Add(MI_RecentFolders[i]);
 	}
 
-	// WebŒŸõƒƒjƒ…[’Ç‰Á
+	// Webæ¤œç´¢ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¿½åŠ 
 	MI_WebSearch = new TList();
 	int inspos = 9;
 	for (int i = 0; i < Setting2Function.m_WebSearch->Count * 4; i++) {
@@ -614,7 +614,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 		}
 	}
 
-	// GPTƒƒjƒ…[’Ç‰Á
+	// GPTãƒ¡ãƒ‹ãƒ¥ãƒ¼è¿½åŠ 
 	MI_GPT = new TList();
 	for (int i = 0; i < Setting2Function.m_GPT->Count; i++) {
 		TMenuItem *MI;
@@ -633,7 +633,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 		PM_GPT->Items->Add(MI);
 	}
 
-	// ƒ^ƒCƒgƒ‹“ü—Í
+	// ã‚¿ã‚¤ãƒˆãƒ«å…¥åŠ›
 	Ed_TitleB = new TEdit2(Pa_Browser);
 	Ed_TitleB->Visible = false;
 	Ed_TitleB->WordWrap = false;
@@ -644,7 +644,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 	Ed_TitleB->OnDblClick = PB_BrowserDblClick;
 	Ed_TitleB->Parent = Pa_Browser;
 
-	// ƒ‰ƒxƒ‹ƒ{ƒ^ƒ“
+	// ãƒ©ãƒ™ãƒ«ãƒœã‚¿ãƒ³
 	for (int i = 0; i < MAXLABELS; i++) {
 		Bu_Label[i] = new TButton(Bu_Label0->Owner);
 		Bu_Label[i]->Caption = "";
@@ -673,14 +673,14 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 		Bu_LinkLabel[i]->Visible = false;
 	}
 
-	// ƒ‰ƒxƒ‹‘I‘ğƒƒjƒ…[
+	// ãƒ©ãƒ™ãƒ«é¸æŠãƒ¡ãƒ‹ãƒ¥ãƒ¼
 	MI_Labels = new TList();
 	MI_LinkLabels = new TList();
 
-	// ŠO•”ƒŠƒ“ƒNƒƒjƒ…[
+	// å¤–éƒ¨ãƒªãƒ³ã‚¯ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 	MI_ExtLink = NULL;
 
-	// ƒuƒ‰ƒEƒUÀ•Wƒf[ƒ^
+	// ãƒ–ãƒ©ã‚¦ã‚¶åº§æ¨™ãƒ‡ãƒ¼ã‚¿
 	m_nBrowserWidth = 1;
 	m_nBrowserHeight = 1;
 	m_nTmpCardsCount = 0;
@@ -696,12 +696,12 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 	m_CardWidth = NULL;
 	m_CardHeight = NULL;
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	m_DocBeforeAnimation = NULL;
 	m_nAnimation = 0;
 	m_nAnimationCount = 0;
 
-	// ‚»‚Ì‘¼
+	// ãã®ä»–
 	Bu_ArrangeType->Tag = 2;
 	m_bSearching = false;
 	m_GlobalSearchResult = new TList();
@@ -730,59 +730,59 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 	RefreshFileList();
 
 	/*
-	 m_DemoStrings->Add("ƒNƒŠƒbƒN‚µ‚ÄƒJ[ƒh‚ğ‘I‘ğB");
-	 m_DemoStrings->Add("‚à‚¤ˆê“xƒNƒŠƒbƒN‚µ‚ÄƒJ[ƒh–¼‚ğ“ü—Í‚µ‚Ü‚·B");
-	 m_DemoStrings->Add("ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚à‚µ‚­‚ÍCtrl+M‚ÅV‚µ‚¢ƒJ[ƒh‚ğì¬B");
-	 m_DemoStrings->Add("ŸX‚ÉƒJ[ƒh‚ğ“ü—Í‚µ‚Ä‚¢‚«‚Ü‚·B");
-	 m_DemoStrings->Add("ƒJ[ƒh‚ÌˆÊ’u‚Íƒhƒ‰ƒbƒO‚Å•ÏX‚Å‚«‚Ü‚·B");
-	 m_DemoStrings->Add("DeleteƒL[‚ÅƒJ[ƒh‚ğíœB");
+	 m_DemoStrings->Add("ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠã€‚");
+	 m_DemoStrings->Add("ã‚‚ã†ä¸€åº¦ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã‚«ãƒ¼ãƒ‰åã‚’å…¥åŠ›ã—ã¾ã™ã€‚");
+	 m_DemoStrings->Add("ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã‚‚ã—ãã¯Ctrl+Mã§æ–°ã—ã„ã‚«ãƒ¼ãƒ‰ã‚’ä½œæˆã€‚");
+	 m_DemoStrings->Add("æ¬¡ã€…ã«ã‚«ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ã„ãã¾ã™ã€‚");
+	 m_DemoStrings->Add("ã‚«ãƒ¼ãƒ‰ã®ä½ç½®ã¯ãƒ‰ãƒ©ãƒƒã‚°ã§å¤‰æ›´ã§ãã¾ã™ã€‚");
+	 m_DemoStrings->Add("Deleteã‚­ãƒ¼ã§ã‚«ãƒ¼ãƒ‰ã‚’å‰Šé™¤ã€‚");
 
-	 m_DemoStrings->Add("ƒŠƒ“ƒNƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄAƒŠƒ“ƒNŒ³‚©‚çƒŠƒ“ƒNæ‚Ü‚Åƒhƒ‰ƒbƒOB");
-	 m_DemoStrings->Add("ƒJ[ƒh‚ÌŠÔ‚ÉƒŠƒ“ƒN‚ğ’£‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B");
-	 m_DemoStrings->Add("ƒŠƒ“ƒNŒ³‚ğ‘I‘ğ‚µc");
-	 m_DemoStrings->Add("ShiftƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒŠƒ“ƒNæ‚ğƒNƒŠƒbƒN‚µ‚Ä‚àOKB");
+	 m_DemoStrings->Add("ãƒªãƒ³ã‚¯ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã€ãƒªãƒ³ã‚¯å…ƒã‹ã‚‰ãƒªãƒ³ã‚¯å…ˆã¾ã§ãƒ‰ãƒ©ãƒƒã‚°ã€‚");
+	 m_DemoStrings->Add("ã‚«ãƒ¼ãƒ‰ã®é–“ã«ãƒªãƒ³ã‚¯ã‚’å¼µã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚");
+	 m_DemoStrings->Add("ãƒªãƒ³ã‚¯å…ƒã‚’é¸æŠã—â€¦");
+	 m_DemoStrings->Add("Shiftã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ãƒªãƒ³ã‚¯å…ˆã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã‚‚OKã€‚");
 
-	 m_DemoStrings->Add("ƒJ[ƒh‚ğ‘I‘ğ‚µANew Label‚ÅƒJ[ƒh‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚Ü‚·B");
-	 m_DemoStrings->Add("‘¼‚ÌƒJ[ƒh‚à‘I‘ğ‚µALabelƒ{ƒ^ƒ“‚Å“¯‚¶ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚Ü‚·B");
-	 m_DemoStrings->Add("‚Ü‚½V‚µ‚¢ƒ‰ƒxƒ‹‚ğì¬‚µ‚Ü‚·B");
-	 m_DemoStrings->Add("ƒ‰ƒxƒŠƒ“ƒOƒ{ƒ^ƒ“‚ğg‚¤‚ÆAƒƒ“ƒNƒŠƒbƒN‚Åƒ‰ƒxƒ‹•t‚¯‚ª‚Å‚«‚Ü‚·B");
+	 m_DemoStrings->Add("ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠã—ã€New Labelã§ã‚«ãƒ¼ãƒ‰ã«æ–°ã—ã„ãƒ©ãƒ™ãƒ«ã‚’ã¤ã‘ã¾ã™ã€‚");
+	 m_DemoStrings->Add("ä»–ã®ã‚«ãƒ¼ãƒ‰ã‚‚é¸æŠã—ã€Labelãƒœã‚¿ãƒ³ã§åŒã˜ãƒ©ãƒ™ãƒ«ã‚’ã¤ã‘ã¾ã™ã€‚");
+	 m_DemoStrings->Add("ã¾ãŸæ–°ã—ã„ãƒ©ãƒ™ãƒ«ã‚’ä½œæˆã—ã¾ã™ã€‚");
+	 m_DemoStrings->Add("ãƒ©ãƒ™ãƒªãƒ³ã‚°ãƒœã‚¿ãƒ³ã‚’ä½¿ã†ã¨ã€ãƒ¯ãƒ³ã‚¯ãƒªãƒƒã‚¯ã§ãƒ©ãƒ™ãƒ«ä»˜ã‘ãŒã§ãã¾ã™ã€‚");
 	 // */
 
 	/*
-	 m_DemoStrings->Add("Arrange‚ğƒNƒŠƒbƒN‚µ‚ÄƒJ[ƒh‚ğˆê”­®“ÚI");
-	 m_DemoStrings->Add("ƒJ[ƒh‚Ì•À‚Ñ‡‚É]‚Á‚Ä®—‚µ‚½‚è");
-	 m_DemoStrings->Add("ƒŠƒ“ƒN‚É‚µ‚½‚ª‚Á‚Ä®—‚µ‚½‚è");
-	 m_DemoStrings->Add("“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚ğW‚ß‚½‚è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B");
+	 m_DemoStrings->Add("Arrangeã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã‚«ãƒ¼ãƒ‰ã‚’ä¸€ç™ºæ•´é “ï¼");
+	 m_DemoStrings->Add("ã‚«ãƒ¼ãƒ‰ã®ä¸¦ã³é †ã«å¾“ã£ã¦æ•´ç†ã—ãŸã‚Š");
+	 m_DemoStrings->Add("ãƒªãƒ³ã‚¯ã«ã—ãŸãŒã£ã¦æ•´ç†ã—ãŸã‚Š");
+	 m_DemoStrings->Add("åŒã˜ãƒ©ãƒ™ãƒ«ã®ã‚«ãƒ¼ãƒ‰ã‚’é›†ã‚ãŸã‚Šã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚");
 
-	 m_DemoStrings->Add("VIEWƒ{ƒ^ƒ“‚Å•\¦‚·‚éƒJ[ƒhAƒŠƒ“ƒN‚ğ‘I‘ğ‚Å‚«‚Ü‚·B");
-	 m_DemoStrings->Add("“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚Ä•\¦‚µ‚½‚è");
-	 m_DemoStrings->Add("ƒ‰ƒxƒ‹‚²‚Æ‚É•\¦/”ñ•\¦‚ğw’è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B");
+	 m_DemoStrings->Add("VIEWãƒœã‚¿ãƒ³ã§è¡¨ç¤ºã™ã‚‹ã‚«ãƒ¼ãƒ‰ã€ãƒªãƒ³ã‚¯ã‚’é¸æŠã§ãã¾ã™ã€‚");
+	 m_DemoStrings->Add("åŒã˜ãƒ©ãƒ™ãƒ«ã®ã‚«ãƒ¼ãƒ‰ã‚’ã¾ã¨ã‚ã¦è¡¨ç¤ºã—ãŸã‚Š");
+	 m_DemoStrings->Add("ãƒ©ãƒ™ãƒ«ã”ã¨ã«è¡¨ç¤º/éè¡¨ç¤ºã‚’æŒ‡å®šã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚");
 
-	 m_DemoStrings->Add("Link Limitation‚ÅAƒŠƒ“ƒN‚Ì‹ß‚¢ƒJ[ƒh‚Ì‚İ•\¦B");
-	 m_DemoStrings->Add("ŠÖ˜A‚Ì‹­‚¢ƒJ[ƒh‚Ì‚İŒ©‚È‚ª‚çì‹Æ‚ğ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B");
+	 m_DemoStrings->Add("Link Limitationã§ã€ãƒªãƒ³ã‚¯ã®è¿‘ã„ã‚«ãƒ¼ãƒ‰ã®ã¿è¡¨ç¤ºã€‚");
+	 m_DemoStrings->Add("é–¢é€£ã®å¼·ã„ã‚«ãƒ¼ãƒ‰ã®ã¿è¦‹ãªãŒã‚‰ä½œæ¥­ã‚’ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚");
 	 // */
 
 	/*
-	 m_DemoStrings->Add("Auto ScrollAAuto Zoom‚ÅAƒJ[ƒh‚ğ‰õ“Kƒuƒ‰ƒEƒYB");
-	 m_DemoStrings->Add("Frieve Editor‚Í‚¢‚­‚Â‚©‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‹@”\‚ğ”õ‚¦‚Ä‚¢‚Ü‚·B");
-	 m_DemoStrings->Add("Random Card‚Å‚ÍAƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ğ•\¦‚µ‚È‚ª‚ç");
-	 m_DemoStrings->Add("ƒAƒCƒfƒA‚ğ—û‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B");
-	 m_DemoStrings->Add("Random Card 2‚Å‚ÍAƒJ[ƒh‚ğƒ‰ƒ“ƒ_ƒ€‚ÉƒXƒNƒ[ƒ‹‚µ‚Ü‚·B");
-	 m_DemoStrings->Add("Random Trace‚Å‚ÍAƒ‰ƒ“ƒ_ƒ€‚ÉƒŠƒ“ƒN‚ğ’H‚Á‚Ä•\¦‚µ‚Ü‚·B");
+	 m_DemoStrings->Add("Auto Scrollã€Auto Zoomã§ã€ã‚«ãƒ¼ãƒ‰ã‚’å¿«é©ãƒ–ãƒ©ã‚¦ã‚ºã€‚");
+	 m_DemoStrings->Add("Frieve Editorã¯ã„ãã¤ã‹ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æ©Ÿèƒ½ã‚’å‚™ãˆã¦ã„ã¾ã™ã€‚");
+	 m_DemoStrings->Add("Random Cardã§ã¯ã€ãƒ©ãƒ³ãƒ€ãƒ ã«ã‚«ãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã—ãªãŒã‚‰");
+	 m_DemoStrings->Add("ã‚¢ã‚¤ãƒ‡ã‚¢ã‚’ç·´ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚");
+	 m_DemoStrings->Add("Random Card 2ã§ã¯ã€ã‚«ãƒ¼ãƒ‰ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã—ã¾ã™ã€‚");
+	 m_DemoStrings->Add("Random Traceã§ã¯ã€ãƒ©ãƒ³ãƒ€ãƒ ã«ãƒªãƒ³ã‚¯ã‚’è¾¿ã£ã¦è¡¨ç¤ºã—ã¾ã™ã€‚");
 	 // */
 
 	/*
-	 m_DemoStrings->Add("InsertƒL[‚Åqƒm[ƒh‚ğì¬‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
-	 m_DemoStrings->Add("EnterƒL[‚ÅŒZ’íƒm[ƒh‚ğì¬‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
-	 m_DemoStrings->Add("ƒŠƒ“ƒN‘I‘ğ’†‚ÉInsertƒL[‚ÅA");
-	 m_DemoStrings->Add("ƒŠƒ“ƒN‚ÌŠÔ‚ÉƒJ[ƒh‚ğì¬‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
-	 m_DemoStrings->Add("ƒhƒ‰ƒbƒO‚É‚æ‚éƒŠƒ“ƒN‚Ì•ÒW‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
+	 m_DemoStrings->Add("Insertã‚­ãƒ¼ã§å­ãƒãƒ¼ãƒ‰ã‚’ä½œæˆå¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
+	 m_DemoStrings->Add("Enterã‚­ãƒ¼ã§å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’ä½œæˆå¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
+	 m_DemoStrings->Add("ãƒªãƒ³ã‚¯é¸æŠä¸­ã«Insertã‚­ãƒ¼ã§ã€");
+	 m_DemoStrings->Add("ãƒªãƒ³ã‚¯ã®é–“ã«ã‚«ãƒ¼ãƒ‰ã‚’ä½œæˆå¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
+	 m_DemoStrings->Add("ãƒ‰ãƒ©ãƒƒã‚°ã«ã‚ˆã‚‹ãƒªãƒ³ã‚¯ã®ç·¨é›†ãŒå¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
 	 // */
 	/*
-	 m_DemoStrings->Add("ƒJ[ƒhƒ^ƒCƒgƒ‹A–{•¶‚ÉŒÀ’è‚µ‚½ŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
-	 m_DemoStrings->Add("ƒuƒ‰ƒEƒU‰æ–Ê‚©‚çƒJ[ƒhƒ^ƒCƒgƒ‹‚ÌŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
-	 m_DemoStrings->Add("Shift+ƒhƒ‰ƒbƒO‚Å");
-	 m_DemoStrings->Add("“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚ÄˆÚ“®‰Â”\‚É‚È‚è‚Ü‚µ‚½B");
+	 m_DemoStrings->Add("ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã€æœ¬æ–‡ã«é™å®šã—ãŸæ¤œç´¢ãŒå¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
+	 m_DemoStrings->Add("ãƒ–ãƒ©ã‚¦ã‚¶ç”»é¢ã‹ã‚‰ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã®æ¤œç´¢ãŒå¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
+	 m_DemoStrings->Add("Shift+ãƒ‰ãƒ©ãƒƒã‚°ã§");
+	 m_DemoStrings->Add("åŒã˜ãƒ©ãƒ™ãƒ«ã®ã‚«ãƒ¼ãƒ‰ã‚’ã¾ã¨ã‚ã¦ç§»å‹•å¯èƒ½ã«ãªã‚Šã¾ã—ãŸã€‚");
 	 // */
 
 	/*
@@ -910,7 +910,7 @@ void __fastcall TFo_Main::FormDestroy(TObject *Sender) {
 	}
 
 	/*
-	 //Fo_Main‚Æ‚¢‚Á‚µ‚å‚É”jŠü‚³‚ê‚é
+	 //Fo_Mainã¨ã„ã£ã—ã‚‡ã«ç ´æ£„ã•ã‚Œã‚‹
 	 if (TTS){
 	 delete TTS;
 	 }
@@ -932,7 +932,7 @@ void TFo_Main::FreeMILabels() {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::RefreshLabel() {
-	// ƒ‰ƒxƒ‹XV
+	// ãƒ©ãƒ™ãƒ«æ›´æ–°
 
 	if (m_nTargetCard < 0) {
 		for (int i = 0; i < MAXLABELS; i++) {
@@ -944,7 +944,7 @@ void TFo_Main::RefreshLabel() {
 		if (Card)
 			for (int i = 0; i < MAXLABELS; i++) {
 				if (i < Card->m_Labels->Count) {
-					// ƒ‰ƒxƒ‹‚ ‚è
+					// ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 					Bu_Label[i]->Caption =
 						m_Document->GetLabelByIndex(0,
 						Card->m_Labels->GetLabel(i) - 1)->m_Name;
@@ -970,7 +970,7 @@ void TFo_Main::RefreshLabel() {
 		if (Link)
 			for (int i = 0; i < MAXLABELS; i++) {
 				if (i < Link->m_Labels->Count) {
-					// ƒ‰ƒxƒ‹‚ ‚è
+					// ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 					Bu_LinkLabel[i]->Caption =
 						m_Document->GetLabelByIndex(1,
 						Link->m_Labels->GetLabel(i) - 1)->m_Name;
@@ -1005,7 +1005,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒvƒ‰ƒOƒCƒ“‚Ö‚Ìƒ^ƒCƒ€ƒAƒEƒg
+	// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã¸ã®ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
 	if (SettingFile.fepTimeOut) {
 		SettingFile.fepTimeOut(m_Document);
 	}
@@ -1023,7 +1023,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		m_Document->m_nDefaultView = -1;
 	}
 
-	// ‘€ìƒŠƒNƒGƒXƒg
+	// æ“ä½œãƒªã‚¯ã‚¨ã‚¹ãƒˆ
 	if (fReqZoom >= -999.0f) {
 		TB_Zoom->Position = (int)(fReqZoom * 2000);
 		fReqZoom = -1000.0f;
@@ -1129,7 +1129,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		nReqKeyDown = -1;
 	}
 
-	// ƒ^ƒXƒNƒo[‚Ì•\¦
+	// ã‚¿ã‚¹ã‚¯ãƒãƒ¼ã®è¡¨ç¤º
 	{
 		UnicodeString S;
 		if (m_Document->m_FN != "") {
@@ -1161,7 +1161,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒtƒ@ƒCƒ‹ƒŠƒXƒg
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆ
 	{
 		TPoint pos, listpos;
 		GetCursorPos(&pos);
@@ -1183,7 +1183,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				Application->Active && !m_bMDownBrowser &&
 				SettingView.m_bFileList) {
 				CloseEditBox();
-				// ‚¿‚ç‚Â‚«‚ğ–h~‚µ‚È‚ª‚çƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ğ•\¦
+				// ã¡ã‚‰ã¤ãã‚’é˜²æ­¢ã—ãªãŒã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã‚’è¡¨ç¤º
 				/*
 				 Pa_Files->Visible = true;
 				 Sp_Left->Left = Pa_Files->Width;
@@ -1204,7 +1204,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				Sp_Left->Visible = true;
 
 				Ti_Check->Enabled = false;
-				Application->ProcessMessages(); // ˆê’UŠeƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌƒTƒCƒY‚ğ•Ï‰»‚³‚¹‚é
+				Application->ProcessMessages(); // ä¸€æ—¦å„ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ã‚µã‚¤ã‚ºã‚’å¤‰åŒ–ã•ã›ã‚‹
 				Ti_Check->Enabled = true;
 
 				Pa_List->Left = Pa_Files->Width + Sp_Left->Width;
@@ -1219,7 +1219,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				Pa_Client->Visible = true;
 
 				Ti_Check->Enabled = false;
-				Application->ProcessMessages(); // ˆê’UŠeƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌƒTƒCƒY‚ğ•Ï‰»‚³‚¹‚é
+				Application->ProcessMessages(); // ä¸€æ—¦å„ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ã‚µã‚¤ã‚ºã‚’å¤‰åŒ–ã•ã›ã‚‹
 				Ti_Check->Enabled = true;
 
 				PB_Browser->Tag = 0;
@@ -1228,7 +1228,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			else if ((pos.x >= Left + Pa_List->Left + 32 || pos.y <
 				listpos.y || pos.y > listpos.y + Pa_Files->Height ||
 				!Application->Active) && Pa_Files->Visible) {
-				// ‚¿‚ç‚Â‚«‚ğ–h~‚µ‚È‚ª‚çƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ğ”ñ•\¦
+				// ã¡ã‚‰ã¤ãã‚’é˜²æ­¢ã—ãªãŒã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã‚’éè¡¨ç¤º
 				PB_Browser->Tag = 1;
 
 				Pa_Client->Visible = false;
@@ -1265,7 +1265,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				 */
 
 				Ti_Check->Enabled = false;
-				Application->ProcessMessages(); // ˆê’UŠeƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌƒTƒCƒY‚ğ•Ï‰»‚³‚¹‚é
+				Application->ProcessMessages(); // ä¸€æ—¦å„ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ã‚µã‚¤ã‚ºã‚’å¤‰åŒ–ã•ã›ã‚‹
 				Ti_Check->Enabled = true;
 
 				PB_Browser->Tag = 0;
@@ -1281,7 +1281,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒJ[ƒhƒŠƒXƒg
+	// ã‚«ãƒ¼ãƒ‰ãƒªã‚¹ãƒˆ
 	if (Pa_List->Visible != SettingView.m_bCardList) {
 		Pa_Client->Align = alNone;
 		Pa_List->Visible = SettingView.m_bCardList;
@@ -1290,8 +1290,8 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		Pa_Client->Align = alClient;
 	}
 
-	// ŠÖ˜AƒeƒLƒXƒg
-	bool RelatedTextRefreshRequest = false; // ŠÖ˜AƒeƒLƒXƒgXV—v‹
+	// é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆ
+	bool RelatedTextRefreshRequest = false; // é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆæ›´æ–°è¦æ±‚
 	{
 		if (SB_EditorRelated->Down != SettingView.m_bEditorRelatedVisible) {
 			SB_EditorRelated->Down = SettingView.m_bEditorRelatedVisible;
@@ -1302,16 +1302,16 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			Sp_EditorRelated->Visible = SettingView.m_bEditorRelatedVisible;
 			Pa_Editor->Align = alClient;
 			RelatedTextRefreshRequest = Pa_EditorRelated->Visible;
-			// •\¦‚É‚µ‚½ê‡‚ÍXV—v‹
+			// è¡¨ç¤ºã«ã—ãŸå ´åˆã¯æ›´æ–°è¦æ±‚
 		}
 	}
 
-	bool drawrequest = false; // ƒuƒ‰ƒEƒU•`‰æ—v‹iƒf[ƒ^XV—pj
-	bool drawrequest2 = m_bRedrawRequested; // ƒuƒ‰ƒEƒU•`‰æ—v‹iƒAƒjƒ[ƒVƒ‡ƒ“•\¦—pj
-	bool drawrequest_s = m_bRedrawRequested; // “Œv•`‰æ—v‹
+	bool drawrequest = false; // ãƒ–ãƒ©ã‚¦ã‚¶æç”»è¦æ±‚ï¼ˆãƒ‡ãƒ¼ã‚¿æ›´æ–°ç”¨ï¼‰
+	bool drawrequest2 = m_bRedrawRequested; // ãƒ–ãƒ©ã‚¦ã‚¶æç”»è¦æ±‚ï¼ˆã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³è¡¨ç¤ºç”¨ï¼‰
+	bool drawrequest_s = m_bRedrawRequested; // çµ±è¨ˆæç”»è¦æ±‚
 	m_bRedrawRequested = false;
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	switch (m_nAnimation) {
 	case 1:
 		// RandomCard
@@ -1337,34 +1337,34 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		break;
 	}
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ìƒtƒ‹ƒXƒNƒŠ[ƒ“
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
 	if (Fo_RandomAnimation->m_bFullScreenRequest) {
 		Fo_RandomAnimation->m_bFullScreenRequest = false;
 		MV_FullScreenClick(Sender);
 	}
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“’†‚ÌZoom
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®Zoom
 	if (Fo_RandomAnimation->Visible) {
 		if (TB_Zoom->Position != Fo_RandomAnimation->TB_Zoom->Position) {
 			if (Fo_RandomAnimation->m_bZoomChanged) {
-				// ƒ†[ƒU‚ªZoom‘€ì‚ğs‚Á‚½
-				PB_Browser->Tag = 1; // •`‰æ‹Ö~
+				// ãƒ¦ãƒ¼ã‚¶ãŒZoomæ“ä½œã‚’è¡Œã£ãŸ
+				PB_Browser->Tag = 1; // æç”»ç¦æ­¢
 				TB_Zoom->Position = Fo_RandomAnimation->TB_Zoom->Position;
-				PB_Browser->Tag = 0; // •`‰æÄŠJ
+				PB_Browser->Tag = 0; // æç”»å†é–‹
 				drawrequest2 = true;
 				SB_AutoZoom->Down = false;
 			}
 			else {
-				// Auto Zoom‚É‚æ‚éƒY[ƒ€
+				// Auto Zoomã«ã‚ˆã‚‹ã‚ºãƒ¼ãƒ 
 				Fo_RandomAnimation->TB_Zoom->Position = TB_Zoom->Position;
 			}
 			Fo_RandomAnimation->m_bZoomChanged = false;
 		}
 	}
 
-	// ƒJ[ƒhƒŠƒXƒg
+	// ã‚«ãƒ¼ãƒ‰ãƒªã‚¹ãƒˆ
 
-	// Œ»İ‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ä‚¢‚È‚©‚Á‚½‚©A‘I‘ğƒJ[ƒh‚ª‚ ‚é‚Ì‚ÉTargetCard‚ª‚È‚¢‚Æ‚«‚Ìˆ—
+	// ç¾åœ¨ã®ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠã—ã¦ã„ãªã‹ã£ãŸã‹ã€é¸æŠã‚«ãƒ¼ãƒ‰ãŒã‚ã‚‹ã®ã«TargetCardãŒãªã„ã¨ãã®å‡¦ç†
 	bool SelectionChanged = false;
 	bool SelectedExist = true;
 	if (LB_List->Count == m_Document->m_Cards->Count) {
@@ -1392,8 +1392,8 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			b = SelectedExist;
 		}
 		if (b) {
-			// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
-			// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ÅAˆê”ÔÅ‹ßG‚Á‚½ƒJ[ƒh‚ÉˆÚ“®
+			// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãªã„
+			// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã§ã€ä¸€ç•ªæœ€è¿‘è§¦ã£ãŸã‚«ãƒ¼ãƒ‰ã«ç§»å‹•
 			m_nTargetCard = -1;
 			double max = 0.0f;
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
@@ -1414,9 +1414,9 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 	if (SelectionChanged || ListChanged || Fo_View->m_bRefreshRequest ||
 		m_UndoRedo->m_bChanged) {
 		m_UndoRedo->m_bChanged = false;
-		RelatedTextRefreshRequest = true; // ŠÖ˜AƒeƒLƒXƒgXV—v‹
+		RelatedTextRefreshRequest = true; // é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆæ›´æ–°è¦æ±‚
 
-		// ‰½‚ç‚©‚ÌƒŠƒXƒg‚ÉŠÖ‚·‚é•ÒW‘€ì‚ª‚ ‚Á‚½
+		// ä½•ã‚‰ã‹ã®ãƒªã‚¹ãƒˆã«é–¢ã™ã‚‹ç·¨é›†æ“ä½œãŒã‚ã£ãŸ
 		m_nRefreshListCount = m_Document->m_nRefreshListCount;
 		m_fZoomSD = 0.21f;
 		drawrequest = true;
@@ -1427,7 +1427,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			SetCardVisible(true);
 		}
 
-		// ƒJ[ƒhƒŠƒXƒg‚Ì•\¦XV
+		// ã‚«ãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã®è¡¨ç¤ºæ›´æ–°
 		int lasttopindex = LB_List->TopIndex;
 		LB_List->Items->BeginUpdate();
 		if (ListChanged) {
@@ -1465,7 +1465,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			LB_List->ItemIndex = index;
 		}
 
-		// ƒJ[ƒh–{•¶‚È‚Ç‚Ì•ÏX”½‰fiUndo‚Ì‚Æ‚«•K—vj
+		// ã‚«ãƒ¼ãƒ‰æœ¬æ–‡ãªã©ã®å¤‰æ›´åæ˜ ï¼ˆUndoã®ã¨ãå¿…è¦ï¼‰
 		if (m_nCurrentCard >= 0 && m_nCurrentCard == m_nTargetCard) {
 			TCard *Card = m_Document->GetCard(m_nCurrentCard);
 			if (Card) {
@@ -1522,7 +1522,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			}
 		}
 
-		// ‘I‘ğ’†‚ÌIndex‚ğŒ³‚É–ß‚·
+		// é¸æŠä¸­ã®Indexã‚’å…ƒã«æˆ»ã™
 		LB_List->TopIndex = lasttopindex;
 		if (LB_List->ItemIndex >= 0) {
 			while (LB_List->ItemRect(LB_List->ItemIndex).top < 0) {
@@ -1538,19 +1538,19 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 
 	}
 
-	// ‘¶İ‚µ‚È‚¢ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚Æ‚«‚Ìˆ—iUndo‚È‚Ç‚É”­¶j
+	// å­˜åœ¨ã—ãªã„ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãŸã¨ãã®å‡¦ç†ï¼ˆUndoæ™‚ãªã©ã«ç™ºç”Ÿï¼‰
 	if (m_nCurrentCard == m_nTargetCard) {
 		TCard *Card = m_Document->GetCard(m_nCurrentCard);
 		if (Card == NULL) {
-			RelatedTextRefreshRequest = true; // ŠÖ˜AƒeƒLƒXƒgXV—v‹
+			RelatedTextRefreshRequest = true; // é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆæ›´æ–°è¦æ±‚
 			m_nTargetCard = -1;
 		}
 	}
 
-	// •¶Í
+	// æ–‡ç« 
 	TCard *Card = m_Document->GetCard(m_nTargetCard);
 	if (m_nCurrentCard != m_nTargetCard) {
-		RelatedTextRefreshRequest = true; // ŠÖ˜AƒeƒLƒXƒgXV—v‹
+		RelatedTextRefreshRequest = true; // é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆæ›´æ–°è¦æ±‚
 		TCard *LastCard = m_Document->GetCard(m_nCurrentCard);
 		m_nLastTarget = -1;
 		if (LastCard && Card) {
@@ -1601,7 +1601,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			RE_Edit->Tag = 0;
 			RE_Edit->Enabled = false;
 
-			// ŠG‚ğƒNƒŠƒA
+			// çµµã‚’ã‚¯ãƒªã‚¢
 			delete m_Drawing;
 			m_Drawing = new TDrawing();
 
@@ -1615,7 +1615,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			Ed_CardSize->Enabled = true;
 			UD_CardSize->Enabled = true;
 			if (Card) {
-				// –{•¶
+				// æœ¬æ–‡
 				RE_Edit->Tag = 1;
 				// RE_Edit->Lines->Assign(Card->m_Lines);
 				// RE_Edit->Text = Card->m_Lines->Text.SubString(1, Card->m_Lines->Text.Length() - 2);
@@ -1623,8 +1623,8 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				Card->m_fViewed = Now();
 				RE_Edit->SelStart = 0;
 				RE_Edit->Tag = 0;
-				// –{•¶ˆÈŠO
-				// ƒ^ƒCƒgƒ‹
+				// æœ¬æ–‡ä»¥å¤–
+				// ã‚¿ã‚¤ãƒˆãƒ«
 				if (Ed_Title->Text != Card->m_Title) {
 					Ed_Title->Tag = 1;
 					Ed_Title->Text = Card->m_Title;
@@ -1646,10 +1646,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 					 */
 					Ed_Title->Tag = 0;
 				}
-				// ƒ‰ƒxƒ‹
+				// ãƒ©ãƒ™ãƒ«
 				RefreshLabel();
 
-				// ŠG
+				// çµµ
 				delete m_Drawing;
 				m_Drawing = new TDrawing(*Card->m_Drawing);
 
@@ -1660,7 +1660,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				m_nRefreshLinkCount = m_Document->m_nRefreshLinkCount;
 				RefreshLinks();
 
-				// ƒrƒfƒI‚ğæ“ª‚É–ß‚·
+				// ãƒ“ãƒ‡ã‚ªã‚’å…ˆé ­ã«æˆ»ã™
 				if (Card->m_VideoFN != "") {
 					TCardVideo *Video = SearchVideo(Card->m_VideoFN);
 					if (Video) {
@@ -1675,20 +1675,20 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 
 			m_Drawing->m_nTool = nDrawingTool;
 
-			// ŠG
+			// çµµ
 			PB_Drawing->Enabled = true;
 		}
 		RefreshLaStatus();
 	}
 
-	// ŠÖ˜AƒeƒLƒXƒgXV
+	// é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆæ›´æ–°
 	if (RelatedTextRefreshRequest && Pa_EditorRelated->Visible) {
 		TStringList *NewStr = new TStringList();
 		if (m_nTargetCard >= 0) {
 			TCard *Card = m_Document->GetCard(m_nTargetCard);
-			TList *Str = new TList(); // •¶š—ñƒŠƒXƒg
-			TList *Order = new TList(); // •\¦ƒI[ƒ_[ƒŠƒXƒg
-			// ƒŠƒ“ƒNƒ‹[ƒv
+			TList *Str = new TList(); // æ–‡å­—åˆ—ãƒªã‚¹ãƒˆ
+			TList *Order = new TList(); // è¡¨ç¤ºã‚ªãƒ¼ãƒ€ãƒ¼ãƒªã‚¹ãƒˆ
+			// ãƒªãƒ³ã‚¯ãƒ«ãƒ¼ãƒ—
 			for (int il = 0; il < m_Document->m_Links->Count; il++) {
 				TLink *Link = m_Document->GetLinkByIndex(il);
 				TCard *Card2 = NULL;
@@ -1722,7 +1722,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 						int order = Card2->m_nViewedOrder;
 						if (!Card2->m_bVisible) {
 							order += m_Document->m_Cards->Count;
-							// ”ñ•\¦ƒJ[ƒh‚ÌƒeƒLƒXƒg‚ÍŒã‚ë‚Ö
+							// éè¡¨ç¤ºã‚«ãƒ¼ãƒ‰ã®ãƒ†ã‚­ã‚¹ãƒˆã¯å¾Œã‚ã¸
 						}
 						Order->Add((void*)order);
 					}
@@ -1757,7 +1757,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		delete NewStr;
 	}
 
-	// ŒŸõƒEƒCƒ“ƒhƒE‚ÉƒtƒH[ƒJƒX‚ªˆÚ‚Á‚Ä‚à‘I‘ğ”ÍˆÍ‚ªŒ©‚¦‚é‚æ‚¤‚É‚·‚é
+	// æ¤œç´¢ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒç§»ã£ã¦ã‚‚é¸æŠç¯„å›²ãŒè¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
 	if (RE_Edit->HideSelection != !Fo_Search->Visible) { {
 			int selstartbak = RE_Edit->SelStart;
 			int sellengthbak = RE_Edit->SelLength;
@@ -1773,7 +1773,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ‘¶İ‚µ‚È‚¢ƒŠƒ“ƒN‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚½‚Æ‚«‚Ìˆ—iUndo‚È‚Ç‚É”­¶j
+	// å­˜åœ¨ã—ãªã„ãƒªãƒ³ã‚¯ãŒé¸æŠã•ã‚Œã¦ã„ãŸã¨ãã®å‡¦ç†ï¼ˆUndoæ™‚ãªã©ã«ç™ºç”Ÿï¼‰
 	if (m_nCurrentLink == m_nTargetLink) {
 		TLink *Link = m_Document->GetLinkByIndex(m_nCurrentLink);
 		if (Link == NULL) {
@@ -1781,12 +1781,12 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒŠƒ“ƒNƒŠƒXƒg
+	// ãƒªãƒ³ã‚¯ãƒªã‚¹ãƒˆ
 	if (m_nRefreshLinkCount != m_Document->m_nRefreshLinkCount) {
 		m_nRefreshLinkCount = m_Document->m_nRefreshLinkCount;
 		RefreshLinks();
 
-		// ƒŠƒ“ƒNƒ^ƒCƒgƒ‹•ÏX”½‰f
+		// ãƒªãƒ³ã‚¯ã‚¿ã‚¤ãƒˆãƒ«å¤‰æ›´åæ˜ 
 		if (m_nCurrentLink >= 0 && m_nCurrentLink == m_nTargetLink) {
 			TLink *Link = m_Document->GetLinkByIndex(m_nCurrentLink);
 			if (Link) {
@@ -1801,7 +1801,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		drawrequest = true;
 	}
 
-	// ƒŠƒ“ƒN
+	// ãƒªãƒ³ã‚¯
 	TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 	if (m_nCurrentLink != m_nTargetLink) {
 		m_nCurrentLink = m_nTargetLink;
@@ -1810,7 +1810,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		// SetCardVisible();
 
 		if (Link) {
-			// ƒŠƒ“ƒN‘I‘ğ’†
+			// ãƒªãƒ³ã‚¯é¸æŠä¸­
 			Pa_Card->Visible = false;
 			Pa_Link->Visible = true;
 
@@ -1821,19 +1821,19 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			Ed_LinkTitle->Text = "";
 			Ch_LinkDirection->Checked = false;
 
-			// ƒŠƒ“ƒN”ñ‘I‘ğ
+			// ãƒªãƒ³ã‚¯éé¸æŠ
 			Pa_Link->Visible = false;
 			Pa_Card->Visible = true;
 		}
 
 		Ed_LinkTitle->Tag = 0;
 
-		// ƒ‰ƒxƒ‹
+		// ãƒ©ãƒ™ãƒ«
 		RefreshLabel();
 		drawrequest = true;
 	}
 
-	// ƒJ[ƒh”AƒŠƒ“ƒN”
+	// ã‚«ãƒ¼ãƒ‰æ•°ã€ãƒªãƒ³ã‚¯æ•°
 	{
 		UnicodeString S = IntToStr(m_Document->m_Cards->Count) +
 			UnicodeString(" ") + MLText.Cards + UnicodeString(", ") +
@@ -1844,11 +1844,11 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒTƒCƒY
+	// ã‚µã‚¤ã‚º
 	if (m_nTargetCard >= 0 && Card) {
-		// ƒTƒCƒY•\¦•ÏX
+		// ã‚µã‚¤ã‚ºè¡¨ç¤ºå¤‰æ›´
 		int size = (int)(log(Card->m_nSize / 100.0) * (8 / log(4)) +
-			100.5) - 100; // 8‚Å4”{
+			100.5) - 100; // 8ã§4å€
 		if (size > 8) {
 			size = 8;
 		}
@@ -1873,7 +1873,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		BackupSub(ME_BatchConversion->Caption);
 		switch (Fo_Shape->m_nMode) {
 		case 0:
-			// ƒJ[ƒh
+			// ã‚«ãƒ¼ãƒ‰
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				TCard *Card = m_Document->GetCardByIndex(i);
 				if (Card->m_bSelected) {
@@ -1883,22 +1883,22 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			m_Document->RefreshList();
 			/*
 			 if (m_nTargetCard >= 0 && Card){
-			 //ƒVƒFƒCƒv•ÏX”½‰f
+			 //ã‚·ã‚§ã‚¤ãƒ—å¤‰æ›´åæ˜ 
 			 Card->m_nShape = Fo_Shape->m_nItemIndex;
 			 m_Document->RefreshList();
 			 }
 			 */
 			break;
 		case 1:
-			// ƒŠƒ“ƒN
+			// ãƒªãƒ³ã‚¯
 			if (m_nTargetLink >= 0 && Link) {
-				// ƒVƒFƒCƒv•ÏX”½‰f
+				// ã‚·ã‚§ã‚¤ãƒ—å¤‰æ›´åæ˜ 
 				Link->m_nShape = Fo_Shape->m_nItemIndex;
 				m_Document->RefreshLink();
 			}
 			break;
 		case 2:
-			// ‘SƒJ[ƒh
+			// å…¨ã‚«ãƒ¼ãƒ‰
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				m_Document->GetCardByIndex(i)->m_nShape =
 					Fo_Shape->m_nItemIndex;
@@ -1906,9 +1906,9 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			m_Document->RefreshList();
 			break;
 		case 3:
-			// ‘SƒŠƒ“ƒN
+			// å…¨ãƒªãƒ³ã‚¯
 			for (int i = 0; i < m_Document->m_Links->Count; i++) {
-				// ƒVƒFƒCƒv•ÏX”½‰f
+				// ã‚·ã‚§ã‚¤ãƒ—å¤‰æ›´åæ˜ 
 				m_Document->GetLinkByIndex(i)->m_nShape =
 					Fo_Shape->m_nItemIndex;
 			}
@@ -1918,7 +1918,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		Fo_Shape->m_bSelected = false;
 	}
 	if (m_nTargetCard >= 0 && Card) {
-		// ƒVƒFƒCƒvƒ{ƒ^ƒ“•\¦•ÏX
+		// ã‚·ã‚§ã‚¤ãƒ—ãƒœã‚¿ãƒ³è¡¨ç¤ºå¤‰æ›´
 		if (Card->m_nShape != SB_Shape->Tag) {
 			SB_Shape->Tag = Card->m_nShape;
 			if (Card->m_nShape < IL_Shape->Count) {
@@ -1930,7 +1930,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 	}
 
 	if (m_nTargetLink >= 0 && Link) {
-		// ƒVƒFƒCƒvƒ{ƒ^ƒ“•\¦•ÏX
+		// ã‚·ã‚§ã‚¤ãƒ—ãƒœã‚¿ãƒ³è¡¨ç¤ºå¤‰æ›´
 		if (Link->m_nShape != SB_Shape->Tag) {
 			SB_Shape->Tag = Link->m_nShape;
 			if (Link->m_nShape < IL_LinkShape->Count) {
@@ -1952,7 +1952,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒ‹[ƒgƒJ[ƒh
+	// ãƒ«ãƒ¼ãƒˆã‚«ãƒ¼ãƒ‰
 	if (SB_Top->Visible != (m_nTargetCard >= 0)) {
 		SB_Top->Visible = (m_nTargetCard >= 0);
 	}
@@ -1963,7 +1963,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// •\¦Ø‘Ö
+	// è¡¨ç¤ºåˆ‡æ›¿
 	if (Fo_View->m_bRefreshRequest) {
 		Fo_View->m_bRefreshRequest = false;
 		RefreshLabel();
@@ -1971,7 +1971,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		drawrequest = true;
 	}
 
-	// ƒ‰ƒxƒ‹
+	// ãƒ©ãƒ™ãƒ«
 	if (m_nRefreshLabelCount != m_Document->m_nRefreshLabelCount) {
 		m_nRefreshLabelCount = m_Document->m_nRefreshLabelCount;
 		FreeMILabels();
@@ -2010,7 +2010,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 	}
 
 	if (drawrequest && PC_Client->ActivePage == TS_Browser) {
-		// ƒf[ƒ^‚ÉXV‚ª‚Á‚½ê‡A•`‰æƒpƒ‰ƒ[ƒ^‚ğ“¾‚é‚½‚ß‚ÉArrange‘O‚É‚±‚±‚Å•`‰æ
+		// ãƒ‡ãƒ¼ã‚¿ã«æ›´æ–°ãŒã£ãŸå ´åˆã€æç”»ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å¾—ã‚‹ãŸã‚ã«Arrangeå‰ã«ã“ã“ã§æç”»
 		/*
 		 HRGN MyRgn;
 		 if (PC_Client->ActivePage != TS_Browser){
@@ -2031,11 +2031,11 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		PB_GlobalSearchPaint(Sender);
 	}
 
-	// Bu_ArrangeType‚ÌƒLƒƒƒvƒVƒ‡ƒ“
+	// Bu_ArrangeTypeã®ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³
 	{
 		UnicodeString S;
 		switch (Bu_ArrangeType->Tag) {
-			// 0`99=HardA100`199=SoftA200`299Matrix
+			// 0ï½99=Hardã€100ï½199=Softã€200ï½299ï¼Matrix
 		case 0:
 			S = PAT_Normalize->Caption;
 			break;
@@ -2069,7 +2069,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			S = PAT_MatrixIndex->Caption;
 			break;
 
-			// 500`999Similarity
+			// 500ï½999ï¼Similarity
 		case 500:
 			S = PAT_Similarity->Caption;
 			break;
@@ -2077,7 +2077,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			S = PAT_SimilaritySoft->Caption;
 			break;
 
-			// 1000`1999Tree
+			// 1000ï½1999ï¼Tree
 		case 1000:
 			S = PAT_TreeRadial->Caption;
 			break;
@@ -2095,9 +2095,9 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			500 && Bu_ArrangeType->Tag <= 999);
 	}
 
-	// ƒuƒ‰ƒEƒUÀ•W
+	// ãƒ–ãƒ©ã‚¦ã‚¶åº§æ¨™
 	m_fTickerSpeed = (tgt - m_nLastTimeOut) * (0.1f / 120);
-	// 120ms‚Å0.1•¶šH//TickerSpeed
+	// 120msã§0.1æ–‡å­—ï¼Ÿ//TickerSpeed
 	m_fBGAnimationSpeed = (tgt - m_nLastTimeOut) * 0.001f;
 	if (PC_Client->ActivePage == TS_Browser && (Application->Active ||
 		SettingView.m_bRedrawInBackground) /* && !m_bMDownBrowser */) {
@@ -2187,13 +2187,13 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				// BrowserArrangeByFold();
 			}
 
-			// ƒXƒRƒAATickerA”wŒiƒAƒjƒ[ƒVƒ‡ƒ“‚É‚æ‚éÄ•`‰æ
+			// ã‚¹ã‚³ã‚¢ã€Tickerã€èƒŒæ™¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚ˆã‚‹å†æç”»
 			drawrequest2 |= SettingView.m_bScore ||
 				SettingView.m_bTickerVisible || SettingView.m_bBGAnimation;
 
-			// ƒI[ƒgƒXƒNƒ[ƒ‹‚É‚æ‚éÄ•`‰æ
+			// ã‚ªãƒ¼ãƒˆã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã«ã‚ˆã‚‹å†æç”»
 			if (!(m_bMDownBrowser > 0 && m_bMDownBrowser < 4)
-				&& m_bMDownBrowser != 5) { // 4‚Íoverview‚©‚ç•\¦ˆÊ’uw’è’†‚È‚Ì‚ÅAutoScroll
+				&& m_bMDownBrowser != 5) { // 4ã¯overviewã‹ã‚‰è¡¨ç¤ºä½ç½®æŒ‡å®šä¸­ãªã®ã§AutoScroll
 				if ((SB_AutoScroll->Down || SB_AutoZoom->Down ||
 					m_nScrollTargetX > -65536) && GetTickCount() >=
 					m_uMDownBrowserLast + 500) {
@@ -2201,7 +2201,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				}
 			}
 
-			// ƒTƒ€ƒlƒCƒ‹AƒrƒfƒI‚ÌXV‚É‚æ‚éÄ•`‰æ
+			// ã‚µãƒ ãƒã‚¤ãƒ«ã€ãƒ“ãƒ‡ã‚ªã®æ›´æ–°ã«ã‚ˆã‚‹å†æç”»
 			TCursor crbak = Screen->Cursor;
 			bool imageupdated = UpdateImageList() || UpdateVideoList();
 			drawrequest2 |= imageupdated || m_VideoList->Count > 0;
@@ -2210,25 +2210,25 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 				Screen->Cursor = crbak;
 			}
 
-			// ƒtƒH[ƒJƒXƒJ[ƒ\ƒ‹‚É‚æ‚éÄ•`‰æ
+			// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã«ã‚ˆã‚‹å†æç”»
 			if (SettingView.m_bFocusCursor) {
 				if (SettingView.m_bFocusCursorAnimation) {
-					int speed = (tgt - m_nLastTimeOut) / 5; // 0.5•b‚ÅƒAƒjƒ[ƒVƒ‡ƒ“;
+					int speed = (tgt - m_nLastTimeOut) / 5; // 0.5ç§’ã§ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³;
 					bool last = m_nFocusCursorPos % 100 < 50;
 					if (m_nFocusCursorPos < 100) {
 						m_nFocusCursorPos += speed;
 						if (m_nFocusCursorPos > 100) {
-							m_nFocusCursorPos = 100; // ‚¢‚«‚È‚è“_–Å‚É“ü‚é‚Ì‚ğ–h‚®
+							m_nFocusCursorPos = 100; // ã„ããªã‚Šç‚¹æ»…ã«å…¥ã‚‹ã®ã‚’é˜²ã
 						}
 					}
 					else {
-						// “_–Åi•ª‚©‚è‚â‚·‚¢‚ª–Úá‚èj
+						// ç‚¹æ»…ï¼ˆåˆ†ã‹ã‚Šã‚„ã™ã„ãŒç›®éšœã‚Šï¼‰
 						m_nFocusCursorPos += (tgt - m_nLastTimeOut) / 10;
 					}
 					drawrequest2 |= m_nFocusCursorPos <
 						100 || (m_nFocusCursorPos % 100 < 50) != last;
 
-					// •’Ê‚ÌƒJ[ƒh‚ÌSelection
+					// æ™®é€šã®ã‚«ãƒ¼ãƒ‰ã®Selection
 					for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 						TCard *Card = m_Document->GetCardByIndex(i);
 						int sel = Card->m_bSelected;
@@ -2258,26 +2258,26 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// }Œ`
+	// å›³å½¢
 	if (PC_Client->ActivePage == TS_Drawing) {
 		if (m_Drawing->m_bDrawRequest) {
 			PB_DrawingPaint(Sender);
 		}
 	}
 
-	// “Œv
+	// çµ±è¨ˆ
 	if (PC_Client->ActivePage == TS_Statistics) {
-		// ƒXƒ€[ƒY•`‰æ‚É‚æ‚éÄ•`‰æ
+		// ã‚¹ãƒ ãƒ¼ã‚ºæç”»ã«ã‚ˆã‚‹å†æç”»
 		if (m_fStatisticsPos < 1.0f) {
 			m_fStatisticsPos = 1.03f - (1.03f - m_fStatisticsPos) * pow(0.5,
-				(tgt - m_nLastTimeOut) / 150.0); // 150ms‚Å”¼•ª1.0‚É‹ß‚Ã‚­
+				(tgt - m_nLastTimeOut) / 150.0); // 150msã§åŠåˆ†1.0ã«è¿‘ã¥ã
 			if (m_fStatisticsPos > 1.0f) {
 				m_fStatisticsPos = 1.0f;
 			}
 			drawrequest_s = true;
 		}
 
-		// ”wŒiƒAƒjƒ[ƒVƒ‡ƒ“‚É‚æ‚éÄ•`‰æ
+		// èƒŒæ™¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚ˆã‚‹å†æç”»
 		drawrequest_s |= SettingView.m_bBGAnimation;
 
 		if (drawrequest_s) {
@@ -2285,7 +2285,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// Ed_TitleB‚ÌˆÊ’u
+	// Ed_TitleBã®ä½ç½®
 	/*
 	 {
 	 int size = RE_Edit->Font->Size;
@@ -2312,12 +2312,12 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ŒŸõ
+	// æ¤œç´¢
 	if (bSearchRequest) {
 		int srbak = bSearchRequest;
 		bSearchRequest = 0;
 		if (SearchKeyword != WideString("")) {
-			// ƒL[ƒ[ƒh—š—ğ•Û‘¶
+			// ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰å±¥æ­´ä¿å­˜
 			for (int i = 0; i < Fo_Search->Co_Keyword->Items->Count; i++) {
 				if (SearchKeyword == Fo_Search->Co_Keyword->Items->Strings[i]) {
 					Fo_Search->Co_Keyword->Items->Delete(i);
@@ -2331,7 +2331,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			Fo_Search->Co_Keyword->Items->Insert(0, SearchKeyword);
 
 			if (srbak & 0x40) {
-				// ƒOƒ[ƒoƒ‹ŒŸõ
+				// ã‚°ãƒ­ãƒ¼ãƒãƒ«æ¤œç´¢
 				if (!(srbak & 0x100)) {
 					La_SearchResultKeyword->Caption =
 						UnicodeString("\"") + SearchKeyword +
@@ -2340,9 +2340,9 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 					GlobalSearch(srbak);
 					m_GlobalSearchOption = srbak;
 					m_GlobalSearchKeyword = SearchKeyword;
-					// ’uŠ·‚Å‚Í‚È‚¢
+					// ç½®æ›ã§ã¯ãªã„
 
-					// ƒOƒ[ƒoƒ‹ŒŸõŒ‹‰Ê‚ğ•\¦
+					// ã‚°ãƒ­ãƒ¼ãƒãƒ«æ¤œç´¢çµæœã‚’è¡¨ç¤º
 					Sc_GlobalSearch->Tag = 1;
 					Sc_GlobalSearch->Position = 0;
 					Sc_GlobalSearch->Tag = 0;
@@ -2351,7 +2351,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 						IntToStr(m_GlobalSearchResult->Count) +
 						UnicodeString(" Hits");
 					if (m_GlobalSearchResult->Count) {
-						// Œ©‚Â‚©‚Á‚½
+						// è¦‹ã¤ã‹ã£ãŸ
 						ExitFullScreen();
 						Fo_Search->Visible = false;
 						Sc_GlobalSearch->Max = m_GlobalSearchResult->Count - 1;
@@ -2367,7 +2367,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 						Sc_GlobalSearch->SetFocus();
 					}
 					else {
-						// Œ©‚Â‚©‚ç‚È‚©‚Á‚½
+						// è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
 						Sc_GlobalSearch->Max = 0;
 						PB_GlobalSearchPaint(Sender);
 						ShowMessage(UnicodeString("\"") + SearchKeyword +
@@ -2375,15 +2375,15 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 					}
 				}
 				else {
-					// ’uŠ·
+					// ç½®æ›
 					int replaced = ReplaceAll(srbak);
 
 					if (replaced) {
-						// ’uŠ·¬Œ÷
+						// ç½®æ›æˆåŠŸ
 						Fo_Search->Visible = false;
 					}
 					else {
-						// Œ©‚Â‚©‚ç‚È‚©‚Á‚½
+						// è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
 						ShowMessage(UnicodeString("\"") + SearchKeyword +
 							UnicodeString("\"") + MLText.NotFound);
 					}
@@ -2404,7 +2404,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		Ed_FindCard->Text = SearchKeyword;
 	}
 
-	// ƒƒjƒ…[ƒAƒCƒeƒ€
+	// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ 
 
 	if (Fo_FullScreen->Visible && PC_Client->ActivePage != TS_Browser) {
 		ExitFullScreen();
@@ -2510,7 +2510,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 
 	// Edit
 	{
-		// Cuti•¶š—ñ‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©AƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎEnablej
+		// Cutï¼ˆæ–‡å­—åˆ—ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã‹ã€ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚Œã°Enableï¼‰
 		bool editenabled = (RE_Edit->Focused() && RE_Edit->SelLength > 0) ||
 			(Ed_Title->Focused() && Ed_Title->SelLength > 0) ||
 			(Ed_TitleB->Focused() && Ed_TitleB->SelLength > 0) ||
@@ -2529,7 +2529,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			PBC_Cut->Enabled = editenabled;
 		}
 	} {
-		// Copyi•¶š—ñ‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©AƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎEnablej
+		// Copyï¼ˆæ–‡å­—åˆ—ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã‹ã€ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚Œã°Enableï¼‰
 		bool editenabled = (RE_Edit->Focused() && RE_Edit->SelLength > 0) ||
 			(Me_EditorRelated->Focused() && Me_EditorRelated->SelLength > 0) ||
 			(Ed_Title->Focused() && Ed_Title->SelLength > 0) ||
@@ -2550,7 +2550,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 	}
 
 	{
-		// Deletei•¶š•ÒW’†‚©AƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎEnablej
+		// Deleteï¼ˆæ–‡å­—ç·¨é›†ä¸­ã‹ã€ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚Œã°Enableï¼‰
 		bool editenabled = RE_Edit->Focused() || Ed_Title->Focused() ||
 			Ed_TitleB->Focused() || Ed_LinkTitle->Focused() ||
 			Ed_FindCard->Focused() ||
@@ -2572,8 +2572,8 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			(RE_Edit->Focused() || Ed_Title->Focused() || Ed_TitleB->Focused()
 			|| Ed_LinkTitle->Focused() || Ed_FindCard->Focused() ||
 			TB_DZoom->Focused() || PC_Client->ActivePage == TS_Browser);
-		// ƒeƒLƒXƒg‚ªƒy[ƒXƒg‰Â”\
-		editenabled &= !Me_EditorRelated->Focused(); // ŠÖ˜AƒeƒLƒXƒg‚Í•ÒW•s”\
+		// ãƒ†ã‚­ã‚¹ãƒˆãŒãƒšãƒ¼ã‚¹ãƒˆå¯èƒ½
+		editenabled &= !Me_EditorRelated->Focused(); // é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆã¯ç·¨é›†ä¸èƒ½
 		if (ME_Paste->Enabled != editenabled) {
 			ME_Paste->Enabled = editenabled;
 			PE_Paste->Enabled = editenabled;
@@ -2582,7 +2582,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			PBC_Paste->Enabled = editenabled;
 		}
 	} {
-		// Cut‚µ‚ÄƒJ[ƒhì¬
+		// Cutã—ã¦ã‚«ãƒ¼ãƒ‰ä½œæˆ
 		bool editenabled = RE_Edit->SelLength > 0;
 		if (PE_CutToNewCard->Enabled != editenabled) {
 			PE_CutToNewCard->Enabled = editenabled;
@@ -2669,7 +2669,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 	 }
 	 */
 
-	// View¨Card
+	// Viewâ†’Card
 	if (MVC_CardShadow->Checked != SettingView.m_bCardShadow) {
 		MVC_CardShadow->Checked = SettingView.m_bCardShadow;
 	}
@@ -2737,7 +2737,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// View¨Link
+	// Viewâ†’Link
 	if (MVL_Link->Checked != SettingView.m_bLinkVisible) {
 		MVL_Link->Checked = SettingView.m_bLinkVisible;
 	}
@@ -2754,7 +2754,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		MVL_LinkName->Checked = SettingView.m_bLinkNameVisible;
 	}
 
-	// View¨Label
+	// Viewâ†’Label
 	if (MVL_LabelCircle->Checked != SettingView.m_bLabelCircleVisible) {
 		MVL_LabelCircle->Checked = SettingView.m_bLabelCircleVisible;
 	}
@@ -2765,7 +2765,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		MVL_LabelName->Checked = SettingView.m_bLabelNameVisible;
 	}
 
-	// View¨Text
+	// Viewâ†’Text
 	if (MVT_Text->Checked != SettingView.m_bTextVisible) {
 		MVT_Text->Checked = SettingView.m_bTextVisible;
 	}
@@ -2776,11 +2776,11 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		MVT_WordWrap->Checked = SettingView.m_bTextWordWrap;
 		RE_Edit->WordWrap = SettingView.m_bTextWordWrap;
 		if (SettingView.m_bTextWordWrap) {
-			// ‰E’[‚ÅÜ‚è•Ô‚·
+			// å³ç«¯ã§æŠ˜ã‚Šè¿”ã™
 			RE_Edit->ScrollBars = ssVertical;
 		}
 		else {
-			// Ü‚è•Ô‚³‚È‚¢
+			// æŠ˜ã‚Šè¿”ã•ãªã„
 			RE_Edit->ScrollBars = ssBoth;
 		}
 		if (PC_Client->ActivePage == TS_Browser) {
@@ -2816,7 +2816,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		}
 	}
 
-	// ƒJ[ƒhƒ|ƒbƒvƒAƒbƒv
+	// ã‚«ãƒ¼ãƒ‰ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—
 	if (PL_DeleteCard->Enabled != (m_nTargetCard >= 0)) {
 		PL_DeleteCard->Enabled = (m_nTargetCard >= 0);
 		PL_CardProperty->Enabled = (m_nTargetCard >= 0);
@@ -2863,16 +2863,16 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 	 if (MVR_Read->Checked != SettingView.m_bRead){
 	 MVR_Read->Checked = SettingView.m_bRead;
 	 if (MVR_Read->Checked){
-	 //ƒLƒƒƒ‰ƒNƒ^“Ç‚İ‚İ
+	 //ã‚­ãƒ£ãƒ©ã‚¯ã‚¿èª­ã¿è¾¼ã¿
 	 LoadAgent();
 	 }else{
-	 //ƒG[ƒWƒFƒ“ƒg”jŠü
+	 //ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆç ´æ£„
 	 UnloadAgent();
 	 }
 	 }
 	 */
 
-	// View¨Others
+	// Viewâ†’Others
 	if (MVO_CardList->Checked != SettingView.m_bCardList) {
 		MVO_CardList->Checked = SettingView.m_bCardList;
 	}
@@ -2884,7 +2884,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		MVO_Overview->Checked = SettingView.m_bOverview;
 	}
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 	TPopupMenu *PM = PM_BNoSelect;
 	if (m_nTargetCard >= 0) {
 		PM = PM_BCardSelect;
@@ -2917,7 +2917,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		PBL_Link->Checked = SB_Line->Down;
 	}
 
-	// •\¦F
+	// è¡¨ç¤ºè‰²
 	if (LB_List->Font->Color != (TColor)SettingView.m_nFourgroundColor) {
 		LB_List->Font->Color = (TColor)SettingView.m_nFourgroundColor;
 		LB_FileList->Font->Color = (TColor)SettingView.m_nFourgroundColor;
@@ -2960,10 +2960,10 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		TB_Zoom->Visible = true;
 		if (focused) {
 			TB_Zoom->SetFocus();
-		} // ‚È‚º‚©TB_Zoom‚Ì”wŒiF‚ªˆÙ‚È‚é–â‘è‘Îô
+		} // ãªãœã‹TB_Zoomã®èƒŒæ™¯è‰²ãŒç•°ãªã‚‹å•é¡Œå¯¾ç­–
 	}
 
-	// •Ç†
+	// å£ç´™
 	if (MVO_WallPaper->Checked != (SettingView.m_WallPaper != "")) {
 		MVO_WallPaper->Checked = (SettingView.m_WallPaper != "");
 	}
@@ -2974,7 +2974,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		MVO_TileWallPaper->Checked = SettingView.m_bTileWallPaper;
 	}
 
-	// ”wŒiƒAƒjƒ[ƒVƒ‡ƒ“
+	// èƒŒæ™¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	if (MVO_BGAnimation->Checked != SettingView.m_bBGAnimation) {
 		MVO_BGAnimation->Checked = SettingView.m_bBGAnimation;
 	} {
@@ -2998,16 +2998,16 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 			MI->Checked = true;
 		}
 	}
-	// ƒJ[ƒ\ƒ‹ƒAƒjƒ[ƒVƒ‡ƒ“
+	// ã‚«ãƒ¼ã‚½ãƒ«ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	if (MVO_CursorAnimation->Checked != SettingView.m_bFocusCursorAnimation) {
 		MVO_CursorAnimation->Checked = SettingView.m_bFocusCursorAnimation;
 	}
-	// ‘¦ƒXƒNƒ[ƒ‹
+	// å³ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
 	if (MVO_NoScrollLag->Checked != SettingView.m_bNoScrollLag) {
 		MVO_NoScrollLag->Checked = SettingView.m_bNoScrollLag;
 	}
 
-	// ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX
+	// ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹
 	if (MVO_AntiAliasing->Checked != SettingView.m_bAntiAlias) {
 		MVO_AntiAliasing->Checked = SettingView.m_bAntiAlias;
 	}
@@ -3026,7 +3026,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		SB_Status->Visible = SettingView.m_bStatusBar;
 	}
 
-	// “Œv‚ÌƒL[
+	// çµ±è¨ˆã®ã‚­ãƒ¼
 	{
 		UnicodeString S;
 
@@ -3092,7 +3092,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		Bu_StatisticsKey->Caption = S;
 	}
 
-	// ƒeƒLƒXƒg•ÒWƒ{ƒbƒNƒX
+	// ãƒ†ã‚­ã‚¹ãƒˆç·¨é›†ãƒœãƒƒã‚¯ã‚¹
 	if (m_bTextEditRequested) {
 		if (PC_Client->ActivePage == TS_Browser && m_nTargetCard >= 0) {
 			SetTextEditPos();
@@ -3110,7 +3110,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 		m_bTitleEditRequested = false;
 	}
 
-	// CheckCount‚ÌƒCƒ“ƒNƒŠƒƒ“ƒg
+	// CheckCountã®ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 	m_Document->m_nCheckCount++;
 
 	m_nLastTimeOut = tgt;
@@ -3151,7 +3151,7 @@ void TFo_Main::SetTextEditPos() {
 	switch (SettingView.m_nEditInBrowserPos*!Fo_FullScreen->Visible) {
 	case 0:
 		if (cardindex >= 0) {
-			// Browserã
+			// Browserä¸Š
 			RE_Edit->Align = alNone;
 			RE_Edit->Width = m_nBrowserWidth / 3;
 			RE_Edit->Height = m_nBrowserHeight / 3;
@@ -3171,7 +3171,7 @@ void TFo_Main::SetTextEditPos() {
 		}
 		break;
 	case 1:
-		// Browser‰E
+		// Browserå³
 		if (SettingView.m_nEditorWidthInBrowser == 0 ||
 			SettingView.m_nEditorWidthInBrowser >= TS_Browser->Width) {
 			SettingView.m_nEditorWidthInBrowser = TS_Browser->Width / 4;
@@ -3192,7 +3192,7 @@ void TFo_Main::SetTextEditPos() {
 		RE_Edit->Align = alRight;
 		break;
 	case 2:
-		// Browser‰º
+		// Browserä¸‹
 		if (SettingView.m_nEditorHeightInBrowser == 0 ||
 			SettingView.m_nEditorHeightInBrowser >= TS_Browser->Height) {
 			SettingView.m_nEditorHeightInBrowser = TS_Browser->Height / 4;
@@ -3259,15 +3259,15 @@ void TFo_Main::SetEdTitleBPos() {
 			}
 		}
 
-		// IME‚Ì“ü—Íó‘Ô‚É]‚Á‚ÄWindow‚ğ‘å‚«‚­‚·‚é
+		// IMEã®å…¥åŠ›çŠ¶æ…‹ã«å¾“ã£ã¦Windowã‚’å¤§ããã™ã‚‹
 		{
 			// COMPOSITIONFORM CompForm;
 			HIMC hImc = ImmGetContext(Ed_TitleB->Handle);
 			if (hImc) {
-				// IME‚ÌÀ•W‚ğ“¾‚é
+				// IMEã®åº§æ¨™ã‚’å¾—ã‚‹
 				/*
-				 //ImmGetCompositionWindow‚Å‚ÍƒŠƒAƒ‹ƒ^ƒCƒ€‚É•Ï‰»‚·‚éî•ñ‚Í“¾‚ç‚ê‚È‚¢H
-				 //ImmGetCompositionString‚Å•ÏŠ·’†‚Ì•¶š—ñ‚Ìî•ñ‚ğæ“¾‚·‚ê‚Î‚æ‚¢H
+				 //ImmGetCompositionWindowã§ã¯ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ã«å¤‰åŒ–ã™ã‚‹æƒ…å ±ã¯å¾—ã‚‰ã‚Œãªã„ï¼Ÿ
+				 //ImmGetCompositionStringã§å¤‰æ›ä¸­ã®æ–‡å­—åˆ—ã®æƒ…å ±ã‚’å–å¾—ã™ã‚Œã°ã‚ˆã„ï¼Ÿ
 				 if (ImmGetCompositionWindow(hImc,&CompForm)){
 				 CompForm.
 				 int w = CompForm.rcArea.right - CompForm.rcArea.left;
@@ -3330,7 +3330,7 @@ void TFo_Main::SetEdTitleBPos() {
 		 Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2;
 		 Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight;
 		 }else{
-		 //PB_Browser‚ª’u‚¢‚Ä‚ ‚éƒpƒlƒ‹‚Ì‰æ‚è‚Ì•ª‚ÌÀ•W2ƒhƒbƒg‚ğ‘«‚µ‚Ä‚¢‚é
+		 //PB_BrowserãŒç½®ã„ã¦ã‚ã‚‹ãƒ‘ãƒãƒ«ã®ç¸å–ã‚Šã®åˆ†ã®åº§æ¨™2ãƒ‰ãƒƒãƒˆã‚’è¶³ã—ã¦ã„ã‚‹
 		 Ed_TitleB->Left = m_CardX[cardindex] - m_CardWidth[cardindex] / 2 + Space / 2 + 2;
 		 Ed_TitleB->Top = m_CardY[cardindex] + m_CardHeight[cardindex] / 2 - Space / 2 - height - tickerheight + 2;
 		 }
@@ -3340,7 +3340,7 @@ void TFo_Main::SetEdTitleBPos() {
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormShow(TObject *Sender) {
-	// Œ¾Œêƒƒjƒ…[
+	// è¨€èªãƒ¡ãƒ‹ãƒ¥ãƒ¼
 	TStringList *SL = new TStringList();
 	FileListCreator(ExtractFileDir(ParamStr(0)), SL, ".lng", false);
 	for (int i = 0; i < SL->Count; i++) {
@@ -3460,7 +3460,7 @@ void __fastcall TFo_Main::FormClose(TObject *Sender, TCloseAction &Action) {
 void TFo_Main::TextEditBackupSub(UnicodeString Action, int CardID, int SelStart,
 	int SelLength) {
 	if (!m_bDoNotBackup) {
-		// ƒeƒLƒXƒg•ÒW‘O‚ÉUndo—pƒoƒbƒNƒAƒbƒv‚ğs‚¤
+		// ãƒ†ã‚­ã‚¹ãƒˆç·¨é›†å‰ã«Undoç”¨ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’è¡Œã†
 		unsigned int tgt = GetTickCount();
 		if (tgt > m_nLastModified + UNDOBACKUPSPAN) {
 			m_UndoRedo->Backup(m_Document, Action.c_str(), CardID, SelStart,
@@ -3532,7 +3532,7 @@ void __fastcall TFo_Main::RE_EditChange(TObject *Sender) {
 				m_Document->RefreshList();
 
 				if (PC_Client->ActivePage == TS_Editor) {
-					// ƒeƒLƒXƒg•ÒW‚Ì‚½‚Ñ‚É‚¢‚¿‚¢‚¿‰æ–ÊXV‚³‚¹‚È‚¢‚½‚ß
+					// ãƒ†ã‚­ã‚¹ãƒˆç·¨é›†ã®ãŸã³ã«ã„ã¡ã„ã¡ç”»é¢æ›´æ–°ã•ã›ãªã„ãŸã‚
 					m_nRefreshListCount = m_Document->m_nRefreshListCount;
 				}
 			}
@@ -3546,10 +3546,10 @@ void TFo_Main::RefreshLaStatus() {
 		TCard *Card = m_Document->GetCard(m_nCurrentCard);
 
 		if (Card) {
-			// ƒXƒe[ƒ^ƒXƒo[
+			// ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼
 			UnicodeString S = "";
 
-			// ‘I‘ğ’†ƒJ[ƒh”
+			// é¸æŠä¸­ã‚«ãƒ¼ãƒ‰æ•°
 			int ccount = 0;
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				if (m_Document->GetCardByIndex(i)->m_bSelected) {
@@ -3577,7 +3577,7 @@ void TFo_Main::RefreshLaStatus() {
 			S += IntToStr(lcount) + UnicodeString(" ") + MLText.Links +
 				UnicodeString("  ");
 
-			// •¶š”
+			// æ–‡å­—æ•°
 			int line = RE_Edit->Perform(EM_LINEFROMCHAR, -1, (NativeInt)0);
 			S += UnicodeString("X : ") +
 				IntToStr(RE_Edit->SelStart - RE_Edit->Perform(EM_LINEINDEX,
@@ -3634,7 +3634,7 @@ void __fastcall TFo_Main::PL_DeleteCardClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::MF_NewClick(TObject *Sender) {
 	if (SaveCheck()) {
-		SB_CloseGlobalSearchClick(Sender); // GlobalŒŸõ•\¦‚ğÁ‚·
+		SB_CloseGlobalSearchClick(Sender); // Globalæ¤œç´¢è¡¨ç¤ºã‚’æ¶ˆã™
 
 		m_bContinuousLoad = false;
 		delete m_Document;
@@ -3645,7 +3645,7 @@ void __fastcall TFo_Main::MF_NewClick(TObject *Sender) {
 		m_nTargetCard = 0;
 		m_Document->GetCardByIndex(0)->m_bSelected = true;
 		m_nTargetLink = -1;
-		SettingView.m_nLinkTarget = -1; // LinkLimitation‚ÌƒŠƒ“ƒNæƒJ[ƒh§–ñ
+		SettingView.m_nLinkTarget = -1; // LinkLimitationã®ãƒªãƒ³ã‚¯å…ˆã‚«ãƒ¼ãƒ‰åˆ¶ç´„
 		SettingView.m_bNoLabelVisible = true;
 		SettingView.m_bNoLinkLabelVisible = true;
 
@@ -3664,24 +3664,24 @@ bool TFo_Main::SaveCheck() {
 			UnicodeString(AppTitle).c_str(), MB_YESNOCANCEL);
 		switch (result) {
 		case ID_YES:
-			// •Û‘¶‚·‚é
+			// ä¿å­˜ã™ã‚‹
 			if (Save()) {
-				// •Û‘¶‚É¬Œ÷
+				// ä¿å­˜ã«æˆåŠŸ
 				return true;
 			}
 			else {
-				// •Û‘¶‚É¸”s
+				// ä¿å­˜ã«å¤±æ•—
 				return false;
 			}
 		case ID_NO:
-			// •Û‘¶‚¹‚¸‚ÉV‹Kì¬or“Ç‚İ‚İorI—¹
+			// ä¿å­˜ã›ãšã«æ–°è¦ä½œæˆorèª­ã¿è¾¼ã¿orçµ‚äº†
 			return true;
 		case ID_CANCEL:
-			// ƒLƒƒƒ“ƒZƒ‹
+			// ã‚­ãƒ£ãƒ³ã‚»ãƒ«
 			return false;
 		}
 	}
-	// •ÏX‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚Å‘¦V‹Kì¬or“Ç‚İ‚İorI—¹
+	// å¤‰æ›´ã•ã‚Œã¦ã„ãªã„ã®ã§å³æ™‚æ–°è¦ä½œæˆorèª­ã¿è¾¼ã¿orçµ‚äº†
 	return true;
 }
 
@@ -3707,12 +3707,12 @@ void TFo_Main::RefreshLinks() {
 			TCard *Card2 = NULL;
 			UnicodeString SDirection;
 			if (Link->m_nFromID == m_nCurrentCard) {
-				// ©•ª‚ªFrom
+				// è‡ªåˆ†ãŒFrom
 				Card2 = m_Document->GetCard(Link->m_nDestID);
 				SDirection = "-> ";
 			}
 			else if (Link->m_nDestID == m_nCurrentCard) {
-				// ©•ª‚ªDest
+				// è‡ªåˆ†ãŒDest
 				Card2 = m_Document->GetCard(Link->m_nFromID);
 				SDirection = "<- ";
 			}
@@ -3749,30 +3749,30 @@ void TFo_Main::RefreshLinks() {
 				 case 1://Problem
 				 switch (Card2->m_nType){
 				 case 2:
-				 S = "[‚±‚Ì–â‘è‚ğ‰ğŒˆ‚·‚éè–@] " + S;
+				 S = "[ã“ã®å•é¡Œã‚’è§£æ±ºã™ã‚‹æ‰‹æ³•] " + S;
 				 break;
 				 case 3:
-				 S = "[–â‘è‚Ì”wŒi] " + S;
+				 S = "[å•é¡Œã®èƒŒæ™¯] " + S;
 				 break;
 				 }
 				 break;
 				 case 2://Solution
 				 switch (Card2->m_nType){
 				 case 1:
-				 S = "[‚±‚Ìè–@‚Å‚Ì‰ğŒˆ‚ªŠú‘Ò‚Å‚«‚é–â‘è] " + S;
+				 S = "[ã“ã®æ‰‹æ³•ã§ã®è§£æ±ºãŒæœŸå¾…ã§ãã‚‹å•é¡Œ] " + S;
 				 break;
 				 case 3:
-				 S = "[‚±‚Ìè–@‚ğ“K—p‚µ‚½Œ‹‰Ê] " + S;
+				 S = "[ã“ã®æ‰‹æ³•ã‚’é©ç”¨ã—ãŸçµæœ] " + S;
 				 break;
 				 }
 				 break;
 				 case 3://Result
 				 switch (Card2->m_nType){
 				 case 1:
-				 S = "[Ÿ‚Ì‰Û‘è] " + S;
+				 S = "[æ¬¡ã®èª²é¡Œ] " + S;
 				 break;
 				 case 2:
-				 S = "[‚±‚ÌŒ‹‰Ê‚É‚Â‚È‚ª‚Á‚½è–@] " + S;
+				 S = "[ã“ã®çµæœã«ã¤ãªãŒã£ãŸæ‰‹æ³•] " + S;
 				 break;
 				 }
 				 break;
@@ -3823,18 +3823,18 @@ void TFo_Main::RefreshLinks() {
 // ---------------------------------------------------------------------------
 bool TFo_Main::Save() {
 	if (m_Document->m_bReadOnly) {
-		// “Ç‚İ‚İê—p‚È‚ç‚È‚É‚à‚µ‚È‚¢
+		// èª­ã¿è¾¼ã¿å°‚ç”¨ãªã‚‰ãªã«ã‚‚ã—ãªã„
 		return false;
 	}
 
-	// ã‘‚«‚à‚µ‚­‚Í–¼‘O‚ğ‚Â‚¯‚Ä•Û‘¶
+	// ä¸Šæ›¸ãã‚‚ã—ãã¯åå‰ã‚’ã¤ã‘ã¦ä¿å­˜
 
 	if (m_Document->m_FN == "") {
-		// ƒtƒ@ƒCƒ‹–¼‚ª‚È‚¢‚Ì‚Å–¼‘O‚ğ‚Â‚¯‚Ä•Û‘¶
+		// ãƒ•ã‚¡ã‚¤ãƒ«åãŒãªã„ã®ã§åå‰ã‚’ã¤ã‘ã¦ä¿å­˜
 		return SaveAs();
 	}
 
-	// •Û‘¶ˆ—
+	// ä¿å­˜å‡¦ç†
 	TCursor crbak = Screen->Cursor;
 	Screen->Cursor = crHourGlass;
 
@@ -3842,7 +3842,7 @@ bool TFo_Main::Save() {
 	Ti_Check->Enabled = false;
 	Application->ProcessMessages();
 
-	// •\¦İ’è”½‰f
+	// è¡¨ç¤ºè¨­å®šåæ˜ 
 	fReqZoom = TB_Zoom->Position / 2000.0;
 	fReqX = Sc_X->Position / 10000.0;
 	fReqY = Sc_Y->Position / 10000.0;
@@ -3862,10 +3862,10 @@ bool TFo_Main::Save() {
 	ReqDateLimitationDateType = SettingView.m_DateLimitationDateType;
 	ReqDateLimitationType = SettingView.m_DateLimitationType;
 
-	// •Û‘¶
+	// ä¿å­˜
 	bool result = m_Document->Save();
 
-	// ƒŠƒNƒGƒXƒgƒŠƒZƒbƒg
+	// ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒªã‚»ãƒƒãƒˆ
 	fReqZoom = -1000.0f;
 	fReqX = -1000.0f;
 	fReqY = -1000.0f;
@@ -3894,10 +3894,10 @@ bool TFo_Main::Save() {
 		m_nCLFileAge = FileAge(m_Document->m_FN);
 	}
 
-	// Å‹ßg‚Á‚½ƒtƒ@ƒCƒ‹XV
+	// æœ€è¿‘ä½¿ã£ãŸãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
 	RefreshRecent(m_Document->m_FN);
 
-	// ‰æ–Ê¶‚Ìƒtƒ@ƒCƒ‹ƒŠƒXƒgXV
+	// ç”»é¢å·¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆæ›´æ–°
 	RefreshFileList();
 
 	Screen->Cursor = crbak;
@@ -3908,43 +3908,43 @@ bool TFo_Main::Save() {
 // ---------------------------------------------------------------------------
 bool TFo_Main::SaveAs() {
 	if (m_Document->m_bReadOnly) {
-		// “Ç‚İ‚İê—p‚È‚ç‚È‚É‚à‚µ‚È‚¢
+		// èª­ã¿è¾¼ã¿å°‚ç”¨ãªã‚‰ãªã«ã‚‚ã—ãªã„
 		return false;
 	}
 
-	// –¼‘O‚ğ‚Â‚¯‚Ä•Û‘¶
+	// åå‰ã‚’ã¤ã‘ã¦ä¿å­˜
 
 	if (SD->Execute()) {
-		// ƒtƒ@ƒCƒ‹–¼‚ªŒˆ‚Ü‚Á‚½
+		// ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ±ºã¾ã£ãŸ
 		m_Document->m_FN = SD->FileName;
 
 		return Save();
 	}
 	else {
-		// ƒtƒ@ƒCƒ‹–¼‚ªŒˆ‚Ü‚ç‚È‚¢‚Ì‚ÅƒLƒƒƒ“ƒZƒ‹
+		// ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ±ºã¾ã‚‰ãªã„ã®ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«
 		return false;
 	}
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::LoadSub(UnicodeString FN, bool bSoftLoad, bool bRefreshRecent) {
-	SB_CloseGlobalSearchClick(this); // GlobalŒŸõ•\¦‚ğÁ‚·
+	SB_CloseGlobalSearchClick(this); // Globalæ¤œç´¢è¡¨ç¤ºã‚’æ¶ˆã™
 
 	TCursor crbak = Screen->Cursor;
 	Screen->Cursor = crHourGlass;
 
-	// Å‹ßg‚Á‚½ƒtƒ@ƒCƒ‹XV
+	// æœ€è¿‘ä½¿ã£ãŸãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
 	if (bRefreshRecent) {
 		RefreshRecent(FN);
 	}
 
-	// “Ç‚İ‚İ
+	// èª­ã¿è¾¼ã¿
 	bool result = m_Document->Load(FN, bSoftLoad);
 
 	if (result) {
-		// “Ç‚İ‚İ¬Œ÷
+		// èª­ã¿è¾¼ã¿æˆåŠŸ
 
-		// ‰æ–ÊXViÅ‰‚ÌƒJ[ƒh‚ğ•\¦j
+		// ç”»é¢æ›´æ–°ï¼ˆæœ€åˆã®ã‚«ãƒ¼ãƒ‰ã‚’è¡¨ç¤ºï¼‰
 		if (bSoftLoad) {
 			m_nCurrentCard = -1;
 			m_nTargetLink = -1;
@@ -3965,7 +3965,7 @@ void TFo_Main::LoadSub(UnicodeString FN, bool bSoftLoad, bool bRefreshRecent) {
 
 			m_nCurrentCard = -2;
 			m_nTargetCard = -1;
-			SettingView.m_nLinkTarget = -1; // LinkLimitation‚ÌƒŠƒ“ƒNæƒJ[ƒh§–ñ
+			SettingView.m_nLinkTarget = -1; // LinkLimitationã®ãƒªãƒ³ã‚¯å…ˆã‚«ãƒ¼ãƒ‰åˆ¶ç´„
 			SettingView.m_bNoLabelVisible = true;
 			SettingView.m_bNoLinkLabelVisible = true;
 			if (m_Document->m_Cards->Count) {
@@ -3977,7 +3977,7 @@ void TFo_Main::LoadSub(UnicodeString FN, bool bSoftLoad, bool bRefreshRecent) {
 					}
 				}
 				else {
-					// Å‰‚ÌƒJ[ƒh‚ğ‹­§‘I‘ğH
+					// æœ€åˆã®ã‚«ãƒ¼ãƒ‰ã‚’å¼·åˆ¶é¸æŠï¼Ÿ
 					// m_nTargetCard = m_Document->GetCardByIndex(0)->m_nID;
 				}
 				m_nTargetLink = -1;
@@ -3996,7 +3996,7 @@ void TFo_Main::LoadSub(UnicodeString FN, bool bSoftLoad, bool bRefreshRecent) {
 		RefreshFileList();
 	}
 	else {
-		// “Ç‚İ‚İ¸”sI
+		// èª­ã¿è¾¼ã¿å¤±æ•—ï¼
 	}
 
 	Screen->Cursor = crbak;
@@ -4007,7 +4007,7 @@ void __fastcall TFo_Main::MF_OpenClick(TObject *Sender) {
 	if (SaveCheck()) {
 		OD->InitialDir = ExtractFileDir(m_Document->m_FN);
 		if (OD->Execute()) {
-			// ƒtƒ@ƒCƒ‹–¼‚ªŒˆ‚Ü‚Á‚½
+			// ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ±ºã¾ã£ãŸ
 
 			LoadSub(OD->FileName);
 		}
@@ -4145,7 +4145,7 @@ void __fastcall TFo_Main::ME_PasteClick(TObject *Sender) {
 		else if (LB_List->Focused() || PC_Client->ActivePage == TS_Browser) {
 			BackupSub(ME_Paste->Caption);
 
-			// ƒfƒBƒXƒvƒŒƒCã‚Ì16ƒhƒbƒg•ª‚ğ‹‚ß‚é
+			// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ä¸Šã®16ãƒ‰ãƒƒãƒˆåˆ†ã‚’æ±‚ã‚ã‚‹
 			float cx1, cx2, dummy;
 			DispPosToCardPos(0, 0, cx1, dummy);
 			DispPosToCardPos(16, 0, cx2, dummy);
@@ -4238,7 +4238,7 @@ void __fastcall TFo_Main::PI_DeleteLinkClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex) {
-	// Y•ûŒüÀ•WŒvZ
+	// Yæ–¹å‘åº§æ¨™è¨ˆç®—
 	int Space = (m_nFontHeight * Size) / 100;
 	if (Space < 1) {
 		Space = 1;
@@ -4246,7 +4246,7 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex) {
 
 	TFont *F = C->Font;
 
-	int imagex = 100; // ƒCƒ[ƒW”{—¦
+	int imagex = 100; // ã‚¤ãƒ¡ãƒ¼ã‚¸å€ç‡
 	bool Drawing = false;
 	TCardVideo *Video = NULL;
 	TCardImage *Image = NULL;
@@ -4301,12 +4301,12 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex) {
 	 if (Video->m_bExist && vi){
 	 imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
 	 if (vi->bmiHeader.biHeight > vi->bmiHeader.biWidth){
-	 //Y•ûŒü‚Ì•û‚ª‘å‚«‚¢
+	 //Yæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 	 if (vi->bmiHeader.biHeight > SettingView.m_nImageLimitation){
 	 imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biHeight;
 	 }
 	 }else{
-	 //X•ûŒü‚Ì•û‚ª‘å‚«‚¢
+	 //Xæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 	 if (vi->bmiHeader.biWidth > SettingView.m_nImageLimitation){
 	 imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biWidth;
 	 }
@@ -4323,14 +4323,14 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex) {
 				abs((m_nFontHeight * Size * F->Size) /
 				(RE_Edit->Font->Height * SettingView.m_Font->Size));
 			if (Image->m_Image->Height > Image->m_Image->Width) {
-				// Y•ûŒü‚Ì•û‚ª‘å‚«‚¢
+				// Yæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 				if (Image->m_Image->Height > SettingView.m_nImageLimitation) {
 					imagex = (imagex * SettingView.m_nImageLimitation)
 						/ Image->m_Image->Height;
 				}
 			}
 			else {
-				// X•ûŒü‚Ì•û‚ª‘å‚«‚¢
+				// Xæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 				if (Image->m_Image->Width > SettingView.m_nImageLimitation) {
 					imagex = (imagex * SettingView.m_nImageLimitation)
 						/ Image->m_Image->Width;
@@ -4343,14 +4343,14 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex) {
 		}
 	}
 
-	// À•WŒvZ
+	// åº§æ¨™è¨ˆç®—
 	int OrgFontHeight = F->Height;
 	F->Height = (F->Height * Size) / 100;
 	if (F->Height == 0) {
 		F->Height = -1;
 	}
 
-	// X•ûŒüÀ•WŒvZ
+	// Xæ–¹å‘åº§æ¨™è¨ˆç®—
 	m_CardWidth[cardindex] = C->TextWidth(Title->Strings[0]) + Space;
 	for (int i = 1; i < Title->Count; i++) {
 		int w = C->TextWidth(Title->Strings[i]) + Space;
@@ -4381,7 +4381,7 @@ void TFo_Main::CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex) {
 // ---------------------------------------------------------------------------
 void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 	TColor HMColor, int option) {
-	// Y•ûŒüÀ•WŒvZ
+	// Yæ–¹å‘åº§æ¨™è¨ˆç®—
 	int Space = (m_nFontHeight * Size) / 100;
 	if (Space < 1) {
 		Space = 1;
@@ -4391,10 +4391,10 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 	TPen *P = C->Pen;
 	TFont *F = C->Font;
 
-	TColor PColor = P->Color; // F•Û‘¶
+	TColor PColor = P->Color; // è‰²ä¿å­˜
 	TColor BColor = B->Color;
 
-	int imagex = 100; // ƒCƒ[ƒW”{—¦
+	int imagex = 100; // ã‚¤ãƒ¡ãƒ¼ã‚¸å€ç‡
 	bool Drawing = false;
 	TCardVideo *Video = NULL;
 	TCardImage *Image = NULL;
@@ -4450,12 +4450,12 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 	 if (Video->m_bExist && vi){
 	 imagex = abs((m_nFontHeight * Size * F->Size) / (RE_Edit->Font->Height * SettingView.m_Font->Size));
 	 if (vi->bmiHeader.biHeight > vi->bmiHeader.biWidth){
-	 //Y•ûŒü‚Ì•û‚ª‘å‚«‚¢
+	 //Yæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 	 if (vi->bmiHeader.biHeight > SettingView.m_nImageLimitation){
 	 imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biHeight;
 	 }
 	 }else{
-	 //X•ûŒü‚Ì•û‚ª‘å‚«‚¢
+	 //Xæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 	 if (vi->bmiHeader.biWidth > SettingView.m_nImageLimitation){
 	 imagex = (imagex * SettingView.m_nImageLimitation) / vi->bmiHeader.biWidth;
 	 }
@@ -4472,14 +4472,14 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				abs((m_nFontHeight * Size * F->Size) /
 				(RE_Edit->Font->Height * SettingView.m_Font->Size));
 			if (Image->m_Image->Height > Image->m_Image->Width) {
-				// Y•ûŒü‚Ì•û‚ª‘å‚«‚¢
+				// Yæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 				if (Image->m_Image->Height > SettingView.m_nImageLimitation) {
 					imagex = (imagex * SettingView.m_nImageLimitation)
 						/ Image->m_Image->Height;
 				}
 			}
 			else {
-				// X•ûŒü‚Ì•û‚ª‘å‚«‚¢
+				// Xæ–¹å‘ã®æ–¹ãŒå¤§ãã„
 				if (Image->m_Image->Width > SettingView.m_nImageLimitation) {
 					imagex = (imagex * SettingView.m_nImageLimitation)
 						/ Image->m_Image->Width;
@@ -4492,7 +4492,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 		}
 	}
 
-	// À•WŒvZ
+	// åº§æ¨™è¨ˆç®—
 	int top = m_CardY[cardindex] - m_CardHeight[cardindex] / 2;
 	int bottom = m_CardY[cardindex] + m_CardHeight[cardindex] / 2;
 	int bottom2 = bottom;
@@ -4507,7 +4507,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 			F->Height = -1;
 		}
 
-		// X•ûŒüÀ•WŒvZ
+		// Xæ–¹å‘åº§æ¨™è¨ˆç®—
 		m_CardWidth[cardindex] = C->TextWidth(Title->Strings[0]) + Space;
 		for (int i = 1; i < Title->Count; i++) {
 			int w = C->TextWidth(Title->Strings[i]) + Space;
@@ -4542,13 +4542,13 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 		if (!((top < 0 && bottom2 < 0) || (top > m_nBrowserHeight && bottom2 >
 			m_nBrowserHeight)) && !((left < 0 && right2 < 0) || (left >
 			m_nBrowserWidth && right2 > m_nBrowserWidth))) {
-			// ‰æ–Ê“à
+			// ç”»é¢å†…
 
-			// •¶š˜g•`‰æ
+			// æ–‡å­—æ æç”»
 			B->Style = bsSolid;
 			int drawtimes = 1;
 			if (SettingView.m_bCardGradation && !(option & 0x1)) {
-				// ƒOƒ‰ƒf[ƒVƒ‡ƒ“İ’è‚ÅA‰e‚Å‚Í‚È‚¢
+				// ã‚°ãƒ©ãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³è¨­å®šã§ã€å½±ã§ã¯ãªã„
 				drawtimes++;
 			}
 			while (drawtimes) {
@@ -4559,14 +4559,14 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 					// MyRgn = ::CreateRectRgn(m_nXOffset + left + Space / 2, Y, m_nXOffset + right - Space / 2, Y + tickerheight);
 					switch (drawtimes) {
 					case 2:
-						// ‰º”¼•ª
+						// ä¸‹åŠåˆ†
 						MyRgn = ::CreateRectRgn(m_nXOffset,
 							m_nYOffset + m_CardY[cardindex],
 							m_nXOffset + m_nBrowserWidth,
 							m_nYOffset + m_nBrowserHeight);
 						break;
 					case 1:
-						// ã”¼•ª
+						// ä¸ŠåŠåˆ†
 						// B->Color = BrightColor(B->Color, 1.25f);
 						B->Color = HalfColor(B->Color, 0xffffff, 0.25f);
 						MyRgn = ::CreateRectRgn(m_nXOffset, m_nYOffset,
@@ -4590,7 +4590,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 
 				}
 				switch (m_CardShape[cardindex]) {
-				case 0: // •`‰æ‚È‚µ
+				case 0: // æç”»ãªã—
 					break;
 				case 1: // Rect
 					C->Rectangle(m_nXOffset + left, m_nYOffset + top,
@@ -4608,16 +4608,16 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				case 5: // Dia
 					{
 						TPoint ps[4];
-						// ã
+						// ä¸Š
 						ps[0].x = m_nXOffset + m_CardX[cardindex];
 						ps[0].y = m_nYOffset + top;
-						// ‰E
+						// å³
 						ps[1].x = m_nXOffset + right;
 						ps[1].y = m_nYOffset + m_CardY[cardindex];
-						// ‰º
+						// ä¸‹
 						ps[2].x = m_nXOffset + m_CardX[cardindex];
 						ps[2].y = m_nYOffset + bottom;
-						// ¶
+						// å·¦
 						ps[3].x = m_nXOffset + left;
 						ps[3].y = m_nYOffset + m_CardY[cardindex];
 						C->Polygon(ps, 3);
@@ -4625,107 +4625,107 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				case 6: // Hex
 					{
 						TPoint ps[6];
-						// ¶ã
+						// å·¦ä¸Š
 						ps[0].x = m_nXOffset + left +
 							m_CardHeight[cardindex] / 3;
 						ps[0].y = m_nYOffset + top;
-						// ‰Eã
+						// å³ä¸Š
 						ps[1].x = m_nXOffset + right -
 							m_CardHeight[cardindex] / 3;
 						ps[1].y = m_nYOffset + top;
-						// ‰E
+						// å³
 						ps[2].x = m_nXOffset + right;
 						ps[2].y = m_nYOffset + m_CardY[cardindex];
-						// ‰º‰E
+						// ä¸‹å³
 						ps[3].x = m_nXOffset + right -
 							m_CardHeight[cardindex] / 3;
 						ps[3].y = m_nYOffset + bottom;
-						// ‰º¶
+						// ä¸‹å·¦
 						ps[4].x = m_nXOffset + left +
 							m_CardHeight[cardindex] / 3;
 						ps[4].y = m_nYOffset + bottom;
-						// ¶
+						// å·¦
 						ps[5].x = m_nXOffset + left;
 						ps[5].y = m_nYOffset + m_CardY[cardindex];
 						C->Polygon(ps, 5);
 					} break;
-				case 7: // ‘äŒ`ã
+				case 7: // å°å½¢ä¸Š
 					{
 						TPoint ps[4];
-						// ¶ã
+						// å·¦ä¸Š
 						ps[0].x = m_nXOffset + left +
 							m_CardHeight[cardindex] / 4;
 						ps[0].y = m_nYOffset + top;
-						// ‰Eã
+						// å³ä¸Š
 						ps[1].x = m_nXOffset + right -
 							m_CardHeight[cardindex] / 4;
 						ps[1].y = m_nYOffset + top;
-						// ‰º‰E
+						// ä¸‹å³
 						ps[2].x = m_nXOffset + right;
 						ps[2].y = m_nYOffset + bottom;
-						// ‰º¶
+						// ä¸‹å·¦
 						ps[3].x = m_nXOffset + left;
 						ps[3].y = m_nYOffset + bottom;
 						C->Polygon(ps, 3);
 					} break;
-				case 8: // ‘äŒ`‰º
+				case 8: // å°å½¢ä¸‹
 					{
 						TPoint ps[4];
-						// ¶ã
+						// å·¦ä¸Š
 						ps[0].x = m_nXOffset + left;
 						ps[0].y = m_nYOffset + top;
-						// ‰Eã
+						// å³ä¸Š
 						ps[1].x = m_nXOffset + right;
 						ps[1].y = m_nYOffset + top;
-						// ‰º‰E
+						// ä¸‹å³
 						ps[2].x = m_nXOffset + right -
 							m_CardHeight[cardindex] / 4;
 						ps[2].y = m_nYOffset + bottom;
-						// ‰º¶
+						// ä¸‹å·¦
 						ps[3].x = m_nXOffset + left +
 							m_CardHeight[cardindex] / 4;
 						ps[3].y = m_nYOffset + bottom;
 						C->Polygon(ps, 3);
 					} break;
-				case 9: // ¬‚³‚¢lŠp
+				case 9: // å°ã•ã„å››è§’
 					C->Rectangle(m_nXOffset + (left + right) / 2 - Space,
 						m_nYOffset + (top + bottom) / 2 - Space,
 						m_nXOffset + (left + right) / 2 + Space,
 						m_nYOffset + (top + bottom) / 2 + Space);
 					break;
-				case 10: // ¬‚³‚¢‰~
+				case 10: // å°ã•ã„å††
 					C->Ellipse(m_nXOffset + (left + right) / 2 - Space,
 						m_nYOffset + (top + bottom) / 2 - Space,
 						m_nXOffset + (left + right) / 2 + Space,
 						m_nYOffset + (top + bottom) / 2 + Space);
 					break;
-				case 11: // ¬‚³‚¢OŠpiãŒü‚«j
+				case 11: // å°ã•ã„ä¸‰è§’ï¼ˆä¸Šå‘ãï¼‰
 					{
 						TPoint ps[3];
-						// ã
+						// ä¸Š
 						ps[0].x = m_nXOffset + (left + right) / 2;
 						ps[0].y = m_nYOffset + (top + bottom) / 2 - Space;
-						// ‰º‰E
+						// ä¸‹å³
 						ps[1].x = m_nXOffset + (left + right) / 2 +
 							Space * (1.7320508 / 2);
 						ps[1].y = m_nYOffset + (top + bottom) / 2 + Space / 2;
-						// ‰º¶
+						// ä¸‹å·¦
 						ps[2].x = m_nXOffset + (left + right) / 2 -
 							Space * (1.7320508 / 2);
 						ps[2].y = m_nYOffset + (top + bottom) / 2 + Space / 2;
 						C->Polygon(ps, 2);
 					} break;
-				case 12: // ¬‚³‚¢OŠpi‰ºŒü‚«j
+				case 12: // å°ã•ã„ä¸‰è§’ï¼ˆä¸‹å‘ãï¼‰
 					{
 						TPoint ps[3];
-						// ‰º
+						// ä¸‹
 						ps[0].x = m_nXOffset + (left + right) / 2;
 						ps[0].y = m_nYOffset + (top + bottom) / 2 + Space;
-						// ã‰E
+						// ä¸Šå³
 						ps[1].x = m_nXOffset + (left + right) / 2 +
 							Space * (1.7320508 / 2);
 						ps[1].y = m_nYOffset + (top + bottom) / 2 - Space / 2;
-						// ã¶
+						// ä¸Šå·¦
 						ps[2].x = m_nXOffset + (left + right) / 2 -
 							Space * (1.7320508 / 2);
 						ps[2].y = m_nYOffset + (top + bottom) / 2 - Space / 2;
@@ -4734,16 +4734,16 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				case 13: // Dia
 					{
 						TPoint ps[4];
-						// ã
+						// ä¸Š
 						ps[0].x = m_nXOffset + (left + right) / 2;
 						ps[0].y = m_nYOffset + (top + bottom) / 2 - Space;
-						// ‰E
+						// å³
 						ps[1].x = m_nXOffset + (left + right) / 2 + Space;
 						ps[1].y = m_nYOffset + (top + bottom) / 2;
-						// ‰º
+						// ä¸‹
 						ps[2].x = m_nXOffset + (left + right) / 2;
 						ps[2].y = m_nYOffset + (top + bottom) / 2 + Space;
-						// ¶
+						// å·¦
 						ps[3].x = m_nXOffset + (left + right) / 2 - Space;
 						ps[3].y = m_nYOffset + (top + bottom) / 2;
 						C->Polygon(ps, 3);
@@ -4777,7 +4777,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 							cos(M_PI / 6 * 11) * Space;
 						C->Polygon(ps, 5);
 					} break;
-				case 15: // ™
+				case 15: // â˜†
 					{
 						int c = (Space * sin(M_PI * (18.0 / 360.0))) / sin
 							(M_PI * (54.0 / 360.0));
@@ -4842,13 +4842,13 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				}
 			}
 
-			// ŒÅ’èƒsƒ“•\¦
+			// å›ºå®šãƒ”ãƒ³è¡¨ç¤º
 			if (Card->m_bFixed) {
 				P->Style = psSolid;
 				P->Width = m_fFontZoom;
 				B->Style = bsSolid;
 				if ((option & 0x1) == 0) {
-					// ‰e‚Å‚È‚¢
+					// å½±ã§ãªã„
 					P->Color = HalfColor(0x0000ff, B->Color, 0.5f);
 					B->Color = TColor(0x0000ff);
 				}
@@ -4869,7 +4869,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 					m_nYOffset + bottom - Space / 4);
 			}
 
-			// ŠG‚Ì•`‰æ
+			// çµµã®æç”»
 			if (Drawing) {
 				if ((option & 0x1) == 0) {
 					HRGN MyRgn, RgnBak;
@@ -4912,7 +4912,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 					::DeleteObject(RgnBak);
 					::DeleteObject(MyRgn);
 				} /* else{
-				 //‰e
+				 //å½±
 				 B->Style = bsSolid;
 				 C->FillRect(
 				 Rect(
@@ -4925,11 +4925,11 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				 */
 			}
 
-			// ƒrƒfƒI•`‰æ
+			// ãƒ“ãƒ‡ã‚ªæç”»
 			/*
 			 if (Video){
 			 if ((option & 0x1) == 0){
-			 //‰e‚Å‚Í‚È‚¢
+			 //å½±ã§ã¯ãªã„
 			 Graphics::TBitmap *BMP = new Graphics::TBitmap();
 			 Video->m_Video->GetBMP(BMP);
 			 if (imagex == 100){
@@ -4951,7 +4951,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 			 }
 			 delete BMP;
 			 }else{
-			 //‰e
+			 //å½±
 			 B->Style = bsSolid;
 			 C->FillRect(
 			 Rect(
@@ -4964,7 +4964,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 			 }
 			 */
 
-			// ƒCƒ[ƒW•`‰æ
+			// ã‚¤ãƒ¡ãƒ¼ã‚¸æç”»
 			if (Image) {
 				if ((option & 0x1) == 0) {
 					if (imagex == 100) {
@@ -4982,7 +4982,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 					}
 				}
 				else {
-					// ‰e
+					// å½±
 					B->Style = bsSolid;
 					C->FillRect(Rect(m_nXOffset + left + Space / 2,
 						m_nYOffset + top + Space / 2,
@@ -4993,7 +4993,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				}
 			}
 
-			// •¶š•`‰æ
+			// æ–‡å­—æç”»
 			B->Style = bsClear;
 			TColor fcbak = F->Color; {
 				float X = m_nXOffset + left + Space / 2;
@@ -5002,7 +5002,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				if (m_CardShape[cardindex] >= 9 && m_CardShape[cardindex] <= 15)
 				{
 					/*
-					 //‰e•t‚«
+					 //å½±ä»˜ã
 					 {
 					 int d;
 					 d = Space / 16;
@@ -5018,7 +5018,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 					 }
 					 */
 					// *
-					// ‰æ‚è
+					// ç¸å–ã‚Š
 					BeginPath(C->Handle);
 					for (int i = 0; i < Title->Count; i++) {
 						C->TextOut(X, Y + i * lineheight, Title->Strings[i]);
@@ -5031,7 +5031,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 					}
 					StrokeAndFillPath(C->Handle);
 					if ((option & 0x1) == 0) {
-						// ‰e‚Å‚È‚¢
+						// å½±ã§ãªã„
 						F->Color = (TColor)SettingView.m_nBackgroundColor;
 					}
 					// */
@@ -5074,7 +5074,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				}
 			} F->Color = fcbak;
 
-			// Ticker•\¦
+			// Tickerè¡¨ç¤º
 			if (SettingView.m_bTickerVisible && tickerheight > 0 && ticker) {
 				int FontHeightBak = F->Height;
 
@@ -5126,7 +5126,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				F->Height = FontHeightBak;
 			}
 
-			// ƒXƒRƒA•`‰æ
+			// ã‚¹ã‚³ã‚¢æç”»
 			if (SettingView.m_bScore) {
 				if (m_CardShape[cardindex] >= 3 || ((option & 0x1) == 0)) {
 					if (Card) {
@@ -5139,7 +5139,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 						}
 						B->Style = bsSolid;
 						if ((option & 0x1) == 0) {
-							// ‰e‚Å‚È‚¢
+							// å½±ã§ãªã„
 							B->Color = clRed;
 						}
 						else {
@@ -5152,7 +5152,7 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 				}
 			}
 
-			// Foldƒ{ƒ^ƒ“•`‰æ
+			// Foldãƒœã‚¿ãƒ³æç”»
 			if (Card)
 				if ((option & 0x1) == 0 && TreeMode() && Card->m_bHasChild) {
 					P->Style = psSolid;
@@ -5187,20 +5187,20 @@ void TFo_Main::DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
 
 	// FocusCursor
 	if (Card && (option & 0x1) == 0) {
-		// ƒJ[ƒh‚ª‚ ‚èA‰e‚Å‚È‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒã‚ã‚Šã€å½±ã§ãªã„
 		if (Card->m_nSelected && Card->m_nID != m_nLastTarget && Card->m_nID !=
 			m_nTargetCard) {
-			// ‘I‘ğƒAƒjƒ[ƒVƒ‡ƒ“’†‚ÅA‘I‘ğ’†ƒJ[ƒh‚È‚Ç‚Å‚Í‚È‚¢
+			// é¸æŠã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã§ã€é¸æŠä¸­ã‚«ãƒ¼ãƒ‰ãªã©ã§ã¯ãªã„
 			int pos = m_nFocusCursorPos;
 			float br = 0.0f;
 			if (pos % 100 >= 50 && Card->m_nSelected == 100) {
 				br = 0.33f;
 			}
 
-			// êŠAƒTƒCƒYŒˆ’è
+			// å ´æ‰€ã€ã‚µã‚¤ã‚ºæ±ºå®š
 			float ratio = Card->m_nSelected * 0.01f;
 			float fx, fy, fw, fh;
-			float addsize; // 0`Å‘å1‚É‚È‚éi‘å‚«‚­‚È‚é‚Ù‚Ç”–‚­j
+			float addsize; // 0ï½æœ€å¤§1ã«ãªã‚‹ï¼ˆå¤§ãããªã‚‹ã»ã©è–„ãï¼‰
 			fx = m_CardX[cardindex];
 			fy = m_CardY[cardindex];
 			addsize = 1.0f - ratio;
@@ -5234,28 +5234,28 @@ void TFo_Main::DrawFocusCursor(TCanvas *C, float fx, float fy, float fw,
 			P->Color = color;
 			P->Width = m_fFontZoom * 3;
 		}
-		// ¶ã
+		// å·¦ä¸Š
 		C->MoveTo(m_nXOffset + fx - fw * 0.5f + space,
 			m_nYOffset + fy - fh * 0.5f);
 		C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy - fh * 0.5f);
 		C->LineTo(m_nXOffset + fx - fw * 0.5f,
 			m_nYOffset + fy - fh * 0.5f + space);
 
-		// ‰Eã
+		// å³ä¸Š
 		C->MoveTo(m_nXOffset + fx + fw * 0.5f - space,
 			m_nYOffset + fy - fh * 0.5f);
 		C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy - fh * 0.5f);
 		C->LineTo(m_nXOffset + fx + fw * 0.5f,
 			m_nYOffset + fy - fh * 0.5f + space);
 
-		// ¶‰º
+		// å·¦ä¸‹
 		C->MoveTo(m_nXOffset + fx - fw * 0.5f + space,
 			m_nYOffset + fy + fh * 0.5f);
 		C->LineTo(m_nXOffset + fx - fw * 0.5f, m_nYOffset + fy + fh * 0.5f);
 		C->LineTo(m_nXOffset + fx - fw * 0.5f,
 			m_nYOffset + fy + fh * 0.5f - space);
 
-		// ‰E‰º
+		// å³ä¸‹
 		C->MoveTo(m_nXOffset + fx + fw * 0.5f - space,
 			m_nYOffset + fy + fh * 0.5f);
 		C->LineTo(m_nXOffset + fx + fw * 0.5f, m_nYOffset + fy + fh * 0.5f);
@@ -5267,7 +5267,7 @@ void TFo_Main::DrawFocusCursor(TCanvas *C, float fx, float fy, float fw,
 // ---------------------------------------------------------------------------
 void TFo_Main::DrawPatternLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
 	int Y2, int penwidth) {
-	// ü‚Ì’·‚³
+	// ç·šã®é•·ã•
 	float xd = X2 - X1;
 	float yd = Y2 - Y1;
 	float len = sqrt(xd * xd + yd * yd);
@@ -5280,24 +5280,24 @@ void TFo_Main::DrawPatternLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
 	int Pat[16];
 	int PatNum;
 	switch (Pattern) {
-	case 0: // 3-3-“_ü
+	case 0: // 3-3-ç‚¹ç·š
 		Pat[0] = 3;
 		Pat[1] = 3;
 		PatNum = 2;
 		break;
-	case 1: // 9-3-”jü
+	case 1: // 9-3-ç ´ç·š
 		Pat[0] = 9;
 		Pat[1] = 3;
 		PatNum = 2;
 		break;
-	case 2: // 9-3-3-”jü
+	case 2: // 9-3-3-ç ´ç·š
 		Pat[0] = 9;
 		Pat[1] = 3;
 		Pat[2] = 3;
 		Pat[3] = 3;
 		PatNum = 4;
 		break;
-	case 3: // 9-3-3-”jü
+	case 3: // 9-3-3-ç ´ç·š
 		Pat[0] = 9;
 		Pat[1] = 3;
 		Pat[2] = 3;
@@ -5345,8 +5345,8 @@ void CurvePosToXY(float pos, float &x0, float &y0) {
 
 void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
 	int Y2, int penwidth, int direction) {
-	// ‹Èü•`‰æ
-	// ü‚Ì’·‚³
+	// æ›²ç·šæç”»
+	// ç·šã®é•·ã•
 	float xd = X2 - X1;
 	float yd = Y2 - Y1;
 	float len = sqrt(xd * xd + yd * yd) * sqrt(2);
@@ -5358,24 +5358,24 @@ void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
 	int Pat[16];
 	int PatNum;
 	switch (Pattern) {
-	case 0: // 3-3-“_ü
+	case 0: // 3-3-ç‚¹ç·š
 		Pat[0] = 3;
 		Pat[1] = 3;
 		PatNum = 2;
 		break;
-	case 1: // 9-3-”jü
+	case 1: // 9-3-ç ´ç·š
 		Pat[0] = 9;
 		Pat[1] = 3;
 		PatNum = 2;
 		break;
-	case 2: // 9-3-3-”jü
+	case 2: // 9-3-3-ç ´ç·š
 		Pat[0] = 9;
 		Pat[1] = 3;
 		Pat[2] = 3;
 		Pat[3] = 3;
 		PatNum = 4;
 		break;
-	case 3: // 9-3-3-”jü
+	case 3: // 9-3-3-ç ´ç·š
 		Pat[0] = 9;
 		Pat[1] = 3;
 		Pat[2] = 3;
@@ -5520,10 +5520,10 @@ void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
 // ---------------------------------------------------------------------------
 void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 	int Y2, TColor HMColor, int option) {
-	// ƒŠƒ“ƒN•`‰æ
+	// ãƒªãƒ³ã‚¯æç”»
 
 	if (!SettingView.m_bLinkVisible) {
-		// •`‰æ‚µ‚È‚¢
+		// æç”»ã—ãªã„
 		return;
 	}
 
@@ -5539,11 +5539,11 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 	float rad = 0.0;
 	if (Y2 != Y1 || X2 != X1) {
 		if (shape < 6) {
-			// ’¼ü
+			// ç›´ç·š
 			rad = atan2(Y2 - Y1, X2 - X1);
 		}
 		else {
-			// ‹Èü
+			// æ›²ç·š
 			rad = atan2(pow(abs(Y2 - Y1), 1.73) * (-1 + (Y2 > Y1) * 2),
 			X2 - X1);
 		}
@@ -5570,13 +5570,13 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 	case 9:
 	case 10:
 	case 11:
-		// ’Êí–îˆó
+		// é€šå¸¸çŸ¢å°
 		{
 			P->Style = psSolid;
 			// P->Style = psDashDot;
 
 			if (option & 0x2) {
-				// ‰æ‚è
+				// ç¸å–ã‚Š
 				TColor pcbak = P->Color;
 				int pwbak = P->Width;
 				P->Color = TColor(HMColor); // InverseColor(pcbak);
@@ -5605,7 +5605,7 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 					break;
 				}
 
-				// ƒŠƒ“ƒN•ûŒü
+				// ãƒªãƒ³ã‚¯æ–¹å‘
 				if (barrow && shape < 11) {
 					float mX = (X1 + X2) / 2;
 					float mY = (Y1 + Y2) / 2;
@@ -5647,7 +5647,7 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 				break;
 			}
 
-			// ƒŠƒ“ƒN•ûŒü
+			// ãƒªãƒ³ã‚¯æ–¹å‘
 			if (barrow && shape < 11) {
 				float mX = (X1 + X2) / 2;
 				float mY = (Y1 + Y2) / 2;
@@ -5666,10 +5666,10 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 			}
 		} break;
 	case 5:
-		// ‚­‚³‚ÑŒ^
+		// ãã•ã³å‹
 		{
 			if (option & 0x2) {
-				// ‰æ‚è
+				// ç¸å–ã‚Š
 				TColor pcbak = P->Color;
 				P->Color = TColor(HMColor); // InverseColor(pcbak);
 				P->Style = psSolid;
@@ -5776,7 +5776,7 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 		}
 	}
 
-	// ƒŠƒ“ƒN–¼
+	// ãƒªãƒ³ã‚¯å
 	if (SettingView.m_bLinkNameVisible && Link) {
 		if (Link->m_Name != "") {
 			TBrush *B = C->Brush;
@@ -5800,9 +5800,9 @@ void TFo_Main::DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2,
 // ---------------------------------------------------------------------------
 void TFo_Main::DrawLink(TCanvas *C, TLink *Link, int card1index, int card2index,
 	TColor HMColor, int option) {
-	// ƒŠƒ“ƒN•`‰æ
+	// ãƒªãƒ³ã‚¯æç”»
 
-	// ƒŠƒ“ƒNü
+	// ãƒªãƒ³ã‚¯ç·š
 	float X1 = m_CardX[card1index];
 	float Y1 = m_CardY[card1index];
 	float X2 = m_CardX[card2index];
@@ -5829,9 +5829,9 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 	HRGN RgnBak = ::CreateRectRgn(0, 0, 0, 0);
 	int rgnexist;
 
-	bool err = false; // AA‚É‚æ‚éƒGƒ‰[
+	bool err = false; // AAã«ã‚ˆã‚‹ã‚¨ãƒ©ãƒ¼
 
-	// ƒTƒCƒYŒˆ’è
+	// ã‚µã‚¤ã‚ºæ±ºå®š
 	if (Fo_FullScreen->Visible) {
 		if (Fo_FullScreen->Width > 0 && Fo_FullScreen->Height > 0) {
 			m_nBrowserWidth = Fo_FullScreen->Width;
@@ -5849,7 +5849,7 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 	m_nXOffset = 0;
 	m_nYOffset = 0;
 
-	// ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	// ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	BMP->Width = m_nBrowserWidth;
 	BMP->Height = m_nBrowserHeight;
@@ -5871,7 +5871,7 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 		m_nBrowserWidth = m_nBrowserWidth << countshift;
 		m_nBrowserHeight = m_nBrowserHeight << countshift;
 
-		// ””{‚ÌƒTƒCƒY‚Ìƒrƒbƒgƒ}ƒbƒvì¬
+		// æ•°å€ã®ã‚µã‚¤ã‚ºã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ä½œæˆ
 		Graphics::TBitmap *BMP2 = new Graphics::TBitmap();
 		try {
 			BMP2->Width = m_nBrowserWidth << countshift;
@@ -5886,7 +5886,7 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 		}
 
 		if (!err) {
-			// BMP‚É•`‰æ
+			// BMPã«æç”»
 			m_fFontZoom = SettingView.m_nAntiAliasX;
 			PaintSub(BMP2->Canvas);
 			/*
@@ -5896,7 +5896,7 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 			 BMP3->PixelFormat = pf32bit;
 			 BMP3->Canvas->Draw(0, 0, BMP2);
 			 */
-			// ƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO
+			// ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚·ãƒ³ã‚°
 			int **P2 = new int*[BMP2->Height];
 			for (int iy = 0; iy < BMP2->Height; iy++) {
 				P2[iy] = (int*)BMP2->ScanLine[iy];
@@ -5953,11 +5953,11 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 		if (rgnexist) {
 			::SelectClipRgn(BMP->Canvas->Handle, RgnBak);
 		}
-		// BMP‚É•`‰æ
+		// BMPã«æç”»
 		PaintSub(BMP->Canvas);
 	}
 
-	// BMP‚ğƒtƒHƒAƒOƒ‰ƒEƒ“ƒh‚ÉƒRƒs[
+	// BMPã‚’ãƒ•ã‚©ã‚¢ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«ã‚³ãƒ”ãƒ¼
 	if (!err) {
 		if (Fo_FullScreen->Visible) {
 			Fo_FullScreen->Canvas->Draw(0, 0, BMP);
@@ -5967,7 +5967,7 @@ void __fastcall TFo_Main::PB_BrowserPaint(TObject *Sender) {
 		}
 	}
 
-	// BMP”jŠü
+	// BMPç ´æ£„
 	delete BMP;
 
 	::DeleteObject(RgnBak);
@@ -5982,16 +5982,16 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 	if (m_Document->m_Labels[0]->Count >
 		0 && (SettingView.m_bLabelCircleVisible ||
 		SettingView.m_bLabelRectangleVisible)) {
-		// Šeƒ‰ƒxƒ‹‚ÌDate‚ğw’è
+		// å„ãƒ©ãƒ™ãƒ«ã®Dateã‚’æŒ‡å®š
 		for (int il = 0; il < m_Document->m_Labels[0]->Count; il++) {
 			TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
 			Label->m_fTouched = 0.0;
 		}
-		// ƒJ[ƒhƒ‹[ƒv
+		// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 		for (int i = 0; i < m_Document->m_Cards->Count; i++)
 			if (m_CardVisible[i]) {
 				TCard *Card = m_Document->GetCardByIndex(i);
-				// ƒJ[ƒh‚Ìƒ‰ƒxƒ‹ƒ‹[ƒv
+				// ã‚«ãƒ¼ãƒ‰ã®ãƒ©ãƒ™ãƒ«ãƒ«ãƒ¼ãƒ—
 				for (int il = 0; il < Card->m_Labels->Count; il++) {
 					TCardLabel *Label =
 						m_Document->GetLabelByIndex(0,
@@ -6001,7 +6001,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 					}
 				}
 			}
-		// •\¦‡
+		// è¡¨ç¤ºé †
 		m_Document->RefreshDateOrder_Label();
 
 		int *draworder = new int[m_Document->m_Labels[0]->Count];
@@ -6017,10 +6017,10 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 				int il = draworder[i];
 				TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
 				if (Label->m_bEnable && !Label->m_bFold) {
-					// —LŒø‚©‚ÂFold‚³‚ê‚Ä‚¢‚È‚¢ƒ‰ƒxƒ‹
+					// æœ‰åŠ¹ã‹ã¤Foldã•ã‚Œã¦ã„ãªã„ãƒ©ãƒ™ãƒ«
 
 					if ((first && drawtoporder) || (!first && drawothers)) {
-						// •½‹Ï
+						// å¹³å‡
 						float Mean[2], StDev[2], Cov = 0.0f;
 						int count = 0;
 						for (int i = 0; i < 2; i++) {
@@ -6042,7 +6042,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 								Mean[i] /= count;
 							}
 
-							// •ªUA‹¤•ªU
+							// åˆ†æ•£ã€å…±åˆ†æ•£
 							for (int i = 0; i < m_Document->m_Cards->Count; i++)
 								if (m_CardVisible[i]) {
 									TCard *Card = m_Document->GetCardByIndex(i);
@@ -6078,7 +6078,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 									HalfColor((TColor)Label->m_nColor,
 									m_nBGColor, 0.5f);
 
-								// “h‚è‚Â‚Ô‚·
+								// å¡—ã‚Šã¤ã¶ã™
 								if (SettingView.m_bLabelFill &&
 									(Bu_ArrangeType->Tag % 100 == 3)
 									&& Bu_ArrangeType->Tag < 500) {
@@ -6120,16 +6120,16 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 			}
 		}
 		else if (SettingView.m_bLabelRectangleVisible) {
-			// ƒ‰ƒxƒ‹‚ğˆÍ‚ŞlŠp
+			// ãƒ©ãƒ™ãƒ«ã‚’å›²ã‚€å››è§’
 
 			for (int i = 0; i < m_Document->m_Labels[0]->Count; i++) {
 				int il = draworder[i];
 				TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
 				if (Label->m_bEnable && !Label->m_bFold) {
-					// —LŒø‚©‚ÂFold‚³‚ê‚Ä‚¢‚È‚¢ƒ‰ƒxƒ‹
+					// æœ‰åŠ¹ã‹ã¤Foldã•ã‚Œã¦ã„ãªã„ãƒ©ãƒ™ãƒ«
 
 					if ((first && drawtoporder) || (!first && drawothers)) {
-						// À•W
+						// åº§æ¨™
 						float MinX, MinY, MaxX, MaxY, OrgMinY;
 						int count = 0;
 
@@ -6170,7 +6170,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 								m_nBGColor, 0.5f);
 							B->Style = bsClear;
 
-							// “h‚è‚Â‚Ô‚·
+							// å¡—ã‚Šã¤ã¶ã™
 							if (SettingView.m_bLabelFill &&
 								(Bu_ArrangeType->Tag % 100 == 3)
 								&& Bu_ArrangeType->Tag < 500) {
@@ -6226,7 +6226,7 @@ void TFo_Main::DrawLabelCircleRect(TCanvas *C, bool drawtoporder,
 
 // ---------------------------------------------------------------------------
 TColor TFo_Main::GetCardColor(TCard *Card, float &SizeX) {
-	// ƒ‰ƒxƒ‹‚É‚æ‚éƒJ[ƒh‚ÌŠî–{F‚ğæ“¾
+	// ãƒ©ãƒ™ãƒ«ã«ã‚ˆã‚‹ã‚«ãƒ¼ãƒ‰ã®åŸºæœ¬è‰²ã‚’å–å¾—
 	TColor c = (TColor)0;
 	int count = 0;
 	for (int il = 0; il < Card->m_Labels->Count; il++) {
@@ -6254,7 +6254,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 	Sc_X->SmallChange = 1000 / Zoom;
 	Sc_Y->SmallChange = 1000 / Zoom;
 
-	// ó‘Ô•Ï”€”õ
+	// çŠ¶æ…‹å¤‰æ•°æº–å‚™
 	if (m_nTmpCardsCount != m_Document->m_Cards->Count) {
 		m_nTmpCardsCount = m_Document->m_Cards->Count;
 		if (m_CardX != NULL) {
@@ -6276,11 +6276,11 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		m_CardY = new float[m_Document->m_Cards->Count];
 		m_CardWidth = new int[m_Document->m_Cards->Count];
 		m_CardHeight = new int[m_Document->m_Cards->Count];
-		m_CardRelated = new bool[m_Document->m_Cards->Count]; // ŠÖŒW‚ ‚éƒJ[ƒh
+		m_CardRelated = new bool[m_Document->m_Cards->Count]; // é–¢ä¿‚ã‚ã‚‹ã‚«ãƒ¼ãƒ‰
 		m_CardAssign = new int[m_Document->m_Cards->Count];
 		m_CardShape = new int[m_Document->m_Cards->Count];
 	}
-	// ó‘Ô•Ï”€”õ
+	// çŠ¶æ…‹å¤‰æ•°æº–å‚™
 	if (m_nTmpLinksCount != m_Document->m_Links->Count) {
 		m_nTmpLinksCount = m_Document->m_Links->Count;
 		if (m_LinkVisible != NULL) {
@@ -6293,7 +6293,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		m_CardAssign[i] = i;
 	}
 
-	// ŠeƒJ[ƒh‚ÌÀ•W‚ğ“¾‚ÄAƒm[ƒ}ƒ‰ƒCƒY‚·‚é
+	// å„ã‚«ãƒ¼ãƒ‰ã®åº§æ¨™ã‚’å¾—ã¦ã€ãƒãƒ¼ãƒãƒ©ã‚¤ã‚ºã™ã‚‹
 	// float maxx = 0.5f, minx = 0.5f, maxy = 0.5f, miny = 0.5f;
 	float addx = (Zoom * (0.05f - Sc_X->Position * 0.0001f) + 0.5f)
 		* m_nBrowserWidth;
@@ -6343,7 +6343,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 	F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
 	m_nFontHeight = C->TextHeight(" ");
 
-	// ”wŒi“h‚è‚Â‚Ô‚µ
+	// èƒŒæ™¯å¡—ã‚Šã¤ã¶ã—
 	if (fabs(m_fFontZoom - 1.0) <
 		0.1 && !(Im_Wall->Enabled && SettingView.m_bFixWallPaper)) {
 		B->Color = TColor(m_nBGColor);
@@ -6351,16 +6351,16 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		C->FillRect(Rect(0, 0, m_nBrowserWidth, m_nBrowserHeight));
 	}
 
-	// •Ç†•\¦
+	// å£ç´™è¡¨ç¤º
 	if (Im_Wall->Enabled) {
 		if (SettingView.m_bFixWallPaper) {
-			// ŒÅ’è•\¦
+			// å›ºå®šè¡¨ç¤º
 			C->StretchDraw(Rect(m_nXOffset, m_nYOffset,
 				m_nXOffset + m_nBrowserWidth, m_nYOffset + m_nBrowserHeight),
 				Im_Wall->Picture->Graphic);
 		}
 		else {
-			// ƒXƒNƒ[ƒ‹•\¦
+			// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«è¡¨ç¤º
 			int startx = 0, starty = 0, endx = 0, endy = 0;
 			if (SettingView.m_bTileWallPaper) {
 				startx = -4;
@@ -6396,13 +6396,13 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 	}
 
-	// ”wŒiƒAƒjƒ[ƒVƒ‡ƒ“
+	// èƒŒæ™¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	if (SettingView.m_bBGAnimation) {
 		BGAnimation(C);
 	}
 
 	if (SettingView.m_bTextVisible && m_nTargetCard >= 0) {
-		// ƒJ[ƒh‚Ì–{•¶•`‰æ
+		// ã‚«ãƒ¼ãƒ‰ã®æœ¬æ–‡æç”»
 		F->Color = (TColor)HalfColor(m_nBGColor, m_nFGColor, 0.33);
 		B->Style = bsClear;
 		int height = C->TextHeight(" ") * 1.3;
@@ -6437,7 +6437,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 	int *LinkCard1Index = new int[m_Document->m_Links->Count];
 	int *LinkCard2Index = new int[m_Document->m_Links->Count];
 
-	// LinkVisibleİ’è
+	// LinkVisibleè¨­å®š
 	for (int i2 = 0; i2 < m_Document->m_Links->Count; i2++) {
 		TLink *Link = m_Document->GetLinkByIndex(i2);
 
@@ -6460,19 +6460,19 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		Link->m_bVisible = visible;
 	}
 
-	// ƒXƒRƒAŒvZBLinkVisible‚ª•K—v‚È‚Ì‚Å‚±‚ÌˆÊ’u
+	// ã‚¹ã‚³ã‚¢è¨ˆç®—ã€‚LinkVisibleãŒå¿…è¦ãªã®ã§ã“ã®ä½ç½®
 	if (SettingView.m_bScore) {
 		IterScore();
 	}
 
-	// ƒŠƒ“ƒN‚ÌŠÖŒWİ’è
+	// ãƒªãƒ³ã‚¯ã®é–¢ä¿‚è¨­å®š
 	for (int i2 = 0; i2 < m_Document->m_Links->Count; i2++)
 		if (m_LinkVisible[i2]) {
 			TLink *Link = m_Document->GetLinkByIndex(i2);
 
 			if (Link->m_nFromID != m_nTargetCard && Link->m_nDestID !=
 				m_nTargetCard && i2 != m_nTargetLink) {
-				// –³ŠÖŒW‚ÈƒŠƒ“ƒN
+				// ç„¡é–¢ä¿‚ãªãƒªãƒ³ã‚¯
 			}
 			else {
 				m_CardRelated[LinkCard1Index[i2]] = true;
@@ -6488,33 +6488,33 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		m_CardRelated[card1index] = true;
 	}
 
-	// ƒ‰ƒxƒ‹fold
-	// ifold‚³‚ê‚éƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒJ[ƒh‚Ì‚¤‚¿Aˆê‚Â‚Å‚àƒ‰ƒxƒ‹‚ª‚Â‚¢‚Ä‚¢‚½‚ç
-	// ‚·‚×‚ÄRelated‚ğTrue‚É‚·‚é¨‚Ç‚¤‚¹ŠÖŒW‚ ‚éƒŠƒ“ƒN‚ªŒã‚©‚ç•\¦‚³‚ê‚é‚Ì‚Å•s—v
+	// ãƒ©ãƒ™ãƒ«fold
+	// ï¼ˆfoldã•ã‚Œã‚‹ãƒ©ãƒ™ãƒ«ã®ã¤ã„ã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã®ã†ã¡ã€ä¸€ã¤ã§ã‚‚ãƒ©ãƒ™ãƒ«ãŒã¤ã„ã¦ã„ãŸã‚‰
+	// ã™ã¹ã¦Relatedã‚’Trueã«ã™ã‚‹â†’ã©ã†ã›é–¢ä¿‚ã‚ã‚‹ãƒªãƒ³ã‚¯ãŒå¾Œã‹ã‚‰è¡¨ç¤ºã•ã‚Œã‚‹ã®ã§ä¸è¦
 
-	// ‘S‚Äfold‚³‚ê‚½ƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éê‡AA
-	// “¯‚¶ƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚Æ‚»‚±‚©‚çƒŠƒ“ƒN‚Ì“\‚ç‚ê‚½ƒJ[ƒh‚Í‘S‚ÄRelated‚É‚·‚é
+	// å…¨ã¦foldã•ã‚ŒãŸãƒ©ãƒ™ãƒ«ã‚’æŒã¤ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹å ´åˆã€ã€
+	// åŒã˜ãƒ©ãƒ™ãƒ«ã‚’æŒã¤ã‚«ãƒ¼ãƒ‰ã¨ãã“ã‹ã‚‰ãƒªãƒ³ã‚¯ã®è²¼ã‚‰ã‚ŒãŸã‚«ãƒ¼ãƒ‰ã¯å…¨ã¦Relatedã«ã™ã‚‹
 
-	// Ü‚è‚½‚½‚Ü‚ê‚½ƒJ[ƒh‚Ì”½”­—Í‚ğ‰º‚°‚é
+	// æŠ˜ã‚ŠãŸãŸã¾ã‚ŒãŸã‚«ãƒ¼ãƒ‰ã®åç™ºåŠ›ã‚’ä¸‹ã’ã‚‹
 
-	// ‚Ü‚½AƒJ[ƒh‚É‚Â‚¢‚Ä‚¢‚éƒ‰ƒxƒ‹‚Ì‚·‚×‚Ä‚ªFold‚³‚ê‚Ä‚¢‚éê‡A
-	// ƒJ[ƒh–¼‚ğƒ‰ƒxƒ‹–¼‚É‚·‚éj
+	// ã¾ãŸã€ã‚«ãƒ¼ãƒ‰ã«ã¤ã„ã¦ã„ã‚‹ãƒ©ãƒ™ãƒ«ã®ã™ã¹ã¦ãŒFoldã•ã‚Œã¦ã„ã‚‹å ´åˆã€
+	// ã‚«ãƒ¼ãƒ‰åã‚’ãƒ©ãƒ™ãƒ«åã«ã™ã‚‹ï¼‰
 
-	// ƒJ[ƒhƒ‹[ƒv
-	// ‚Ü‚¸‘S‚Ä‚ÌƒJ[ƒh‚Ìfoldó‘Ô‚ğ’²‚×‚é
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+	// ã¾ãšå…¨ã¦ã®ã‚«ãƒ¼ãƒ‰ã®foldçŠ¶æ…‹ã‚’èª¿ã¹ã‚‹
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			Card->m_bLabelIsFold = m_Document->LabelIsFold(Card);
 		}
 
-	// ƒJ[ƒhƒ‹[ƒv
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bLabelIsFold) {
-				// ‚·‚×‚Äfold‚³‚ê‚Ä‚¢‚é
-				// ƒJ[ƒhƒ^ƒCƒgƒ‹‚ğƒ‰ƒxƒ‹–¼‚É
+				// ã™ã¹ã¦foldã•ã‚Œã¦ã„ã‚‹
+				// ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã‚’ãƒ©ãƒ™ãƒ«åã«
 				UnicodeString S = "";
 				for (int il = 0; il < Card->m_Labels->Count; il++) {
 					TCardLabel *Label =
@@ -6530,24 +6530,24 @@ void TFo_Main::PaintSub(TCanvas *C) {
 				m_CardTitle[i] = S;
 
 				if (Card->m_nID == m_nTargetCard) {
-					// ‘I‘ğ’†‚ÌƒJ[ƒh
+					// é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰
 
-					// ƒJ[ƒhƒ‹[ƒv
-					// “¯‚¶ƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚Í‘S‚ÄRelated‚É‚·‚é
+					// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+					// åŒã˜ãƒ©ãƒ™ãƒ«ã‚’æŒã¤ã‚«ãƒ¼ãƒ‰ã¯å…¨ã¦Relatedã«ã™ã‚‹
 					m_CardAssign[i] = i;
 					for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 						if (i != i2 && m_CardVisible[i2]) {
 							TCard *Card2 = m_Document->GetCardByIndex(i2);
 
 							if (m_Document->LabelIsSame(Card, Card2)) {
-								// “¯‚¶ƒ‰ƒxƒ‹\‘¢‚ÌƒJ[ƒh
+								// åŒã˜ãƒ©ãƒ™ãƒ«æ§‹é€ ã®ã‚«ãƒ¼ãƒ‰
 
-								// ÅŒã‚ÉŒ©‚Â‚©‚Á‚½“¯‚¶ƒ‰ƒxƒ‹\‘¢‚ÌƒJ[ƒh‚ÉÀ•W‚ğƒAƒTƒCƒ“‚·‚é
+								// æœ€å¾Œã«è¦‹ã¤ã‹ã£ãŸåŒã˜ãƒ©ãƒ™ãƒ«æ§‹é€ ã®ã‚«ãƒ¼ãƒ‰ã«åº§æ¨™ã‚’ã‚¢ã‚µã‚¤ãƒ³ã™ã‚‹
 								m_CardAssign[i2] = i;
 
 								m_CardRelated[i2] = true;
 
-								// ‚±‚±‚©‚çƒŠƒ“ƒN‚Ì“\‚ç‚ê‚½ƒJ[ƒh‚Í‘S‚ÄRelated‚É‚·‚é
+								// ã“ã“ã‹ã‚‰ãƒªãƒ³ã‚¯ã®è²¼ã‚‰ã‚ŒãŸã‚«ãƒ¼ãƒ‰ã¯å…¨ã¦Relatedã«ã™ã‚‹
 								for (int i2 = 0;
 								i2 < m_Document->m_Links->Count; i2++)
 									if (m_LinkVisible[i2]) {
@@ -6571,29 +6571,29 @@ void TFo_Main::PaintSub(TCanvas *C) {
 						}
 				}
 				else if (m_CardAssign[i] == i) {
-					// ‘I‘ğ’†‚ÌƒJ[ƒh‚Å‚È‚­A‘ã•\ƒJ[ƒh
-					// ƒJ[ƒhƒ‹[ƒv
-					// “¯‚¶ƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚ği‚Ì¦‚·ƒJ[ƒh‚ÉƒAƒTƒCƒ“‚·‚é
+					// é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ã§ãªãã€ä»£è¡¨ã‚«ãƒ¼ãƒ‰
+					// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+					// åŒã˜ãƒ©ãƒ™ãƒ«ã‚’æŒã¤ã‚«ãƒ¼ãƒ‰ã‚’iã®ç¤ºã™ã‚«ãƒ¼ãƒ‰ã«ã‚¢ã‚µã‚¤ãƒ³ã™ã‚‹
 					for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 						if (i != i2 && m_CardVisible[i2]) {
 							TCard *Card2 = m_Document->GetCardByIndex(i2);
 
 							if (m_Document->LabelIsSame(Card, Card2)) {
-								// “¯‚¶ƒ‰ƒxƒ‹\‘¢‚ÌƒJ[ƒh
+								// åŒã˜ãƒ©ãƒ™ãƒ«æ§‹é€ ã®ã‚«ãƒ¼ãƒ‰
 
-								// Å‰‚ÉŒ©‚Â‚©‚Á‚½“¯‚¶ƒ‰ƒxƒ‹\‘¢‚ÌƒJ[ƒh‚ÉÀ•W‚ğƒAƒTƒCƒ“‚·‚é
-								// ‘I‘ğ’†‚Å‚È‚¢ƒJ[ƒh‚ÍAˆê”Ô— iÅ‰‚Ì‚Ù‚¤j‚ÌƒJ[ƒh‚ÉAssign‚³‚ê‚é
+								// æœ€åˆã«è¦‹ã¤ã‹ã£ãŸåŒã˜ãƒ©ãƒ™ãƒ«æ§‹é€ ã®ã‚«ãƒ¼ãƒ‰ã«åº§æ¨™ã‚’ã‚¢ã‚µã‚¤ãƒ³ã™ã‚‹
+								// é¸æŠä¸­ã§ãªã„ã‚«ãƒ¼ãƒ‰ã¯ã€ä¸€ç•ªè£ï¼ˆæœ€åˆã®ã»ã†ï¼‰ã®ã‚«ãƒ¼ãƒ‰ã«Assignã•ã‚Œã‚‹
 								m_CardAssign[i2] = i;
 							}
 						}
 				}
 				else {
-					// ‘I‘ğ’†‚ÌƒJ[ƒh‚Å‚à‚È‚­A‘ã•\ƒJ[ƒh‚Å‚È‚¢
+					// é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ã§ã‚‚ãªãã€ä»£è¡¨ã‚«ãƒ¼ãƒ‰ã§ãªã„
 
 					int idxbak = m_CardAssign[i];
 
-					// ƒJ[ƒhƒ‹[ƒv
-					// Œã‚Éo‚Ä‚«‚½‚±‚ÌƒJ[ƒh‚ğ‘ã•\ƒJ[ƒh‚É
+					// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+					// å¾Œã«å‡ºã¦ããŸã“ã®ã‚«ãƒ¼ãƒ‰ã‚’ä»£è¡¨ã‚«ãƒ¼ãƒ‰ã«
 					for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 						if (m_CardVisible[i2] && m_CardAssign[i2] == idxbak) {
 							m_CardAssign[i2] = i;
@@ -6602,18 +6602,18 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			}
 		}
 
-	// ŠÖ˜AƒJ[ƒh‚Ì‚¤‚¿ˆê‚Â‚Å‚àRelated‚ªTrue‚È‚çAŠÖ˜AƒJ[ƒh‚ÌRelated‚ğ‚·‚×‚ÄTrue‚É
-	// ƒJ[ƒhƒ‹[ƒv
+	// é–¢é€£ã‚«ãƒ¼ãƒ‰ã®ã†ã¡ä¸€ã¤ã§ã‚‚RelatedãŒTrueãªã‚‰ã€é–¢é€£ã‚«ãƒ¼ãƒ‰ã®Relatedã‚’ã™ã¹ã¦Trueã«
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i] && m_CardRelated[i]) {
-			// ŠÖ˜AƒJ[ƒh
+			// é–¢é€£ã‚«ãƒ¼ãƒ‰
 			TCard *Card = m_Document->GetCardByIndex(i);
 
 			if (Card->m_bLabelIsFold) {
-				// ‚·‚×‚Äfold‚³‚ê‚Ä‚¢‚é
+				// ã™ã¹ã¦foldã•ã‚Œã¦ã„ã‚‹
 
-				// ƒJ[ƒhƒ‹[ƒv
-				// ŠÖ˜AƒJ[ƒh‚ğ‘S‚ÄRelated‚É
+				// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+				// é–¢é€£ã‚«ãƒ¼ãƒ‰ã‚’å…¨ã¦Relatedã«
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 					if (m_CardAssign[i] == m_CardAssign[i2]) {
 						m_CardRelated[i2] = true;
@@ -6621,17 +6621,17 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			}
 		}
 
-	// Fold‚³‚ê‚½‚à‚Ì‚Ì’†‚ÅShape‚Ì‘½”Œˆ‚ğæ‚é
+	// Foldã•ã‚ŒãŸã‚‚ã®ã®ä¸­ã§Shapeã®å¤šæ•°æ±ºã‚’å–ã‚‹
 	int *shapevote = new int[IL_Shape->Count];
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i] && m_CardAssign[i] == i) {
-			// •\¦‘ÎÛƒJ[ƒh‚Å‘ã•\ƒJ[ƒh
+			// è¡¨ç¤ºå¯¾è±¡ã‚«ãƒ¼ãƒ‰ã§ä»£è¡¨ã‚«ãƒ¼ãƒ‰
 			TCard *Card = m_Document->GetCardByIndex(i);
 
 			if (Card->m_bLabelIsFold) {
-				// Fold‚³‚ê‚Ä‚¢‚é
+				// Foldã•ã‚Œã¦ã„ã‚‹
 
-				// “Š•[ŠJn
+				// æŠ•ç¥¨é–‹å§‹
 				memset(shapevote, 0, sizeof(int) * IL_Shape->Count);
 
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
@@ -6642,7 +6642,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 						}
 					}
 
-				// ˆê”Ô‘½‚¢Œ`‚ğ“¾‚é
+				// ä¸€ç•ªå¤šã„å½¢ã‚’å¾—ã‚‹
 				int maxindex = 2;
 				int max = 0;
 				for (int i2 = 0; i2 < IL_Shape->Count; i2++) {
@@ -6652,7 +6652,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 					}
 				}
 
-				// ”½‰f
+				// åæ˜ 
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 					if (m_CardVisible[i] && m_CardAssign[i2] == i) {
 						m_CardShape[i2] = maxindex;
@@ -6668,14 +6668,14 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		draworder[vo] = i;
 	}
 
-	// ‰æ‚èF
+	// ç¸å–ã‚Šè‰²
 	// TColor HMColor = HalfColor(m_nBGColor, m_nFGColor, 0.125);
 	TColor HMColor = TColor(m_nBGColor);
 
-	// •K—v‚É‰‚¶‚ÄƒJ[ƒhƒTƒCƒY‚Ì–‘OŒvZ
-	// ‰e•`‰æ
+	// å¿…è¦ã«å¿œã˜ã¦ã‚«ãƒ¼ãƒ‰ã‚µã‚¤ã‚ºã®äº‹å‰è¨ˆç®—
+	// å½±æç”»
 	if ((m_Document->m_Labels[0]->Count >
-		0 && SettingView.m_bLabelRectangleVisible) || // ƒ‰ƒxƒ‹‚ğˆÍ‚Ş‹éŒ`
+		0 && SettingView.m_bLabelRectangleVisible) || // ãƒ©ãƒ™ãƒ«ã‚’å›²ã‚€çŸ©å½¢
 		SettingView.m_bCardShadow) {
 		for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
 			int i = draworder[ic];
@@ -6684,7 +6684,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 				if ((ic >= m_Document->m_Cards->Count - 3 && m_bShowRecent) ||
 					m_nTargetCard == Card->m_nID) {
-					// Å‹ß•\¦‚µ‚½ƒJ[ƒh‹­’²
+					// æœ€è¿‘è¡¨ç¤ºã—ãŸã‚«ãƒ¼ãƒ‰å¼·èª¿
 					F->Style = TFontStyles() << fsBold;
 				}
 				else {
@@ -6692,7 +6692,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 				}
 
 				if (m_CardRelated[i]) {
-					// Å‹ß•\¦‚µ‚½ƒJ[ƒh‹­’²
+					// æœ€è¿‘è¡¨ç¤ºã—ãŸã‚«ãƒ¼ãƒ‰å¼·èª¿
 					P->Width = (int)(3 * m_fFontZoom);
 				}
 				else {
@@ -6701,7 +6701,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 				float SizeX = Card->m_nSize;
 				if (m_Document->CountEnableLabel(Card)) {
-					// ƒ‰ƒxƒ‹‚ ‚è
+					// ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 					for (int il = 0; il < Card->m_Labels->Count; il++) {
 						TCardLabel *Label =
 							m_Document->GetLabelByIndex(0,
@@ -6725,7 +6725,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 					m_nXOffset += m_nFontHeight / 2;
 					m_nYOffset += m_nFontHeight / 2;
 
-					// ‰e‚ÌFi’†ŠÔF‚ğˆÃ‚­‚µ‚½‚à‚Ìj
+					// å½±ã®è‰²ï¼ˆä¸­é–“è‰²ã‚’æš—ãã—ãŸã‚‚ã®ï¼‰
 					P->Color =
 						HalfColor(HalfColor(m_nFGColor, m_nBGColor, 0.5f),
 						0x0, 0.33f);
@@ -6752,7 +6752,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		linkoption |= 0x2;
 	}
 
-	// ƒŠƒ“ƒN‚Ì‰e
+	// ãƒªãƒ³ã‚¯ã®å½±
 	if (SettingView.m_bLinkShadow) {
 		P->Style = psSolid;
 		P->Width = (int)(1 * m_fFontZoom);
@@ -6777,14 +6777,14 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		m_nYOffset = yoffsetbak;
 	}
 
-	// ƒ‰ƒxƒ‹‚ğˆÍ‚Ş‰~AlŠp
+	// ãƒ©ãƒ™ãƒ«ã‚’å›²ã‚€å††ã€å››è§’
 	DrawLabelCircleRect(C, !SettingView.m_bLavelCRFocusedOnTop, true);
 
-	// ƒtƒHƒ“ƒg‚ğŒ³‚É–ß‚·
+	// ãƒ•ã‚©ãƒ³ãƒˆã‚’å…ƒã«æˆ»ã™
 	F->Style = TFontStyles();
 	F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
 
-	// ƒŠƒ“ƒN•`‰æi–³ŠÖŒWj
+	// ãƒªãƒ³ã‚¯æç”»ï¼ˆç„¡é–¢ä¿‚ï¼‰
 	P->Width = (int)(3 * m_fFontZoom);
 	F->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.5);
 
@@ -6794,7 +6794,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 			if (!(m_CardRelated[LinkCard1Index[i2]] && m_CardRelated
 				[LinkCard2Index[i2]])) {
-				// –³ŠÖŒW‚ÈƒŠƒ“ƒN
+				// ç„¡é–¢ä¿‚ãªãƒªãƒ³ã‚¯
 
 				if (Link->m_Labels->Count == 0) {
 					P->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.25);
@@ -6814,12 +6814,12 @@ void TFo_Main::PaintSub(TCanvas *C) {
 				if ((Bu_ArrangeType->Tag % 100 > 2 && Bu_ArrangeType->Tag <=
 					499) || (Bu_ArrangeType->Tag >=
 					500 && Bu_ArrangeType->Tag <= 999)) {
-					// ƒŠƒ“ƒN‚ªd—v‚Å‚È‚¢Arrange‚Å‚ÍƒŠƒ“ƒN‚ÌF‚ğ”–‚­
+					// ãƒªãƒ³ã‚¯ãŒé‡è¦ã§ãªã„Arrangeã§ã¯ãƒªãƒ³ã‚¯ã®è‰²ã‚’è–„ã
 					P->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
 				}
 				else if (Bu_ArrangeType->Tag >=
 					1000 && Bu_ArrangeType->Tag <= 1999) {
-					// ŠK‘w•\¦
+					// éšå±¤è¡¨ç¤º
 					TCard *From = m_Document->GetCard(Link->m_nFromID);
 					TCard *Dest = m_Document->GetCard(Link->m_nDestID);
 					if (From->m_nParentID != Dest->m_nID && Dest->m_nParentID !=
@@ -6828,14 +6828,14 @@ void TFo_Main::PaintSub(TCanvas *C) {
 					}
 				}
 
-				// –³ŠÖŒW‚ÈƒŠƒ“ƒN
+				// ç„¡é–¢ä¿‚ãªãƒªãƒ³ã‚¯
 				Link->m_Color = P->Color;
 				DrawLink(C, Link, LinkCard1Index[i2], LinkCard2Index[i2],
 					HMColor, linkoption);
 			}
 		}
 
-	// ƒJ[ƒh•`‰æi–³ŠÖŒWj
+	// ã‚«ãƒ¼ãƒ‰æç”»ï¼ˆç„¡é–¢ä¿‚ï¼‰
 	P->Style = psSolid;
 	B->Style = bsSolid;
 	F->Color = (TColor)m_nFGColor;
@@ -6846,9 +6846,9 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 		if (!m_CardRelated[i] && m_CardAssign[i] == i && Card->m_bVisible &&
 			Card->m_nID != m_nTargetCard) {
-			// –³ŠÖŒW‚ÈƒJ[ƒh
+			// ç„¡é–¢ä¿‚ãªã‚«ãƒ¼ãƒ‰
 			if (ic >= m_Document->m_Cards->Count - 3 && m_bShowRecent) {
-				// Å‹ß•\¦‚µ‚½ƒJ[ƒh‹­’²
+				// æœ€è¿‘è¡¨ç¤ºã—ãŸã‚«ãƒ¼ãƒ‰å¼·èª¿
 				F->Style = TFontStyles() << fsBold;
 				P->Width = (int)(3 * m_fFontZoom);
 			}
@@ -6859,13 +6859,13 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 			float SizeX = Card->m_nSize;
 			if (m_Document->CountEnableLabel(Card)) {
-				// ƒ‰ƒxƒ‹‚ ‚èiƒ‰ƒxƒ‹‚ÌF‚É‚·‚éj
+				// ãƒ©ãƒ™ãƒ«ã‚ã‚Šï¼ˆãƒ©ãƒ™ãƒ«ã®è‰²ã«ã™ã‚‹ï¼‰
 				TColor c = GetCardColor(Card, SizeX);
 				P->Color = HalfColor(c, m_nBGColor, 0.33f);
 				B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
 			}
 			else {
-				// ƒ‰ƒxƒ‹‚È‚µ
+				// ãƒ©ãƒ™ãƒ«ãªã—
 				P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
 				// B->Color = TColor(m_nBGColor);//HalfColor(P->Color, m_nBGColor, 0.75f);
 				B->Color = HalfColor(P->Color, m_nBGColor, 0.875f);
@@ -6876,7 +6876,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		}
 	}
 
-	// ƒŠƒ“ƒN•`‰æiŠÖŒW‚ ‚èj
+	// ãƒªãƒ³ã‚¯æç”»ï¼ˆé–¢ä¿‚ã‚ã‚Šï¼‰
 	P->Style = psSolid;
 	P->Width = (int)(3 * m_fFontZoom);
 	F->Color = (TColor)HalfColor(m_nFGColor, m_nBGColor, 0.25);
@@ -6908,11 +6908,11 @@ void TFo_Main::PaintSub(TCanvas *C) {
 				if ((Bu_ArrangeType->Tag % 100 > 2 && Bu_ArrangeType->Tag <=
 					499) || (Bu_ArrangeType->Tag >=
 					500 && Bu_ArrangeType->Tag <= 999)) {
-					// ƒŠƒ“ƒN‚ªd—v‚Å‚È‚¢Arrange‚Å‚ÍƒŠƒ“ƒN‚ÌF‚ğ”–‚­
+					// ãƒªãƒ³ã‚¯ãŒé‡è¦ã§ãªã„Arrangeã§ã¯ãƒªãƒ³ã‚¯ã®è‰²ã‚’è–„ã
 					P->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
 				}
 
-				// ŠÖŒW‚ ‚éƒŠƒ“ƒN
+				// é–¢ä¿‚ã‚ã‚‹ãƒªãƒ³ã‚¯
 				Link->m_Color = P->Color;
 				TColor HMColor2 = HalfColor(m_nFGColor, m_nBGColor, 0.5);
 				// HalfColor(HMColor, m_nFGColor, 0.5)
@@ -6924,26 +6924,26 @@ void TFo_Main::PaintSub(TCanvas *C) {
 	P->Color = (TColor)m_nFGColor;
 	if (m_bMDownBrowser == 1 && m_nTargetCard >=
 		0 && (SB_Line->Down || SB_ToolLinkLabel->Down)) {
-		// ƒŠƒ“ƒNü’Ç‰Á’†
+		// ãƒªãƒ³ã‚¯ç·šè¿½åŠ ä¸­
 		if (SB_ToolLinkLabel->Down && m_nToolLinkLabel > 0) {
-			// ƒfƒtƒHƒ‹ƒgƒŠƒ“ƒNƒ‰ƒxƒ‹‚ ‚è
+			// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒªãƒ³ã‚¯ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 			TCardLabel *Label = m_Document->GetLabelByIndex(1,
 				m_nToolLinkLabel - 1);
 			P->Color = (TColor)Label->m_nColor;
 		}
 
 		if (m_nTargetCard2 >= 0) {
-			// ƒŠƒ“ƒNü’Ç‰Ái‘Šè‚ ‚èj
+			// ãƒªãƒ³ã‚¯ç·šè¿½åŠ ï¼ˆç›¸æ‰‹ã‚ã‚Šï¼‰
 			int card1index = m_Document->SearchCardIndex(m_nTargetCard);
 			int card2index = m_Document->SearchCardIndex(m_nTargetCard2);
 
 			DrawLink(C, NULL, card1index, card2index, HMColor, linkoption);
 		}
 		else if (m_bMDownBrowser && m_nTargetCard >= 0) {
-			// ƒŠƒ“ƒNü’Ç‰Á’†i‘Šè–³‚µj
+			// ãƒªãƒ³ã‚¯ç·šè¿½åŠ ä¸­ï¼ˆç›¸æ‰‹ç„¡ã—ï¼‰
 			int card1index = m_Document->SearchCardIndex(m_nTargetCard);
 
-			// ƒŠƒ“ƒNü’Ç‰Á’†
+			// ãƒªãƒ³ã‚¯ç·šè¿½åŠ ä¸­
 			float X1 = m_CardX[card1index];
 			float Y1 = m_CardY[card1index];
 			DrawLink2(C, NULL, X1, Y1, m_nMDownTargetX, m_nMDownTargetY,
@@ -6951,17 +6951,17 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		}
 	}
 
-	// ƒŠƒ“ƒN•`‰æi‘€ì’†j
+	// ãƒªãƒ³ã‚¯æç”»ï¼ˆæ“ä½œä¸­ï¼‰
 	P->Color = (TColor)m_nFGColor;
 	P->Style = psSolid;
 	P->Width = (int)(3 * m_fFontZoom);
 	F->Color = (TColor)m_nFGColor;
 	if (m_nTargetLink >= 0) {
-		// ‘I‘ğ’†
+		// é¸æŠä¸­
 		int i2 = m_nTargetLink;
 		TLink *Link = m_Document->GetLinkByIndex(i2);
 		if (Link) {
-			// ƒ‰ƒxƒ‹‚É‚æ‚éF
+			// ãƒ©ãƒ™ãƒ«ã«ã‚ˆã‚‹è‰²
 			if (Link->m_Labels->Count == 0) {
 				P->Color = (TColor)m_nFGColor;
 			}
@@ -6977,7 +6977,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 			Link->m_Color = P->Color;
 			if (!m_bMDownBrowserMoved || m_bMDownBrowser <= 1) {
-				// ƒhƒ‰ƒbƒO‚µ‚Ä‚¢‚È‚¢
+				// ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã„ãªã„
 				int pos = m_nFocusCursorPos;
 				float br = 0.0f;
 				if (pos % 100 < 50) {
@@ -6993,15 +6993,15 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			else
 				switch (m_bMDownBrowser) {
 				case 2:
-					// Dest•ÏX’†
+					// Destå¤‰æ›´ä¸­
 					if (m_nTargetCard2 >= 0) {
-						// ‘Šè‚ª‚¢‚é
+						// ç›¸æ‰‹ãŒã„ã‚‹
 						int index = m_Document->SearchCardIndex(m_nTargetCard2);
 						DrawLink(C, Link, LinkCard1Index[m_nTargetLink], index,
 							HMColor, linkoption);
 					}
 					else {
-						// ‘Šè‚ª‚¢‚È‚¢
+						// ç›¸æ‰‹ãŒã„ãªã„
 						float X1 = m_CardX[LinkCard1Index[m_nTargetLink]];
 						float Y1 = m_CardY[LinkCard1Index[m_nTargetLink]];
 						DrawLink2(C, Link, X1, Y1, m_nMDownTargetX,
@@ -7009,15 +7009,15 @@ void TFo_Main::PaintSub(TCanvas *C) {
 					}
 					break;
 				case 3:
-					// From•ÏX’†
+					// Fromå¤‰æ›´ä¸­
 					if (m_nTargetCard2 >= 0) {
-						// ‘Šè‚ª‚¢‚é
+						// ç›¸æ‰‹ãŒã„ã‚‹
 						int index = m_Document->SearchCardIndex(m_nTargetCard2);
 						DrawLink(C, Link, index, LinkCard2Index[m_nTargetLink],
 							HMColor, linkoption);
 					}
 					else {
-						// ‘Šè‚ª‚¢‚È‚¢
+						// ç›¸æ‰‹ãŒã„ãªã„
 						float X1 = m_CardX[LinkCard2Index[m_nTargetLink]];
 						float Y1 = m_CardY[LinkCard2Index[m_nTargetLink]];
 						DrawLink2(C, Link, m_nMDownTargetX, m_nMDownTargetY, X1,
@@ -7031,7 +7031,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 	delete[]LinkCard1Index;
 	delete[]LinkCard2Index;
 
-	// ƒJ[ƒh•`‰æiŠÖŒW‚ ‚èj
+	// ã‚«ãƒ¼ãƒ‰æç”»ï¼ˆé–¢ä¿‚ã‚ã‚Šï¼‰
 	// for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
 	P->Style = psSolid;
 	B->Style = bsSolid;
@@ -7041,10 +7041,10 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 		if (m_CardRelated[i] && m_CardAssign[i]
 			== i && Card->m_nID != m_nTargetCard && Card->m_bVisible) {
-			// ŠÖŒW‚Ì‚ ‚éƒJ[ƒh
+			// é–¢ä¿‚ã®ã‚ã‚‹ã‚«ãƒ¼ãƒ‰
 			P->Width = (int)(3 * m_fFontZoom);
 			if (ic >= m_Document->m_Cards->Count - 3 && m_bShowRecent) {
-				// Å‹ß•\¦‚µ‚½ƒJ[ƒh‹­’²
+				// æœ€è¿‘è¡¨ç¤ºã—ãŸã‚«ãƒ¼ãƒ‰å¼·èª¿
 				F->Style = TFontStyles() << fsBold;
 			}
 			else {
@@ -7052,7 +7052,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			}
 			float SizeX = Card->m_nSize;
 			if (m_Document->CountEnableLabel(Card)) {
-				// ƒ‰ƒxƒ‹‚ ‚èiƒ‰ƒxƒ‹‚ÌF‚É‚·‚éj
+				// ãƒ©ãƒ™ãƒ«ã‚ã‚Šï¼ˆãƒ©ãƒ™ãƒ«ã®è‰²ã«ã™ã‚‹ï¼‰
 				TColor c = GetCardColor(Card, SizeX);
 				P->Color = HalfColor(c, m_nBGColor, 0.25f);
 				B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
@@ -7068,33 +7068,33 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		}
 	}
 
-	// ƒ‰ƒxƒ‹‚ğˆÍ‚Ş‰~AlŠpi•’Ê‚Íg‚í‚È‚¢ƒIƒvƒVƒ‡ƒ“j
+	// ãƒ©ãƒ™ãƒ«ã‚’å›²ã‚€å††ã€å››è§’ï¼ˆæ™®é€šã¯ä½¿ã‚ãªã„ã‚ªãƒ—ã‚·ãƒ§ãƒ³ï¼‰
 	/*
 	 if (SettingView.m_bLavelCRFocusedOnTop){
 	 DrawLabelCircleRect(C, m_fFontZoom, m_nFGColor, m_nBGColor, true, false);
 
-	 //ƒtƒHƒ“ƒg‚ğŒ³‚É–ß‚·
+	 //ãƒ•ã‚©ãƒ³ãƒˆã‚’å…ƒã«æˆ»ã™
 	 F->Style = TFontStyles();
 	 F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
 
-	 //‘€ì’†‚ÌƒJ[ƒh‚Æ“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚ğÄ•\¦
+	 //æ“ä½œä¸­ã®ã‚«ãƒ¼ãƒ‰ã¨åŒã˜ãƒ©ãƒ™ãƒ«ã®ã‚«ãƒ¼ãƒ‰ã‚’å†è¡¨ç¤º
 	 }
 	 */
 
 	delete[]draworder;
 
-	// ƒJ[ƒh•`‰æi‘€ì’†‚ÌƒJ[ƒhj
+	// ã‚«ãƒ¼ãƒ‰æç”»ï¼ˆæ“ä½œä¸­ã®ã‚«ãƒ¼ãƒ‰ï¼‰
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 
 		if (Card->m_nID == m_nTargetCard) {
-			// •ÒW’†‚ÌƒJ[ƒh
+			// ç·¨é›†ä¸­ã®ã‚«ãƒ¼ãƒ‰
 			F->Style = TFontStyles() << fsBold;
 
 			P->Width = (int)(3 * m_fFontZoom);
 			float SizeX = Card->m_nSize;
 			if (m_Document->CountEnableLabel(Card)) {
-				// ƒ‰ƒxƒ‹‚ ‚èiƒ‰ƒxƒ‹‚ÌF‚É‚·‚éj
+				// ãƒ©ãƒ™ãƒ«ã‚ã‚Šï¼ˆãƒ©ãƒ™ãƒ«ã®è‰²ã«ã™ã‚‹ï¼‰
 				TColor c = GetCardColor(Card, SizeX);
 				P->Color = c;
 				B->Color = HalfColor(P->Color, m_nBGColor, 0.33f);
@@ -7114,7 +7114,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		}
 	}
 
-	// Focus‚ğ¦‚·ƒJ[ƒ\ƒ‹
+	// Focusã‚’ç¤ºã™ã‚«ãƒ¼ã‚½ãƒ«
 	if (SettingView.m_bFocusCursor && (m_nTargetCard >=
 		0 || m_nLastTarget >= 0)) {
 		int current = m_Document->SearchCardIndex(m_nTargetCard);
@@ -7123,7 +7123,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			int pos = m_nFocusCursorPos;
 			float br = 0.0f;
 			if (pos > 100) {
-				// “_–Åˆ—
+				// ç‚¹æ»…å‡¦ç†
 				if (pos % 100 < 50) {
 					// pos = 100;
 				}
@@ -7135,12 +7135,12 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			}
 
 			if (pos >= 0) {
-				// êŠAƒTƒCƒYŒˆ’è
+				// å ´æ‰€ã€ã‚µã‚¤ã‚ºæ±ºå®š
 				float ratio = pos * 0.01f;
 				float fx, fy, fw, fh;
-				float addsize; // 0`Å‘å10‚É‚È‚éi‘å‚«‚­‚È‚é‚Ù‚Ç”–‚­j
+				float addsize; // 0ï½æœ€å¤§10ã«ãªã‚‹ï¼ˆå¤§ãããªã‚‹ã»ã©è–„ãï¼‰
 				if (last >= 0 && current >= 0) {
-					// Œ»İ‚ÌƒJ[ƒh‚Æ’¼‘O‚ÌƒJ[ƒh‚ª‚ ‚é
+					// ç¾åœ¨ã®ã‚«ãƒ¼ãƒ‰ã¨ç›´å‰ã®ã‚«ãƒ¼ãƒ‰ãŒã‚ã‚‹
 					fx = m_CardX[last] * (1.0f - ratio) +
 						m_CardX[current] * ratio;
 					fy = m_CardY[last] * (1.0f - ratio) +
@@ -7152,7 +7152,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 						m_CardHeight[current] * ratio;
 				}
 				else if (last >= 0) {
-					// ’¼‘O‚ÌƒJ[ƒh‚Ì‚İ‚ ‚é
+					// ç›´å‰ã®ã‚«ãƒ¼ãƒ‰ã®ã¿ã‚ã‚‹
 					fx = m_CardX[last];
 					fy = m_CardY[last];
 					addsize = ratio;
@@ -7160,7 +7160,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 					fh = m_CardHeight[last];
 				}
 				else {
-					// Œ»İ‚ÌƒJ[ƒh‚Ì‚İ‚ ‚é
+					// ç¾åœ¨ã®ã‚«ãƒ¼ãƒ‰ã®ã¿ã‚ã‚‹
 					fx = m_CardX[current];
 					fy = m_CardY[current];
 					addsize = 1.0f - ratio;
@@ -7188,7 +7188,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		}
 	}
 
-	// ”ÍˆÍ‘I‘ğ
+	// ç¯„å›²é¸æŠ
 	if (m_bMDownBrowser == 5) {
 		B->Style = bsClear;
 		P->Width = m_fFontZoom * 3;
@@ -7200,7 +7200,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 			m_nFontHeight);
 	}
 
-	// k¬”Å•\¦
+	// ç¸®å°ç‰ˆè¡¨ç¤º
 	if (SettingView.m_bOverview) {
 		m_nOVWidth = m_nBrowserWidth / 6;
 		m_nOVXOffset = m_nXOffset + m_nBrowserWidth - m_nOVWidth;
@@ -7250,7 +7250,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 		::DeleteObject(MyRgn);
 	}
 
-	// “ÁêƒeƒLƒXƒg•`‰æ
+	// ç‰¹æ®Šãƒ†ã‚­ã‚¹ãƒˆæç”»
 	F->Height = Canvas->Font->Height * 2;
 	B->Style = bsClear;
 	F->Style = TFontStyles() << fsBold;
@@ -7266,7 +7266,7 @@ void TFo_Main::PaintSub(TCanvas *C) {
 	m_nFPSCount++;
 	unsigned int tgt = GetTickCount();
 	if (tgt > m_nLastFPSTime + 1000) {
-		unsigned int d = tgt - m_nLastFPSTime; // Œo‰ßms
+		unsigned int d = tgt - m_nLastFPSTime; // çµŒéms
 		m_fFPS = (m_nFPSCount * 1000.0f) / d;
 		m_nFPSCount = 0;
 		m_nLastFPSTime = tgt;
@@ -7277,22 +7277,22 @@ void TFo_Main::PaintSub(TCanvas *C) {
 
 // ---------------------------------------------------------------------------
 bool TFo_Main::BrowserAutoScroll() {
-	bool result = false; // À•W‚ªXV‚³‚ê‚½‚©‚Ç‚¤‚©
+	bool result = false; // åº§æ¨™ãŒæ›´æ–°ã•ã‚ŒãŸã‹ã©ã†ã‹
 
-	// ‚ä‚Á‚­‚èƒXƒ^[ƒg
+	// ã‚†ã£ãã‚Šã‚¹ã‚¿ãƒ¼ãƒˆ
 	m_fBrowserScrollRatio += 0.1f;
 	if (m_fBrowserScrollRatio > 0.5f) {
 		m_fBrowserScrollRatio = 0.5f;
 	}
 
-	// ƒ^[ƒQƒbƒgƒJ[ƒhAƒŠƒ“ƒN‚ğ’†S‚É‚Á‚Ä‚­‚é
+	// ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚«ãƒ¼ãƒ‰ã€ãƒªãƒ³ã‚¯ã‚’ä¸­å¿ƒã«æŒã£ã¦ãã‚‹
 	if (SB_AutoScroll->Down || m_nScrollTargetX > -65536) {
 		float AX = 0.0f;
 		float AY = 0.0f;
 
 		if (m_nScrollTargetX <= -65536) {
 			if (m_nAnimation > 0 && m_nAnimation != 3) {
-				// ƒ‰ƒ“ƒ_ƒ€ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì‚Æ‚«‚Í’†S‚É‚Á‚Ä‚­‚é
+				// ãƒ©ãƒ³ãƒ€ãƒ ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã¨ãã¯ä¸­å¿ƒã«æŒã£ã¦ãã‚‹
 			}
 			else if (m_nTargetCard >= 0) {
 				TCard *Card = m_Document->GetCard(m_nTargetCard);
@@ -7347,10 +7347,10 @@ bool TFo_Main::BrowserAutoScroll() {
 		int yp = Sc_Y->Position * (1.0f - m_fBrowserScrollRatio) +
 			AY * m_fBrowserScrollRatio;
 		if (Sc_X->Position != xp || Sc_Y->Position != yp) {
-			PB_Browser->Tag = 1; // •`‰æ‹Ö~
+			PB_Browser->Tag = 1; // æç”»ç¦æ­¢
 			Sc_X->Position = xp;
 			Sc_Y->Position = yp;
-			PB_Browser->Tag = 0; // •`‰æÄŠJ
+			PB_Browser->Tag = 0; // æç”»å†é–‹
 			result = true;
 		}
 		else {
@@ -7360,16 +7360,16 @@ bool TFo_Main::BrowserAutoScroll() {
 	}
 
 zoom:
-	// ƒJ[ƒh‚ª‰æ–Ê“à‚Éû‚Ü‚é‚æ‚¤‚ÉƒY[ƒ€
+	// ã‚«ãƒ¼ãƒ‰ãŒç”»é¢å†…ã«åã¾ã‚‹ã‚ˆã†ã«ã‚ºãƒ¼ãƒ 
 	if (SB_AutoZoom->Down) {
-		// •ªUŒvZ
+		// åˆ†æ•£è¨ˆç®—
 		float XD = 0.0f, YD = 0.0f;
 		float CX = 0.5f, CY = 0.5f;
 
 		if (SB_AutoScroll->Down) {
 			if (m_nTargetCard >= 0) {
-				// ƒI[ƒgƒXƒNƒ[ƒ‹ON‚ÅƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éê‡A
-				// ‘I‘ğ’†‚ÌƒJ[ƒh‚ğ’†S‚ÉƒY[ƒ€
+				// ã‚ªãƒ¼ãƒˆã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ONã§ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹å ´åˆã€
+				// é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ã‚’ä¸­å¿ƒã«ã‚ºãƒ¼ãƒ 
 				int cardindex = m_Document->SearchCardIndex(m_nTargetCard);
 				if (cardindex >= 0) {
 					CX = m_CardX[cardindex] / m_nBrowserWidth;
@@ -7411,15 +7411,15 @@ zoom:
 			}
 
 			if (XD > 0.0f) {
-				// ‰Šúó‘Ô‚©‚ç‰½”{‚·‚ê‚Î‚Ò‚Á‚½‚è‚©
-				XD /= pow(2, TB_Zoom->Position / 2000.0f); // Œ³À•W‚Å‚Ì•ªU
-				maxd /= pow(2, TB_Zoom->Position / 2000.0f); // Œ³À•W‚Å‚Ì‚¸‚êÅ‘å’l
-				float target = m_fZoomSD / XD; // •W€•Î·‚ªm_fZoomSD‚É‚È‚é”ÍˆÍ‚ğ•`‰æ
-				if (target > 0.4f / maxd) { // •W€•Î·‚¾‚¯‚Å‚ÍA‚Í‚İ‚¾‚·ƒJ[ƒh‚ªo‚Ä‚µ‚Ü‚¤ê‡
-					target = 0.4f / maxd; // Å‘å‚ÌƒYƒŒ‚ª0.4‚É‚È‚é”ÍˆÍ‚ğ•`‰æ
+				// åˆæœŸçŠ¶æ…‹ã‹ã‚‰ä½•å€ã™ã‚Œã°ã´ã£ãŸã‚Šã‹
+				XD /= pow(2, TB_Zoom->Position / 2000.0f); // å…ƒåº§æ¨™ã§ã®åˆ†æ•£
+				maxd /= pow(2, TB_Zoom->Position / 2000.0f); // å…ƒåº§æ¨™ã§ã®ãšã‚Œæœ€å¤§å€¤
+				float target = m_fZoomSD / XD; // æ¨™æº–åå·®ãŒm_fZoomSDã«ãªã‚‹ç¯„å›²ã‚’æç”»
+				if (target > 0.4f / maxd) { // æ¨™æº–åå·®ã ã‘ã§ã¯ã€ã¯ã¿ã ã™ã‚«ãƒ¼ãƒ‰ãŒå‡ºã¦ã—ã¾ã†å ´åˆ
+					target = 0.4f / maxd; // æœ€å¤§ã®ã‚ºãƒ¬ãŒ0.4ã«ãªã‚‹ç¯„å›²ã‚’æç”»
 				}
 
-				// Zoom‚ğ‚¢‚­‚Â‚É‚·‚ê‚Î‚Ò‚Á‚½‚è‚©
+				// Zoomã‚’ã„ãã¤ã«ã™ã‚Œã°ã´ã£ãŸã‚Šã‹
 				// pow(2, targetzoom / 2000.0f) = target;
 				// pow(x,y) = exp(log(x) * y)
 				// exp(log(x) * targetzoom / 200.0f) = target;
@@ -7450,20 +7450,20 @@ zoom:
 				 }
 				 */
 				if (TB_Zoom->Position != zp) {
-					PB_Browser->Tag = 1; // •`‰æ‹Ö~
+					PB_Browser->Tag = 1; // æç”»ç¦æ­¢
 					TB_Zoom->Position = zp;
-					PB_Browser->Tag = 0; // •`‰æÄŠJ
+					PB_Browser->Tag = 0; // æç”»å†é–‹
 					result = true;
 				}
 
 				/*
-				 PB_Browser->Tag = 1;//•`‰æ‹Ö~
+				 PB_Browser->Tag = 1;//æç”»ç¦æ­¢
 				 if (XD < 0.20f){
 				 TB_Zoom->Position = TB_Zoom->Position + 1;
 				 }else if (XD > 0.21f){
 				 TB_Zoom->Position = TB_Zoom->Position - 1;
 				 }
-				 PB_Browser->Tag = 0;//•`‰æÄŠJ
+				 PB_Browser->Tag = 0;//æç”»å†é–‹
 				 */
 			}
 		}
@@ -7510,10 +7510,10 @@ double DistanceToLine(int X, int Y, double X1, double Y1, double X2, double Y2)
 	/*
 	 double dtosource =
 	 (X1 - X) * (X1 - X) +
-	 (Y1 - Y) * (Y1 - Y);//Source‚Ü‚Å‚Ì‹——£^2
+	 (Y1 - Y) * (Y1 - Y);//Sourceã¾ã§ã®è·é›¢^2
 	 double dtodest =
 	 (X2 - X) * (X2 - X) +
-	 (Y2 - Y) * (Y2 - Y);//Dest‚Ü‚Å‚Ì‹——£^2
+	 (Y2 - Y) * (Y2 - Y);//Destã¾ã§ã®è·é›¢^2
 	 */
 	double K1, K2;
 	if (X2 != X1) {
@@ -7574,7 +7574,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 
 	/*
 	 if (RE_Edit->Parent == Pa_Editor){
-	 //Browser‚Å–{•¶•ÒW’†‚Å‚Í‚È‚¢
+	 //Browserã§æœ¬æ–‡ç·¨é›†ä¸­ã§ã¯ãªã„
 	 TB_Zoom->SetFocus();
 	 }
 	 */
@@ -7593,7 +7593,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 	if (SettingView.m_bOverview && Button == mbLeft) {
 		if (X >= m_nOVXOffset && X < m_nOVXOffset + m_nOVWidth && Y >=
 			m_nOVYOffset && Y < m_nOVYOffset + m_nOVHeight) {
-			// Overviewã‚ªƒNƒŠƒbƒN‚³‚ê‚½
+			// Overviewä¸ŠãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸ
 
 			m_bMDownBrowser = 4;
 			m_fBrowserScrollRatio = 0.0f;
@@ -7606,7 +7606,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 	m_nScrollTargetY = -65536;
 	/*
 	 if (TreeMode()){
-	 //Foldƒ{ƒ^ƒ“
+	 //Foldãƒœã‚¿ãƒ³
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i] && m_CardAssign[i] == i){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 	 if (Card->m_bHasChild){
@@ -7630,14 +7630,14 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 	 }
 	 */
 
-	// ƒJ[ƒh‘I‘ğ
+	// ã‚«ãƒ¼ãƒ‰é¸æŠ
 	int lastcard = m_nTargetCard;
 	m_nTargetCard = -1;
 	m_nTargetLink = -1;
 	m_nTargetCard2 = -1;
 	int aindex = -1;
 
-	// ‘I‘ğ’†‚ÌƒJ[ƒh
+	// é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰
 	if (lastcard >= 0) {
 		int i = m_Document->SearchCardIndex(lastcard);
 		if (i >= 0)
@@ -7654,7 +7654,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 			}
 	}
 
-	// •`‰æ‡˜
+	// æç”»é †åº
 	int *draworder = new int[m_Document->m_Cards->Count];
 	memset(draworder, 0, sizeof(int) * m_Document->m_Cards->Count);
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
@@ -7662,7 +7662,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 		draworder[vo] = i;
 	}
 
-	// ŠÖ˜AƒJ[ƒh
+	// é–¢é€£ã‚«ãƒ¼ãƒ‰
 	// for (int i = m_Document->m_Cards->Count - 1 ; i >= 0 && aindex == -1 ; i--) if (m_CardVisible[i] && m_CardRelated[i] && m_CardAssign[i] == i){
 	for (int ic = m_Document->m_Cards->Count - 1; ic >= 0 && aindex == -1; ic--)
 	{
@@ -7679,7 +7679,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 		}
 	}
 
-	// ‚»‚Ì‘¼‚ÌƒJ[ƒh
+	// ãã®ä»–ã®ã‚«ãƒ¼ãƒ‰
 	// for (int i = m_Document->m_Cards->Count - 1 ; i >= 0 && aindex == -1 ; i--){
 	for (int ic = m_Document->m_Cards->Count - 1; ic >= 0 && aindex == -1; ic--)
 	{
@@ -7698,7 +7698,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 	delete[]draworder;
 
 	if (Shift.Contains(ssAlt) && Button == mbLeft) {
-		// AltƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éLink Limitation‚ÌTargetCardw’è
+		// Altã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ï¼Link Limitationã®TargetCardæŒ‡å®š
 		if (aindex >= 0) {
 			int i = aindex;
 			TCard *Card = m_Document->GetCardByIndex(i);
@@ -7712,7 +7712,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 		return;
 		/*
 		 }else if (Shift.Contains(ssCtrl) && !Shift.Contains(ssShift) && aindex >= 0 && lastcard >= 0){
-		 //Ctrl‚ğ‰Ÿ‚µ‚È‚ª‚çƒNƒŠƒbƒN‘I‘ğ‘€ì
+		 //Ctrlã‚’æŠ¼ã—ãªãŒã‚‰ã‚¯ãƒªãƒƒã‚¯ï¼é¸æŠæ“ä½œ
 		 TCard *Card = m_Document->GetCardByIndex(aindex);
 		 if (Card->m_nID != m_nTargetCard){
 		 Card->m_bSelected = !Card->m_bSelected;
@@ -7723,7 +7723,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 		 */
 	}
 	else if (aindex >= 0) {
-		// ‰½‚à‰Ÿ‚³‚¸‚ÉƒNƒŠƒbƒNƒJ[ƒh‘I‘ğ
+		// ä½•ã‚‚æŠ¼ã•ãšã«ã‚¯ãƒªãƒƒã‚¯ï¼ã‚«ãƒ¼ãƒ‰é¸æŠ
 
 		int i = aindex;
 		TCard *Card = m_Document->GetCardByIndex(i);
@@ -7731,7 +7731,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 
 		if (!Shift.Contains(ssCtrl) && Button != mbRight && !Card->m_bSelected)
 		{
-			// ‘I‘ğƒNƒŠƒA
+			// é¸æŠã‚¯ãƒªã‚¢
 			m_Document->ClearCardSelection();
 		}
 
@@ -7747,7 +7747,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 
 		if (Button == mbLeft) {
 			if (!Card->m_bLabelIsFold) {
-				// Ü‚è‚½‚½‚Ü‚ê‚Ä‚¢‚È‚¢
+				// æŠ˜ã‚ŠãŸãŸã¾ã‚Œã¦ã„ãªã„
 				if (SB_ToolLabel->Down) {
 					if (m_nToolLabel > 0) {
 						BackupSub(MLText.AddLabel);
@@ -7761,7 +7761,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 				}
 
 				if (Shift.Contains(ssShift) && Shift.Contains(ssCtrl)) {
-					// CtrlƒL[+Shift‚ğ‰Ÿ‚µ‚È‚ª‚ç‚ÌƒNƒŠƒbƒNiŠO•”ƒŠƒ“ƒNj
+					// Ctrlã‚­ãƒ¼+Shiftã‚’æŠ¼ã—ãªãŒã‚‰ã®ã‚¯ãƒªãƒƒã‚¯ï¼ˆå¤–éƒ¨ãƒªãƒ³ã‚¯ï¼‰
 					TStringList *SL = new TStringList();
 					for (int i2 = 0; i2 < Card->m_Lines->Count; i2++) {
 						if (IsFileNameOrURL(Card->m_Lines->Strings[i2])) {
@@ -7770,16 +7770,16 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 					}
 
 					if (SL->Count == 1) {
-						// 1‚Â‚Ì‚İƒŠƒ“ƒN‚ªŒ©‚Â‚©‚Á‚½
+						// 1ã¤ã®ã¿ãƒªãƒ³ã‚¯ãŒè¦‹ã¤ã‹ã£ãŸ
 						OpenExtLink(SL->Strings[0]);
 						m_bMDownBrowser = 0;
 						delete SL;
 						return;
 					}
 					else if (SL->Count > 1) {
-						// •¡”ƒŠƒ“ƒN‚ªŒ©‚Â‚©‚Á‚½
+						// è¤‡æ•°ãƒªãƒ³ã‚¯ãŒè¦‹ã¤ã‹ã£ãŸ
 
-						// ƒ|ƒbƒvƒAƒbƒv•\¦
+						// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¡¨ç¤º
 
 						FreeMIExtLink();
 						MI_ExtLink = new TList();
@@ -7804,12 +7804,12 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 					delete SL;
 				}
 				else if (!Card->m_bSelected) {
-					// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µA”ñ‘I‘ğ‚É‚µ‚½iCtrl‚ğ‰Ÿ‚µ‚Ä‚¢‚½j
+					// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã€éé¸æŠã«ã—ãŸï¼ˆCtrlã‚’æŠ¼ã—ã¦ã„ãŸï¼‰
 
 					m_bMDownBrowser = 0;
 				}
 				else if (lastcard == m_nTargetCard && !LastEd_TitleBVisible) {
-					// “¯‚¶ƒJ[ƒh‚ğƒNƒŠƒbƒN¨ƒ^ƒCƒgƒ‹•ÒW
+					// åŒã˜ã‚«ãƒ¼ãƒ‰ã‚’ã‚¯ãƒªãƒƒã‚¯â†’ã‚¿ã‚¤ãƒˆãƒ«ç·¨é›†
 					bool b = true;
 					if (SettingFile.fepOperation) {
 						b = !SettingFile.fepOperation(m_Document,
@@ -7826,7 +7826,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 					}
 				}
 				else if (Shift.Contains(ssShift) && !Shift.Contains(ssCtrl)) {
-					// ShiftƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç‚ÌƒNƒŠƒbƒNiƒŠƒ“ƒN‚ğ“\‚éj
+					// Shiftã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ã®ã‚¯ãƒªãƒƒã‚¯ï¼ˆãƒªãƒ³ã‚¯ã‚’è²¼ã‚‹ï¼‰
 					if (lastcard >= 0) {
 						BackupSub(MI_NewLink->Caption);
 						TLink *Link = m_Document->NewLink();
@@ -7834,14 +7834,14 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 						Link->m_nDestID = m_nTargetCard;
 
 						if (SB_ToolLinkLabel->Down && m_nToolLinkLabel > 0) {
-							// ƒfƒtƒHƒ‹ƒgƒŠƒ“ƒNƒ‰ƒxƒ‹‚ ‚è
+							// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒªãƒ³ã‚¯ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 							Link->m_Labels->AddLabel(m_nToolLinkLabel);
 						}
 					}
 				}
 			}
 			else {
-				// ƒ‰ƒxƒ‹‚ªFold‚³‚ê‚Ä‚¢‚éi“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚à“¯—l‚É‘I‘ğA”ñ‘I‘ğ‚É‚·‚éj
+				// ãƒ©ãƒ™ãƒ«ãŒFoldã•ã‚Œã¦ã„ã‚‹ï¼ˆåŒã˜ãƒ©ãƒ™ãƒ«ã®ã‚«ãƒ¼ãƒ‰ã‚‚åŒæ§˜ã«é¸æŠã€éé¸æŠã«ã™ã‚‹ï¼‰
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 					if (m_CardVisible[i2] && i != i2) {
 						TCard *Card2 = m_Document->GetCardByIndex(i2);
@@ -7853,11 +7853,11 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 		}
 	}
 	else {
-		// ‹ó”’‚ğƒNƒŠƒbƒN
+		// ç©ºç™½ã‚’ã‚¯ãƒªãƒƒã‚¯
 
 		if (Shift.Contains(ssCtrl)) {
-			// Ctrl‚ğ‰Ÿ‚µ‚È‚ª‚ç
-			// ‘I‘ğƒNƒŠƒA‚¹‚¸
+			// Ctrlã‚’æŠ¼ã—ãªãŒã‚‰
+			// é¸æŠã‚¯ãƒªã‚¢ã›ãš
 			m_nTargetCard = lastcard;
 			if (!Shift.Contains(ssShift)) {
 				m_bMDownBrowser = 0;
@@ -7865,7 +7865,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 			}
 		}
 		else {
-			// ƒJ[ƒh‘I‘ğƒNƒŠƒA
+			// ã‚«ãƒ¼ãƒ‰é¸æŠã‚¯ãƒªã‚¢
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				TCard *Card = m_Document->GetCardByIndex(i);
 				Card->m_bSelected = false;
@@ -7873,27 +7873,27 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 		}
 
 		if (Shift.Contains(ssShift)) {
-			// Shift‚ğ‰Ÿ‚µ‚È‚ª‚çi”ÍˆÍ‘I‘ğj
+			// Shiftã‚’æŠ¼ã—ãªãŒã‚‰ï¼ˆç¯„å›²é¸æŠï¼‰
 			m_bMDownBrowser = 5;
 			return;
 		}
 	}
 
-	// ƒŠƒ“ƒN‘I‘ğ
+	// ãƒªãƒ³ã‚¯é¸æŠ
 	if (m_nTargetCard == -1 && m_Document->m_Links->Count > 0) {
 		double mind = 0.0;
 		int min = 0;
 		bool editdest = false;
 		int count = 0;
 
-		// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãªã„
 		for (int i = 0; i < m_Document->m_Links->Count; i++)
 			if (m_LinkVisible[i]) {
 				TLink *Link = m_Document->GetLinkByIndex(i);
 				int card1index = m_Document->SearchCardIndex(Link->m_nFromID);
 				int card2index = m_Document->SearchCardIndex(Link->m_nDestID);
 				if (m_CardVisible[card1index] && m_CardVisible[card2index]) {
-					// ƒŠƒ“ƒN‚ª•\¦‚³‚ê‚Ä‚¢‚éiLink‚ğƒ‰ƒxƒ‹‚Å•\¦”ñ•\¦‚·‚é‚æ‚¤‚É‚È‚Á‚½‚çA‚»‚ê‚àl—¶‚·‚é•K—v‚ ‚èj
+					// ãƒªãƒ³ã‚¯ãŒè¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ï¼ˆLinkã‚’ãƒ©ãƒ™ãƒ«ã§è¡¨ç¤ºéè¡¨ç¤ºã™ã‚‹ã‚ˆã†ã«ãªã£ãŸã‚‰ã€ãã‚Œã‚‚è€ƒæ…®ã™ã‚‹å¿…è¦ã‚ã‚Šï¼‰
 					// TCard *Card1 = m_Document->GetCardByIndex(card1index);
 					// TCard *Card2 = m_Document->GetCardByIndex(card2index);
 
@@ -7904,12 +7904,12 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 
 					double S = 100.0f;
 					if (Link->m_nShape < 6) {
-						// ’¼ü
+						// ç›´ç·š
 						S = DistanceToLine(X, Y, X1, Y1, X2, Y2);
 					}
 					else {
-						// ‹Èü
-						// ü‚Ì’·‚³
+						// æ›²ç·š
+						// ç·šã®é•·ã•
 						float xd = X2 - X1;
 						float yd = Y2 - Y1;
 						float len = sqrt(xd * xd + yd * yd) * sqrt(2);
@@ -7975,7 +7975,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 	}
 	m_bMDownBrowserMoved = false;
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ÌXV
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æ›´æ–°
 	Ti_CheckTimer(Sender);
 }
 // ---------------------------------------------------------------------------
@@ -7983,7 +7983,7 @@ void __fastcall TFo_Main::PB_BrowserMouseDown(TObject *Sender,
 void TFo_Main::BrowserNewCard() {
 	BackupSub(MI_NewCard->Caption);
 
-	// V‹KƒJ[ƒh
+	// æ–°è¦ã‚«ãƒ¼ãƒ‰
 	m_Document->ClearCardSelection();
 	TCard *Card = m_Document->NewCard(m_Document->m_Cards->Count);
 	Card->m_bSelected = true;
@@ -7993,7 +7993,7 @@ void TFo_Main::BrowserNewCard() {
 	Card->m_fY = cy;
 
 	if (SB_ToolLabel->Down && m_nToolLabel > 0) {
-		// ƒfƒtƒHƒ‹ƒgƒ‰ƒxƒ‹‚ ‚è
+		// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ©ãƒ™ãƒ«ã‚ã‚Š
 		Card->m_Labels->AddLabel(m_nToolLabel);
 	}
 
@@ -8001,7 +8001,7 @@ void TFo_Main::BrowserNewCard() {
 	m_nTargetLink = -1;
 	m_bDblClicked = true;
 
-	// •ÒWƒ{ƒbƒNƒXˆÚ“®
+	// ç·¨é›†ãƒœãƒƒã‚¯ã‚¹ç§»å‹•
 	Ti_CheckTimer(this);
 	/*
 	 if (Fo_FullScreen->Visible){
@@ -8020,7 +8020,7 @@ void TFo_Main::BrowserNewCard() {
 void __fastcall TFo_Main::PB_BrowserDblClick(TObject *Sender) {
 	CloseEditBox();
 
-	// ƒ_ƒuƒ‹ƒNƒŠƒbƒN‚ÌƒtƒbƒN
+	// ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã®ãƒ•ãƒƒã‚¯
 	if (SettingFile.fepOperation) {
 		if (SettingFile.fepOperation(m_Document,
 			UnicodeString("Card_DblClick").c_str())) {
@@ -8031,14 +8031,14 @@ void __fastcall TFo_Main::PB_BrowserDblClick(TObject *Sender) {
 	if (m_nTargetCard >= 0) {
 		TCard *Card = m_Document->GetCard(m_nTargetCard);
 		if (Card->m_bLabelIsFold) {
-			// Ü‚è‚½‚½‚Ü‚ê‚Ä‚¢‚é
+			// æŠ˜ã‚ŠãŸãŸã¾ã‚Œã¦ã„ã‚‹
 			for (int il = 0; il < Card->m_Labels->Count; il++) {
 				m_Document->GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1)
 					->m_bFold = false;
 			}
 		}
 		else {
-			// ƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒNiƒGƒfƒBƒ^‚ğŠJ‚­j
+			// ã‚«ãƒ¼ãƒ‰ã‚’ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ï¼ˆã‚¨ãƒ‡ã‚£ã‚¿ã‚’é–‹ãï¼‰
 			if (SettingView.m_bEditInBrowser) {
 				m_bTextEditRequested = true;
 			}
@@ -8048,7 +8048,7 @@ void __fastcall TFo_Main::PB_BrowserDblClick(TObject *Sender) {
 		}
 	}
 	else {
-		// ‹ó”’‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN
+		// ç©ºç™½ã‚’ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯
 		BrowserNewCard();
 	}
 }
@@ -8059,10 +8059,10 @@ void __fastcall TFo_Main::PB_BrowserMouseUp(TObject *Sender,
 	int MDownBrowserBak = m_bMDownBrowser;
 	m_bMDownBrowser = 0;
 	if (m_nTargetCard2 >= 0) {
-		// ƒŠƒ“ƒNü’Ç‰ÁA•ÒW
+		// ãƒªãƒ³ã‚¯ç·šè¿½åŠ ã€ç·¨é›†
 		switch (MDownBrowserBak) {
 		case 1: {
-				// ƒŠƒ“ƒN’Ç‰Á
+				// ãƒªãƒ³ã‚¯è¿½åŠ 
 				TCard *Card = m_Document->GetCard(m_nTargetCard);
 				if (Card) {
 					BackupSub(MI_NewLink->Caption);
@@ -8071,7 +8071,7 @@ void __fastcall TFo_Main::PB_BrowserMouseUp(TObject *Sender,
 					Link->m_nDestID = m_nTargetCard2;
 
 					if (SB_ToolLinkLabel->Down && m_nToolLinkLabel > 0) {
-						// ƒfƒtƒHƒ‹ƒgƒŠƒ“ƒNƒ‰ƒxƒ‹‚ ‚è
+						// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒªãƒ³ã‚¯ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 						Link->m_Labels->AddLabel(m_nToolLinkLabel);
 					}
 
@@ -8080,7 +8080,7 @@ void __fastcall TFo_Main::PB_BrowserMouseUp(TObject *Sender,
 				}
 			} break;
 		case 2:
-			// Dest‘¤‚ğ•ÒW
+			// Destå´ã‚’ç·¨é›†
 			{
 				BackupSub(MLText.EditLink);
 				TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
@@ -8089,7 +8089,7 @@ void __fastcall TFo_Main::PB_BrowserMouseUp(TObject *Sender,
 				m_Document->RefreshLink();
 			} break;
 		case 3:
-			// From‘¤‚ğ•ÒW
+			// Fromå´ã‚’ç·¨é›†
 			{
 				BackupSub(MLText.EditLink);
 				TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
@@ -8099,7 +8099,7 @@ void __fastcall TFo_Main::PB_BrowserMouseUp(TObject *Sender,
 			} break;
 		}
 
-		// ƒ^ƒCƒgƒ‹•ÒW‚ğÁ‚·
+		// ã‚¿ã‚¤ãƒˆãƒ«ç·¨é›†ã‚’æ¶ˆã™
 		CloseEditBox();
 		CloseTextEditBox();
 	}
@@ -8126,7 +8126,7 @@ void TFo_Main::CardPosToDispPos(float cx, float cy, float &dx, float &dy) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::DispPosToCardPos(float dx, float dy, float &cx, float &cy) {
-	// ƒJ[ƒh‚ğƒhƒ‰ƒbƒO’†
+	// ã‚«ãƒ¼ãƒ‰ã‚’ãƒ‰ãƒ©ãƒƒã‚°ä¸­
 	cx = dx;
 	cy = dy;
 
@@ -8161,7 +8161,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 
 	switch (m_bMDownBrowser) {
 	case 1:
-		// ’Êí‚Ìƒhƒ‰ƒbƒO
+		// é€šå¸¸ã®ãƒ‰ãƒ©ãƒƒã‚°
 		if (m_nMDownTargetX != m_nMDownBrowserX ||
 			m_nMDownTargetY != m_nMDownBrowserY) {
 			CloseEditBox();
@@ -8173,7 +8173,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 				DispPosToCardPos(X + m_nMDownBrowserOffsetX,
 					Y + m_nMDownBrowserOffsetY, CardX, CardY);
 
-				// ƒJ[ƒh‚ğƒhƒ‰ƒbƒO’†
+				// ã‚«ãƒ¼ãƒ‰ã‚’ãƒ‰ãƒ©ãƒƒã‚°ä¸­
 				TCard *Card = m_Document->GetCard(m_nTargetCard);
 				if (Card) {
 					TList *moved = new TList();
@@ -8184,7 +8184,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 					moved->Add(Card);
 					bool fold = Card->m_bLabelIsFold;
 					if (Shift.Contains(ssCtrl)) {
-						// fold‚³‚ê‚Ä‚¢‚é‚©ACtrl‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éê‡A“¯‚¶ƒ‰ƒxƒ‹‚Ì‘S‚Ä‚ÌƒJ[ƒh‚ğˆÚ“®
+						// foldã•ã‚Œã¦ã„ã‚‹ã‹ã€CtrlãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹å ´åˆã€åŒã˜ãƒ©ãƒ™ãƒ«ã®å…¨ã¦ã®ã‚«ãƒ¼ãƒ‰ã‚’ç§»å‹•
 						for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 							TCard *Card2 = m_Document->GetCardByIndex(i);
 							if (Card->m_nID != Card2->m_nID) {
@@ -8215,7 +8215,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 						}
 					}
 					else {
-						// ’Êí‚Ìê‡A‘I‘ğ’†‚ÌƒJ[ƒh‚ğˆÚ“®
+						// é€šå¸¸ã®å ´åˆã€é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ã‚’ç§»å‹•
 						for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 							TCard *Card2 = m_Document->GetCardByIndex(i);
 							if (Card->m_nID != Card2->m_nID &&
@@ -8252,16 +8252,16 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 					}
 
 					if (TreeMode()) {
-						// –Ø\‘¢iƒhƒ‰ƒbƒO‚ÅIndex•ÏXj
+						// æœ¨æ§‹é€ ï¼ˆãƒ‰ãƒ©ãƒƒã‚°ã§Indexå¤‰æ›´ï¼‰
 
-						// “®‚¢‚½ƒJ[ƒhƒ‹[ƒv
+						// å‹•ã„ãŸã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 						for (int i = 0; i < moved->Count; i++) {
 							TCard *Card = (TCard*)moved->Items[i];
 
-							// XÀ•WŒˆ’è
+							// Xåº§æ¨™æ±ºå®š
 							float x = 0.0f;
 							bool first = true;
-							// ƒJ[ƒhƒ‹[ƒv
+							// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 							for (int ic = 0;
 							ic < m_Document->m_Cards->Count; ic++)
 								if (m_CardVisible[ic]) {
@@ -8269,21 +8269,21 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 										m_Document->GetCardByIndex(ic);
 									if (Card != Card2 && Card2->m_nParentID ==
 										Card->m_nParentID) {
-										// “¯‚¶e‚ğ‚ÂƒJ[ƒh
+										// åŒã˜è¦ªã‚’æŒã¤ã‚«ãƒ¼ãƒ‰
 										if (first) {
 										x = Card2->m_fX;
 										first = false;
 										}
 										else if (fabs(Card2->m_fX - Card->m_fX)
 										< fabs(x - Card->m_fX)) {
-										// ‚æ‚èXÀ•W‚ª¡‚ÌƒJ[ƒh‚É‹ß‚¢
+										// ã‚ˆã‚ŠXåº§æ¨™ãŒä»Šã®ã‚«ãƒ¼ãƒ‰ã«è¿‘ã„
 										x = Card2->m_fX;
 										}
 									}
 								}
 
-							// ‘ÎÛƒJ[ƒh—ñ‹“
-							TList *cards = new TList(); // l—¶‘ÎÛ
+							// å¯¾è±¡ã‚«ãƒ¼ãƒ‰åˆ—æŒ™
+							TList *cards = new TList(); // è€ƒæ…®å¯¾è±¡
 							for (int ic = 0;
 							ic < m_Document->m_Cards->Count; ic++)
 								if (m_CardVisible[ic]) {
@@ -8292,13 +8292,13 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 									if (Card != Card2 && Card2->m_nParentID ==
 										Card->m_nParentID) {
 										if (fabs(Card2->m_fX - x) < 1.0e-5) {
-										// XÀ•W‚ª“¯‚¶
+										// Xåº§æ¨™ãŒåŒã˜
 										cards->Add(Card2);
 										}
 									}
 								}
 
-							// ‘ÎÛƒJ[ƒh‚ÆÀ•W‚ğ”ä‚×‚È‚ª‚çƒXƒƒbƒv
+							// å¯¾è±¡ã‚«ãƒ¼ãƒ‰ã¨åº§æ¨™ã‚’æ¯”ã¹ãªãŒã‚‰ã‚¹ãƒ¯ãƒƒãƒ—
 							for (int ic = 0; ic < cards->Count; ic++) {
 								TCard *Card2 = (TCard*)cards->Items[ic];
 								int index1 =
@@ -8309,10 +8309,10 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 									Card2->m_fY) ||
 									(index1 > index2 && Card->m_fY <
 									Card2->m_fY)) {
-									// Index‚ªè‘O‚È‚Ì‚ÉAYÀ•W‚ÍŒã‚ë‚©A
-									// Index‚ªŒã‚ë‚È‚Ì‚ÉAYÀ•W‚Íè‘O
+									// IndexãŒæ‰‹å‰ãªã®ã«ã€Yåº§æ¨™ã¯å¾Œã‚ã‹ã€
+									// IndexãŒå¾Œã‚ãªã®ã«ã€Yåº§æ¨™ã¯æ‰‹å‰
 
-									// Index‚ğSwap
+									// Indexã‚’Swap
 									m_Document->SwapCard(index1, index2);
 								}
 							}
@@ -8334,7 +8334,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 				}
 			}
 			else {
-				// ƒŠƒ“ƒNü
+				// ãƒªãƒ³ã‚¯ç·š
 				m_nTargetCard2 = -1;
 				for (int i = m_Document->m_Cards->Count - 1; i >= 0; i--)
 					if (m_Document->GetCardByIndex(i)
@@ -8355,7 +8355,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 			}
 		}
 		else {
-			// ƒV[ƒg‚ğƒhƒ‰ƒbƒO’†
+			// ã‚·ãƒ¼ãƒˆã‚’ãƒ‰ãƒ©ãƒƒã‚°ä¸­
 			float ShiftX = X - m_nMDownBrowserX;
 			float ShiftY = Y - m_nMDownBrowserY;
 
@@ -8368,20 +8368,20 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 			ShiftX /= Zoom;
 			ShiftY /= Zoom;
 
-			PB_Browser->Tag = 1; // XV‹Ö~
+			PB_Browser->Tag = 1; // æ›´æ–°ç¦æ­¢
 			Sc_X->Position = m_nMDownBrowserScrollX - ShiftX * 10000;
 			Sc_Y->Position = m_nMDownBrowserScrollY - ShiftY * 10000;
-			PB_Browser->Tag = 0; // XVÄŠJ
+			PB_Browser->Tag = 0; // æ›´æ–°å†é–‹
 
 			// PB_BrowserPaint(Sender);
 			m_bRedrawRequested = true;
 		}
 
-		// ƒ^ƒCƒgƒ‹•ÒW‚ğ’Ç]‚³‚¹‚é
+		// ã‚¿ã‚¤ãƒˆãƒ«ç·¨é›†ã‚’è¿½å¾“ã•ã›ã‚‹
 		SetEdTitleBPos();
 		break;
 	case 2:
-		// ƒŠƒ“ƒNüƒhƒ‰ƒbƒOiDest‘¤j
+		// ãƒªãƒ³ã‚¯ç·šãƒ‰ãƒ©ãƒƒã‚°ï¼ˆDestå´ï¼‰
 		if (m_nTargetLink >= 0) {
 			TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 
@@ -8404,7 +8404,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 		}
 		break;
 	case 3:
-		// ƒŠƒ“ƒNüƒhƒ‰ƒbƒOiSource‘¤j
+		// ãƒªãƒ³ã‚¯ç·šãƒ‰ãƒ©ãƒƒã‚°ï¼ˆSourceå´ï¼‰
 		if (m_nTargetLink >= 0) {
 			TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 
@@ -8429,7 +8429,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 	case 4:
 		// Overview
 		{
-			// ƒJ[ƒhÀ•W‚É•ÏŠ·
+			// ã‚«ãƒ¼ãƒ‰åº§æ¨™ã«å¤‰æ›
 			float cx =
 				(((X * 1.0f - m_nOVXOffset) / m_nOVWidth - 0.5f)
 				/ OVERVIEWSIZE + 0.5f);
@@ -8437,7 +8437,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 				(((Y * 1.0f - m_nOVYOffset) / m_nOVHeight - 0.5f)
 				/ OVERVIEWSIZE + 0.5f);
 
-			// ‚±‚ÌƒJ[ƒhÀ•W‚ğ’†S‚É‚Á‚Ä‚­‚éƒXƒNƒ[ƒ‹ˆÊ’u‚ğZo
+			// ã“ã®ã‚«ãƒ¼ãƒ‰åº§æ¨™ã‚’ä¸­å¿ƒã«æŒã£ã¦ãã‚‹ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ã‚’ç®—å‡º
 			float AX = 0.5f - cx;
 			float AY = 0.5f - cy;
 
@@ -8447,7 +8447,7 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 			AX *= 10000;
 			AY *= 10000;
 
-			PB_Browser->Tag = 1; // •`‰æ‹Ö~
+			PB_Browser->Tag = 1; // æç”»ç¦æ­¢
 			if (m_nTargetCard >= 0 || m_nTargetLink >= 0) {
 				SB_AutoScroll->Down = false;
 			}
@@ -8456,11 +8456,11 @@ void __fastcall TFo_Main::PB_BrowserMouseMove(TObject *Sender,
 			m_fBrowserScrollRatio = 0.0f;
 			m_nScrollTargetX = 5000 - AX;
 			m_nScrollTargetY = 5000 - AY;
-			PB_Browser->Tag = 0; // •`‰æÄŠJ
+			PB_Browser->Tag = 0; // æç”»å†é–‹
 			BrowserAutoScroll();
 		} break;
 	case 5:
-		// ”ÍˆÍ‘I‘ğ
+		// ç¯„å›²é¸æŠ
 		int leftx, rightx, topy, bottomy;
 		if (m_nMDownBrowserX < m_nMDownTargetX) {
 			leftx = m_nMDownBrowserX;
@@ -8547,14 +8547,14 @@ void __fastcall TFo_Main::FormKeyUp(TObject *Sender, WORD &Key,
 void TFo_Main::BrowserNewChildCard(bool binverse) {
 	BackupSub(PBC_NewChildCard->Caption);
 
-	// ƒJ[ƒh‚©‚çƒŠƒ“ƒN‚ğ’£‚Á‚½V‹KƒJ[ƒhì¬
+	// ã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯ã‚’å¼µã£ãŸæ–°è¦ã‚«ãƒ¼ãƒ‰ä½œæˆ
 	int lastcard = m_nTargetCard;
 	int lastindex = m_Document->SearchCardIndex(lastcard);
 	int insindex = lastindex + 1;
 	TCard *LastCard = m_Document->GetCardByIndex(lastindex);
 
 	if (!binverse) {
-		// ‚±‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚ğ’£‚Á‚Ä‚¢‚éÅŒã‚ÌƒJ[ƒh‚ÌŸ‚É‚±‚ÌƒJ[ƒh‚ğ‘}“ü
+		// ã“ã®ã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯ã‚’å¼µã£ã¦ã„ã‚‹æœ€å¾Œã®ã‚«ãƒ¼ãƒ‰ã®æ¬¡ã«ã“ã®ã‚«ãƒ¼ãƒ‰ã‚’æŒ¿å…¥
 		for (int il = 0; il < m_Document->m_Links->Count; il++) {
 			TLink *Link = m_Document->GetLinkByIndex(il);
 			if (Link->m_nFromID == lastcard) {
@@ -8566,9 +8566,9 @@ void TFo_Main::BrowserNewChildCard(bool binverse) {
 		}
 	}
 	else {
-		// ƒVƒtƒg‚ğ‰Ÿ‚µ‚Ä‚¢‚é¨‹t•ûŒüƒŠƒ“ƒN
+		// ã‚·ãƒ•ãƒˆã‚’æŠ¼ã—ã¦ã„ã‚‹â†’é€†æ–¹å‘ãƒªãƒ³ã‚¯
 
-		// ‚±‚ÌƒJ[ƒh‚ÖƒŠƒ“ƒN‚ğ’£‚Á‚Ä‚¢‚éÅŒã‚ÌƒJ[ƒh‚ÌŸ‚É‚±‚ÌƒJ[ƒh‚ğ‘}“ü
+		// ã“ã®ã‚«ãƒ¼ãƒ‰ã¸ãƒªãƒ³ã‚¯ã‚’å¼µã£ã¦ã„ã‚‹æœ€å¾Œã®ã‚«ãƒ¼ãƒ‰ã®æ¬¡ã«ã“ã®ã‚«ãƒ¼ãƒ‰ã‚’æŒ¿å…¥
 		for (int il = 0; il < m_Document->m_Links->Count; il++) {
 			TLink *Link = m_Document->GetLinkByIndex(il);
 			if (Link->m_nDestID == lastcard) {
@@ -8584,13 +8584,13 @@ void TFo_Main::BrowserNewChildCard(bool binverse) {
 	TCard *NewCard = m_Document->NewCard(insindex);
 	NewCard->m_bSelected = true;
 	if (SB_Arrange->Down) {
-		// ©“®®—’†‚ÍeƒJ[ƒh‚Æ“¯‚¶ˆÊ’u‚É‘}“ü
+		// è‡ªå‹•æ•´ç†ä¸­ã¯è¦ªã‚«ãƒ¼ãƒ‰ã¨åŒã˜ä½ç½®ã«æŒ¿å…¥
 		NewCard->m_fX = LastCard->m_fX;
 		NewCard->m_fY = LastCard->m_fY;
 	}
 	else {
-		// ©“®®—‚Å–³‚¢ê‡‚ÍAŒ³ƒJ[ƒh‚Æ‹ß‚¢ˆÊ’u‚É‘}“ü
-		// ƒŠƒ“ƒN‚µ‚Ä‚¢‚éƒJ[ƒh‚Ì•½‹Ï‚Ì’·‚³‚ğ‹‚ß‚é
+		// è‡ªå‹•æ•´ç†ã§ç„¡ã„å ´åˆã¯ã€å…ƒã‚«ãƒ¼ãƒ‰ã¨è¿‘ã„ä½ç½®ã«æŒ¿å…¥
+		// ãƒªãƒ³ã‚¯ã—ã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã®å¹³å‡ã®é•·ã•ã‚’æ±‚ã‚ã‚‹
 		int count = 0;
 		float r = 0.0f;
 		for (int i = 0; i < m_Document->m_Links->Count; i++) {
@@ -8612,7 +8612,7 @@ void TFo_Main::BrowserNewChildCard(bool binverse) {
 		if (count) {
 			r /= count;
 		}
-		// ƒfƒBƒXƒvƒŒƒCã‚Ì64ƒhƒbƒg•ª‚ğ‹‚ß‚é
+		// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ä¸Šã®64ãƒ‰ãƒƒãƒˆåˆ†ã‚’æ±‚ã‚ã‚‹
 		float cx1, cx2, dummy;
 		DispPosToCardPos(0, 0, cx1, dummy);
 		DispPosToCardPos(64, 0, cx2, dummy);
@@ -8623,7 +8623,7 @@ void TFo_Main::BrowserNewChildCard(bool binverse) {
 		else if (r > r2 * 3) {
 			r = r2 * 3;
 		}
-		float rbak = r; // Œ³‚ÌƒJ[ƒh‚©‚ç—£‚·‹——£‚Ì‰Šú’l
+		float rbak = r; // å…ƒã®ã‚«ãƒ¼ãƒ‰ã‹ã‚‰é›¢ã™è·é›¢ã®åˆæœŸå€¤
 		int itarcount = 0;
 		while (itarcount++ < 100) {
 			float t = (rand() % 10001) * 0.0002f * 3.1415926f;
@@ -8666,12 +8666,12 @@ void TFo_Main::BrowserNewChildCard(bool binverse) {
 	m_nTargetLink = -1;
 	TLink *Link = m_Document->NewLink();
 	if (!binverse) {
-		// qƒm[ƒh
+		// å­ãƒãƒ¼ãƒ‰
 		Link->m_nFromID = lastcard;
 		Link->m_nDestID = m_nTargetCard;
 	}
 	else {
-		// ƒVƒtƒg‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç‹t•ûŒüƒŠƒ“ƒN
+		// ã‚·ãƒ•ãƒˆãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‚‰é€†æ–¹å‘ãƒªãƒ³ã‚¯
 		Link->m_nFromID = m_nTargetCard;
 		Link->m_nDestID = lastcard;
 	}
@@ -8697,8 +8697,8 @@ void TFo_Main::BrowserNewBrotherCard() {
 	if (ParentID >= 0) {
 		BackupSub(PBC_NewBrotherCard->Caption);
 
-		// eƒJ[ƒh‚ªŒ©‚Â‚©‚Á‚½
-		// eƒJ[ƒh‚©‚çƒŠƒ“ƒN‚ğ’£‚Á‚½V‹KƒJ[ƒhì¬
+		// è¦ªã‚«ãƒ¼ãƒ‰ãŒè¦‹ã¤ã‹ã£ãŸ
+		// è¦ªã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯ã‚’å¼µã£ãŸæ–°è¦ã‚«ãƒ¼ãƒ‰ä½œæˆ
 		int lastindex = m_Document->SearchCardIndex(m_nTargetCard);
 		int insindex = lastindex + 1;
 		TCard *LastCard = m_Document->GetCardByIndex(lastindex);
@@ -8712,9 +8712,9 @@ void TFo_Main::BrowserNewBrotherCard() {
 			NewCard->m_fY = LastCard->m_fY;
 		}
 		else {
-			// ©“®®—‚Å–³‚¢ê‡‚ÍAeƒJ[ƒh‚Æ‹ß‚¢ˆÊ’u‚É‘}“ü
+			// è‡ªå‹•æ•´ç†ã§ç„¡ã„å ´åˆã¯ã€è¦ªã‚«ãƒ¼ãƒ‰ã¨è¿‘ã„ä½ç½®ã«æŒ¿å…¥
 			TCard *ParentCard = m_Document->GetCard(ParentID);
-			// ƒŠƒ“ƒN‚µ‚Ä‚¢‚éƒJ[ƒh‚Ì•½‹Ï‚Ì’·‚³‚ğ‹‚ß‚é
+			// ãƒªãƒ³ã‚¯ã—ã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã®å¹³å‡ã®é•·ã•ã‚’æ±‚ã‚ã‚‹
 			int count = 0;
 			float r = 0.0f;
 			for (int i = 0; i < m_Document->m_Links->Count; i++) {
@@ -8737,7 +8737,7 @@ void TFo_Main::BrowserNewBrotherCard() {
 			if (count) {
 				r /= count;
 			}
-			// ƒfƒBƒXƒvƒŒƒCã‚Ì64ƒhƒbƒg•ª‚ğ‹‚ß‚é
+			// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ä¸Šã®64ãƒ‰ãƒƒãƒˆåˆ†ã‚’æ±‚ã‚ã‚‹
 			float cx1, cx2, dummy;
 			DispPosToCardPos(0, 0, cx1, dummy);
 			DispPosToCardPos(64, 0, cx2, dummy);
@@ -8745,7 +8745,7 @@ void TFo_Main::BrowserNewBrotherCard() {
 			if (r < r2) {
 				r = r2;
 			}
-			float rbak = r; // Œ³‚ÌƒJ[ƒh‚©‚ç—£‚·‹——£‚Ì‰Šú’l
+			float rbak = r; // å…ƒã®ã‚«ãƒ¼ãƒ‰ã‹ã‚‰é›¢ã™è·é›¢ã®åˆæœŸå€¤
 			int itarcount = 0;
 			while (itarcount++ < 100) {
 				float t = (rand() % 10000) * 0.0002f * 3.1415926f;
@@ -8806,12 +8806,12 @@ void TFo_Main::BrowserNewBrotherCard() {
 		}
 	}
 	else {
-		// eƒJ[ƒh‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½
+		// è¦ªã‚«ãƒ¼ãƒ‰ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
 
-		// ƒJ[ƒhì¬‚µ‚È‚¢
+		// ã‚«ãƒ¼ãƒ‰ä½œæˆã—ãªã„
 
 		/*
-		 //’Êí‚ÌV‹KƒJ[ƒhì¬
+		 //é€šå¸¸ã®æ–°è¦ã‚«ãƒ¼ãƒ‰ä½œæˆ
 		 MI_NewCardClick(Sender);
 		 */
 	}
@@ -8821,16 +8821,16 @@ void TFo_Main::BrowserNewBrotherCard() {
 void TFo_Main::BrowserInsertCardToLink() {
 	BackupSub(PBL_InsertCard->Caption);
 
-	// ƒŠƒ“ƒN‚ÌŠÔ‚ÉVƒJ[ƒh‘}“ü
+	// ãƒªãƒ³ã‚¯ã®é–“ã«æ–°ã‚«ãƒ¼ãƒ‰æŒ¿å…¥
 	TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
-	int DestID = Link->m_nDestID; // ƒŠƒ“ƒNæID
+	int DestID = Link->m_nDestID; // ãƒªãƒ³ã‚¯å…ˆID
 	int lastcard = Link->m_nFromID;
 	int lastindex = m_Document->SearchCardIndex(Link->m_nFromID);
 	int insindex = lastindex + 1;
-	TCard *DestCard = m_Document->GetCard(DestID); // Œ³‚ÌƒŠƒ“ƒNæƒJ[ƒh
-	TCard *LastCard = m_Document->GetCardByIndex(lastindex); // Œ³‚ÌƒŠƒ“ƒNŒ³ƒJ[ƒh
+	TCard *DestCard = m_Document->GetCard(DestID); // å…ƒã®ãƒªãƒ³ã‚¯å…ˆã‚«ãƒ¼ãƒ‰
+	TCard *LastCard = m_Document->GetCardByIndex(lastindex); // å…ƒã®ãƒªãƒ³ã‚¯å…ƒã‚«ãƒ¼ãƒ‰
 
-	// ƒŠƒ“ƒNŒ³ƒJ[ƒh‚©‚çƒŠƒ“ƒN‚ğ’£‚Á‚Ä‚¢‚éÅŒã‚ÌƒJ[ƒh‚ÌŸ‚É‚±‚ÌƒJ[ƒh‚ğ‘}“ü
+	// ãƒªãƒ³ã‚¯å…ƒã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯ã‚’å¼µã£ã¦ã„ã‚‹æœ€å¾Œã®ã‚«ãƒ¼ãƒ‰ã®æ¬¡ã«ã“ã®ã‚«ãƒ¼ãƒ‰ã‚’æŒ¿å…¥
 	for (int il = 0; il < m_Document->m_Links->Count; il++)
 		if (il != m_nTargetLink) {
 			TLink *Link = m_Document->GetLinkByIndex(il);
@@ -8846,21 +8846,21 @@ void TFo_Main::BrowserInsertCardToLink() {
 	TCard *NewCard = m_Document->NewCard(insindex);
 	NewCard->m_bSelected = true;
 
-	// VƒJ[ƒh‚ÌÀ•W‚ğƒŠƒ“ƒN‚Ì’†S‚É
+	// æ–°ã‚«ãƒ¼ãƒ‰ã®åº§æ¨™ã‚’ãƒªãƒ³ã‚¯ã®ä¸­å¿ƒã«
 	NewCard->m_fX = (LastCard->m_fX + DestCard->m_fX) * 0.5f;
 	NewCard->m_fY = (LastCard->m_fY + DestCard->m_fY) * 0.5f;
 
-	// Œ³ƒŠƒ“ƒN‚ÌDest‚ğVƒJ[ƒh‚É•ÏX
+	// å…ƒãƒªãƒ³ã‚¯ã®Destã‚’æ–°ã‚«ãƒ¼ãƒ‰ã«å¤‰æ›´
 	Link->m_nDestID = NewCard->m_nID;
 
 	m_nTargetCard = NewCard->m_nID;
 	m_nTargetLink = -1;
 
-	// VƒŠƒ“ƒN
+	// æ–°ãƒªãƒ³ã‚¯
 	TLink *Link2 = m_Document->NewLink();
 	Link2->m_nFromID = NewCard->m_nID;
 	Link2->m_nDestID = DestID;
-	for (int il = 0; il < Link->m_Labels->Count; il++) { // ƒ‰ƒxƒ‹ˆøŒp‚¬
+	for (int il = 0; il < Link->m_Labels->Count; il++) { // ãƒ©ãƒ™ãƒ«å¼•ç¶™ã
 		Link2->m_Labels->AddLabel(Link->m_Labels->GetLabel(il));
 	}
 
@@ -8889,15 +8889,15 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 		40 && PC_Client->ActivePage == TS_Browser && m_CardVisible &&
 		TB_Zoom->Focused()) {
 		// if (Key >= 37 && Key <= 40 && PC_Client->ActivePage == TS_Browser && m_CardVisible && (TB_Zoom->Focused() || !Active || Fo_FullScreen->Visible)){
-		m_bSkipAutoZoom = true; // ƒJ[ƒ\ƒ‹‚ÅAutoZoom‚ªÁ‚¦‚È‚¢‚æ‚¤‚É‚·‚é‚½‚ß
-		// ƒJ[ƒ\ƒ‹‚ÅƒJ[ƒhˆÚ“®
+		m_bSkipAutoZoom = true; // ã‚«ãƒ¼ã‚½ãƒ«ã§AutoZoomãŒæ¶ˆãˆãªã„ã‚ˆã†ã«ã™ã‚‹ãŸã‚
+		// ã‚«ãƒ¼ã‚½ãƒ«ã§ã‚«ãƒ¼ãƒ‰ç§»å‹•
 
 		if (!Shift.Contains(ssCtrl)) {
-			// CtrlƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢iã‰º¶‰E‚Ì‹ß‚¢ƒJ[ƒh‚ÉˆÚ“®j
+			// Ctrlã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãªã„ï¼ˆä¸Šä¸‹å·¦å³ã®è¿‘ã„ã‚«ãƒ¼ãƒ‰ã«ç§»å‹•ï¼‰
 
 			float sx = 0.5f * m_nBrowserWidth, sy = 0.5f * m_nBrowserHeight;
 			if (m_nTargetCard >= 0) {
-				// ƒJ[ƒh‘I‘ğ’†
+				// ã‚«ãƒ¼ãƒ‰é¸æŠä¸­
 				int index = m_Document->SearchCardIndex(m_nTargetCard);
 				if (index >= 0) {
 					sx = m_CardX[index];
@@ -8908,7 +8908,7 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 			float mindist = -1.0f;
 			int minindex = -1;
 			if (!Shift.Contains(ssShift) || m_nTargetCard < 0) {
-				// ƒŠƒ“ƒN‚Æ‚Í–³ŠÖŒW‚ÉˆÚ“®
+				// ãƒªãƒ³ã‚¯ã¨ã¯ç„¡é–¢ä¿‚ã«ç§»å‹•
 				for (int i = 0; i < m_Document->m_Cards->Count; i++)
 					if (m_CardVisible[i]) {
 						TCard *Card = m_Document->GetCardByIndex(i);
@@ -8924,7 +8924,7 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 					}
 			}
 			else {
-				// ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ÉˆÚ“®
+				// ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã«ç§»å‹•
 				for (int i = 0; i < m_Document->m_Links->Count; i++)
 					if (m_LinkVisible[i]) {
 						TLink *Link = m_Document->GetLinkByIndex(i);
@@ -8961,24 +8961,24 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 			}
 		}
 		else {
-			// CtrlƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éB
+			// Ctrlã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã€‚
 
-			// eƒm[ƒh‚ğ’T‚·
+			// è¦ªãƒãƒ¼ãƒ‰ã‚’æ¢ã™
 			int parent = m_Document->SearchParent(m_nTargetCard,
 			Key == 40, true);
 
 			if (parent >= 0)
 				switch (Key) {
-				case 38: // ãeƒm[ƒh‚ÖiBS‚Æ“¯‚¶j
-				case 40: // ‰ºqƒm[ƒh‚Ö
+				case 38: // ä¸Šï¼è¦ªãƒãƒ¼ãƒ‰ã¸ï¼ˆBSã¨åŒã˜ï¼‰
+				case 40: // ä¸‹ï¼å­ãƒãƒ¼ãƒ‰ã¸
 					{
 						m_nTargetCard = parent;
 						m_Document->ClearCardSelection();
 						TCard *Card = m_Document->GetCardByIndex(parent);
 						Card->m_bSelected = true;
 					} break;
-				case 37: // Œv‰ñ‚è‚Éˆê”Ô‹ß‚¢ŒZ’íƒm[ƒh‚ğ’T‚·
-				case 39: // ”½Œv‰ñ‚è‚Éˆê”Ô‹ß‚¢ŒZ’íƒm[ƒh‚ğ’T‚·
+				case 37: // æ™‚è¨ˆå›ã‚Šã«ä¸€ç•ªè¿‘ã„å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’æ¢ã™
+				case 39: // åæ™‚è¨ˆå›ã‚Šã«ä¸€ç•ªè¿‘ã„å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’æ¢ã™
 					{
 						int card = m_Document->SearchBrother(m_nTargetCard,
 							parent, Key == 39, false, true);
@@ -8999,15 +8999,15 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 		TB_Zoom->Focused()) {
 		// if (Key == 8 && PC_Client->ActivePage == TS_Browser && m_CardVisible && (TB_Zoom->Focused() || !Active)){
 		/*
-		 //’¼‘O‚É•\¦‚µ‚Ä‚¢‚½ƒJ[ƒh‚É–ß‚é
-		 //’H‚Á‚Ä‚¢‚éŠÔ‚É‚ÉViewed‚ªXV‚³‚ê‚Ä‚¤‚Ü‚­‚¢‚©‚È‚¢I
+		 //ç›´å‰ã«è¡¨ç¤ºã—ã¦ã„ãŸã‚«ãƒ¼ãƒ‰ã«æˆ»ã‚‹
+		 //è¾¿ã£ã¦ã„ã‚‹é–“ã«ã«ViewedãŒæ›´æ–°ã•ã‚Œã¦ã†ã¾ãã„ã‹ãªã„ï¼
 		 int last = m_Document->SearchLast(m_nTargetCard);
 		 if (last > 0){
 		 m_nTargetCard = last;
 		 }
 		 */
 
-		// eƒm[ƒh‚É–ß‚é
+		// è¦ªãƒãƒ¼ãƒ‰ã«æˆ»ã‚‹
 		int parent = m_Document->SearchParent(m_nTargetCard, false, true);
 		if (parent >= 0) {
 			m_nTargetCard = parent;
@@ -9019,11 +9019,11 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 	}
 
 	if (PC_Client->ActivePage == TS_Browser) {
-		// ƒuƒ‰ƒEƒU‰æ–Ê
+		// ãƒ–ãƒ©ã‚¦ã‚¶ç”»é¢
 		if (Key == 46 && TB_Zoom->Focused()) {
 			// Delete
 			if (m_nTargetCard >= 0) {
-				// ƒJ[ƒh‚ğíœ
+				// ã‚«ãƒ¼ãƒ‰ã‚’å‰Šé™¤
 				PL_DeleteCardClick(Sender);
 				/*
 				 m_Document->DeleteCard(m_nTargetCard);
@@ -9032,7 +9032,7 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 				 */
 			}
 			else if (m_nTargetLink >= 0) {
-				// ƒŠƒ“ƒN‚ğíœ
+				// ãƒªãƒ³ã‚¯ã‚’å‰Šé™¤
 				BackupSub(PI_DeleteLink->Caption);
 				m_Document->DeleteLinkByIndex(m_nTargetLink);
 				m_nTargetLink = -1;
@@ -9042,10 +9042,10 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 		}
 		else if (Key == 32) {
 			// Space
-			if (!m_bShowRecent) { // ƒL[ƒŠƒs[ƒg‚Å‰½“x‚àŒ»İˆÊ’u‚ª•\¦‚³‚ê‚È‚¢‚æ‚¤‚É
+			if (!m_bShowRecent) { // ã‚­ãƒ¼ãƒªãƒ”ãƒ¼ãƒˆã§ä½•åº¦ã‚‚ç¾åœ¨ä½ç½®ãŒè¡¨ç¤ºã•ã‚Œãªã„ã‚ˆã†ã«
 				m_bShowRecent = true;
 
-				// Œ»İˆÊ’u‚à•\¦
+				// ç¾åœ¨ä½ç½®ã‚‚è¡¨ç¤º
 				m_nLastTarget = -1;
 				m_nFocusCursorPos = 0;
 				m_bRedrawRequested = true;
@@ -9055,7 +9055,7 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 	if (Key == 46 && LB_List->Focused()) {
 		// Delete
 		if (m_nTargetCard >= 0) {
-			// ƒJ[ƒh‚ğíœ
+			// ã‚«ãƒ¼ãƒ‰ã‚’å‰Šé™¤
 			PL_DeleteCardClick(Sender);
 		}
 		Key = 0;
@@ -9067,29 +9067,29 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 	}
 
 	if (Key == 45 && PC_Client->ActivePage == TS_Browser) {
-		// Browser‚ÅInsertƒL[iqƒm[ƒhì¬j
+		// Browserã§Insertã‚­ãƒ¼ï¼ˆå­ãƒãƒ¼ãƒ‰ä½œæˆï¼‰
 
 		if (m_nTargetCard >= 0) {
-			// ƒJ[ƒh‘I‘ğ’†
+			// ã‚«ãƒ¼ãƒ‰é¸æŠä¸­
 
-			// qi‚à‚µ‚­‚Íejƒm[ƒhì¬
+			// å­ï¼ˆã‚‚ã—ãã¯è¦ªï¼‰ãƒãƒ¼ãƒ‰ä½œæˆ
 			BrowserNewChildCard(Shift.Contains(ssShift));
 			Key = 0;
 		}
 		else if (m_nTargetLink >= 0) {
-			// ƒŠƒ“ƒN‘I‘ğ’†
+			// ãƒªãƒ³ã‚¯é¸æŠä¸­
 
-			// ƒŠƒ“ƒN‚ÌŠÔ‚ÉVƒJ[ƒh‚ğ‘}“ü
+			// ãƒªãƒ³ã‚¯ã®é–“ã«æ–°ã‚«ãƒ¼ãƒ‰ã‚’æŒ¿å…¥
 			BrowserInsertCardToLink();
 			Key = 0;
 		}
 		else {
-			// ƒJ[ƒh‘I‘ğ’†‚Å‚àƒŠƒ“ƒN‘I‘ğ’†‚Å‚à–³‚¢
+			// ã‚«ãƒ¼ãƒ‰é¸æŠä¸­ã§ã‚‚ãƒªãƒ³ã‚¯é¸æŠä¸­ã§ã‚‚ç„¡ã„
 
-			// ƒJ[ƒhì¬‚µ‚È‚¢
+			// ã‚«ãƒ¼ãƒ‰ä½œæˆã—ãªã„
 
 			/*
-			 //’Êí‚ÌV‹KƒJ[ƒhì¬
+			 //é€šå¸¸ã®æ–°è¦ã‚«ãƒ¼ãƒ‰ä½œæˆ
 			 MI_NewCardClick(Sender);
 			 */
 		}
@@ -9120,7 +9120,7 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
 	}
 
 	if (PC_Client->ActivePage == TS_Drawing) {
-		// }Œ`•`‰æ‰æ–Ê
+		// å›³å½¢æç”»ç”»é¢
 		if (Key == 46) {
 			m_Drawing->DDelete();
 			ApplyDrawing();
@@ -9190,11 +9190,11 @@ void __fastcall TFo_Main::MI_NewCardClick(TObject *Sender) {
 
 	int insindex = m_Document->m_Cards->Count;
 	if (m_nTargetCard >= 0) {
-		// ƒJ[ƒh‘I‘ğ’†
+		// ã‚«ãƒ¼ãƒ‰é¸æŠä¸­
 		insindex = m_Document->SearchCardIndex(m_nTargetCard);
 
 		if (Sender != PL_NewCard) {
-			// ƒJ[ƒhƒŠƒXƒg‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[ˆÈŠO‚©‚ç‘}“ü
+			// ã‚«ãƒ¼ãƒ‰ãƒªã‚¹ãƒˆã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ä»¥å¤–ã‹ã‚‰æŒ¿å…¥
 			insindex++;
 		}
 	}
@@ -9272,11 +9272,11 @@ void __fastcall TFo_Main::ME_FindPreviousClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void TFo_Main::GlobalSearch(int SearchRequest) {
-	// ƒqƒbƒg‚µ‚½Œ‹‰Ê‚ğm_GlobalSearchResult‚É“ü‚ê‚é
+	// ãƒ’ãƒƒãƒˆã—ãŸçµæœã‚’m_GlobalSearchResultã«å…¥ã‚Œã‚‹
 	m_GlobalSearchResult->Clear();
 
 	if (m_Document->m_Cards->Count == 0) {
-		// ƒJ[ƒh‚ª–³‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒç„¡ã„
 		return;
 	}
 
@@ -9286,24 +9286,24 @@ void TFo_Main::GlobalSearch(int SearchRequest) {
 		TCard *Card = m_Document->GetCardByIndex(ic);
 		int foundat = 0;
 		if (!Card->m_bVisible && !(SearchRequest & 0x20)) {
-			// ”ñ•\¦‚©‚ÂA”ñ•\¦ƒJ[ƒh‚ªŒŸõ‘ÎÌ‚É“ü‚Á‚Ä‚¢‚È‚¢
+			// éè¡¨ç¤ºã‹ã¤ã€éè¡¨ç¤ºã‚«ãƒ¼ãƒ‰ãŒæ¤œç´¢å¯¾ç§°ã«å…¥ã£ã¦ã„ãªã„
 		}
 		else {
 			if (SearchRequest & 0x1) {
-				// ƒ^ƒCƒgƒ‹‚©‚çŒŸõ
+				// ã‚¿ã‚¤ãƒˆãƒ«ã‹ã‚‰æ¤œç´¢
 				if (SearchRequest & 0x10) {
-					// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+					// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 					WideString Target =
 						WideLowerCase(WideString(Card->m_Title));
 					foundat = Target.Pos(WideLowerCase(SearchKeyword));
 				}
 				else {
-					// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê
+					// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥
 					foundat = WideString(Card->m_Title).Pos(SearchKeyword);
 				}
 			}
 			if (foundat == 0 && SearchRequest & 0x2) {
-				// –{•¶‚©‚çŒŸõ
+				// æœ¬æ–‡ã‹ã‚‰æ¤œç´¢
 				if (SearchRequest & 0x10) {
 					WideString Target =
 						WideLowerCase(WideString(Card->m_Lines->Text));
@@ -9317,7 +9317,7 @@ void TFo_Main::GlobalSearch(int SearchRequest) {
 		}
 
 		if (foundat > 0) {
-			// Œ©‚Â‚©‚Á‚½
+			// è¦‹ã¤ã‹ã£ãŸ
 			m_GlobalSearchResult->Add((void*)Card->m_nID);
 		}
 	}
@@ -9328,7 +9328,7 @@ void TFo_Main::GlobalSearch(int SearchRequest) {
 // ---------------------------------------------------------------------------
 int TFo_Main::ReplaceAll(int SearchRequest) {
 	if (m_Document->m_Cards->Count == 0) {
-		// ƒJ[ƒh‚ª–³‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒç„¡ã„
 		return false;
 	}
 
@@ -9341,23 +9341,23 @@ int TFo_Main::ReplaceAll(int SearchRequest) {
 		TCard *Card = m_Document->GetCardByIndex(ic);
 		int foundat;
 		if (!Card->m_bVisible && !(SearchRequest & 0x20)) {
-			// ”ñ•\¦‚©‚ÂA”ñ•\¦ƒJ[ƒh‚ªŒŸõ‘ÎÌ‚É“ü‚Á‚Ä‚¢‚È‚¢
+			// éè¡¨ç¤ºã‹ã¤ã€éè¡¨ç¤ºã‚«ãƒ¼ãƒ‰ãŒæ¤œç´¢å¯¾ç§°ã«å…¥ã£ã¦ã„ãªã„
 		}
 		else {
 			if (SearchRequest & 0x1) {
 				int lastpos = 1;
-				// ƒ^ƒCƒgƒ‹‚©‚çŒŸõ
+				// ã‚¿ã‚¤ãƒˆãƒ«ã‹ã‚‰æ¤œç´¢
 				WideString S = Card->m_Title;
 				while (true) {
 					if (SearchRequest & 0x10) {
-						// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+						// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 						WideString Target = WideLowerCase(S);
 						Target = Target.SubString(lastpos, Target.Length());
 						foundat = Target.Pos(WideLowerCase(SearchKeyword)) +
 							lastpos - 1;
 					}
 					else {
-						// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê
+						// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥
 						WideString Target = S.SubString(lastpos, S.Length());
 						foundat = Target.Pos(SearchKeyword) + lastpos - 1;
 					}
@@ -9382,7 +9382,7 @@ int TFo_Main::ReplaceAll(int SearchRequest) {
 			}
 			if (SearchRequest & 0x2) {
 				int lastpos = 1;
-				// –{•¶‚©‚çŒŸõ
+				// æœ¬æ–‡ã‹ã‚‰æ¤œç´¢
 				WideString S = Card->m_Lines->Text;
 				while (true) {
 					if (SearchRequest & 0x10) {
@@ -9428,7 +9428,7 @@ int TFo_Main::ReplaceAll(int SearchRequest) {
 // ---------------------------------------------------------------------------
 void TFo_Main::Search(int SearchRequest) {
 	if (m_Document->m_Cards->Count == 0) {
-		// ƒJ[ƒh‚ª–³‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒç„¡ã„
 		return;
 	}
 
@@ -9436,27 +9436,27 @@ void TFo_Main::Search(int SearchRequest) {
 
 	Screen->Cursor = crHourGlass;
 
-	// ŒŸõƒ_ƒCƒAƒƒO‚©‚çƒtƒH[ƒJƒX‚ğ’D‚¤
+	// æ¤œç´¢ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‹ã‚‰ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¥ªã†
 	SetFocus();
 
 	int targetcard = m_nTargetCard;
 	if (targetcard < 0) {
-		// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãªã„
 
-		// Å‰‚ÌƒJ[ƒh‚ğ‘I‘ğ
+		// æœ€åˆã®ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠ
 		targetcard = m_Document->GetCardByIndex(0)->m_nID;
 	}
 
-	// ŒŸõŠJnêŠ
+	// æ¤œç´¢é–‹å§‹å ´æ‰€
 	int StartTarget = 0;
 	int StartPos = 0;
 	if (RE_Edit->Focused()) {
-		// •¶Í•ÒW’†
+		// æ–‡ç« ç·¨é›†ä¸­
 		StartTarget = 1;
 		if ((SearchRequest & 0x100) && ((GetSelText() == SearchKeyword) ||
 			((SearchRequest & 0x10) && (WideLowerCase(GetSelText())
 			== WideLowerCase(SearchKeyword))))) {
-			// ’uŠ·
+			// ç½®æ›
 			BackupSub(ME_Replace->Caption);
 			WideString S = RE_Edit->Text;
 			int selstartbak = RE_Edit->SelStart;
@@ -9467,7 +9467,7 @@ void TFo_Main::Search(int SearchRequest) {
 			RE_Edit->SelLength = ReplaceKeyword.Length();
 		}
 		if (SearchRequest & 0x80) {
-			// Œã‚ëŒü‚«ŒŸõ
+			// å¾Œã‚å‘ãæ¤œç´¢
 			StartPos = RE_Edit->SelStart;
 			/*
 			 if (RE_Edit->SelLength){
@@ -9478,7 +9478,7 @@ void TFo_Main::Search(int SearchRequest) {
 			 */
 		}
 		else {
-			// ‘OŒü‚«ŒŸõ
+			// å‰å‘ãæ¤œç´¢
 			StartPos = RE_Edit->SelStart + RE_Edit->SelLength;
 			/*
 			 if (RE_Edit->SelLength){
@@ -9490,12 +9490,12 @@ void TFo_Main::Search(int SearchRequest) {
 		}
 	}
 	else if (m_nTargetCard >= 0) {
-		// ƒJ[ƒh‘I‘ğ’†
+		// ã‚«ãƒ¼ãƒ‰é¸æŠä¸­
 		StartTarget = 0;
 		if ((SearchRequest & 0x100) && ((GetSelText() == SearchKeyword) ||
 			((SearchRequest & 0x10) && (WideLowerCase(GetSelText())
 			== WideLowerCase(SearchKeyword))))) {
-			// ’uŠ·
+			// ç½®æ›
 			BackupSub(ME_Replace->Caption);
 			WideString S = Ed_Title->Text;
 			int selstartbak = Ed_Title->SelStart;
@@ -9506,7 +9506,7 @@ void TFo_Main::Search(int SearchRequest) {
 			Ed_Title->SelLength = ReplaceKeyword.Length();
 		}
 		if (SearchRequest & 0x80) {
-			// Œã‚ëŒü‚«ŒŸõ
+			// å¾Œã‚å‘ãæ¤œç´¢
 			StartPos = Ed_Title->SelStart;
 			/*
 			 if (Ed_Title->SelLength){
@@ -9519,7 +9519,7 @@ void TFo_Main::Search(int SearchRequest) {
 		else {
 			StartPos = Ed_Title->SelStart + Ed_Title->SelLength;
 			/*
-			 //‘OŒü‚«ŒŸõ
+			 //å‰å‘ãæ¤œç´¢
 			 if (Ed_Title->SelLength){
 			 StartPos = Ed_Title->SelStart + Ed_Title->SelLength;
 			 }else{
@@ -9529,18 +9529,18 @@ void TFo_Main::Search(int SearchRequest) {
 		}
 	}
 
-	// Œ©‚Â‚©‚Á‚½‚©‚Ç‚¤‚©
+	// è¦‹ã¤ã‹ã£ãŸã‹ã©ã†ã‹
 	bool Found = false;
-	bool NotFound = false; // 1T‚µ‚ÄŒ©‚Â‚©‚ç‚È‚©‚Á‚½‚©‚Ç‚¤‚©
+	bool NotFound = false; // 1é€±ã—ã¦è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã‹ã©ã†ã‹
 
-	// ŠJnƒJ[ƒhAƒ^[ƒQƒbƒgAêŠ
+	// é–‹å§‹ã‚«ãƒ¼ãƒ‰ã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã€å ´æ‰€
 	int CardIndex = m_Document->SearchCardIndex(targetcard);
 	int Target = StartTarget;
 	int Pos = StartPos;
-	// ŒŸõŠJnƒJ[ƒh
+	// æ¤œç´¢é–‹å§‹ã‚«ãƒ¼ãƒ‰
 	int StartCard = CardIndex;
 
-	// RichEdit‚Ìê‡
+	// RichEditã®å ´åˆ
 	// TRichEdit *RE = new TRichEdit(this);
 
 	TMemo *RE = new TMemo(this);
@@ -9549,11 +9549,11 @@ void TFo_Main::Search(int SearchRequest) {
 
 	WideString Key;
 	if (SearchRequest & 0x10) {
-		// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+		// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 		Key = WideLowerCase(SearchKeyword);
 	}
 	else {
-		// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê
+		// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥
 		Key = SearchKeyword;
 	}
 
@@ -9561,26 +9561,26 @@ void TFo_Main::Search(int SearchRequest) {
 
 	while (true) {
 		TCard *Card = m_Document->GetCardByIndex(CardIndex);
-		// Œ»İ‚ÌTarget‚ÌŒ»İˆÊ’u‚©‚çŒŸõ
+		// ç¾åœ¨ã®Targetã®ç¾åœ¨ä½ç½®ã‹ã‚‰æ¤œç´¢
 		int foundat = -1;
 		if (!Card->m_bVisible && !(SearchRequest & 0x20)) {
-			// ”ñ•\¦‚©‚ÂA”ñ•\¦ƒJ[ƒh‚ªŒŸõ‘ÎÌ‚É“ü‚Á‚Ä‚¢‚È‚¢
+			// éè¡¨ç¤ºã‹ã¤ã€éè¡¨ç¤ºã‚«ãƒ¼ãƒ‰ãŒæ¤œç´¢å¯¾ç§°ã«å…¥ã£ã¦ã„ãªã„
 		}
 		else if (Target == 0) {
 			if (SearchRequest & 0x1) {
-				// ƒ^ƒCƒgƒ‹‚©‚çŒŸõ
+				// ã‚¿ã‚¤ãƒˆãƒ«ã‹ã‚‰æ¤œç´¢
 				int ToEnd;
 				WideString Target;
 				if (SearchRequest & 0x10) {
-					// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+					// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 					Target = WideLowerCase(WideString(Card->m_Title));
 				}
 				else {
-					// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê
+					// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥
 					Target = Card->m_Title;
 				}
 				if (SearchRequest & 0x80) {
-					// Œã‚ëŒü‚«ŒŸõ
+					// å¾Œã‚å‘ãæ¤œç´¢
 					if (resetpos) {
 						Pos = Target.Length();
 					}
@@ -9601,7 +9601,7 @@ void TFo_Main::Search(int SearchRequest) {
 					}
 				}
 				else {
-					// ‘OŒü‚«ŒŸõ
+					// å‰å‘ãæ¤œç´¢
 					if (resetpos) {
 						Pos = 0;
 					}
@@ -9615,7 +9615,7 @@ void TFo_Main::Search(int SearchRequest) {
 					}
 				}
 				if (foundat >= 0) {
-					// Œ©‚Â‚©‚Á‚½
+					// è¦‹ã¤ã‹ã£ãŸ
 					m_Document->ClearCardSelection();
 					m_nTargetCard = Card->m_nID;
 					Card->m_bSelected = true;
@@ -9633,20 +9633,20 @@ void TFo_Main::Search(int SearchRequest) {
 		}
 		else {
 			if (SearchRequest & 0x2) {
-				// –{•¶‚©‚çŒŸõ
+				// æœ¬æ–‡ã‹ã‚‰æ¤œç´¢
 				RE->Lines->Assign(Card->m_Lines);
 				int ToEnd;
 				WideString Target;
 				if (SearchRequest & 0x10) {
-					// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+					// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 					Target = WideLowerCase(WideString(RE->Text));
 				}
 				else {
-					// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê
+					// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥
 					Target = RE->Text;
 				}
 				if (SearchRequest & 0x80) {
-					// Œã‚ëŒü‚«ŒŸõ
+					// å¾Œã‚å‘ãæ¤œç´¢
 					if (resetpos) {
 						Pos = Target.Length();
 					}
@@ -9667,7 +9667,7 @@ void TFo_Main::Search(int SearchRequest) {
 					}
 				}
 				else {
-					// ‘OŒü‚«ŒŸõ
+					// å‰å‘ãæ¤œç´¢
 					if (resetpos) {
 						Pos = 0;
 					}
@@ -9681,12 +9681,12 @@ void TFo_Main::Search(int SearchRequest) {
 					}
 				}
 
-				// RichEdit‚Ìê‡
+				// RichEditã®å ´åˆ
 				// int ToEnd = RE->Text.Length() - Pos;
 				// foundat = RE->FindTextA(SearchKeyword, Pos, ToEnd, TSearchTypes() << stMatchCase);
 
 				if (foundat >= 0) {
-					// Œ©‚Â‚©‚Á‚½
+					// è¦‹ã¤ã‹ã£ãŸ
 					m_Document->ClearCardSelection();
 					m_nTargetCard = Card->m_nID;
 					Card->m_bSelected = true;
@@ -9709,27 +9709,27 @@ void TFo_Main::Search(int SearchRequest) {
 			}
 		}
 
-		// Œ©‚Â‚©‚ç‚È‚©‚Á‚½‚Ì‚ÅŸ‚ÌƒJ[ƒhAƒ^[ƒQƒbƒg‚Ö
+		// è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã®ã§æ¬¡ã®ã‚«ãƒ¼ãƒ‰ã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¸
 		resetpos = true;
 		Target = 1 - Target;
 		if (Target == 1 && (SearchRequest & 0x80)) {
-			// Œã‚ëŒü‚«ƒT[ƒ`
-			// ‘O‚ÌƒJ[ƒh‚ğ‘I‘ğ
+			// å¾Œã‚å‘ãã‚µãƒ¼ãƒ
+			// å‰ã®ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠ
 			CardIndex = (CardIndex + m_Document->m_Cards->Count - 1)
 				% m_Document->m_Cards->Count;
 		}
 		else if (Target == 0 && !(SearchRequest & 0x80)) {
-			// ‘OŒü‚«ƒT[ƒ`
-			// Ÿ‚ÌƒJ[ƒh‚ğ‘I‘ğ
+			// å‰å‘ãã‚µãƒ¼ãƒ
+			// æ¬¡ã®ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠ
 			CardIndex = (CardIndex + 1) % m_Document->m_Cards->Count;
 		}
 
-		// ‘S‘Ì‚ğ’Ê‚µ‚ÄŒ©‚Â‚©‚ç‚È‚©‚Á‚½ƒ`ƒFƒbƒN
+		// å…¨ä½“ã‚’é€šã—ã¦è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸãƒã‚§ãƒƒã‚¯
 		if (NotFound) {
 			break;
 		}
 		if (CardIndex == StartCard && Target == StartTarget) {
-			// Œ©‚Â‚©‚ç‚È‚©‚Á‚½
+			// è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
 			NotFound = true;
 		}
 	}
@@ -9743,7 +9743,7 @@ void TFo_Main::Search(int SearchRequest) {
 			MLText.NotFound);
 	}
 
-	// XVÄŠJ
+	// æ›´æ–°å†é–‹
 	/*
 	 LB_List->Perform(WM_SETREDRAW, 1, 0);
 	 Ed_Title->Perform(WM_SETREDRAW, 1, 0);
@@ -9754,8 +9754,8 @@ void TFo_Main::Search(int SearchRequest) {
 	/*
 	 Perform(WM_SETREDRAW, 1, 0);
 
-	 //•`‰æ
-	 //Invalidate();//‚È‚º‚©Redraw‚³‚ê‚È‚¢
+	 //æç”»
+	 //Invalidate();//ãªãœã‹Redrawã•ã‚Œãªã„
 	 Ed_Title->Invalidate();
 	 RefreshLabel();
 	 if (PC_Client->ActivePage == TS_Editor){
@@ -9772,7 +9772,7 @@ void TFo_Main::Search(int SearchRequest) {
 
 // ---------------------------------------------------------------------------
 WideString TFo_Main::GetSelText() {
-	// Œ»İ‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğ“¾‚é
+	// ç¾åœ¨é¸æŠä¸­ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’å¾—ã‚‹
 
 	WideString Key;
 	int SelStart = 0, SelLength = 0;
@@ -9841,7 +9841,7 @@ void __fastcall TFo_Main::ME_WebSearchClick(TObject *Sender) {
 	UnicodeString S2 = "";
 	ShellExecute(Handle, NULL, S.c_str(), S2.c_str(), NULL, SW_SHOW);
 
-	// ƒVƒ‡[ƒgƒJƒbƒgXV
+	// ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆæ›´æ–°
 	SettingFile.m_WebSearch = Setting2Function.m_WebSearch->Names[MI->Tag];
 	for (int i = 0; i < Setting2Function.m_WebSearch->Count; i++) {
 		TMenuItem *MI = (TMenuItem*)MI_WebSearch->Items[i];
@@ -9923,7 +9923,7 @@ void __fastcall TFo_Main::MI_NewLabelClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void TFo_Main::Redraw() {
-	// ‘S‘ÌÄ•`‰æ
+	// å…¨ä½“å†æç”»
 	if (PC_Client->ActivePage == TS_Browser) {
 		PB_BrowserPaint(this);
 	}
@@ -9939,14 +9939,14 @@ void TFo_Main::LinkLimitationSub(int targetcard, int targetlink, int linkdepth,
 	int startingscore = linkdepth < 11 ? linkdepth + 1 : 0xffff;
 
 	if (targetcard >= 0) {
-		// ƒJ[ƒh‚©‚ç’H‚é
+		// ã‚«ãƒ¼ãƒ‰ã‹ã‚‰è¾¿ã‚‹
 		int idx = m_Document->SearchCardIndex(targetcard);
 		if (idx >= 0) {
 			Score[idx] = startingscore;
 		}
 	}
 	else if (targetlink >= 0) {
-		// ƒŠƒ“ƒN‚©‚ç’H‚é
+		// ãƒªãƒ³ã‚¯ã‹ã‚‰è¾¿ã‚‹
 		TLink *Link = m_Document->GetLinkByIndex(targetlink);
 		int idx;
 		if (!linkdirection || linkbackward || !Link->m_bDirection) {
@@ -9960,13 +9960,13 @@ void TFo_Main::LinkLimitationSub(int targetcard, int targetlink, int linkdepth,
 		}
 	}
 
-	// ƒŠƒ“ƒN‰ñ”ƒ‹[ƒv
+	// ãƒªãƒ³ã‚¯å›æ•°ãƒ«ãƒ¼ãƒ—
 	bool found = true;
 	while (found)
 	{ // for (int i = 0 ; i < SettingView.m_nLinkLimitation ; i++){
 		found = false;
 
-		// ƒ‹[ƒv
+		// ãƒ«ãƒ¼ãƒ—
 		for (int ic = 0; ic < m_Document->m_Cards->Count; ic++)
 			if (Score[ic] > 1 && !IFound[ic]) {
 				IFound[ic] = 1;
@@ -10013,14 +10013,14 @@ void TFo_Main::LinkLimitationSub(int targetcard, int targetlink, int linkdepth,
 
 // ---------------------------------------------------------------------------
 void TFo_Main::SetCardVisible(bool bFoldTree) {
-	// •\¦‚·‚éƒJ[ƒhŒˆ’è
+	// è¡¨ç¤ºã™ã‚‹ã‚«ãƒ¼ãƒ‰æ±ºå®š
 
 	if (m_nAnimation > 0 && m_nAnimation != 3) {
-		// ƒ‰ƒ“ƒ_ƒ€ƒJ[ƒh‚Ìê‡Visible‚ğİ’è‚µ‚È‚¢
+		// ãƒ©ãƒ³ãƒ€ãƒ ã‚«ãƒ¼ãƒ‰ã®å ´åˆVisibleã‚’è¨­å®šã—ãªã„
 		return;
 	}
 
-	// ‚Ü‚¸‚Í‘S‚Ä•\¦
+	// ã¾ãšã¯å…¨ã¦è¡¨ç¤º
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		Card->m_bVisibleBak = Card->m_bVisible;
@@ -10030,15 +10030,15 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		m_Document->GetLinkByIndex(i2)->m_bVisible = true;
 	}
 
-	// ƒ‰ƒxƒ‹AƒTƒCƒYA“ú•t‚ÅƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+	// ãƒ©ãƒ™ãƒ«ã€ã‚µã‚¤ã‚ºã€æ—¥ä»˜ã§ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 	FilteringCard();
 
-	// ƒŠƒ“ƒN”‚ÅƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+	// ãƒªãƒ³ã‚¯æ•°ã§ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 	if (SettingView.m_bLinkLimitation && (m_nTargetCard >=
 		0 || m_nTargetLink >= 0)) {
-		// ƒŠƒ“ƒN”§ŒÀ‚ ‚è•ƒJ[ƒh‚©ƒŠƒ“ƒN‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é
+		// ãƒªãƒ³ã‚¯æ•°åˆ¶é™ã‚ã‚Šï¼†ã‚«ãƒ¼ãƒ‰ã‹ãƒªãƒ³ã‚¯ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹
 		/*
-		 //‚Æ‚è‚ ‚¦‚¸‘S”ñ•\¦
+		 //ã¨ã‚Šã‚ãˆãšå…¨éè¡¨ç¤º
 		 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
 		 m_Document->GetCardByIndex(i)->m_bVisible = false;
 		 }
@@ -10053,11 +10053,11 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		 int startingscore = SettingView.m_nLinkLimitation < 11 ? SettingView.m_nLinkLimitation + 1 : 0xffff;
 
 		 if (m_nTargetCard >= 0){
-		 //ƒJ[ƒh‚©‚ç’H‚é
+		 //ã‚«ãƒ¼ãƒ‰ã‹ã‚‰è¾¿ã‚‹
 		 int idx = m_Document->SearchCardIndex(m_nTargetCard);
 		 Score[idx] = startingscore;
 		 }else if (m_nTargetLink >= 0){
-		 //ƒŠƒ“ƒN‚©‚ç’H‚é
+		 //ãƒªãƒ³ã‚¯ã‹ã‚‰è¾¿ã‚‹
 		 TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 		 int idx;
 		 if (!SettingView.m_bLinkDirection || SettingView.m_bLinkBackward || !Link->m_bDirection){
@@ -10070,12 +10070,12 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		 }
 		 }
 
-		 //ƒŠƒ“ƒN‰ñ”ƒ‹[ƒv
+		 //ãƒªãƒ³ã‚¯å›æ•°ãƒ«ãƒ¼ãƒ—
 		 bool found = true;
 		 while (found){//for (int i = 0 ; i < SettingView.m_nLinkLimitation ; i++){
 		 found = false;
 
-		 //ƒ‹[ƒv
+		 //ãƒ«ãƒ¼ãƒ—
 		 for (int ic = 0 ; ic < m_Document->m_Cards->Count ; ic++) if (Score[ic] > 1 && !IFound[ic]){
 		 IFound[ic] = 1;
 		 TCard *Card = m_Document->GetCardByIndex(ic);
@@ -10114,13 +10114,13 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		 delete[] IFound;
 
 		 */
-		// Œ»İƒJ[ƒh‚©‚çw’èƒŠƒ“ƒN”‚ÅŒq‚ª‚éƒJ[ƒh‚Ì‚İ•\¦
+		// ç¾åœ¨ã‚«ãƒ¼ãƒ‰ã‹ã‚‰æŒ‡å®šãƒªãƒ³ã‚¯æ•°ã§ç¹‹ãŒã‚‹ã‚«ãƒ¼ãƒ‰ã®ã¿è¡¨ç¤º
 		LinkLimitationSub(m_nTargetCard, m_nTargetLink,
 			SettingView.m_nLinkLimitation, Score, SettingView.m_bLinkDirection,
 			SettingView.m_bLinkBackward);
 
 		if (SettingView.m_nLinkTarget >= 0) {
-			// TargetCard‚Ü‚Å‚ÌŠÔ‚É‚ ‚éƒŠƒ“ƒN‚¾‚¯•\¦
+			// TargetCardã¾ã§ã®é–“ã«ã‚ã‚‹ãƒªãƒ³ã‚¯ã ã‘è¡¨ç¤º
 			int idx2 = m_Document->SearchCardIndex(SettingView.m_nLinkTarget);
 			if (idx2 >= 0) {
 				if (Score[idx2] > 0) {
@@ -10132,7 +10132,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 						!SettingView.m_bLinkBackward);
 					for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
 						/*
-						 //ƒJ[ƒhƒ^ƒCƒgƒ‹‚É”½‰f‚µ‚ÄƒfƒoƒbƒO
+						 //ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã«åæ˜ ã—ã¦ãƒ‡ãƒãƒƒã‚°
 						 TCard *Card_ = m_Document->GetCardByIndex(ic);
 						 Card_->m_Title = IntToStr(Score[ic]) + " : " + IntToStr(Score2[ic]);
 						 */
@@ -10148,20 +10148,20 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 					delete[]Score2;
 				}
 				else {
-					// w’èƒŠƒ“ƒN”‚Å‚ÍTargetCard‚É’B‚·‚é‚±‚Æ‚ª‚È‚¢‚Ì‚ÅA‘S‚Ä”ñ•\¦
+					// æŒ‡å®šãƒªãƒ³ã‚¯æ•°ã§ã¯TargetCardã«é”ã™ã‚‹ã“ã¨ãŒãªã„ã®ã§ã€å…¨ã¦éè¡¨ç¤º
 					for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
 						Score[ic] = 0;
 					}
 				}
 			}
 			else {
-				// TargetCard‚ªŒ©‚Â‚©‚ç‚È‚¢
+				// TargetCardãŒè¦‹ã¤ã‹ã‚‰ãªã„
 
-				// TargetCard‚ğƒŠƒZƒbƒg‚·‚é
+				// TargetCardã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹
 				SettingView.m_nLinkTarget = -1;
 			}
 
-			// –{“–‚ÍA‚±‚±‚Åi‚è‚Ü‚ê‚½ƒJ[ƒh‚©‚ç‚³‚ç‚Éw’èƒŠƒ“ƒN‚Å’H‚ê‚éƒ‹[ƒg‚©‚ğ”»’f‚·‚é•K—v‚ ‚èH
+			// æœ¬å½“ã¯ã€ã“ã“ã§çµã‚Šè¾¼ã¾ã‚ŒãŸã‚«ãƒ¼ãƒ‰ã‹ã‚‰ã•ã‚‰ã«æŒ‡å®šãƒªãƒ³ã‚¯ã§è¾¿ã‚Œã‚‹ãƒ«ãƒ¼ãƒˆã‹ã‚’åˆ¤æ–­ã™ã‚‹å¿…è¦ã‚ã‚Šï¼Ÿ
 		}
 
 		for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
@@ -10171,24 +10171,24 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 
 		delete[]Score;
 
-		// ƒJ[ƒhƒ^ƒCƒgƒ‹‚É”½‰f‚µ‚ÄƒfƒoƒbƒO
+		// ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã«åæ˜ ã—ã¦ãƒ‡ãƒãƒƒã‚°
 		// m_Document->RefreshList();
 
 	} /* else{
-	 //ƒŠƒ“ƒN”§ŒÀ‚È‚µorƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢i‘S‚Ä•\¦j
+	 //ãƒªãƒ³ã‚¯æ•°åˆ¶é™ãªã—orã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãªã„ï¼ˆå…¨ã¦è¡¨ç¤ºï¼‰
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
 	 m_Document->GetCardByIndex(i)->m_bVisible = true;
 	 }
 	 } */
 
-	// ŠK‘w•\¦AÜ‚è‚½‚½‚Ü‚ê‚Ä‚¢‚é‚æ‚è‰º‚ÌƒJ[ƒh‚ğ”ñí‚É‚·‚é
+	// éšå±¤è¡¨ç¤ºæ™‚ã€æŠ˜ã‚ŠãŸãŸã¾ã‚Œã¦ã„ã‚‹ã‚ˆã‚Šä¸‹ã®ã‚«ãƒ¼ãƒ‰ã‚’éå¸¸æ™‚ã«ã™ã‚‹
 	int changed = true;
 	while (bFoldTree && changed) {
 		changed = false;
 		for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
 			TCard *Card = m_Document->GetCardByIndex(ic);
 			if (Card->m_bVisible && Card->m_nParentID >= 0) {
-				// •\¦’†‚ÅAeƒm[ƒh‚ª‚ ‚é
+				// è¡¨ç¤ºä¸­ã§ã€è¦ªãƒãƒ¼ãƒ‰ãŒã‚ã‚‹
 				TCard *Card2 = m_Document->GetCard(Card->m_nParentID);
 				if (Card2->m_bFold || !Card2->m_bVisible) {
 					Card->m_bVisible = false;
@@ -10199,7 +10199,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		}
 	}
 
-	// ‘I‘ğ’†ƒJ[ƒh‚ğŒ©‚¹‚é
+	// é¸æŠä¸­ã‚«ãƒ¼ãƒ‰ã‚’è¦‹ã›ã‚‹
 	if (m_nTargetCard >= 0) {
 		TCard *Card = m_Document->GetCard(m_nTargetCard);
 		if (Card) {
@@ -10207,7 +10207,7 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		}
 	}
 
-	// ‘I‘ğ’†ƒŠƒ“ƒN‚Ì—¼’[‚ÌƒJ[ƒh‚ğŒ©‚¹‚é
+	// é¸æŠä¸­ãƒªãƒ³ã‚¯ã®ä¸¡ç«¯ã®ã‚«ãƒ¼ãƒ‰ã‚’è¦‹ã›ã‚‹
 	if (m_nTargetLink >= 0) {
 		TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 		if (Link) {
@@ -10216,11 +10216,11 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 		}
 	}
 
-	// •\¦ó‘Ô‚É•Ï‰»‚ª‚ ‚Á‚½ê‡‚Ìˆ—
+	// è¡¨ç¤ºçŠ¶æ…‹ã«å¤‰åŒ–ãŒã‚ã£ãŸå ´åˆã®å‡¦ç†
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisibleBak != Card->m_bVisible) {
-			// TickerˆÊ’u‚ğƒŠƒZƒbƒg
+			// Tickerä½ç½®ã‚’ãƒªã‚»ãƒƒãƒˆ
 			Card->m_fTickerPos = 0.0;
 		}
 	}
@@ -10228,9 +10228,9 @@ void TFo_Main::SetCardVisible(bool bFoldTree) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::FilteringCard() {
-	// Label‚Å•\¦‚·‚éƒJ[ƒh‚ğ‘I•Ê‚·‚é
+	// Labelã§è¡¨ç¤ºã™ã‚‹ã‚«ãƒ¼ãƒ‰ã‚’é¸åˆ¥ã™ã‚‹
 
-	// ƒ‰ƒxƒ‹(Show)
+	// ãƒ©ãƒ™ãƒ«(Show)
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
@@ -10248,7 +10248,7 @@ void TFo_Main::FilteringCard() {
 		}
 	}
 
-	// ƒ‰ƒxƒ‹(Hide)
+	// ãƒ©ãƒ™ãƒ«(Hide)
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
@@ -10263,7 +10263,7 @@ void TFo_Main::FilteringCard() {
 		}
 	}
 
-	// ƒ‰ƒxƒ‹iLink)
+	// ãƒ©ãƒ™ãƒ«ï¼ˆLink)
 	for (int i2 = 0; i2 < m_Document->m_Links->Count; i2++) {
 		TLink *Link = m_Document->GetLinkByIndex(i2);
 		if (Link->m_bVisible) {
@@ -10290,9 +10290,9 @@ void TFo_Main::FilteringCard() {
 		}
 	}
 
-	// ƒTƒCƒY‚Å•\¦‚·‚éƒJ[ƒh‚ğ‘I•Ê‚·‚é
+	// ã‚µã‚¤ã‚ºã§è¡¨ç¤ºã™ã‚‹ã‚«ãƒ¼ãƒ‰ã‚’é¸åˆ¥ã™ã‚‹
 
-	// ƒTƒCƒY
+	// ã‚µã‚¤ã‚º
 	if (SettingView.m_bSizeLimitation)
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
@@ -10308,7 +10308,7 @@ void TFo_Main::FilteringCard() {
 			}
 		}
 
-	// “ú•t‚Å•\¦‚·‚éƒJ[ƒh‚ğ‘I•Ê‚·‚é
+	// æ—¥ä»˜ã§è¡¨ç¤ºã™ã‚‹ã‚«ãƒ¼ãƒ‰ã‚’é¸åˆ¥ã™ã‚‹
 	m_Document->RefreshDateOrder();
 	if (SettingView.m_bDateLimitation) {
 		int currentdate = -2;
@@ -10387,17 +10387,17 @@ void TFo_Main::FilteringCard() {
 void __fastcall TFo_Main::Bu_Label0Click(TObject *Sender) {
 	int index = ((TMenuItem*)Sender)->Tag;
 	if (m_nTargetCard < 0) {
-		// ƒJ[ƒh”ñ‘I‘ğ
+		// ã‚«ãƒ¼ãƒ‰éé¸æŠ
 		return;
 	}
 	else {
 		TCard *Card = m_Document->GetCard(m_nTargetCard);
 		if (index >= Card->m_Labels->Count) {
-			// ƒ‰ƒxƒ‹‚È‚µ
+			// ãƒ©ãƒ™ãƒ«ãªã—
 			PL_NoLabel->Checked = true;
 		}
 		else {
-			// ƒ‰ƒxƒ‹‚ ‚è
+			// ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 			((TMenuItem*)MI_Labels->Items[Card->m_Labels->GetLabel(index) - 1])
 				->Checked = true;
 		}
@@ -10417,13 +10417,13 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender) {
 	int index = Po_Label->Tag;
 
 	if (index < 0) {
-		// ƒc[ƒ‹ƒ‰ƒxƒ‹w’è
+		// ãƒ„ãƒ¼ãƒ«ãƒ©ãƒ™ãƒ«æŒ‡å®š
 		m_nToolLabel = label;
 		return;
 	}
 
 	if (m_nTargetCard < 0) {
-		// ƒJ[ƒh”ñ‘I‘ğ
+		// ã‚«ãƒ¼ãƒ‰éé¸æŠ
 		return;
 	}
 
@@ -10432,23 +10432,23 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender) {
 
 	TCard *Card = m_Document->GetCard(m_nTargetCard);
 	if (index >= Card->m_Labels->Count) {
-		// ƒ‰ƒxƒ‹’Ç‰Á
+		// ãƒ©ãƒ™ãƒ«è¿½åŠ 
 
 		if (label > 0) {
-			// ƒ‰ƒxƒ‹’Ç‰Á
+			// ãƒ©ãƒ™ãƒ«è¿½åŠ 
 			BackupSub(MLText.AddLabel);
 			AddLabel = label;
 		}
 	}
 	else {
-		// Šù‘¶ƒ‰ƒxƒ‹‚Ì•ÒW
+		// æ—¢å­˜ãƒ©ãƒ™ãƒ«ã®ç·¨é›†
 		if (label == 0) {
-			// ƒ‰ƒxƒ‹íœ
+			// ãƒ©ãƒ™ãƒ«å‰Šé™¤
 			BackupSub(MLText.DeleteLabel);
 			DelLabel = Card->m_Labels->GetLabel(index);
 		}
 		else {
-			// ƒ‰ƒxƒ‹•ÏX
+			// ãƒ©ãƒ™ãƒ«å¤‰æ›´
 			BackupSub(MLText.ChangeLabel);
 			DelLabel = Card->m_Labels->GetLabel(index);
 			AddLabel = label;
@@ -10464,15 +10464,15 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender) {
 					Card->m_Labels->AddLabel(label);
 				}
 				else if (AddLabel >= 0 && DelLabel >= 0) {
-					// •ÏX
+					// å¤‰æ›´
 					if (Card->m_Labels->Contain(DelLabel)) {
-						// íœ‚·‚×‚«ƒ‰ƒxƒ‹‚ğ‚Á‚Ä‚¢‚é
+						// å‰Šé™¤ã™ã¹ããƒ©ãƒ™ãƒ«ã‚’æŒã£ã¦ã„ã‚‹
 						if (Card->m_Labels->Contain(AddLabel)) {
-							// ’Ç‰Á‚·‚éƒ‰ƒxƒ‹‚ğŠù‚É‚Á‚Ä‚¢‚é¨’Pƒíœ
+							// è¿½åŠ ã™ã‚‹ãƒ©ãƒ™ãƒ«ã‚’æ—¢ã«æŒã£ã¦ã„ã‚‹â†’å˜ç´”å‰Šé™¤
 							Card->m_Labels->DeleteLabel(DelLabel);
 						}
 						else {
-							// ’Êí‚Ì•ÏX
+							// é€šå¸¸ã®å¤‰æ›´
 							for (int i2 = 0; i2 < Card->m_Labels->Count; i2++) {
 								if (Card->m_Labels->GetLabel(i2) == DelLabel) {
 									Card->m_Labels->SetLabel(i2, AddLabel);
@@ -10482,12 +10482,12 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender) {
 						}
 					}
 					else {
-						// íœ‚·‚×‚«ƒ‰ƒxƒ‹‚ğ‚Á‚Ä‚¢‚È‚¢¨’Pƒ’Ç‰Á
+						// å‰Šé™¤ã™ã¹ããƒ©ãƒ™ãƒ«ã‚’æŒã£ã¦ã„ãªã„â†’å˜ç´”è¿½åŠ 
 						Card->m_Labels->AddLabel(label);
 					}
 				}
 				else {
-					// íœ
+					// å‰Šé™¤
 					Card->m_Labels->DeleteLabel(DelLabel);
 				}
 			}
@@ -10497,21 +10497,21 @@ void __fastcall TFo_Main::PL_Click(TObject *Sender) {
 	 TCard *Card = m_Document->GetCard(m_nTargetCard);
 
 	 if (index >= Card->m_Labels->Count){
-	 //ƒ‰ƒxƒ‹’Ç‰Á
+	 //ãƒ©ãƒ™ãƒ«è¿½åŠ 
 
 	 if (label > 0){
-	 //ƒ‰ƒxƒ‹’Ç‰Á
+	 //ãƒ©ãƒ™ãƒ«è¿½åŠ 
 	 BackupSub(MLText.AddLabel);
 	 Card->m_Labels->AddLabel(label);
 	 }
 	 }else{
-	 //Šù‘¶ƒ‰ƒxƒ‹‚Ì•ÒW
+	 //æ—¢å­˜ãƒ©ãƒ™ãƒ«ã®ç·¨é›†
 	 if (label == 0){
-	 //ƒ‰ƒxƒ‹íœ
+	 //ãƒ©ãƒ™ãƒ«å‰Šé™¤
 	 BackupSub(MLText.DeleteLabel);
 	 Card->m_Labels->DeleteLabel(Card->m_Labels->GetLabel(index));
 	 }else{
-	 //ƒ‰ƒxƒ‹•ÏX
+	 //ãƒ©ãƒ™ãƒ«å¤‰æ›´
 	 BackupSub(MLText.ChangeLabel);
 	 Card->m_Labels->SetLabel(index, label);
 	 }
@@ -10546,7 +10546,7 @@ void __fastcall TFo_Main::MH_ContentsClick(TObject *Sender) {
 	ExitFullScreen();
 
 	UnicodeString S = UnicodeString(ExtractFilePath(ParamStr(0))) +
-		UnicodeString("editor.exe");
+		UnicodeString("feditor.exe");
 	UnicodeString S2 = UnicodeString("\"") + UnicodeString
 		(ExtractFilePath(ParamStr(0))) + UnicodeString("help.fip\"");
 	ShellExecute(Handle, NULL, S.c_str(), S2.c_str(), NULL, SW_SHOW);
@@ -10585,7 +10585,7 @@ void __fastcall TFo_Main::MF_RecentFoldersClick(TObject *Sender) {
 
 void __fastcall TFo_Main::Ed_LinkTitleChange(TObject *Sender) {
 	if (Ed_LinkTitle->Tag == 0) {
-		// ‘I‘ğ’†‚ÌƒŠƒ“ƒN–¼•ÒW
+		// é¸æŠä¸­ã®ãƒªãƒ³ã‚¯åç·¨é›†
 		TextEditBackupSub(MLText.EditLinkTitle);
 
 		TLink *Link = m_Document->GetLinkByIndex(m_nCurrentLink);
@@ -10598,7 +10598,7 @@ void __fastcall TFo_Main::Ed_LinkTitleChange(TObject *Sender) {
 void __fastcall TFo_Main::Ch_LinkDirectionClick(TObject *Sender) {
 	if (Ed_LinkTitle->Tag == 0) {
 		BackupSub(MLText.EditLink);
-		// ‘I‘ğ’†‚ÌƒŠƒ“ƒN‚Ì•ûŒü—L‚è–³‚µØ‚è‘Ö‚¦
+		// é¸æŠä¸­ã®ãƒªãƒ³ã‚¯ã®æ–¹å‘æœ‰ã‚Šç„¡ã—åˆ‡ã‚Šæ›¿ãˆ
 		TLink *Link = m_Document->GetLinkByIndex(m_nCurrentLink);
 		Link->m_bDirection = Ch_LinkDirection->Checked;
 		m_Document->RefreshList();
@@ -10608,7 +10608,7 @@ void __fastcall TFo_Main::Ch_LinkDirectionClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::Bu_LinkDirectionInverseClick(TObject *Sender) {
-	// ‘I‘ğ’†‚ÌƒŠƒ“ƒN‚Ì•ûŒü”½“]
+	// é¸æŠä¸­ã®ãƒªãƒ³ã‚¯ã®æ–¹å‘åè»¢
 	BackupSub(MLText.EditLink);
 	TLink *Link = m_Document->GetLinkByIndex(m_nCurrentLink);
 	int bak = Link->m_nFromID;
@@ -10638,17 +10638,17 @@ void __fastcall TFo_Main::ME_LinkLabelClick(TObject *Sender) {
 void __fastcall TFo_Main::Bu_LinkLabel0Click(TObject *Sender) {
 	int index = ((TMenuItem*)Sender)->Tag;
 	if (m_nTargetLink < 0) {
-		// ƒŠƒ“ƒN”ñ‘I‘ğ
+		// ãƒªãƒ³ã‚¯éé¸æŠ
 		return;
 	}
 	else {
 		TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 		if (index >= Link->m_Labels->Count) {
-			// ƒ‰ƒxƒ‹‚È‚µ
+			// ãƒ©ãƒ™ãƒ«ãªã—
 			PL_NoLinkLabel->Checked = true;
 		}
 		else {
-			// ƒ‰ƒxƒ‹‚ ‚è
+			// ãƒ©ãƒ™ãƒ«ã‚ã‚Š
 			((TMenuItem*)MI_LinkLabels->Items[Link->m_Labels->GetLabel(index) -
 				1])->Checked = true;
 		}
@@ -10668,36 +10668,36 @@ void __fastcall TFo_Main::PL_NoLinkLabelClick(TObject *Sender) {
 	int index = Po_LinkLabel->Tag;
 
 	if (index < 0) {
-		// ƒc[ƒ‹ƒ‰ƒxƒ‹w’è
+		// ãƒ„ãƒ¼ãƒ«ãƒ©ãƒ™ãƒ«æŒ‡å®š
 		m_nToolLinkLabel = label;
 		return;
 	}
 
 	if (m_nTargetLink < 0) {
-		// ƒŠƒ“ƒN”ñ‘I‘ğ
+		// ãƒªãƒ³ã‚¯éé¸æŠ
 		return;
 	}
 
 	TLink *Link = m_Document->GetLinkByIndex(m_nTargetLink);
 
 	if (index >= Link->m_Labels->Count) {
-		// ƒ‰ƒxƒ‹’Ç‰Á
+		// ãƒ©ãƒ™ãƒ«è¿½åŠ 
 
 		if (label > 0) {
-			// ƒ‰ƒxƒ‹’Ç‰Á
+			// ãƒ©ãƒ™ãƒ«è¿½åŠ 
 			BackupSub(MLText.AddLabel);
 			Link->m_Labels->AddLabel(label);
 		}
 	}
 	else {
-		// Šù‘¶ƒ‰ƒxƒ‹‚Ì•ÒW
+		// æ—¢å­˜ãƒ©ãƒ™ãƒ«ã®ç·¨é›†
 		if (label == 0) {
-			// ƒ‰ƒxƒ‹íœ
+			// ãƒ©ãƒ™ãƒ«å‰Šé™¤
 			BackupSub(MLText.DeleteLabel);
 			Link->m_Labels->DeleteLabel(Link->m_Labels->GetLabel(index));
 		}
 		else {
-			// ƒ‰ƒxƒ‹•ÏX
+			// ãƒ©ãƒ™ãƒ«å¤‰æ›´
 			BackupSub(MLText.ChangeLabel);
 			Link->m_Labels->SetLabel(index, label);
 		}
@@ -10755,18 +10755,18 @@ void __fastcall TFo_Main::MA_RandomFlashClick(TObject *Sender) {
 	m_nTargetLink = -1;
 	m_Document->ClearCardSelection();
 
-	// MM_Menu->Enabled = false;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+	// MM_Menu->Enabled = false;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 	m_nAnimationBak_ArrangeType = Bu_ArrangeType->Tag;
 	m_bAnimationBak_Arrange = SB_Arrange->Down;
 	m_bAnimationBak_AutoScroll = SB_AutoScroll->Down;
 	m_bAnimationBak_AutoZoom = SB_AutoZoom->Down;
 
-	// SoftLink‚ÅArrange
+	// SoftLinkã§Arrange
 	SB_Arrange->Down = true;
 	Bu_ArrangeType->Tag = 102;
 
 	PB_Browser->Tag = 1;
-	TB_Zoom->Position = -1000; // ‘S‘Ì•\¦
+	TB_Zoom->Position = -1000; // å…¨ä½“è¡¨ç¤º
 	SB_AutoScroll->Down = false;
 	Sc_X->Position = 5000;
 	Sc_Y->Position = 5000;
@@ -10786,7 +10786,7 @@ void __fastcall TFo_Main::MA_RandomFlashClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void TFo_Main::Animation_RandomCard() {
 	if (!Fo_RandomAnimation->Visible) {
-		// ƒAƒjƒ[ƒVƒ‡ƒ“I—¹
+		// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 		m_nAnimation = 0;
 		if (m_DocBeforeAnimation) {
 			m_Document->CopyFrom(m_DocBeforeAnimation);
@@ -10800,7 +10800,7 @@ void TFo_Main::Animation_RandomCard() {
 		Bu_ArrangeType->Tag = m_nAnimationBak_ArrangeType;
 		SB_AutoScroll->Down = m_bAnimationBak_AutoScroll;
 		SB_AutoZoom->Down = m_bAnimationBak_AutoZoom;
-		// MM_Menu->Enabled = true;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+		// MM_Menu->Enabled = true;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 		Redraw();
 		return;
 	}
@@ -10811,7 +10811,7 @@ void TFo_Main::Animation_RandomCard() {
 
 		SetCardAssign();
 
-		// ‘S‚Ä•\¦
+		// å…¨ã¦è¡¨ç¤º
 		for (int i = 0; i < m_Document->m_Cards->Count; i++)
 			if (m_CardAssign[i] == i) {
 				m_Document->GetCardByIndex(i)->m_bVisible = true;
@@ -10822,7 +10822,7 @@ void TFo_Main::Animation_RandomCard() {
 
 		FilteringCard();
 
-		// •\¦‚É‚È‚Á‚Ä‚¢‚éŒÂ”‚ğ”‚¦‚é
+		// è¡¨ç¤ºã«ãªã£ã¦ã„ã‚‹å€‹æ•°ã‚’æ•°ãˆã‚‹
 		int count = 0;
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			if (m_Document->GetCardByIndex(i)->m_bVisible) {
@@ -10830,7 +10830,7 @@ void TFo_Main::Animation_RandomCard() {
 			}
 		}
 
-		// w’èŒÂ”ˆÈ‰º‚É‚È‚é‚Ü‚Å”ñ•\¦‚É‚·‚é
+		// æŒ‡å®šå€‹æ•°ä»¥ä¸‹ã«ãªã‚‹ã¾ã§éè¡¨ç¤ºã«ã™ã‚‹
 		while (count > SettingView.m_nAnimationRCCards) {
 			int cardindex = rand() % m_Document->m_Cards->Count;
 			TCard *Card = m_Document->GetCardByIndex(cardindex);
@@ -10840,8 +10840,8 @@ void TFo_Main::Animation_RandomCard() {
 			}
 		}
 
-		// “K“–‚ÈƒJ[ƒh‚ğƒAƒNƒeƒBƒu‚É‚·‚éi“Ç‚İã‚°‚Ì‚½‚ßj
-		// •\¦‚É‚È‚Á‚Ä‚¢‚éŒÂ”‚ğ”‚¦‚é
+		// é©å½“ãªã‚«ãƒ¼ãƒ‰ã‚’ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ã™ã‚‹ï¼ˆèª­ã¿ä¸Šã’ã®ãŸã‚ï¼‰
+		// è¡¨ç¤ºã«ãªã£ã¦ã„ã‚‹å€‹æ•°ã‚’æ•°ãˆã‚‹
 		if (count > 0) {
 			int idx = rand() % count;
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
@@ -10885,12 +10885,12 @@ void __fastcall TFo_Main::MA_RandomMapClick(TObject *Sender) {
 	m_bAnimationBak_AutoScroll = SB_AutoScroll->Down;
 	m_bAnimationBak_AutoZoom = SB_AutoZoom->Down;
 
-	// Link‚ÅArrange
+	// Linkã§Arrange
 	SB_Arrange->Down = true;
 	Bu_ArrangeType->Tag = 2;
 
 	PB_Browser->Tag = 1;
-	TB_Zoom->Position = -1000; // ‘S‘Ì•\¦
+	TB_Zoom->Position = -1000; // å…¨ä½“è¡¨ç¤º
 	SB_AutoScroll->Down = false;
 	Sc_X->Position = 5000;
 	Sc_Y->Position = 5000;
@@ -10904,7 +10904,7 @@ void __fastcall TFo_Main::MA_RandomMapClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void TFo_Main::Animation_RandomMap() {
 	if (!Fo_RandomAnimation->Visible) {
-		// ƒAƒjƒ[ƒVƒ‡ƒ“I—¹
+		// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 		m_nAnimation = 0;
 		if (m_DocBeforeAnimation) {
 			m_Document->CopyFrom(m_DocBeforeAnimation);
@@ -10924,9 +10924,9 @@ void TFo_Main::Animation_RandomMap() {
 
 	// Random Map
 	if (m_nAnimationCount == 0) {
-		// ƒ}ƒbƒvXVƒ^ƒCƒ~ƒ“ƒO
+		// ãƒãƒƒãƒ—æ›´æ–°ã‚¿ã‚¤ãƒŸãƒ³ã‚°
 
-		// •\¦’†ƒJ[ƒh‚Ì”‚ğ”‚¦‚é
+		// è¡¨ç¤ºä¸­ã‚«ãƒ¼ãƒ‰ã®æ•°ã‚’æ•°ãˆã‚‹
 		SetCardAssign();
 		int count = 0;
 		for (int i = 0; i < m_Document->m_Cards->Count; i++)
@@ -10934,7 +10934,7 @@ void TFo_Main::Animation_RandomMap() {
 				count++;
 			}
 
-		// ƒJ[ƒhAƒŠƒ“ƒN‚Ì•\¦ó‹µƒoƒbƒNƒAƒbƒv
+		// ã‚«ãƒ¼ãƒ‰ã€ãƒªãƒ³ã‚¯ã®è¡¨ç¤ºçŠ¶æ³ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 		bool *CVBak = new bool[m_Document->m_Cards->Count];
 		bool *CVNext = new bool[m_Document->m_Cards->Count];
 		memcpy(CVBak, m_CardVisible, sizeof(bool) * m_Document->m_Cards->Count);
@@ -10946,7 +10946,7 @@ void TFo_Main::Animation_RandomMap() {
 		memcpy(LVNext, m_LinkVisible,
 			sizeof(bool) * m_Document->m_Links->Count);
 
-		// ‘S‚Ä•\¦
+		// å…¨ã¦è¡¨ç¤º
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			m_Document->GetCardByIndex(i)->m_bVisible = true;
 		}
@@ -10954,23 +10954,23 @@ void TFo_Main::Animation_RandomMap() {
 			m_Document->GetLinkByIndex(i)->m_bVisible = true;
 		}
 
-		// •\¦‘ÎÛ‚ÌƒJ[ƒhAƒŠƒ“ƒN‚ğƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+		// è¡¨ç¤ºå¯¾è±¡ã®ã‚«ãƒ¼ãƒ‰ã€ãƒªãƒ³ã‚¯ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 		FilteringCard();
 
 		int inccardnum = 0;
 		if (m_nTargetCard >= 0) {
-			// ƒJ[ƒh‚ª•\¦‚³‚ê‚Ä‚¢‚é‚È‚çA‚»‚±‚©‚çƒŠƒ“ƒN‚ğL‚Î‚·
+			// ã‚«ãƒ¼ãƒ‰ãŒè¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ãªã‚‰ã€ãã“ã‹ã‚‰ãƒªãƒ³ã‚¯ã‚’ä¼¸ã°ã™
 			for (int i = 0; i < m_Document->m_Links->Count && count <
 				SettingView.m_nAnimationRCCards; i++) {
 				TLink *Link = m_Document->GetLinkByIndex(i);
-				if (Link->m_bVisible) { // •\¦‘ÎÛ‚ÌƒŠƒ“ƒN
+				if (Link->m_bVisible) { // è¡¨ç¤ºå¯¾è±¡ã®ãƒªãƒ³ã‚¯
 					int fromidx = m_Document->SearchCardIndex(Link->m_nFromID);
-					if (m_CardVisible[fromidx]) { // •\¦’†=•\¦‘ÎÛ
+					if (m_CardVisible[fromidx]) { // è¡¨ç¤ºä¸­=è¡¨ç¤ºå¯¾è±¡
 						int destidx =
 							m_Document->SearchCardIndex(Link->m_nDestID);
 						TCard *Dest = m_Document->GetCardByIndex(destidx);
 						if (!m_CardVisible[destidx] && Dest->m_bVisible)
-						{ // •\¦‚³‚ê‚Ä‚¨‚ç‚¸A•\¦‘ÎÛ
+						{ // è¡¨ç¤ºã•ã‚Œã¦ãŠã‚‰ãšã€è¡¨ç¤ºå¯¾è±¡
 							CVNext[destidx] = true;
 							LVNext[i] = true;
 							TCard *From = m_Document->GetCardByIndex(fromidx);
@@ -10986,11 +10986,11 @@ void TFo_Main::Animation_RandomMap() {
 			}
 		}
 		if (m_nTargetCard < 0 || inccardnum == 0) {
-			// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢‚©AƒJ[ƒh‚ª’Ç‰Á‚³‚ê‚È‚©‚Á‚½ê‡AV‚½‚ÉƒJ[ƒh‚ğ1–‡‘I‘ğ
+			// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãªã„ã‹ã€ã‚«ãƒ¼ãƒ‰ãŒè¿½åŠ ã•ã‚Œãªã‹ã£ãŸå ´åˆã€æ–°ãŸã«ã‚«ãƒ¼ãƒ‰ã‚’1æšé¸æŠ
 			m_Document->ClearCardSelection();
 
 			/*
-			 //‘S‚Ä•\¦
+			 //å…¨ã¦è¡¨ç¤º
 			 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardAssign[i] == i){
 			 m_Document->GetCardByIndex(i)->m_bVisible = true;
 			 }
@@ -10998,7 +10998,7 @@ void TFo_Main::Animation_RandomMap() {
 			 FilteringCard();
 			 */
 
-			// •\¦‚É‚È‚Á‚Ä‚¢‚éŒÂ”‚ğ”‚¦‚é
+			// è¡¨ç¤ºã«ãªã£ã¦ã„ã‚‹å€‹æ•°ã‚’æ•°ãˆã‚‹
 			int count = 0;
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				if (m_Document->GetCardByIndex(i)->m_bVisible) {
@@ -11006,7 +11006,7 @@ void TFo_Main::Animation_RandomMap() {
 				}
 			}
 
-			// •\¦‚·‚éIndex‚ğŒˆ‚ß‚é
+			// è¡¨ç¤ºã™ã‚‹Indexã‚’æ±ºã‚ã‚‹
 			int idx = rand() % count;
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				TCard *Card = m_Document->GetCardByIndex(i);
@@ -11025,7 +11025,7 @@ void TFo_Main::Animation_RandomMap() {
 			}
 		}
 		else {
-			// V‚µ‚¢Visible‚ğ”½‰f
+			// æ–°ã—ã„Visibleã‚’åæ˜ 
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				m_Document->GetCardByIndex(i)->m_bVisible = CVNext[i];
 			}
@@ -11066,15 +11066,15 @@ void __fastcall TFo_Main::MA_RandomScrollClick(TObject *Sender) {
 	m_bAnimationBak_Arrange = SB_Arrange->Down;
 	m_bAnimationBak_AutoScroll = SB_AutoScroll->Down;
 	m_bAnimationBak_AutoZoom = SB_AutoZoom->Down;
-	// MM_Menu->Enabled = false;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+	// MM_Menu->Enabled = false;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 
-	// Arrange‚È‚µ
+	// Arrangeãªã—
 	SB_Arrange->Down = false;
 
 	PB_Browser->Tag = 1;
-	TB_Zoom->Position = -2000; // ‘S‘Ì•\¦
-	SB_AutoScroll->Down = false; // ƒXƒNƒ[ƒ‹‚È‚µ
-	SB_AutoZoom->Down = false; // ©“®ƒY[ƒ€‚È‚µ
+	TB_Zoom->Position = -2000; // å…¨ä½“è¡¨ç¤º
+	SB_AutoScroll->Down = false; // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãªã—
+	SB_AutoZoom->Down = false; // è‡ªå‹•ã‚ºãƒ¼ãƒ ãªã—
 	Sc_X->Position = 5000;
 	Sc_Y->Position = 5000;
 	/*
@@ -11097,7 +11097,7 @@ void __fastcall TFo_Main::MA_RandomScrollClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void TFo_Main::Animation_RandomCard2() {
 	if (!Fo_RandomAnimation->Visible) {
-		// ƒAƒjƒ[ƒVƒ‡ƒ“I—¹
+		// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 		m_nAnimation = 0;
 		if (m_DocBeforeAnimation) {
 			m_Document->CopyFrom(m_DocBeforeAnimation);
@@ -11111,28 +11111,28 @@ void TFo_Main::Animation_RandomCard2() {
 		Bu_ArrangeType->Tag = m_nAnimationBak_ArrangeType;
 		SB_AutoScroll->Down = m_bAnimationBak_AutoScroll;
 		SB_AutoZoom->Down = m_bAnimationBak_AutoZoom;
-		// MM_Menu->Enabled = true;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+		// MM_Menu->Enabled = true;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 		Redraw();
 		// SetCardVisible();
 		return;
 	}
 
 	if (SettingView.m_bAnimationPaused) {
-		// ˆê’â~’†
+		// ä¸€æ™‚åœæ­¢ä¸­
 		return;
 	}
 
 	// Random Card 2
 	for (int i = 0; i < MAXRANDOMCARDS; i++) {
 		if (i < SettingView.m_nAnimationRCCards) {
-			// •\¦”‚Ì”ÍˆÍ“à
+			// è¡¨ç¤ºæ•°ã®ç¯„å›²å†…
 
 			if (m_Animation_RC2Idxs[i] < 0) {
-				// ƒJ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢
+				// ã‚«ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„
 
 				SetCardAssign();
 
-				// •\¦‰Â”\‚ÈƒJ[ƒh‚ğƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+				// è¡¨ç¤ºå¯èƒ½ãªã‚«ãƒ¼ãƒ‰ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 					if (m_CardAssign[i2] == i2) {
 						m_Document->GetCardByIndex(i2)->m_bVisible = true;
@@ -11143,7 +11143,7 @@ void TFo_Main::Animation_RandomCard2() {
 
 				FilteringCard();
 
-				// Šù‚É•\¦’†‚ÌƒJ[ƒh‚àƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+				// æ—¢ã«è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ã‚‚ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 				int count = 0;
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++) {
 					TCard *Card = m_Document->GetCardByIndex(i2);
@@ -11166,7 +11166,7 @@ void TFo_Main::Animation_RandomCard2() {
 				}
 
 				if (count > 0) {
-					// •\¦‰Â”\‚ÈƒJ[ƒh‚Ì’†‚©‚ç“K“–‚È1–‡‚ğ‘I‘ğ
+					// è¡¨ç¤ºå¯èƒ½ãªã‚«ãƒ¼ãƒ‰ã®ä¸­ã‹ã‚‰é©å½“ãª1æšã‚’é¸æŠ
 					int idx = rand() % count;
 					for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++) {
 						if (m_Document->GetCardByIndex(i2)->m_bVisible) {
@@ -11183,7 +11183,7 @@ void TFo_Main::Animation_RandomCard2() {
 							m_Document->GetCardByIndex(m_Animation_RC2Idxs[i]);
 
 						/*
-						 //“Ç‚İã‚°—p
+						 //èª­ã¿ä¸Šã’ç”¨
 						 if (SettingView.m_bRead) if (m_AgentChar && m_TTS){
 						 if (m_nAnimationCount >= 3000){
 						 m_Document->ClearCardSelection();
@@ -11194,44 +11194,44 @@ void TFo_Main::Animation_RandomCard2() {
 						 }
 						 */
 
-						// ‰Šú•\¦À•WAˆÚ“®•ûŒü‚ğŒˆ’è
-						int direction = rand() % 4; // ã‰º¶‰E
+						// åˆæœŸè¡¨ç¤ºåº§æ¨™ã€ç§»å‹•æ–¹å‘ã‚’æ±ºå®š
+						int direction = rand() % 4; // ä¸Šä¸‹å·¦å³
 						switch (direction / 2) {
-						case 0: // ã‰º‚©‚ç
+						case 0: // ä¸Šä¸‹ã‹ã‚‰
 							Card->m_fX = (rand() % 2001) / 1000.0f - 0.5f;
 							m_Animation_RC2AXs[i] =
 								-(Card->m_fX - 0.5f) + 0.5f + (rand() % 10001)
 								/ 10000.0f - 0.5f;
 							if (direction == 0) {
-								// ã
+								// ä¸Š
 								Card->m_fY = 2.0f;
 								m_Animation_RC2AYs[i] = -3.0f;
 							}
 							else {
-								// ‰º
+								// ä¸‹
 								Card->m_fY = -1.0f;
 								m_Animation_RC2AYs[i] = 3.0f;
 							}
 							break;
-						case 1: // ¶‰E‚©‚ç
+						case 1: // å·¦å³ã‹ã‚‰
 							Card->m_fY = (rand() % 2001) / 1000.0f - 0.5f;
 							m_Animation_RC2AYs[i] =
 								-(Card->m_fX - 0.5f) + 0.5f + (rand() % 10001)
 								/ 10000.0f - 0.5f;
 							if (direction == 3) {
-								// ¶
+								// å·¦
 								Card->m_fX = 2.0f;
 								m_Animation_RC2AXs[i] = -3.0f;
 							}
 							else {
-								// ‰E
+								// å³
 								Card->m_fX = -1.0f;
 								m_Animation_RC2AXs[i] = 3.0f;
 							}
 							break;
 						};
 
-						// ˆÚ“®‘¬“xŒˆ’èiƒfƒtƒHƒ‹ƒg‚Å160~240ƒtƒŒ[ƒ€j
+						// ç§»å‹•é€Ÿåº¦æ±ºå®šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§160~240ãƒ•ãƒ¬ãƒ¼ãƒ ï¼‰
 						int frames = (160 + rand() % 81);
 						m_Animation_RC2AXs[i] /= frames;
 						m_Animation_RC2AYs[i] /= frames;
@@ -11240,31 +11240,31 @@ void TFo_Main::Animation_RandomCard2() {
 			}
 		}
 		else {
-			// •\¦”‚Ì”ÍˆÍŠO
+			// è¡¨ç¤ºæ•°ã®ç¯„å›²å¤–
 			m_Animation_RC2Idxs[i] = -1;
 		}
 	}
 
-	// i‘S‚Ä”ñ•\¦j
+	// ï¼ˆå…¨ã¦éè¡¨ç¤ºï¼‰
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		m_Document->GetCardByIndex(i)->m_bVisible = false;
 	}
 
-	// ˆÚ“®•\¦’†‚ÌƒJ[ƒh‚Ì‚İ•\¦
+	// ç§»å‹•è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ã®ã¿è¡¨ç¤º
 	float speed = 0.5f / pow(2.0, -(SettingView.m_nAnimationRCSpeed - 30)
 		/ 25.0);
 	for (int i = 0; i < SettingView.m_nAnimationRCCards; i++) {
 		if (m_Animation_RC2Idxs[i] >= 0) {
-			// ˆÚ“®•\¦’†
+			// ç§»å‹•è¡¨ç¤ºä¸­
 			TCard *Card = m_Document->GetCardByIndex(m_Animation_RC2Idxs[i]);
 
-			// À•W‰ÁZ
+			// åº§æ¨™åŠ ç®—
 			Card->m_fX += m_Animation_RC2AXs[i] * speed;
 			Card->m_fY += m_Animation_RC2AYs[i] * speed;
 
 			if (Card->m_fX < -1.0f || Card->m_fY < -1.0f || Card->m_fX >
 				2.0f || Card->m_fY > 2.0f) {
-				// ‰æ–ÊŠO‚É‚Í‚İo‚µ‚½
+				// ç”»é¢å¤–ã«ã¯ã¿å‡ºã—ãŸ
 				m_Animation_RC2Idxs[i] = -1;
 			}
 			else {
@@ -11294,15 +11294,15 @@ void __fastcall TFo_Main::MA_RandomJumpClick(TObject *Sender) {
 	m_bAnimationBak_Arrange = SB_Arrange->Down;
 	m_bAnimationBak_AutoScroll = SB_AutoScroll->Down;
 	m_bAnimationBak_AutoZoom = SB_AutoZoom->Down;
-	// MM_Menu->Enabled = false;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+	// MM_Menu->Enabled = false;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 
-	// Arrange‚È‚µ
+	// Arrangeãªã—
 	SB_Arrange->Down = false;
 
 	PB_Browser->Tag = 1;
-	TB_Zoom->Position = -2000; // ‘S‘Ì•\¦
-	SB_AutoScroll->Down = false; // ƒXƒNƒ[ƒ‹‚È‚µ
-	SB_AutoZoom->Down = false; // ©“®ƒY[ƒ€‚È‚µ
+	TB_Zoom->Position = -2000; // å…¨ä½“è¡¨ç¤º
+	SB_AutoScroll->Down = false; // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãªã—
+	SB_AutoZoom->Down = false; // è‡ªå‹•ã‚ºãƒ¼ãƒ ãªã—
 	Sc_X->Position = 5000;
 	Sc_Y->Position = 5000;
 	PB_Browser->Tag = 0;
@@ -11319,7 +11319,7 @@ void __fastcall TFo_Main::MA_RandomJumpClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void TFo_Main::Animation_RandomJump() {
 	if (!Fo_RandomAnimation->Visible) {
-		// ƒAƒjƒ[ƒVƒ‡ƒ“I—¹
+		// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 		m_nAnimation = 0;
 		if (m_DocBeforeAnimation) {
 			m_Document->CopyFrom(m_DocBeforeAnimation);
@@ -11333,28 +11333,28 @@ void TFo_Main::Animation_RandomJump() {
 		Bu_ArrangeType->Tag = m_nAnimationBak_ArrangeType;
 		SB_AutoScroll->Down = m_bAnimationBak_AutoScroll;
 		SB_AutoZoom->Down = m_bAnimationBak_AutoZoom;
-		// MM_Menu->Enabled = true;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+		// MM_Menu->Enabled = true;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 		Redraw();
 		// SetCardVisible();
 		return;
 	}
 
 	if (SettingView.m_bAnimationPaused) {
-		// ˆê’â~’†
+		// ä¸€æ™‚åœæ­¢ä¸­
 		return;
 	}
 
 	// Random Card 2
 	for (int i = 0; i < MAXRANDOMCARDS; i++) {
 		if (i < SettingView.m_nAnimationRCCards) {
-			// •\¦”‚Ì”ÍˆÍ“à
+			// è¡¨ç¤ºæ•°ã®ç¯„å›²å†…
 
 			if (m_Animation_RC2Idxs[i] < 0) {
-				// ƒJ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢
+				// ã‚«ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„
 
 				SetCardAssign();
 
-				// •\¦‰Â”\‚ÈƒJ[ƒh‚ğƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+				// è¡¨ç¤ºå¯èƒ½ãªã‚«ãƒ¼ãƒ‰ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 					if (m_CardAssign[i2] == i2) {
 						m_Document->GetCardByIndex(i2)->m_bVisible = true;
@@ -11365,7 +11365,7 @@ void TFo_Main::Animation_RandomJump() {
 
 				FilteringCard();
 
-				// Šù‚É•\¦’†‚ÌƒJ[ƒh‚àƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+				// æ—¢ã«è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ã‚‚ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
 				int count = 0;
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++) {
 					if (m_Document->GetCardByIndex(i2)->m_bVisible) {
@@ -11387,7 +11387,7 @@ void TFo_Main::Animation_RandomJump() {
 				}
 
 				if (count > 0) {
-					// •\¦‰Â”\‚ÈƒJ[ƒh‚Ì’†‚©‚ç“K“–‚È1–‡‚ğ‘I‘ğ
+					// è¡¨ç¤ºå¯èƒ½ãªã‚«ãƒ¼ãƒ‰ã®ä¸­ã‹ã‚‰é©å½“ãª1æšã‚’é¸æŠ
 					int idx = rand() % count;
 					for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++) {
 						if (m_Document->GetCardByIndex(i2)->m_bVisible) {
@@ -11404,7 +11404,7 @@ void TFo_Main::Animation_RandomJump() {
 							m_Document->GetCardByIndex(m_Animation_RC2Idxs[i]);
 
 						/*
-						 //“Ç‚İã‚°—p
+						 //èª­ã¿ä¸Šã’ç”¨
 						 if (SettingView.m_bRead) if (m_AgentChar && m_TTS){
 						 if (m_nAnimationCount >= 3000){
 						 m_Document->ClearCardSelection();
@@ -11415,10 +11415,10 @@ void TFo_Main::Animation_RandomJump() {
 						 }
 						 */
 
-						// ‰Šú•\¦À•W‚ğŒˆ’è
+						// åˆæœŸè¡¨ç¤ºåº§æ¨™ã‚’æ±ºå®š
 						Card->m_fY = 2.0f;
 						Card->m_fX = (rand() % 2001) / 1000.0f - 0.5f;
-						// ˆÚ“®‘¬“xŒˆ’èiƒfƒtƒHƒ‹ƒg‚Å160~240ƒtƒŒ[ƒ€j
+						// ç§»å‹•é€Ÿåº¦æ±ºå®šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§160~240ãƒ•ãƒ¬ãƒ¼ãƒ ï¼‰
 						int frames = (160 + rand() % 81);
 						m_Animation_RC2AYs[i] =
 							(-rand() % 15 - 27) * (1.0f / frames);
@@ -11430,31 +11430,31 @@ void TFo_Main::Animation_RandomJump() {
 			}
 		}
 		else {
-			// •\¦”‚Ì”ÍˆÍŠO
+			// è¡¨ç¤ºæ•°ã®ç¯„å›²å¤–
 			m_Animation_RC2Idxs[i] = -1;
 		}
 	}
 
-	// i‘S‚Ä”ñ•\¦j
+	// ï¼ˆå…¨ã¦éè¡¨ç¤ºï¼‰
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		m_Document->GetCardByIndex(i)->m_bVisible = false;
 	}
 
-	// ˆÚ“®•\¦’†‚ÌƒJ[ƒh‚Ì‚İ•\¦
+	// ç§»å‹•è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ã®ã¿è¡¨ç¤º
 	float speed = 0.3f / pow(2.0, -(SettingView.m_nAnimationRCSpeed - 30)
 		/ 25.0);
 	for (int i = 0; i < SettingView.m_nAnimationRCCards; i++) {
 		if (m_Animation_RC2Idxs[i] >= 0) {
-			// ˆÚ“®•\¦’†
+			// ç§»å‹•è¡¨ç¤ºä¸­
 			TCard *Card = m_Document->GetCardByIndex(m_Animation_RC2Idxs[i]);
 
-			// À•W‰ÁZ
+			// åº§æ¨™åŠ ç®—
 			Card->m_fX += m_Animation_RC2AXs[i] * speed;
 			Card->m_fY += m_Animation_RC2AYs[i] * speed;
 			m_Animation_RC2AYs[i] += speed * 0.01f;
 
 			if (Card->m_fY > 2.0f) {
-				// ‰æ–ÊŠO‚É‚Í‚İo‚µ‚½
+				// ç”»é¢å¤–ã«ã¯ã¿å‡ºã—ãŸ
 				m_Animation_RC2Idxs[i] = -1;
 			}
 			else {
@@ -11483,7 +11483,7 @@ void __fastcall TFo_Main::MA_RandomTraceClick(TObject *Sender) {
 	m_bAnimationBak_Arrange = SB_Arrange->Down;
 	m_bAnimationBak_AutoScroll = SB_AutoScroll->Down;
 	m_bAnimationBak_AutoZoom = SB_AutoZoom->Down;
-	// MM_Menu->Enabled = false;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+	// MM_Menu->Enabled = false;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 
 	SB_AutoScroll->Down = true;
 	SB_AutoZoom->Down = true;
@@ -11496,7 +11496,7 @@ void __fastcall TFo_Main::MA_RandomTraceClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void TFo_Main::Animation_RandomTrace() {
 	if (!Fo_RandomAnimation->Visible) {
-		// ƒAƒjƒ[ƒVƒ‡ƒ“I—¹
+		// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
 		m_nAnimation = 0;
 		if (m_DocBeforeAnimation) {
 			m_Document->CopyFrom(m_DocBeforeAnimation);
@@ -11508,17 +11508,17 @@ void TFo_Main::Animation_RandomTrace() {
 		SB_AutoScroll->Down = m_bAnimationBak_AutoScroll;
 		SB_AutoZoom->Down = m_bAnimationBak_AutoZoom;
 		Redraw();
-		// MM_Menu->Enabled = true;//ƒAƒjƒ[ƒVƒ‡ƒ“’†‚Ì•ÒW‚ğ”ğ‚¯‚é‚½‚ß
+		// MM_Menu->Enabled = true;//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­ã®ç·¨é›†ã‚’é¿ã‘ã‚‹ãŸã‚
 		return;
 	}
 
 	// Random Trace
 	if (m_nAnimationCount == 0) {
 
-		// ’H‚ê‚éƒŠƒ“ƒN”
+		// è¾¿ã‚Œã‚‹ãƒªãƒ³ã‚¯æ•°
 		int count = 0;
 		if (m_nTargetCard >= 0) {
-			// Œ»İ‚ÌƒJ[ƒh‚©‚ç’H‚ê‚éƒŠƒ“ƒN‚ğ”‚¦‚é
+			// ç¾åœ¨ã®ã‚«ãƒ¼ãƒ‰ã‹ã‚‰è¾¿ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’æ•°ãˆã‚‹
 
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -11527,7 +11527,7 @@ void TFo_Main::Animation_RandomTrace() {
 						m_nAnimation_LastCard) ||
 						(Link->m_nDestID == m_nTargetCard && Link->m_nFromID !=
 						m_nAnimation_LastCard && !Link->m_bDirection)) {
-						// ’H‚ê‚éƒŠƒ“ƒN
+						// è¾¿ã‚Œã‚‹ãƒªãƒ³ã‚¯
 						count++;
 					}
 				}
@@ -11535,9 +11535,9 @@ void TFo_Main::Animation_RandomTrace() {
 
 		int nextid = -1;
 		if (count) {
-			// ’H‚ê‚éƒŠƒ“ƒN‚ª‚ ‚é
+			// è¾¿ã‚Œã‚‹ãƒªãƒ³ã‚¯ãŒã‚ã‚‹
 
-			int idx = rand() % count; // ’H‚éƒŠƒ“ƒNŒˆ’è
+			int idx = rand() % count; // è¾¿ã‚‹ãƒªãƒ³ã‚¯æ±ºå®š
 
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -11546,7 +11546,7 @@ void TFo_Main::Animation_RandomTrace() {
 						m_nAnimation_LastCard) ||
 						(Link->m_nDestID == m_nTargetCard && Link->m_nFromID !=
 						m_nAnimation_LastCard && !Link->m_bDirection)) {
-						// ’H‚ê‚éƒŠƒ“ƒN
+						// è¾¿ã‚Œã‚‹ãƒªãƒ³ã‚¯
 
 						if (idx-- == 0) {
 							if (Link->m_nFromID == m_nTargetCard) {
@@ -11561,18 +11561,18 @@ void TFo_Main::Animation_RandomTrace() {
 		}
 
 		if (m_nTargetCard < 0) {
-			// Œ»İƒJ[ƒh”ñ‘I‘ğ
+			// ç¾åœ¨ã‚«ãƒ¼ãƒ‰éé¸æŠ
 
-			// •\¦’†‚ÌƒJ[ƒh‚©‚ç“K“–‚ÉƒJ[ƒh‚ğ‘I‘ğ
+			// è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ã‹ã‚‰é©å½“ã«ã‚«ãƒ¼ãƒ‰ã‚’é¸æŠ
 
-			count = 0; // •\¦’†‚ÌƒJ[ƒh”
+			count = 0; // è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰æ•°
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				if (m_Document->GetCardByIndex(i)->m_bVisible) {
 					count++;
 				}
 			}
 
-			int idx = rand() % count; // •\¦ƒJ[ƒhŒˆ’è
+			int idx = rand() % count; // è¡¨ç¤ºã‚«ãƒ¼ãƒ‰æ±ºå®š
 			for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 				if (m_Document->GetCardByIndex(i)->m_bVisible) {
 					if (idx-- == 0) {
@@ -11646,11 +11646,11 @@ void __fastcall TFo_Main::MV_FullScreenClick(TObject *Sender) {
 
 	/*
 	 if (MV_FullScreen->Checked){
-	 //ƒ^ƒXƒNƒo[‚ğ”ñ•\¦‚É‚·‚é
+	 //ã‚¿ã‚¹ã‚¯ãƒãƒ¼ã‚’éè¡¨ç¤ºã«ã™ã‚‹
 	 HWND hTrayWnd = FindWindow("Shell_TrayWnd", NULL);
 	 ShowWindow(hTrayWnd, SW_HIDE);
 
-	 //ŠeƒAƒCƒeƒ€‚ğ”ñ•\¦‚É‚·‚é
+	 //å„ã‚¢ã‚¤ãƒ†ãƒ ã‚’éè¡¨ç¤ºã«ã™ã‚‹
 	 Pa_Card->Visible = false;
 	 Sp_Left->Visible = false;
 	 LB_List->Visible = false;
@@ -11659,7 +11659,7 @@ void __fastcall TFo_Main::MV_FullScreenClick(TObject *Sender) {
 	 Pa_Client->Align = alNone;
 	 Pa_Client->Align = alClient;
 
-	 //ƒEƒCƒ“ƒhƒEƒTƒCƒY
+	 //ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚º
 	 WindowState = wsNormal;
 	 Width = Screen->Width;
 	 Height = Screen->Height;
@@ -11668,11 +11668,11 @@ void __fastcall TFo_Main::MV_FullScreenClick(TObject *Sender) {
 	 ShowMessage(Pa_Client->Left);
 	 ShowMessage(PC_Client->Left);
 	 }else{
-	 //ƒ^ƒXƒNƒo[‚ğ•\¦
+	 //ã‚¿ã‚¹ã‚¯ãƒãƒ¼ã‚’è¡¨ç¤º
 	 HWND hTrayWnd = FindWindow("Shell_TrayWnd", NULL);
 	 ShowWindow(hTrayWnd, SW_SHOWNORMAL);
 
-	 //ŠeƒAƒCƒeƒ€‚ğ•\¦
+	 //å„ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¡¨ç¤º
 	 Sp_Left->Visible = true;
 	 LB_List->Visible = true;
 	 Pa_Card->Visible = true;
@@ -11786,7 +11786,7 @@ void __fastcall TFo_Main::MH_CheckLatestClick(TObject *Sender) {
 void __fastcall TFo_Main::MH_EnableSpecialMenuClick(TObject *Sender) {
 	M_Special->Visible = true;
 	/*
-	 //ƒŠƒ“ƒN”½“]
+	 //ãƒªãƒ³ã‚¯åè»¢
 	 for (int i = 0 ; i < m_Document->m_Links->Count ; i++){
 	 TLink *Link = m_Document->GetLinkByIndex(i);
 	 int bak = Link->m_nFromID;
@@ -11797,7 +11797,7 @@ void __fastcall TFo_Main::MH_EnableSpecialMenuClick(TObject *Sender) {
 	 // */
 
 	/*
-	 //ƒJ[ƒhƒ^ƒCƒgƒ‹‚ğ?‚É’u‚«Š·‚¦‚éB
+	 //ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã‚’?ã«ç½®ãæ›ãˆã‚‹ã€‚
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 	 UnicodeString S;
@@ -11834,24 +11834,24 @@ void __fastcall TFo_Main::Pa_ListTopResize(TObject *Sender) {
 
 void __fastcall TFo_Main::UD_SortClick(TObject *Sender, TUDBtnType Button) {
 	if (m_nTargetCard < 0) {
-		// ƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ãªã„
 		return;
 	}
 
 	if (Button == btNext) {
-		// ã•ûŒü
+		// ä¸Šæ–¹å‘
 		for (int i = 1; i < LB_List->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bSelected) {
 				TCard *Card2 = NULL;
 				int swapindex;
 				if (!TreeMode()) {
-					// ’Êí
+					// é€šå¸¸
 					Card2 = m_Document->GetCardByIndex(i - 1);
 					swapindex = i - 1;
 				}
 				else {
-					// –Ø\‘¢
+					// æœ¨æ§‹é€ 
 					for (int i2 = i - 1; i2 >= 0; i2--) {
 						TCard *Card3 = m_Document->GetCardByIndex(i2);
 						if (Card3->m_nParentID == Card->m_nParentID) {
@@ -11872,19 +11872,19 @@ void __fastcall TFo_Main::UD_SortClick(TObject *Sender, TUDBtnType Button) {
 		}
 	}
 	else if (Button == btPrev) {
-		// ‰º•ûŒü
+		// ä¸‹æ–¹å‘
 		for (int i = LB_List->Count - 2; i >= 0; i--) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bSelected) {
 				TCard *Card2 = NULL;
 				int swapindex;
 				if (!TreeMode()) {
-					// ’Êí
+					// é€šå¸¸
 					Card2 = m_Document->GetCardByIndex(i + 1);
 					swapindex = i + 1;
 				}
 				else {
-					// –Ø\‘¢
+					// æœ¨æ§‹é€ 
 					for (int i2 = i + 1; i2 < LB_List->Count; i2++) {
 						TCard *Card3 = m_Document->GetCardByIndex(i2);
 						if (Card3->m_nParentID == Card->m_nParentID) {
@@ -11908,25 +11908,25 @@ void __fastcall TFo_Main::UD_SortClick(TObject *Sender, TUDBtnType Button) {
 	 int cardindex = m_Document->SearchCardIndex(m_nTargetCard);
 
 	 if (Button == btNext){
-	 //ã•ûŒü
+	 //ä¸Šæ–¹å‘
 
 	 if (cardindex <= 0){
-	 //‚±‚êˆÈã‘O‚É‚Å‚«‚È‚¢
+	 //ã“ã‚Œä»¥ä¸Šå‰ã«ã§ããªã„
 	 return;
 	 }
 
-	 //ˆê‚Âè‘O‚ÌƒJ[ƒh‚Æ“ü‚ê‘Ö‚¦‚é
+	 //ä¸€ã¤æ‰‹å‰ã®ã‚«ãƒ¼ãƒ‰ã¨å…¥ã‚Œæ›¿ãˆã‚‹
 	 m_Document->SwapCard(cardindex, cardindex - 1);
 	 LB_List->ItemIndex = cardindex - 1;
 	 }else if (Button == btPrev){
-	 //‰º•ûŒü
+	 //ä¸‹æ–¹å‘
 
 	 if (cardindex >= m_Document->m_Cards->Count - 1){
-	 //‚±‚êˆÈãŒã‚É‚Å‚«‚È‚¢
+	 //ã“ã‚Œä»¥ä¸Šå¾Œã«ã§ããªã„
 	 return;
 	 }
 
-	 //ˆê‚ÂŒã‚ë‚ÌƒJ[ƒh‚Æ“ü‚ê‘Ö‚¦‚é
+	 //ä¸€ã¤å¾Œã‚ã®ã‚«ãƒ¼ãƒ‰ã¨å…¥ã‚Œæ›¿ãˆã‚‹
 	 m_Document->SwapCard(cardindex, cardindex + 1);
 	 LB_List->ItemIndex = cardindex + 1;
 	 }
@@ -11937,9 +11937,9 @@ void __fastcall TFo_Main::UD_SortClick(TObject *Sender, TUDBtnType Button) {
 void __fastcall TFo_Main::RE_EditMouseDown(TObject *Sender, TMouseButton Button,
 	TShiftState Shift, int X, int Y) {
 	if (Shift.Contains(ssCtrl)) {
-		// Ctrl+ƒNƒŠƒbƒN
+		// Ctrl+ã‚¯ãƒªãƒƒã‚¯
 
-		// Œ»İs‚ğ’²‚×‚é
+		// ç¾åœ¨è¡Œã‚’èª¿ã¹ã‚‹
 		int line = 0;
 		int count = 0;
 		while (line < RE_Edit->Lines->Count) {
@@ -11951,11 +11951,11 @@ void __fastcall TFo_Main::RE_EditMouseDown(TObject *Sender, TMouseButton Button,
 				break;
 			}
 		}
-		// Œ»İs
+		// ç¾åœ¨è¡Œ
 		if (line < RE_Edit->Lines->Count) {
 			UnicodeString Str = RE_Edit->Lines->Strings[line];
 			if (IsFileNameOrURL(Str)) {
-				// ŠJ‚­
+				// é–‹ã
 				OpenExtLink(Str);
 			}
 		}
@@ -11991,9 +11991,9 @@ void __fastcall TFo_Main::MI_NewExtLinkClick(TObject *Sender) {
 		RE_Edit->Lines->Add(OD_Ext->FileName);
 		/*
 		 if (PC_Client->ActivePage == TS_Editor){
-		 //ƒGƒfƒBƒ^[•\¦’†
+		 //ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼è¡¨ç¤ºä¸­
 		 }else{
-		 //ƒGƒfƒBƒ^[”ñ•\¦
+		 //ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼éè¡¨ç¤º
 		 }
 		 */
 	}
@@ -12022,13 +12022,13 @@ void __fastcall TFo_Main::PE_CutToNewCardClick(TObject *Sender) {
 
 	m_bDoNotBackup = true;
 
-	// ƒJƒbƒg
+	// ã‚«ãƒƒãƒˆ
 	ME_CutClick(Sender);
 
-	// ƒJ[ƒh‚ÌV‹Kì¬
+	// ã‚«ãƒ¼ãƒ‰ã®æ–°è¦ä½œæˆ
 	MI_NewCardClick(Sender);
 
-	// ƒJ[ƒh‚Ì•\¦‘‚«Š·‚¦
+	// ã‚«ãƒ¼ãƒ‰ã®è¡¨ç¤ºæ›¸ãæ›ãˆ
 	Ti_CheckTimer(Sender);
 
 	// Paste
@@ -12069,7 +12069,7 @@ void __fastcall TFo_Main::MFE_TxtFileClick(TObject *Sender) {
 
 void __fastcall TFo_Main::MFE_TxtFilesClick(TObject *Sender) {
 	if (m_Document->m_Cards->Count == 0) {
-		// ƒJ[ƒh‚ª–³‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒç„¡ã„
 		return;
 	}
 	SD_Txt->FileName = ForFileName(m_Document->GetCardByIndex(0)->m_Title)
@@ -12089,7 +12089,7 @@ void __fastcall TFo_Main::MFE_TxtFilesClick(TObject *Sender) {
 
 void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 	if (m_Document->m_Cards->Count == 0) {
-		// ƒJ[ƒh‚ª–³‚¢
+		// ã‚«ãƒ¼ãƒ‰ãŒç„¡ã„
 		return;
 	}
 	UnicodeString DocumentTitle;
@@ -12157,7 +12157,7 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 		if (m_Document->m_FN != "") {
 			DocumentTitle = ExtractFileNameOnly(m_Document->m_FN) + " - ";
 		}
-		// ŠeƒJ[ƒh‚Ìƒtƒ@ƒCƒ‹
+		// å„ã‚«ãƒ¼ãƒ‰ã®ãƒ•ã‚¡ã‚¤ãƒ«
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			TStringList *SL = new TStringList();
@@ -12172,7 +12172,7 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 			SL->Add(UnicodeString("<font size=+2>") + DocumentTitle +
 				Card->m_Title + "</font>");
 
-			// ‘O‚ÌƒJ[ƒhAŸ‚ÌƒJ[ƒh
+			// å‰ã®ã‚«ãƒ¼ãƒ‰ã€æ¬¡ã®ã‚«ãƒ¼ãƒ‰
 			SL->Add("<hr>");
 			SL->Add(UnicodeString("<a href=\"./1.html\">[Top]</a> "));
 			if (i > 0) {
@@ -12196,7 +12196,7 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 			SL->Add(UnicodeString("(") + IntToStr(i + 1) + UnicodeString(" / ")
 				+ IntToStr(m_Document->m_Cards->Count) + UnicodeString(")"));
 
-			// ƒŠƒ“ƒN
+			// ãƒªãƒ³ã‚¯
 			SL->Add("<hr>");
 			for (int il = 0; il < m_Document->m_Links->Count; il++) {
 				TLink *Link = m_Document->GetLinkByIndex(il);
@@ -12208,7 +12208,7 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 					dest = Link->m_nFromID;
 				}
 				if (dest >= 0) {
-					// ŠÖŒW‚ ‚éƒŠƒ“ƒN
+					// é–¢ä¿‚ã‚ã‚‹ãƒªãƒ³ã‚¯
 					int card2index = m_Document->SearchCardIndex(dest);
 					TCard *Card2 = m_Document->GetCardByIndex(card2index);
 					SL->Add(UnicodeString("<a href=\"./") +
@@ -12218,23 +12218,23 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 			}
 			SL->Add("<hr>");
 
-			// –{•¶
+			// æœ¬æ–‡
 			SL->Add("<br>");
 			for (int il = 0; il < Card->m_Lines->Count; il++) {
 				if (IsFileNameOrURL(Card->m_Lines->Strings[il])) {
-					// ŠO•”ƒŠƒ“ƒN
+					// å¤–éƒ¨ãƒªãƒ³ã‚¯
 					SL->Add(UnicodeString("<a href=\"") +
 						Card->m_Lines->Strings[il] + UnicodeString("\">") +
 						Card->m_Lines->Strings[il] + UnicodeString("</a><br>"));
 				}
 				else {
-					// •’Ê‚Ì•¶Í
+					// æ™®é€šã®æ–‡ç« 
 					SL->Add(Card->m_Lines->Strings[il] + "<br>");
 				}
 			}
 			SL->Add("<br>");
 
-			// ƒŠƒ“ƒNiÄj
+			// ãƒªãƒ³ã‚¯ï¼ˆå†ï¼‰
 			{
 				int count = 0;
 				for (int il = 0; il < m_Document->m_Links->Count; il++) {
@@ -12250,7 +12250,7 @@ void __fastcall TFo_Main::MFE_HtmlFilesClick(TObject *Sender) {
 						if (count++ == 0) {
 							SL->Add("<hr>");
 						}
-						// ŠÖŒW‚ ‚éƒŠƒ“ƒN
+						// é–¢ä¿‚ã‚ã‚‹ãƒªãƒ³ã‚¯
 						int card2index = m_Document->SearchCardIndex(dest);
 						TCard *Card2 = m_Document->GetCardByIndex(card2index);
 						SL->Add(UnicodeString("<a href=\"./") +
@@ -12300,7 +12300,7 @@ void __fastcall TFo_Main::Bu_EnterClick(TObject *Sender) {
 		CloseEditBox();
 	}
 	else if (m_nTargetCard >= 0 && PC_Client->ActivePage == TS_Browser) {
-		// eƒJ[ƒh‚©‚çƒŠƒ“ƒN‚µ‚½ƒJ[ƒh‚ğì¬
+		// è¦ªã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯ã—ãŸã‚«ãƒ¼ãƒ‰ã‚’ä½œæˆ
 		BrowserNewBrotherCard();
 	}
 }
@@ -12321,7 +12321,7 @@ void __fastcall TFo_Main::Ed_TitleBKeyDown(TObject *Sender, WORD &Key,
 		Ed_TitleB->WantReturns = true;
 	}
 	if (Key == 13) {
-		// ‰üsŒãIME‚ª•\¦‚³‚ê‚È‚¢‚±‚Æ‚ª‚ ‚é–â‘è‘Îôi‚È‚º‚©Šes‚Ìæ“ª•¶š‚ÅƒJ[ƒ\ƒ‹‚ª•\¦‚³‚ê‚È‚­‚È‚éj
+		// æ”¹è¡Œå¾ŒIMEãŒè¡¨ç¤ºã•ã‚Œãªã„ã“ã¨ãŒã‚ã‚‹å•é¡Œå¯¾ç­–ï¼ˆãªãœã‹å„è¡Œã®å…ˆé ­æ–‡å­—ã§ã‚«ãƒ¼ã‚½ãƒ«ãŒè¡¨ç¤ºã•ã‚Œãªããªã‚‹ï¼‰
 		TPoint caret = Ed_TitleB->CaretPos;
 		UnicodeString S = Ed_TitleB->Text;
 		Ed_TitleB->Text = "";
@@ -12336,7 +12336,7 @@ void __fastcall TFo_Main::PE_CutToNewCardTitleClick(TObject *Sender) {
 
 	m_bDoNotBackup = true;
 
-	// ƒJƒbƒg
+	// ã‚«ãƒƒãƒˆ
 	ME_CutClick(Sender);
 
 	TMemo *Me = new TMemo(this);
@@ -12347,10 +12347,10 @@ void __fastcall TFo_Main::PE_CutToNewCardTitleClick(TObject *Sender) {
 	for (int i = 0; i < Me->Lines->Count; i++) {
 		UnicodeString S = Trim(Me->Lines->Strings[i]);
 		if (S != "") {
-			// ƒJ[ƒh‚ÌV‹Kì¬
+			// ã‚«ãƒ¼ãƒ‰ã®æ–°è¦ä½œæˆ
 			MI_NewCardClick(Sender);
 
-			// ƒJ[ƒh‚Ì•\¦‘‚«Š·‚¦
+			// ã‚«ãƒ¼ãƒ‰ã®è¡¨ç¤ºæ›¸ãæ›ãˆ
 			Ti_CheckTimer(Sender);
 
 			// Paste
@@ -12381,7 +12381,7 @@ void __fastcall TFo_Main::TB_ZoomChange(TObject *Sender) {
 void __fastcall TFo_Main::Bu_ShuffleClick(TObject *Sender) {
 	BackupSub(Bu_Shuffle->Caption);
 
-	// ƒJ[ƒh‚ÌÀ•W‚ğƒ‰ƒ“ƒ_ƒ€‚É‚·‚é
+	// ã‚«ãƒ¼ãƒ‰ã®åº§æ¨™ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«ã™ã‚‹
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (!Card->m_bFixed && m_CardAssign[i] == i) {
@@ -12434,7 +12434,7 @@ void __fastcall TFo_Main::Ed_FindCardExit(TObject *Sender) {
 
 void __fastcall TFo_Main::Bu_FindCardClick(TObject *Sender) {
 	Ed_FindCard->SelectAll();
-	bSearchRequest = 0x1 | 0x4; // ƒJ[ƒh–¼‚Ì‚İŒŸõ
+	bSearchRequest = 0x1 | 0x4; // ã‚«ãƒ¼ãƒ‰åã®ã¿æ¤œç´¢
 }
 // ---------------------------------------------------------------------------
 
@@ -12493,7 +12493,7 @@ void __fastcall TFo_Main::PC_ClientChange(TObject *Sender) {
 	 SB_DCursor->Down = true;
 	 }
 	 */
-	m_fStatisticsPos = 0.5f; // ƒOƒ‰ƒt‚Ì—§‚¿ã‚ª‚è‚ğ0.5‚É
+	m_fStatisticsPos = 0.5f; // ã‚°ãƒ©ãƒ•ã®ç«‹ã¡ä¸ŠãŒã‚Šã‚’0.5ã«
 	/*
 	 if (PC_Client->ActivePage == TS_Browser){
 	 if (SettingView.m_bEditInBrowserAlways){
@@ -12562,8 +12562,8 @@ void __fastcall TFo_Main::MF_PrintImageClick(TObject *Sender) {
 	if (PD_Image->Execute()) {
 		TPrinter *Prntr = Printer();
 
-		// ˆóü‚·‚é‘å‚«‚³Œˆ’è
-		int printwidth = Prntr->PageWidth * 0.95; // Å‘å—p†‚Ì95%‚Ì—Ìˆæ‚Éˆóü
+		// å°åˆ·ã™ã‚‹å¤§ãã•æ±ºå®š
+		int printwidth = Prntr->PageWidth * 0.95; // æœ€å¤§ç”¨ç´™ã®95%ã®é ˜åŸŸã«å°åˆ·
 		int printheight = Prntr->PageHeight * 0.95;
 
 		if (printheight > (printwidth * PB_Browser->Height) / PB_Browser->Width)
@@ -12575,13 +12575,13 @@ void __fastcall TFo_Main::MF_PrintImageClick(TObject *Sender) {
 			printwidth = (printheight * PB_Browser->Width) / PB_Browser->Height;
 		}
 
-		// ˆóü‚·‚é”ÍˆÍ‚ğŒˆ’è
+		// å°åˆ·ã™ã‚‹ç¯„å›²ã‚’æ±ºå®š
 		RECT printr = Rect(Prntr->PageWidth / 2 - printwidth / 2,
 			Prntr->PageHeight / 2 - printheight / 2,
 			Prntr->PageWidth / 2 + printwidth / 2,
 			Prntr->PageHeight / 2 + printheight / 2);
 
-		// ƒvƒŠƒ“ƒ^‚É•`‰æ
+		// ãƒ—ãƒªãƒ³ã‚¿ã«æç”»
 		for (int i = 0; i < PD_Image->Copies; i++) {
 			HRGN MyRgn;
 			MyRgn = ::CreateRectRgn(printr.left, printr.top, printr.right,
@@ -12641,85 +12641,85 @@ void TFo_Main::ApplyLanguageSetting() {
 	}
 	TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	// ƒƒCƒ“ƒEƒCƒ“ƒhƒE
+	// ãƒ¡ã‚¤ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦
 	TS_Browser->Caption = Ini->ReadString("MainWnd", "TS_Browser",
-		TS_Browser->Caption); // ƒuƒ‰ƒEƒU
+		TS_Browser->Caption); // ãƒ–ãƒ©ã‚¦ã‚¶
 	TS_Editor->Caption = Ini->ReadString("MainWnd", "TS_Editor",
-		TS_Editor->Caption); // ƒGƒfƒBƒ^
+		TS_Editor->Caption); // ã‚¨ãƒ‡ã‚£ã‚¿
 	TS_Drawing->Caption = Ini->ReadString("MainWnd", "TS_Drawing",
-		TS_Drawing->Caption); // }
+		TS_Drawing->Caption); // å›³
 	TS_Statistics->Caption = Ini->ReadString("MainWnd", "TS_Statistics",
-		TS_Statistics->Caption); // “Œv
+		TS_Statistics->Caption); // çµ±è¨ˆ
 	La_Files->Caption = Ini->ReadString("MainWnd", "La_Files",
-		La_Files->Caption); // ƒtƒ@ƒCƒ‹
+		La_Files->Caption); // ãƒ•ã‚¡ã‚¤ãƒ«
 	La_Cards->Caption = Ini->ReadString("MainWnd", "La_Cards",
-		La_Cards->Caption); // ƒJ[ƒh
+		La_Cards->Caption); // ã‚«ãƒ¼ãƒ‰
 	La_Card->Caption = Ini->ReadString("MainWnd", "La_Card",
-		La_Card->Caption); // ƒJ[ƒh
+		La_Card->Caption); // ã‚«ãƒ¼ãƒ‰
 	La_Title->Caption = Ini->ReadString("MainWnd", "La_Title",
-		La_Title->Caption); // –¼‘O
+		La_Title->Caption); // åå‰
 	La_Size->Caption = Ini->ReadString("MainWnd", "La_Size",
-		La_Size->Caption); // ƒTƒCƒY
+		La_Size->Caption); // ã‚µã‚¤ã‚º
 	La_Label->Caption = Ini->ReadString("MainWnd", "La_Label",
-		La_Label->Caption); // ƒ‰ƒxƒ‹
+		La_Label->Caption); // ãƒ©ãƒ™ãƒ«
 	La_Link->Caption = Ini->ReadString("MainWnd", "La_Link",
-		La_Link->Caption); // ƒŠƒ“ƒN
+		La_Link->Caption); // ãƒªãƒ³ã‚¯
 	La_LinkTitle->Caption = Ini->ReadString("MainWnd", "La_Title",
-		La_LinkTitle->Caption); // –¼‘O
+		La_LinkTitle->Caption); // åå‰
 	Ch_LinkDirection->Caption = Ini->ReadString("MainWnd", "Ch_LinkDirection",
-		Ch_LinkDirection->Caption); // Œü‚«
+		Ch_LinkDirection->Caption); // å‘ã
 	Bu_LinkDirectionInverse->Caption =
 		Ini->ReadString("MainWnd", "Bu_LinkDirectionInverse",
-		Bu_LinkDirectionInverse->Caption); // ”½“]
+		Bu_LinkDirectionInverse->Caption); // åè»¢
 	La_LinkLabel->Caption = Ini->ReadString("MainWnd", "La_Label",
-		La_LinkLabel->Caption); // ƒ‰ƒxƒ‹
+		La_LinkLabel->Caption); // ãƒ©ãƒ™ãƒ«
 	La_Arrange->Caption = Ini->ReadString("MainWnd", "La_Arrange",
-		La_Arrange->Caption); // ©“®®—
+		La_Arrange->Caption); // è‡ªå‹•æ•´ç†
 	La_Zoom->Caption = Ini->ReadString("MainWnd", "La_Zoom",
-		La_Zoom->Caption); // ƒY[ƒ€
+		La_Zoom->Caption); // ã‚ºãƒ¼ãƒ 
 	Bu_Shuffle->Caption = Ini->ReadString("MainWnd", "Bu_Shuffle",
-		Bu_Shuffle->Caption); // ƒVƒƒƒbƒtƒ‹
+		Bu_Shuffle->Caption); // ã‚·ãƒ£ãƒƒãƒ•ãƒ«
 	SB_AutoScroll->Caption = Ini->ReadString("MainWnd", "SB_AutoScroll",
-		SB_AutoScroll->Caption); // ƒI[ƒgƒXƒNƒ[ƒ‹
+		SB_AutoScroll->Caption); // ã‚ªãƒ¼ãƒˆã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
 	SB_AutoZoom->Caption = Ini->ReadString("MainWnd", "SB_AutoZoom",
-		SB_AutoZoom->Caption); // ƒI[ƒgƒY[ƒ€
+		SB_AutoZoom->Caption); // ã‚ªãƒ¼ãƒˆã‚ºãƒ¼ãƒ 
 	Bu_FindCard->Caption = Ini->ReadString("MainWnd", "Bu_FindCard",
-		Bu_FindCard->Caption); // ŒŸõ
+		Bu_FindCard->Caption); // æ¤œç´¢
 	SB_EditorRelated->Caption = Ini->ReadString("MainWnd", "SB_EditorRelated",
-		SB_EditorRelated->Caption); // ŠÖ˜AƒeƒLƒXƒg
+		SB_EditorRelated->Caption); // é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆ
 	La_PenColor->Caption = Ini->ReadString("MainWnd", "La_PenColor",
-		La_PenColor->Caption); // F:
+		La_PenColor->Caption); // è‰²:
 	La_PenColorDefault->Caption =
 		Ini->ReadString("MainWnd", "La_PenColorDefault",
-		La_PenColorDefault->Caption); // ©“®
+		La_PenColorDefault->Caption); // è‡ªå‹•
 	La_DZoom->Caption = Ini->ReadString("MainWnd", "La_Zoom",
-		La_DZoom->Caption); // ƒY[ƒ€
+		La_DZoom->Caption); // ã‚ºãƒ¼ãƒ 
 	La_StatisticsKey->Caption = Ini->ReadString("MainWnd", "La_StatisticsKey",
-		La_StatisticsKey->Caption); // ƒL[
+		La_StatisticsKey->Caption); // ã‚­ãƒ¼
 	SB_StatisticsSort->Caption = Ini->ReadString("MainWnd", "SB_StatisticsSort",
-		SB_StatisticsSort->Caption); // ƒ\[ƒg
+		SB_StatisticsSort->Caption); // ã‚½ãƒ¼ãƒˆ
 	La_GlobalSearchTop->Caption =
 		Ini->ReadString("MainWnd", "La_GlobalSearchTop",
 		La_GlobalSearchTop->Caption);
 
-	// ƒƒCƒ“ƒƒjƒ…[
+	// ãƒ¡ã‚¤ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼
 	M_File->Caption = Ini->ReadString("MainWnd", "M_File", M_File->Caption);
-	// ƒtƒ@ƒCƒ‹(&F)
+	// ãƒ•ã‚¡ã‚¤ãƒ«(&F)
 	MF_New->Caption = Ini->ReadString("MainWnd", "MF_New", MF_New->Caption);
 	MF_Open->Caption = Ini->ReadString("MainWnd", "MF_Open",
-		MF_Open->Caption); // ŠJ‚­(&O)...
+		MF_Open->Caption); // é–‹ã(&O)...
 	MF_Save->Caption = Ini->ReadString("MainWnd", "MF_Save",
-		MF_Save->Caption); // ã‘‚«•Û‘¶(&S)
+		MF_Save->Caption); // ä¸Šæ›¸ãä¿å­˜(&S)
 	MF_SaveAs->Caption = Ini->ReadString("MainWnd", "MF_SaveAs",
-		MF_SaveAs->Caption); // –¼‘O‚ğ‚Â‚¯‚Ä•Û‘¶(&A)...
+		MF_SaveAs->Caption); // åå‰ã‚’ã¤ã‘ã¦ä¿å­˜(&A)...
 	MF_RecentFiles->Caption = Ini->ReadString("MainWnd", "MF_RecentFiles",
-		MF_RecentFiles->Caption); // Å‹ßg‚Á‚½ƒtƒ@ƒCƒ‹(&R)
+		MF_RecentFiles->Caption); // æœ€è¿‘ä½¿ã£ãŸãƒ•ã‚¡ã‚¤ãƒ«(&R)
 	MF_RecentFolders->Caption = Ini->ReadString("MainWnd", "MF_RecentFolders",
-		MF_RecentFolders->Caption); // Å‹ßg‚Á‚½ƒtƒHƒ‹ƒ_(&C)
+		MF_RecentFolders->Caption); // æœ€è¿‘ä½¿ã£ãŸãƒ•ã‚©ãƒ«ãƒ€(&C)
 	MF_Import->Caption = Ini->ReadString("MainWnd", "MF_Import",
-		MF_Import->Caption); // ƒCƒ“ƒ|[ƒg(&I)
+		MF_Import->Caption); // ã‚¤ãƒ³ãƒãƒ¼ãƒˆ(&I)
 	MFI_TxtFile->Caption = Ini->ReadString("MainWnd", "MFI_TxtFile",
-		MFI_TxtFile->Caption); // ƒeƒLƒXƒgƒtƒ@ƒCƒ‹(&T)...
+		MFI_TxtFile->Caption); // ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(&T)...
 	MFI_HierarchicalTextFile->Caption =
 		Ini->ReadString("MainWnd", "MFI_HierarchicalTextFile",
 		MFI_HierarchicalTextFile->Caption);
@@ -12730,19 +12730,19 @@ void TFo_Main::ApplyLanguageSetting() {
 		Ini->ReadString("MainWnd", "MFI_TxtFilesinaFolder",
 		MFI_TxtFilesinaFolder->Caption);
 	MF_Export->Caption = Ini->ReadString("MainWnd", "MF_Export",
-		MF_Export->Caption); // ƒGƒNƒXƒ|[ƒg(&E)
+		MF_Export->Caption); // ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆ(&E)
 	MFE_TxtFileCardTitle->Caption =
 		Ini->ReadString("MainWnd", "MFE_TxtFileCardTitle",
-		MFE_TxtFileCardTitle->Caption); // ƒeƒLƒXƒgƒtƒ@ƒCƒ‹iƒJ[ƒhƒ^ƒCƒgƒ‹j(&C)...
+		MFE_TxtFileCardTitle->Caption); // ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ï¼‰(&C)...
 	MFE_TxtFile->Caption = Ini->ReadString("MainWnd", "MFE_TxtFile",
-		MFE_TxtFile->Caption); // ƒeƒLƒXƒgƒtƒ@ƒCƒ‹(&T)...
+		MFE_TxtFile->Caption); // ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(&T)...
 	MFE_TxtFiles->Caption = Ini->ReadString("MainWnd", "MFE_TxtFiles",
-		MFE_TxtFiles->Caption); // •¡”‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹(&X)...
+		MFE_TxtFiles->Caption); // è¤‡æ•°ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(&X)...
 	MFE_HierarchicalTextFile->Caption =
 		Ini->ReadString("MainWnd", "MFE_HierarchicalTextFile",
 		MFE_HierarchicalTextFile->Caption);
 	MFE_HtmlFiles->Caption = Ini->ReadString("MainWnd", "MFE_HtmlFiles",
-		MFE_HtmlFiles->Caption); // Htmlƒtƒ@ƒCƒ‹(&H)...
+		MFE_HtmlFiles->Caption); // Htmlãƒ•ã‚¡ã‚¤ãƒ«(&H)...
 	MFE_BMPFile->Caption = Ini->ReadString("MainWnd", "MFE_BMPFile",
 		MFE_BMPFile->Caption);
 	MFE_JPEGFile->Caption = Ini->ReadString("MainWnd", "MFE_JPEGFile",
@@ -12756,85 +12756,85 @@ void TFo_Main::ApplyLanguageSetting() {
 	MFE_ClipboardBMP->Caption = Ini->ReadString("MainWnd", "MFE_ClipboardBMP",
 		MFE_ClipboardBMP->Caption);
 	MF_PrintImage->Caption = Ini->ReadString("MainWnd", "MF_PrintImage",
-		MF_PrintImage->Caption); // ƒuƒ‰ƒEƒU•\¦‚ğˆóü(&P)...
+		MF_PrintImage->Caption); // ãƒ–ãƒ©ã‚¦ã‚¶è¡¨ç¤ºã‚’å°åˆ·(&P)...
 	MF_Exit->Caption = Ini->ReadString("MainWnd", "MF_Exit",
-		MF_Exit->Caption); // I—¹(&X)
+		MF_Exit->Caption); // çµ‚äº†(&X)
 	M_Edit->Caption = Ini->ReadString("MainWnd", "M_Edit", M_Edit->Caption);
-	// •ÒW(&E)
+	// ç·¨é›†(&E)
 	ME_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo",
-		ME_Undo->Caption); // Œ³‚É–ß‚·(&U)
+		ME_Undo->Caption); // å…ƒã«æˆ»ã™(&U)
 	ME_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", ME_Redo->Caption);
 	ME_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", ME_Cut->Caption);
-	// Ø‚èæ‚è(&T)
+	// åˆ‡ã‚Šå–ã‚Š(&T)
 	ME_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy",
-		ME_Copy->Caption); // ƒRƒs[(&C)
+		ME_Copy->Caption); // ã‚³ãƒ”ãƒ¼(&C)
 	ME_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste",
-		ME_Paste->Caption); // “\‚è•t‚¯(&P)
+		ME_Paste->Caption); // è²¼ã‚Šä»˜ã‘(&P)
 	ME_Delete->Caption = Ini->ReadString("MainWnd", "ME_Delete",
-		ME_Delete->Caption); // íœ(&D)
+		ME_Delete->Caption); // å‰Šé™¤(&D)
 	ME_SelectAll->Caption = Ini->ReadString("MainWnd", "ME_SelectAll",
-		ME_SelectAll->Caption); // ‘S‚Ä‘I‘ğ(&A)
+		ME_SelectAll->Caption); // å…¨ã¦é¸æŠ(&A)
 	ME_Find->Caption = Ini->ReadString("MainWnd", "ME_Find",
-		ME_Find->Caption); // ŒŸõ(&F)
+		ME_Find->Caption); // æ¤œç´¢(&F)
 	ME_Replace->Caption = Ini->ReadString("MainWnd", "ME_Replace",
 		ME_Replace->Caption); // (&E)
 	ME_FindNext->Caption = Ini->ReadString("MainWnd", "ME_FindNext",
-		ME_FindNext->Caption); // Ÿ‚ğŒŸõ(&N)
+		ME_FindNext->Caption); // æ¬¡ã‚’æ¤œç´¢(&N)
 	ME_FindPrevious->Caption = Ini->ReadString("MainWnd", "ME_FindPrevious",
-		ME_FindPrevious->Caption); // ‘O‚ğŒŸõ(&V)
+		ME_FindPrevious->Caption); // å‰ã‚’æ¤œç´¢(&V)
 	ME_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch",
 		ME_WebSearch->Caption); // W
 	MD_SortCard->Caption = Ini->ReadString("MainWnd", "MD_SortCard",
-		MD_SortCard->Caption); // ƒJ[ƒh‚Ì•À‚Ñ‘Ö‚¦(&S)
+		MD_SortCard->Caption); // ã‚«ãƒ¼ãƒ‰ã®ä¸¦ã³æ›¿ãˆ(&S)
 	MDS_Title->Caption = Ini->ReadString("MainWnd", "MDS_Title",
-		MDS_Title->Caption); // ƒ^ƒCƒgƒ‹(&T)
+		MDS_Title->Caption); // ã‚¿ã‚¤ãƒˆãƒ«(&T)
 	MDS_Title_I->Caption = Ini->ReadString("MainWnd", "MDS_Title_I",
-		MDS_Title_I->Caption); // ƒ^ƒCƒgƒ‹i~‡j(&T)
+		MDS_Title_I->Caption); // ã‚¿ã‚¤ãƒˆãƒ«ï¼ˆé™é †ï¼‰(&T)
 	MDS_Date_Created->Caption = Ini->ReadString("MainWnd", "MDS_Date_Created",
-		MDS_Date_Created->Caption); // ì¬“ú(&C)
+		MDS_Date_Created->Caption); // ä½œæˆæ—¥æ™‚(&C)
 	MDS_Date_Created_I->Caption =
 		Ini->ReadString("MainWnd", "MDS_Date_Created_I",
-		MDS_Date_Created_I->Caption); // ì¬“úi~‡j(&R)
+		MDS_Date_Created_I->Caption); // ä½œæˆæ—¥æ™‚ï¼ˆé™é †ï¼‰(&R)
 	MDS_Date_Edited->Caption = Ini->ReadString("MainWnd", "MDS_Date_Edited",
-		MDS_Date_Edited->Caption); // •ÒW“ú(&E)
+		MDS_Date_Edited->Caption); // ç·¨é›†æ—¥æ™‚(&E)
 	MDS_Date_Edited_I->Caption = Ini->ReadString("MainWnd", "MDS_Date_Edited_I",
-		MDS_Date_Edited_I->Caption); // •ÒW“úi~‡j(&D)
+		MDS_Date_Edited_I->Caption); // ç·¨é›†æ—¥æ™‚ï¼ˆé™é †ï¼‰(&D)
 	MDS_Date_Viewed->Caption = Ini->ReadString("MainWnd", "MDS_Date_Viewed",
-		MDS_Date_Viewed->Caption); // ‰{——“ú(&V)
+		MDS_Date_Viewed->Caption); // é–²è¦§æ—¥æ™‚(&V)
 	MDS_Date_Viewed_I->Caption = Ini->ReadString("MainWnd", "MDS_Date_Viewed_I",
-		MDS_Date_Viewed_I->Caption); // ‰{——“úi~‡j(&W)
+		MDS_Date_Viewed_I->Caption); // é–²è¦§æ—¥æ™‚ï¼ˆé™é †ï¼‰(&W)
 	MDS_Score->Caption = Ini->ReadString("MainWnd", "MDS_Score",
-		MDS_Score->Caption); // ƒXƒRƒA(&S)
+		MDS_Score->Caption); // ã‚¹ã‚³ã‚¢(&S)
 	MDS_Score_I->Caption = Ini->ReadString("MainWnd", "MDS_Score_I",
-		MDS_Score_I->Caption); // ƒXƒRƒAi~‡j(&O)
+		MDS_Score_I->Caption); // ã‚¹ã‚³ã‚¢ï¼ˆé™é †ï¼‰(&O)
 	MDS_Shuffle->Caption = Ini->ReadString("MainWnd", "MDS_Shuffle",
-		MDS_Shuffle->Caption); // ƒVƒƒƒbƒtƒ‹(&H)
+		MDS_Shuffle->Caption); // ã‚·ãƒ£ãƒƒãƒ•ãƒ«(&H)
 	ME_BatchConversion->Caption =
 		Ini->ReadString("MainWnd", "ME_BatchConversion",
-		ME_BatchConversion->Caption); // ˆêŠ‡•ÏX(&B)
+		ME_BatchConversion->Caption); // ä¸€æ‹¬å¤‰æ›´(&B)
 	MEC_AllCards->Caption = Ini->ReadString("MainWnd", "MEC_AllCards",
-		MEC_AllCards->Caption); // ‘S‚Ä‚ÌƒJ[ƒh‚ÌŒ`(&C)
+		MEC_AllCards->Caption); // å…¨ã¦ã®ã‚«ãƒ¼ãƒ‰ã®å½¢(&C)
 	MEC_AllLinks->Caption = Ini->ReadString("MainWnd", "MEC_AllLinks",
-		MEC_AllLinks->Caption); // ‘S‚Ä‚ÌƒŠƒ“ƒN‚ÌŒ`(&L)
+		MEC_AllLinks->Caption); // å…¨ã¦ã®ãƒªãƒ³ã‚¯ã®å½¢(&L)
 	MEC_AllLinksDirection->Caption =
 		Ini->ReadString("MainWnd", "MEC_AllLinksDirection",
-		MEC_AllLinksDirection->Caption); // ‘S‚Ä‚ÌƒŠƒ“ƒN‚ÌŒü‚«(&D)
+		MEC_AllLinksDirection->Caption); // å…¨ã¦ã®ãƒªãƒ³ã‚¯ã®å‘ã(&D)
 	ME_Label->Caption = Ini->ReadString("MainWnd", "ME_Label",
-		ME_Label->Caption); // ƒ‰ƒxƒ‹‚Ì•ÒW(&L)...
+		ME_Label->Caption); // ãƒ©ãƒ™ãƒ«ã®ç·¨é›†(&L)...
 	ME_LinkLabel->Caption = Ini->ReadString("MainWnd", "ME_LinkLabel",
-		ME_LinkLabel->Caption); // ƒŠƒ“ƒNƒ‰ƒxƒ‹‚Ì•ÒW(&I)...
+		ME_LinkLabel->Caption); // ãƒªãƒ³ã‚¯ãƒ©ãƒ™ãƒ«ã®ç·¨é›†(&I)...
 	M_Insert->Caption = Ini->ReadString("MainWnd", "M_Insert",
-		M_Insert->Caption); // ‘}“ü(&I)
+		M_Insert->Caption); // æŒ¿å…¥(&I)
 	MI_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard",
-		MI_NewCard->Caption); // V‹KƒJ[ƒh(&C)
+		MI_NewCard->Caption); // æ–°è¦ã‚«ãƒ¼ãƒ‰(&C)
 	MI_NewLink->Caption = Ini->ReadString("MainWnd", "MI_NewLink",
-		MI_NewLink->Caption); // V‹KƒŠƒ“ƒN(&L)...
+		MI_NewLink->Caption); // æ–°è¦ãƒªãƒ³ã‚¯(&L)...
 	MI_NewExtLink->Caption = Ini->ReadString("MainWnd", "MI_NewExtLink",
-		MI_NewExtLink->Caption); // V‹KŠO•”ƒŠƒ“ƒN(&E)...
+		MI_NewExtLink->Caption); // æ–°è¦å¤–éƒ¨ãƒªãƒ³ã‚¯(&E)...
 	MI_NewLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLabel",
-		MI_NewLabel->Caption); // V‹Kƒ‰ƒxƒ‹(&A)...
+		MI_NewLabel->Caption); // æ–°è¦ãƒ©ãƒ™ãƒ«(&A)...
 	MI_NewLinkLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLinkLabel",
-		MI_NewLinkLabel->Caption); // V‹KƒŠƒ“ƒNƒ‰ƒxƒ‹(&N)...
+		MI_NewLinkLabel->Caption); // æ–°è¦ãƒªãƒ³ã‚¯ãƒ©ãƒ™ãƒ«(&N)...
 	MI_LinktoAllCardswithDesignatedLabel->Caption =
 		Ini->ReadString("MainWnd", "MI_LinktoAllCardswithDesignatedLabel",
 		MI_LinktoAllCardswithDesignatedLabel->Caption);
@@ -12846,31 +12846,31 @@ void TFo_Main::ApplyLanguageSetting() {
 		Ini->ReadString("MainWnd", "MI_AddDesignatedLabeltoAllDestinationCards",
 		MI_AddDesignatedLabeltoAllDestinationCards->Caption);
 	M_Animation->Caption = Ini->ReadString("MainWnd", "M_Animation",
-		M_Animation->Caption); // ƒAƒjƒ[ƒVƒ‡ƒ“(&A)
+		M_Animation->Caption); // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³(&A)
 	MA_RandomFlash->Caption = Ini->ReadString("MainWnd", "MA_RandomFlash",
-		MA_RandomFlash->Caption); // ƒ‰ƒ“ƒ_ƒ€ƒJ[ƒh(&C)
+		MA_RandomFlash->Caption); // ãƒ©ãƒ³ãƒ€ãƒ ã‚«ãƒ¼ãƒ‰(&C)
 	MA_RandomScroll->Caption = Ini->ReadString("MainWnd", "MA_RandomScroll",
-		MA_RandomScroll->Caption); // ƒ‰ƒ“ƒ_ƒ€ƒJ[ƒh2(&2)
+		MA_RandomScroll->Caption); // ãƒ©ãƒ³ãƒ€ãƒ ã‚«ãƒ¼ãƒ‰2(&2)
 	MA_RandomJump->Caption = Ini->ReadString("MainWnd", "MA_RandomJump",
-		MA_RandomJump->Caption); // ƒ‰ƒ“ƒ_ƒ€ƒJ[ƒh(&C)
+		MA_RandomJump->Caption); // ãƒ©ãƒ³ãƒ€ãƒ ã‚«ãƒ¼ãƒ‰(&C)
 	MA_RandomMap->Caption = Ini->ReadString("MainWnd", "MA_RandomMap",
-		MA_RandomMap->Caption); // ƒ‰ƒ“ƒ_ƒ€ƒJ[ƒh2(&2)
+		MA_RandomMap->Caption); // ãƒ©ãƒ³ãƒ€ãƒ ã‚«ãƒ¼ãƒ‰2(&2)
 	MA_RandomTrace->Caption = Ini->ReadString("MainWnd", "MA_RandomTrace",
-		MA_RandomTrace->Caption); // ƒ‰ƒ“ƒ_ƒ€ƒgƒŒ[ƒX(&T)
+		MA_RandomTrace->Caption); // ãƒ©ãƒ³ãƒ€ãƒ ãƒˆãƒ¬ãƒ¼ã‚¹(&T)
 	M_View->Caption = Ini->ReadString("MainWnd", "M_View", M_View->Caption);
-	// •\¦(&V)
+	// è¡¨ç¤º(&V)
 	MV_Font->Caption = Ini->ReadString("MainWnd", "MV_Font",
-		MV_Font->Caption); // ƒtƒHƒ“ƒg(&F)
+		MV_Font->Caption); // ãƒ•ã‚©ãƒ³ãƒˆ(&F)
 	MVF_DefaultSize->Caption = Ini->ReadString("MainWnd", "MVF_DefaultSize",
-		MVF_DefaultSize->Caption); // •W€ƒTƒCƒY(&D)
+		MVF_DefaultSize->Caption); // æ¨™æº–ã‚µã‚¤ã‚º(&D)
 	MVF_Magnify->Caption = Ini->ReadString("MainWnd", "MVF_Magnify",
-		MVF_Magnify->Caption); // Šg‘å(&M)
+		MVF_Magnify->Caption); // æ‹¡å¤§(&M)
 	MVF_Reduce->Caption = Ini->ReadString("MainWnd", "MVF_Reduce",
-		MVF_Reduce->Caption); // k¬(&R)
+		MVF_Reduce->Caption); // ç¸®å°(&R)
 	MVF_ChangeFont->Caption = Ini->ReadString("MainWnd", "MVF_ChangeFont",
-		MVF_ChangeFont->Caption); // ƒtƒHƒ“ƒg‚Ì•ÏX(&C)
+		MVF_ChangeFont->Caption); // ãƒ•ã‚©ãƒ³ãƒˆã®å¤‰æ›´(&C)
 	MV_Card->Caption = Ini->ReadString("MainWnd", "MV_Card",
-		MV_Card->Caption); // ƒJ[ƒh(&C)
+		MV_Card->Caption); // ã‚«ãƒ¼ãƒ‰(&C)
 	MVC_CardShadow->Caption = Ini->ReadString("MainWnd", "MVC_CardShadow",
 		MVC_CardShadow->Caption);
 	MVC_CardGradation->Caption = Ini->ReadString("MainWnd", "MVC_CardGradation",
@@ -12882,40 +12882,40 @@ void TFo_Main::ApplyLanguageSetting() {
 	MVC_Ticker2Lines->Caption = Ini->ReadString("MainWnd", "MVC_Ticker2Lines",
 		MVC_Ticker2Lines->Caption);
 	MVC_Image->Caption = Ini->ReadString("MainWnd", "MVC_Image",
-		MVC_Image->Caption); // ƒCƒ[ƒW(&I)
+		MVC_Image->Caption); // ã‚¤ãƒ¡ãƒ¼ã‚¸(&I)
 	MVC_Video->Caption = Ini->ReadString("MainWnd", "MVC_Video",
-		MVC_Video->Caption); // ƒrƒfƒI(&V)
+		MVC_Video->Caption); // ãƒ“ãƒ‡ã‚ª(&V)
 	MVC_Drawing->Caption = Ini->ReadString("MainWnd", "MVC_Drawing",
-		MVC_Drawing->Caption); // }(&D)
+		MVC_Drawing->Caption); // å›³(&D)
 	MV_Link->Caption = Ini->ReadString("MainWnd", "MV_Link",
-		MV_Link->Caption); // ƒŠƒ“ƒN(&L)
+		MV_Link->Caption); // ãƒªãƒ³ã‚¯(&L)
 	MVL_Link->Caption = Ini->ReadString("MainWnd", "MVL_Link",
-		MVL_Link->Caption); // ƒŠƒ“ƒNü(&L)
+		MVL_Link->Caption); // ãƒªãƒ³ã‚¯ç·š(&L)
 	MVL_LinkHemming->Caption = Ini->ReadString("MainWnd", "MVL_LinkHemming",
 		MVL_LinkHemming->Caption);
 	MVL_LinkShadow->Caption = Ini->ReadString("MainWnd", "MVL_LinkShadow",
 		MVL_LinkShadow->Caption);
 	MVL_LinkDirection->Caption = Ini->ReadString("MainWnd", "MVL_LinkDirection",
-		MVL_LinkDirection->Caption); // ƒŠƒ“ƒN‚Ì•ûŒü(&D)
+		MVL_LinkDirection->Caption); // ãƒªãƒ³ã‚¯ã®æ–¹å‘(&D)
 	MVL_LinkName->Caption = Ini->ReadString("MainWnd", "MVL_LinkName",
-		MVL_LinkName->Caption); // ƒŠƒ“ƒN–¼(&N)
+		MVL_LinkName->Caption); // ãƒªãƒ³ã‚¯å(&N)
 	MV_Label->Caption = Ini->ReadString("MainWnd", "MV_Label",
-		MV_Label->Caption); // ƒ‰ƒxƒ‹(&A)
+		MV_Label->Caption); // ãƒ©ãƒ™ãƒ«(&A)
 	MVL_LabelCircle->Caption = Ini->ReadString("MainWnd", "MVL_LabelCircle",
-		MVL_LabelCircle->Caption); // ƒ‰ƒxƒ‹‚Ì‰~(&C)
+		MVL_LabelCircle->Caption); // ãƒ©ãƒ™ãƒ«ã®å††(&C)
 	MVL_LabelRectangle->Caption =
 		Ini->ReadString("MainWnd", "MVL_LabelRectangle",
-		MVL_LabelRectangle->Caption); // ƒ‰ƒxƒ‹‚Ì‹éŒ`(&R)
+		MVL_LabelRectangle->Caption); // ãƒ©ãƒ™ãƒ«ã®çŸ©å½¢(&R)
 	MVL_LabelName->Caption = Ini->ReadString("MainWnd", "MVL_LabelName",
-		MVL_LabelName->Caption); // ƒ‰ƒxƒ‹‚Ì‰~(&N)
+		MVL_LabelName->Caption); // ãƒ©ãƒ™ãƒ«ã®å††(&N)
 	MV_Text->Caption = Ini->ReadString("MainWnd", "MV_Text",
-		MV_Text->Caption); // –{•¶ƒeƒLƒXƒg(&T)
+		MV_Text->Caption); // æœ¬æ–‡ãƒ†ã‚­ã‚¹ãƒˆ(&T)
 	MVT_Text->Caption = Ini->ReadString("MainWnd", "MVT_Text",
-		MVT_Text->Caption); // –{•¶ƒeƒLƒXƒg(&T)
+		MVT_Text->Caption); // æœ¬æ–‡ãƒ†ã‚­ã‚¹ãƒˆ(&T)
 	MVT_Centering->Caption = Ini->ReadString("MainWnd", "MVT_Centering",
-		MVT_Centering->Caption); // ƒZƒ“ƒ^ƒŠƒ“ƒO(&C)
+		MVT_Centering->Caption); // ã‚»ãƒ³ã‚¿ãƒªãƒ³ã‚°(&C)
 	MVT_WordWrap->Caption = Ini->ReadString("MainWnd", "MVT_WordWrap",
-		MVT_WordWrap->Caption); // ‰E’[‚ÅÜ‚è•Ô‚·(&W)
+		MVT_WordWrap->Caption); // å³ç«¯ã§æŠ˜ã‚Šè¿”ã™(&W)
 	MVT_EditInBrowser->Caption = Ini->ReadString("MainWnd", "MVT_EditInBrowser",
 		MVT_EditInBrowser->Caption);
 	MVT_AlwaysShowEditor->Caption =
@@ -12928,53 +12928,53 @@ void TFo_Main::ApplyLanguageSetting() {
 	MVT_BrowserBottom->Caption = Ini->ReadString("MainWnd", "MVT_BrowserBottom",
 		MVT_BrowserBottom->Caption);
 	MV_Others->Caption = Ini->ReadString("MainWnd", "MV_Others",
-		MV_Others->Caption); // ‚»‚Ì‘¼(&O)
+		MV_Others->Caption); // ãã®ä»–(&O)
 	MV_Score->Caption = Ini->ReadString("MainWnd", "MV_Score",
-		MV_Score->Caption); // ƒXƒRƒA(&S)
+		MV_Score->Caption); // ã‚¹ã‚³ã‚¢(&S)
 	MVS_Score->Caption = Ini->ReadString("MainWnd", "MVS_Score",
-		MVS_Score->Caption); // ƒXƒRƒA(&S)
+		MVS_Score->Caption); // ã‚¹ã‚³ã‚¢(&S)
 	MVS_Authenticity->Caption = Ini->ReadString("MainWnd", "MVS_Authenticity",
-		MVS_Authenticity->Caption); // M—Š“x(&A)
+		MVS_Authenticity->Caption); // ä¿¡é ¼åº¦(&A)
 	MVS_StartingPoint->Caption = Ini->ReadString("MainWnd", "MVS_StartingPoint",
-		MVS_StartingPoint->Caption); // ŠJn’n“_(&S)
+		MVS_StartingPoint->Caption); // é–‹å§‹åœ°ç‚¹(&S)
 	MVS_Destination->Caption = Ini->ReadString("MainWnd", "MVS_Destination",
-		MVS_Destination->Caption); // –Ú“I’n(&D)
+		MVS_Destination->Caption); // ç›®çš„åœ°(&D)
 	MVS_Links_Out->Caption = Ini->ReadString("MainWnd", "MVS_Links_Out",
-		MVS_Links_Out->Caption); // ƒŠƒ“ƒN”io—Íj(&O)
+		MVS_Links_Out->Caption); // ãƒªãƒ³ã‚¯æ•°ï¼ˆå‡ºåŠ›ï¼‰(&O)
 	MVS_Links_In->Caption = Ini->ReadString("MainWnd", "MVS_Links_In",
-		MVS_Links_In->Caption); // ƒŠƒ“ƒN”i“ü—Íj(&I)
+		MVS_Links_In->Caption); // ãƒªãƒ³ã‚¯æ•°ï¼ˆå…¥åŠ›ï¼‰(&I)
 	MVS_Links_Total->Caption = Ini->ReadString("MainWnd", "MVS_Links_Total",
-		MVS_Links_Total->Caption); // ƒŠƒ“ƒN”i‡Œvj(&T)
+		MVS_Links_Total->Caption); // ãƒªãƒ³ã‚¯æ•°ï¼ˆåˆè¨ˆï¼‰(&T)
 	MVS_Links_InOut->Caption = Ini->ReadString("MainWnd", "MVS_Links_InOut",
-		MVS_Links_InOut->Caption); // ƒŠƒ“ƒN”i“ü—Í-o—Íj(&L)
+		MVS_Links_InOut->Caption); // ãƒªãƒ³ã‚¯æ•°ï¼ˆå…¥åŠ›-å‡ºåŠ›ï¼‰(&L)
 	MVS_TextLength->Caption = Ini->ReadString("MainWnd", "MVS_TextLength",
-		MVS_TextLength->Caption); // –{•¶‚Ì’·‚³(&X)
+		MVS_TextLength->Caption); // æœ¬æ–‡ã®é•·ã•(&X)
 	MV_Read->Caption = Ini->ReadString("MainWnd", "MV_Read",
-		MV_Read->Caption); // “Ç‚İã‚°(&R)
+		MV_Read->Caption); // èª­ã¿ä¸Šã’(&R)
 	MVR_Read->Caption = Ini->ReadString("MainWnd", "MVR_Read",
-		MVR_Read->Caption); // “Ç‚İã‚°(&R)
+		MVR_Read->Caption); // èª­ã¿ä¸Šã’(&R)
 	MVR_ReadSetting->Caption = Ini->ReadString("MainWnd", "MVR_ReadSetting",
-		MVR_ReadSetting->Caption); // “Ç‚İã‚°‚Ìİ’è(&E)
+		MVR_ReadSetting->Caption); // èª­ã¿ä¸Šã’ã®è¨­å®š(&E)
 	MVO_CardList->Caption = Ini->ReadString("MainWnd", "MVO_CardList",
 		MVO_CardList->Caption); //
 	MVO_FileList->Caption = Ini->ReadString("MainWnd", "MVO_FileList",
 		MVO_FileList->Caption); //
 	MVO_Overview->Caption = Ini->ReadString("MainWnd", "MVO_Overview",
-		MVO_Overview->Caption); // ‘S‘Ì‘œ‚ğ•\¦(&O)
+		MVO_Overview->Caption); // å…¨ä½“åƒã‚’è¡¨ç¤º(&O)
 	MVO_ChangeFourgroundColor->Caption =
 		Ini->ReadString("MainWnd", "MVO_ChangeFourgroundColor",
-		MVO_ChangeFourgroundColor->Caption); // ‘OŒiF‚ğ•ÏX(&F)...
+		MVO_ChangeFourgroundColor->Caption); // å‰æ™¯è‰²ã‚’å¤‰æ›´(&F)...
 	MVO_ChangeBackgroundColor->Caption =
 		Ini->ReadString("MainWnd", "MVO_ChangeBackgroundColor",
-		MVO_ChangeBackgroundColor->Caption); // ”wŒiF‚ğ•ÏX(&B)...
+		MVO_ChangeBackgroundColor->Caption); // èƒŒæ™¯è‰²ã‚’å¤‰æ›´(&B)...
 	MVO_WallPaper->Caption = Ini->ReadString("MainWnd", "MVO_WallPaper",
-		MVO_WallPaper->Caption); // •Ç†(&W)...
+		MVO_WallPaper->Caption); // å£ç´™(&W)...
 	MVO_FixWallPaper->Caption = Ini->ReadString("MainWnd", "MVO_FixWallPaper",
-		MVO_FixWallPaper->Caption); // •Ç†‚ğŒÅ’è(&I)
+		MVO_FixWallPaper->Caption); // å£ç´™ã‚’å›ºå®š(&I)
 	MVO_TileWallPaper->Caption = Ini->ReadString("MainWnd", "MVO_TileWallPaper",
-		MVO_TileWallPaper->Caption); // •Ç†‚ğ•À‚×‚Ä•\¦(&T)
+		MVO_TileWallPaper->Caption); // å£ç´™ã‚’ä¸¦ã¹ã¦è¡¨ç¤º(&T)
 	MVO_AntiAliasing->Caption = Ini->ReadString("MainWnd", "MVO_AntiAliasing",
-		MVO_AntiAliasing->Caption); // ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX(&A)
+		MVO_AntiAliasing->Caption); // ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚¹(&A)
 	MVO_BGAnimation->Caption = Ini->ReadString("MainWnd", "MVO_BGAnimation",
 		MVO_BGAnimation->Caption); // &C
 	MVO_BGAnimationType->Caption =
@@ -12995,38 +12995,38 @@ void TFo_Main::ApplyLanguageSetting() {
 		Ini->ReadString("MainWnd", "MVOB_CherryBlossom",
 		MVOB_CherryBlossom->Caption); // &C
 	MV_ChangeLanguage->Caption = Ini->ReadString("MainWnd", "MV_ChangeLanguage",
-		MV_ChangeLanguage->Caption); // Œ¾Œê‚Ì•ÏX(&H)
+		MV_ChangeLanguage->Caption); // è¨€èªã®å¤‰æ›´(&H)
 	MV_FullScreen->Caption = Ini->ReadString("MainWnd", "MV_FullScreen",
-		MV_FullScreen->Caption); // ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦(&U)
+		MV_FullScreen->Caption); // ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³è¡¨ç¤º(&U)
 	MV_StatusBar->Caption = Ini->ReadString("MainWnd", "MV_StatusBar",
-		MV_StatusBar->Caption); // ƒXƒe[ƒ^ƒXƒo[(&B)
+		MV_StatusBar->Caption); // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒãƒ¼(&B)
 	M_Help->Caption = Ini->ReadString("MainWnd", "M_Help", M_Help->Caption);
-	// ƒwƒ‹ƒv(&H)
+	// ãƒ˜ãƒ«ãƒ—(&H)
 	MH_Contents->Caption = Ini->ReadString("MainWnd", "MH_Contents",
-		MH_Contents->Caption); // –ÚŸ(&C)...
+		MH_Contents->Caption); // ç›®æ¬¡(&C)...
 	MH_FrieveSite->Caption = Ini->ReadString("MainWnd", "MH_FrieveSite",
-		MH_FrieveSite->Caption); // Frieve‚ÌƒTƒCƒg(&F)...
+		MH_FrieveSite->Caption); // Frieveã®ã‚µã‚¤ãƒˆ(&F)...
 	MH_FIPSite->Caption = Ini->ReadString("MainWnd", "MH_FIPSite",
-		MH_FIPSite->Caption); // Frieve Editor‚ÌƒTƒCƒg(&O)...
+		MH_FIPSite->Caption); // Frieve Editorã®ã‚µã‚¤ãƒˆ(&O)...
 	MH_CheckLatest->Caption = Ini->ReadString("MainWnd", "MH_CheckLatest",
-		MH_CheckLatest->Caption); // ÅVƒo[ƒWƒ‡ƒ“‚ğŠm”F(&L)...
+		MH_CheckLatest->Caption); // æœ€æ–°ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’ç¢ºèª(&L)...
 	MH_About->Caption = Ini->ReadString("MainWnd", "MH_About",
-		MH_About->Caption); // ƒo[ƒWƒ‡ƒ“î•ñ(&A)...
+		MH_About->Caption); // ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±(&A)...
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[iƒGƒfƒBƒ^j
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼ˆã‚¨ãƒ‡ã‚£ã‚¿ï¼‰
 	PE_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo",
-		PE_Undo->Caption); // Œ³‚É–ß‚·(&U)
+		PE_Undo->Caption); // å…ƒã«æˆ»ã™(&U)
 	PE_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo", PE_Redo->Caption);
 	PE_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut", PE_Cut->Caption);
-	// Ø‚èæ‚è(&T)
+	// åˆ‡ã‚Šå–ã‚Š(&T)
 	PE_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy",
-		PE_Copy->Caption); // ƒRƒs[(&C)
+		PE_Copy->Caption); // ã‚³ãƒ”ãƒ¼(&C)
 	PE_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste",
-		PE_Paste->Caption); // “\‚è•t‚¯(&P)
+		PE_Paste->Caption); // è²¼ã‚Šä»˜ã‘(&P)
 	PE_Delete->Caption = Ini->ReadString("MainWnd", "ME_Delete",
-		PE_Delete->Caption); // íœ(&D)
+		PE_Delete->Caption); // å‰Šé™¤(&D)
 	PE_SelectAll->Caption = Ini->ReadString("MainWnd", "ME_SelectAll",
-		PE_SelectAll->Caption); // ‘S‚Ä‘I‘ğ(&A)
+		PE_SelectAll->Caption); // å…¨ã¦é¸æŠ(&A)
 	PE_CutToNewCard->Caption = Ini->ReadString("MainWnd", "PM_CutToNewCard",
 		PE_CutToNewCard->Caption);
 	PE_CutToNewCardTitle->Caption =
@@ -13036,9 +13036,9 @@ void TFo_Main::ApplyLanguageSetting() {
 		Ini->ReadString("MainWnd", "PM_CutToNewCardTitleWithLink",
 		PE_CutToNewCardTitleWithLink->Caption);
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[iƒŠƒXƒgj
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼ˆãƒªã‚¹ãƒˆï¼‰
 	PL_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard",
-		PL_NewCard->Caption); // V‹KƒJ[ƒh(&C)
+		PL_NewCard->Caption); // æ–°è¦ã‚«ãƒ¼ãƒ‰(&C)
 	PL_DeleteCard->Caption = Ini->ReadString("MainWnd", "PM_DeleteCard",
 		PL_DeleteCard->Caption);
 	PL_CardProperty->Caption = Ini->ReadString("MainWnd", "PM_Property",
@@ -13049,38 +13049,38 @@ void TFo_Main::ApplyLanguageSetting() {
 	PI_DeleteLink->Caption = Ini->ReadString("MainWnd", "PM_DeleteLink",
 		PI_DeleteLink->Caption);
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[iƒuƒ‰ƒEƒUj
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼ˆãƒ–ãƒ©ã‚¦ã‚¶ï¼‰
 	PBN_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select",
 		PBN_Select->Caption);
 	PBN_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link",
 		PBN_Link->Caption);
 	PBN_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo",
-		PBN_Undo->Caption); // Œ³‚É–ß‚·(&U)
+		PBN_Undo->Caption); // å…ƒã«æˆ»ã™(&U)
 	PBN_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo",
 		PBN_Redo->Caption);
 	PBN_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste",
-		PBN_Paste->Caption); // “\‚è•t‚¯(&P)
+		PBN_Paste->Caption); // è²¼ã‚Šä»˜ã‘(&P)
 	PBN_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard",
-		PBN_NewCard->Caption); // V‹KƒJ[ƒh(&C)
+		PBN_NewCard->Caption); // æ–°è¦ã‚«ãƒ¼ãƒ‰(&C)
 
 	PBC_Select->Caption = Ini->ReadString("MainWnd", "PBN_Select",
 		PBC_Select->Caption);
 	PBC_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link",
 		PBC_Link->Caption);
 	PBC_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo",
-		PBN_Undo->Caption); // Œ³‚É–ß‚·(&U)
+		PBN_Undo->Caption); // å…ƒã«æˆ»ã™(&U)
 	PBC_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo",
 		PBN_Redo->Caption);
 	PBC_Cut->Caption = Ini->ReadString("MainWnd", "ME_Cut",
-		PBC_Cut->Caption); // Ø‚èæ‚è(&T)
+		PBC_Cut->Caption); // åˆ‡ã‚Šå–ã‚Š(&T)
 	PBC_Copy->Caption = Ini->ReadString("MainWnd", "ME_Copy",
-		PBC_Copy->Caption); // ƒRƒs[(&C)
+		PBC_Copy->Caption); // ã‚³ãƒ”ãƒ¼(&C)
 	PBC_Paste->Caption = Ini->ReadString("MainWnd", "ME_Paste",
-		PBC_Paste->Caption); // “\‚è•t‚¯(&P)
+		PBC_Paste->Caption); // è²¼ã‚Šä»˜ã‘(&P)
 	PBC_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch",
 		ME_WebSearch->Caption); // W
 	PBC_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard",
-		PBC_NewCard->Caption); // V‹KƒJ[ƒh(&C)
+		PBC_NewCard->Caption); // æ–°è¦ã‚«ãƒ¼ãƒ‰(&C)
 	PBC_NewChildCard->Caption = Ini->ReadString("MainWnd", "PM_NewChildCard",
 		PBC_NewChildCard->Caption);
 	PBC_NewBrotherCard->Caption =
@@ -13104,13 +13104,13 @@ void TFo_Main::ApplyLanguageSetting() {
 	PBL_Link->Caption = Ini->ReadString("MainWnd", "PBN_Link",
 		PBL_Link->Caption);
 	PBL_Undo->Caption = Ini->ReadString("MainWnd", "ME_Undo",
-		PBL_Undo->Caption); // Œ³‚É–ß‚·(&U)
+		PBL_Undo->Caption); // å…ƒã«æˆ»ã™(&U)
 	PBL_Redo->Caption = Ini->ReadString("MainWnd", "ME_Redo",
 		PBL_Redo->Caption);
 	PBL_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch",
 		ME_WebSearch->Caption); // W
 	PBL_NewCard->Caption = Ini->ReadString("MainWnd", "MI_NewCard",
-		PBL_NewCard->Caption); // V‹KƒJ[ƒh(&C)
+		PBL_NewCard->Caption); // æ–°è¦ã‚«ãƒ¼ãƒ‰(&C)
 	PBL_InsertCard->Caption = Ini->ReadString("MainWnd", "PM_InsertCard",
 		PBL_InsertCard->Caption);
 	PBL_NewLinkLabel->Caption = Ini->ReadString("MainWnd", "MI_NewLinkLabel",
@@ -13120,84 +13120,84 @@ void TFo_Main::ApplyLanguageSetting() {
 	PBL_SetAsDefault->Caption = Ini->ReadString("MainWnd", "PM_SetAsDefault",
 		PBL_SetAsDefault->Caption);
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[iƒAƒŒƒ“ƒWj
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼ˆã‚¢ãƒ¬ãƒ³ã‚¸ï¼‰
 	PAT_Normalize->Caption = Ini->ReadString("MainWnd", "PAT_Normalize",
-		PAT_Normalize->Caption); // ƒm[ƒ}ƒ‰ƒCƒY(&N)
+		PAT_Normalize->Caption); // ãƒãƒ¼ãƒãƒ©ã‚¤ã‚º(&N)
 	PAT_Repulsion->Caption = Ini->ReadString("MainWnd", "PAT_Repulsion",
-		PAT_Repulsion->Caption); // ”½”­(&R)
+		PAT_Repulsion->Caption); // åç™º(&R)
 	PAT_Link->Caption = Ini->ReadString("MainWnd", "PAT_Link",
-		PAT_Link->Caption); // ƒŠƒ“ƒN(&N)
+		PAT_Link->Caption); // ãƒªãƒ³ã‚¯(&N)
 	PAT_Label->Caption = Ini->ReadString("MainWnd", "PAT_Label",
-		PAT_Label->Caption); // ƒ‰ƒxƒ‹(&A)
+		PAT_Label->Caption); // ãƒ©ãƒ™ãƒ«(&A)
 	PAT_Index->Caption = Ini->ReadString("MainWnd", "PAT_Index",
-		PAT_Index->Caption); // ‡˜(&I)
+		PAT_Index->Caption); // é †åº(&I)
 	PAT_SoftLink->Caption = Ini->ReadString("MainWnd", "PAT_SoftLink",
-		PAT_SoftLink->Caption); // ƒŠƒ“ƒN(ƒ\ƒtƒg)(&K)
+		PAT_SoftLink->Caption); // ãƒªãƒ³ã‚¯(ã‚½ãƒ•ãƒˆ)(&K)
 	PAT_SoftLabel->Caption = Ini->ReadString("MainWnd", "PAT_SoftLabel",
-		PAT_SoftLabel->Caption); // ƒ‰ƒxƒ‹(ƒ\ƒtƒg)(&B)
+		PAT_SoftLabel->Caption); // ãƒ©ãƒ™ãƒ«(ã‚½ãƒ•ãƒˆ)(&B)
 	PAT_SoftIndex->Caption = Ini->ReadString("MainWnd", "PAT_SoftIndex",
-		PAT_SoftIndex->Caption); // ‡˜(ƒ\ƒtƒg)(&D)
+		PAT_SoftIndex->Caption); // é †åº(ã‚½ãƒ•ãƒˆ)(&D)
 	PAT_Matrix->Caption = Ini->ReadString("MainWnd", "PAT_Matrix",
-		PAT_Matrix->Caption); // ƒ}ƒgƒŠƒNƒX(&M)
+		PAT_Matrix->Caption); // ãƒãƒˆãƒªã‚¯ã‚¹(&M)
 	PAT_MatrixIndex->Caption = Ini->ReadString("MainWnd", "PAT_MatrixIndex",
-		PAT_MatrixIndex->Caption); // ‡˜(ƒ}ƒgƒŠƒNƒX)(&E)
+		PAT_MatrixIndex->Caption); // é †åº(ãƒãƒˆãƒªã‚¯ã‚¹)(&E)
 	PAT_Similarity->Caption = Ini->ReadString("MainWnd", "PAT_Similarity",
-		PAT_Similarity->Caption); // —Ş—“x(&S)
+		PAT_Similarity->Caption); // é¡ä¼¼åº¦(&S)
 	PAT_SimilaritySoft->Caption =
 		Ini->ReadString("MainWnd", "PAT_SimilaritySoft",
-		PAT_SimilaritySoft->Caption); // —Ş—“x(ƒ\ƒtƒg)
+		PAT_SimilaritySoft->Caption); // é¡ä¼¼åº¦(ã‚½ãƒ•ãƒˆ)
 	PAT_TreeRadial->Caption = Ini->ReadString("MainWnd", "PAT_TreeRadial",
-		PAT_TreeRadial->Caption); // ƒcƒŠ[(•úËó)(&T)
+		PAT_TreeRadial->Caption); // ãƒ„ãƒªãƒ¼(æ”¾å°„çŠ¶)(&T)
 
-	// ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[i“Œvj
+	// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼ˆçµ±è¨ˆï¼‰
 	PMSK_Label->Caption = Ini->ReadString("MainWnd", "PMSK_Label",
-		PMSK_Label->Caption); // ƒ‰ƒxƒ‹(&L)
+		PMSK_Label->Caption); // ãƒ©ãƒ™ãƒ«(&L)
 	PMSK_NumberOfLink->Caption = Ini->ReadString("MainWnd", "PMSK_NumberOfLink",
-		PMSK_NumberOfLink->Caption); // ƒŠƒ“ƒN”(&N)
+		PMSK_NumberOfLink->Caption); // ãƒªãƒ³ã‚¯æ•°(&N)
 	PMSK_CreatedDate->Caption = Ini->ReadString("MainWnd", "PMSK_CreatedDate",
-		PMSK_CreatedDate->Caption); // ì¬“ú(&C)
+		PMSK_CreatedDate->Caption); // ä½œæˆæ—¥æ™‚(&C)
 	PMSK_EditedDate->Caption = Ini->ReadString("MainWnd", "PMSK_EditedDate",
-		PMSK_EditedDate->Caption); // •ÒW“ú(&E)
+		PMSK_EditedDate->Caption); // ç·¨é›†æ—¥æ™‚(&E)
 	PMSK_ViewedDate->Caption = Ini->ReadString("MainWnd", "PMSK_ViewedDate",
-		PMSK_ViewedDate->Caption); // ‰{——“ú(&V)
+		PMSK_ViewedDate->Caption); // é–²è¦§æ—¥æ™‚(&V)
 	PMSKL_Total->Caption = Ini->ReadString("MainWnd", "PMSKL_Total",
-		PMSKL_Total->Caption); // ‡Œv(&T)
+		PMSKL_Total->Caption); // åˆè¨ˆ(&T)
 	PMSKL_Source->Caption = Ini->ReadString("MainWnd", "PMSKL_Source",
-		PMSKL_Source->Caption); // ƒŠƒ“ƒNŒ³(&S)
+		PMSKL_Source->Caption); // ãƒªãƒ³ã‚¯å…ƒ(&S)
 	PMSKL_Destination->Caption = Ini->ReadString("MainWnd", "PMSKL_Destination",
-		PMSKL_Destination->Caption); // ƒŠƒ“ƒNæ(&D)
+		PMSKL_Destination->Caption); // ãƒªãƒ³ã‚¯å…ˆ(&D)
 	PMSKC_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year",
-		PMSKC_Year->Caption); // ”N–ˆ‚ÉWŒv(&Y)
+		PMSKC_Year->Caption); // å¹´æ¯ã«é›†è¨ˆ(&Y)
 	PMSKC_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month",
-		PMSKC_Month->Caption); // Œ–ˆ‚ÉWŒv(&M)
+		PMSKC_Month->Caption); // æœˆæ¯ã«é›†è¨ˆ(&M)
 	PMSKC_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day",
-		PMSKC_Day->Caption); // “ú–ˆ‚ÉWŒv(&D)
+		PMSKC_Day->Caption); // æ—¥æ¯ã«é›†è¨ˆ(&D)
 	PMSKC_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week",
-		PMSKC_Week->Caption); // T–ˆ‚ÉWŒv(&W)
+		PMSKC_Week->Caption); // é€±æ¯ã«é›†è¨ˆ(&W)
 	PMSKC_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour",
-		PMSKC_Hour->Caption); // ŠÔ–ˆ‚ÉWŒv(&H)
+		PMSKC_Hour->Caption); // æ™‚é–“æ¯ã«é›†è¨ˆ(&H)
 	PMSKE_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year",
-		PMSKE_Year->Caption); // ”N–ˆ‚ÉWŒv(&Y)
+		PMSKE_Year->Caption); // å¹´æ¯ã«é›†è¨ˆ(&Y)
 	PMSKE_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month",
-		PMSKE_Month->Caption); // Œ–ˆ‚ÉWŒv(&M)
+		PMSKE_Month->Caption); // æœˆæ¯ã«é›†è¨ˆ(&M)
 	PMSKE_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day",
-		PMSKE_Day->Caption); // “ú–ˆ‚ÉWŒv(&D)
+		PMSKE_Day->Caption); // æ—¥æ¯ã«é›†è¨ˆ(&D)
 	PMSKE_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week",
-		PMSKE_Week->Caption); // T–ˆ‚ÉWŒv(&W)
+		PMSKE_Week->Caption); // é€±æ¯ã«é›†è¨ˆ(&W)
 	PMSKE_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour",
-		PMSKE_Hour->Caption); // ŠÔ–ˆ‚ÉWŒv(&H)
+		PMSKE_Hour->Caption); // æ™‚é–“æ¯ã«é›†è¨ˆ(&H)
 	PMSKV_Year->Caption = Ini->ReadString("MainWnd", "PMSK_Year",
-		PMSKV_Year->Caption); // ”N–ˆ‚ÉWŒv(&Y)
+		PMSKV_Year->Caption); // å¹´æ¯ã«é›†è¨ˆ(&Y)
 	PMSKV_Month->Caption = Ini->ReadString("MainWnd", "PMSK_Month",
-		PMSKV_Month->Caption); // Œ–ˆ‚ÉWŒv(&M)
+		PMSKV_Month->Caption); // æœˆæ¯ã«é›†è¨ˆ(&M)
 	PMSKV_Day->Caption = Ini->ReadString("MainWnd", "PMSK_Day",
-		PMSKV_Day->Caption); // “ú–ˆ‚ÉWŒv(&D)
+		PMSKV_Day->Caption); // æ—¥æ¯ã«é›†è¨ˆ(&D)
 	PMSKV_Week->Caption = Ini->ReadString("MainWnd", "PMSK_Week",
-		PMSKV_Week->Caption); // T–ˆ‚ÉWŒv(&W)
+		PMSKV_Week->Caption); // é€±æ¯ã«é›†è¨ˆ(&W)
 	PMSKV_Hour->Caption = Ini->ReadString("MainWnd", "PMSK_Hour",
-		PMSKV_Hour->Caption); // ŠÔ–ˆ‚ÉWŒv(&H)
+		PMSKV_Hour->Caption); // æ™‚é–“æ¯ã«é›†è¨ˆ(&H)
 
-	// ‚»‚Ì‘¼‚ÌƒeƒLƒXƒg
+	// ãã®ä»–ã®ãƒ†ã‚­ã‚¹ãƒˆ
 
 	MLText.Cards = Ini->ReadString("Common", "Cards", MLText.Cards);
 	MLText.Links = Ini->ReadString("Common", "Links", MLText.Links);
@@ -13253,21 +13253,21 @@ void TFo_Main::ApplyLanguageSetting() {
 		Ini->ReadString("Common", "ProcessingTextAnalysis",
 		MLText.ProcessingTextAnalysis);
 
-	MLText.Enable = Ini->ReadString("Common", "Enable", MLText.Enable); // —LŒø
-	MLText.Fold = Ini->ReadString("Common", "Fold", MLText.Fold); // Üô
-	MLText.Show = Ini->ReadString("Common", "Show", MLText.Show); // •\¦
-	MLText.Hide = Ini->ReadString("Common", "Hide", MLText.Hide); // ‰B•Á
+	MLText.Enable = Ini->ReadString("Common", "Enable", MLText.Enable); // æœ‰åŠ¹
+	MLText.Fold = Ini->ReadString("Common", "Fold", MLText.Fold); // æŠ˜ç•³
+	MLText.Show = Ini->ReadString("Common", "Show", MLText.Show); // è¡¨ç¤º
+	MLText.Hide = Ini->ReadString("Common", "Hide", MLText.Hide); // éš è”½
 	MLText.NoAssign = Ini->ReadString("Common", "NoAssign",
-		MLText.NoAssign); // –¢w’è
+		MLText.NoAssign); // æœªæŒ‡å®š
 	MLText.NoLabel = Ini->ReadString("Common", "NoLabel", MLText.NoLabel);
-	// ƒ‰ƒxƒ‹‚È‚µ
+	// ãƒ©ãƒ™ãƒ«ãªã—
 	MLText.SelectTargetCard = Ini->ReadString("Common", "SelectTargetCard",
-		MLText.SelectTargetCard); // ƒŠƒ“ƒNæƒJ[ƒh‚Ì‘I‘ğ
-	MLText.Old = Ini->ReadString("Common", "Old", MLText.Old); // ŒÃ‚¢‡
-	MLText.New = Ini->ReadString("Common", "New", MLText.New); // V‚µ‚¢‡
-	MLText.Near = Ini->ReadString("Common", "Near", MLText.Near); // ‹ß‚¢‡
-	MLText.Older = Ini->ReadString("Common", "Older", MLText.Older); // ‚æ‚èŒÃ‚¢
-	MLText.Newer = Ini->ReadString("Common", "Newer", MLText.Newer); // ‚æ‚èV‚µ‚¢
+		MLText.SelectTargetCard); // ãƒªãƒ³ã‚¯å…ˆã‚«ãƒ¼ãƒ‰ã®é¸æŠ
+	MLText.Old = Ini->ReadString("Common", "Old", MLText.Old); // å¤ã„é †
+	MLText.New = Ini->ReadString("Common", "New", MLText.New); // æ–°ã—ã„é †
+	MLText.Near = Ini->ReadString("Common", "Near", MLText.Near); // è¿‘ã„é †
+	MLText.Older = Ini->ReadString("Common", "Older", MLText.Older); // ã‚ˆã‚Šå¤ã„
+	MLText.Newer = Ini->ReadString("Common", "Newer", MLText.Newer); // ã‚ˆã‚Šæ–°ã—ã„
 	MLText.SaveCheck = Ini->ReadString("Common", "SaveCheck", MLText.SaveCheck);
 	MLText.FailedToSave = Ini->ReadString("Common", "FailedToSave",
 		MLText.FailedToSave);
@@ -13347,28 +13347,28 @@ TCardImage *TFo_Main::SearchImage(UnicodeString FN) {
 
 // ---------------------------------------------------------------------------
 bool TFo_Main::UpdateImageList() {
-	// g‚í‚ê‚Ä‚¢‚é‚Ì‚Éƒ[ƒh‚³‚ê‚Ä‚¢‚È‚¢‰æ‘œ‚ğƒ[ƒh‚µAg‚í‚ê‚Ä‚¢‚È‚¢‰æ‘œ‚ğ”jŠü‚·‚é
+	// ä½¿ã‚ã‚Œã¦ã„ã‚‹ã®ã«ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ãªã„ç”»åƒã‚’ãƒ­ãƒ¼ãƒ‰ã—ã€ä½¿ã‚ã‚Œã¦ã„ãªã„ç”»åƒã‚’ç ´æ£„ã™ã‚‹
 
 	bool result = false;
 
-	// g—p’†ƒtƒ‰ƒOƒŠƒZƒbƒg
+	// ä½¿ç”¨ä¸­ãƒ•ãƒ©ã‚°ãƒªã‚»ãƒƒãƒˆ
 	for (int i = 0; i < m_ImageList->Count; i++) {
 		GetImage(i)->m_bUsed = false;
 	}
 
-	// ƒJ[ƒhƒ‹[ƒv
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 	if (SettingView.m_bImageVisible)
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_ImageFN != "") { // Card->m_bVisible &&
-				// ƒCƒ[ƒWƒŠƒXƒg‚©‚çƒCƒ[ƒWŒŸõ
+				// ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒªã‚¹ãƒˆã‹ã‚‰ã‚¤ãƒ¡ãƒ¼ã‚¸æ¤œç´¢
 				TCardImage *Image = SearchImage(Card->m_ImageFN);
 				if (Image) {
-					// Œ©‚Â‚©‚Á‚½I
+					// è¦‹ã¤ã‹ã£ãŸï¼
 					Image->m_bUsed = true;
 				}
 				else if (Card->m_bVisible) {
-					// Œ©‚Â‚©‚ç‚È‚¢A‚©‚Â•\¦’†¨ƒ[ƒh
+					// è¦‹ã¤ã‹ã‚‰ãªã„ã€ã‹ã¤è¡¨ç¤ºä¸­â†’ãƒ­ãƒ¼ãƒ‰
 					// Screen->Cursor = crHourGlass;
 					if (!result || SettingView.m_bLoadImageatOnce) {
 						m_ImageList->Add(new TCardImage(Card->m_ImageFN));
@@ -13378,7 +13378,7 @@ bool TFo_Main::UpdateImageList() {
 			}
 		}
 
-	// –¢g—pƒCƒ[ƒW‚Ì”jŠü
+	// æœªä½¿ç”¨ã‚¤ãƒ¡ãƒ¼ã‚¸ã®ç ´æ£„
 	for (int i = m_ImageList->Count - 1; i >= 0; i--) {
 		TCardImage *Image = GetImage(i);
 		if (!Image->m_bUsed) {
@@ -13409,28 +13409,28 @@ TCardVideo *TFo_Main::SearchVideo(UnicodeString FN) {
 
 // ---------------------------------------------------------------------------
 bool TFo_Main::UpdateVideoList() {
-	// g‚í‚ê‚Ä‚¢‚é‚Ì‚Éƒ[ƒh‚³‚ê‚Ä‚¢‚È‚¢ƒrƒfƒI‚ğƒ[ƒh‚µAg‚í‚ê‚Ä‚¢‚È‚¢ƒrƒfƒI‚ğ”jŠü‚·‚é
+	// ä½¿ã‚ã‚Œã¦ã„ã‚‹ã®ã«ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ãªã„ãƒ“ãƒ‡ã‚ªã‚’ãƒ­ãƒ¼ãƒ‰ã—ã€ä½¿ã‚ã‚Œã¦ã„ãªã„ãƒ“ãƒ‡ã‚ªã‚’ç ´æ£„ã™ã‚‹
 
 	bool result = false;
 
-	// g—p’†ƒtƒ‰ƒOƒŠƒZƒbƒg
+	// ä½¿ç”¨ä¸­ãƒ•ãƒ©ã‚°ãƒªã‚»ãƒƒãƒˆ
 	for (int i = 0; i < m_VideoList->Count; i++) {
 		GetVideo(i)->m_bUsed = false;
 	}
 
-	// ƒJ[ƒhƒ‹[ƒv
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 	if (SettingView.m_bVideoVisible)
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible && Card->m_VideoFN != "") {
-				// ƒrƒfƒIƒŠƒXƒg‚©‚çƒrƒfƒIŒŸõ
+				// ãƒ“ãƒ‡ã‚ªãƒªã‚¹ãƒˆã‹ã‚‰ãƒ“ãƒ‡ã‚ªæ¤œç´¢
 				TCardVideo *Video = SearchVideo(Card->m_VideoFN);
 				if (Video) {
-					// Œ©‚Â‚©‚Á‚½I
+					// è¦‹ã¤ã‹ã£ãŸï¼
 					Video->m_bUsed = true;
 				}
 				else {
-					// Œ©‚Â‚©‚ç‚È‚¢¨ƒ[ƒh
+					// è¦‹ã¤ã‹ã‚‰ãªã„â†’ãƒ­ãƒ¼ãƒ‰
 					Screen->Cursor = crHourGlass;
 					if (!result || SettingView.m_bLoadImageatOnce) {
 						m_VideoList->Add(new TCardVideo(Card->m_VideoFN));
@@ -13440,7 +13440,7 @@ bool TFo_Main::UpdateVideoList() {
 			}
 		}
 
-	// –¢g—pƒrƒfƒI‚Ì”jŠü
+	// æœªä½¿ç”¨ãƒ“ãƒ‡ã‚ªã®ç ´æ£„
 	for (int i = m_VideoList->Count - 1; i >= 0; i--) {
 		TCardVideo *Video = GetVideo(i);
 		if (!Video->m_bUsed) {
@@ -13564,7 +13564,7 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender) {
 	 }
 
 	 {
-	 //Search“®ìƒ`ƒFƒbƒN
+	 //Searchå‹•ä½œãƒã‚§ãƒƒã‚¯
 	 for (int ii = 0 ; ii < TD->m_Gram[0]->Count ; ii++){
 	 int idx = TD->m_Gram[0]->Search(0, TD->m_Gram[0]->Count - 1, TD->m_Gram[0]->Strings(ii));
 	 if (idx != ii){
@@ -13574,7 +13574,7 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender) {
 	 }
 
 	 {
-	 //Enabled‚ªfalse‚Ì‘g‚İ‡‚í‚¹
+	 //EnabledãŒfalseã®çµ„ã¿åˆã‚ã›
 	 for (int i = 0 ; i < TD->m_nMaxCombi ; i++){
 	 WideString WS;
 	 for (int ii = 0 ; ii < TD->m_Gram[i]->Count ; ii++){
@@ -13590,14 +13590,14 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender) {
 
 	RE_Edit->Lines->EndUpdate();
 
-	// Doc-’PŒêoŒ»Šm—¦Ši”[—p
+	// Doc-å˜èªå‡ºç¾ç¢ºç‡æ ¼ç´ç”¨
 	t = GetTickCount();
 	TSMatrix *SM = new TSMatrix();
 
-	// TD‚ÌŒ‹‰Ê‚©‚çSM‚ğ–„‚ß‚é
-	// ƒhƒLƒ…ƒƒ“ƒgƒ‹[ƒv
+	// TDã®çµæœã‹ã‚‰SMã‚’åŸ‹ã‚ã‚‹
+	// ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ«ãƒ¼ãƒ—
 	for (int id = 0; id < doccount; id++) {
-		// •¶šƒ‹[ƒv
+		// æ–‡å­—ãƒ«ãƒ¼ãƒ—
 		WideString doc = WideLowerCase(WS->Strings(id));
 		int doclen = doc.Length();
 		for (int ic = 0; ic < doclen; ic++) {
@@ -13607,7 +13607,7 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender) {
 			while (start >= 0) {
 				TWSandValueList *WSVL = TD->m_Gram[len - 1];
 				WideString c = doc.SubString(ic + 1, len);
-				// 1•¶š’PŒê‚©‚ç‚±‚Ì•¶š‚ğŒŸõ
+				// 1æ–‡å­—å˜èªã‹ã‚‰ã“ã®æ–‡å­—ã‚’æ¤œç´¢
 				int idx = WSVL->Search(start, end, c);
 				if (idx >= 0) {
 					int sn = WSVL->SN(idx);
@@ -13628,7 +13628,7 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender) {
 		}
 	}
 
-	// d•¡íœ
+	// é‡è¤‡å‰Šé™¤
 	unsigned int t2 = GetTickCount();
 	SM->Finalize(true);
 	RE_Edit->Lines->Add(UnicodeString("SM : ") +
@@ -13638,11 +13638,11 @@ void __fastcall TFo_Main::Bu_TestClick(TObject *Sender) {
 	RE_Edit->Lines->Add(UnicodeString("SM Items : ") + SM->m_Items->Count);
 	RE_Edit->Lines->Add("");
 
-	// ’Pƒ—Ş—Matrix¶¬
+	// å˜ç´”é¡ä¼¼Matrixç”Ÿæˆ
 	t = GetTickCount();
 	FreeSimMatrix();
 	SM->DeleteSameCol(true);
-	// SM->MergeCol(500, 0.9f, 30);//500’PŒê–ˆ‚É0.9ˆÈã‚Ì—Ş—“x‚Ì’PŒê‚ğ‚Ü‚Æ‚ß‚éB’PŒê‚ª50ˆÈ‰º‚É‚È‚é‚Ü‚ÅŒJ‚è•Ô‚·
+	// SM->MergeCol(500, 0.9f, 30);//500å˜èªæ¯ã«0.9ä»¥ä¸Šã®é¡ä¼¼åº¦ã®å˜èªã‚’ã¾ã¨ã‚ã‚‹ã€‚å˜èªãŒ50ä»¥ä¸‹ã«ãªã‚‹ã¾ã§ç¹°ã‚Šè¿”ã™
 	SM->PrepareCosRow();
 	m_SimMatrix = new TDMatrix(doccount);
 	for (int i = 0; i < doccount; i++) {
@@ -13683,7 +13683,7 @@ void __fastcall TFo_Main::PAT_ArrangeTypeClick(TObject *Sender) {
 void TFo_Main::PrepareArrange() {
 	if (SB_Arrange->Down) {
 		switch (Bu_ArrangeType->Tag) {
-			// case 200://200‚ÌÛ‚ÍIteration‚Ì’†‚Å–ˆ‰ñŒÄ‚Ô
+			// case 200://200ã®éš›ã¯Iterationã®ä¸­ã§æ¯å›å‘¼ã¶
 		case 202: // Matrix(Link)
 		case 203: // Matrix(Label)
 			PrepareMatrixArrange(Bu_ArrangeType->Tag);
@@ -13699,7 +13699,7 @@ void TFo_Main::PrepareArrange() {
 		}
 
 		if (Bu_ArrangeType->Tag >= 1000 && Bu_ArrangeType->Tag <= 1999) {
-			// ŠK‘w•\¦
+			// éšå±¤è¡¨ç¤º
 			m_Document->RefreshList();
 		}
 	}
@@ -13735,13 +13735,13 @@ void TFo_Main::RefreshSimMatrix() {
 	 }
 	 TTextDecomposer *TD = new TTextDecomposer(WS, 10, 100);
 
-	 //Doc-’PŒêoŒ»Šm—¦Ši”[—p
+	 //Doc-å˜èªå‡ºç¾ç¢ºç‡æ ¼ç´ç”¨
 	 TSMatrix *SM = new TSMatrix();
 
-	 //TD‚ÌŒ‹‰Ê‚©‚çSM‚ğ–„‚ß‚é
-	 //ƒhƒLƒ…ƒƒ“ƒgƒ‹[ƒv
+	 //TDã®çµæœã‹ã‚‰SMã‚’åŸ‹ã‚ã‚‹
+	 //ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ«ãƒ¼ãƒ—
 	 for (int id = 0 ; id < doccount ; id++){
-	 //•¶šƒ‹[ƒv
+	 //æ–‡å­—ãƒ«ãƒ¼ãƒ—
 	 WideString doc = WideLowerCase(WS->Strings(id));
 	 int doclen = doc.Length();
 	 for (int ic = 0 ; ic < doclen ; ic++){
@@ -13751,7 +13751,7 @@ void TFo_Main::RefreshSimMatrix() {
 	 while (start >= 0 && start <= end){
 	 TWSandValueList *WSVL = TD->m_Gram[len - 1];
 	 WideString c = doc.SubString(ic + 1, len);
-	 //1•¶š’PŒê‚©‚ç‚±‚Ì•¶š‚ğŒŸõ
+	 //1æ–‡å­—å˜èªã‹ã‚‰ã“ã®æ–‡å­—ã‚’æ¤œç´¢
 	 int idx = WSVL->Search(start, end, c);
 	 if (idx >= 0){
 	 int sn = WSVL->SN(idx);
@@ -13768,12 +13768,12 @@ void TFo_Main::RefreshSimMatrix() {
 	 }
 	 }
 
-	 //d•¡íœ
+	 //é‡è¤‡å‰Šé™¤
 	 SM->Finalize(true);
 
-	 //’Pƒ—Ş—Matrix¶¬
+	 //å˜ç´”é¡ä¼¼Matrixç”Ÿæˆ
 	 SM->DeleteSameCol(true);
-	 //SM->MergeCol(500, 0.9f, 30);//500’PŒê–ˆ‚É0.9ˆÈã‚Ì—Ş—“x‚Ì’PŒê‚ğ‚Ü‚Æ‚ß‚éB’PŒê‚ª50ˆÈ‰º‚É‚È‚é‚Ü‚ÅŒJ‚è•Ô‚·
+	 //SM->MergeCol(500, 0.9f, 30);//500å˜èªæ¯ã«0.9ä»¥ä¸Šã®é¡ä¼¼åº¦ã®å˜èªã‚’ã¾ã¨ã‚ã‚‹ã€‚å˜èªãŒ50ä»¥ä¸‹ã«ãªã‚‹ã¾ã§ç¹°ã‚Šè¿”ã™
 	 SM->PrepareCosRow();
 	 m_SimMatrix = new TDMatrix(doccount);
 	 for (int i = 0 ; i < doccount ; i++){
@@ -13796,7 +13796,7 @@ void TFo_Main::RefreshSimMatrix() {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::ProgressFunc() {
-	// Progress‚©‚ç‚ÌŒÄ‚Ño‚µ—p
+	// Progressã‹ã‚‰ã®å‘¼ã³å‡ºã—ç”¨
 	RefreshSimMatrix_();
 }
 
@@ -13815,13 +13815,13 @@ void TFo_Main::RefreshSimMatrix_() {
 	TTextDecomposer *TD = new TTextDecomposer(WS, 10, 100, 0.0f, 0.6f,
 		Fo_Progress->fPos, Fo_Progress->m_bTerminated);
 
-	// Doc-’PŒêoŒ»Šm—¦Ši”[—p
+	// Doc-å˜èªå‡ºç¾ç¢ºç‡æ ¼ç´ç”¨
 	TSMatrix *SM = new TSMatrix();
 
-	// TD‚ÌŒ‹‰Ê‚©‚çSM‚ğ–„‚ß‚é
-	// ƒhƒLƒ…ƒƒ“ƒgƒ‹[ƒv
+	// TDã®çµæœã‹ã‚‰SMã‚’åŸ‹ã‚ã‚‹
+	// ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ«ãƒ¼ãƒ—
 	for (int id = 0; id < doccount && !Fo_Progress->m_bTerminated; id++) {
-		// •¶šƒ‹[ƒv
+		// æ–‡å­—ãƒ«ãƒ¼ãƒ—
 		WideString doc = WideLowerCase(WS->Strings(id));
 		int doclen = doc.Length();
 		for (int ic = 0; ic < doclen; ic++) {
@@ -13831,7 +13831,7 @@ void TFo_Main::RefreshSimMatrix_() {
 			while (start >= 0 && start <= end) {
 				TWSandValueList *WSVL = TD->m_Gram[len - 1];
 				WideString c = doc.SubString(ic + 1, len);
-				// 1•¶š’PŒê‚©‚ç‚±‚Ì•¶š‚ğŒŸõ
+				// 1æ–‡å­—å˜èªã‹ã‚‰ã“ã®æ–‡å­—ã‚’æ¤œç´¢
 				int idx = WSVL->Search(start, end, c);
 				if (idx >= 0) {
 					int sn = WSVL->SN(idx);
@@ -13852,15 +13852,15 @@ void TFo_Main::RefreshSimMatrix_() {
 	}
 
 	if (!Fo_Progress->m_bTerminated) {
-		// d•¡íœ
+		// é‡è¤‡å‰Šé™¤
 		SM->Finalize(true, &Fo_Progress->fPos,
 			&Fo_Progress->m_bTerminated, 0.05f);
 	}
 
 	if (!Fo_Progress->m_bTerminated) {
-		// ’Pƒ—Ş—Matrix¶¬
+		// å˜ç´”é¡ä¼¼Matrixç”Ÿæˆ
 		SM->DeleteSameCol(true);
-		// SM->MergeCol(500, 0.9f, 30);//500’PŒê–ˆ‚É0.9ˆÈã‚Ì—Ş—“x‚Ì’PŒê‚ğ‚Ü‚Æ‚ß‚éB’PŒê‚ª50ˆÈ‰º‚É‚È‚é‚Ü‚ÅŒJ‚è•Ô‚·
+		// SM->MergeCol(500, 0.9f, 30);//500å˜èªæ¯ã«0.9ä»¥ä¸Šã®é¡ä¼¼åº¦ã®å˜èªã‚’ã¾ã¨ã‚ã‚‹ã€‚å˜èªãŒ50ä»¥ä¸‹ã«ãªã‚‹ã¾ã§ç¹°ã‚Šè¿”ã™
 		SM->PrepareCosRow();
 		Fo_Progress->fPos = 0.95f;
 		Application->ProcessMessages();
@@ -13910,7 +13910,7 @@ void __fastcall TFo_Main::SB_ArrangeClick(TObject *Sender) {
 		BackupSub(MLText.ArrangeCards);
 	}
 	else {
-		// ‚±‚ê‚Ü‚ÅTree•\¦‚µ‚Ä‚¢‚½
+		// ã“ã‚Œã¾ã§Treeè¡¨ç¤ºã—ã¦ã„ãŸ
 		bool tree = Bu_ArrangeType->Tag >= 1000 && Bu_ArrangeType->Tag <= 1999;
 		if (tree) {
 			m_Document->RefreshList();
@@ -13951,7 +13951,7 @@ void __fastcall TFo_Main::MVO_TileWallPaperClick(TObject *Sender) {
 
 void __fastcall TFo_Main::MVO_WallPaperClick(TObject *Sender) {
 	if (SettingView.m_WallPaper != "") {
-		// •Ç†‚ªw’è‚³‚ê‚Ä‚¢‚ê‚ÎÁ‚·
+		// å£ç´™ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚Œã°æ¶ˆã™
 		SettingView.m_WallPaper = "";
 		RefreshWallPaper();
 	}
@@ -13990,30 +13990,30 @@ void TFo_Main::RefreshWallPaper() {
 // ---------------------------------------------------------------------------
 float TFo_Main::MoveDistance(float sx, float sy, float dx, float dy,
 	int direction) {
-	// direction•ûŒü‚É“®‚­Û‚ÌsÀ•W‚©‚çdÀ•W‚Ö‚Ì‹——£
+	// directionæ–¹å‘ã«å‹•ãéš›ã®såº§æ¨™ã‹ã‚‰dåº§æ¨™ã¸ã®è·é›¢
 	switch (direction) {
-	case 0: // ¶
+	case 0: // å·¦
 		if (sx > dx) {
 			return (sx - dx) * (sx - dx) + (dy - sy) * (dy - sy) * 9.0f;
 		}
 		else {
 			return -1.0f;
 		}
-	case 1: // ã
+	case 1: // ä¸Š
 		if (sy > dy) {
 			return (sy - dy) * (sy - dy) + (dx - sx) * (dx - sx) * 9.0f;
 		}
 		else {
 			return -1.0f;
 		}
-	case 2: // ‰E
+	case 2: // å³
 		if (sx < dx) {
 			return (dx - sx) * (dx - sx) + (dy - sy) * (dy - sy) * 9.0f;
 		}
 		else {
 			return -1.0f;
 		}
-	case 3: // ‰º
+	case 3: // ä¸‹
 		if (sy < dy) {
 			return (dy - sy) * (dy - sy) + (dx - sx) * (dx - sx) * 9.0f;
 		}
@@ -14227,10 +14227,10 @@ void __fastcall TFo_Main::MEC_AllLinksClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::ExportBMP(int operation, UnicodeString Text) {
-	// ƒuƒ‰ƒEƒU‰æ‘œ‚ğ•Û‘¶orƒRƒs[(0=BMP, 1=JPEG, 2=ƒRƒs[j
+	// ãƒ–ãƒ©ã‚¦ã‚¶ç”»åƒã‚’ä¿å­˜orã‚³ãƒ”ãƒ¼(0=BMP, 1=JPEG, 2=ã‚³ãƒ”ãƒ¼ï¼‰
 	PC_Client->ActivePage = TS_Browser;
 
-	// ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	// ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	m_nBrowserWidth = PB_Browser->Width;
 	m_nBrowserHeight = PB_Browser->Height;
@@ -14254,16 +14254,16 @@ void TFo_Main::ExportBMP(int operation, UnicodeString Text) {
 		m_nBrowserWidth = m_nBrowserWidth * count;
 		m_nBrowserHeight = m_nBrowserHeight * count;
 
-		// ””{‚ÌƒTƒCƒY‚Ìƒrƒbƒgƒ}ƒbƒvì¬
+		// æ•°å€ã®ã‚µã‚¤ã‚ºã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ä½œæˆ
 		Graphics::TBitmap *BMP2 = new Graphics::TBitmap();
 		BMP2->Width = m_nBrowserWidth * SettingView.m_nAntiAliasX;
 		BMP2->Height = m_nBrowserHeight * SettingView.m_nAntiAliasX;
 		BMP2->PixelFormat = pf32bit;
-		// BMP‚É•`‰æ
+		// BMPã«æç”»
 		m_fFontZoom = SettingView.m_nAntiAliasX;
 		PaintSub(BMP2->Canvas);
 
-		// ƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO
+		// ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚·ãƒ³ã‚°
 		int **P2 = new int*[BMP2->Height];
 		for (int iy = 0; iy < BMP2->Height; iy++) {
 			P2[iy] = (int*)BMP2->ScanLine[iy];
@@ -14308,19 +14308,19 @@ void TFo_Main::ExportBMP(int operation, UnicodeString Text) {
 		m_fFontZoom = 1.0f;
 	}
 	else {
-		// BMP‚É•`‰æ
+		// BMPã«æç”»
 		PaintSub(BMP->Canvas);
 	}
 
 	/*
-	 //ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	 //ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	 Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	 m_nBrowserWidth = PB_Browser->Width;
 	 m_nBrowserHeight = PB_Browser->Height;
 	 BMP->Width = m_nBrowserWidth;
 	 BMP->Height = m_nBrowserHeight;
 
-	 //BMP‚É•`‰æ
+	 //BMPã«æç”»
 	 m_fFontZoom = 1.0f;
 	 m_nBGColor = SettingView.m_nBackgroundColor;
 	 m_nFGColor = SettingView.m_nFourgroundColor;
@@ -14337,12 +14337,12 @@ void TFo_Main::ExportBMP(int operation, UnicodeString Text) {
 			delete JI;
 		} break;
 	case 2:
-		// ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[
+		// ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼
 		Clipboard()->Assign(BMP);
 		break;
 	}
 
-	// BMP”jŠü
+	// BMPç ´æ£„
 	delete BMP;
 }
 
@@ -14352,7 +14352,7 @@ void __fastcall TFo_Main::MFE_ClipboardBMPClick(TObject *Sender) {
 	/*
 	 PC_Client->ActivePage = TS_Browser;
 
-	 //ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	 //ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	 Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	 m_nBrowserWidth = PB_Browser->Width;
 	 m_nBrowserHeight = PB_Browser->Height;
@@ -14376,16 +14376,16 @@ void __fastcall TFo_Main::MFE_ClipboardBMPClick(TObject *Sender) {
 	 m_nBrowserWidth = m_nBrowserWidth * count;
 	 m_nBrowserHeight = m_nBrowserHeight * count;
 
-	 //””{‚ÌƒTƒCƒY‚Ìƒrƒbƒgƒ}ƒbƒvì¬
+	 //æ•°å€ã®ã‚µã‚¤ã‚ºã®ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ä½œæˆ
 	 Graphics::TBitmap *BMP2 = new Graphics::TBitmap();
 	 BMP2->Width = m_nBrowserWidth * SettingView.m_nAntiAliasX;
 	 BMP2->Height = m_nBrowserHeight * SettingView.m_nAntiAliasX;
 	 BMP2->PixelFormat = pf32bit;
-	 //BMP‚É•`‰æ
+	 //BMPã«æç”»
 	 m_fFontZoom = SettingView.m_nAntiAliasX;
 	 PaintSub(BMP2->Canvas);
 
-	 //ƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO
+	 //ã‚¢ãƒ³ãƒã‚¨ã‚¤ãƒªã‚¢ã‚·ãƒ³ã‚°
 	 int **P2 = new int*[BMP2->Height];
 	 for (int iy = 0 ; iy < BMP2->Height ; iy++){
 	 P2[iy] = (int*)BMP2->ScanLine[iy];
@@ -14429,14 +14429,14 @@ void __fastcall TFo_Main::MFE_ClipboardBMPClick(TObject *Sender) {
 
 	 m_fFontZoom = 1.0f;
 	 }else{
-	 //BMP‚É•`‰æ
+	 //BMPã«æç”»
 	 PaintSub(BMP->Canvas);
 	 }
 
-	 //ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[
+	 //ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼
 	 Clipboard()->Assign(BMP);
 
-	 //BMP”jŠü
+	 //BMPç ´æ£„
 	 delete BMP;
 	 */
 }
@@ -14499,7 +14499,7 @@ void __fastcall TFo_Main::MFE_JPEGFileClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MFI_HierarchicalTextFileClick(TObject *Sender) {
-	// ŠK‘wƒeƒLƒXƒg“Ç‚İ‚İ
+	// éšå±¤ãƒ†ã‚­ã‚¹ãƒˆèª­ã¿è¾¼ã¿
 	if (OD_Txt->Execute()) {
 		BackupSub(MF_Import->Caption + UnicodeString(" ") +
 			MFI_HierarchicalTextFile->Caption);
@@ -14509,7 +14509,7 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFileClick(TObject *Sender) {
 		for (int i = 0; i < OD_Txt->Files->Count; i++) {
 			SL->LoadFromFile(OD_Txt->Files->Strings[i]);
 
-			// ŠK‘w‹L†Œˆ’è
+			// éšå±¤è¨˜å·æ±ºå®š
 			for (int il = 0; il < SL->Count; il++)
 				if (SL->Strings[il] != "") {
 					WideString W = SL->Strings[il];
@@ -14517,9 +14517,9 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFileClick(TObject *Sender) {
 				}
 			SLK->Sort();
 
-			UnicodeString K; // ŠK‘w‹L†
+			UnicodeString K; // éšå±¤è¨˜å·
 			if (SLK->Count) {
-				UnicodeString Last; // ŠK‘w‹L†
+				UnicodeString Last; // éšå±¤è¨˜å·
 				int count = 1;
 				int max = 0;
 				Last = SLK->Strings[0];
@@ -14539,15 +14539,15 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFileClick(TObject *Sender) {
 			}
 			SLK->Clear();
 
-			TList *HList = new TList(); // Œ»İ‚ÌŠeŠK‘w•Û‘¶—p
+			TList *HList = new TList(); // ç¾åœ¨ã®å„éšå±¤ä¿å­˜ç”¨
 
-			// ƒgƒbƒvƒm[ƒh
+			// ãƒˆãƒƒãƒ—ãƒãƒ¼ãƒ‰
 			TCard *Top = m_Document->NewCard(m_Document->m_Cards->Count);
 			Top->m_bTop = true;
 			HList->Add(Top);
 			Top->m_Title = ExtractFileNameOnly(OD_Txt->Files->Strings[i]);
 
-			// sƒ‹[ƒv
+			// è¡Œãƒ«ãƒ¼ãƒ—
 			for (int il = 0; il < SL->Count; il++)
 				if (Trim(SL->Strings[il]) != "") {
 					TCard *Card =
@@ -14565,19 +14565,19 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFileClick(TObject *Sender) {
 					}
 					Card->m_Title = W;
 
-					// ŠK‘wŠÇ—
-					// ©•ªˆÈã‚ÌŠK‘w‚ğíœ
+					// éšå±¤ç®¡ç†
+					// è‡ªåˆ†ä»¥ä¸Šã®éšå±¤ã‚’å‰Šé™¤
 					for (int ih = HList->Count - 1; ih >= level; ih--) {
 						HList->Delete(ih);
 					}
-					// ŠK‘w‚ğƒXƒLƒbƒv‚µ‚½ê‡i0->2‚È‚ÇjAŠÔ‚ğNULL‚Å–„‚ß‚é
+					// éšå±¤ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ãŸå ´åˆï¼ˆ0->2ãªã©ï¼‰ã€é–“ã‚’NULLã§åŸ‹ã‚ã‚‹
 					for (int ih = HList->Count; ih < level; ih++) {
 						HList->Add(NULL);
 					}
-					// Œ»İ‚ÌŠK‘w‚É©•ª‚ğ‘‚­
+					// ç¾åœ¨ã®éšå±¤ã«è‡ªåˆ†ã‚’æ›¸ã
 					HList->Add(Card);
 
-					// eƒJ[ƒh‚ğŒ©‚Â‚¯‚é
+					// è¦ªã‚«ãƒ¼ãƒ‰ã‚’è¦‹ã¤ã‘ã‚‹
 					TCard *Parent = NULL;
 					int plevel = level - 1;
 					while (plevel >= 0 && Parent == NULL) {
@@ -14589,7 +14589,7 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFileClick(TObject *Sender) {
 						}
 					}
 
-					// eƒJ[ƒh‚©‚çƒŠƒ“ƒN
+					// è¦ªã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯
 					if (Parent) {
 						TLink *Link = m_Document->NewLink();
 						Link->m_nFromID = Parent->m_nID;
@@ -14710,12 +14710,12 @@ void __fastcall TFo_Main::MFI_TxtFilesinaFolderClick(TObject *Sender) {
 
 		AddTxtsInFolder(Dir, NULL);
 		/*
-		 //ƒtƒ@ƒCƒ‹—ñ‹“
+		 //ãƒ•ã‚¡ã‚¤ãƒ«åˆ—æŒ™
 		 TStringList *Files = new TStringList();
 		 FileListCreator(Dir, Files, ".txt");
 		 Files->Sort();
 
-		 //ƒtƒHƒ‹ƒ_—ñ‹“
+		 //ãƒ•ã‚©ãƒ«ãƒ€åˆ—æŒ™
 		 TStringList *Dirs = new TStringList();
 		 for (int i = 0 ; i < Files->Count ; i++){
 		 UnicodeString Dir = ExtractFileDir(Files->Strings[i]);
@@ -14731,13 +14731,13 @@ void __fastcall TFo_Main::MFI_TxtFilesinaFolderClick(TObject *Sender) {
 		 }
 		 }
 
-		 //ƒtƒHƒ‹ƒ_ƒJ[ƒhì¬
+		 //ãƒ•ã‚©ãƒ«ãƒ€ã‚«ãƒ¼ãƒ‰ä½œæˆ
 		 TList *DirCards = new TList();
 		 for (int i = 0 ; i < Files->Count ; i++){
 		 TCard *Card = m_Document->NewCard(m_Document->m_Cards->Count);
 		 Card->m_Title = Dirs->Strings[i];
 
-		 //‚±‚ÌDir‚Ì‚ ‚éƒtƒHƒ‹ƒ_‚ğ’T‚·
+		 //ã“ã®Dirã®ã‚ã‚‹ãƒ•ã‚©ãƒ«ãƒ€ã‚’æ¢ã™
 		 int parentindex = -1;
 		 int max = 0;
 		 for (int i2 = 0 ; i2 < i ; i2++){
@@ -14750,7 +14750,7 @@ void __fastcall TFo_Main::MFI_TxtFilesinaFolderClick(TObject *Sender) {
 		 }
 
 		 if (parentindex >= 0){
-		 //ƒŠƒ“ƒN‚ğ’£‚é
+		 //ãƒªãƒ³ã‚¯ã‚’å¼µã‚‹
 		 TCard *Parent = (TCard*)DirCards->Items[parentindex];
 		 TLink *Link = m_Document->NewLink();
 		 Link->m_nFromID = Parent->m_nID;
@@ -14768,7 +14768,7 @@ void __fastcall TFo_Main::MFI_TxtFilesinaFolderClick(TObject *Sender) {
 		 Card->m_Title = ExtractFileNameOnly(Files->Strings[i]);
 		 Card->m_Lines->LoadFromFile(Files->Strings[i]);
 
-		 //‚±‚ÌDir‚Ì‚ ‚éƒtƒHƒ‹ƒ_‚ğ’T‚·
+		 //ã“ã®Dirã®ã‚ã‚‹ãƒ•ã‚©ãƒ«ãƒ€ã‚’æ¢ã™
 		 int parentindex = -1;
 		 int max = 0;
 		 for (int i2 = 0 ; i2 < Dirs->Count ; i2++){
@@ -14781,7 +14781,7 @@ void __fastcall TFo_Main::MFI_TxtFilesinaFolderClick(TObject *Sender) {
 		 }
 
 		 if (parentindex >= 0){
-		 //ƒŠƒ“ƒN‚ğ’£‚é
+		 //ãƒªãƒ³ã‚¯ã‚’å¼µã‚‹
 		 TCard *Parent = (TCard*)DirCards->Items[parentindex];
 		 TLink *Link = m_Document->NewLink();
 		 Link->m_nFromID = Parent->m_nID;
@@ -14816,7 +14816,7 @@ void __fastcall TFo_Main::MVO_AAClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::Bu_BrowserTestClick(TObject *Sender) {
-	// Undo RedoƒeƒXƒg
+	// Undo Redoãƒ†ã‚¹ãƒˆ
 	UnicodeString str;
 	bool b = m_UndoRedo->GetCanUndo(str);
 	if (b) {
@@ -14864,7 +14864,7 @@ void __fastcall TFo_Main::ME_RedoClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::MoveToSelectedAndRecentCard() {
-	// ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ÅAˆê”ÔÅ‹ßG‚Á‚½ƒJ[ƒh‚ÉˆÚ“®
+	// é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰ã§ã€ä¸€ç•ªæœ€è¿‘è§¦ã£ãŸã‚«ãƒ¼ãƒ‰ã«ç§»å‹•
 	m_nTargetCard = -1;
 	double max = 0.0f;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
@@ -14880,7 +14880,7 @@ void TFo_Main::MoveToSelectedAndRecentCard() {
 
 void __fastcall TFo_Main::LB_ListClick(TObject *Sender) {
 	if (LB_List->ItemIndex >= 0) {
-		// ‘I‘ğİ’è
+		// é¸æŠè¨­å®š
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			Card->m_bSelected = LB_List->Selected[i];
@@ -15048,47 +15048,47 @@ void __fastcall TFo_Main::LB_FileListMouseUp(TObject *Sender,
 
 // ---------------------------------------------------------------------------
 void TFo_Main::SetCardAssign() {
-	// PaintˆÈŠO‚ÅLabel‚ÌFold‚ğl—¶‚·‚é•K—v‚ª‚ ‚éÛ‚ÉŒÄ‚Ô
+	// Paintæ™‚ä»¥å¤–ã§Labelã®Foldã‚’è€ƒæ…®ã™ã‚‹å¿…è¦ãŒã‚ã‚‹éš›ã«å‘¼ã¶
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		m_CardAssign[i] = i;
 	}
 
-	// ƒJ[ƒhƒ‹[ƒv
-	// ‚Ü‚¸‘S‚Ä‚ÌƒJ[ƒh‚Ìfoldó‘Ô‚ğ’²‚×‚é
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+	// ã¾ãšå…¨ã¦ã®ã‚«ãƒ¼ãƒ‰ã®foldçŠ¶æ…‹ã‚’èª¿ã¹ã‚‹
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		Card->m_bLabelIsFold = m_Document->LabelIsFold(Card);
 	}
 
-	// ƒJ[ƒhƒ‹[ƒv
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bLabelIsFold) {
-			// ‚·‚×‚Äfold‚³‚ê‚Ä‚¢‚é
+			// ã™ã¹ã¦foldã•ã‚Œã¦ã„ã‚‹
 
 			if (m_CardAssign[i] == i) {
-				// ‘ã•\ƒJ[ƒh
-				// ƒJ[ƒhƒ‹[ƒv
-				// “¯‚¶ƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚ği‚Ì¦‚·ƒJ[ƒh‚ÉƒAƒTƒCƒ“‚·‚é
+				// ä»£è¡¨ã‚«ãƒ¼ãƒ‰
+				// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+				// åŒã˜ãƒ©ãƒ™ãƒ«ã‚’æŒã¤ã‚«ãƒ¼ãƒ‰ã‚’iã®ç¤ºã™ã‚«ãƒ¼ãƒ‰ã«ã‚¢ã‚µã‚¤ãƒ³ã™ã‚‹
 				for (int i2 = 0; i2 < m_Document->m_Cards->Count; i2++)
 					if (i != i2) {
 						TCard *Card2 = m_Document->GetCardByIndex(i2);
 
 						if (m_Document->LabelIsSame(Card, Card2)) {
-							// “¯‚¶ƒ‰ƒxƒ‹\‘¢‚ÌƒJ[ƒh
+							// åŒã˜ãƒ©ãƒ™ãƒ«æ§‹é€ ã®ã‚«ãƒ¼ãƒ‰
 
-							// Å‰‚ÉŒ©‚Â‚©‚Á‚½“¯‚¶ƒ‰ƒxƒ‹\‘¢‚ÌƒJ[ƒh‚ÉÀ•W‚ğƒAƒTƒCƒ“‚·‚é
-							// ‘I‘ğ’†‚Å‚È‚¢ƒJ[ƒh‚ÍAˆê”Ô— iÅ‰‚Ì‚Ù‚¤j‚ÌƒJ[ƒh‚ÉAssign‚³‚ê‚é
+							// æœ€åˆã«è¦‹ã¤ã‹ã£ãŸåŒã˜ãƒ©ãƒ™ãƒ«æ§‹é€ ã®ã‚«ãƒ¼ãƒ‰ã«åº§æ¨™ã‚’ã‚¢ã‚µã‚¤ãƒ³ã™ã‚‹
+							// é¸æŠä¸­ã§ãªã„ã‚«ãƒ¼ãƒ‰ã¯ã€ä¸€ç•ªè£ï¼ˆæœ€åˆã®ã»ã†ï¼‰ã®ã‚«ãƒ¼ãƒ‰ã«Assignã•ã‚Œã‚‹
 							m_CardAssign[i2] = i;
 						}
 					}
 			} /* else{
-			 //‘I‘ğ’†‚ÌƒJ[ƒh‚Å‚à‚È‚­A‘ã•\ƒJ[ƒh‚Å‚È‚¢
+			 //é¸æŠä¸­ã®ã‚«ãƒ¼ãƒ‰ã§ã‚‚ãªãã€ä»£è¡¨ã‚«ãƒ¼ãƒ‰ã§ãªã„
 
 			 int idxbak = m_CardAssign[i];
 
-			 //ƒJ[ƒhƒ‹[ƒv
-			 //Œã‚Éo‚Ä‚«‚½‚±‚ÌƒJ[ƒh‚ğ‘ã•\ƒJ[ƒh‚É
+			 //ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
+			 //å¾Œã«å‡ºã¦ããŸã“ã®ã‚«ãƒ¼ãƒ‰ã‚’ä»£è¡¨ã‚«ãƒ¼ãƒ‰ã«
 			 for (int i2 = 0 ; i2 < m_Document->m_Cards->Count ; i2++) if (m_CardAssign[i2] == idxbak){
 			 m_CardAssign[i2] = i;
 			 }
@@ -15154,7 +15154,7 @@ void __fastcall TFo_Main::SB_CloseGlobalSearchClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
-	// ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	// ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	BMP->Width = PB_GlobalSearch->Width;
 	BMP->Height = PB_GlobalSearch->Height;
@@ -15171,7 +15171,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 	int textheight = C->TextHeight(" ");
 	m_GlobalSearchItemHeight = textheight * 3;
 
-	// ”wŒi“h‚è‚Â‚Ô‚µ
+	// èƒŒæ™¯å¡—ã‚Šã¤ã¶ã—
 	B->Color = TColor(m_nBGColor);
 	C->FillRect(Rect(0, 0, BMP->Width, BMP->Height));
 
@@ -15182,7 +15182,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 	}
 	Sc_GlobalSearch->LargeChange = largechange;
 
-	// Œ»İIndexæ“¾
+	// ç¾åœ¨Indexå–å¾—
 	m_GlobalSearchCursorIndex = -1;
 	for (int i = 0; i < m_GlobalSearchResult->Count; i++) {
 		TCard *Card = m_Document->GetCard((int)m_GlobalSearchResult->Items[i]);
@@ -15197,13 +15197,13 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 		int Index = i + Sc_GlobalSearch->Position;
 
 		if (Index < m_GlobalSearchResult->Count) {
-			// ”ÍˆÍ“à
+			// ç¯„å›²å†…
 			TCard *Card =
 				m_Document->GetCard((int)m_GlobalSearchResult->Items[Index]);
 			if (Card) {
-				// ‘ÎÛƒJ[ƒh‚ª‘¶İ
+				// å¯¾è±¡ã‚«ãƒ¼ãƒ‰ãŒå­˜åœ¨
 
-				// ˜g‚ğ•`‰æ
+				// æ ã‚’æç”»
 				float sizex = 1.0f;
 				TColor c = GetCardColor(Card, sizex);
 				B->Style = bsSolid;
@@ -15230,42 +15230,42 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 				::SelectClipRgn(C->Handle, MyRgn);
 
 				B->Style = bsClear;
-				// ƒJ[ƒhƒ^ƒCƒgƒ‹‚ğ•`‰æ
+				// ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã‚’æç”»
 				{
 					int foundat = 0;
 					WideString Title = DecodeES(Card->m_Title, " ");
 					if (m_GlobalSearchOption & 0x1) {
-						// ƒ^ƒCƒgƒ‹‚©‚çŒŸõ
+						// ã‚¿ã‚¤ãƒˆãƒ«ã‹ã‚‰æ¤œç´¢
 						if (m_GlobalSearchOption & 0x10) {
-							// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+							// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 							WideString Target = WideLowerCase(Title);
 							foundat =
 								Target.Pos
 								(WideLowerCase(m_GlobalSearchKeyword));
 						}
 						else {
-							// ‘å•¶š‚Æ¬•¶š‚ğ‹æ•Ê
+							// å¤§æ–‡å­—ã¨å°æ–‡å­—ã‚’åŒºåˆ¥
 							foundat = Title.Pos(m_GlobalSearchKeyword);
 						}
 					}
 					if (foundat == 0) {
-						// ƒ^ƒCƒgƒ‹‚ğ’Pƒ•\¦
+						// ã‚¿ã‚¤ãƒˆãƒ«ã‚’å˜ç´”è¡¨ç¤º
 						C->TextOut(textheight / 2 - 2,
 							top + textheight / 2, Title);
 					}
 					else {
-						// Œ©‚Â‚©‚Á‚½‚Æ‚±‚ë‚ğ‹­’²•\¦
+						// è¦‹ã¤ã‹ã£ãŸã¨ã“ã‚ã‚’å¼·èª¿è¡¨ç¤º
 
 						WideString S1;
 
-						// ¶‘¤‚ğ•\¦
+						// å·¦å´ã‚’è¡¨ç¤º
 						S1 = Title.SubString(1, foundat - 1);
 						int widthsum = 0;
 						C->TextOut(textheight / 2 - 2,
 							top + textheight / 2, S1);
 						widthsum += C->TextWidth(S1);
 
-						// ƒL[ƒ[ƒh‚ğ•\¦
+						// ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’è¡¨ç¤º
 						S1 = Title.SubString(foundat,
 							m_GlobalSearchKeyword.Length());
 						F->Color = clRed;
@@ -15276,7 +15276,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 						F->Color = TColor(m_nFGColor);
 						F->Style = TFontStyles();
 
-						// ‰E‘¤‚ğ•\¦
+						// å³å´ã‚’è¡¨ç¤º
 						S1 = Title.SubString
 							(foundat + m_GlobalSearchKeyword.Length(),
 							Title.Length());
@@ -15289,7 +15289,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 					int foundat = 0;
 					WideString Text = Card->m_Lines->Text;
 					if (m_GlobalSearchOption & 0x2) {
-						// –{•¶‚©‚çŒŸõ
+						// æœ¬æ–‡ã‹ã‚‰æ¤œç´¢
 						if (m_GlobalSearchOption & 0x10) {
 							WideString Target = WideLowerCase(Text);
 							foundat =
@@ -15303,7 +15303,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 
 					int maxlen = BMP->Width / C->TextWidth(" ");
 					if (foundat == 0) {
-						// –{•¶‚ğ’Pƒ•\¦
+						// æœ¬æ–‡ã‚’å˜ç´”è¡¨ç¤º
 						Text = Text.SubString(1, maxlen);
 						C->TextOut(textheight / 2 - 2,
 							top + textheight + textheight / 2, Text);
@@ -15334,10 +15334,10 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 								(foundat - 1);
 							int delpos;
 							if (leftlen < rightlen || foundat <= 1) {
-								delpos = 1; // Œã‚ë‚ğíœ
+								delpos = 1; // å¾Œã‚ã‚’å‰Šé™¤
 							}
 							else {
-								delpos = 2; // “ª‚ğíœ
+								delpos = 2; // é ­ã‚’å‰Šé™¤
 							}
 							Text = Text.SubString(delpos, Text.Length() - 1);
 							if (delpos == 2) {
@@ -15347,14 +15347,14 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 						// C->TextOut(textheight / 2 - 2, top + textheight + textheight / 2, Text);
 						WideString S1;
 
-						// ¶‘¤‚ğ•\¦
+						// å·¦å´ã‚’è¡¨ç¤º
 						S1 = Text.SubString(1, foundat - 1);
 						int widthsum = 0;
 						C->TextOut(textheight / 2 - 2,
 							top + textheight + textheight / 2, S1);
 						widthsum += C->TextWidth(S1);
 
-						// ƒL[ƒ[ƒh‚ğ•\¦
+						// ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’è¡¨ç¤º
 						S1 = Text.SubString(foundat,
 							m_GlobalSearchKeyword.Length());
 						F->Color = clRed;
@@ -15365,7 +15365,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 						F->Color = TColor(m_nFGColor);
 						F->Style = TFontStyles();
 
-						// ‰E‘¤‚ğ•\¦
+						// å³å´ã‚’è¡¨ç¤º
 						S1 = Text.SubString
 							(foundat + m_GlobalSearchKeyword.Length(),
 							Text.Length());
@@ -15378,7 +15378,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
 		}
 	}
 
-	// ‘OŒi‚É•`‰æ
+	// å‰æ™¯ã«æç”»
 	PB_GlobalSearch->Canvas->Draw(0, 0, BMP);
 	delete BMP;
 }
@@ -15473,7 +15473,7 @@ void __fastcall TFo_Main::PE_CutToNewCardTitleWithLinkClick(TObject *Sender) {
 
 	m_bDoNotBackup = true;
 
-	// ƒJƒbƒg
+	// ã‚«ãƒƒãƒˆ
 	ME_CutClick(Sender);
 
 	TMemo *Me = new TMemo(this);
@@ -15486,10 +15486,10 @@ void __fastcall TFo_Main::PE_CutToNewCardTitleWithLinkClick(TObject *Sender) {
 	for (int i = 0; i < Me->Lines->Count; i++) {
 		UnicodeString S = Trim(Me->Lines->Strings[i]);
 		if (S != "") {
-			// ƒJ[ƒh‚ÌV‹Kì¬
+			// ã‚«ãƒ¼ãƒ‰ã®æ–°è¦ä½œæˆ
 			MI_NewCardClick(Sender);
 
-			// ƒJ[ƒh‚Ì•\¦‘‚«Š·‚¦
+			// ã‚«ãƒ¼ãƒ‰ã®è¡¨ç¤ºæ›¸ãæ›ãˆ
 			Ti_CheckTimer(Sender);
 
 			// Paste
@@ -15518,7 +15518,7 @@ void __fastcall TFo_Main::MVO_NoScrollLagClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MFI_HierarchicalTextFile2Click(TObject *Sender) {
-	// ŠK‘wƒeƒLƒXƒg“Ç‚İ‚İ
+	// éšå±¤ãƒ†ã‚­ã‚¹ãƒˆèª­ã¿è¾¼ã¿
 	if (OD_Txt->Execute()) {
 		BackupSub(MF_Import->Caption + UnicodeString(" ") +
 			MFI_HierarchicalTextFile2->Caption);
@@ -15531,15 +15531,15 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFile2Click(TObject *Sender) {
 				K = SL->Strings[0].SubString(1, 1);
 			}
 
-			TList *HList = new TList(); // Œ»İ‚ÌŠeŠK‘w•Û‘¶—p
+			TList *HList = new TList(); // ç¾åœ¨ã®å„éšå±¤ä¿å­˜ç”¨
 
-			// ƒgƒbƒvƒm[ƒh
+			// ãƒˆãƒƒãƒ—ãƒãƒ¼ãƒ‰
 			TCard *Top = m_Document->NewCard(m_Document->m_Cards->Count);
 			Top->m_bTop = true;
 			HList->Add(Top);
 			Top->m_Title = ExtractFileNameOnly(OD_Txt->Files->Strings[i]);
 
-			// sƒ‹[ƒv
+			// è¡Œãƒ«ãƒ¼ãƒ—
 			for (int il = 0; il < SL->Count; il++)
 				if (Trim(SL->Strings[il]) != "") {
 					TCard *Card =
@@ -15557,19 +15557,19 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFile2Click(TObject *Sender) {
 					}
 					Card->m_Title = W;
 
-					// ŠK‘wŠÇ—
-					// ©•ªˆÈã‚ÌŠK‘w‚ğíœ
+					// éšå±¤ç®¡ç†
+					// è‡ªåˆ†ä»¥ä¸Šã®éšå±¤ã‚’å‰Šé™¤
 					for (int ih = HList->Count - 1; ih >= level; ih--) {
 						HList->Delete(ih);
 					}
-					// ŠK‘w‚ğƒXƒLƒbƒv‚µ‚½ê‡i0->2‚È‚ÇjAŠÔ‚ğNULL‚Å–„‚ß‚é
+					// éšå±¤ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ãŸå ´åˆï¼ˆ0->2ãªã©ï¼‰ã€é–“ã‚’NULLã§åŸ‹ã‚ã‚‹
 					for (int ih = HList->Count; ih < level; ih++) {
 						HList->Add(NULL);
 					}
-					// Œ»İ‚ÌŠK‘w‚É©•ª‚ğ‘‚­
+					// ç¾åœ¨ã®éšå±¤ã«è‡ªåˆ†ã‚’æ›¸ã
 					HList->Add(Card);
 
-					// eƒJ[ƒh‚ğŒ©‚Â‚¯‚é
+					// è¦ªã‚«ãƒ¼ãƒ‰ã‚’è¦‹ã¤ã‘ã‚‹
 					TCard *Parent = NULL;
 					int plevel = level - 1;
 					while (plevel >= 0 && Parent == NULL) {
@@ -15581,14 +15581,14 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFile2Click(TObject *Sender) {
 						}
 					}
 
-					// eƒJ[ƒh‚©‚çƒŠƒ“ƒN
+					// è¦ªã‚«ãƒ¼ãƒ‰ã‹ã‚‰ãƒªãƒ³ã‚¯
 					if (Parent) {
 						TLink *Link = m_Document->NewLink();
 						Link->m_nFromID = Parent->m_nID;
 						Link->m_nDestID = Card->m_nID;
 					}
 
-					// –{•¶İ’è
+					// æœ¬æ–‡è¨­å®š
 					while (il + 1 < SL->Count) {
 						if (SL->Strings[il + 1].SubString(1, 1) != K) {
 							Card->m_Lines->Add(SL->Strings[il + 1]);
@@ -15617,7 +15617,7 @@ void __fastcall TFo_Main::MFI_HierarchicalTextFile2Click(TObject *Sender) {
 
 void __fastcall TFo_Main::TB_ZoomKeyDown(TObject *Sender, WORD &Key,
 	TShiftState Shift) {
-	// PgUp,Down‚É‚æ‚éƒY[ƒ€
+	// PgUp,Downã«ã‚ˆã‚‹ã‚ºãƒ¼ãƒ 
 	switch (Key) {
 	case 33: // PgUp
 		{
@@ -15654,7 +15654,7 @@ void __fastcall TFo_Main::Sp_BrowserBottomMoved(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::LB_LinkClick(TObject *Sender) {
-	// ŠÖ˜AƒeƒLƒXƒg‚ğˆÚ“®
+	// é–¢é€£ãƒ†ã‚­ã‚¹ãƒˆã‚’ç§»å‹•
 	if (SB_EditorRelated->Down && LB_Link->ItemIndex >= 0) {
 		TLink *Link = m_Document->GetLinkByIndex
 			((int)m_LinkIndexes->Items[LB_Link->ItemIndex]);
@@ -15671,7 +15671,7 @@ void __fastcall TFo_Main::LB_LinkClick(TObject *Sender) {
 			WideString Key = "Title : " + Card->m_Title;
 			int foundat = Target.Pos(Key);
 			if (foundat >= 1) {
-				// Œ©‚Â‚©‚Á‚½
+				// è¦‹ã¤ã‹ã£ãŸ
 				Me_EditorRelated->HideSelection = false;
 				Me_EditorRelated->SelStart = Target.Length() - 1;
 				Me_EditorRelated->SelLength = 1;
@@ -15726,12 +15726,12 @@ void TFo_Main::ClearStatisticsRectToCard() {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
-	// ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	// ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	BMP->Width = PB_Statistics->Width;
 	BMP->Height = PB_Statistics->Height;
 
-	// €”õA‰Šú‰»
+	// æº–å‚™ã€åˆæœŸåŒ–
 	TCanvas *C = BMP->Canvas;
 	TBrush *B = C->Brush;
 	TPen *P = C->Pen;
@@ -15741,7 +15741,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 	F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
 	m_nFontHeight = C->TextHeight(" ");
 
-	// ”wŒi“h‚è‚Â‚Ô‚µ
+	// èƒŒæ™¯å¡—ã‚Šã¤ã¶ã—
 	B->Color = TColor(m_nBGColor);
 	B->Style = bsSolid;
 	C->FillRect(Rect(0, 0, BMP->Width, BMP->Height));
@@ -15749,9 +15749,9 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 	ClearStatisticsRectToCard();
 
 	{
-		// –_ƒOƒ‰ƒt
+		// æ£’ã‚°ãƒ©ãƒ•
 
-		// –¼‘O‚Æ’l
+		// åå‰ã¨å€¤
 		TStringList *Name = new TStringList();
 		TList *Value = new TList();
 		TList *Color = new TList();
@@ -15761,7 +15761,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 
 		switch (Bu_StatisticsKey->Tag) {
 		case 0: {
-				// ƒ‰ƒxƒ‹‚Ì”
+				// ãƒ©ãƒ™ãƒ«ã®æ•°
 				const int labeltype = 0;
 				for (int i = 0; i < m_Document->m_Labels[labeltype]->Count; i++)
 				{
@@ -15789,30 +15789,30 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 		case 10100: // Source
 		case 10200: // Destination
 			{
-				// ƒŠƒ“ƒN‚Ì”
+				// ãƒªãƒ³ã‚¯ã®æ•°
 				int *NumLinks = new int[m_Document->m_Cards->Count];
 				memset(NumLinks, 0, sizeof(int) * m_Document->m_Cards->Count);
 
-				// ƒŠƒ“ƒNƒ‹[ƒv
+				// ãƒªãƒ³ã‚¯ãƒ«ãƒ¼ãƒ—
 				for (int i = 0; i < m_Document->m_Links->Count; i++) {
 					TLink *Link = m_Document->GetLinkByIndex(i);
 
 					if (Bu_StatisticsKey->Tag == 10000 ||
 						Bu_StatisticsKey->Tag == 10100) {
-						// ƒ\[ƒX‘¤
+						// ã‚½ãƒ¼ã‚¹å´
 						int idx = m_Document->SearchCardIndex(Link->m_nFromID);
 						NumLinks[idx]++;
 					}
 
 					if (Bu_StatisticsKey->Tag == 10000 ||
 						Bu_StatisticsKey->Tag == 10200) {
-						// ƒŠƒ“ƒNæ
+						// ãƒªãƒ³ã‚¯å…ˆ
 						int idx = m_Document->SearchCardIndex(Link->m_nDestID);
 						NumLinks[idx]++;
 					}
 				}
 
-				// Å‘åƒŠƒ“ƒN”Zo
+				// æœ€å¤§ãƒªãƒ³ã‚¯æ•°ç®—å‡º
 				int maxlinks = 0;
 				for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 					if (maxlinks < NumLinks[i]) {
@@ -15820,7 +15820,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 					}
 				}
 
-				// ƒAƒCƒeƒ€ì¬
+				// ã‚¢ã‚¤ãƒ†ãƒ ä½œæˆ
 				for (int i = 0; i <= maxlinks; i++) {
 					TSRectToCard *SRTC = new TSRectToCard();
 					Name->Add(IntToStr(i) + " Links");
@@ -15858,12 +15858,12 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 				int type1 = Bu_StatisticsKey->Tag / 10000;
 				int type2 = (Bu_StatisticsKey->Tag / 100) % 100;
 
-				// —v‘f‚ğ—ñ‹“
+				// è¦ç´ ã‚’åˆ—æŒ™
 				switch (type2) {
 				case 0:
 				case 1:
 				case 2: {
-						// ‘SƒJ[ƒh‚Ì“ú‚ğ—ñ‹“
+						// å…¨ã‚«ãƒ¼ãƒ‰ã®æ—¥æ™‚ã‚’åˆ—æŒ™
 						double *dt = new double[m_Document->m_Cards->Count];
 						for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 							TCard *Card = m_Document->GetCardByIndex(i);
@@ -15881,7 +15881,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 							}
 							dt[i] = date;
 						}
-						// ‘SƒJ[ƒh‚Ì“ú‚ğƒ\[ƒg
+						// å…¨ã‚«ãƒ¼ãƒ‰ã®æ—¥æ™‚ã‚’ã‚½ãƒ¼ãƒˆ
 						for (int i = 1; i < m_Document->m_Cards->Count; i++) {
 							for (int i2 = i; i2 > 0; i2--) {
 								if (dt[i2] > dt[i2 - 1]) {
@@ -15942,7 +15942,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 					m_StatisticsRectToCard->Add(SRTC);
 				}
 
-				// ”‚ğ”‚¦‚é
+				// æ•°ã‚’æ•°ãˆã‚‹
 				for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 					TCard *Card = m_Document->GetCardByIndex(i);
 					double date = 0.0;
@@ -16002,9 +16002,9 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 			} break;
 		}
 
-		// ƒ\[ƒg
+		// ã‚½ãƒ¼ãƒˆ
 		if (SB_StatisticsSort->Down) {
-			// ‘}“üƒ\[ƒg
+			// æŒ¿å…¥ã‚½ãƒ¼ãƒˆ
 			for (int i = 1; i < Value->Count; i++) {
 				for (int i2 = i; i2 > 0; i2--) {
 					int l1 = (int)Value->Items[i2];
@@ -16036,9 +16036,9 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 			}
 		}
 
-		// –_ƒOƒ‰ƒt•`‰æ
+		// æ£’ã‚°ãƒ©ãƒ•æç”»
 
-		// Å‘å’l‚Æ•¶š‚ÌƒTƒCƒYZo
+		// æœ€å¤§å€¤ã¨æ–‡å­—ã®ã‚µã‚¤ã‚ºç®—å‡º
 		float max = 1.0f;
 		int textwidth = 0;
 		for (int i = 0; i < Name->Count; i++) {
@@ -16053,10 +16053,10 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 				max = v;
 			}
 		}
-		int lineheignt = m_nFontHeight * 2; // ƒo[‚ÌŠÔŠu
-		int hsize = Name->Count * lineheignt; // ‘S‚Ä‚Ìƒo[‚ğ•\¦‚µ‚½ê‡‚ÌƒOƒ‰ƒt‚Ì‚‚³
+		int lineheignt = m_nFontHeight * 2; // ãƒãƒ¼ã®é–“éš”
+		int hsize = Name->Count * lineheignt; // å…¨ã¦ã®ãƒãƒ¼ã‚’è¡¨ç¤ºã—ãŸå ´åˆã®ã‚°ãƒ©ãƒ•ã®é«˜ã•
 		float hvisible = (BMP->Height - topmargin - leftmargin) / lineheignt;
-		// 1‰æ–Ê‚É‚¢‚­‚Âƒo[‚ª“ü‚é‚©
+		// 1ç”»é¢ã«ã„ãã¤ãƒãƒ¼ãŒå…¥ã‚‹ã‹
 		if (hvisible * 2 >= Name->Count || Name->Count == 0) {
 			Sc_StatisticsY->LargeChange = 10000;
 		}
@@ -16065,27 +16065,27 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 				(10000 * hvisible) / (Name->Count - hvisible);
 		}
 		Sc_StatisticsY->SmallChange = Sc_StatisticsY->LargeChange / 10;
-		float hinvisible = Name->Count - hvisible; // ‰æ–Ê‚É“ü‚è‚«‚ç‚È‚¢ƒo[‚Ì”
+		float hinvisible = Name->Count - hvisible; // ç”»é¢ã«å…¥ã‚Šãã‚‰ãªã„ãƒãƒ¼ã®æ•°
 		int hoffset =
 			hinvisible * Sc_StatisticsY->Position * 0.0001 * lineheignt;
-		// Œ»İ‚ÌƒXƒNƒ[ƒ‹ˆÊ’u
+		// ç¾åœ¨ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®
 		if (hoffset < 0) {
 			hoffset = 0;
 		}
-		int hend = hsize - hoffset; // Œ»İ‚ÌƒOƒ‰ƒt‚ÌcƒTƒCƒY
+		int hend = hsize - hoffset; // ç¾åœ¨ã®ã‚°ãƒ©ãƒ•ã®ç¸¦ã‚µã‚¤ã‚º
 		if (hend > BMP->Height - topmargin - leftmargin) {
 			hend = BMP->Height - topmargin - leftmargin;
 		}
 		if (hend < -leftmargin) {
 			hend = -leftmargin;
 		}
-		int barwidth = BMP->Width - (textwidth + leftmargin * 5); // ƒo[‚Ì’·‚³
+		int barwidth = BMP->Width - (textwidth + leftmargin * 5); // ãƒãƒ¼ã®é•·ã•
 		if (barwidth < 0) {
 			barwidth = 0;
 		}
-		int shadowoffset = m_nFontHeight / 3; // ‰e‚Ì‚¸‚ê—Ê
+		int shadowoffset = m_nFontHeight / 3; // å½±ã®ãšã‚Œé‡
 
-		// ƒXƒgƒ‰ƒCƒv
+		// ã‚¹ãƒˆãƒ©ã‚¤ãƒ—
 		HRGN MyRgn, RgnBak;
 		int rgnexist;
 		MyRgn = ::CreateRectRgn(0, topmargin, BMP->Width,
@@ -16103,7 +16103,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 			::SelectClipRgn(C->Handle, MyRgn);
 		}
 		B->Color = TColor(HalfColor(m_nFGColor, m_nBGColor, 0.95f));
-		// €–Úƒ‹[ƒv
+		// é …ç›®ãƒ«ãƒ¼ãƒ—
 		for (int i = 1; i < Name->Count; i += 2) {
 			int y = i * m_nFontHeight * 2 + topmargin - hoffset;
 			B->Style = bsSolid;
@@ -16120,12 +16120,12 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 		::DeleteObject(RgnBak);
 		::DeleteObject(MyRgn);
 
-		// ”wŒiƒAƒjƒ[ƒVƒ‡ƒ“
+		// èƒŒæ™¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 		if (SettingView.m_bBGAnimation) {
 			BGAnimation(C);
 		}
 
-		// ü
+		// ç·š
 		P->Color = TColor(m_nFGColor);
 		P->Style = psSolid;
 		P->Width = 3;
@@ -16133,7 +16133,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 		C->LineTo(textwidth + leftmargin * 2, topmargin - leftmargin);
 		C->LineTo(textwidth + leftmargin * 2, topmargin + hend);
 
-		// –Ú·‚è
+		// ç›®ç››ã‚Š
 		if (m_fStatisticsPos >= 1.0f) {
 			P->Width = 1;
 			P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
@@ -16160,7 +16160,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 			}
 		}
 
-		// €–Ú–¼‚Æ–_ƒOƒ‰ƒt–{‘Ì
+		// é …ç›®åã¨æ£’ã‚°ãƒ©ãƒ•æœ¬ä½“
 		// HRGN MyRgn, RgnBak;
 		// int rgnexist;
 		MyRgn = ::CreateRectRgn(0, topmargin, BMP->Width,
@@ -16177,19 +16177,19 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 		else {
 			::SelectClipRgn(C->Handle, MyRgn);
 		}
-		// €–Úƒ‹[ƒv
+		// é …ç›®ãƒ«ãƒ¼ãƒ—
 		for (int i = 0; i < Name->Count; i++) {
 			int y = i * m_nFontHeight * 2 + topmargin - hoffset;
 			if (y < BMP->Height - leftmargin && y + m_nFontHeight * 2 >=
 				topmargin) {
-				// ƒNƒŠƒbƒN‰Â”\‚ÈÀ•W‚ğİ’è
+				// ã‚¯ãƒªãƒƒã‚¯å¯èƒ½ãªåº§æ¨™ã‚’è¨­å®š
 				TSRectToCard *SRTC =
 					(TSRectToCard*)m_StatisticsRectToCard->Items[i];
 				SRTC->m_Rect = Rect(0, y - m_nFontHeight / 4, BMP->Width,
 					y + m_nFontHeight * 1.5 + m_nFontHeight / 4);
 				SRTC->m_Name = Name->Strings[i];
 
-				// €–Ú‚Ì–¼‘O•\¦
+				// é …ç›®ã®åå‰è¡¨ç¤º
 				B->Style = bsClear;
 				F->Color = TColor(m_nFGColor);
 				C->TextOut(leftmargin, y + m_nFontHeight / 4, Name->Strings[i]);
@@ -16199,7 +16199,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 				int x = leftmargin + textwidth + leftmargin * 2 +
 					barwidth * v / max * m_fStatisticsPos;
 
-				// ‰e
+				// å½±
 				B->Style = bsSolid;
 				B->Color = HalfColor(HalfColor(m_nFGColor, m_nBGColor, 0.5f),
 					0x0, 0.33f);
@@ -16207,14 +16207,14 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 					shadowoffset, y + shadowoffset, x + shadowoffset,
 					y + m_nFontHeight * 1.5 + shadowoffset));
 
-				// ƒo[–{‘Ì
+				// ãƒãƒ¼æœ¬ä½“
 				B->Style = bsSolid;
 				B->Color = TColor((int)Color->Items[i]);
 				C->FillRect(Rect(leftmargin + textwidth + leftmargin * 2, y, x,
 					y + m_nFontHeight * 1.5));
 
 				if (m_fStatisticsPos >= 1.0f) {
-					// ’l
+					// å€¤
 					UnicodeString VS = FloatToStr(v);
 					int vw = C->TextWidth(VS);
 					int vx = x + leftmargin;
@@ -16243,10 +16243,10 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 		delete Name;
 	}
 
-	// ƒtƒHƒAƒOƒ‰ƒEƒ“ƒh‚É•`‰æ
+	// ãƒ•ã‚©ã‚¢ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«æç”»
 	PB_Statistics->Canvas->Draw(0, 0, BMP);
 
-	// BMP”jŠü
+	// BMPç ´æ£„
 	delete BMP;
 }
 // ---------------------------------------------------------------------------
@@ -16257,22 +16257,22 @@ void __fastcall TFo_Main::Sc_StatisticsYChange(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::LinktoAllCardswithDesignatedLabel(TList *IDs) {
-	// Œ»İƒJ[ƒh‚©‚çw’èƒ‰ƒxƒ‹ID‚ğ‚ÂƒJ[ƒh‚·‚×‚Ä‚Éƒ‰ƒxƒ‹‚ğ“\‚é
+	// ç¾åœ¨ã‚«ãƒ¼ãƒ‰ã‹ã‚‰æŒ‡å®šãƒ©ãƒ™ãƒ«IDã‚’æŒã¤ã‚«ãƒ¼ãƒ‰ã™ã¹ã¦ã«ãƒ©ãƒ™ãƒ«ã‚’è²¼ã‚‹
 
-	// ƒJ[ƒhƒ‹[ƒv
+	// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 
 		if (Card->m_nID != m_nTargetCard) {
-			// ©•ª©g‚Å‚Í‚È‚¢
+			// è‡ªåˆ†è‡ªèº«ã§ã¯ãªã„
 			bool contain = false;
 			for (int i2 = 0; i2 < Fo_Select->m_IDs->Count && !contain; i2++) {
 				contain |= Card->m_Labels->Contain((int)IDs->Items[i2]);
 			}
 			if (contain) {
-				// ƒJ[ƒh‚ªŠY“–ƒ‰ƒxƒ‹‚ğŠÜ‚ñ‚Å‚¢‚é
+				// ã‚«ãƒ¼ãƒ‰ãŒè©²å½“ãƒ©ãƒ™ãƒ«ã‚’å«ã‚“ã§ã„ã‚‹
 
-				// Šù‚ÉƒŠƒ“ƒN‚ª‚Í‚ç‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+				// æ—¢ã«ãƒªãƒ³ã‚¯ãŒã¯ã‚‰ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
 				bool linked = false;
 				for (int i2 = 0;
 				i2 < m_Document->m_Links->Count && !linked; i2++) {
@@ -16283,7 +16283,7 @@ void TFo_Main::LinktoAllCardswithDesignatedLabel(TList *IDs) {
 				}
 
 				if (!linked) {
-					// ƒŠƒ“ƒN‚ª’£‚ç‚ê‚Ä‚¢‚È‚¢¨V‚µ‚¢ƒŠƒ“ƒN‚ğì¬
+					// ãƒªãƒ³ã‚¯ãŒå¼µã‚‰ã‚Œã¦ã„ãªã„â†’æ–°ã—ã„ãƒªãƒ³ã‚¯ã‚’ä½œæˆ
 					TLink *Link = m_Document->NewLink();
 					Link->m_nFromID = m_nTargetCard;
 					Link->m_nDestID = Card->m_nID;
@@ -16325,7 +16325,7 @@ void __fastcall TFo_Main::MI_NewCardLinkstoAllCardswithDesignatedLabelClick
 		TCard *Card = m_Document->NewCard(m_Document->m_Cards->Count);
 		Card->m_bSelected = true;
 		Card->m_Title = "";
-		// ƒJ[ƒhƒ^ƒCƒgƒ‹‚ğƒ‰ƒxƒ‹–¼‚É
+		// ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«ã‚’ãƒ©ãƒ™ãƒ«åã«
 		for (int i = 0; i < Fo_Select->m_IDs->Count; i++) {
 			TCardLabel *Label = m_Document->GetLabelByIndex(0,
 				(int)Fo_Select->m_IDs->Items[i] - 1);
@@ -16337,15 +16337,15 @@ void __fastcall TFo_Main::MI_NewCardLinkstoAllCardswithDesignatedLabelClick
 		m_nTargetCard = Card->m_nID;
 		m_nTargetLink = -1;
 
-		// À•W‚ğŠY“–ƒJ[ƒh‚Ì’†S‚É
+		// åº§æ¨™ã‚’è©²å½“ã‚«ãƒ¼ãƒ‰ã®ä¸­å¿ƒã«
 		float x = 0.0f, y = 0.0f;
 		int count = 0;
-		// ƒJ[ƒhƒ‹[ƒv
+		// ã‚«ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒ—
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
 			if (Card->m_nID != m_nTargetCard) {
-				// ©•ª©g‚Å‚Í‚È‚¢
+				// è‡ªåˆ†è‡ªèº«ã§ã¯ãªã„
 				bool contain = false;
 				for (int i2 = 0; i2 < Fo_Select->m_IDs->Count && !contain; i2++)
 				{
@@ -16382,7 +16382,7 @@ void __fastcall TFo_Main::MI_AddDesignatedLabeltoAllDestinationCardsClick
 	if (Fo_Select->ModalResult == mrOk) {
 		BackupSub(MI_AddDesignatedLabeltoAllDestinationCards->Caption);
 
-		// ƒŠƒ“ƒNƒ‹[ƒv
+		// ãƒªãƒ³ã‚¯ãƒ«ãƒ¼ãƒ—
 		for (int i = 0; i < m_Document->m_Links->Count; i++) {
 			TLink *Link = m_Document->GetLinkByIndex(i);
 			if (Link->m_nFromID == m_nTargetCard) {
@@ -16398,14 +16398,14 @@ void __fastcall TFo_Main::MI_AddDesignatedLabeltoAllDestinationCardsClick
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::SB_StatisticsSortClick(TObject *Sender) {
-	m_fStatisticsPos = 0.5f; // ƒOƒ‰ƒt‚Ì—§‚¿ã‚ª‚è‚ğ0.5‚É
+	m_fStatisticsPos = 0.5f; // ã‚°ãƒ©ãƒ•ã®ç«‹ã¡ä¸ŠãŒã‚Šã‚’0.5ã«
 	PB_StatisticsPaint(Sender);
 }
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::PB_StatisticsMouseDown(TObject *Sender,
 	TMouseButton Button, TShiftState Shift, int X, int Y) {
-	// ƒOƒ‰ƒt—Ìˆæ‚ğƒNƒŠƒbƒN‚µ‚ÄŠÖ˜AƒJ[ƒh‚ğ•\¦
+	// ã‚°ãƒ©ãƒ•é ˜åŸŸã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦é–¢é€£ã‚«ãƒ¼ãƒ‰ã‚’è¡¨ç¤º
 	for (int i = 0; i < m_StatisticsRectToCard->Count; i++) {
 		TSRectToCard *SRTC = (TSRectToCard*)m_StatisticsRectToCard->Items[i];
 		if (SRTC->m_Rect.Left <= X && SRTC->m_Rect.Right >
@@ -16454,18 +16454,18 @@ void __fastcall TFo_Main::Bu_StatisticsKeyClick(TObject *Sender) {
 void __fastcall TFo_Main::PM_StatisticKeyClick(TObject *Sender) {
 	Bu_StatisticsKey->Tag = ((TMenuItem*)Sender)->Tag;
 
-	m_fStatisticsPos = 0.5f; // ƒOƒ‰ƒt‚Ì—§‚¿ã‚ª‚è‚ğ0.5‚É
+	m_fStatisticsPos = 0.5f; // ã‚°ãƒ©ãƒ•ã®ç«‹ã¡ä¸ŠãŒã‚Šã‚’0.5ã«
 	PB_StatisticsPaint(Sender);
 }
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender) {
-	// ƒoƒbƒNƒOƒ‰ƒEƒ“ƒhƒoƒbƒtƒ@ì¬
+	// ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ä½œæˆ
 	Graphics::TBitmap *BMP = new Graphics::TBitmap();
 	BMP->Width = PB_Drawing->Width;
 	BMP->Height = PB_Drawing->Height;
 
-	// €”õA‰Šú‰»
+	// æº–å‚™ã€åˆæœŸåŒ–
 	TCanvas *C = BMP->Canvas;
 	TBrush *B = C->Brush;
 	TPen *P = C->Pen;
@@ -16475,13 +16475,13 @@ void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender) {
 	F->Height = (int)(RE_Edit->Font->Height * m_fFontZoom);
 	m_nFontHeight = C->TextHeight(" ");
 
-	// ”wŒi“h‚è‚Â‚Ô‚µ
+	// èƒŒæ™¯å¡—ã‚Šã¤ã¶ã—
 	B->Color = TColor(m_nBGColor);
 	B->Style = bsSolid;
 	C->FillRect(Rect(0, 0, BMP->Width, BMP->Height));
 
-	// ƒKƒCƒh—Ìˆæ•`‰æ
-	int sqrsize = BMP->Width; // •A‚‚³‚Ì‚¤‚¿¬‚³‚¢‚Ù‚¤
+	// ã‚¬ã‚¤ãƒ‰é ˜åŸŸæç”»
+	int sqrsize = BMP->Width; // å¹…ã€é«˜ã•ã®ã†ã¡å°ã•ã„ã»ã†
 	int leftspace = 0;
 	int topspace = 0;
 	if (sqrsize > BMP->Height) {
@@ -16505,17 +16505,17 @@ void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender) {
 		leftspace + sqrsize / 2 + sqrsize * zoom * 0.5,
 		topspace + sqrsize / 2 + sqrsize * zoom * 0.375);
 
-	// }Œ`•`‰æ
+	// å›³å½¢æç”»
 	P->Color = TColor(m_nFGColor);
 	B->Color = TColor(m_nFGColor);
 	P->Width = 3;
 	m_Drawing->Draw(C, m_DrawingRect);
 
-	// ƒJ[ƒhƒvƒŒƒrƒ…[•\¦
+	// ã‚«ãƒ¼ãƒ‰ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼è¡¨ç¤º
 	/*
-	 Œ»İDrawCard‚ªƒuƒ‰ƒEƒU‚Ö‚Ì•`‰æ‚µ‚©l—¶‚µ‚Ä‚¢‚È‚¢‚½‚ßƒVƒ“ƒvƒ‹‚ÉÀŒ»‚Å‚«‚È‚¢
-	 ‹ï‘Ì“I‚É‚ÍAm_CardX‚È‚Ç‚Ìî•ñ‚ª•K—viPaintSub“à‚ÅXV‚µ‚Ä‚¢‚éj
-	 ‚±‚ê‚ğƒvƒŒƒrƒ…[–ˆ‚Éì‚è‚È‚¨‚³‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
+	 ç¾åœ¨DrawCardãŒãƒ–ãƒ©ã‚¦ã‚¶ã¸ã®æç”»ã—ã‹è€ƒæ…®ã—ã¦ã„ãªã„ãŸã‚ã‚·ãƒ³ãƒ—ãƒ«ã«å®Ÿç¾ã§ããªã„
+	 å…·ä½“çš„ã«ã¯ã€m_CardXãªã©ã®æƒ…å ±ãŒå¿…è¦ï¼ˆPaintSubå†…ã§æ›´æ–°ã—ã¦ã„ã‚‹ï¼‰
+	 ã“ã‚Œã‚’ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¯ã«ä½œã‚ŠãªãŠã•ãªã‘ã‚Œã°ãªã‚‰ãªã„
 
 	 int idx = m_Document->SearchCardIndex(m_nTargetCard);
 	 if (idx >= 0) {
@@ -16524,12 +16524,12 @@ void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender) {
 	 TColor HMColor = TColor(m_nBGColor);
 	 float SizeX = Card->m_nSize;
 	 if (m_Document->CountEnableLabel(Card)){
-	 //ƒ‰ƒxƒ‹‚ ‚èiƒ‰ƒxƒ‹‚ÌF‚É‚·‚éj
+	 //ãƒ©ãƒ™ãƒ«ã‚ã‚Šï¼ˆãƒ©ãƒ™ãƒ«ã®è‰²ã«ã™ã‚‹ï¼‰
 	 TColor c = GetCardColor(Card, SizeX);
 	 P->Color = HalfColor(c, m_nBGColor, 0.33f);
 	 B->Color = HalfColor(P->Color, m_nBGColor, 0.5f);
 	 }else{
-	 //ƒ‰ƒxƒ‹‚È‚µ
+	 //ãƒ©ãƒ™ãƒ«ãªã—
 	 P->Color = HalfColor(m_nFGColor, m_nBGColor, 0.5f);
 	 //B->Color = TColor(m_nBGColor);//HalfColor(P->Color, m_nBGColor, 0.75f);
 	 B->Color = HalfColor(P->Color, m_nBGColor, 0.875f);
@@ -16541,10 +16541,10 @@ void __fastcall TFo_Main::PB_DrawingPaint(TObject *Sender) {
 	 }
 	 */
 
-	// ƒtƒHƒAƒOƒ‰ƒEƒ“ƒh‚É•`‰æ
+	// ãƒ•ã‚©ã‚¢ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«æç”»
 	PB_Drawing->Canvas->Draw(0, 0, BMP);
 
-	// BMP”jŠü
+	// BMPç ´æ£„
 	delete BMP;
 
 	m_Drawing->m_bDrawRequest = false;
@@ -16646,7 +16646,7 @@ void __fastcall TFo_Main::MVC_DrawingClick(TObject *Sender) {
 void __fastcall TFo_Main::MFE_HierarchicalTextFileClick(TObject *Sender) {
 	TCard *Card = m_Document->GetCard(m_nTargetCard);
 	if (Card) {
-		// ƒfƒtƒHƒ‹ƒg‚ÌƒJ[ƒh–¼‚ğŒ»İ‚ÌƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚É‚·‚é
+		// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚«ãƒ¼ãƒ‰åã‚’ç¾åœ¨ã®ã‚«ãƒ¼ãƒ‰ã®ã‚¿ã‚¤ãƒˆãƒ«ã«ã™ã‚‹
 		SD_Txt->FileName = Card->m_Title;
 		if (SD_Txt->Execute()) {
 			TStringList *SL = new TStringList();
@@ -16666,26 +16666,26 @@ void __fastcall TFo_Main::MFE_HierarchicalTextFileClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void TFo_Main::ExportHierarchicalText(TStringList *SL, int CurrentLevel,
 	UnicodeString HChar, TCard *CurrentParent) {
-	// ŠK‘wƒeƒLƒXƒgo—Í‚Ì‚½‚ß‚ÌƒTƒuƒ‹[ƒ`ƒ“BCurrentParent‚É‚Ô‚ç‰º‚ª‚Á‚Ä‚¢‚é‚·‚×‚Ä‚ÌƒJ[ƒh‚É‚Â‚¢‚ÄA‚»‚Ì‰º‚ÌŠK‘w‚ğo—Í‚³‚¹‚éB‚±‚Ìƒ‹[ƒ`ƒ“‚ÍÄ‹A“I‚ÉŒÄ‚Î‚ê‚é
+	// éšå±¤ãƒ†ã‚­ã‚¹ãƒˆå‡ºåŠ›ã®ãŸã‚ã®ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³ã€‚CurrentParentã«ã¶ã‚‰ä¸‹ãŒã£ã¦ã„ã‚‹ã™ã¹ã¦ã®ã‚«ãƒ¼ãƒ‰ã«ã¤ã„ã¦ã€ãã®ä¸‹ã®éšå±¤ã‚’å‡ºåŠ›ã•ã›ã‚‹ã€‚ã“ã®ãƒ«ãƒ¼ãƒãƒ³ã¯å†å¸°çš„ã«å‘¼ã°ã‚Œã‚‹
 	for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
 		TCard *Card = m_Document->GetCardByIndex(ic);
 		if (Card) {
 			if (Card->m_nParentID == CurrentParent->m_nID) {
-				// Œ»İ‚Ìe‚É‚Ô‚ç‰º‚ª‚Á‚Ä‚¢‚éƒJ[ƒh
+				// ç¾åœ¨ã®è¦ªã«ã¶ã‚‰ä¸‹ãŒã£ã¦ã„ã‚‹ã‚«ãƒ¼ãƒ‰
 
-				// ƒJ[ƒhƒ^ƒCƒgƒ‹o—Í
+				// ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒˆãƒ«å‡ºåŠ›
 				UnicodeString S;
 				for (int ih = 0; ih < CurrentLevel; ih++) {
 					S += HChar;
 				}
 				SL->Add(S + Card->m_Title);
 
-				// ƒJ[ƒh‚Ì“à—eo—Í
+				// ã‚«ãƒ¼ãƒ‰ã®å†…å®¹å‡ºåŠ›
 				for (int il = 0; il < Card->m_Lines->Count; il++) {
 					SL->Add(Card->m_Lines->Strings[il]);
 				}
 
-				// ‰ºˆÊƒJ[ƒh‚Ì“à—eo—Í
+				// ä¸‹ä½ã‚«ãƒ¼ãƒ‰ã®å†…å®¹å‡ºåŠ›
 				ExportHierarchicalText(SL, CurrentLevel + 1, HChar, Card);
 			}
 		}
@@ -16709,7 +16709,7 @@ void __fastcall TFo_Main::ME_ReplaceClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MS_ResetAllDatesClick(TObject *Sender) {
-	// ƒwƒ‹ƒvì¬—pB‘S“ú•t‚ğ0‚É
+	// ãƒ˜ãƒ«ãƒ—ä½œæˆç”¨ã€‚å…¨æ—¥ä»˜ã‚’0ã«
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		m_Document->GetCardByIndex(i)->m_fCreated = 0.0;
 		m_Document->GetCardByIndex(i)->m_fUpdated = 0.0;
@@ -16725,7 +16725,7 @@ void __fastcall TFo_Main::MS_OutputWordNgramClick(TObject *Sender) {
 
 	int doccount = m_Document->m_Cards->Count;
 
-	// ‘S•¶Í‚ğ•¶šN-gram‚É•ª‰ğ
+	// å…¨æ–‡ç« ã‚’æ–‡å­—N-gramã«åˆ†è§£
 	TWideStringList *WS = new TWideStringList();
 	for (int i = 0; i < doccount; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
@@ -16738,7 +16738,7 @@ void __fastcall TFo_Main::MS_OutputWordNgramClick(TObject *Sender) {
 	TTextDecomposer *TD = new TTextDecomposer(WS, n, 0, 0.0f, 0.0f, fdummy,
 		bdummy, 0x1);
 
-	// •¶šN-gram‚ğƒtƒ@ƒCƒ‹‚Éo—Í
+	// æ–‡å­—N-gramã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›
 	FILE *F = fopen(AnsiString(SD_CSV->FileName).c_str(), "wt");
 	fprintf(F, "String,Freq\n");
 
@@ -16749,7 +16749,7 @@ void __fastcall TFo_Main::MS_OutputWordNgramClick(TObject *Sender) {
 	}
 
 	while (true) {
-		// ˆê”Ô•p“x‚Ì‘½‚¢•¶š—ñ‚ğ’T‚·
+		// ä¸€ç•ªé »åº¦ã®å¤šã„æ–‡å­—åˆ—ã‚’æ¢ã™
 		int max = 0;
 		int maxindex = 0;
 		for (int in = n - 1; in >= 0; in--)
@@ -16761,11 +16761,11 @@ void __fastcall TFo_Main::MS_OutputWordNgramClick(TObject *Sender) {
 				}
 			}
 		if (!max) {
-			// ‚à‚¤•¶š—ñ‚ª‚È‚¢‚Ì‚ÅI—¹
+			// ã‚‚ã†æ–‡å­—åˆ—ãŒãªã„ã®ã§çµ‚äº†
 			break;
 		}
 
-		// ˆê”Ô•p“x‚Ì‘½‚©‚Á‚½•¶š—ñ‚©‚ç‡‚Éo—Í
+		// ä¸€ç•ªé »åº¦ã®å¤šã‹ã£ãŸæ–‡å­—åˆ—ã‹ã‚‰é †ã«å‡ºåŠ›
 		while (currentindex[maxindex] >= 0) {
 			if (TD->m_Gram[maxindex]->Enabled(currentindex[maxindex])) {
 				int v = TD->m_Gram[maxindex]->Values(currentindex[maxindex]);
@@ -16774,13 +16774,13 @@ void __fastcall TFo_Main::MS_OutputWordNgramClick(TObject *Sender) {
 						TD->m_Gram[maxindex]->Strings(currentindex[maxindex]);
 					if (!(S.Pos("\"") || S.Pos("\n") || S.Pos("\r") ||
 						S.Pos("\t"))) {
-						// ‘‚«o‚¹‚È‚¢•¶š‚Í“ü‚Á‚Ä‚¢‚È‚¢
+						// æ›¸ãå‡ºã›ãªã„æ–‡å­—ã¯å…¥ã£ã¦ã„ãªã„
 						fprintf(F, "%s,%d\n", S.c_str(), v);
 					}
 					currentindex[maxindex]--;
 				}
 				else {
-					// •p“x‚ªŒ¸‚Á‚½‚çI‚í‚è
+					// é »åº¦ãŒæ¸›ã£ãŸã‚‰çµ‚ã‚ã‚Š
 					break;
 				}
 			}
@@ -16930,19 +16930,19 @@ void __fastcall TFo_Main::ME_GPTClick(TObject *Sender)
 		if (prompt != "") {
 			BackupSub(menu_name);
 
-			// APIƒL[‚ÆƒGƒ“ƒhƒ|ƒCƒ“ƒg‚Ìİ’è
+			// APIã‚­ãƒ¼ã¨ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆã®è¨­å®š
 			String apiUrl = "https://api.openai.com/v1/chat/completions";
 
-			// HTTPƒNƒ‰ƒCƒAƒ“ƒg‚Ìì¬
+			// HTTPã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã®ä½œæˆ
 			TNetHTTPClient *httpClient = new TNetHTTPClient(NULL);
 			TNetHTTPRequest *httpRequest = new TNetHTTPRequest(NULL);
 			httpRequest->Client = httpClient;
 
-			// ƒwƒbƒ_[‚Ìİ’è
+			// ãƒ˜ãƒƒãƒ€ãƒ¼ã®è¨­å®š
 			httpClient->CustomHeaders["Content-Type"] = "application/json";
 			httpClient->CustomHeaders["Authorization"] = "Bearer " + SettingFile.m_GPTAPIKey;
 
-			// ƒŠƒNƒGƒXƒgƒ{ƒfƒB‚Ìì¬
+			// ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒœãƒ‡ã‚£ã®ä½œæˆ
 			TJSONObject *requestBodyObj = new TJSONObject();
 			requestBodyObj->AddPair("model", "gpt-3.5-turbo");
 			TJSONObject* jsonObj = new TJSONObject();
@@ -16961,7 +16961,7 @@ void __fastcall TFo_Main::ME_GPTClick(TObject *Sender)
 
 			UnicodeString result = "(An error occured. Please check that you are properly connected to the Internet and that the correct API Key is specified in the API Key of the Settings menu.)";
 
-			// POSTƒŠƒNƒGƒXƒg‚Ì‘—M
+			// POSTãƒªã‚¯ã‚¨ã‚¹ãƒˆã®é€ä¿¡
 			TMemoryStream *responseStream = new TMemoryStream();
 			TBytes requestBodyBytes = TEncoding::UTF8->GetBytes(requestBody);
 			TBytesStream *requestStream = new TBytesStream(requestBodyBytes);
