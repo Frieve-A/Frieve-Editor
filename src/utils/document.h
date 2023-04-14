@@ -9,14 +9,14 @@
 #include "label.h"
 // ---------------------------------------------------------------------------
 /*
- help‚ÉˆÈ‰º‚ğ’Ç‰Á
+ helpã«ä»¥ä¸‹ã‚’è¿½åŠ 
 
  ReadOnly=1
  DefaultView=1
  */
 
 #define AppTitle "Frieve Editor"
-#define AppVersion 140
+#define AppVersion 200
 #define FileVersion 007
 #define AppURL "https://www.frieve.com/"
 #define SoftURL "https://www.frieve.com/software/frieve-editor"
@@ -38,15 +38,15 @@ public:
 	virtual void ClearCardSelection() = 0;
 	virtual void SwapCard(int idx1, int idx2) = 0;
 	virtual int SearchParent(int CardID, bool bChild, bool bFocus) = 0;
-	// ei‚à‚µ‚­‚ÍqjƒJ[ƒh‚ğ‘{‚·
+	// è¦ªï¼ˆã‚‚ã—ãã¯å­ï¼‰ã‚«ãƒ¼ãƒ‰ã‚’æœã™
 	virtual int SearchBrother(int CurrentID, int ParentID, bool bInverse,
-		bool bChild, bool bFocus) = 0; // Œv‰ñ‚èi‚à‚µ‚­‚Í‹tü‚èj‚ÉŒZ’íƒm[ƒh‚ğ’T‚·
-	virtual int SearchLast(int CardID, bool bFocus) = 0; // ’¼‘O‚É•\¦‚µ‚Ä‚¢‚½ƒJ[ƒh‚ğ‘{‚·
-	virtual void RefreshCardLevel() = 0; // Card->m_bTop‚ÆƒŠƒ“ƒN‚É]‚Á‚ÄŠK‘wƒŒƒxƒ‹İ’èAƒJ[ƒhƒ\[ƒg
+		bool bChild, bool bFocus) = 0; // æ™‚è¨ˆå›ã‚Šï¼ˆã‚‚ã—ãã¯é€†å‘¨ã‚Šï¼‰ã«å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’æ¢ã™
+	virtual int SearchLast(int CardID, bool bFocus) = 0; // ç›´å‰ã«è¡¨ç¤ºã—ã¦ã„ãŸã‚«ãƒ¼ãƒ‰ã‚’æœã™
+	virtual void RefreshCardLevel() = 0; // Card->m_bTopã¨ãƒªãƒ³ã‚¯ã«å¾“ã£ã¦éšå±¤ãƒ¬ãƒ™ãƒ«è¨­å®šã€ã‚«ãƒ¼ãƒ‰ã‚½ãƒ¼ãƒˆ
 
 	virtual void AddLabelToCard(TCard* Card, int label) = 0;
 	virtual void DeleteLabelFromCard(TCard* Card, int label) = 0;
-	// ƒf[ƒ^ƒAƒNƒZƒXiƒŠƒ“ƒNj
+	// ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆãƒªãƒ³ã‚¯ï¼‰
 	virtual TLink *NewLink() = 0;
 	virtual TLink *GetLinkByIndex(int index) = 0;
 	virtual void SetLinkName(TLink *Link, UnicodeString S) = 0;
@@ -56,7 +56,7 @@ public:
 	virtual void AddLabelToLink(TLink* Link, int label) = 0;
 	virtual void DeleteLabelFromLink(TLink* Link, int label) = 0;
 
-	// ƒf[ƒ^ƒAƒNƒZƒXiƒ‰ƒxƒ‹j
+	// ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆãƒ©ãƒ™ãƒ«ï¼‰
 	virtual TCardLabel *NewLabel(int ltype) = 0;
 	virtual TCardLabel *GetLabelByIndex(int ltype, int index) = 0;
 	virtual TCardLabel *GetLabel(int ltype, UnicodeString S) = 0;
@@ -65,66 +65,66 @@ public:
 	virtual void InitLabel(int ltype) = 0;
 	virtual void ClearLabels(int ltype) = 0;
 
-	virtual bool LabelIsFold(TCard *Card) = 0; // ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ª‘S‚ÄÜ‚è‚½‚½‚Ü‚ê‚Ä‚¢‚é‚©’²‚×‚é
-	virtual int CountEnableLabel(TCard *Card) = 0; // ƒJ[ƒh‚Ì—LŒø‚Èƒ‰ƒxƒ‹”‚ğ“¾‚é
+	virtual bool LabelIsFold(TCard *Card) = 0; // ã‚«ãƒ¼ãƒ‰ã®ãƒ©ãƒ™ãƒ«ãŒå…¨ã¦æŠ˜ã‚ŠãŸãŸã¾ã‚Œã¦ã„ã‚‹ã‹èª¿ã¹ã‚‹
+	virtual int CountEnableLabel(TCard *Card) = 0; // ã‚«ãƒ¼ãƒ‰ã®æœ‰åŠ¹ãªãƒ©ãƒ™ãƒ«æ•°ã‚’å¾—ã‚‹
 	virtual bool LabelIsSame(TCard *Card1, TCard *Card2) = 0;
-	// 2‚Â‚ÌƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ª“¯‚¶‚©’²‚×‚é
-	// •\¦XV—p
+	// 2ã¤ã®ã‚«ãƒ¼ãƒ‰ã®ãƒ©ãƒ™ãƒ«ãŒåŒã˜ã‹èª¿ã¹ã‚‹
+	// è¡¨ç¤ºæ›´æ–°ç”¨
 	virtual void RefreshList() = 0;
 	virtual void RefreshLink() = 0;
 	virtual void RefreshLabel() = 0;
-	// ƒtƒ@ƒCƒ‹
+	// ãƒ•ã‚¡ã‚¤ãƒ«
 	virtual bool Load(UnicodeString FN, bool bSoftLoad = false) = 0;
-	// SoftLoad‚Å‚ÍAŒ³ƒf[ƒ^‚ÌÀ•W‚ğˆÛ
+	// SoftLoadã§ã¯ã€å…ƒãƒ‡ãƒ¼ã‚¿ã®åº§æ¨™ã‚’ç¶­æŒ
 	virtual bool Save() = 0;
 	virtual bool LoadFromString(TStringList *SL, UnicodeString FN) = 0;
 	virtual bool SoftLoadFromString(TStringList *SL, UnicodeString FN) = 0;
 	virtual bool SaveToString(TStringList *SL) = 0;
-	// î•ñæ“¾
-	virtual int GetCheckCount() = 0; // 1‰ñ‰æ–Ê‚ªXV‚³‚ê‚é‚½‚Ñ‚ÉƒCƒ“ƒNƒŠƒƒ“ƒg
-	virtual int GetCardID() = 0; // Œ»İƒtƒH[ƒJƒX’†‚ÌƒJ[ƒhID
-	virtual int CardCount() = 0; // ƒJ[ƒh”
-	virtual int LabelCount(int ltype) = 0; // ƒ‰ƒxƒ‹”
-	virtual int LinkCount() = 0; // ƒŠƒ“ƒN”
-	// ƒNƒŠƒbƒvƒ{[ƒh
+	// æƒ…å ±å–å¾—
+	virtual int GetCheckCount() = 0; // 1å›ç”»é¢ãŒæ›´æ–°ã•ã‚Œã‚‹ãŸã³ã«ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+	virtual int GetCardID() = 0; // ç¾åœ¨ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ä¸­ã®ã‚«ãƒ¼ãƒ‰ID
+	virtual int CardCount() = 0; // ã‚«ãƒ¼ãƒ‰æ•°
+	virtual int LabelCount(int ltype) = 0; // ãƒ©ãƒ™ãƒ«æ•°
+	virtual int LinkCount() = 0; // ãƒªãƒ³ã‚¯æ•°
+	// ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰
 	virtual void CopyToClipboard() = 0;
 	virtual void PasteFromClipboard(float fSpan) = 0;
 };
 
 class TDocument : public IDocCtrl {
 public:
-	// ì¬A”jŠü
+	// ä½œæˆã€ç ´æ£„
 	void InitDocument();
 	TDocument();
 	void CopyFrom(TDocument *Doc);
 	TDocument(TDocument &Doc);
 	virtual ~TDocument();
 
-	// ƒRƒs[‘ÎÛƒf[ƒ^
-	// ƒf[ƒ^
+	// ã‚³ãƒ”ãƒ¼å¯¾è±¡ãƒ‡ãƒ¼ã‚¿
+	// ãƒ‡ãƒ¼ã‚¿
 	TList *m_Cards;
 
-	// ƒŠƒ“ƒNƒf[ƒ^
+	// ãƒªãƒ³ã‚¯ãƒ‡ãƒ¼ã‚¿
 	TList *m_Links;
 
-	// ƒ‰ƒxƒ‹ƒf[ƒ^
+	// ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿
 	TList *m_Labels[2];
 
-	// ‰æ–ÊXVƒJƒEƒ“ƒ^
+	// ç”»é¢æ›´æ–°ã‚«ã‚¦ãƒ³ã‚¿
 	int m_nCheckCount;
-	// •\¦XV—p
+	// è¡¨ç¤ºæ›´æ–°ç”¨
 	int m_nRefreshListCount;
 	int m_nRefreshLinkCount;
 	int m_nRefreshLabelCount;
 
-	// ‚»‚Ì‘¼
+	// ãã®ä»–
 	bool m_bChanged;
 	UnicodeString m_FN;
 	bool m_bReadOnly;
 
-	int m_nCardID; // Œ»İ•\¦’†‚ÌƒJ[ƒhi•Û‘¶—pj
-	int m_nDefaultView; // “Ç‚İ‚ñ‚¾uŠÔ‚Ç‚Ì‰æ–Ê‚ğ•\¦‚·‚é‚©i-1=‚È‚µA0=BrowserA1=Editorj
-	// ƒf[ƒ^ƒAƒNƒZƒX
+	int m_nCardID; // ç¾åœ¨è¡¨ç¤ºä¸­ã®ã‚«ãƒ¼ãƒ‰ï¼ˆä¿å­˜ç”¨ï¼‰
+	int m_nDefaultView; // èª­ã¿è¾¼ã‚“ã ç¬é–“ã©ã®ç”»é¢ã‚’è¡¨ç¤ºã™ã‚‹ã‹ï¼ˆ-1=ãªã—ã€0=Browserã€1=Editorï¼‰
+	// ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹
 	int m_nMaxCardID;
 	int* m_CardIDToIndex;
 
@@ -143,28 +143,28 @@ public:
 	void ClearCards();
 	void ClearCardSelection();
 	void SwapCard(int idx1, int idx2);
-	void RefreshDateOrder(); // m_fCreatedOrder‚È‚Ç‚É³‚µ‚¢’l‚ğ‘ã“ü
-	void RefreshDateOrder_Label(); // m_fTouchedOrder‚È‚Ç‚É³‚µ‚¢’l‚ğ‘ã“ü
-	int SearchParent(int CardID, bool bChild, bool bFocus); // ei‚à‚µ‚­‚ÍqjƒJ[ƒh‚ğ‘{‚·
+	void RefreshDateOrder(); // m_fCreatedOrderãªã©ã«æ­£ã—ã„å€¤ã‚’ä»£å…¥
+	void RefreshDateOrder_Label(); // m_fTouchedOrderãªã©ã«æ­£ã—ã„å€¤ã‚’ä»£å…¥
+	int SearchParent(int CardID, bool bChild, bool bFocus); // è¦ªï¼ˆã‚‚ã—ãã¯å­ï¼‰ã‚«ãƒ¼ãƒ‰ã‚’æœã™
 	int SearchBrother(int CurrentID, int ParentID, bool bInverse, bool bChild,
-		bool bFocus); // Œv‰ñ‚èi‚à‚µ‚­‚Í‹tü‚èj‚ÉŒZ’íƒm[ƒh‚ğ’T‚·
-	int SearchLast(int CardID, bool bFocus); // ’¼‘O‚É•\¦‚µ‚Ä‚¢‚½ƒJ[ƒh‚ğ‘{‚·
-	void RefreshCardLevel(); // Card->m_bTop‚ÆƒŠƒ“ƒN‚É]‚Á‚ÄŠK‘wƒŒƒxƒ‹İ’èAƒJ[ƒhƒ\[ƒg
+		bool bFocus); // æ™‚è¨ˆå›ã‚Šï¼ˆã‚‚ã—ãã¯é€†å‘¨ã‚Šï¼‰ã«å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’æ¢ã™
+	int SearchLast(int CardID, bool bFocus); // ç›´å‰ã«è¡¨ç¤ºã—ã¦ã„ãŸã‚«ãƒ¼ãƒ‰ã‚’æœã™
+	void RefreshCardLevel(); // Card->m_bTopã¨ãƒªãƒ³ã‚¯ã«å¾“ã£ã¦éšå±¤ãƒ¬ãƒ™ãƒ«è¨­å®šã€ã‚«ãƒ¼ãƒ‰ã‚½ãƒ¼ãƒˆ
 
 	void AddLabelToCard(TCard* Card, int label);
 	void DeleteLabelFromCard(TCard* Card, int label);
 
 	TList *GetRelatedCard(bool bInverse, bool bVisibleOnly);
-	// ŠeƒJ[ƒh‚©‚ç’£‚ç‚ê‚½ƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚ğIndex‡‚É“ü‚ê‚é
+	// å„ã‚«ãƒ¼ãƒ‰ã‹ã‚‰å¼µã‚‰ã‚ŒãŸãƒªãƒ³ã‚¯å…ˆã®ã‚«ãƒ¼ãƒ‰ã‚’Indexé †ã«å…¥ã‚Œã‚‹
 	int RelatedCardNum(TList *RCard, int cardindex);
 	int RelatedIndex(TList *RCard, int cardindex, int index);
-	void FreeRelatedCard(TList *RCard); // RCard‚Ì”jŠü
+	void FreeRelatedCard(TList *RCard); // RCardã®ç ´æ£„
 
 private:
 	inline TCard* GetCardByIndex_(int nIndex);
 
 public:
-	// ƒf[ƒ^ƒAƒNƒZƒXiƒŠƒ“ƒNj
+	// ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆãƒªãƒ³ã‚¯ï¼‰
 	TLink *NewLink();
 	inline TLink *GetLinkByIndex(int index);
 	void SetLinkName(TLink *Link, UnicodeString S);
@@ -174,7 +174,7 @@ public:
 	void AddLabelToLink(TLink* Link, int label);
 	void DeleteLabelFromLink(TLink* Link, int label);
 
-	// ƒf[ƒ^ƒAƒNƒZƒXiƒ‰ƒxƒ‹j
+	// ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆãƒ©ãƒ™ãƒ«ï¼‰
 	TCardLabel *NewLabel(int ltype);
 	inline TCardLabel *GetLabelByIndex(int ltype, int index);
 	TCardLabel *GetLabel(int ltype, UnicodeString S);
@@ -183,34 +183,34 @@ public:
 	void InitLabel(int ltype);
 	void ClearLabels(int ltype);
 
-	bool LabelIsFold(TCard *Card); // ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ª‘S‚ÄÜ‚è‚½‚½‚Ü‚ê‚Ä‚¢‚é‚©’²‚×‚é
-	int CountEnableLabel(TCard *Card); // ƒJ[ƒh‚Ì—LŒø‚Èƒ‰ƒxƒ‹”‚ğ“¾‚é
-	bool LabelIsSame(TCard *Card1, TCard *Card2); // 2‚Â‚ÌƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ª“¯‚¶‚©’²‚×‚é
+	bool LabelIsFold(TCard *Card); // ã‚«ãƒ¼ãƒ‰ã®ãƒ©ãƒ™ãƒ«ãŒå…¨ã¦æŠ˜ã‚ŠãŸãŸã¾ã‚Œã¦ã„ã‚‹ã‹èª¿ã¹ã‚‹
+	int CountEnableLabel(TCard *Card); // ã‚«ãƒ¼ãƒ‰ã®æœ‰åŠ¹ãªãƒ©ãƒ™ãƒ«æ•°ã‚’å¾—ã‚‹
+	bool LabelIsSame(TCard *Card1, TCard *Card2); // 2ã¤ã®ã‚«ãƒ¼ãƒ‰ã®ãƒ©ãƒ™ãƒ«ãŒåŒã˜ã‹èª¿ã¹ã‚‹
 
-	// •\¦XV—p
+	// è¡¨ç¤ºæ›´æ–°ç”¨
 	void RefreshList();
 	void RefreshLink();
 	void RefreshLabel();
-	// ƒtƒ@ƒCƒ‹
+	// ãƒ•ã‚¡ã‚¤ãƒ«
 	bool Load(UnicodeString FN, bool bSoftLoad = false);
-	// SoftLoad‚Å‚ÍAŒ³ƒf[ƒ^‚ÌÀ•W‚ğˆÛ
+	// SoftLoadã§ã¯ã€å…ƒãƒ‡ãƒ¼ã‚¿ã®åº§æ¨™ã‚’ç¶­æŒ
 	bool Save();
 	bool LoadFromString(TStringList *SL, UnicodeString FN);
 	bool SoftLoadFromString(TStringList *SL, UnicodeString FN);
 	bool SaveToString(TStringList *SL);
 
-	// ƒtƒHƒ‹ƒ_•ª‚¯‚µ‚Ä‚¢‚½‚ÌŒİŠ·—p
+	// ãƒ•ã‚©ãƒ«ãƒ€åˆ†ã‘ã—ã¦ã„ãŸæ™‚ã®äº’æ›ç”¨
 	bool Load_Old(UnicodeString FN);
 	bool Save_Old();
 	int Request(char *Type, int Value, float fValue, void *option);
 
-	// î•ñæ“¾
-	int GetCheckCount(); // 1‰ñ‰æ–Ê‚ªXV‚³‚ê‚é‚½‚Ñ‚ÉƒCƒ“ƒNƒŠƒƒ“ƒg
-	int GetCardID(); // Œ»İƒtƒH[ƒJƒX’†‚ÌƒJ[ƒhID
-	int CardCount(); // ƒJ[ƒh”
-	int LabelCount(int ltype); // ƒ‰ƒxƒ‹”
-	int LinkCount(); // ƒŠƒ“ƒN”
-	// ƒNƒŠƒbƒvƒ{[ƒh
+	// æƒ…å ±å–å¾—
+	int GetCheckCount(); // 1å›ç”»é¢ãŒæ›´æ–°ã•ã‚Œã‚‹ãŸã³ã«ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+	int GetCardID(); // ç¾åœ¨ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ä¸­ã®ã‚«ãƒ¼ãƒ‰ID
+	int CardCount(); // ã‚«ãƒ¼ãƒ‰æ•°
+	int LabelCount(int ltype); // ãƒ©ãƒ™ãƒ«æ•°
+	int LinkCount(); // ãƒªãƒ³ã‚¯æ•°
+	// ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰
 	void CopyToClipboard();
 	void PasteFromClipboard(float fSpan);
 };
@@ -219,8 +219,8 @@ class TUndoRedoData {
 public:
 	UnicodeString m_Name;
 	TDocument *m_Doc;
-	int m_nCardID; // •ÒW’†‚ÌƒJ[ƒhID
-	int m_nSelStart; // ƒGƒfƒBƒ^ã‚ÌƒJ[ƒ\ƒ‹ˆÊ’u
+	int m_nCardID; // ç·¨é›†ä¸­ã®ã‚«ãƒ¼ãƒ‰ID
+	int m_nSelStart; // ã‚¨ãƒ‡ã‚£ã‚¿ä¸Šã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®
 	int m_nSelLength;
 
 	TUndoRedoData(TDocument *Doc, UnicodeString Name, int m_nCardID = -1,
@@ -243,7 +243,7 @@ private:
 public:
 	TUndoRedo(int maxundo);
 	virtual ~TUndoRedo();
-	// UndoARedo
+	// Undoã€Redo
 	void ClearUndos();
 	void ClearRedos();
 	void Backup(TDocument *Doc, UnicodeString editname, int CardID = -1,
@@ -255,27 +255,27 @@ public:
 	bool GetCanUndo(UnicodeString &editname);
 	bool GetCanRedo(UnicodeString &editname);
 
-	int m_bChanged; // UndoARedo‚ªs‚í‚ê‚½‚±‚Æ‚ğ¦‚·
+	int m_bChanged; // Undoã€RedoãŒè¡Œã‚ã‚ŒãŸã“ã¨ã‚’ç¤ºã™
 private:
 	TUndoRedo(const TUndoRedo &source);
 	TUndoRedo& operator=(const TUndoRedo &source);
 };
 
 // ---------------------------------------------------------------------------
-// ƒhƒLƒ…ƒƒ“ƒg‚©‚ç‚Ì‘€ìƒŠƒNƒGƒXƒg(-1‚ÅƒŠƒNƒGƒXƒg‚È‚µ)
-extern int bReqArrange; // ƒAƒŒƒ“ƒW‚ÌON/OFF
-extern int nReqArrangeMode; // 0‚©‚ç‡‚ÉRepulsionALinkALabelAIndex
-extern int bReqAutoScroll; // ƒI[ƒgƒXƒNƒ[ƒ‹
-extern int bReqAutoZoom; // ƒI[ƒgƒY[ƒ€
-extern int bReqFullScreen; // ƒtƒ‹ƒXƒNƒŠ[ƒ“
-extern int bReqExit; // I—¹
-extern float fReqZoom, fReqX, fReqY; // ƒY[ƒ€‚ÆÀ•W
-extern int nReqTargetCard; // ƒ^[ƒQƒbƒgƒJ[ƒh•ÏX
+// ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‹ã‚‰ã®æ“ä½œãƒªã‚¯ã‚¨ã‚¹ãƒˆ(-1ã§ãƒªã‚¯ã‚¨ã‚¹ãƒˆãªã—)
+extern int bReqArrange; // ã‚¢ãƒ¬ãƒ³ã‚¸ã®ON/OFF
+extern int nReqArrangeMode; // 0ã‹ã‚‰é †ã«Repulsionã€Linkã€Labelã€Index
+extern int bReqAutoScroll; // ã‚ªãƒ¼ãƒˆã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
+extern int bReqAutoZoom; // ã‚ªãƒ¼ãƒˆã‚ºãƒ¼ãƒ 
+extern int bReqFullScreen; // ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³
+extern int bReqExit; // çµ‚äº†
+extern float fReqZoom, fReqX, fReqY; // ã‚ºãƒ¼ãƒ ã¨åº§æ¨™
+extern int nReqTargetCard; // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚«ãƒ¼ãƒ‰å¤‰æ›´
 extern int bReqSizeLimitation, bReqLinkLimitation, bReqDateLimitation;
-// •\¦§ŒÀ‚ÌON/OFF
+// è¡¨ç¤ºåˆ¶é™ã®ON/OFF
 extern int nReqSizeLimitation;
 extern int nReqLinkLimitation, bReqLinkDirection, bReqLinkBackward,
 	nReqLinkTarget;
 extern int nReqDateLimitation, ReqDateLimitationDateType, ReqDateLimitationType;
-extern int nReqKeyDown; // Š’è‚ÌƒL[‚ğ‰Ÿ‚µ‚½ˆ—‚ğ‚·‚é
+extern int nReqKeyDown; // æ‰€å®šã®ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸå‡¦ç†ã‚’ã™ã‚‹
 #endif
