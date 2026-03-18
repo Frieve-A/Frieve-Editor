@@ -459,15 +459,15 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
   Ed_TitleB->OnDblClick = PB_BrowserDblClick;
   Ed_TitleB->Parent = Pa_Browser;
 
-  // Label buttons
+  // Label buttons (position relative to La_Label, vertically centered in panel)
   for (int i = 0; i < MAXLABELS; i++) {
     Bu_Label[i] = new TButton(Bu_Label0->Owner);
     Bu_Label[i]->Caption = "";
-    Bu_Label[i]->SetBounds(590 + 112 * i,
-                           // Bu_Label0->Left + (Bu_Label0->Width + 8) * i,
-                           8,   // Bu_Label0->Top,
-                           104, // Bu_Label0->Width,
-                           26   // Bu_Label0->Height
+    Bu_Label[i]->SetBounds(
+        Bu_Label0->Left + (Bu_Label0->Width + 8) * i,
+        Bu_Label0->Top,
+        Bu_Label0->Width,
+        Bu_Label0->Height
     );
     Bu_Label[i]->Parent = Bu_Label0->Parent;
     Bu_Label[i]->OnClick = Bu_Label0Click;
@@ -477,11 +477,10 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
     Bu_LinkLabel[i] = new TButton(Bu_LinkLabel0->Owner);
     Bu_LinkLabel[i]->Caption = "";
     Bu_LinkLabel[i]->SetBounds(
-        590 + 112 * i,
-        // Bu_LinkLabel0->Left + (Bu_LinkLabel0->Width + 8) * i,
-        8,   // Bu_LinkLabel0->Top,
-        104, // Bu_LinkLabel0->Width,
-        26   // Bu_LinkLabel0->Height
+        Bu_LinkLabel0->Left + (Bu_LinkLabel0->Width + 8) * i,
+        Bu_LinkLabel0->Top,
+        Bu_LinkLabel0->Width,
+        Bu_LinkLabel0->Height
     );
     Bu_LinkLabel[i]->Parent = Bu_LinkLabel0->Parent;
     Bu_LinkLabel[i]->OnClick = Bu_LinkLabel0Click;
