@@ -185,7 +185,7 @@ void TDSDecoder::GetBMP(Graphics::TBitmap *BMP) {
   long nBufferSize = am_media_type.lSampleSize;
 
   if (nBufferSize > 0 && pSampleGrabber) {
-    void *pBuffer = new char[nBufferSize];
+    char *pBuffer = new char[nBufferSize];
 
     // Get currently displayed video as still image
     pSampleGrabber->GetCurrentBuffer(&nBufferSize, (long *)pBuffer);
@@ -372,8 +372,8 @@ void __fastcall TDSDecoder::Execute() {
     }
 
     m_bFinished =
-        !m_bLoop && ((len < pos + 1) || m_fLoopEndPos > m_fLoopStartPos &&
-                                            m_fLoopEndPos < pos + 1);
+        !m_bLoop && ((len < pos + 1) || (m_fLoopEndPos > m_fLoopStartPos &&
+                                         m_fLoopEndPos < pos + 1));
   }
 
   // Release resources

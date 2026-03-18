@@ -1458,15 +1458,15 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
               order += m_Document->m_Cards->Count;
               // Push hidden card text to end
             }
-            Order->Add((void *)order);
+            Order->Add((void *)(intptr_t)order);
           }
       }
 
       while (Str->Count) {
-        int minorder = (int)Order->Items[0];
+        int minorder = (int)(intptr_t)Order->Items[0];
         int minindex = 0;
         for (int io = 1; io < Order->Count; io++) {
-          int o = (int)Order->Items[io];
+          int o = (int)(intptr_t)Order->Items[io];
           if (minorder > o) {
             minorder = o;
             minindex = io;
@@ -3295,7 +3295,7 @@ void TFo_Main::RefreshLinks() {
           S += UnicodeString(" (") + Link->m_Name + UnicodeString(")");
         }
         LB_Link->Items->Add(S);
-        m_LinkIndexes->Add((void *)i);
+        m_LinkIndexes->Add((void *)(intptr_t)i);
       }
     }
   }
@@ -3645,7 +3645,7 @@ void __fastcall TFo_Main::MI_NewLinkClick(TObject *Sender) {
 void __fastcall TFo_Main::LB_LinkDblClick(TObject *Sender) {
   if (LB_Link->ItemIndex >= 0) {
     TLink *Link = m_Document->GetLinkByIndex(
-        (int)m_LinkIndexes->Items[LB_Link->ItemIndex]);
+        (int)(intptr_t)m_LinkIndexes->Items[LB_Link->ItemIndex]);
     if (Link) {
       m_Document->ClearCardSelection();
       if (Link->m_nFromID == m_nCurrentCard) {
@@ -3665,7 +3665,7 @@ void __fastcall TFo_Main::PI_DeleteLinkClick(TObject *Sender) {
     BackupSub(PI_DeleteLink->Caption);
 
     m_Document->DeleteLinkByIndex(
-        (int)m_LinkIndexes->Items[LB_Link->ItemIndex]);
+        (int)(intptr_t)m_LinkIndexes->Items[LB_Link->ItemIndex]);
   }
 }
 
@@ -4771,8 +4771,9 @@ void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
       if (Pattern < 4) {
         C->MoveTo(X1 + lastx, Y1 + lasty);
       } else {
-        Ps->Add((void *)*(int *)&lastx);
-        Ps->Add((void *)*(int *)&lasty);
+        int ix = *(int *)&lastx, iy = *(int *)&lasty;
+        Ps->Add((void *)(intptr_t)ix);
+        Ps->Add((void *)(intptr_t)iy);
       }
     }
 
@@ -4801,8 +4802,9 @@ void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
       if (Pattern < 4) {
         C->LineTo(X1 + lastx, Y1 + lasty);
       } else {
-        Ps->Add((void *)*(int *)&lastx);
-        Ps->Add((void *)*(int *)&lasty);
+        int ix = *(int *)&lastx, iy = *(int *)&lasty;
+        Ps->Add((void *)(intptr_t)ix);
+        Ps->Add((void *)(intptr_t)iy);
       }
     }
     if (ppos < PatNum) {
@@ -4839,14 +4841,14 @@ void TFo_Main::DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
       float rad = 0.0f;
       for (int i = 0; i < count; i++) {
         int l;
-        l = (int)Ps->Items[i * 2];
+        l = (int)(intptr_t)Ps->Items[i * 2];
         float X1_ = *(float *)&l;
-        l = (int)Ps->Items[i * 2 + 1];
+        l = (int)(intptr_t)Ps->Items[i * 2 + 1];
         float Y1_ = *(float *)&l;
         if (i < count - 1) {
-          l = (int)Ps->Items[(i + 1) * 2];
+          l = (int)(intptr_t)Ps->Items[(i + 1) * 2];
           float X2_ = *(float *)&l;
-          l = (int)Ps->Items[(i + 1) * 2 + 1];
+          l = (int)(intptr_t)Ps->Items[(i + 1) * 2 + 1];
           float Y2_ = *(float *)&l;
           if (Y2_ != Y1_ || X2_ != X1_) {
             rad = atan2(Y2_ - Y1_, X2_ - X1_);
@@ -8494,7 +8496,7 @@ void TFo_Main::GlobalSearch(int SearchRequest) {
 
     if (foundat > 0) {
       // Found
-      m_GlobalSearchResult->Add((void *)Card->m_nID);
+      m_GlobalSearchResult->Add((void *)(intptr_t)Card->m_nID);
     }
   }
 
@@ -14275,7 +14277,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
   // Get current index
   m_GlobalSearchCursorIndex = -1;
   for (int i = 0; i < m_GlobalSearchResult->Count; i++) {
-    TCard *Card = m_Document->GetCard((int)m_GlobalSearchResult->Items[i]);
+    TCard *Card = m_Document->GetCard((int)(intptr_t)m_GlobalSearchResult->Items[i]);
     if (Card) {
       if (m_nTargetCard == Card->m_nID) {
         m_GlobalSearchCursorIndex = i;
@@ -14289,7 +14291,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
     if (Index < m_GlobalSearchResult->Count) {
       // In range
       TCard *Card =
-          m_Document->GetCard((int)m_GlobalSearchResult->Items[Index]);
+          m_Document->GetCard((int)(intptr_t)m_GlobalSearchResult->Items[Index]);
       if (Card) {
         // Target card exists
 
@@ -14468,7 +14470,7 @@ void __fastcall TFo_Main::PB_GlobalSearchMouseDown(TObject *Sender,
   Sc_GlobalSearch->SetFocus();
   int Index = Y / m_GlobalSearchItemHeight + Sc_GlobalSearch->Position;
   if (Index >= 0 && Index < m_GlobalSearchResult->Count) {
-    TCard *Card = m_Document->GetCard((int)m_GlobalSearchResult->Items[Index]);
+    TCard *Card = m_Document->GetCard((int)(intptr_t)m_GlobalSearchResult->Items[Index]);
     if (Card) {
       m_Document->ClearCardSelection();
       m_nTargetCard = Card->m_nID;
@@ -14522,7 +14524,7 @@ void __fastcall TFo_Main::Sc_GlobalSearchKeyDown(TObject *Sender, WORD &Key,
   if (targetindex != m_GlobalSearchCursorIndex) {
     Key = 0;
     TCard *Card =
-        m_Document->GetCard((int)m_GlobalSearchResult->Items[targetindex]);
+        m_Document->GetCard((int)(intptr_t)m_GlobalSearchResult->Items[targetindex]);
     m_Document->ClearCardSelection();
     Card->m_bSelected = true;
     m_nTargetCard = Card->m_nID;
@@ -14726,7 +14728,7 @@ void __fastcall TFo_Main::LB_LinkClick(TObject *Sender) {
   // Move to related text
   if (SB_EditorRelated->Down && LB_Link->ItemIndex >= 0) {
     TLink *Link = m_Document->GetLinkByIndex(
-        (int)m_LinkIndexes->Items[LB_Link->ItemIndex]);
+        (int)(intptr_t)m_LinkIndexes->Items[LB_Link->ItemIndex]);
     if (Link) {
       int id;
       if (Link->m_nFromID == m_nCurrentCard) {
@@ -14838,11 +14840,12 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
             TCard *Card = m_Document->GetCardByIndex(ic);
             if (Card->m_Labels->Contain(i + 1)) {
               count += 1.0f;
-              SRTC->m_CardIDList->Add((void *)Card->m_nID);
+              SRTC->m_CardIDList->Add((void *)(intptr_t)Card->m_nID);
             }
           }
-          Value->Add((void *)*(int *)&count);
-          Color->Add((void *)Label->m_nColor);
+          int icount = *(int *)&count;
+          Value->Add((void *)(intptr_t)icount);
+          Color->Add((void *)(intptr_t)Label->m_nColor);
           m_StatisticsRectToCard->Add(SRTC);
         }
       }
@@ -14888,12 +14891,13 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
         for (int ic = 0; ic < m_Document->m_Cards->Count; ic++) {
           if (NumLinks[ic] == i) {
             TCard *Card = m_Document->GetCardByIndex(ic);
-            SRTC->m_CardIDList->Add((void *)Card->m_nID);
+            SRTC->m_CardIDList->Add((void *)(intptr_t)Card->m_nID);
             count += 1.0f;
           }
         }
-        Value->Add((void *)*(int *)&count);
-        Color->Add((void *)GetColor(i * 1.0f / (maxlinks + 1), 0, 255));
+        int icount = *(int *)&count;
+        Value->Add((void *)(intptr_t)icount);
+        Color->Add((void *)(intptr_t)GetColor(i * 1.0f / (maxlinks + 1), 0, 255));
         m_StatisticsRectToCard->Add(SRTC);
       }
 
@@ -14993,8 +14997,8 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
       }
 
       for (int i = 0; i < Name->Count; i++) {
-        Color->Add((void *)GetColor(i * 1.0f / Name->Count, 0, 255));
-        Value->Add((void *)0);
+        Color->Add((void *)(intptr_t)GetColor(i * 1.0f / Name->Count, 0, 255));
+        Value->Add((void *)(intptr_t)0);
         TSRectToCard *SRTC = new TSRectToCard();
         m_StatisticsRectToCard->Add(SRTC);
       }
@@ -15046,14 +15050,15 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
           break;
         }
 
-        int l1 = (int)Value->Items[index];
+        int l1 = (int)(intptr_t)Value->Items[index];
         float v1 = *(float *)&l1;
         v1 += 1.0f;
-        Value->Items[index] = (void *)*(int *)&v1;
+        int iv1 = *(int *)&v1;
+        Value->Items[index] = (void *)(intptr_t)iv1;
 
         TSRectToCard *SRTC =
             (TSRectToCard *)m_StatisticsRectToCard->Items[index];
-        SRTC->m_CardIDList->Add((void *)Card->m_nID);
+        SRTC->m_CardIDList->Add((void *)(intptr_t)Card->m_nID);
       }
     } break;
     }
@@ -15063,14 +15068,14 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
       // Insert break
       for (int i = 1; i < Value->Count; i++) {
         for (int i2 = i; i2 > 0; i2--) {
-          int l1 = (int)Value->Items[i2];
+          int l1 = (int)(intptr_t)Value->Items[i2];
           float v1 = *(float *)&l1;
-          int l2 = (int)Value->Items[i2 - 1];
+          int l2 = (int)(intptr_t)Value->Items[i2 - 1];
           float v2 = *(float *)&l2;
 
           if (v1 > v2) {
-            Value->Items[i2] = (void *)l2;
-            Value->Items[i2 - 1] = (void *)l1;
+            Value->Items[i2] = (void *)(intptr_t)l2;
+            Value->Items[i2 - 1] = (void *)(intptr_t)l1;
 
             UnicodeString S = Name->Strings[i2];
             Name->Strings[i2] = Name->Strings[i2 - 1];
@@ -15102,7 +15107,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
         textwidth = tw;
       }
 
-      int l = (int)Value->Items[i];
+      int l = (int)(intptr_t)Value->Items[i];
       float v = *(float *)&l;
       if (v > max) {
         max = v;
@@ -15238,7 +15243,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
         F->Color = TColor(m_nFGColor);
         C->TextOut(leftmargin, y + m_nFontHeight / 4, Name->Strings[i]);
 
-        int l = (int)Value->Items[i];
+        int l = (int)(intptr_t)Value->Items[i];
         float v = *(float *)&l;
         int x = leftmargin + textwidth + leftmargin * 2 +
                 barwidth * v / max * m_fStatisticsPos;
@@ -15253,7 +15258,7 @@ void __fastcall TFo_Main::PB_StatisticsPaint(TObject *Sender) {
 
         // Bar setting
         B->Style = bsSolid;
-        B->Color = TColor((int)Color->Items[i]);
+        B->Color = TColor((int)(intptr_t)Color->Items[i]);
         C->FillRect(Rect(leftmargin + textwidth + leftmargin * 2, y, x,
                          y + m_nFontHeight * 1.5));
 
@@ -15310,7 +15315,7 @@ void TFo_Main::LinktoAllCardswithDesignatedLabel(TList *IDs) {
       // Update label
       bool contain = false;
       for (int i2 = 0; i2 < Fo_Select->m_IDs->Count && !contain; i2++) {
-        contain |= Card->m_Labels->Contain((int)IDs->Items[i2]);
+        contain |= Card->m_Labels->Contain((int)(intptr_t)IDs->Items[i2]);
       }
       if (contain) {
         // Card has label
@@ -15369,7 +15374,7 @@ void __fastcall TFo_Main::MI_NewCardLinkstoAllCardswithDesignatedLabelClick(
     // cardTitle and label
     for (int i = 0; i < Fo_Select->m_IDs->Count; i++) {
       TCardLabel *Label =
-          m_Document->GetLabelByIndex(0, (int)Fo_Select->m_IDs->Items[i] - 1);
+          m_Document->GetLabelByIndex(0, (int)(intptr_t)Fo_Select->m_IDs->Items[i] - 1);
       if (i > 0) {
         Card->m_Title += ", ";
       }
@@ -15389,7 +15394,7 @@ void __fastcall TFo_Main::MI_NewCardLinkstoAllCardswithDesignatedLabelClick(
         // Update label
         bool contain = false;
         for (int i2 = 0; i2 < Fo_Select->m_IDs->Count && !contain; i2++) {
-          contain |= Card->m_Labels->Contain((int)Fo_Select->m_IDs->Items[i2]);
+          contain |= Card->m_Labels->Contain((int)(intptr_t)Fo_Select->m_IDs->Items[i2]);
         }
         if (contain) {
           x += Card->m_fX;
@@ -15426,7 +15431,7 @@ void __fastcall TFo_Main::MI_AddDesignatedLabeltoAllDestinationCardsClick(
       if (Link->m_nFromID == m_nTargetCard) {
         TCard *Card = m_Document->GetCard(Link->m_nDestID);
         for (int i2 = 0; i2 < Fo_Select->m_IDs->Count; i2++) {
-          Card->m_Labels->AddLabel((int)Fo_Select->m_IDs->Items[i2]);
+          Card->m_Labels->AddLabel((int)(intptr_t)Fo_Select->m_IDs->Items[i2]);
         }
       }
     }

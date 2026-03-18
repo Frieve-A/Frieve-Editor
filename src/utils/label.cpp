@@ -195,11 +195,11 @@ UnicodeString TCardLabel::Encode() {
 }
 
 // ---------------------------------------------------------------------------
-int TLabelList::GetLabel(int index) { return (int)Items[index]; }
+int TLabelList::GetLabel(int index) { return (int)(intptr_t)Items[index]; }
 
 // ---------------------------------------------------------------------------
 void TLabelList::SetLabel(int index, int labelid) {
-  if (Items[index] == (void *)labelid) {
+  if (Items[index] == (void *)(intptr_t)labelid) {
     // No change needed
     return;
   }
@@ -218,10 +218,10 @@ void TLabelList::SetLabel(int index, int labelid) {
     // Duplicate found
 
     // Remove old label and exit
-    DeleteLabel((int)Items[index]);
+    DeleteLabel((int)(intptr_t)Items[index]);
   } else {
     // No duplicate
-    Items[index] = (void *)labelid;
+    Items[index] = (void *)(intptr_t)labelid;
   }
 }
 
@@ -239,7 +239,7 @@ void TLabelList::AddLabel(int labelid) {
     }
   }
 
-  Add((void *)labelid);
+  Add((void *)(intptr_t)labelid);
 }
 
 // ---------------------------------------------------------------------------

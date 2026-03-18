@@ -60,7 +60,7 @@ void __fastcall TFo_Select::Bu_OKClick(TObject *Sender) {
       TCard *Card = m_Document->GetCardByIndex(LB_Items->ItemIndex);
       if (Card) {
         m_nID = Card->m_nID;
-        m_IDs->Add((void *)m_nID);
+        m_IDs->Add((void *)(intptr_t)m_nID);
       }
     } else {
       for (int i = 0; i < m_Document->m_Cards->Count && i < LB_Items->Count;
@@ -68,7 +68,7 @@ void __fastcall TFo_Select::Bu_OKClick(TObject *Sender) {
         if (LB_Items->Selected[i]) {
           TCard *Card = m_Document->GetCardByIndex(LB_Items->ItemIndex);
           if (Card) {
-            m_IDs->Add((void *)Card->m_nID);
+            m_IDs->Add((void *)(intptr_t)Card->m_nID);
           }
         }
       }
@@ -78,13 +78,13 @@ void __fastcall TFo_Select::Bu_OKClick(TObject *Sender) {
   case 2: // Link Label
     if (!LB_Items->MultiSelect) {
       m_nID = LB_Items->ItemIndex + 1;
-      m_IDs->Add((void *)m_nID);
+      m_IDs->Add((void *)(intptr_t)m_nID);
     } else {
       for (int i = 0;
            i < m_Document->m_Labels[m_nType - 1]->Count && i < LB_Items->Count;
            i++) {
         if (LB_Items->Selected[i]) {
-          m_IDs->Add((void *)(i + 1));
+          m_IDs->Add((void *)(intptr_t)(i + 1));
         }
       }
     }

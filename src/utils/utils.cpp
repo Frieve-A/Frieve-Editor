@@ -348,7 +348,7 @@ UnicodeString ExtractFileNameOnly(UnicodeString S) {
 
 // ---------------------------------------------------------------------------
 UnicodeString ForFileName(UnicodeString S) {
-  UnicodeString XStr = "\/:*?\"<>|";
+  UnicodeString XStr = "/:*?\"<>|";
   for (int i = 0; i < XStr.Length(); i++) {
     while (int pos = S.Pos(XStr.SubString(i + 1, 1))) {
       S = S.SubString(1, pos - 1) + UnicodeString("_") +

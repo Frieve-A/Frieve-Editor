@@ -170,7 +170,7 @@ private:
 public:
   // Data access (links)
   TLink *NewLink();
-  inline TLink *GetLinkByIndex(int index);
+  TLink *GetLinkByIndex(int index);
   void SetLinkName(TLink *Link, UnicodeString S);
   void DeleteLinkByIndex(int index);
   void ClearLinks();
@@ -180,7 +180,7 @@ public:
 
   // Data access (labels)
   TCardLabel *NewLabel(int ltype);
-  inline TCardLabel *GetLabelByIndex(int ltype, int index);
+  TCardLabel *GetLabelByIndex(int ltype, int index);
   TCardLabel *GetLabel(int ltype, UnicodeString S);
   void SetLabelName(TCardLabel *Label, UnicodeString S);
   void DeleteLabelByIndex(int ltype, int index);

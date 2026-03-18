@@ -842,7 +842,7 @@ TList *TDocument::GetRelatedCard(bool bInverse, bool bVisibleOnly) {
     for (int ifrom = 0; ifrom < m_Cards->Count; ifrom++) {
       for (int idest = 0; idest < m_Cards->Count; idest++) {
         if (matrix[ifrom * m_Cards->Count + idest]) {
-          ((TList *)RCard->Items[ifrom])->Add((void *)idest);
+          ((TList *)RCard->Items[ifrom])->Add((void *)(intptr_t)idest);
         }
       }
     }
@@ -1620,7 +1620,7 @@ TCardLabel *TDocument::GetLabel(int ltype, UnicodeString S) {
 }
 
 // ---------------------------------------------------------------------------
-inline TCardLabel *TDocument::GetLabelByIndex(int ltype, int index) {
+TCardLabel *TDocument::GetLabelByIndex(int ltype, int index) {
   return (TCardLabel *)(m_Labels[ltype]->Items[index]);
 }
 

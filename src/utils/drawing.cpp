@@ -47,7 +47,7 @@ TDrawingItem::TDrawingItem(UnicodeString S)
     m_Rect[i] = *(float *)&l;
   }
   for (int i = 0; i < count; i++) {
-    Add((void *)StrToIntDef(UnicodeString("0x") + S.SubString(pos, 8), 0));
+    Add((void *)(intptr_t)StrToIntDef(UnicodeString("0x") + S.SubString(pos, 8), 0));
     pos += 8;
   }
 }
@@ -63,15 +63,16 @@ UnicodeString TDrawingItem::Encode() {
     result += IntToHex(*(int *)&m_Rect[i], 8);
   }
   for (int i = 0; i < Count; i++) {
-    result += IntToHex((int)Items[i], 8);
+    result += IntToHex((int)(intptr_t)Items[i], 8);
   }
   return result;
 }
 
 // ---------------------------------------------------------------------------
 void TDrawingItem::UpdateFreeHandRect(float x, float y) {
-  Add((void *)*(int *)&x);
-  Add((void *)*(int *)&y);
+  int ix = *(int *)&x, iy = *(int *)&y;
+  Add((void *)(intptr_t)ix);
+  Add((void *)(intptr_t)iy);
   m_Rect[0] = m_Rect[1] = 0.0f;
   m_Rect[2] = m_Rect[3] = 1.0f;
 }
@@ -79,9 +80,9 @@ void TDrawingItem::UpdateFreeHandRect(float x, float y) {
 // ---------------------------------------------------------------------------
 void TDrawingItem::FinishFreeHandRect() {
   for (int i = 0; i < Count / 2; i++) {
-    int ix = (int)Items[i * 2];
+    int ix = (int)(intptr_t)Items[i * 2];
     float x = *(float *)&ix;
-    int iy = (int)Items[i * 2 + 1];
+    int iy = (int)(intptr_t)Items[i * 2 + 1];
     float y = *(float *)&iy;
     if (i == 0) {
       // First time
@@ -115,16 +116,18 @@ void TDrawingItem::FinishFreeHandRect() {
   }
 
   for (int i = 0; i < Count / 2; i++) {
-    int ix = (int)Items[i * 2];
+    int ix = (int)(intptr_t)Items[i * 2];
     float x = *(float *)&ix;
-    int iy = (int)Items[i * 2 + 1];
+    int iy = (int)(intptr_t)Items[i * 2 + 1];
     float y = *(float *)&iy;
 
     x = (x - m_Rect[0]) / w;
     y = (y - m_Rect[1]) / h;
 
-    Items[i * 2] = (void *)*(int *)&x;
-    Items[i * 2 + 1] = (void *)*(int *)&y;
+    ix = *(int *)&x;
+    iy = *(int *)&y;
+    Items[i * 2] = (void *)(intptr_t)ix;
+    Items[i * 2 + 1] = (void *)(intptr_t)iy;
   }
 }
 
@@ -236,9 +239,9 @@ int TDrawingItem::CheckDrag(float x, float y, int size) {
     if (w2 != 0.0f && h2 != 0.0f) {
       float *p = new float[Count];
       for (int i = 0; i < Count / 2; i++) {
-        int ix = (int)Items[i * 2];
+        int ix = (int)(intptr_t)Items[i * 2];
         float fx = *(float *)&ix;
-        int iy = (int)Items[i * 2 + 1];
+        int iy = (int)(intptr_t)Items[i * 2 + 1];
         float fy = *(float *)&iy;
 
         p[i * 2] = m_Rect[0] + fx * w2;
@@ -439,9 +442,9 @@ void TDrawingItem::Draw(TCanvas *C, TRect &R) {
     }
     TPoint *p = new TPoint[Count / 2];
     for (int i = 0; i < Count / 2; i++) {
-      int ix = (int)Items[i * 2];
+      int ix = (int)(intptr_t)Items[i * 2];
       float x = *(float *)&ix;
-      int iy = (int)Items[i * 2 + 1];
+      int iy = (int)(intptr_t)Items[i * 2 + 1];
       float y = *(float *)&iy;
 
       p[i].x = R.Left + w * (m_Rect[0] + x * w2);
