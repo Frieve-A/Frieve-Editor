@@ -8,6 +8,9 @@
 
 #include "fomain.h"
 #include "fomain_arrange.h"
+#include "foprogress.h"
+#include "setting.h"
+#include "textproc.h"
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_Initialize(float *CardX, float *CardY,
@@ -1654,6 +1657,137 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
   delete[] xbak;
   delete[] ybak;
 }
+// ---------------------------------------------------------------------------
+
+void TFo_Main::PrepareArrange() {
+  if (SB_Arrange->Down) {
+    switch (Bu_ArrangeType->Tag) {
+    case 202: // Matrix(Link)
+    case 203: // Matrix(Label)
+      PrepareMatrixArrange(Bu_ArrangeType->Tag);
+      break;
+    case 500: // Similarity
+    case 600: // Similarity(Soft)
+      SB_ArrangeRefreshClick(this);
+      break;
+    case 700: // Matrix(Similarity)
+      SB_ArrangeRefreshClick(this);
+      PrepareMatrixArrange(Bu_ArrangeType->Tag);
+      break;
+    }
+
+    if (Bu_ArrangeType->Tag >= 1000 && Bu_ArrangeType->Tag <= 1999) {
+      m_Document->RefreshList();
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::RefreshSimMatrix() {
+  Refresh();
+  Ti_Check->Enabled = false;
+
+  Fo_Progress->PFunc = this;
+  Fo_Progress->Left = Fo_Main->Left + Fo_Main->Width / 2;
+  Fo_Progress->Top = Fo_Main->Top + Fo_Main->Height / 2;
+  Fo_Progress->La_Progress->Caption = MLText.ProcessingTextAnalysis;
+  Fo_Progress->ShowModal();
+
+  Ti_Check->Enabled = true;
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::ProgressFunc() {
+  RefreshSimMatrix_();
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::RefreshSimMatrix_() {
+  Screen->Cursor = crHourGlass;
+
+  FreeSimMatrix();
+  int doccount = m_Document->m_Cards->Count;
+
+  TWideStringList *WS = new TWideStringList();
+  for (int i = 0; i < doccount; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    WS->Add(Card->m_Title + "\n" + Card->m_Lines->Text);
+  }
+  TTextDecomposer *TD = new TTextDecomposer(
+      WS, 10, 100, 0.0f, 0.6f, Fo_Progress->fPos, Fo_Progress->m_bTerminated);
+
+  TSMatrix *SM = new TSMatrix();
+
+  for (int id = 0; id < doccount && !Fo_Progress->m_bTerminated; id++) {
+    WideString doc = WideLowerCase(WS->Strings(id));
+    int doclen = doc.Length();
+    for (int ic = 0; ic < doclen; ic++) {
+      int len = 1;
+      int start = 0;
+      int end = TD->m_Gram[0]->Count - 1;
+      while (start >= 0 && start <= end) {
+        TWSandValueList *WSVL = TD->m_Gram[len - 1];
+        WideString c = doc.SubString(ic + 1, len);
+        int idx = WSVL->Search(start, end, c);
+        if (idx >= 0) {
+          int sn = WSVL->SN(idx);
+          if (sn >= 0) {
+            SM->Add(sn, id, 1.0f / WSVL->Values(idx));
+          }
+          start = WSVL->From(idx);
+          end = WSVL->To(idx);
+          len++;
+        } else {
+          break;
+        }
+      }
+    }
+    Fo_Progress->fPos = 0.6f + (id + 1.0) * 0.15f / doccount;
+    Application->ProcessMessages();
+  }
+
+  if (!Fo_Progress->m_bTerminated) {
+    SM->Finalize(true, &Fo_Progress->fPos, &Fo_Progress->m_bTerminated, 0.05f);
+  }
+
+  if (!Fo_Progress->m_bTerminated) {
+    SM->DeleteSameCol(true);
+    SM->PrepareCosRow();
+    Fo_Progress->fPos = 0.95f;
+    Application->ProcessMessages();
+  }
+
+  if (!Fo_Progress->m_bTerminated) {
+    m_SimMatrix = new TDMatrix(doccount);
+    for (int i = 0; i < doccount; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      m_SimMatrix->ID(i) = Card->m_nID;
+      for (int i2 = i + 1; i2 < doccount; i2++) {
+        float cos = SM->CosRow(i, i2);
+        m_SimMatrix->S(i, i2) = m_SimMatrix->S(i2, i) = cos;
+      }
+    }
+    Fo_Progress->fPos = 1.05f;
+    Application->ProcessMessages();
+
+    m_SimMatrix->Finalize();
+  }
+
+  delete SM;
+  delete TD;
+  delete WS;
+
+  Screen->Cursor = crDefault;
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::FreeSimMatrix() {
+  if (m_SimMatrix) {
+    delete m_SimMatrix;
+    m_SimMatrix = NULL;
+  }
+}
+
 // ---------------------------------------------------------------------------
 
 #pragma package(smart_init)

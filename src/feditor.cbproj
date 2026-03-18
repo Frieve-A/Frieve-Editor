@@ -1,4 +1,4 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{6D49B9E8-B49C-4495-9C05-C43B1F7169F1}</ProjectGuid>
         <ProjectVersion>19.4</ProjectVersion>
@@ -268,6 +268,83 @@
         </CppCompile>
         <None Include="forms\fomain_iterscore.h">
             <BuildOrder>25</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_paint.cpp">
+            <DependentOn>forms\fomain_paint.h</DependentOn>
+            <BuildOrder>25a</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_paint.h">
+            <BuildOrder>25b</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_filter.cpp">
+            <DependentOn>forms\fomain_filter.h</DependentOn>
+            <BuildOrder>25c</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_filter.h">
+            <BuildOrder>25d</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_animation.cpp">
+            <DependentOn>forms\fomain_animation.h</DependentOn>
+            <BuildOrder>25e</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_animation.h">
+            <BuildOrder>25f</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_search.cpp">
+            <DependentOn>forms\fomain_search.h</DependentOn>
+            <BuildOrder>25g</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_search.h">
+            <BuildOrder>25h</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_export.cpp">
+            <DependentOn>forms\fomain_export.h</DependentOn>
+            <BuildOrder>25i</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_export.h">
+            <BuildOrder>25j</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_settings.cpp">
+            <DependentOn>forms\fomain_settings.h</DependentOn>
+            <BuildOrder>25k</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_settings.h">
+            <BuildOrder>25l</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_browser.cpp">
+            <DependentOn>forms\fomain_browser.h</DependentOn>
+            <BuildOrder>25m</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_browser.h">
+            <BuildOrder>25n</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_file.cpp">
+            <DependentOn>forms\fomain_file.h</DependentOn>
+            <BuildOrder>25o</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_file.h">
+            <BuildOrder>25p</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_label.cpp">
+            <DependentOn>forms\fomain_label.h</DependentOn>
+            <BuildOrder>25q</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_label.h">
+            <BuildOrder>25r</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_timer.cpp">
+            <DependentOn>forms\fomain_timer.h</DependentOn>
+            <BuildOrder>25s</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_timer.h">
+            <BuildOrder>25t</BuildOrder>
+        </None>
+        <CppCompile Include="forms\fomain_handlers.cpp">
+            <DependentOn>forms\fomain_handlers.h</DependentOn>
+            <BuildOrder>25u</BuildOrder>
+        </CppCompile>
+        <None Include="forms\fomain_handlers.h">
+            <BuildOrder>25v</BuildOrder>
         </None>
         <CppCompile Include="forms\foprogress.cpp">
             <Form>Fo_Progress</Form>
