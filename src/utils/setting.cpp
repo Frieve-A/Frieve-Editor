@@ -502,7 +502,7 @@ void TSetting2Function::WriteToIni(TIniFile *Ini) {}
 void TSetting2Function::ReadFromIni(TIniFile *Ini) {
   Ini->ReadSectionValues("WebSearch", m_WebSearch);
   m_GPTSystemPrompt = Ini->ReadString("GPTSystem", "SystemPrompt", "");
-  m_GPTModel = Ini->ReadString("GPTSystem", "Model", "gpt-3.5-turbo");
+  m_GPTModel = Ini->ReadString("GPTSystem", "Model", "gpt-5.4");
   Ini->ReadSectionValues("GPT", m_GPT);
 }
 // ---------------------------------------------------------------------------

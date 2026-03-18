@@ -2891,7 +2891,7 @@ void __fastcall TFo_Main::ME_GPTClick(TObject *Sender) {
 
       // Request body creation
       TJSONObject *requestBodyObj = new TJSONObject();
-      requestBodyObj->AddPair("model", "gpt-3.5-turbo");
+      requestBodyObj->AddPair("model", Setting2Function.m_GPTModel);
       TJSONObject *jsonObj = new TJSONObject();
       jsonObj->AddPair("role", "user");
       jsonObj->AddPair("content", prompt);
