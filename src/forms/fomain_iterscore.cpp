@@ -6,553 +6,546 @@
 
 #include <math.h>
 
-#include "fomain_iterscore.h"
 #include "fomain.h"
+#include "fomain_iterscore.h"
 #include "setting.h"
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore() {
-	switch (SettingView.m_ScoreType) {
-	case 0:
-		IterScore_Authenticity();
-		break;
-	case 1:
-		IterScore_StartingPoint();
-		break;
-	case 2:
-		IterScore_Destination();
-		break;
-	case 3:
-		IterScore_Links_Out();
-		break;
-	case 4:
-		IterScore_Links_In();
-		break;
-	case 5:
-		IterScore_Links_Total();
-		break;
-	case 6:
-		IterScore_Links_InOut();
-		break;
-	case 7:
-		IterScore_TextLength();
-		break;
-	}
+  switch (SettingView.m_ScoreType) {
+  case 0:
+    IterScore_Authenticity();
+    break;
+  case 1:
+    IterScore_StartingPoint();
+    break;
+  case 2:
+    IterScore_Destination();
+    break;
+  case 3:
+    IterScore_Links_Out();
+    break;
+  case 4:
+    IterScore_Links_In();
+    break;
+  case 5:
+    IterScore_Links_Total();
+    break;
+  case 6:
+    IterScore_Links_InOut();
+    break;
+  case 7:
+    IterScore_TextLength();
+    break;
+  }
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_Authenticity() {
-	const float allratio = 0.1f;
+  const float allratio = 0.1f;
 
-	int *index = new int[m_Document->m_Cards->Count];
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  int *index = new int[m_Document->m_Cards->Count];
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	float forall = 0.0f; // Score added to all cards
-	double sum = 0.0f;
-	int cardcount = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
-			sum += Card->m_fScore;
+  // Score transfer
+  float forall = 0.0f; // Score added to all cards
+  double sum = 0.0f;
+  int cardcount = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
+      sum += Card->m_fScore;
 
-			// Count links, enumerate destinations
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nFromID == Card->m_nID) {
-						index[count++] =
-							m_Document->SearchCardIndex(Link->m_nDestID);
-					}
-				}
+      // Count links, enumerate destinations
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nFromID == Card->m_nID) {
+            index[count++] = m_Document->SearchCardIndex(Link->m_nDestID);
+          }
+        }
 
-			if (count == 0) {
-				// No links: move all score to random card
-				forall += Card->m_fScore;
-			}
-			else {
-				forall += Card->m_fScore * allratio;
-				float addscore = (Card->m_fScore * (1.0f - allratio)) / count;
-				for (int il = 0; il < count; il++) {
-					// Add score to link destination
-					score[index[il]] += addscore;
-				}
-			}
-		}
-	}
+      if (count == 0) {
+        // No links: move all score to random card
+        forall += Card->m_fScore;
+      } else {
+        forall += Card->m_fScore * allratio;
+        float addscore = (Card->m_fScore * (1.0f - allratio)) / count;
+        for (int il = 0; il < count; il++) {
+          // Add score to link destination
+          score[index[il]] += addscore;
+        }
+      }
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		forall /= cardcount;
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = (score[i] + forall) * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    forall /= cardcount;
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = (score[i] + forall) * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
-	delete[]index;
+  delete[] score;
+  delete[] index;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_StartingPoint() {
-	int *index = new int[m_Document->m_Cards->Count];
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  int *index = new int[m_Document->m_Cards->Count];
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
 
-			// Count links, enumerate sources
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nDestID == Card->m_nID) {
-						index[count++] =
-							m_Document->SearchCardIndex(Link->m_nFromID);
-					}
-				}
+      // Count links, enumerate sources
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nDestID == Card->m_nID) {
+            index[count++] = m_Document->SearchCardIndex(Link->m_nFromID);
+          }
+        }
 
-			if (count == 0) {
-				// No links
-			}
-			else {
-				for (int il = 0; il < count; il++) {
-					// Add score to link source
-					score[index[il]] += Card->m_fScore;
-					sum += Card->m_fScore;
-				}
-			}
+      if (count == 0) {
+        // No links
+      } else {
+        for (int il = 0; il < count; il++) {
+          // Add score to link source
+          score[index[il]] += Card->m_fScore;
+          sum += Card->m_fScore;
+        }
+      }
 
-			// Add 1 to self
-			score[i] += 1.0f;
-			sum += 1.0;
-		}
-	}
+      // Add 1 to self
+      score[i] += 1.0f;
+      sum += 1.0;
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = score[i] * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = score[i] * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
-	delete[]index;
+  delete[] score;
+  delete[] index;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_Destination() {
-	int *index = new int[m_Document->m_Cards->Count];
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  int *index = new int[m_Document->m_Cards->Count];
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
 
-			// Count links, enumerate destinations
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nFromID == Card->m_nID) {
-						index[count++] =
-							m_Document->SearchCardIndex(Link->m_nDestID);
-					}
-				}
+      // Count links, enumerate destinations
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nFromID == Card->m_nID) {
+            index[count++] = m_Document->SearchCardIndex(Link->m_nDestID);
+          }
+        }
 
-			if (count == 0) {
-				// No links
-			}
-			else {
-				for (int il = 0; il < count; il++) {
-					// Add score to link destination
-					score[index[il]] += Card->m_fScore;
-					sum += Card->m_fScore;
-				}
-			}
+      if (count == 0) {
+        // No links
+      } else {
+        for (int il = 0; il < count; il++) {
+          // Add score to link destination
+          score[index[il]] += Card->m_fScore;
+          sum += Card->m_fScore;
+        }
+      }
 
-			// Add 1 to self
-			score[i] += 1.0f;
-			sum += 1.0;
-		}
-	}
+      // Add 1 to self
+      score[i] += 1.0f;
+      sum += 1.0;
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = score[i] * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = score[i] * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
-	delete[]index;
+  delete[] score;
+  delete[] index;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_Links_Out() {
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
 
-			// Count links
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nFromID == Card->m_nID) {
-						count++;
-					}
-				}
-			score[i] = count + 1;
-			sum += score[i];
-		}
-	}
+      // Count links
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nFromID == Card->m_nID) {
+            count++;
+          }
+        }
+      score[i] = count + 1;
+      sum += score[i];
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = score[i] * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = score[i] * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
+  delete[] score;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_Links_In() {
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
 
-			// Count links
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nDestID == Card->m_nID) {
-						count++;
-					}
-				}
-			score[i] = count + 1;
-			sum += score[i];
-		}
-	}
+      // Count links
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nDestID == Card->m_nID) {
+            count++;
+          }
+        }
+      score[i] = count + 1;
+      sum += score[i];
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = score[i] * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = score[i] * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
+  delete[] score;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_Links_Total() {
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
 
-			// Count links
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nFromID == Card->m_nID ||
-						Link->m_nDestID == Card->m_nID) {
-						count++;
-					}
-				}
-			score[i] = count + 1;
-			sum += score[i];
-		}
-	}
+      // Count links
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nFromID == Card->m_nID ||
+              Link->m_nDestID == Card->m_nID) {
+            count++;
+          }
+        }
+      score[i] = count + 1;
+      sum += score[i];
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = score[i] * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = score[i] * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
+  delete[] score;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_Links_InOut() {
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	int min = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  int min = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
 
-			// Count links
-			// Link loop
-			int count = 0;
-			for (int il = 0; il < m_Document->m_Links->Count; il++)
-				if (m_LinkVisible[il]) {
-					TLink *Link = m_Document->GetLinkByIndex(il);
-					if (Link->m_nFromID == Card->m_nID) {
-						count--;
-					}
-					else if (Link->m_nDestID == Card->m_nID) {
-						count++;
-					}
-				}
-			if (min > count) {
-				min = count;
-			}
-			score[i] = count;
-			sum += score[i];
-		}
-	}
+      // Count links
+      // Link loop
+      int count = 0;
+      for (int il = 0; il < m_Document->m_Links->Count; il++)
+        if (m_LinkVisible[il]) {
+          TLink *Link = m_Document->GetLinkByIndex(il);
+          if (Link->m_nFromID == Card->m_nID) {
+            count--;
+          } else if (Link->m_nDestID == Card->m_nID) {
+            count++;
+          }
+        }
+      if (min > count) {
+        min = count;
+      }
+      score[i] = count;
+      sum += score[i];
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		sum += (1 - min) * cardcount; // Add min+1 to avoid negative
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = (score[i] + (1 - min)) * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    sum += (1 - min) * cardcount;     // Add min+1 to avoid negative
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = (score[i] + (1 - min)) * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
+  delete[] score;
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::IterScore_TextLength() {
-	float *score = new float[m_Document->m_Cards->Count];
-	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
+  float *score = new float[m_Document->m_Cards->Count];
+  memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// Score transfer
-	double sum = 0.0;
-	int cardcount = 0;
-	int min = 0;
-	// Card loop
-	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-		TCard *Card = m_Document->GetCardByIndex(i);
-		if (Card->m_bVisible) {
-			cardcount++;
-			score[i] = Card->m_Lines->Text.Length();
-			sum += score[i];
-		}
-	}
+  // Score transfer
+  double sum = 0.0;
+  int cardcount = 0;
+  int min = 0;
+  // Card loop
+  for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+    TCard *Card = m_Document->GetCardByIndex(i);
+    if (Card->m_bVisible) {
+      cardcount++;
+      score[i] = Card->m_Lines->Text.Length();
+      sum += score[i];
+    }
+  }
 
-	// Add forall and normalize
-	m_fMinScore = 10000000.0f;
-	m_fMaxScore = 0.0f;
-	if (cardcount) {
-		sum += (1 - min) * cardcount; // Add min+1 to avoid negative
-		float normcoef = cardcount / sum; // Normalize to avg 1 per card
-		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
-			TCard *Card = m_Document->GetCardByIndex(i);
-			if (Card->m_bVisible) {
-				float s = (score[i] + (1 - min)) * normcoef;
-				Card->m_fScore = s;
-				if (m_fMinScore > Card->m_fScore) {
-					m_fMinScore = Card->m_fScore;
-				}
-				if (m_fMaxScore < Card->m_fScore) {
-					m_fMaxScore = Card->m_fScore;
-				}
-			}
-		}
-	}
-	if (m_fMinScore > 0) {
-		m_fMinScore = log(m_fMinScore);
-	}
-	if (m_fMaxScore > 0) {
-		m_fMaxScore = log(m_fMaxScore);
-	}
+  // Add forall and normalize
+  m_fMinScore = 10000000.0f;
+  m_fMaxScore = 0.0f;
+  if (cardcount) {
+    sum += (1 - min) * cardcount;     // Add min+1 to avoid negative
+    float normcoef = cardcount / sum; // Normalize to avg 1 per card
+    for (int i = 0; i < m_Document->m_Cards->Count; i++) {
+      TCard *Card = m_Document->GetCardByIndex(i);
+      if (Card->m_bVisible) {
+        float s = (score[i] + (1 - min)) * normcoef;
+        Card->m_fScore = s;
+        if (m_fMinScore > Card->m_fScore) {
+          m_fMinScore = Card->m_fScore;
+        }
+        if (m_fMaxScore < Card->m_fScore) {
+          m_fMaxScore = Card->m_fScore;
+        }
+      }
+    }
+  }
+  if (m_fMinScore > 0) {
+    m_fMinScore = log(m_fMinScore);
+  }
+  if (m_fMaxScore > 0) {
+    m_fMaxScore = log(m_fMaxScore);
+  }
 
-	delete[]score;
+  delete[] score;
 }
 // ---------------------------------------------------------------------------
 

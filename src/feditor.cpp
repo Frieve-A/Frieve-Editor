@@ -19,29 +19,27 @@ USEFORM("forms\foprogress.cpp", Fo_Progress);
 USEFORM("forms\forandomcard.cpp", Fo_RandomCard);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int) {
-	try {
-		Application->Initialize();
-		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TFo_Main), &Fo_Main);
-		Application->CreateForm(__classid(TFo_FullScreen), &Fo_FullScreen);
-		Application->CreateForm(__classid(TFo_Progress), &Fo_Progress);
-		Application->CreateForm(__classid(TFo_RandomAnimation), &Fo_RandomAnimation);
-		Application->CreateForm(__classid(TFo_Search), &Fo_Search);
-		Application->CreateForm(__classid(TFo_Shape), &Fo_Shape);
-		Application->CreateForm(__classid(TFo_View), &Fo_View);
-		Application->Run();
-	}
-	catch (Exception &exception) {
-		Application->ShowException(&exception);
-	}
-	catch (...) {
-		try {
-			throw Exception("");
-		}
-		catch (Exception &exception) {
-			Application->ShowException(&exception);
-		}
-	}
-	return 0;
+  try {
+    Application->Initialize();
+    Application->MainFormOnTaskBar = true;
+    Application->CreateForm(__classid(TFo_Main), &Fo_Main);
+    Application->CreateForm(__classid(TFo_FullScreen), &Fo_FullScreen);
+    Application->CreateForm(__classid(TFo_Progress), &Fo_Progress);
+    Application->CreateForm(__classid(TFo_RandomAnimation),
+                            &Fo_RandomAnimation);
+    Application->CreateForm(__classid(TFo_Search), &Fo_Search);
+    Application->CreateForm(__classid(TFo_Shape), &Fo_Shape);
+    Application->CreateForm(__classid(TFo_View), &Fo_View);
+    Application->Run();
+  } catch (Exception &exception) {
+    Application->ShowException(&exception);
+  } catch (...) {
+    try {
+      throw Exception("");
+    } catch (Exception &exception) {
+      Application->ShowException(&exception);
+    }
+  }
+  return 0;
 }
 // ---------------------------------------------------------------------------

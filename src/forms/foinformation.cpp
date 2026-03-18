@@ -14,40 +14,39 @@ TFo_Information *Fo_Information;
 
 // ---------------------------------------------------------------------------
 void TFo_Information::ApplyLanguageSetting() {
-	if (!FileExists(LanguageFileName())) {
-		return;
-	}
-	TFastIni *Ini = new TFastIni(LanguageFileName());
+  if (!FileExists(LanguageFileName())) {
+    return;
+  }
+  TFastIni *Ini = new TFastIni(LanguageFileName());
 
-	Caption = Ini->ReadString("Information", "Caption", Caption);
-	Ch_DontCheckNew->Caption = Ini->ReadString("Information", "Ch_DontCheckNew",
-		Ch_DontCheckNew->Caption);
+  Caption = Ini->ReadString("Information", "Caption", Caption);
+  Ch_DontCheckNew->Caption = Ini->ReadString("Information", "Ch_DontCheckNew",
+                                             Ch_DontCheckNew->Caption);
 
-	delete Ini;
+  delete Ini;
 }
 
 // ---------------------------------------------------------------------
-__fastcall TFo_Information::TFo_Information(TComponent* Owner) : TForm(Owner) {
-}
+__fastcall TFo_Information::TFo_Information(TComponent *Owner) : TForm(Owner) {}
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Information::FormShow(TObject *Sender) {
-	ApplyLanguageSetting();
+  ApplyLanguageSetting();
 
-	WB->Align = alClient;
-	UnicodeString ws = ReleaseURL;
-	WB->Navigate(ws.c_str());
-	Ch_DontCheckNew->Checked = !SettingFile.m_bCheckNew;
+  WB->Align = alClient;
+  UnicodeString ws = ReleaseURL;
+  WB->Navigate(ws.c_str());
+  Ch_DontCheckNew->Checked = !SettingFile.m_bCheckNew;
 }
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Information::FormClose(TObject *Sender,
-	TCloseAction &Action) {
-	Action = caFree;
+                                           TCloseAction &Action) {
+  Action = caFree;
 }
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Information::Ch_DontCheckNewClick(TObject *Sender) {
-	SettingFile.m_bCheckNew = !Ch_DontCheckNew->Checked;
+  SettingFile.m_bCheckNew = !Ch_DontCheckNew->Checked;
 }
 // ---------------------------------------------------------------------------

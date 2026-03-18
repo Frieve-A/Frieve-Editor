@@ -5,9 +5,9 @@
 // ---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
-#include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <Grids.hpp>
+#include <StdCtrls.hpp>
 
 #include "document.h"
 #include <Dialogs.hpp>
@@ -16,44 +16,44 @@
 // ---------------------------------------------------------------------------
 class TFo_LabelEdit : public TForm {
 __published: // IDE-managed components
-	TButton *Bu_OK;
-	TStringGrid *SG_Labels;
-	TButton *Bu_Delete;
-	TColorDialog *CD;
-	TButton *Bu_New;
-	TTimer *Ti_Check;
+  TButton *Bu_OK;
+  TStringGrid *SG_Labels;
+  TButton *Bu_Delete;
+  TColorDialog *CD;
+  TButton *Bu_New;
+  TTimer *Ti_Check;
 
-	void __fastcall FormShow(TObject *Sender);
-	void __fastcall SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
-		TRect &Rect, TGridDrawState State);
-	void __fastcall SG_LabelsSelectCell(TObject *Sender, int ACol, int ARow,
-		bool &CanSelect);
-	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall SG_LabelsDblClick(TObject *Sender);
-	void __fastcall Bu_DeleteClick(TObject *Sender);
-	void __fastcall Bu_NewClick(TObject *Sender);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-	void __fastcall Ti_CheckTimer(TObject *Sender);
-	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+  void __fastcall FormShow(TObject *Sender);
+  void __fastcall SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
+                                    TRect &Rect, TGridDrawState State);
+  void __fastcall SG_LabelsSelectCell(TObject *Sender, int ACol, int ARow,
+                                      bool &CanSelect);
+  void __fastcall FormCreate(TObject *Sender);
+  void __fastcall SG_LabelsDblClick(TObject *Sender);
+  void __fastcall Bu_DeleteClick(TObject *Sender);
+  void __fastcall Bu_NewClick(TObject *Sender);
+  void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+  void __fastcall Ti_CheckTimer(TObject *Sender);
+  void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 
 private: // User declarations
-public: // User declarations
-	__fastcall TFo_LabelEdit(TComponent* Owner);
+public:  // User declarations
+  __fastcall TFo_LabelEdit(TComponent *Owner);
 
-	TDocument *m_Document;
-	TUndoRedo *m_UndoRedo;
-	bool m_bEdited;
-	int m_LType;
+  TDocument *m_Document;
+  TUndoRedo *m_UndoRedo;
+  bool m_bEdited;
+  int m_LType;
 
 private:
-	int m_nLastCol, m_nLastRow;
+  int m_nLastCol, m_nLastRow;
 
-	void Refresh();
-	void BackupSub();
+  void Refresh();
+  void BackupSub();
 
 public:
-	// Multi-language support
-	void ApplyLanguageSetting();
+  // Multi-language support
+  void ApplyLanguageSetting();
 };
 
 // ---------------------------------------------------------------------------
