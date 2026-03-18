@@ -10,15 +10,15 @@
 
 // ---------------------------------------------------------------------------
 class TFo_FullScreen : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TButton *Bu_Enter;
 	TButton *Bu_Dummy;
 
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall FormResize(TObject *Sender);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_FullScreen(TComponent* Owner);
 };
 

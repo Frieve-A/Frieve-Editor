@@ -11,13 +11,13 @@
 
 class TSettingView {
 public:
-	// 生成、破棄
+	// Constructor
 	TSettingView();
 	virtual ~TSettingView();
-	// 読み書き
+	// Read/write
 	void WriteToIni(TIniFile *Ini, UnicodeString Section);
 	void ReadFromIni(TIniFile *Ini, UnicodeString Section);
-	// 設定
+	// Members
 
 	// Font
 	TFont *m_Font;
@@ -33,7 +33,7 @@ public:
 	// Label
 	bool m_bLabelCircleVisible;
 	bool m_bLabelRectangleVisible;
-	bool m_bLavelCRFocusedOnTop; // フォーカスされた。普通は非使用。読み込み専用。
+	bool m_bLavelCRFocusedOnTop; // Focused label on top (circle/rect overlap)
 	bool m_bLabelFill;
 	bool m_bLabelNameVisible;
 
@@ -43,7 +43,7 @@ public:
 	int m_nCardDefaultShape;
 	int m_nCardDefaultSize;
 	bool m_bCardDefaultFixed;
-	bool m_bTickerVisible; // カードの一番下にTicker Marquee表示
+	bool m_bTickerVisible; // Show Ticker Marquee below card
 	int m_nTickerLines;
 	bool m_bCardShadow;
 	bool m_bCardHemming;
@@ -52,59 +52,59 @@ public:
 	bool m_bVideoVisible;
 	bool m_bDrawingVisible;
 	int m_nImageLimitation;
-	bool m_bMagnifyFocused; // フォーカスされたカードを拡大
+	bool m_bMagnifyFocused; // Magnify focused card
 
 	// Text
 	bool m_bTextVisible;
 	bool m_bTextCentering;
 	bool m_bTextWordWrap;
 
-	bool m_bEditInBrowser; // Browser上で本文編集
-	bool m_bEditInBrowserAlways; // Browser上で本文編集（常に）
-	int m_nEditInBrowserPos; // 編集位置。0=カードの下、1=ブラウザ右、2=ブラウザ下
-	int m_nEditorWidthInBrowser; // Browser上で編集する際のWidth
-	int m_nEditorHeightInBrowser; // Browser上で編集する際のHeight
+	bool m_bEditInBrowser; // Edit body in browser
+	bool m_bEditInBrowserAlways; // Always edit body in browser
+	int m_nEditInBrowserPos; // Edit position: 0=below card, 1=right of browser, 2=below browser
+	int m_nEditorWidthInBrowser; // Editor width when editing in browser
+	int m_nEditorHeightInBrowser; // Editor height when editing in browser
 
 	// Size Limitation
-	int m_nSizeLimitation; // サイズいくつ以上のカードを表示するか。デフォルトは100（標準サイズ以上で表示）
-	bool m_bSizeLimitation; // サイズ制限の有無。デフォルトはなし
+	int m_nSizeLimitation; // Max size of cards to display (100 = show all)
+	bool m_bSizeLimitation; // Size limitation on/off
 
 	// Link Limitation
-	int m_bLinkLimitation; // リンク制限ON･OFF
-	int m_nLinkLimitation; // 何リンク辿って表示するか。デフォルトは0（全表示）
-	bool m_bLinkDirection; // リンク方向の制限。デフォルトはなし
-	bool m_bLinkBackward; // 逆方向リンク制限
-	int m_nLinkTarget; // リンクターゲットカードのID
+	int m_bLinkLimitation; // Link limitation ON/OFF
+	int m_nLinkLimitation; // Max links to display (0 = show all)
+	bool m_bLinkDirection; // Link direction limitation
+	bool m_bLinkBackward; // Backward link limitation
+	int m_nLinkTarget; // Link target card ID
 
 	// Date Limitation
-	bool m_bDateLimitation; // 日付による表示制限ON/OFF
-	int m_nDateLimitation; // 日付による表示制限の大きさ（意味はDateLimitationTypeによる）
-	int m_DateLimitationType; // 日付による制限の種類（Old, New, Near, Older, Newer）
-	int m_DateLimitationDateType; // 日付の種類（Created, Edited, Viewed）
+	bool m_bDateLimitation; // Display limit by date ON/OFF
+	int m_nDateLimitation; // Date limit magnitude (see DateLimitationType)
+	int m_DateLimitationType; // Date limit type (Old, New, Near, Older, Newer)
+	int m_DateLimitationDateType; // Date type (Created, Edited, Viewed)
 
 	// CardVisible
 	bool m_bNoLabelVisible;
 	bool m_bNoLinkLabelVisible;
 
-	// アニメーション
-	bool m_bAnimationPaused; // ポーズ
+	// Animation
+	bool m_bAnimationPaused; // Paused
 
-	int m_nAnimationRCCards; // RandomCardで表示するカード数
-	int m_nAnimationRCSpeed; // RandomCardのアニメーション速度
+	int m_nAnimationRCCards; // Number of cards in RandomCard
+	int m_nAnimationRCSpeed; // RandomCard animation speed
 
-	// 背景アニメーション
+	// Background animation
 	bool m_bBGAnimation;
 	int m_nBGAnimationType;
 	bool m_bNoScrollLag;
 
 	// Score
-	bool m_bScore; // カードのスコア
+	bool m_bScore; // Card score
 	int m_ScoreType; // 0=Authenticity, 1=Starting Point, 2=Destination
 
 	// Read
-	bool m_bRead; // 読み上げ
-	int m_nReadSpeed; // 読み上げスピード
-	UnicodeString m_ReadAgentFile; // エージェント
+	bool m_bRead; // Read file
+	int m_nReadSpeed; // Read speed
+	UnicodeString m_ReadAgentFile; // Agent file
 
 	// Others
 	bool m_bCardList;
@@ -120,12 +120,12 @@ public:
 	bool m_bFixWallPaper;
 	bool m_bTileWallPaper;
 
-	bool m_bOverview; // 全体図
+	bool m_bOverview; // Overview
 
-	// 言語
+	// Language
 	UnicodeString m_Language;
 
-	// 画面配置
+	// Layout
 	int m_nFileListWidth;
 	int m_nCardListWidth;
 	int m_nLinkListHeight;
@@ -133,14 +133,14 @@ public:
 	int m_nEditorRelatedWidth;
 	int m_nGlobalSearchWidth;
 
-	// Statusバー
+	// Status bar
 	bool m_bStatusBar;
 
-	// メニューにないもの
-	bool m_bLoadImageatOnce; // サムネイルなどの画像を一度に全てロード
-	bool m_bRedrawInBackground; // バックグラウンド状態でも画面を更新
+	// Performance
+	bool m_bLoadImageatOnce; // Load all images at once
+	bool m_bRedrawInBackground; // Redraw in background thread
 
-	// 一時
+	// Coordinates
 	int m_nSpecialPaint;
 	UnicodeString m_SpecialCaption;
 private:
@@ -151,13 +151,13 @@ private:
 // ---------------------------------------------------------------------------
 class TSettingFile {
 public:
-	// 生成、破棄
+	// Constructor
 	TSettingFile();
 	virtual ~TSettingFile();
-	// 読み書き
+	// Read/write
 	void WriteToIni(TIniFile *Ini, UnicodeString Section);
 	void ReadFromIni(TIniFile *Ini, UnicodeString Section);
-	// 設定
+	// Members
 
 	bool m_bCheckNew;
 
@@ -166,11 +166,11 @@ public:
 
 	int m_nUndoTimes;
 
-	UnicodeString m_WebSearch; // デフォルトのWebSearchのKey
+	UnicodeString m_WebSearch; // WebSearch key
 
-	// プラグイン
+	// Plugin
 	UnicodeString m_PlugIn;
-	HINSTANCE m_hPlugIn; // プラグインハンドル（LoadLibrary）
+	HINSTANCE m_hPlugIn; // Plugin handle (LoadLibrary)
 
 	//GPT
     UnicodeString m_GPTAPIKey;
@@ -187,17 +187,17 @@ private:
 // ---------------------------------------------------------------------------
 class TSetting2Function {
 public:
-	// 生成、破棄
+	// Constructor
 	TSetting2Function();
 	virtual ~TSetting2Function();
-	// 読み書き
+	// Read/write
 	void WriteToIni(TIniFile *Ini);
 	void ReadFromIni(TIniFile *Ini);
-	// 設定
-	TStringList *m_WebSearch; // ネット検索設定
-	TStringList *m_GPT;//GPT設定
-    UnicodeString m_GPTModel;//GPTモデル
-    UnicodeString m_GPTSystemPrompt;//GPTシステムプロンプト
+	// Members
+	TStringList *m_WebSearch; // Web search settings
+	TStringList *m_GPT;//GPT settings
+    UnicodeString m_GPTModel;//GPT model
+    UnicodeString m_GPTSystemPrompt;//GPT system prompt
 private:
 	TSetting2Function(const TSetting2Function &source);
 	TSetting2Function& operator=(const TSetting2Function &source);
@@ -212,32 +212,32 @@ class TMLText {
 public:
 	TMLText();
 
-	UnicodeString Cards; // カード
-	UnicodeString Links; // リンク
-	UnicodeString Labels; // ラベル
-	UnicodeString Line; // 行
-	UnicodeString Len; // 文字
-	UnicodeString Size; // サイズ
-	UnicodeString Title; // 名前
-	UnicodeString Created; // 作成日時
-	UnicodeString Edited; // 編集日時
-	UnicodeString Viewed; // 閲覧日時
-	UnicodeString Hits; // 件
+	UnicodeString Cards; // Cards
+	UnicodeString Links; // Links
+	UnicodeString Labels; // Labels
+	UnicodeString Line; // Line
+	UnicodeString Len; // Characters
+	UnicodeString Size; // Size
+	UnicodeString Title; // Title
+	UnicodeString Created; // Created
+	UnicodeString Edited; // Edited
+	UnicodeString Viewed; // Viewed
+	UnicodeString Hits; // Hits
 
 	UnicodeString EditCardTitle;
 	UnicodeString EditCardText;
 	UnicodeString EditLinkTitle;
 	UnicodeString EditDrawing;
 
-	UnicodeString ChangeSize; // サイズの変更
-	UnicodeString FixCardPosition; // カード位置の固定
-	UnicodeString SetAsRootCard; // ルートカード指定
+	UnicodeString ChangeSize; // Change size
+	UnicodeString FixCardPosition; // Fix card position
+	UnicodeString SetAsRootCard; // Set as root card
 
-	UnicodeString EditLink; // リンクの編集
+	UnicodeString EditLink; // Edit link
 
-	UnicodeString AddLabel; // ラベルの追加
-	UnicodeString DeleteLabel; // ラベルの削除
-	UnicodeString ChangeLabel; // ラベルの変更
+	UnicodeString AddLabel; // Add label
+	UnicodeString DeleteLabel; // Delete label
+	UnicodeString ChangeLabel; // Change label
 	UnicodeString LabelName;
 	UnicodeString SelectLinkDestination;
 	UnicodeString SelectLabelOfDestination;
@@ -249,19 +249,19 @@ public:
 
 	UnicodeString ProcessingTextAnalysis;
 
-	UnicodeString Enable; // 有効
-	UnicodeString Fold; // 折畳
-	UnicodeString Show; // 表示
-	UnicodeString Hide; // 隠蔽
-	UnicodeString NoAssign; // 未指定
-	UnicodeString NoLabel; // ラベルなし
-	UnicodeString SelectTargetCard; // リンク先カードの選択
-	UnicodeString Old; // 古い順
-	UnicodeString New; // 新しい順
-	UnicodeString Near; // 近い順
-	UnicodeString Older; // より古い
-	UnicodeString Newer; // より新しい
-	UnicodeString SaveCheck; // データは変更されています。保存しますか？
+	UnicodeString Enable; // Enable
+	UnicodeString Fold; // Fold
+	UnicodeString Show; // Show
+	UnicodeString Hide; // Hide
+	UnicodeString NoAssign; // No assign
+	UnicodeString NoLabel; // No label
+	UnicodeString SelectTargetCard; // Select link target card
+	UnicodeString Old; // Old order
+	UnicodeString New; // New order
+	UnicodeString Near; // Near order
+	UnicodeString Older; // Older
+	UnicodeString Newer; // Newer
+	UnicodeString SaveCheck; // Document changed. Save?
 	UnicodeString FailedToSave;
 	UnicodeString NotFound;
 	UnicodeString AANotEnoughMemory;

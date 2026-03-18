@@ -84,7 +84,7 @@ HRESULT __stdcall TDSDecoder::BufferCB(double SampleTime, BYTE *pBuffer,
 		CBWAVE->CBWAVE(SampleTime, pBuffer, nBufferSize);
 	}
 	else {
-		// 現在表示されている映像を静止画として取得
+		// Get currently displayed video as still image
 		pSampleGrabber->GetCurrentBuffer(&nBufferSize, (long*)pBuffer);
 		void *DIBPtr = NULL;
 		HBITMAP BitmapHandle =
@@ -155,14 +155,14 @@ void TDSDecoder::SetPosition(double ms) {
 }
 
 void TDSDecoder::GetBMP(Graphics::TBitmap *BMP) {
-	// キャプチャ
-	// バッファを用意
+	// Capture
+	// Prepare buffer
 	long nBufferSize = am_media_type.lSampleSize;
 
 	if (nBufferSize > 0 && pSampleGrabber) {
 		void *pBuffer = new char[nBufferSize];
 
-		// 現在表示されている映像を静止画として取得
+		// Get currently displayed video as still image
 		pSampleGrabber->GetCurrentBuffer(&nBufferSize, (long *)pBuffer);
 		void *DIBPtr = NULL;
 		HBITMAP BitmapHandle =
@@ -206,9 +206,9 @@ __fastcall TDSDecoder::TDSDecoder(bool CreateSuspended)
 	: TThread(CreateSuspended), CBBMP(NULL), CBWAVE(NULL), m_bGrub(false),
 	m_bUnsync(false), m_bLoop(false), m_fLoopStartPos(0.0), m_fLoopEndPos(-1.0),
 
-	m_bExecuted(false), m_bPrepared(false), // 再生が準備されたか（フォーマットが取得できたか）
-	m_bWaitToPlay(false), // 再生を開始を待つ。Falseにした瞬間から再生開始
-	m_bFinished(false), // 再生が終わっているかどうか
+	m_bExecuted(false), m_bPrepared(false), // Whether playback is prepared (format obtained)
+	m_bWaitToPlay(false), // Wait before starting. Playback starts when set to false
+	m_bFinished(false), // Whether playback has finished
 
 	pGraphBuilder(NULL), pMediaControl(NULL), pMediaFilter(NULL),
 	pMediaSeeking(NULL), pSampleGrabber(NULL), pVideoInfoHeader(NULL),
@@ -217,14 +217,14 @@ __fastcall TDSDecoder::TDSDecoder(bool CreateSuspended)
 
 void __fastcall TDSDecoder::Execute() {
 	m_bExecuted = true;
-	// COMを初期化
+	// Initialize COM
 	CoInitialize(NULL);
 
-	// FilterGraphを生成
+	// Create FilterGraph
 	CoCreateInstance(CLSID_FilterGraph, NULL, CLSCTX_INPROC, IID_IGraphBuilder,
 		(LPVOID *)&pGraphBuilder);
 
-	// GraphBuilderの各種インターフェース取得
+	// Get GraphBuilder interfaces
 	if (pGraphBuilder) {
 		pGraphBuilder->QueryInterface(IID_IMediaControl,
 			(LPVOID *)&pMediaControl);
@@ -234,26 +234,26 @@ void __fastcall TDSDecoder::Execute() {
 			(LPVOID *)&pMediaSeeking);
 	}
 
-	// ソースを生成
+	// Create source
 	IBaseFilter *pSourceFilter = NULL;
 	if (pGraphBuilder) {
 		pGraphBuilder->AddSourceFilter(m_FN.c_str(), L"SourceFilter",
 			&pSourceFilter);
 	}
 
-	// SampleGrabber(Filter)を生成
+	// Create SampleGrabber (Filter)
 	IBaseFilter *pSampleGrabberFilter;
 	// AM_MEDIA_TYPE am_media_type;
 	CoCreateInstance(CLSID_SampleGrabber, NULL, CLSCTX_INPROC, IID_IBaseFilter,
 		(LPVOID *)&pSampleGrabberFilter);
 
-	// ISampleGrabberインターフェース取得
+	// Get ISampleGrabber interface
 	if (pSampleGrabberFilter) {
 		pSampleGrabberFilter->QueryInterface(IID_ISampleGrabber,
 			(LPVOID *)&pSampleGrabber);
 	}
 
-	// SampleGrabberのフォーマット
+	// SampleGrabber format
 	ZeroMemory(&am_media_type, sizeof(am_media_type));
 	if (CBWAVE) {
 		am_media_type.majortype = MEDIATYPE_Audio;
@@ -269,12 +269,12 @@ void __fastcall TDSDecoder::Execute() {
 		pSampleGrabber->SetMediaType(&am_media_type);
 	}
 
-	// GraphにSampleGrabber Filterを追加
+	// Add SampleGrabber Filter to graph
 	if (pGraphBuilder && pSampleGrabberFilter && m_bGrub) {
 		pGraphBuilder->AddFilter(pSampleGrabberFilter, L"Sample Grabber");
 	}
 
-	// NULL Renderer生成
+	// Create NULL Renderer
 	IBaseFilter *pFilter_NULLRenderer = NULL;
 	CoCreateInstance(CLSID_NullRenderer, NULL, CLSCTX_INPROC_SERVER,
 		IID_IBaseFilter, (LPVOID *)&pFilter_NULLRenderer);
@@ -282,10 +282,10 @@ void __fastcall TDSDecoder::Execute() {
 		pGraphBuilder->AddFilter(pFilter_NULLRenderer, L"Renderer");
 	}
 
-	// 接続
+	// Connect
 	if (pGraphBuilder) {
-		IPin *pPinOut; // = NULL;
-		IPin *pPinIn; // = NULL;
+		IPin *pPinOut;
+		IPin *pPinIn;
 
 		// Source->SampleGrabber
 		pPinOut = GetPin(pSourceFilter, PINDIR_OUTPUT);
@@ -293,7 +293,7 @@ void __fastcall TDSDecoder::Execute() {
 			pPinIn = GetPin(pSampleGrabberFilter, PINDIR_INPUT);
 			pGraphBuilder->Connect(pPinOut, pPinIn);
 
-			// SampleGrabber->NULLレンダラ
+			// SampleGrabber->NULL renderer
 			pPinOut = GetPin(pSampleGrabberFilter, PINDIR_OUTPUT);
 			pPinIn = GetPin(pFilter_NULLRenderer, PINDIR_INPUT);
 			pGraphBuilder->Connect(pPinOut, pPinIn);
@@ -303,7 +303,7 @@ void __fastcall TDSDecoder::Execute() {
 		}
 	}
 
-	// 再生
+	// Playback
 	if (pSampleGrabber) {
 		pSampleGrabber->GetConnectedMediaType(&am_media_type);
 		pVideoInfoHeader = (VIDEOINFOHEADER*)am_media_type.pbFormat;
@@ -320,12 +320,12 @@ void __fastcall TDSDecoder::Execute() {
 	}
 
 	m_bPrepared = true;
-	// m_bWaitToPlayがクリアされるのを待つ
+	// Wait for m_bWaitToPlay to clear
 	while (!Terminated && m_bWaitToPlay) {
 		Sleep(1);
 	}
 
-	// 再生開始
+	// Start playback
 	if (pMediaControl && !Terminated) {
 		if (m_fLoopStartPos > 0.0) {
 			SetPosition(m_fLoopStartPos);
@@ -334,7 +334,7 @@ void __fastcall TDSDecoder::Execute() {
 	}
 
 	while (!Terminated) {
-		// 再生終了待ち
+		// Wait for playback end
 		Sleep(1);
 
 		double len = GetLength();
@@ -356,7 +356,7 @@ void __fastcall TDSDecoder::Execute() {
 			m_fLoopStartPos && m_fLoopEndPos < pos + 1);
 	}
 
-	// 資源を解放
+	// Release resources
 	if (pMediaControl) {
 		pMediaControl->Stop();
 	}
@@ -385,14 +385,14 @@ void __fastcall TDSDecoder::Execute() {
 		pGraphBuilder->Release();
 	}
 
-	// COM終了
+	// Uninitialize COM
 	CoUninitialize();
 
-	// 状態初期化
+	// Reset state
 	m_bExecuted = false;
-	m_bPrepared = false; // 再生が準備されたか（フォーマットが取得できたか）
-	m_bWaitToPlay = false; // 再生を開始を待つ。Falseにした瞬間から再生開始
-	m_bFinished = false; // 再生が終わっているかどうか
+	m_bPrepared = false; // Whether playback is prepared (format obtained)
+	m_bWaitToPlay = false; // Wait before starting. Playback starts when set to false
+	m_bFinished = false; // Whether playback has finished
 
 	pGraphBuilder = NULL;
 	pMediaControl = NULL;

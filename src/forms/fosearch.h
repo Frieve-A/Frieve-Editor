@@ -11,7 +11,7 @@
 
 // ---------------------------------------------------------------------------
 class TFo_Search : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TLabel *La_Keyword;
 	TButton *Bu_FindNext;
 	TButton *Bu_Cancel;
@@ -45,22 +45,22 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall Co_KeywordChange(TObject *Sender);
 	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_Search(TComponent* Owner);
-	// 多言語対応
+	// Multi-language support
 	void ApplyLanguageSetting();
 
-	int bReplace; // 置換モード
+	int bReplace; // Replace mode
 };
 
 // ---------------------------------------------------------------------------
 extern PACKAGE TFo_Search *Fo_Search;
-extern WideString SearchKeyword; // 検索キーワード
-extern WideString ReplaceKeyword; // 置換先キーワード
+extern WideString SearchKeyword; // Search keyword
+extern WideString ReplaceKeyword; // Replace keyword
 extern int bSearchRequest;
-// 検索要求。0x1=CardTitle, 0x2=Text, 0x8=検索ダイアログから検索、0x4 ブラウザのFindボタンから検索,0x40 Global Search, 0x80 backward, 0x100 置換
+// Search request: 0x1=CardTitle, 0x2=Text, 0x8=from search dialog, 0x4=from browser Find button, 0x40=Global Search, 0x80=backward, 0x100=replace
 extern int bLastSearchRequest;
-// 検索要求。0x1=CardTitle, 0x2=Text, 0x8=検索ダイアログから検索、0x4 ブラウザのFindボタンから検索,0x40 Global Search
+// Search request: 0x1=CardTitle, 0x2=Text, 0x8=from search dialog, 0x4=from browser Find button, 0x40=Global Search
 // ---------------------------------------------------------------------------
 #endif

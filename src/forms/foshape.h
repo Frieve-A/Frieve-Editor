@@ -11,7 +11,7 @@
 
 // ---------------------------------------------------------------------------
 class TFo_Shape : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TPanel *Pa;
 	TPaintBox *PB;
 
@@ -25,14 +25,14 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall PBMouseDown(TObject *Sender, TMouseButton Button,
 		TShiftState Shift, int X, int Y);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_Shape(TComponent* Owner);
 
 	TImageList *IL_Shape;
-	int m_nMode; // 0～3で、カード、リンク、全カード、全リンク
+	int m_nMode; // 0-3: card, link, all cards, all links
 	int m_nItemIndex;
-	bool m_bIgnoreChange; // 表示した瞬間Indexが変わるのを防ぐため
+	bool m_bIgnoreChange; // Prevent index change at display moment
 	bool m_bSelected;
 };
 

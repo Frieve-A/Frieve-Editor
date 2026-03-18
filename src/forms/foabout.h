@@ -28,7 +28,7 @@ __published:
 private:
 public:
 	virtual __fastcall TFo_About(TComponent* AOwner);
-	// 多言語対応
+	// Multi-language support
 	void ApplyLanguageSetting();
 };
 

@@ -34,7 +34,7 @@ __fastcall TDrawingItem::~TDrawingItem() {
 // ---------------------------------------------------------------------------
 TDrawingItem::TDrawingItem(UnicodeString S) : TList(), m_bSelected(true),
 	m_bExist(true) {
-	// 文字列からデコード
+	// Decode from string
 	m_nType = StrToIntDef(UnicodeString("0x") + S.SubString(1, 8), 0);
 	m_nPenColor = (TColor)StrToIntDef
 		(UnicodeString("0x") + S.SubString(9, 8), 0);
@@ -56,7 +56,7 @@ TDrawingItem::TDrawingItem(UnicodeString S) : TList(), m_bSelected(true),
 
 // ---------------------------------------------------------------------------
 UnicodeString TDrawingItem::Encode() {
-	// 文字列で記述
+	// Encode to string
 	UnicodeString result;
 
 	result += IntToHex(m_nType, 8) + IntToHex(m_nPenColor, 8) +
@@ -86,12 +86,12 @@ void TDrawingItem::FinishFreeHandRect() {
 		int iy = (int)Items[i * 2 + 1];
 		float y = *(float*)&iy;
 		if (i == 0) {
-			// 最初の1回
+			// First time
 			m_Rect[0] = m_Rect[2] = x;
 			m_Rect[1] = m_Rect[3] = y;
 		}
 		else {
-			// 矩形を更新
+			// Update rect
 			if (m_Rect[0] > x) {
 				m_Rect[0] = x;
 			}
@@ -107,7 +107,7 @@ void TDrawingItem::FinishFreeHandRect() {
 		}
 	}
 
-	// 正規化
+	// Normalize
 	float w = m_Rect[2] - m_Rect[0];
 	float h = m_Rect[3] - m_Rect[1];
 	if (w == 0.0f) {
@@ -138,7 +138,7 @@ void TDrawingItem::SetType(int nType) {
 
 // ---------------------------------------------------------------------------
 bool TDrawingItem::MouseDown(float x, float y) {
-	bool result = false; // 編集されていない
+	bool result = false; // Not edited
 
 	switch (m_nType) {
 	case 1: // FreeHand
@@ -156,7 +156,7 @@ bool TDrawingItem::MouseDown(float x, float y) {
 
 // ---------------------------------------------------------------------------
 bool TDrawingItem::MouseMove(float x, float y) {
-	bool result = false; // 編集されていない
+	bool result = false; // Not edited
 
 	switch (m_nType) {
 	case 1: // FreeHand
@@ -175,7 +175,7 @@ bool TDrawingItem::MouseMove(float x, float y) {
 
 // ---------------------------------------------------------------------------
 bool TDrawingItem::MouseUp(float x, float y) {
-	bool result = false; // 編集されていない
+	bool result = false; // Not edited
 
 	switch (m_nType) {
 	case 1: // FreeHand
@@ -208,17 +208,17 @@ float LineToPoint(float x0, float y0, float x1, float y1, float px, float py) {
 }
 
 int TDrawingItem::CheckDrag(float x, float y, int size) {
-	// ドラッグ開始可能かを調べる。ドラッグの種類を返す
+	// Check if drag can start. Returns drag type
 
 	m_fDragStartX = x;
 	m_fDragStartY = y;
 	memcpy(m_DragRect, m_Rect, sizeof(m_Rect));
 
-	// 実座標へ変換
+	// Convert to screen coords
 	int rx = x * size;
 	int ry = y * size;
 
-	// 4隅
+	// Four corners
 	for (int i = 0; i < 4; i++) {
 		if (m_nType != 2 || i == 0 || i == 3) {
 			if (rx >= size * m_Rect[(i % 2) * 2] - 4 && ry >=
@@ -231,7 +231,7 @@ int TDrawingItem::CheckDrag(float x, float y, int size) {
 		}
 	}
 
-	// 平行移動
+	// Translation
 	switch (m_nType) {
 	case 1: // FreeHand
 		{
@@ -285,7 +285,7 @@ int TDrawingItem::CheckDrag(float x, float y, int size) {
 		{
 			if (m_Rect[3] - m_Rect[1] == 0.0f || m_Rect[2] - m_Rect[0] == 0.0f)
 			{
-				// 円が線状である場合
+				// Ellipse is line-like
 				if (LineToPoint(size * m_Rect[0], size * m_Rect[1],
 					size * m_Rect[2], size * m_Rect[3], rx, ry) <= 4) {
 					return 0x01;
@@ -294,27 +294,27 @@ int TDrawingItem::CheckDrag(float x, float y, int size) {
 			else {
 				double xx =
 					(m_Rect[3] - m_Rect[1]) / (m_Rect[2] - m_Rect[0]);
-				// 楕円を円にするためのXにかける係数
-				double cx = (m_Rect[2] + m_Rect[0]) * 0.5 * xx; // 円にした場合のX座標中心
-				double cy = (m_Rect[3] + m_Rect[1]) * 0.5; // Y座標中心
-				double dx = x * xx; // 円にした場合のカーソル位置
+				// X scale factor to make ellipse circular
+				double cx = (m_Rect[2] + m_Rect[0]) * 0.5 * xx; // Circle center X
+				double cy = (m_Rect[3] + m_Rect[1]) * 0.5; // Circle center Y
+				double dx = x * xx; // Cursor position as circle
 				double dist =
 					sqrt((dx - cx) * (dx - cx) + (y - cy) * (y - cy));
-				// 円にした場合の中心とカーソルの距離
-				double r = fabs(m_Rect[3] - m_Rect[1]) * 0.5; // 円にした場合の半径
-				double rd = r / dist; // 中心からカーソル位置にrdだけ近づけた点が円周上の点
-				double ccx = (cx * (1.0 - rd) + dx * rd) / xx; // 円周上のX
-				double ccy = cy * (1.0 - rd) + y * rd; // 円周上のY
+				// Distance from center to cursor
+				double r = fabs(m_Rect[3] - m_Rect[1]) * 0.5; // Circle radius
+				double rd = r / dist; // Point on circumference at rd from center toward cursor
+				double ccx = (cx * (1.0 - rd) + dx * rd) / xx; // Circumference X
+				double ccy = cy * (1.0 - rd) + y * rd; // Circumference Y
 				if (sqrt((x - ccx) * (x - ccx) * size * size +
 					(y - ccy) * (y - ccy) * size * size) <= 6) {
-					// 円周上の点からカーソル位置までの距離が小さければドラッグ
+					// Drag if cursor close to circumference
 					return 0x01;
 				}
 			}
 		} break;
 	}
 
-	return 0; // ドラッグ不能
+	return 0; // Cannot drag
 }
 
 // ---------------------------------------------------------------------------
@@ -322,7 +322,7 @@ bool TDrawingItem::Drag(float x, float y, int dragmode) {
 	bool result = false;
 
 	if (dragmode == 0x01) {
-		// 並行移動
+		// Translation
 		m_Rect[0] = m_DragRect[0] + x - m_fDragStartX;
 		m_Rect[2] = m_DragRect[2] + x - m_fDragStartX;
 		m_Rect[1] = m_DragRect[1] + y - m_fDragStartY;
@@ -330,7 +330,7 @@ bool TDrawingItem::Drag(float x, float y, int dragmode) {
 		result = true;
 	}
 	else if (dragmode >= 0x10 && dragmode < 0x14) {
-		// 4隅のドラッグ
+		// Corner drag
 		m_Rect[((dragmode & 0x3) % 2) * 2] = x;
 		m_Rect[((dragmode & 0x3) / 2) * 2 + 1] = y;
 		result = true;
@@ -342,7 +342,7 @@ bool TDrawingItem::Drag(float x, float y, int dragmode) {
 // ---------------------------------------------------------------------------
 void TDrawingItem::Draw(TCanvas *C, TRect &R) {
 	if (!m_bExist) {
-		// 描画に十分な情報がまだない
+		// Not enough info to draw yet
 		return;
 	}
 
@@ -381,7 +381,7 @@ void TDrawingItem::Draw(TCanvas *C, TRect &R) {
 	}
 
 	switch (m_nType) {
-	case 0: // 選択
+	case 0: // Select
 		P->Width = 1;
 		P->Style = psDot;
 		P->Color = TColor(0xffffff);
@@ -415,7 +415,7 @@ void TDrawingItem::Draw(TCanvas *C, TRect &R) {
 			 }
 			 }
 
-			 //TPoint用意
+			 // Prepare TPoint
 			 float w2 = m_Rect[2] - m_Rect[0];
 			 float h2 = m_Rect[3] - m_Rect[1];
 			 if (w2 >= 0.0f && h2 >= 0.0f && xmin != xmax && ymin != ymax){
@@ -441,7 +441,7 @@ void TDrawingItem::Draw(TCanvas *C, TRect &R) {
 			 delete[] p;
 			 }
 			 */
-			// TPoint用意
+			// Prepare TPoint
 			float w2 = m_Rect[2] - m_Rect[0];
 			float h2 = m_Rect[3] - m_Rect[1];
 			if (w2 == 0.0f) {
@@ -489,7 +489,7 @@ void TDrawingItem::Draw(TCanvas *C, TRect &R) {
 	P->Color = pcbak;
 	B->Color = bcbak;
 
-	// 選択矩形を表示
+	// Draw selection rect
 	if (m_bSelected) {
 		P->Style = psSolid;
 		P->Width = 1;
@@ -508,7 +508,7 @@ void TDrawingItem::Draw(TCanvas *C, TRect &R) {
 
 // ---------------------------------------------------------------------------
 int TDrawingItem::SetPenColor(TColor C) {
-	// 色を変更。変更できたらtrueを返す
+	// Change color. Returns true on success
 	switch (m_nType) {
 	case 1:
 	case 2:
@@ -558,7 +558,7 @@ TDrawing::TDrawing(TDrawing &Source) : TList(), m_nTool(0), m_TmpItem(NULL),
 TDrawing::TDrawing(UnicodeString S) : TList(), m_nTool(0), m_TmpItem(NULL),
 	m_nDragMode(0), m_nDragIndex(0), m_bDrawRequest(true), m_bModified(false),
 	m_nPenColor(TColor(0x7fffffff)), m_nBrushColor(TColor(-1)) {
-	// 文字列からデコード
+	// Decode from string
 	int count = StrToIntDef(UnicodeString("0x") + S.SubString(1, 8), 0);
 	int pos = 9;
 	for (int i = 0; i < count; i++) {
@@ -571,12 +571,12 @@ TDrawing::TDrawing(UnicodeString S) : TList(), m_nTool(0), m_TmpItem(NULL),
 
 // ---------------------------------------------------------------------------
 UnicodeString TDrawing::Encode(bool bAll) {
-	// 文字列で記述
+	// Encode to string
 	UnicodeString result;
 	int count = 0;
 	for (int i = 0; i < Count; i++) {
 		if (bAll || DItem(i)->m_bSelected) {
-			// エンコード対象のアイテム
+			// Item to encode
 			UnicodeString S = DItem(i)->Encode();
 			result += IntToHex(S.Length(), 8) + S;
 			count++;
@@ -618,18 +618,18 @@ void TDrawing::MouseDown(float x, float y, int size, TShiftState Shift) {
 	FreeTmpItem();
 
 	if (m_nTool == 0 && !Shift.Contains(ssShift)) {
-		// 選択操作
+		// Selection operation
 
-		// ドラッグ開始判定
-		// 前面から順にループ
+		// Check drag start
+		// Loop from front to back
 		for (int i = Count - 1; i >= 0; i--) {
-			// 一度全てのアイテムに対して呼ぶ（m_DragRectを初期化するため。美しくない）
+			// Call for all items once (to init m_DragRect)
 			DItem(i)->CheckDrag(x, y, size);
 		}
 		for (int i = Count - 1; i >= 0; i--) {
 			m_nDragMode = DItem(i)->CheckDrag(x, y, size);
 			if (m_nDragMode) {
-				// ドラッグが開始された
+				// Drag started
 				if (!Shift.Contains(ssCtrl)) {
 					if (!DItem(i)->m_bSelected) {
 						ClearSelection();
@@ -637,7 +637,7 @@ void TDrawing::MouseDown(float x, float y, int size, TShiftState Shift) {
 					}
 				}
 				else {
-					// Ctrlを押しながら
+					// While holding Ctrl
 					DItem(i)->m_bSelected = !DItem(i)->m_bSelected;
 				}
 				m_nDragIndex = i;
@@ -645,7 +645,7 @@ void TDrawing::MouseDown(float x, float y, int size, TShiftState Shift) {
 			}
 		}
 		if (m_nDragMode) {
-			// ドラッグが開始された
+			// Drag started
 			m_bDrawRequest = true;
 			m_fDragX = x;
 			m_fDragY = y;
@@ -663,7 +663,7 @@ void TDrawing::MouseDown(float x, float y, int size, TShiftState Shift) {
 	m_TmpItem->MouseDown(x, y);
 	/*
 	 if (m_nTool == 0){
-	 //選択操作
+	 // Selection operation
 	 }else{
 	 ClearSelection();
 	 m_TmpItem = new TDrawingItem();
@@ -694,7 +694,7 @@ void TDrawing::MouseMove(float x, float y) {
 	}
 	/*
 	 if (m_nTool == 0){
-	 //選択操作
+	 // Selection operation
 	 }else{
 	 if (m_TmpItem){
 	 m_TmpItem->MouseMove(x, y);
@@ -708,7 +708,7 @@ void TDrawing::MouseUp(float x, float y) {
 	m_nDragMode = 0;
 	if (m_TmpItem) {
 		if (m_nTool == 0) {
-			// 選択操作
+			// Selection operation
 			if (m_TmpItem->m_bExist) {
 				SelectRect(m_TmpItem->m_Rect[0], m_TmpItem->m_Rect[1],
 					m_TmpItem->m_Rect[2], m_TmpItem->m_Rect[3]);
@@ -718,7 +718,7 @@ void TDrawing::MouseUp(float x, float y) {
 			m_TmpItem->MouseUp(x, y);
 
 			if (m_TmpItem->m_bExist) {
-				// 新規アイテム追加
+				// Add new item
 				m_TmpItem->m_bSelected = true;
 				Add(m_TmpItem);
 				m_bModified = true;
@@ -813,9 +813,9 @@ void TDrawing::Paste() {
 	for (int i = 0; i < Source->Count; i++) {
 		TDrawingItem *Item = Source->DItem(i);
 
-		// 座標更新
+		// Update coord
 		bool found = true;
-		while (found) { // 同じ座標のオブジェクトがある間ループ
+		while (found) { // Loop while objects at same coord exist
 			found = false;
 			for (int i2 = 0; i2 < existingnum; i2++) {
 				TDrawingItem *Item2 = DItem(i2);

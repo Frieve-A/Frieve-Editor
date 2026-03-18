@@ -10,35 +10,35 @@
 // ---------------------------------------------------------------------------
 class TCardLabel {
 public:
-	// データ
+	// Label
 	UnicodeString m_Name;
 	int m_nColor;
 
-	int m_nSize; // サイズ
+	int m_nSize; // Size
 
-	// ネット共有されないデータ（追加の際は、Document->SoftLoadを修正する必要あり）
-	int m_bEnable; // 有効
-	int m_bShow; // 表示する
-	int m_bHide; // 隠す
-	int m_bFold; // 畳む
-	// 一時
-	float m_fX, m_fY; // ラベルの中心座標
-	int m_bFixed; // 中心座標固定
+	// Update Document->SoftLoad when adding fields
+	int m_bEnable; // Enable
+	int m_bShow; // Show
+	int m_bHide; // Hide
+	int m_bFold; // Fold
+	// Coordinates
+	float m_fX, m_fY; // Label position
+	int m_bFixed; // Position fixed
 
-	double m_fTouched; // 最後に触った日時
-	int m_nTouchedOrder; // 触った順序
+	double m_fTouched; // Last touched datetime
+	int m_nTouchedOrder; // Touch order
 
-	// 作成、破棄
+	// Constructor
 	TCardLabel();
 	TCardLabel(UnicodeString S);
 	void InitLabel();
 	// TCardLabel(TCardLabel &Label);
 	virtual ~TCardLabel();
-	// 読み書き
+	// Read/write
 	void Decode(UnicodeString S);
-	void Decode_006(UnicodeString S); // 下位互換前
-	void Decode_003(UnicodeString S); // Enabled追加前
-	void Decode_002(UnicodeString S); // Size追加前
+	void Decode_006(UnicodeString S); // Before backward compatibility
+	void Decode_003(UnicodeString S); // Before Enabled addition
+	void Decode_002(UnicodeString S); // Before Size addition
 	void Decode_001(UnicodeString S);
 	void Decode_Old(UnicodeString S);
 	UnicodeString Encode();
@@ -47,14 +47,13 @@ public:
 // ---------------------------------------------------------------------------
 class TLabelList : public TList {
 public:
-	// 通常アクセス
+	// Accessors
 	int GetLabel(int index);
 	void SetLabel(int index, int labelid);
 	void AddLabel(int labelid);
 	void DeleteLabel(int labelid);
 	bool Contain(int labelid);
-	// bool IsSame(TLabelList *Labels);    //Labelのパラメータも見る必要が出てきたため、未使用
-	// 読み書き
+	// Read/write
 	UnicodeString Encode();
 	void Decode(UnicodeString S);
 };

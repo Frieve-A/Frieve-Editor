@@ -25,8 +25,8 @@ public:
 	float &S(int source, int target);
 
 	void FreeIDValue();
-	void Finalize(); // ソートされたIDとIndexのデータを作る
-	int SearchIndex(int ID); // IDのIndexを検索
+	void Finalize(); // Build sorted ID-to-Index mapping
+	int SearchIndex(int ID); // Search Index by ID
 private:
 	TDMatrix(const TDMatrix &source);
 	TDMatrix& operator=(const TDMatrix &source);
@@ -38,61 +38,61 @@ typedef int __fastcall(*TFListSortCompare)(void * Item1, void * Item2);
 // ---------------------------------------------------------------------------
 class TFList {
 private:
-	// ポインタリスト
+	// Pointer list
 	void **m_Data;
 
-	// ポインタの数
+	// Count
 	int m_nCount;
 
-	// ポインタリストのサイズ（数単位）
+	// Buffer size (power of 2)
 	int m_nSize;
 
 public:
-	// コンストラクタ
+	// Constructor
 	TFList();
 
-	// デストラクタ
+	// Destructor
 	virtual __fastcall ~TFList();
 
 private:
-	// ポインタリストを倍にする
+	// Double buffer size
 	void Twice();
 
-	// ポインタリストを半分にする
+	// Halve buffer size
 	void Half();
 
-	// クイックソート
+	// Quick sort
 	void QuickSort(TFListSortCompare CompFunc, int nLeft, int nRight);
 
 public:
-	// 追加
+	// Add
 	inline void *Add(void *p);
 
-	// 変更
+	// Change
 	void *Set(int nIndex, void *p);
 
-	// 挿入
+	// Insert
 	void *Insert(int nIndex, void *p);
 
-	// 数を得る
+	// Get count
 	inline int FCount();
 	__property int Count = {read = FCount};
 
-	// 削除
+	// Delete
 	void Delete(int nindex);
 
-	// 参照
+	// Access
 	inline void *FItems(int nindex);
 	inline void FWrite(int nindex, void *P);
 	__property void *Items[int nindex] = {read = FItems, write = FWrite};
 
-	// 全削除
+	// Clear all
 	void Clear();
 
-	// ソート
+	// Sort
 	void Sort(TFListSortCompare CompFunc);
 
-	// シャッフル
+	// Shuffle
 	void Shuffle();
 };
 // ---------------------------------------------------------------------------
@@ -100,25 +100,25 @@ public:
 
 class TWideStringList : public TFListforTP {
 public:
-	// 生成、破棄
+	// Destructor
 	virtual _fastcall ~TWideStringList();
-	// 追加
+	// Add
 	void Add(WideString S);
 	inline void AddA(WideString &S);
 	inline void AddP(WideString *S);
 
-	// 削除
+	// Delete
 	void Delete(int nindex);
 	inline void SetNULL(int nindex);
 
-	// クリア
+	// Clear
 	void _fastcall Clear();
 
-	// 参照
+	// Access
 	WideString &Strings(int nindex);
 	inline WideString *StringsP(int nindex);
 
-	// 昇順ソート
+	// Ascending sort
 	void Sort();
 };
 
@@ -128,28 +128,28 @@ typedef struct WSandValue_ {
 	int Value;
 	bool Enabled;
 
-	int From; // 対応する上位単語の開始Index。対応するものが無い場合は-1
-	int To; // 対応する上位単語の終了Index
+	int From; // Index of shorter n-gram that maps to this; -1 if none
+	int To; // Index of longer n-gram that maps to this
 
-	int SN; // シリアルナンバー
+	int SN; // Serial number
 } WSandValue;
 
 class TWSandValueList : public TFListforTP {
 public:
-	// 生成、破棄
+	// Destructor
 	virtual _fastcall ~TWSandValueList();
-	// 追加
+	// Add
 	void Add(WideString S);
 	inline void AddA(WideString &S);
 	inline void AddP(WideString *S);
 
-	// 削除
+	// Delete
 	void Delete(int nindex);
 
-	// クリア
+	// Clear
 	void _fastcall Clear();
 
-	// 参照
+	// Access
 	WideString &Strings(int nindex);
 	int &Values(int nindex);
 	bool &Enabled(int nindex);
@@ -157,10 +157,10 @@ public:
 	int &To(int nindex);
 	int &SN(int nindex);
 
-	// 昇順ソート
+	// Ascending sort
 	void Sort();
-	void Sort2(); // 2文字目以降でソート
-	void SortValue(); // 値でソート
+	void Sort2(); // Sort by 2nd character onward
+	void SortValue(); // Sort by value
 
 	int Search(int from, int to, WideString &Key);
 };
@@ -169,12 +169,12 @@ public:
 class TTextDecomposer {
 public:
 	int m_nMaxCombi; // N
-	int m_nMaxSN; // 最大シリアル番号(0～m_nMaxSN-1）のシリアルがついている
-	TWSandValueList **m_Gram; // 1~Nグラムの単語リストと出現回数
+	int m_nMaxSN; // Max serial number (0 to m_nMaxSN-1)
+	TWSandValueList **m_Gram; // 1~N-gram storage
 
 	// maxcombi=N-gram
-	// maxcount=最大頻度。maxcountより何度も出てくる単語は使わない（句読点など意味のない文字の可能性があるため）
-	// pgmin、pgmax=プログレスバーの最大、最小値。表示しないなら両方ゼロ。pgposに現在の進捗位置が入る
+	// maxcount=Max occurrence count; if exceeded, combination is disabled
+	// pgmin, pgmax=Progress range; pgpos=current progress
 	TTextDecomposer(TWideStringList *SL, int maxcombi, int maxcount,
 		float pgmin, float pgmax, float &pgpos, bool &terminated,
 		int option = 0x0);
@@ -195,10 +195,10 @@ typedef struct SMatrixItem_ {
 // ---------------------------------------------------------------------------
 class TSMatrix {
 public:
-	TFListforTP *m_Items; // 各要素（ItemsはSMatrixItem）
+	TFListforTP *m_Items; // Items are SMatrixItem
 	TFListforTP *m_Rows, *m_Cols;
-	// 行、列でアクセス用（それぞれItemsはTList）。そのリストのItemがSMatrixItem
-	float *RowNorm, *ColNorm; // 行毎、列毎のノルム
+	// Rows/Cols are TList of Item pointers
+	float *RowNorm, *ColNorm; // Row/column norm
 
 	TSMatrix();
 	virtual ~TSMatrix();
@@ -208,7 +208,7 @@ public:
 	}
 	void Add(int col, int row, float value);
 	void Finalize(bool bAdd, float *pgpos = NULL, bool *terminated = NULL,
-		float pgstep = 0.0f); // 重複項目削除、m_Rows, m_Colsソート
+		float pgstep = 0.0f); // Sort m_Rows, m_Cols; remove duplicates
 
 	inline TFListforTP *ColList(int col) {
 		return (TFListforTP*)m_Cols->Items[col];
@@ -226,16 +226,16 @@ public:
 		return *(SMatrixItem*)((TFListforTP*)m_Rows->Items[row])->Items[idx];
 	}
 
-	void DeleteSameCol(bool bAdd); // 同じところに値が入っているColを削除（ただしColのIndexは変わらない）
+	void DeleteSameCol(bool bAdd); // Remove duplicate Cols (Col Index unchanged)
 
-	void PrepareCosCol(); // ノルムを事前計算
-	void PrepareCosRow(); // ノルムを事前計算
-	float CosCol(int col1, int col2); // 2つの列のCos距離
-	float CosRow(int row1, int row2); // 2つの行のCos距離
+	void PrepareCosCol(); // Precompute column norm
+	void PrepareCosRow(); // Precompute row norm
+	float CosCol(int col1, int col2); // Cosine similarity of 2 columns
+	float CosRow(int row1, int row2); // Cosine similarity of 2 rows
 
 	void MergeCol(int block, float threshold, int target);
 
-	void Dummy(); // inlineが削除される問題逃れ
+	void Dummy(); // Prevent inline expansion
 private:
 	TSMatrix(const TSMatrix &source);
 	TSMatrix& operator=(const TSMatrix &source);

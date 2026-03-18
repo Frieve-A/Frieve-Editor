@@ -10,38 +10,38 @@ class TDrawingItem : public TList {
 public:
 	TDrawingItem();
 	TDrawingItem(TDrawingItem &Source);
-	TDrawingItem(UnicodeString S); // 文字列からデコード
+	TDrawingItem(UnicodeString S); // Decode from string
 	__fastcall virtual ~TDrawingItem();
 
-	UnicodeString Encode(); // 文字列で記述
+	UnicodeString Encode(); // Encode to string
 
 private:
 	void UpdateFreeHandRect(float x, float y);
 	void FinishFreeHandRect();
 
-	float m_fDragStartX, m_fDragStartY; // ドラッグ開始座標
-	float m_DragRect[4]; // 描画座標。ドラッグ時一時的に使う
+	float m_fDragStartX, m_fDragStartY; // Drag start coordinates
+	float m_DragRect[4]; // Drawing coords, used temporarily during drag
 
 public:
-	int m_nType; // 要素のタイプ。1=フリーハンド、2=直線、3=正方形、4=円、5=テキスト
-	TColor m_nPenColor; // 線の色。0x7fffffffでFGColor、-1で色なし
-	TColor m_nBrushColor; // ブラシの色
-	float m_Rect[4]; // 描画座標。フリーハンドの場合は要素の含まれる矩形。直線は始点と終点。テキストは左上座標
+	int m_nType; // Element type: 1=FreeHand, 2=Line, 3=Rect, 4=Circle, 5=Text
+	TColor m_nPenColor; // Line color. 0x7fffffff=FGColor, -1=none
+	TColor m_nBrushColor; // Brush color
+	float m_Rect[4]; // Drawing coords. FreeHand: bounding rect. Line: start/end. Text: top-left
 
-	bool m_bSelected; // 選択されているか
-	bool m_bExist; // 表示できる状況にあるか
+	bool m_bSelected; // Selected
+	bool m_bExist; // Visible/displayable
 
 	void SetType(int nType);
-	bool MouseDown(float x, float y); // 帰り値は編集されたかどうか
+	bool MouseDown(float x, float y); // Returns true if edited
 	bool MouseMove(float x, float y);
 	bool MouseUp(float x, float y);
 
-	int CheckDrag(float x, float y, int size); // ドラッグ開始可能かを調べる
+	int CheckDrag(float x, float y, int size); // Check if drag can start
 	bool Drag(float x, float y, int dragmode);
 
 	void Draw(TCanvas *C, TRect &R);
 
-	int SetPenColor(TColor C); // 色を変更。変更できたらtrueを返す
+	int SetPenColor(TColor C); // Change color. Returns true on success
 	int SetBrushColor(TColor C);
 };
 
@@ -49,12 +49,12 @@ public:
 class TDrawing : public TList {
 public:
 	TDrawing();
-	TDrawing(TDrawing &Source); // コピーコンストラクタ
-	TDrawing(UnicodeString S); // 文字列からデコード
+	TDrawing(TDrawing &Source); // Copy constructor
+	TDrawing(UnicodeString S); // Decode from string
 	__fastcall virtual ~TDrawing();
 
 	UnicodeString Encode(bool bAll = false);
-	// 文字列で記述。bAll=falseで選択されているアイテムのみ。bAll=trueですべて
+	// Encode to string. bAll=false: selected only. bAll=true: all items
 
 private:
 	TDrawingItem *m_TmpItem;
@@ -63,15 +63,15 @@ private:
 	TDrawingItem *DItem(int index);
 
 public:
-	int m_nTool; // 現在のツール。0=選択、1=フリーハンド、2=直線、3=正方形、4=円、5=テキスト
+	int m_nTool; // Current tool: 0=Select, 1=FreeHand, 2=Line, 3=Rect, 4=Circle, 5=Text
 	bool m_bDrawRequest;
-	int m_nDragMode; // 0x10～0x13=端っこのドラッグ、0x20=移動
-	int m_nDragIndex; // 端っこをドラッグ中のItemのIndex
-	float m_fDragX, m_fDragY; // ドラッグ開始座標
-	TColor m_nPenColor; // 線の色。0x7fffffffでFGColor、-1で色なし
-	TColor m_nBrushColor; // ブラシの色
+	int m_nDragMode; // 0x10~0x13=corner drag, 0x20=move
+	int m_nDragIndex; // Item index being corner-dragged
+	float m_fDragX, m_fDragY; // Drag start coordinates
+	TColor m_nPenColor; // Line color. 0x7fffffff=FGColor, -1=none
+	TColor m_nBrushColor; // Brush color
 
-	bool m_bModified; // 編集されたかどうか
+	bool m_bModified; // Edited
 
 	void SetTool(int nToolID);
 	void MouseDown(float x, float y, int size, TShiftState Shift);
@@ -83,9 +83,9 @@ public:
 	void SelectRect(float x1, float y1, float x2, float y2);
 	void ClearSelection();
 	void SelectAll();
-	int Selected(); // 選択中の要素数を返す
+	int Selected(); // Return count of selected elements
 
-	// 編集操作
+	// Edit operations
 	void Cut();
 	void Copy();
 	void Paste();

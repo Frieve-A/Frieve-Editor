@@ -12,9 +12,9 @@
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_Initialize(float *CardX, float *CardY, bool *Norm)
 {
-	// CardX, CardY, Norm初期化
+	// Initialize CardX, CardY, Norm
 
-	// CardX, CardY, Norm初期化、最大最小座標取得
+	// Initialize CardX, CardY, Norm; get min/max coordinates
 	float maxx = 0.5f, minx = 0.5f, maxy = 0.5f, miny = 0.5f;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		Norm[i] = false;
@@ -43,7 +43,7 @@ void TFo_Main::BrowserArrange_Initialize(float *CardX, float *CardY, bool *Norm)
 	}
 
 	if ((maxx == minx || maxy == miny) && m_Document->m_Cards->Count > 1) {
-		// 座標が入っていないので、散らす
+		// Scatter (no coordinates set)
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (!Card->m_bFixed) {
@@ -57,20 +57,19 @@ void TFo_Main::BrowserArrange_Initialize(float *CardX, float *CardY, bool *Norm)
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 	float *CardY, bool *Norm, float ratio) {
-	// if (m_CardAssign[i] != i || Card->m_bFixed || (m_nTargetCard == Card->m_nID && m_bMDownBrowser)){
 	if (m_CardAssign[i] != i || Card->m_bFixed ||
 		(Card->m_bSelected && m_bMDownBrowser)) {
-		// 代表カードではないか、固定されている
+		// Not representative card or fixed
 		return;
 	}
 
 	ratio *= 0.3f;
 
-	// Foldされている（代表カード以外からもリンクがあるかも）
+	// Folded (links may exist from non-representative cards)
 	if (m_Document->LabelIsFold(Card)) {
-		// 全ての同じラベルのカードからのリンクを考慮
+		// Consider links from all same-label cards
 
-		// リンクされているカードに近づく
+		// Move toward linked cards
 		float count = 0;
 		float X = 0.0f;
 		float Y = 0.0f;
@@ -79,7 +78,7 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 		for (int ic = 0; ic < m_Document->m_Cards->Count; ic++)
 			if (m_CardVisible[ic] && m_CardAssign[ic] == i) {
 				TCard *Card_ = m_Document->GetCardByIndex(ic);
-				// リンクループ
+				// Link loop
 				for (int i2 = 0; i2 < m_Document->m_Links->Count; i2++)
 					if (m_LinkVisible[i2]) {
 						TLink *Link = m_Document->GetLinkByIndex(i2);
@@ -96,14 +95,14 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 							if (m_CardVisible[card2index] && !used[card2index])
 							{
 								used[card2index] = true;
-								// 関連あるカードがある
+								// Related card found
 								/*
 								 float bonus;
 								 if (m_nTargetCard == Link->m_nDestID || m_nTargetCard == Link->m_nFromID || m_nTargetLink == i2){
-								 //選択中のカード、リンクの影響力を上げる
+								 // Boost influence for selected card/link
 								 bonus = 2.0f;
 								 }else{
-								 //通常のカード
+								 // Normal card
 								 bonus = 1.0f;
 								 }
 								 X += CardX[card2index] * bonus;
@@ -119,7 +118,7 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 		delete[]used;
 
 		if (count > 0.0f) {
-			// 座標更新
+			// Update coordinates
 			Card->m_fX =
 				(float)((X / count) * ratio + CardX[i] * (1.0f - ratio));
 			Card->m_fY =
@@ -128,13 +127,13 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 		}
 	}
 	else {
-		// 通常（1枚のカードからのリンクのみ考慮）
+		// Normal (consider links from single card only)
 
-		// リンクされているカードに近づく
+		// Move toward linked cards
 		float count = 0;
 		float X = 0.0f;
 		float Y = 0.0f;
-		// リンクループ
+		// Link loop
 		for (int i2 = 0; i2 < m_Document->m_Links->Count; i2++)
 			if (m_LinkVisible[i2]) {
 				TLink *Link = m_Document->GetLinkByIndex(i2);
@@ -147,7 +146,7 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 				}
 				if (card2index >= 0 && card2index != i)
 					if (m_CardVisible[card2index]) {
-						// 関連あるカードがある
+						// Related card found
 						/*
 						 TCard *Card2 = m_Document->GetCardByIndex(card2index);
 						 if (Card2->m_bFixed){
@@ -168,7 +167,7 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 			}
 
 		if (count > 0.0f) {
-			// 座標更新
+			// Update coordinates
 			Card->m_fX =
 				(float)((X / count) * ratio + CardX[i] * (1.0f - ratio));
 			Card->m_fY =
@@ -177,13 +176,13 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 		}
 
 		/*
-		 //通常（1枚のカードからのリンクのみ考慮）
+		 // Normal (consider links from single card only)
 
-		 //リンクされているカードに近づく
+		 // Move toward linked cards
 		 float count = 1;
 		 float X = Card->m_fX;
 		 float Y = Card->m_fY;
-		 //リンクループ
+		 // Link loop
 		 for (int i2 = 0 ; i2 < m_Document->m_Links->Count ; i2++) if (m_LinkVisible[i2]){
 		 TLink *Link = m_Document->GetLinkByIndex(i2);
 		 int card2index = -1;
@@ -193,7 +192,7 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 		 card2index = m_Document->SearchCardIndex(Link->m_nFromID);
 		 }
 		 if (card2index >= 0 && card2index != i) if (m_CardVisible[card2index]){
-		 //関連あるカードがある
+		 // Related card found
 		 X += CardX[card2index];
 		 Y += CardY[card2index];
 		 count += 1.0f;
@@ -201,7 +200,7 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 		 }
 
 		 if (count > 1.0f){
-		 //座標更新
+		 // Update coordinates
 		 Card->m_fX = (float)((X / count) * ratio + Card->m_fX * (1.0f - ratio));
 		 Card->m_fY = (float)((Y / count) * ratio + Card->m_fY * (1.0f - ratio));
 		 Norm[i] = true;
@@ -213,57 +212,13 @@ void TFo_Main::BrowserArrange_Link(int i, TCard *Card, float *CardX,
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_Repulsion(int i, TCard *Card, float *CardX,
 	float *CardY, bool *Norm, float ratio) {
-	/*
-	 //他のカードと反発する
-	 float weight = 0.0f;
-	 float X = 0.0f;
-	 float Y = 0.0f;
-	 int count = 0;
-	 for (int i2 = 0 ; i2 < m_Document->m_Cards->Count ; i2++) if (i != i2) if (m_CardVisible[i2]){
-	 float w =
-	 (CardX[i] - CardX[i2]) * (CardX[i] - CardX[i2]) +
-	 (CardY[i] - CardY[i2]) * (CardY[i] - CardY[i2]);
-	 if (w > 0.0f){
-	 w = 1.0f / w;
-	 if (w > 1000.0f){
-	 w = 1000.0f;
-	 }
-	 float w2 = m_CardRepulsion[i] * m_CardRepulsion[i2];
-	 X += (CardX[i] - CardX[i2]) * w * w2;
-	 Y += (CardY[i] - CardY[i2]) * w * w2;
-	 weight += w2;
-	 count++;
-	 }else{
-	 if (!m_Document->LabelIsFold(Card)){
-	 //すべてはfoldされていない
-
-	 //座標が重なっている場合の反発
-	 X += (rand() % 101 - 50) * 0.0001f;
-	 Y += (rand() % 101 - 50) * 0.0001f;
-	 weight += 1.0f;
-	 count++;
-	 }
-	 }
-	 }
-	 //Card->m_fX += X / weight * ratio * 0.25f;
-	 //Card->m_fY += Y / weight * ratio;
-	 if (weight > 0.0f && count > 0){
-	 weight /= count * 100 / ratio;
-	 Card->m_fX += X * weight;
-	 Card->m_fY += Y * weight;
-	 Norm[i] = true;
-	 }
-	 // */
-
 	if (m_CardAssign[i] != i || Card->m_bFixed ||
 		(Card->m_bSelected && m_bMDownBrowser)) {
-		// if (m_CardAssign[i] != i || Card->m_bFixed || (m_nTargetCard == Card->m_nID && m_bMDownBrowser)){
-		// 代表カードではないか、固定されている
+		// Not representative card or fixed
 		return;
 	}
 
-	// *
-	// 他のカードと反発する
+	// Repel from other cards
 	float weight = 0.0f;
 	float X = 0.0f;
 	float Y = 0.0f;
@@ -275,7 +230,6 @@ void TFo_Main::BrowserArrange_Repulsion(int i, TCard *Card, float *CardX,
 				float fy = CardY[i] - CardY[i2];
 				float w = fx * fx + fy * fy;
 				if (w > 0.0f) {
-					// w = sqrt(10000.0f / w);
 					if (m_CardWidth[i2] * m_CardHeight[i2] > 0) {
 						w = sqrt
 							((1.0 * m_CardWidth[i2] * m_CardHeight[i2]) / w);
@@ -291,9 +245,9 @@ void TFo_Main::BrowserArrange_Repulsion(int i, TCard *Card, float *CardX,
 				}
 				else {
 					if (!m_Document->LabelIsFold(Card)) {
-						// すべてはfoldされていない
+						// Not all folded
 
-						// 座標が重なっている場合の反発
+						// Repel when coordinates overlap
 						X += (rand() % 101 - 50) * 0.0001f;
 						Y += (rand() % 101 - 50) * 0.0001f;
 						weight += 1.0f;
@@ -301,20 +255,17 @@ void TFo_Main::BrowserArrange_Repulsion(int i, TCard *Card, float *CardX,
 					}
 				}
 			}
-	// Card->m_fX += X / weight * ratio * 0.25f;
-	// Card->m_fY += Y / weight * ratio;
 	if (weight > 0.0f && count > 0) {
 		weight /= count * count * 5 / ratio;
 		Card->m_fX += (float)(X * weight);
 		Card->m_fY += (float)(Y * weight);
 		Norm[i] = true;
 	}
-	// */
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_LabelPrepare() {
-	// 各ラベルの中心座標計算
+	// Calculate center coordinates for each label
 	for (int il = 0; il < m_Document->m_Labels[0]->Count; il++) {
 		TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
 		if (!Label->m_bFixed) {
@@ -348,26 +299,22 @@ void TFo_Main::BrowserArrange_Label(int i, TCard *Card, float *CardX,
 	float *CardY, bool *Norm, float ratio) {
 	if (m_CardAssign[i] != i || Card->m_bFixed ||
 		(Card->m_bSelected && m_bMDownBrowser)) {
-		// if (m_CardAssign[i] != i || Card->m_bFixed || (m_nTargetCard == Card->m_nID && m_bMDownBrowser)){
-		// 代表カードではないか、固定されている
+		// Not representative card or fixed
 		return;
 	}
 
-	// if (Card->m_Labels->Count == 0){
 	if (m_Document->CountEnableLabel(Card) == 0) {
-		// ラベルがついていない
+		// No labels
 		return;
 	}
 
-	// float ratio2 = ratio * 0.3f;
 	float ratio2 = ratio;
-	// ratio *= 0.1f;
 
 	int count = 1;
 	float X = Card->m_fX;
 	float Y = Card->m_fY;
 
-	// ラベルで指定された座標に近づく
+	// Move toward label-specified coordinates
 	for (int il = 0; il < Card->m_Labels->Count; il++) {
 		int labelindex = Card->m_Labels->GetLabel(il);
 		TCardLabel *Label = m_Document->GetLabelByIndex(0, labelindex - 1);
@@ -379,7 +326,7 @@ void TFo_Main::BrowserArrange_Label(int i, TCard *Card, float *CardX,
 	}
 
 	/*
-	 //同じラベルを持っているカードに近づく
+	 // Move toward cards with same label
 	 for (int i2 = 0 ; i2 < m_Document->m_Cards->Count ; i2++) if (i != i2) if (m_CardVisible[i2] && m_CardAssign[i2] == i2){
 	 TCard *Card2 = m_Document->GetCardByIndex(i2);
 	 for (int il = 0 ; il < Card->m_Labels->Count ; il++){
@@ -387,7 +334,7 @@ void TFo_Main::BrowserArrange_Label(int i, TCard *Card, float *CardX,
 	 TCardLabel *Label = m_Document->GetLabelByIndex(0, labelindex - 1);
 	 if (Label->m_bEnable){
 	 if (Card2->m_Labels->Contain(labelindex)){
-	 //もう一つのカードにもラベルがある
+	 // Other card also has label
 	 X += CardX[i2];
 	 Y += CardY[i2];
 	 count ++;
@@ -397,14 +344,14 @@ void TFo_Main::BrowserArrange_Label(int i, TCard *Card, float *CardX,
 	 }
 	 */
 	if (count > 1) {
-		// 座標更新
+		// Update coordinates
 		Card->m_fX = (X / count) * ratio2 + Card->m_fX * (1.0f - ratio2);
 		Card->m_fY = (Y / count) * ratio2 + Card->m_fY * (1.0f - ratio2);
 		Norm[i] = true;
 	}
 
 	/*
-	 //ラベルを持っていないものと反発する
+	 // Repel from cards without label
 	 int count2 = 0;
 	 X = 0.0f;
 	 Y = 0.0f;
@@ -445,12 +392,11 @@ void TFo_Main::BrowserArrange_Index(int i, TCard *Card, float *CardX,
 	float *CardY, bool *Norm, float ratio) {
 	if (m_CardAssign[i] != i || Card->m_bFixed ||
 		(Card->m_bSelected && m_bMDownBrowser)) {
-		// if (m_CardAssign[i] != i || Card->m_bFixed || (m_nTargetCard == Card->m_nID && m_bMDownBrowser)){
-		// 代表カードではないか、固定されている
+		// Not representative card or fixed
 		return;
 	}
 
-	// カード順が近いものほど近くに
+	// Closer cards by index are placed nearer
 
 	float weight = 0.0f;
 	float X = 0.0f;
@@ -467,10 +413,6 @@ void TFo_Main::BrowserArrange_Index(int i, TCard *Card, float *CardX,
 	if (weight > 0.0f) {
 		Card->m_fX = (X / weight) * ratio + Card->m_fX * (1.0f - ratio);
 		Card->m_fY = (Y / weight) * ratio + Card->m_fY * (1.0f - ratio);
-		/*
-		 Card->m_fX += X / m_Document->m_Cards->Count * ratio;
-		 Card->m_fY += Y / m_Document->m_Cards->Count * ratio;
-		 */
 		Norm[i] = true;
 	}
 }
@@ -478,9 +420,9 @@ void TFo_Main::BrowserArrange_Index(int i, TCard *Card, float *CardX,
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_Date(int i, TCard *Card, float *CardX,
 	float *CardY, bool *Norm, float ratio, int dateindex) {
-	// 日付が近いものほど近くに
+	// Closer dates are placed nearer
 
-	// （調整中）
+	// (Under adjustment)
 
 	float weight = 0.0f;
 	float X = 0.0f;
@@ -522,17 +464,16 @@ void TFo_Main::BrowserArrange_Similarity(int i, TCard *Card, float *CardX,
 	float *CardY, bool *Norm, float ratio, int *idxtable) {
 	if (m_CardAssign[i] != i || Card->m_bFixed ||
 		(Card->m_bSelected && m_bMDownBrowser)) {
-		// if (m_CardAssign[i] != i || Card->m_bFixed || (m_nTargetCard == Card->m_nID && m_bMDownBrowser)){
-		// 代表カードではないか、固定されている
+		// Not representative card or fixed
 		return;
 	}
 
-	int source = idxtable[i]; // m_SimMatrix->SearchIndex(Card->m_nID);
+	int source = idxtable[i];
 	if (source < 0) {
 		return;
 	}
 
-	// 類似カードほど近くに
+	// Similar cards placed nearer
 	ratio *= 0.5f;
 
 	float weight = 0.0f;
@@ -577,7 +518,7 @@ void TFo_Main::BrowserArrange_Memory(float *CardX, float *CardY, bool *Norm) {
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrange_Normalize(float *CardX, float *CardY, bool *Norm)
 {
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	float maxx = 0.5f, minx = 0.5f, maxy = 0.5f, miny = 0.5f;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (Norm[m_CardAssign[i]]) {
@@ -611,16 +552,16 @@ void TFo_Main::BrowserArrange_Normalize(float *CardX, float *CardY, bool *Norm)
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByNormalize(float ratio) {
-	// 反発力のみに従い座標更新
+	// Update coordinates by repulsion only
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			Norm[i] = true;
@@ -634,28 +575,28 @@ void TFo_Main::BrowserArrangeByNormalize(float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByRepulsion(float ratio) {
-	// 反発力のみに従い座標更新
+	// Update coordinates by repulsion only
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// 他のカードと反発する
-	// カードループ
+	// Repel from other cards
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// 他のカードと反発する
+			// Repel from other cards
 			BrowserArrange_Repulsion(i, Card, CardX, CardY, Norm, ratio);
 		}
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
 	delete[]Norm;
@@ -665,41 +606,41 @@ void TFo_Main::BrowserArrangeByRepulsion(float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByLink(float ratio) {
-	// リンクに従い座標更新
+	// Update coordinates by link
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// 他のカードと反発する
-	// カードループ
+	// Repel from other cards
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// 他のカードと反発する
+			// Repel from other cards
 			BrowserArrange_Repulsion(i, Card, CardX, CardY, Norm, 0.5f);
 		}
 
-	// 一旦座標更新
+	// Tentative coordinate update
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
-	// リンクされているカードに近づく
-	// カードループ
+	// Move toward linked cards
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// リンクされているカードに近づく
+			// Move toward linked cards
 			BrowserArrange_Link(i, Card, CardX, CardY, Norm, ratio * 0.66);
 		}
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
 	delete[]Norm;
@@ -709,55 +650,55 @@ void TFo_Main::BrowserArrangeByLink(float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByLabel(float ratio) {
-	// ラベルに従い座標更新
+	// Update coordinates by label
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// カードループ
-	// 他のカードと反発する
+	// Card loop
+	// Repel from other cards
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// 他のカードと反発する
+			// Repel from other cards
 			BrowserArrange_Repulsion(i, Card, CardX, CardY, Norm, 0.5f);
 		}
 
-	// 一旦座標更新
+	// Tentative coordinate update
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
-	// リンクされているカードに近づく
-	// カードループ
+	// Move toward linked cards
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// リンクされているカードに近づく
+			// Move toward linked cards
 			BrowserArrange_Link(i, Card, CardX, CardY, Norm, ratio / 4);
 		}
 
-	// 一旦座標更新
+	// Tentative coordinate update
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
-	// 同じラベルは近く、違うラベルは遠く
+	// Same labels near, different labels far
 	BrowserArrange_LabelPrepare();
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// 同じラベルは近く、違うラベルは遠く
+			// Same labels near, different labels far
 			BrowserArrange_Label(i, Card, CardX, CardY, Norm, ratio / 3);
 		}
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
 	delete[]Norm;
@@ -767,42 +708,42 @@ void TFo_Main::BrowserArrangeByLabel(float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByIndex(float ratio) {
-	// カード順に従い座標更新
+	// Update coordinates by card order
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// 座標更新
+	// Update coordinates
 
-	// カードループ
-	// 他のカードと反発する
+	// Card loop
+	// Repel from other cards
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// 他のカードと反発する
+			// Repel from other cards
 			BrowserArrange_Repulsion(i, Card, CardX, CardY, Norm, 0.5f);
 		}
 
-	// 一旦座標更新
+	// Tentative coordinate update
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// カード順が近いものほど近く
+			// Closer cards by index
 			BrowserArrange_Index(i, Card, CardX, CardY, Norm, ratio * 0.61f);
 		}
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
 	delete[]Norm;
@@ -812,37 +753,37 @@ void TFo_Main::BrowserArrangeByIndex(float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByDate(int dateindex, float ratio) {
-	// 日付に従い座標更新
+	// Update coordinates by date
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 
 		if (Card->m_nID != m_nTargetCard) {
-			// 動かせるカード
+			// Movable card
 
-			// 他のカードと反発する
+			// Repel from other cards
 			BrowserArrange_Repulsion(i, Card, CardX, CardY, Norm, ratio / 3);
 
-			// リンクされているカードに近づく
+			// Move toward linked cards
 			BrowserArrange_Link(i, Card, CardX, CardY, Norm, ratio / 3);
 
-			// 日付が近いものほど近く
+			// Closer dates
 			BrowserArrange_Date(i, Card, CardX, CardY, Norm, ratio / 3,
 				dateindex);
 		}
 	}
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
 	delete[]Norm;
@@ -852,40 +793,40 @@ void TFo_Main::BrowserArrangeByDate(int dateindex, float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByFold(float ratio) {
-	// 折りたたまれたラベルに従い座標更新
-	// 通常のArrangeではなく、ラベルのFoldが変更されたときに呼ばれる
+	// Arrange by folded labels
+	// Called when label Fold changes, not normal Arrange
 
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
-	float *Sum = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
+	float *Sum = new float[m_Document->m_Cards->Count]; // Y coordinate backup
 	memset(Sum, 0, sizeof(float) * m_Document->m_Cards->Count);
-	float *LabelX = new float[m_Document->m_Labels[0]->Count]; // X座標
+	float *LabelX = new float[m_Document->m_Labels[0]->Count]; // X coordinate
 	memset(LabelX, 0, sizeof(float) * m_Document->m_Labels[0]->Count);
-	float *LabelY = new float[m_Document->m_Labels[0]->Count]; // Y座標
+	float *LabelY = new float[m_Document->m_Labels[0]->Count]; // Y coordinate
 	memset(LabelY, 0, sizeof(float) * m_Document->m_Labels[0]->Count);
-	float *LabelSum = new float[m_Document->m_Labels[0]->Count]; // Y座標バックアップ
+	float *LabelSum = new float[m_Document->m_Labels[0]->Count]; // Y coordinate backup
 	memset(LabelSum, 0, sizeof(float) * m_Document->m_Labels[0]->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// ラベルの中心座標計算
-	// ラベルループ
+	// Calculate label center coordinates
+	// Label loop
 	for (int il = 0; il < m_Document->m_Labels[0]->Count; il++) {
 		TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
 		if (Label->m_bEnable && Label->m_bFold) {
-			// 折りたたまれたラベル
+			// Folded label
 
-			// カードループ
+			// Card loop
 			for (int i = 0; i < m_Document->m_Cards->Count; i++)
 				if (m_CardVisible[i]) {
 					TCard *Card = m_Document->GetCardByIndex(i);
 
 					if (Card->m_Labels->Contain(il + 1)) {
-						// このラベルを含む
+						// Contains this label
 						LabelX[il] += CardX[i] / Card->m_Labels->Count;
 						LabelY[il] += CardY[i] / Card->m_Labels->Count;
 						LabelSum[il] += 1.0f / Card->m_Labels->Count;
@@ -898,30 +839,30 @@ void TFo_Main::BrowserArrangeByFold(float ratio) {
 		}
 	}
 
-	// カード座標をリセット
+	// Reset card coordinates
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			CardX[i] = 0.0f;
 			CardY[i] = 0.0f;
 		}
 
-	// ラベルの中心座標にカードを移動
-	// ラベルループ
+	// Move cards to label center coordinates
+	// Label loop
 	for (int il = 0; il < m_Document->m_Labels[0]->Count; il++) {
 		TCardLabel *Label = m_Document->GetLabelByIndex(0, il);
 		if (Label->m_bEnable && Label->m_bFold) {
-			// 折りたたまれたラベル
+			// Folded label
 
-			// カードループ
+			// Card loop
 			for (int i = 0; i < m_Document->m_Cards->Count; i++)
 				if (m_CardVisible[i]) {
 					TCard *Card = m_Document->GetCardByIndex(i);
 
 					if (Card->m_Labels->Contain(il + 1)) {
-						// このラベルを含む
+						// Contains this label
 
 						if (m_Document->LabelIsFold(Card)) {
-							// すべてfoldされている
+							// All folded
 							CardX[i] += LabelX[il] / Card->m_Labels->Count;
 							CardY[i] += LabelY[il] / Card->m_Labels->Count;
 							Sum[i] += 1.0f / Card->m_Labels->Count;
@@ -931,7 +872,7 @@ void TFo_Main::BrowserArrangeByFold(float ratio) {
 		}
 	}
 
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			if (Sum[i] > 0.0f) {
@@ -951,31 +892,31 @@ void TFo_Main::BrowserArrangeByFold(float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeBySimilarity(float ratio) {
-	float *CardX = new float[m_Document->m_Cards->Count]; // X座標バックアップ
-	float *CardY = new float[m_Document->m_Cards->Count]; // Y座標バックアップ
-	bool *Norm = new bool[m_Document->m_Cards->Count]; // ノーマライズ対象
+	float *CardX = new float[m_Document->m_Cards->Count]; // X coordinate backup
+	float *CardY = new float[m_Document->m_Cards->Count]; // Y coordinate backup
+	bool *Norm = new bool[m_Document->m_Cards->Count]; // Normalization target
 	memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	// 座標更新
+	// Update coordinates
 
-	// 他のカードと反発する
-	// カードループ
+	// Repel from other cards
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// 他のカードと反発する
+			// Repel from other cards
 			BrowserArrange_Repulsion(i, Card, CardX, CardY, Norm, 0.5f);
 		}
 
-	// 一旦座標更新
+	// Tentative coordinate update
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
-	// 類似カードに近づく
+	// Move toward similar cards
 	if (m_SimMatrix != NULL) {
-		// 類似度がある
+		// Similarity exists
 
 		int *idxtable = new int[m_Document->m_Cards->Count];
 		for (int i = 0; i < m_Document->m_Cards->Count; i++)
@@ -983,19 +924,19 @@ void TFo_Main::BrowserArrangeBySimilarity(float ratio) {
 				TCard *Card = m_Document->GetCardByIndex(i);
 				idxtable[i] = m_SimMatrix->SearchIndex(Card->m_nID);
 			}
-		// カードループ
+		// Card loop
 		for (int i = 0; i < m_Document->m_Cards->Count; i++)
 			if (m_CardVisible[i]) {
 				TCard *Card = m_Document->GetCardByIndex(i);
 
-				// 類似カードに近づく
+				// Move toward similar cards
 				BrowserArrange_Similarity(i, Card, CardX, CardY, Norm,
 					ratio * 0.8, idxtable);
 			}
 		delete[]idxtable;
 	}
 
-	// 画面内に収まるようにノーマライズ
+	// Normalize to fit within view
 	BrowserArrange_Normalize(CardX, CardY, Norm);
 
 	delete[]Norm;
@@ -1006,13 +947,13 @@ void TFo_Main::BrowserArrangeBySimilarity(float ratio) {
 // ---------------------------------------------------------------------------
 void TFo_Main::PrepareMatrixArrange_AssignToMatrix2(int i, int *tmatrix,
 	float minx, float maxx, float miny, float maxy) {
-	// i番目のカードを、tmatrixで示すマトリクスに格納
+	// Assign i-th card to matrix indicated by tmatrix
 
 	TCard *Card = m_Document->GetCardByIndex(i);
 	float normx = (Card->m_fX - minx) / (maxx - minx);
 	float normy = (Card->m_fY - miny) / (maxy - miny);
 
-	// 0.5を中心の円→0.5中心のRectの座標に変換
+	// Convert circle centered at 0.5 to rect coordinates
 	{
 		float x1 = normx - 0.5f;
 		float y1 = normy - 0.5f;
@@ -1025,18 +966,18 @@ void TFo_Main::PrepareMatrixArrange_AssignToMatrix2(int i, int *tmatrix,
 		normy = y1 * ncoef + 0.5f;
 	}
 
-	// 空いている格子のうち、一番近い格子を探す
+	// Find nearest empty cell in grid
 	int x = -1, y = -1;
 	float mindistance = m_nMatrixWidth + m_nMatrixHeight;
-	// 格子ループ
+	// Grid loop
 	for (int iy = 0; iy < m_nMatrixHeight; iy++) {
 		for (int ix = 0; ix < m_nMatrixWidth; ix++) {
 			if (tmatrix[ix + iy * m_nMatrixWidth] == -1) {
-				// 空いている
+				// Empty
 				float distance = fabs(normx * (m_nMatrixWidth - 1) - ix) +
 					fabs(normy * (m_nMatrixHeight - 1) - iy);
 				if (distance < mindistance) {
-					// より近い格子
+					// Closer cell
 					mindistance = distance;
 					x = ix;
 					y = iy;
@@ -1045,7 +986,7 @@ void TFo_Main::PrepareMatrixArrange_AssignToMatrix2(int i, int *tmatrix,
 		}
 	}
 
-	// 格子に格納
+	// Store in cell
 	if (x >= 0 && y >= 0) {
 		tmatrix[x + y * m_nMatrixWidth] = i;
 		if (Card->m_nMatrixX != x || Card->m_nMatrixY != y) {
@@ -1059,24 +1000,24 @@ void TFo_Main::PrepareMatrixArrange_AssignToMatrix2(int i, int *tmatrix,
 // ---------------------------------------------------------------------------
 void TFo_Main::PrepareMatrixArrange_AssignToMatrix(int i, int *tmatrix,
 	float minx, float maxx, float miny, float maxy) {
-	// i番目のカードを、tmatrixで示すマトリクスに格納
+	// Assign i-th card to matrix indicated by tmatrix
 
 	TCard *Card = m_Document->GetCardByIndex(i);
 	float normx = (Card->m_fX - minx) / (maxx - minx);
 	float normy = (Card->m_fY - miny) / (maxy - miny);
 
-	// 空いている格子のうち、一番近い格子を探す
+	// Find nearest empty cell in grid
 	int x = -1, y = -1;
 	float mindistance = m_nMatrixWidth + m_nMatrixHeight;
-	// 格子ループ
+	// Grid loop
 	for (int iy = 0; iy < m_nMatrixHeight; iy++) {
 		for (int ix = 0; ix < m_nMatrixWidth; ix++) {
 			if (tmatrix[ix + iy * m_nMatrixWidth] == -1) {
-				// 空いている
+				// Empty
 				float distance = fabs(normx * (m_nMatrixWidth - 1) - ix) +
 					fabs(normy * (m_nMatrixHeight - 1) - iy);
 				if (distance < mindistance) {
-					// より近い格子
+					// Closer cell
 					mindistance = distance;
 					x = ix;
 					y = iy;
@@ -1085,7 +1026,7 @@ void TFo_Main::PrepareMatrixArrange_AssignToMatrix(int i, int *tmatrix,
 		}
 	}
 
-	// 格子に格納
+	// Store in cell
 	if (x >= 0 && y >= 0) {
 		tmatrix[x + y * m_nMatrixWidth] = i;
 		if (Card->m_nMatrixX != x || Card->m_nMatrixY != y) {
@@ -1098,7 +1039,7 @@ void TFo_Main::PrepareMatrixArrange_AssignToMatrix(int i, int *tmatrix,
 
 // ---------------------------------------------------------------------------
 void TFo_Main::PrepareMatrixArrange(int type) {
-	// 格子サイズを決め、全カードを格子に配置。Arrangeを選択した瞬間実行
+	// Determine grid size, place all cards in grid. Runs when Arrange is selected
 	if (!m_CardVisible) {
 		return;
 	}
@@ -1107,15 +1048,15 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 	 float *CardX, *CardY;
 	 bool *Norm;
 	 if (type % 100 != 0){
-	 //カード位置をバックアップ
+	 // Backup card positions
 	 CardX = new float[m_Document->m_Cards->Count];
 	 CardY = new float[m_Document->m_Cards->Count];
-	 Norm = new bool[m_Document->m_Cards->Count];//ノーマライズ対象
+	 Norm = new bool[m_Document->m_Cards->Count];// Normalization target
 	 memset(Norm, 0, sizeof(bool) * m_Document->m_Cards->Count);
 
 	 BrowserArrange_Initialize(CardX, CardY, Norm);
 
-	 //座標更新
+	 // Update coordinates
 	 switch(type){
 	 case 202:
 	 {
@@ -1126,12 +1067,12 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 	 memcpy(CardY2, CardY, sizeof(float) * m_Document->m_Cards->Count);
 
 	 for (int il = 0 ; il < 5 ; il++){
-	 //リンクされているカードに近づく
-	 //カードループ
+	 // Move toward linked cards
+	 // Card loop
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i]){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 
-	 //リンクされているカードに近づく
+	 // Move toward linked cards
 	 BrowserArrange_Link(i, Card, CardX2, CardY2, Norm, 0.5f);
 	 }
 	 BrowserArrange_Normalize(CardX2, CardY2, Norm);
@@ -1143,30 +1084,30 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 	 break;
 	 case 203:
 	 {
-	 //同じラベルのカードに近づく
+	 // Move toward cards with same label
 	 BrowserArrange_LabelPrepare();
-	 //カードループ
+	 // Card loop
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i]){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 
-	 //同じラベルのカードに近づく
+	 // Move toward cards with same label
 	 BrowserArrange_Label(i, Card, CardX, CardY, Norm, 1.0f);
 	 }
 	 }
 	 break;
 	 case 700:
 	 {
-	 //類似カードに近づく
+	 // Move toward similar cards
 	 int *idxtable = new int[m_Document->m_Cards->Count];
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i]){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 	 idxtable[i] = m_SimMatrix->SearchIndex(Card->m_nID);
 	 }
-	 //カードループ
+	 // Card loop
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (m_CardVisible[i]){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 
-	 //類似カードに近づく
+	 // Move toward similar cards
 	 BrowserArrange_Similarity(i, Card, CardX, CardY, Norm, 1.0f, idxtable);
 	 }
 	 delete[] idxtable;
@@ -1176,7 +1117,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 	 }
 	 */
 
-	// 表示するカードの数を決める
+	// Count visible cards
 	int count = 0;
 	float minx = 0.0f, maxx = 1.0f, miny = 0.0f, maxy = 1.0f;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
@@ -1205,8 +1146,8 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 		maxy += 1.0f;
 	}
 
-	// 格子の縦横比を決める
-	float xyratio = 1.0f; // 大きくなるほど横に広がる
+	// Determine grid aspect ratio
+	float xyratio = 1.0f; // Larger = wider
 	float widthsum = 0.0f;
 	float heightsum = 0.0f;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
@@ -1220,7 +1161,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 		xyratio = sqrt(heightsum * 1.0f / widthsum);
 	}
 
-	// 格子のサイズを決める
+	// Determine grid size
 	m_nMatrixWidth = 1;
 	m_nMatrixHeight = 1;
 	while (count > m_nMatrixWidth * m_nMatrixHeight) {
@@ -1233,15 +1174,15 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 	}
 
 	if (type != 204) {
-		// 近接Cellに配置
+		// Place in adjacent cells
 
-		// 一時Matrixを作り、初期化
+		// Create and initialize temp matrix
 		int *tmatrix = new int[m_nMatrixWidth * m_nMatrixHeight];
 		for (int i = 0; i < m_nMatrixWidth * m_nMatrixHeight; i++) {
 			tmatrix[i] = -1;
 		}
 
-		// カードをMatrixに配置（Fixedカード→選択カード→関連カード→その他のカード）
+		// Place cards in matrix (Fixed -> selected -> related -> others)
 		int *draworder = new int[m_Document->m_Cards->Count];
 		memset(draworder, 0, sizeof(int) * m_Document->m_Cards->Count);
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
@@ -1249,7 +1190,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 			draworder[vo] = i;
 		}
 		int targetcardindex = m_Document->SearchCardIndex(m_nTargetCard);
-		// Fixedカード
+		// Fixed cards
 		for (int ic = m_Document->m_Cards->Count - 1; ic >= 0; ic--) {
 			int i = draworder[ic];
 			TCard *Card = m_Document->GetCardByIndex(i);
@@ -1265,7 +1206,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 				}
 			}
 		}
-		// 選択中のカードを配置
+		// Place selected card
 		if (m_nTargetCard >= 0) {
 			int i = targetcardindex;
 			if (i >= 0)
@@ -1280,7 +1221,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 					}
 				}
 		}
-		// 関連カード
+		// Related cards
 		for (int i = m_Document->m_Cards->Count - 1; i >= 0; i--) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (m_CardVisible[i] && m_CardRelated[i] && m_CardAssign[i]
@@ -1295,7 +1236,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 				}
 			}
 		}
-		// その他のカード
+		// Other cards
 		for (int ic = m_Document->m_Cards->Count - 1; ic >= 0; ic--) {
 			int i = draworder[ic];
 			TCard *Card = m_Document->GetCardByIndex(i);
@@ -1316,7 +1257,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 		delete[]tmatrix;
 	}
 	else {
-		// Index順に整然と配置
+		// Place in index order
 		int index = 0;
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
@@ -1330,7 +1271,7 @@ void TFo_Main::PrepareMatrixArrange(int type) {
 
 	/*
 	 if (type % 100 != 0){
-	 //座標を戻す
+	 // Restore coordinates
 	 for (int i = 0 ; i < m_Document->m_Cards->Count ; i++) if (Norm[i]){
 	 TCard *Card = m_Document->GetCardByIndex(i);
 	 Card->m_fX = CardX[i];
@@ -1363,13 +1304,11 @@ void TFo_Main::BrowserArrangeByMatrix(int type, float ratio) {
 		break;
 	}
 
-	// 格子状に配置
+	// Place in grid
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 
-			// if (m_CardAssign[i] != i || Card->m_bFixed || (Card->m_bSelected && m_bMDownBrowser)){
-			// if (!Card->m_bFixed && (m_nTargetCard != Card->m_nID || !m_bMDownBrowser)){
 			if (!Card->m_bFixed && (!Card->m_bSelected || !m_bMDownBrowser)) {
 				Card->m_fMatrixSpeed += 0.1f;
 				if (Card->m_fMatrixSpeed > 0.5f) {
@@ -1404,9 +1343,9 @@ void TFo_Main::BrowserArrangeByMatrix(int type, float ratio) {
 
 // ---------------------------------------------------------------------------
 void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
-	// 階層表示
+	// Hierarchy view
 
-	// 位置固定用座標バックアップ
+	// Coordinate backup for fixed positions
 	float *xbak = new float[m_Document->m_Cards->Count];
 	float *ybak = new float[m_Document->m_Cards->Count];
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
@@ -1418,7 +1357,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 
 	int *nodegroup = new int[m_Document->m_Cards->Count];
 
-	// 表示中のカードカウント
+	// Count visible cards
 	int vcount = 1;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
@@ -1429,27 +1368,27 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 
 	ratio *= 0.25f;
 
-	// 各表示中のルートノード毎にTreeを作る
+	// Build tree for each visible root node
 
 	int *nodeheight = new int[m_Document->m_Cards->Count];
 	memset(nodeheight, 0, sizeof(int) * m_Document->m_Cards->Count);
 
-	// カードループ（ルート）
+	// Card loop (root)
 	int group = 0;
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Root = m_Document->GetCardByIndex(i);
 			if (Root->m_nLevel == 0) {
-				// ルートノード
+				// Root node
 				nodegroup[i] = group;
 
-				// この木の最大レベルを得る
+				// Get max level of this tree
 				int maxlevel = 0;
-				int endindex = i + 1; // この木の終了Indexを同時に取得
+				int endindex = i + 1; // Also get end index of this tree
 				while (endindex < m_Document->m_Cards->Count) {
 					TCard *Card = m_Document->GetCardByIndex(endindex);
 					if (Card->m_nLevel == 0) {
-						// もう次のTree
+						// Next tree
 						break;
 					}
 					else if (Card->m_nLevel > maxlevel) {
@@ -1459,15 +1398,15 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 					endindex++;
 				}
 
-				// 下位ノードのサイズを得る
-				// レベルループ
+				// Get child node sizes
+				// Level loop
 				for (int il = maxlevel; il >= 0; il--) {
-					// この木のノードループ
+					// Node loop of this tree
 					for (int in = i; in < endindex; in++)
 						if (m_CardVisible[in]) {
 							TCard *Card = m_Document->GetCardByIndex(in);
 							if (Card->m_nLevel == il) {
-								// このカードのサイズを下位ノードの数の合計とする
+								// Card size = sum of child node counts
 								int index = in + 1;
 								if (in == i) {
 									in = i;
@@ -1476,35 +1415,35 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 									TCard *Card =
 										m_Document->GetCardByIndex(index);
 									if (Card->m_nLevel < il + 1) {
-										// もう次のノード
+										// Next node
 										break;
 									}
 									else if (Card->m_nLevel == il + 1) {
-										// 下位ノードのサイズを足す
+										// Add child node size
 										nodeheight[in] += nodeheight[index];
 									}
 									index++;
 								}
 								if (nodeheight[in] == 0) {
-									// 最小でもサイズ1とする
+									// Min size 1
 									nodeheight[in] = 1;
 								}
 							}
 						}
 				}
 
-				// ルートノードを中心に、座標を決めていく
-				// レベルループ
+				// Set coordinates from root
+				// Level loop
 				for (int il = 1; il <= maxlevel; il++) {
-					int heightsum = 0; // このレベルの処理済サイズ合計
+					int heightsum = 0; // Processed size sum for this level
 
-					// この木のノードループ
-					TCard *LastRoot = NULL; // 直前のルートノード
+					// Node loop of this tree
+					TCard *LastRoot = NULL; // Previous root node
 					int lastrootindex = -1;
 					int rightcount = 0;
 					int rightheight = 0;
 					int rightheightsum = 0;
-					// この木のノードループ
+					// Node loop of this tree
 					for (int in = i; in < endindex; in++)
 						if (m_CardVisible[in]) {
 							TCard *Card = m_Document->GetCardByIndex(in);
@@ -1513,7 +1452,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 								lastrootindex = in;
 								heightsum = 0;
 								if (il == 1) {
-									// 左右に分ける
+									// Split left/right
 									int sum = 0;
 									for (int in2 = i; in2 < endindex; in2++)
 										if (m_CardVisible[in2]) {
@@ -1537,9 +1476,9 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 							}
 							else if (Card->m_nLevel == il && LastRoot) {
 								if (LastRoot == Root) {
-									// ルートからの分岐
+									// Branch from root
 									if (rightcount-- > 0) {
-										// 右側に表示
+										// Display on right
 										Card->m_fX = LastRoot->m_fX + xspan;
 										Card->m_fY =
 										LastRoot->m_fY +
@@ -1548,7 +1487,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 										rightheightsum += nodeheight[in];
 									}
 									else {
-										// 左側に表示
+										// Display on left
 										Card->m_fX = LastRoot->m_fX - xspan;
 										Card->m_fY =
 										LastRoot->m_fY +
@@ -1559,7 +1498,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 									}
 								}
 								else {
-									// ルート以外からの分岐（下位）
+									// Branch from non-root (child)
 									if (LastRoot->m_fX > Root->m_fX) {
 										Card->m_fX = LastRoot->m_fX + xspan;
 									}
@@ -1582,18 +1521,18 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 
 	delete[]nodeheight;
 
-	// 各Treeを重ならないように反発させる
+	// Repel trees to avoid overlap
 
 	if (group > 0) {
-		float *groupx = new float[group]; // ルートノードの座標
+		float *groupx = new float[group]; // Root node coordinates
 		float *groupy = new float[group];
-		float *groupsizex = new float[group]; // ツリーのサイズ
+		float *groupsizex = new float[group]; // Tree size
 		float *groupsizey = new float[group];
-		float *groupnewx = new float[group]; // 移動後のルーとノードの座標
+		float *groupnewx = new float[group]; // Root coords after move
 		float *groupnewy = new float[group];
 
-		// 各グループ（木）のサイズを得る
-		// グループループ
+		// Get size of each group (tree)
+		// Group loop
 		for (int ig = 0; ig < group; ig++) {
 			float minx = 0.0f, maxx = 0.0f, miny = 0.0f, maxy = 0.0f;
 			bool first = true;
@@ -1601,7 +1540,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 				if (m_CardVisible[i] && nodegroup[i] == ig) {
 					TCard *Card = m_Document->GetCardByIndex(i);
 					if (first) {
-						// 最初の1回（ルート）
+						// First (root)
 						minx = maxx = Card->m_fX;
 						miny = maxy = Card->m_fY;
 						first = false;
@@ -1624,7 +1563,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 			groupx[ig] = (minx + maxx) * 0.5f;
 			groupy[ig] = (miny + maxy) * 0.5f;
 			if (fabs(minx - maxx) < 0.01f) {
-				// グループがカード1つ？
+				// Single-card group?
 				groupsizex[ig] = xspan;
 				groupsizey[ig] = yspan;
 			}
@@ -1634,7 +1573,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 			}
 		}
 
-		// 反発
+		// Repel
 		bool first = true;
 		for (int ig = 0; ig < group; ig++) {
 			groupnewx[ig] = 0.0f;
@@ -1675,7 +1614,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 			}
 		}
 
-		// ノーマライズ
+		// Normalize
 		float minx = 0.0f, maxx = 0.0f, miny = 0.0f, maxy = 0.0f;
 		first = true;
 		for (int i = 0; i < m_Document->m_Cards->Count; i++)
@@ -1720,7 +1659,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 
 	delete[]nodegroup;
 
-	// 固定カードの位置を元に戻す、スムーズに移動
+	// Restore fixed card positions, smooth move
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			TCard *Card = m_Document->GetCardByIndex(i);
@@ -1735,7 +1674,7 @@ void TFo_Main::BrowserArrangeByTree(int type, float ratio) {
 			}
 		}
 
-	// Foldされたカードの処理
+	// Process folded cards
 	for (int i = 0; i < m_Document->m_Cards->Count; i++)
 		if (m_CardVisible[i]) {
 			if (m_CardAssign[i] != i) {

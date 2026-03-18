@@ -13,7 +13,7 @@
 
 // ---------------------------------------------------------------------------
 class TFo_RandomAnimation : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TLabel *La_Cards;
 	TLabel *La_Speed;
 	TTrackBar *TB_Cards;
@@ -41,16 +41,16 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall TB_ZoomKeyDown(TObject *Sender, WORD &Key,
 		TShiftState Shift);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_RandomAnimation(TComponent* Owner);
 
-	bool m_bFullScreenRequest; // フルスクリーン切り替え要求
+	bool m_bFullScreenRequest; // Fullscreen toggle request
 	bool m_bDontClose;
 	bool m_bZoomChanged;
 
 	void SettingToGUI();
-	// 多言語対応
+	// Multi-language support
 	void ApplyLanguageSetting();
 };
 

@@ -10,7 +10,7 @@
 
 // ---------------------------------------------------------------------------
 class TFo_EditText : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TLabel *La_Text;
 	TEdit *Ed_Text;
 	TButton *Bu_OK;
@@ -19,10 +19,10 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall Bu_CancelClick(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_EditText(TComponent* Owner);
-	// 多言語対応
+	// Multi-language support
 	void ApplyLanguageSetting();
 };
 

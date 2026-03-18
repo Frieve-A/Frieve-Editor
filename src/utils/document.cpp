@@ -10,23 +10,23 @@
 #include "document.h"
 #include "utils.h"
 
-// ???N?G?X?g
+// Request
 int bReqArrange = -1;
 int nReqArrangeMode = -1;
 int bReqAutoScroll = -1;
 int bReqAutoZoom = -1;
 int bReqFullScreen = -1;
 int bReqExit = -1;
-float fReqZoom = -1000.0f, fReqX = -1000.0f, fReqY = -1000.0f; // ?Y?[??????W
-int nReqTargetCard = -1000; // ?^?[?Q?b?g?J?[?h??X
+float fReqZoom = -1000.0f, fReqX = -1000.0f, fReqY = -1000.0f; // Zoom center coordinates
+int nReqTargetCard = -1000; // Target card change
 int bReqSizeLimitation = -1, bReqLinkLimitation = -1,
-	bReqDateLimitation = -1; // ?\????????ON/OFF
+	bReqDateLimitation = -1; // Date limitation ON/OFF
 int nReqSizeLimitation = -1;
 int nReqLinkLimitation = -1, bReqLinkDirection = -1, bReqLinkBackward = -1,
 	nReqLinkTarget = -2;
 int nReqDateLimitation = -1, ReqDateLimitationDateType = -1,
 	ReqDateLimitationType = -1;
-int nReqKeyDown = -1; // ?????L?[??????????????????
+int nReqKeyDown = -1; // Key input request
 
 // ---------------------------------------------------------------------------
 int __fastcall Func_CompCardRandom(void * Item1, void * Item2) {
@@ -35,7 +35,6 @@ int __fastcall Func_CompCardRandom(void * Item1, void * Item2) {
 
 // ---------------------------------------------------------------------------
 int __fastcall Func_CompCard(void * Item1, void * Item2) {
-	// return stricmp(((TCard *)Item1)->m_Title.c_str(), ((TCard *)Item2)->m_Title.c_str());
 	return CompareStr(((TCard *)Item1)->m_Title, ((TCard *)Item2)->m_Title);
 }
 
@@ -112,7 +111,6 @@ int __fastcall Func_CompCardScore(void * Item1, void * Item2) {
 
 // ---------------------------------------------------------------------------
 int __fastcall Func_CompCardI(void * Item1, void * Item2) {
-	// return -stricmp(((TCard *)Item1)->m_Title.c_str(), ((TCard *)Item2)->m_Title.c_str());
 	return -CompareStr(((TCard*)Item1)->m_Title, ((TCard*)Item2)->m_Title);
 }
 
@@ -174,7 +172,7 @@ int __fastcall Func_CompCardScoreI(void * Item1, void * Item2) {
 // ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
-// TUndoRedo?n
+// TUndoRedo
 // ---------------------------------------------------------------------------
 TUndoRedoData::TUndoRedoData(TDocument *Doc, UnicodeString Name, int CardID,
 	int SelStart, int SelLength) : m_Doc(new TDocument(*Doc)), m_Name(Name),
@@ -246,14 +244,14 @@ void TUndoRedo::Undo(TDocument *Doc, int CardID, int SelStart, int SelLength,
 	*NextSelStart = Data->m_nSelStart;
 	*NextSelLength = Data->m_nSelLength;
 
-	// ????f?[?^??Redo????
+	// Redo current data
 	m_Redos->Insert(0, new TUndoRedoData(Doc, UndoName, CardID, SelStart,
 		SelLength));
 
 	// Undo
 	Doc->CopyFrom(Data->m_Doc);
 
-	// ?g????Undo????
+	// Undo back
 	delete Data;
 	m_Undos->Delete(0);
 
@@ -269,14 +267,14 @@ void TUndoRedo::Redo(TDocument *Doc, int CardID, int SelStart, int SelLength,
 	*NextSelStart = Data->m_nSelStart;
 	*NextSelLength = Data->m_nSelLength;
 
-	// ????f?[?^??Undo????
+	// Undo current data
 	m_Undos->Insert(0, new TUndoRedoData(Doc, RedoName, CardID, SelStart,
 		SelLength));
 
 	// Redo
 	Doc->CopyFrom(Data->m_Doc);
 
-	// ?g????Redo????
+	// Redo back
 	delete Data;
 	m_Redos->Delete(0);
 
@@ -427,18 +425,6 @@ void TDocument::SetCardText(TCard *Card, UnicodeString string) {
 	m_bChanged = true;
 }
 
-/*
- void TDocument::SetCardText(int nID, UnicodeString S)
- {
- TCard *Card = GetCard(nID);
- //Card->m_Lines->Assign(SL);
- Card->m_Lines->Clear();
- Card->m_Lines->Text = szChar;
- Card->m_fUpdated = Now();
- Card->CheckImageFN();
- m_bChanged = true;
- }
- */
 // ---------------------------------------------------------------------------
 TCard* TDocument::GetCard(int nID) {
 	int index = SearchCardIndex(nID);
@@ -475,14 +461,6 @@ int TDocument::SearchCardIndex(int nID) {
 	else {
 		return -1;
 	}
-	/*
-	 for (int i = 0 ; i < m_Cards->Count ; i++){
-	 if (GetCardByIndex_(i)->m_nID == nID){
-	 return i;
-	 }
-	 }
-	 return -1;
-	 */
 }
 
 // ---------------------------------------------------------------------------
@@ -512,9 +490,9 @@ void TDocument::SwapCard(int idx1, int idx2) {
 
 // ---------------------------------------------------------------------------
 void TDocument::RefreshDateOrder_Label() {
-	// m_fTouchedOrder??????????l????
+	// Sort by m_fTouchedOrder
 
-	// ?G????????\?[?g
+	// Label display
 	{
 		TList *List = new TList();
 		for (int il = 0; il < m_Labels[0]->Count; il++) {
@@ -530,9 +508,9 @@ void TDocument::RefreshDateOrder_Label() {
 
 // ---------------------------------------------------------------------------
 void TDocument::RefreshDateOrder() {
-	// m_fCreatedOrder??????????l????
-	// ?????A?J?[?h??e???t????\?[?g???A?????0.0?`100.0????K??????????
-	// Date Limitation?i???t????\???????j????g?p
+	// Sort by m_fCreatedOrder
+	// Label, card created date display; value 0.0-100.0 for display
+	// Used for Date Limitation (date display limit)
 
 	// DateCreated
 	{
@@ -576,16 +554,16 @@ void TDocument::RefreshDateOrder() {
 
 // ---------------------------------------------------------------------------
 int TDocument::SearchParent(int CardID, bool bChild, bool bFocus) {
-	// ?e?J?[?h??{??
+	// Parent card loop
 	int ParentID = -1;
 	double ParentDate = 0.0;
-	// ?????N???[?v
+	// Link loop
 	for (int il = 0; il < m_Links->Count; il++) {
 		TLink *Link = GetLinkByIndex(il);
 		if (((Link->m_nDestID == CardID && !bChild) ||
 			(Link->m_nFromID == CardID && bChild))
 			&& Link->m_bDirection && Link->m_bVisible) {
-			// ?????J?[?h??????N??\???????J?[?h
+			// Card linked to parent (source card)
 			TCard *ParentCard;
 			if (!bChild) {
 				ParentCard = GetCard(Link->m_nFromID);
@@ -597,9 +575,9 @@ int TDocument::SearchParent(int CardID, bool bChild, bool bFocus) {
 				(ParentID == -1 || ParentCard->m_fViewed > ParentDate) &&
 				(ParentCard->m_bGetFocus || !bFocus)) {
 
-				// ?e?J?[?h??????????????????A??????????e?J?[?h
+				// Parent card with most recent view; update parent
 
-				// ?e?J?[?h???X?V
+				// Update parent card
 				ParentID = ParentCard->m_nID;
 				ParentDate = ParentCard->m_fViewed;
 			}
@@ -612,11 +590,11 @@ int TDocument::SearchParent(int CardID, bool bChild, bool bFocus) {
 // ---------------------------------------------------------------------------
 int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 	bool bChild, bool bFocus) {
-	// ?e?J?[?h??{??
+	// Child card loop
 	int CardID = -1;
 	float MinD = 0.0f;
 
-	// ?????N???[?v
+	// Link loop
 	TCard *ParentCard = GetCard(ParentID);
 	TCard *CurrentCard = GetCard(CurrentID);
 	if (ParentCard && CurrentCard) {
@@ -632,7 +610,7 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 			if (((Link->m_nDestID == ParentID && bChild) ||
 				(Link->m_nFromID == ParentID && !bChild))
 				&& Link->m_bDirection && Link->m_bVisible) {
-				// ?e?J?[?h???????N??\???????J?[?h?i?Z??j
+				// Card linked to parent (child)
 				TCard *Card;
 				if (bChild) {
 					Card = GetCard(Link->m_nFromID);
@@ -642,7 +620,7 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 				}
 				if (Card->m_bVisible && Card->m_nID != CurrentID &&
 					(Card->m_bGetFocus || !bFocus)) {
-					// ?p?x???v?Z
+					// Angle calculation
 					float xd = ParentCard->m_fX - Card->m_fX;
 					float yd = ParentCard->m_fY - Card->m_fY;
 					float rad = 0.0f;
@@ -655,9 +633,9 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 					}
 
 					if (CardID == -1 || ((MinD < rad) == bInverse)) {
-						// ????????????J?[?h
+						// Closest card
 
-						// ?J?[?h???X?V
+						// Update card
 						CardID = Card->m_nID;
 						MinD = rad;
 					}
@@ -671,18 +649,18 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 
 // ---------------------------------------------------------------------------
 int TDocument::SearchLast(int CardID, bool bFocus) {
-	// ???O??\??????????J?[?h??{??
-	// ?e?J?[?h??{??
+	// External link display card loop
+	// Parent card loop
 	int LastID = -1;
 	double LastDate = 0.0;
-	// ?????N???[?v
+	// Card loop
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		if (Card->m_bVisible && Card->m_nID != CardID && (LastID == -1 ||
 			Card->m_fViewed > LastDate) && (Card->m_bGetFocus || !bFocus)) {
-			// ?J?[?h??????????????????A??????????J?[?h
+			// Card with most recent view; update card
 
-			// ?J?[?h???X?V
+			// Update card
 			LastID = Card->m_nID;
 			LastDate = Card->m_fViewed;
 		}
@@ -693,42 +671,42 @@ int TDocument::SearchLast(int CardID, bool bFocus) {
 
 // ---------------------------------------------------------------------------
 void TDocument::RefreshCardLevel() {
-	// Card->m_bTop??????N??]????K?w???x?????A?J?[?h?\?[?g
+	// Card->m_bTop order hierarchy; card display
 
-	// ?K?w???Z?b?g
+	// Target backup
 	void **orderbak = new void*[m_Cards->Count];
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		orderbak[i] = Card;
 		Card->m_nLevel = 0;
-		Card->m_nParentID = -1; // ?e?J?[?hID?????g?p
+		Card->m_nParentID = -1; // Use parent card ID
 		Card->m_bHasChild = false;
 	}
 
-	TList *RCard = GetRelatedCard(true, true); // ?J?[?h??????N????????J?[?h???
+	TList *RCard = GetRelatedCard(true, true); // Cards linked to target card
 
-	// ?K?w???[?v
+	// Target loop
 	bool changed = true;
 	int level = 1;
 	while (changed) {
 		changed = false;
-		// ?J?[?h???[?v
+		// Card loop
 		for (int i = 0; i < m_Cards->Count; i++) {
 			TCard *Card = GetCardByIndex(i);
 			if (!Card->m_bTop && Card->m_nLevel == 0 && Card->m_nParentID == -1)
 			{
-				// ?K?w?????????????J?[?h
-				// ????J?[?h???????N????
+				// Target card
+				// Count cards linked to target
 				int count = RelatedCardNum(RCard, i);
 				if (count) {
-					// ????J?[?h???????????N??????
+					// Cards linked to target
 
-					// ?????J?[?h???????????e?J?[?h??T??
+					// Find parent card from linked cards
 					int startindex = 0;
 					for (int il = 0; il < count; il++) {
 						int index = RelatedIndex(RCard, i, il);
 						if (index < i) {
-							// Index???O??J?[?h
+							// Card before index
 							startindex = il;
 						}
 						else {
@@ -736,7 +714,7 @@ void TDocument::RefreshCardLevel() {
 						}
 					}
 
-					// ?K?w???
+					// Target
 					bool changed1 = false;
 					int il = startindex;
 					int count2 = count;
@@ -746,9 +724,9 @@ void TDocument::RefreshCardLevel() {
 
 						if (i != index && (Card2->m_bTop || (Card2->m_nLevel >
 							0 && Card2->m_nLevel == level - 1))) {
-							// ?e?J?[?h??????
+							// Parent card found
 
-							// ?e?J?[?h?????
+							// Parent card get
 							Card->m_nLevel = level;
 							Card->m_nParentID = Card2->m_nID;
 							Card2->m_bHasChild = true;
@@ -756,10 +734,10 @@ void TDocument::RefreshCardLevel() {
 							break;
 						}
 
-						il = (il + count - 1) % count; // 1???O??
+						il = (il + count - 1) % count; // One before
 						count2--;
 					}
-					while (count2); // ?????N??S??]????????
+					while (count2); // Sort loop complete
 
 					changed |= changed1;
 				}
@@ -771,16 +749,16 @@ void TDocument::RefreshCardLevel() {
 
 	FreeRelatedCard(RCard);
 
-	// ????v??
+	// Card order
 	FreeCardIDToIndex();
 
-	// Top?m?[?h???????????????
+	// Top card order
 	for (int i = 1; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		if (Card->m_bTop) {
 			int index = i;
 			while (index > 0) {
-				TCard *Card2 = GetCardByIndex(index - 1); // 1??O??J?[?h
+				TCard *Card2 = GetCardByIndex(index - 1); // Previous card
 				if (!Card2->m_bTop) {
 					m_Cards->Items[index - 1] = Card;
 					m_Cards->Items[index] = Card2;
@@ -793,31 +771,31 @@ void TDocument::RefreshCardLevel() {
 		}
 	}
 
-	// ?K?w???[?v
+	// Target loop
 	level = 0;
 	int moved = true;
 	while (moved || level <= maxlevel) {
 		moved = false;
-		// ?e?m?[?h???[?v
-		// ?J?[?h???[?v
+		// Parent card loop
+		// Card loop
 		for (int i = 0; i < m_Cards->Count; i++) {
 			TCard *Card = GetCardByIndex(i);
 			if ((Card->m_bTop && level == 0) ||
 				(Card->m_nLevel == level && Card->m_nLevel > 0)) {
-				// ?e?J?[?h
-				int insindex = i + 1; // ?e?J?[?h?????q?J?[?h???????????
+				// Parent card
+				int insindex = i + 1; // Insert between parent and child card
 
-				// ?J?[?h???[?v?i?q?j
+				// Card loop (child)
 				for (int i2 = 0; i2 < m_Cards->Count; i2++) {
 					TCard *Card2 = GetCardByIndex(i2);
 					if (Card2->m_nParentID == Card->m_nID) {
-						// ?e?J?[?h??q
+						// Parent card child
 						if (i2 < insindex) {
-							// ?}????u????O
-							// ???????????H
+							// Before insert position
+							// No move needed
 						}
 						else if (i2 > insindex) {
-							// ?}????u????????J?[?hinsindex<=x<i2??????1????????
+							// Move cards insindex<=x<i2 by 1
 							for (int i3 = i2; i3 > insindex; i3--) {
 								m_Cards->Items[i3] = m_Cards->Items[i3 - 1];
 							}
@@ -828,7 +806,7 @@ void TDocument::RefreshCardLevel() {
 							i++;
 						}
 						else {
-							// ????????u????u???????
+							// Already at insert position
 							insindex++;
 						}
 					}
@@ -839,7 +817,7 @@ void TDocument::RefreshCardLevel() {
 		level++;
 	}
 
-	// Index??X?`?F?b?N
+	// Index check
 	changed = false;
 	for (int i = 0; i < m_Cards->Count && !changed; i++) {
 		changed |= orderbak[i] != m_Cards->Items[i];
@@ -863,7 +841,7 @@ void TDocument::DeleteLabelFromCard(TCard *Card, int label) {
 
 // ---------------------------------------------------------------------------
 TList *TDocument::GetRelatedCard(bool bInverse, bool bVisibleOnly) {
-	// RCard??A?e?J?[?h????????????N???J?[?h??Index????????
+	// RCard: parent card linked to target card index
 	TList *RCard = new TList();
 	if (m_Cards->Count) {
 		for (int i = 0; i < m_Cards->Count; i++) {
@@ -882,11 +860,11 @@ TList *TDocument::GetRelatedCard(bool bInverse, bool bVisibleOnly) {
 				TCard *Dest = GetCardByIndex(indexdest);
 				if ((From->m_bVisible && Dest->m_bVisible) || !bVisibleOnly) {
 					if (bInverse) {
-						// ?t?????i?e?J?[?h??????N????????J?[?h??Index??????j
+						// Reverse (parent card linked to target card index)
 						matrix[indexdest * m_Cards->Count + indexfrom] = true;
 					}
 					else {
-						// ??????
+						// Forward
 						matrix[indexfrom * m_Cards->Count + indexdest] = true;
 					}
 				}
@@ -917,7 +895,7 @@ int TDocument::RelatedIndex(TList *RCard, int cardindex, int index) {
 
 // ---------------------------------------------------------------------------
 void TDocument::FreeRelatedCard(TList *RCard) {
-	// RCard??j??
+	// Free RCard
 	for (int i = 0; i < m_Cards->Count; i++) {
 		delete(TList *)RCard->Items[i];
 	}
@@ -968,7 +946,7 @@ void TDocument::InitDocument() {
 
 // ---------------------------------------------------------------------------
 TDocument::TDocument(TDocument &Doc) {
-	// ??????
+	// Save
 	InitDocument();
 
 	CopyFrom(&Doc);
@@ -981,7 +959,7 @@ void TDocument::CopyFrom(TDocument *Doc) {
 	ClearLabels(0);
 	ClearLabels(1);
 
-	// ?J?[?h?R?s?[
+	// Card load
 	for (int i = 0; i < Doc->m_Cards->Count; i++) {
 		TCard *Card = Doc->GetCardByIndex(i);
 		m_Cards->Add(new TCard(*Card));
@@ -990,33 +968,33 @@ void TDocument::CopyFrom(TDocument *Doc) {
 		}
 	}
 
-	// ?????N?R?s?[
+	// Link load
 	for (int i = 0; i < Doc->m_Links->Count; i++) {
 		m_Links->Add(new TLink(*Doc->GetLinkByIndex(i)));
 	}
 
-	// ???x???R?s?[
+	// Label load
 	for (int il = 0; il < 2; il++) {
 		for (int i = 0; i < Doc->m_Labels[il]->Count; i++) {
 			m_Labels[il]->Add(new TCardLabel(*Doc->GetLabelByIndex(il, i)));
 		}
 	}
 
-	// ???X?V?J?E???^
+	// Update type
 	m_nCheckCount = Doc->m_nCheckCount;
-	// ?\???X?V?p
+	// Load update
 	m_nRefreshListCount = Doc->m_nRefreshListCount;
 	m_nRefreshLinkCount = Doc->m_nRefreshLinkCount;
 	m_nRefreshLabelCount = Doc->m_nRefreshLabelCount;
 
-	// ?????
+	// Init
 	m_bChanged = Doc->m_bChanged;
 	m_FN = Doc->m_FN;
 	m_bReadOnly = Doc->m_bReadOnly;
 
-	m_nCardID = Doc->m_nCardID; // ????\??????J?[?h?i????p?j
+	m_nCardID = Doc->m_nCardID; // Focus card (for display)
 	m_nDefaultView = Doc->m_nDefaultView;
-	// ??????u???????\???????i-1=????A0=Browser?A1=Editor?j
+	// Display mode (-1=none, 0=Browser, 1=Editor)
 }
 
 // ---------------------------------------------------------------------------
@@ -1042,16 +1020,11 @@ void TDocument::RefreshList() {
 	m_bChanged = true;
 }
 
-/*
- #include <mmsystem.hpp>
- unsigned int tgt = timeGetTime();
- ShowMessage(timeGetTime() - tgt);
- */
 // ---------------------------------------------------------------------------
 bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 	bool result = true;
 
-	// ??????
+	// Save
 	ClearCards();
 	ClearLinks();
 	ClearLabels(0);
@@ -1083,22 +1056,22 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ??????p
+	// Load
 	m_bReadOnly = Ini->ReadBool("Global", "ReadOnly", 0);
 	m_nDefaultView = Ini->ReadInteger("Global", "DefaultView", -1);
 
-	// ????v??
+	// Card order
 	bReqArrange = Ini->ReadInteger("Global", "Arrange", bReqArrange);
-	// ?A?????W??ON/OFF
+	// Arrange ON/OFF
 	nReqArrangeMode = Ini->ReadInteger("Global", "ArrangeMode",
-		nReqArrangeMode); // 0??????Repulsion?ALink?ALabel?AIndex
+		nReqArrangeMode); // 0=Repulsion, Link, Label, Index
 	bReqAutoScroll = Ini->ReadInteger("Global", "AutoScroll",
-		bReqAutoScroll); // ?I?[?g?X?N???[??
+		bReqAutoScroll); // Auto scroll
 	bReqAutoZoom = Ini->ReadInteger("Global", "AutoZoom", bReqAutoZoom);
-	// ?I?[?g?Y?[??
+	// Auto zoom
 	bReqFullScreen = Ini->ReadInteger("Global", "FullScreen",
-		bReqFullScreen); // ?t???X?N???[??
-	bReqExit = Ini->ReadInteger("Global", "Exit", bReqExit); // ?I??
+		bReqFullScreen); // Full screen
+	bReqExit = Ini->ReadInteger("Global", "Exit", bReqExit); // Exit
 	fReqZoom = Ini->ReadFloat("Global", "Zoom", fReqZoom);
 	fReqX = Ini->ReadFloat("Global", "X", fReqX);
 	fReqY = Ini->ReadFloat("Global", "Y", fReqY);
@@ -1126,7 +1099,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 	ReqDateLimitationType = Ini->ReadInteger("Global", "DateLimitationType",
 		ReqDateLimitationType);
 
-	// ?J?[?h??ID???????
+	// Card ID check
 	int cardnum = Ini->ReadInteger("Card", "Num", 0);
 	m_nCardID = Ini->ReadInteger("Card", "CardID", -1);
 
@@ -1143,7 +1116,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 
 	m_nMaxCardID = maxid + 1;
 
-	// ?????N??????
+	// Link check
 	int linknum = Ini->ReadInteger("Link", "Num", 0);
 	for (int i = 0; i < linknum; i++) {
 		TLink *Link = NewLink();
@@ -1158,7 +1131,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ???x????????
+	// Label check
 	int labelnum = Ini->ReadInteger("Label", "Num", -1);
 	if (labelnum < 0) {
 		InitLabel(0);
@@ -1188,7 +1161,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ???x????????
+	// Label check
 	labelnum = Ini->ReadInteger("LinkLabel", "Num", -1);
 	if (labelnum < 0) {
 		InitLabel(1);
@@ -1235,10 +1208,10 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 
 // ---------------------------------------------------------------------------
 bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
-	// 20070804????_continuousload.fip????L????@?\
+	// 20070804 test_continuousload.fip compatibility
 
-	// ???x???A?????N???x???A?????N????????????
-	// ?J?[?h??A???t???u?????l????
+	// Label, link limitation, link limitation check
+	// Card and file path value
 
 	bool result = true;
 	ClearLinks();
@@ -1246,7 +1219,7 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 	TDocument *Tmp = new TDocument();
 	result &= Tmp->LoadFromString(SL, FN);
 
-	// ?J?[?h???W?A???t????p??
+	// Card path, file path
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		TCard *Card2 = Tmp->GetCard(Card->m_nID);
@@ -1258,7 +1231,7 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 			Card2->m_fViewed = Card->m_fViewed;
 		}
 	}
-	// ?J?[?h?R?s?[
+	// Card load
 	ClearCards();
 	int maxid = 0;
 	for (int i = 0; i < Tmp->m_Cards->Count; i++) {
@@ -1279,13 +1252,13 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 
 	m_nMaxCardID = maxid + 1;
 
-	// ?????N?R?s?[
+	// Link load
 	for (int i = 0; i < Tmp->m_Links->Count; i++) {
 		TLink *Link = NewLink();
 		Link->Decode(Tmp->GetLinkByIndex(i)->Encode());
 	}
 
-	// ???x???p?????[?^????p??
+	// Label parameter check
 	for (int il = 0; il < 2; il++) {
 		for (int i = 0; i < Tmp->m_Labels[il]->Count; i++) {
 			TCardLabel *Label2 = Tmp->GetLabelByIndex(il, i);
@@ -1299,7 +1272,7 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ???x???R?s?[
+	// Label load
 	ClearLabels(0);
 	ClearLabels(1);
 	for (int il = 0; il < 2; il++) {
@@ -1321,15 +1294,15 @@ bool TDocument::SaveToString(TStringList *SL) {
 	SL->Add("[Global]");
 	SL->Add(UnicodeString("Version=") + IntToStr(FileVersion));
 
-	// ?\?????
-	SL->Add(UnicodeString("Arrange=") + IntToStr(bReqArrange)); // ?A?????W??ON/OFF
+	// Read
+	SL->Add(UnicodeString("Arrange=") + IntToStr(bReqArrange)); // Arrange ON/OFF
 	SL->Add(UnicodeString("ArrangeMode=") + IntToStr(nReqArrangeMode));
-	// 0??????Repulsion?ALink?ALabel?AIndex
+	// 0=Repulsion, Link, Label, Index
 	SL->Add(UnicodeString("AutoScroll=") + IntToStr(bReqAutoScroll));
-	// ?I?[?g?X?N???[??
-	SL->Add(UnicodeString("AutoZoom=") + IntToStr(bReqAutoZoom)); // ?I?[?g?Y?[??
-	SL->Add(UnicodeString("FullScreen=") + IntToStr(bReqFullScreen)); // ?t???X?N???[??
-	SL->Add(UnicodeString("Exit=") + IntToStr(bReqExit)); // ?I??
+	// Auto scroll
+	SL->Add(UnicodeString("AutoZoom=") + IntToStr(bReqAutoZoom)); // Auto zoom
+	SL->Add(UnicodeString("FullScreen=") + IntToStr(bReqFullScreen)); // Full screen
+	SL->Add(UnicodeString("Exit=") + IntToStr(bReqExit)); // Exit
 	SL->Add(UnicodeString("Zoom=") + FloatToStr(fReqZoom));
 	SL->Add(UnicodeString("X=") + FloatToStr(fReqX));
 	SL->Add(UnicodeString("Y=") + FloatToStr(fReqY));
@@ -1348,7 +1321,7 @@ bool TDocument::SaveToString(TStringList *SL) {
 	SL->Add(UnicodeString("DateLimitationType=") +
 		IntToStr(ReqDateLimitationType));
 
-	// ?J?[?h??ID????
+	// Card ID
 	SL->Add("[Card]");
 	SL->Add(UnicodeString("CardID=") + m_nCardID);
 	SL->Add(UnicodeString("Num=") + m_Cards->Count);
@@ -1356,14 +1329,14 @@ bool TDocument::SaveToString(TStringList *SL) {
 		SL->Add(IntToStr(i) + UnicodeString("=") + GetCardByIndex_(i)->m_nID);
 	}
 
-	// ?????N???
+	// Link
 	SL->Add("[Link]");
 	SL->Add(UnicodeString("Num=") + m_Links->Count);
 	for (int i = 0; i < m_Links->Count; i++) {
 		SL->Add(IntToStr(i) + UnicodeString("=") + GetLinkByIndex(i)->Encode());
 	}
 
-	// ???x?????
+	// Label
 	SL->Add("[Label]");
 	SL->Add(UnicodeString("Num=") + m_Labels[0]->Count);
 	for (int i = 0; i < m_Labels[0]->Count; i++) {
@@ -1371,7 +1344,7 @@ bool TDocument::SaveToString(TStringList *SL) {
 			i)->Encode());
 	}
 
-	// ???x?????
+	// Label
 	SL->Add("[LinkLabel]");
 	SL->Add(UnicodeString("Num=") + m_Labels[1]->Count);
 	for (int i = 0; i < m_Labels[1]->Count; i++) {
@@ -1379,7 +1352,7 @@ bool TDocument::SaveToString(TStringList *SL) {
 			i)->Encode());
 	}
 
-	// ?e?J?[?h????
+	// Parent card path
 	SL->Add("[CardData]");
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex_(i);
@@ -1424,7 +1397,7 @@ bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
 	}
 	delete SL;
 
-	// ?t?@?C???????????????????i?K?v??????A???j
+	// File path required (essential)
 	if (SearchCardIndex(m_nCardID) == -1) {
 		m_nCardID = -1;
 	}
@@ -1436,7 +1409,7 @@ bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
 bool TDocument::Save() {
 	bool result;
 
-	// Global?f?[?^???
+	// Global data
 	TStringList *SL = new TStringList();
 
 	result = SaveToString(SL);
@@ -1461,18 +1434,18 @@ bool TDocument::Save() {
 bool TDocument::Load_Old(UnicodeString FN) {
 	m_FN = FN;
 
-	// ??????
+	// Save
 	ClearCards();
 	ClearLinks();
 
 	ClearLabels(0);
 	ClearLabels(1);
 
-	// ?e?J?[?h????p?t?H???_
+	// Parent card path folder
 	UnicodeString Dir =
 		m_FN.SubString(1, m_FN.Length() - ExtractFileExt(m_FN).Length());
 
-	// ?J?[?h??ID???????
+	// Card ID check
 	TIniFile *Ini = new TIniFile(m_FN);
 	int cardnum = Ini->ReadInteger("Card", "Num", 0);
 	m_nCardID = -1;
@@ -1491,14 +1464,14 @@ bool TDocument::Load_Old(UnicodeString FN) {
 
 	m_nMaxCardID = maxid + 1;
 
-	// ?????N??????
+	// Link check
 	int linknum = Ini->ReadInteger("Link", "Num", 0);
 	for (int i = 0; i < linknum; i++) {
 		TLink *Link = NewLink();
 		Link->Decode(Ini->ReadString("Link", IntToStr(i), ""));
 	}
 
-	// ???x????????
+	// Label check
 	int labelnum = Ini->ReadInteger("Label", "Num", -1);
 	if (labelnum < 0) {
 		InitLabel(0);
@@ -1520,19 +1493,19 @@ bool TDocument::Load_Old(UnicodeString FN) {
 bool TDocument::Save_Old() {
 	TIniFile *Ini = new TIniFile(m_FN);
 
-	// ?J?[?h??ID????
+	// Card ID
 	Ini->WriteInteger("Card", "Num", m_Cards->Count);
 	for (int i = 0; i < m_Cards->Count; i++) {
 		Ini->WriteInteger("Card", IntToStr(i), GetCardByIndex_(i)->m_nID);
 	}
 
-	// ?????N???
+	// Link
 	Ini->WriteInteger("Link", "Num", m_Links->Count);
 	for (int i = 0; i < m_Links->Count; i++) {
 		Ini->WriteString("Link", IntToStr(i), GetLinkByIndex(i)->Encode());
 	}
 
-	// ???x?????
+	// Label
 	Ini->WriteInteger("Label", "Num", m_Labels[0]->Count);
 	for (int i = 0; i < m_Labels[0]->Count; i++) {
 		Ini->WriteString("Label", IntToStr(i), GetLabelByIndex(0, i)->Encode());
@@ -1540,14 +1513,14 @@ bool TDocument::Save_Old() {
 
 	delete Ini;
 
-	// ?e?J?[?h????p?t?H???_??
+	// Parent card path folder
 	UnicodeString Dir =
 		m_FN.SubString(1, m_FN.Length() - ExtractFileExt(m_FN).Length());
 	if (!DirectoryExists(Dir)) {
 		MkDir(Dir);
 	}
 
-	// ?e?J?[?h????
+	// Parent card path
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex_(i);
 		Card->SaveToFile(Dir + "\\" + IntToDigit(Card->m_nID, 8) + ".txt");
@@ -1640,7 +1613,7 @@ void TDocument::ClearLabels(int ltype) {
 
 // ---------------------------------------------------------------------------
 bool TDocument::LabelIsFold(TCard *Card) {
-	// ???x?????[?v
+	// Label loop
 	bool fold = CountEnableLabel(Card) > 0;
 	for (int il = 0; il < Card->m_Labels->Count && fold; il++) {
 		TCardLabel *Label =
@@ -1655,19 +1628,14 @@ bool TDocument::LabelIsFold(TCard *Card) {
 
 // ---------------------------------------------------------------------------
 int TDocument::CountEnableLabel(TCard *Card) {
-	// ?J?[?h??L??????x???????
+	// Card link limitation
 
-	// ???x?????[?v
+	// Label loop
 	int count = 0;
 	for (int il = 0; il < Card->m_Labels->Count; il++) {
 		TCardLabel *Label =
 			GetLabelByIndex(0, Card->m_Labels->GetLabel(il) - 1);
 		count += Label->m_bEnable;
-		/*
-		 if (Label->m_bEnable){
-		 count++;
-		 }
-		 */
 	}
 
 	return count;
@@ -1675,7 +1643,7 @@ int TDocument::CountEnableLabel(TCard *Card) {
 
 // ---------------------------------------------------------------------------
 bool TDocument::LabelIsSame(TCard *Card1, TCard *Card2) {
-	// 2???J?[?h????x???????????????
+	// 2 cards limitation
 
 	if (CountEnableLabel(Card1) != CountEnableLabel(Card2)) {
 		return false;
@@ -1716,18 +1684,18 @@ void TDocument::SetLabelName(TCardLabel *Label, UnicodeString S) {
 // ---------------------------------------------------------------------------
 void TDocument::DeleteLabelByIndex(int ltype, int index) {
 	if (ltype == 0) {
-		// ?J?[?h???x??
+		// Card limitation
 		for (int i = 0; i < m_Cards->Count; i++) {
 			TCard *Card = GetCardByIndex_(i);
 
 			for (int il = 0; il < Card->m_Labels->Count; il++) {
 				if (Card->m_Labels->GetLabel(il) > index + 1) {
-					// ?????????x????????Index????x????Index????????
+					// Label limitation index check
 					Card->m_Labels->SetLabel(il,
 						Card->m_Labels->GetLabel(il) - 1);
 				}
 				else if (Card->m_Labels->GetLabel(il) == index + 1) {
-					// ?????????x???????????J?[?h????x?????N???A
+					// Label limitation card link check
 					Card->m_Labels->DeleteLabel(index + 1);
 					il--;
 				}
@@ -1735,18 +1703,18 @@ void TDocument::DeleteLabelByIndex(int ltype, int index) {
 		}
 	}
 	else {
-		// ?????N???x??
+		// Link limitation
 		for (int i = 0; i < m_Links->Count; i++) {
 			TLink *Link = GetLinkByIndex(i);
 
 			for (int il = 0; il < Link->m_Labels->Count; il++) {
 				if (Link->m_Labels->GetLabel(il) > index + 1) {
-					// ?????????x????????Index????x????Index????????
+					// Label limitation index check
 					Link->m_Labels->SetLabel(il,
 						Link->m_Labels->GetLabel(il) - 1);
 				}
 				else if (Link->m_Labels->GetLabel(il) == index + 1) {
-					// ?????????x???????????J?[?h????x?????N???A
+					// Label limitation card link check
 					Link->m_Labels->DeleteLabel(index + 1);
 					il--;
 				}
@@ -1835,18 +1803,18 @@ int TDocument::Request(char *Type, int Value, float fValue, void *option) {
 		result = 0;
 	}
 
-	return result; // 0?????
+	return result; // 0=success
 }
 
 // ---------------------------------------------------------------------------
 int TDocument::GetCheckCount() {
-	// 1??????X?V?????????C???N???????g
+	// 1=Update, 2=Load, 3=New
 	return m_nCheckCount;
 }
 
 // ---------------------------------------------------------------------------
 int TDocument::GetCardID() {
-	// ????t?H?[?J?X????J?[?hID
+	// Clipboard target card ID
 	return m_nCardID;
 }
 
@@ -1867,10 +1835,10 @@ int TDocument::LinkCount() {
 
 // ---------------------------------------------------------------------------
 void TDocument::CopyToClipboard() {
-	// ?R?s?[?????h?L???????g????
+	// Load file path
 	TDocument *D2 = new TDocument(*this);
 
-	// ?I????????????J?[?h?????i??A?J?[?h??????????????j
+	// Select card (yes) or card not selected (no)
 	for (int i = D2->m_Cards->Count - 1; i >= 0; i--) {
 		TCard *Card = D2->GetCardByIndex(i);
 		if (!Card->m_bSelected) {
@@ -1878,8 +1846,8 @@ void TDocument::CopyToClipboard() {
 		}
 	}
 
-	// ?g?p??????????J?[?h???x??????
-	// ?g?p?????????x????
+	// Used card limitation
+	// Used limitation
 	bool *LabelUsed;
 	LabelUsed = new bool[D2->m_Labels[0]->Count];
 	memset(LabelUsed, 0, sizeof(bool) * D2->m_Labels[0]->Count);
@@ -1889,7 +1857,7 @@ void TDocument::CopyToClipboard() {
 			LabelUsed[Card->m_Labels->GetLabel(il) - 1] = true;
 		}
 	}
-	// ?g?p????????????x?????
+	// Used link limitation
 	for (int il = D2->m_Labels[0]->Count - 1; il >= 0; il--) {
 		if (!LabelUsed[il]) {
 			D2->DeleteLabelByIndex(0, il);
@@ -1897,8 +1865,8 @@ void TDocument::CopyToClipboard() {
 	}
 	delete[]LabelUsed;
 
-	// ?g?p??????????????N???x??????
-	// ?g?p????????x???N???x????
+	// Used link limitation
+	// Used date limitation
 	LabelUsed = new bool[D2->m_Labels[1]->Count];
 	memset(LabelUsed, 0, sizeof(bool) * D2->m_Labels[1]->Count);
 	for (int i = 0; i < D2->m_Links->Count; i++) {
@@ -1907,7 +1875,7 @@ void TDocument::CopyToClipboard() {
 			LabelUsed[Link->m_Labels->GetLabel(il) - 1] = true;
 		}
 	}
-	// ?g?p????????????x?????
+	// Used link limitation
 	for (int il = D2->m_Labels[1]->Count - 1; il >= 0; il--) {
 		if (!LabelUsed[il]) {
 			D2->DeleteLabelByIndex(1, il);
@@ -1915,7 +1883,7 @@ void TDocument::CopyToClipboard() {
 	}
 	delete[]LabelUsed;
 
-	// ?N???b?v?{?[?h??R?s?[
+	// Clipboard load
 	TStringList *SL = new TStringList();
 	D2->SaveToString(SL);
 	Clipboard()->SetTextBuf(SL->Text.c_str());
@@ -1934,7 +1902,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 	TDocument *D2 = new TDocument();
 	D2->LoadFromString(SL, "");
 
-	// ???x?????????????????
+	// Label check
 	int *labelassign[2];
 	for (int lt = 0; lt < 2; lt++) {
 		labelassign[lt] = new int[D2->m_Labels[lt]->Count];
@@ -1956,7 +1924,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		}
 	}
 
-	// ?J?[?hID??U?????????????
+	// Card ID update
 	int *cardassign = new int[D2->m_nMaxCardID];
 	for (int ic = 0; ic < D2->m_Cards->Count; ic++) {
 		TCard *Card = new TCard(*D2->GetCardByIndex(ic));
@@ -1964,7 +1932,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		cardassign[Card->m_nID] = m_nMaxCardID;
 		Card->m_nID = m_nMaxCardID++;
 
-		// ???x???u??
+		// Label undo
 		for (int il = 0; il < Card->m_Labels->Count; il++) {
 			Card->m_Labels->SetLabel(il,
 				labelassign[0][Card->m_Labels->GetLabel(il) - 1] + 1);
@@ -1983,13 +1951,13 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		m_Cards->Add(Card);
 	}
 
-	// ?????N????
+	// Link
 	for (int il = 0; il < D2->m_Links->Count; il++) {
 		TLink *Link = new TLink(*D2->GetLinkByIndex(il));
 		Link->m_nFromID = cardassign[Link->m_nFromID];
 		Link->m_nDestID = cardassign[Link->m_nDestID];
 
-		// ???x???u??
+		// Label undo
 		for (int il = 0; il < Link->m_Labels->Count; il++) {
 			Link->m_Labels->SetLabel(il,
 				labelassign[1][Link->m_Labels->GetLabel(il) - 1] + 1);
@@ -1998,7 +1966,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		m_Links->Add(Link);
 	}
 
-	// ?j??
+	// End
 	delete[]cardassign;
 	for (int lt = 0; lt < 2; lt++) {
 		delete[]labelassign[lt];
@@ -2012,12 +1980,12 @@ void TDocument::PasteFromClipboard(float fSpan) {
 	RefreshLabel();
 }
 // ---------------------------------------------------------------------------
-extern int bReqArrange; // ?A?????W??ON/OFF
-extern int nReqArrangeMode; // 0??????Repulsion?ALink?ALabel?AIndex
-extern int bReqAutoScroll; // ?I?[?g?X?N???[??
-extern int bReqAutoZoom; // ?I?[?g?Y?[??
-extern int bReqFullScreen; // ?t???X?N???[??
-extern int bReqExit; // ?I??
-extern float fReqZoom, fReqX, fReqY; // ?Y?[??????W
+extern int bReqArrange; // Arrange ON/OFF
+extern int nReqArrangeMode; // 0=Repulsion, Link, Label, Index
+extern int bReqAutoScroll; // Auto scroll
+extern int bReqAutoZoom; // Auto zoom
+extern int bReqFullScreen; // Full screen
+extern int bReqExit; // Exit
+extern float fReqZoom, fReqX, fReqY; // Zoom center coordinates
 
 #pragma package(smart_init)

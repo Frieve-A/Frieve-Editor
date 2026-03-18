@@ -23,46 +23,46 @@ void TFo_View::ApplyLanguageSetting() {
 
 	Caption = Ini->ReadString("View", "Caption", Caption);
 	TS_Label->Caption = Ini->ReadString("View", "TS_Label",
-		TS_Label->Caption); // ラベル
+		TS_Label->Caption); // Label
 	La_Label->Caption = Ini->ReadString("View", "La_Label",
-		La_Label->Caption); // ラベル:
+		La_Label->Caption); // Label:
 	La_LabelFold->Caption = Ini->ReadString("View", "La_Fold",
-		La_LabelFold->Caption); // 折畳:
+		La_LabelFold->Caption); // Fold:
 	La_LabelShow->Caption = Ini->ReadString("View", "La_Show",
-		La_LabelShow->Caption); // 表示:
+		La_LabelShow->Caption); // Show:
 	La_LabelHide->Caption = Ini->ReadString("View", "La_Hide",
-		La_LabelHide->Caption); // 隠蔽:
+		La_LabelHide->Caption); // Hide:
 	La_LinkLabel->Caption = Ini->ReadString("View", "La_LinkLabel",
-		La_LinkLabel->Caption); // リンクラベル:
+		La_LinkLabel->Caption); // Link label:
 	La_LinkLabelShow->Caption = Ini->ReadString("View", "La_Show",
-		La_LinkLabelShow->Caption); // 表示:
+		La_LinkLabelShow->Caption); // Show:
 	La_LinkLabelHide->Caption = Ini->ReadString("View", "La_Hide",
-		La_LinkLabelHide->Caption); // 隠蔽:
+		La_LinkLabelHide->Caption); // Hide:
 	TS_Limitation->Caption = Ini->ReadString("View", "TS_Limitation",
-		TS_Limitation->Caption); // 表示制限
+		TS_Limitation->Caption); // Display limit
 	Ch_SizeLimitation->Caption = Ini->ReadString("View", "Ch_SizeLimitation",
-		Ch_SizeLimitation->Caption); // サイズで表示制限
+		Ch_SizeLimitation->Caption); // Limit by size
 	La_Size->Caption = Ini->ReadString("View", "La_Size",
-		La_Size->Caption); // サイズ
+		La_Size->Caption); // Size
 	Ch_LinkLimitation->Caption = Ini->ReadString("View", "Ch_LinkLimitation",
-		Ch_LinkLimitation->Caption); // リンクで表示制限
+		Ch_LinkLimitation->Caption); // Limit by link
 	La_Links->Caption = Ini->ReadString("View", "La_Links",
-		La_Links->Caption); // リンク
+		La_Links->Caption); // Links
 	Ch_LinkDirection->Caption = Ini->ReadString("View", "Ch_LinkDirection",
-		Ch_LinkDirection->Caption); // 向き
+		Ch_LinkDirection->Caption); // Direction
 	RB_LinkForward->Caption = Ini->ReadString("View", "RB_LinkForward",
-		RB_LinkForward->Caption); // 前向き
+		RB_LinkForward->Caption); // Forward
 	RB_LinkBackward->Caption = Ini->ReadString("View", "RB_LinkBackward",
-		RB_LinkBackward->Caption); // 後向き
+		RB_LinkBackward->Caption); // Backward
 	La_LinkTarget->Caption = Ini->ReadString("View", "La_LinkTarget",
-		La_LinkTarget->Caption); // リンク先:
+		La_LinkTarget->Caption); // Link target:
 	Ch_DateLimitation->Caption = Ini->ReadString("View", "Ch_DateLimitation",
-		Ch_DateLimitation->Caption); // 日時で表示制限
+		Ch_DateLimitation->Caption); // Limit by date
 	La_DateType->Caption = Ini->ReadString("View", "La_DateType",
-		La_DateType->Caption); // 日時の種類:
+		La_DateType->Caption); // Date type:
 	La_DateLimitationType->Caption =
 		Ini->ReadString("View", "La_DateLimitationType",
-		La_DateLimitationType->Caption); // 日時制限方法:
+		La_DateLimitationType->Caption); // Date limit method:
 	PT_NoAssign->Caption = Ini->ReadString("View", "PT_NoAssign",
 		PT_NoAssign->Caption);
 	PT_Select->Caption = Ini->ReadString("View", "PT_Select",
@@ -125,7 +125,7 @@ void TFo_View::SettingToGUI() {
 	// Label
 
 	SG_Labels->RowCount = 1 + 1 + m_Document->m_Labels[0]->Count;
-	// 説明行＋No Label＋実際のラベル
+	// Header row + No Label + actual labels
 	SG_Labels->Cells[1][0] = MLText.Enable;
 	SG_Labels->Cells[2][0] = MLText.Fold;
 	SG_Labels->Cells[3][0] = MLText.Show;
@@ -142,7 +142,7 @@ void TFo_View::SettingToGUI() {
 	// LinkLabel
 
 	SG_LinkLabels->RowCount = 1 + 1 + m_Document->m_Labels[1]->Count;
-	// 説明行＋No Label＋実際のラベル
+	// Header row + No Label + actual labels
 	SG_LinkLabels->Cells[1][0] = MLText.Show;
 	SG_LinkLabels->Cells[2][0] = MLText.Hide;
 	SG_LinkLabels->Cells[0][0] = MLText.LabelName;
@@ -165,7 +165,7 @@ void __fastcall TFo_View::TB_LinkLimitationChange(TObject *Sender) {
 	}
 	else {
 		/*
-		 //制限無し
+		 // No limit
 		 La_Links->Caption = "None";
 		 */
 		La_Links->Caption = UnicodeString("- ") + MLText.Links;
@@ -297,7 +297,7 @@ void __fastcall TFo_View::SG_LabelsMouseDown(TObject *Sender,
 				int size =
 					(int)(log(m_Document->GetLabelByIndex(type,
 					ARow - 2)->m_nSize / 100.0) * (8 / log(4)) + 100.5)
-					- 100; // 8で4倍
+					- 100; // 4x scale at position 8
 				if (X < r.left + 13) {
 					// - button
 					if (size > -8) {
@@ -337,7 +337,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 	Canvas->Pen->Width = 1;
 	Canvas->Pen->Style = psSolid;
 
-	// 背景
+	// Background
 	Canvas->Brush->Style = bsSolid;
 	Canvas->Brush->Color = clWhite;
 	if (ARow == 0) {
@@ -345,7 +345,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 	}
 	Canvas->FillRect(Rect);
 
-	// 枠
+	// Frame
 	if (State.Contains(gdFocused) && ARow > 0 && ACol > 0) {
 		Canvas->Brush->Style = bsClear;
 		Canvas->Pen->Color = clBlue;
@@ -369,7 +369,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 	}
 
 	if (ARow == 0 || ACol == 0) {
-		// 字
+		// Text
 		UnicodeString S = SG->Cells[ACol][ARow];
 		while (Canvas->TextWidth(S) > Rect.Width() - 4) {
 			S = S.SubString(1, S.Length() - 1);
@@ -430,7 +430,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 		}
 	}
 	else if (SG->Cells[ACol][0] == MLText.Size && ARow > 1) {
-		// +-ボタン
+		// +- buttons
 		Canvas->Brush->Style = bsSolid;
 		Canvas->Brush->Color = clSilver;
 		Canvas->Pen->Style = psSolid;

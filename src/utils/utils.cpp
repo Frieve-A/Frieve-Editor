@@ -5,7 +5,7 @@
 #include "utils.h"
 
 // ---------------------------------------------------------------------------
-// 高速Ini
+// Fast INI
 TFastIniSection::TFastIniSection(UnicodeString Name, TStringList *SL, int start,
 	int end) : m_Name(Name), m_nLastIndex(-1) {
 	m_KeyValues = new TStringList();
@@ -45,7 +45,6 @@ int TFastIniSection::SearchKey(UnicodeString Key) {
 }
 
 UnicodeString TFastIniSection::Values(int index) {
-	// return m_KeyValues->Values[index];
 	int p = m_KeyValues->Strings[index].Pos("=");
 	return m_KeyValues->Strings[index].SubString(p + 1,
 		m_KeyValues->Strings[index].Length());
@@ -141,9 +140,9 @@ TFastIni::~TFastIni() {
 // ---------------------------------------------------------------------------
 TFastIniSection *TFastIni::SearchSection(UnicodeString Section) {
 	if (m_LastSection != Section) {
-		// 最後に読んだSectionと違う場合
+		// When different from last read section
 
-		// 該当Sectionを検索
+		// Search for matching section
 		m_LastSectionIndex = -1;
 		for (int i = 0; i < m_Sections->Count; i++) {
 			if (((TFastIniSection*)m_Sections->Items[i])->m_Name == Section) {
@@ -154,11 +153,11 @@ TFastIniSection *TFastIni::SearchSection(UnicodeString Section) {
 	}
 
 	if (m_LastSectionIndex >= 0) {
-		// 該当セクションあり
+		// Matching section found
 		return (TFastIniSection*)m_Sections->Items[m_LastSectionIndex];
 	}
 	else {
-		// 該当セクションなし
+		// No matching section
 		return NULL;
 	}
 }
@@ -260,11 +259,11 @@ void FileListCreator(UnicodeString TopDir, TStringList *SL, UnicodeString Exts,
 // ---------------------------------------------------------------------------
 bool IsFileNameOrURL(UnicodeString S) {
 	if (S.Pos(":\\")) {
-		// ファイル（ルートフォルダのあるもの）
+		// Drive letter path (e.g. C:\)
 		return true;
 	}
 	else if (S.Pos("\\\\")) {
-		// ネットワーク上のファイル？
+		// UNC network path
 		return true;
 	}
 	else if (S.Pos("://")) {
@@ -292,7 +291,7 @@ WideString ReplaceText(WideString S, WideString From, WideString To) {
 }
 
 // ---------------------------------------------------------------------------
-int CountStr(WideString S, WideString CountChar) // CountCharの数を数える
+int CountStr(WideString S, WideString CountChar) // Count occurrences of CountChar
 {
 	int result = 0;
 	while (true) {
@@ -361,7 +360,7 @@ UnicodeString ExtractFileNameOnly(UnicodeString S) {
 		UnicodeString Ext = ExtractFileExt(S);
 		if (Ext != "") {
 			S = S.SubString(1, S.Length() - Ext.Length());
-			break; // 1段階だけ拡張子を取る。全部とりきる場合はコメントアウト
+			break; // Remove first extension only, then exit
 		}
 		else {
 			break;
@@ -384,23 +383,23 @@ UnicodeString ForFileName(UnicodeString S) {
 
 // ---------------------------------------------------------------------------
 UnicodeString DeleteActionKey(UnicodeString S) {
-	// &File, (&F)などのアクションキー文字列を除く
+	// Remove accelerator keys (e.g. &File, (&F))
 
 	UnicodeString XStr;
 
-	// 日本語アクションキー
+	// Remove parenthesized accelerator (e.g. (&F))
 	XStr = "(&";
 	while (int pos = S.Pos(XStr)) {
 		S = S.SubString(1, pos - 1) + S.SubString(pos + 4, S.Length());
 	}
 
-	// 英語アクションキー
+	// Remove single & accelerator
 	XStr = "&";
 	while (int pos = S.Pos(XStr)) {
 		S = S.SubString(1, pos - 1) + S.SubString(pos + 1, S.Length());
 	}
 
-	// 3点リーダ
+	// Remove ellipsis (...)
 	XStr = "...";
 	while (int pos = S.Pos(XStr)) {
 		S = S.SubString(1, pos - 1) + S.SubString(pos + 3, S.Length());
@@ -507,7 +506,7 @@ TColor GetColor(float f, int base, int cont) {
 }
 
 // ---------------------------------------------------------------------------
-// 簡易ガウス乱数
+// Gaussian distribution
 float GaussianRand() {
 	float d = 0.0f;
 	for (int i = 0; i < 12; i++) {

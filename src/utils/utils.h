@@ -6,7 +6,7 @@
 #include <vcl.h>
 
 // ---------------------------------------------------------------------------
-// 高速Ini読み込み
+// Fast INI reading
 class TFastIniSection {
 private:
 	int m_nLastIndex;
@@ -29,7 +29,7 @@ private:
 
 class TFastIni {
 private:
-	TList* m_Sections; // 各セクション
+	TList* m_Sections; // sections
 	int m_LastSectionIndex;
 	UnicodeString m_LastSection;
 
@@ -52,28 +52,28 @@ private:
 };
 
 // ---------------------------------------------------------------------------
-// ファイル関連
+// File related
 void FileListCreator(UnicodeString TopDir, TStringList *SL, UnicodeString Exts,
 	bool SubFolder = true);
 bool IsFileNameOrURL(UnicodeString S);
 // ---------------------------------------------------------------------------
-// 文字列関係
-int CountStr(WideString S, WideString CountChar); // CountCharの数を数える
-WideString SplitStrBy(WideString &S, WideString SplitChar); // SplitCharの位置でSを分割
+// String related
+int CountStr(WideString S, WideString CountChar); // Count occurrences of CountChar
+WideString SplitStrBy(WideString &S, WideString SplitChar); // Split S at SplitChar position
 WideString ReplaceText(WideString S, WideString From, WideString To);
 UnicodeString IntToDigit(int i, int digit);
 UnicodeString SizeToStr(int i);
 UnicodeString ExtractFileNameOnly(UnicodeString S);
-UnicodeString ForFileName(UnicodeString S); // ファイルネームに使用できない文字を除く
-UnicodeString DeleteActionKey(UnicodeString S); // &File, (&F)などのアクションキー文字列を除く
+UnicodeString ForFileName(UnicodeString S); // Remove chars invalid for filenames
+UnicodeString DeleteActionKey(UnicodeString S); // Remove action key strings like &File, (&F)
 // ---------------------------------------------------------------------------
-// 色関係
+// Color related
 TColor HalfColor(int C1, int C2, float A);
 TColor InverseColor(int C1);
 TColor BrightColor(int C1, float A);
 TColor GetColor(float f, int base, int cont);
 // ---------------------------------------------------------------------------
-// 簡易ガウス乱数
+// Simple Gaussian random
 float GaussianRand();
 // ---------------------------------------------------------------------------
 #endif

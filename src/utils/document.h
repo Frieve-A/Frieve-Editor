@@ -137,7 +137,6 @@ public:
 	TCard* GetCard(int nID);
 	void SetCardTitle(TCard *Card, UnicodeString S);
 	void SetCardText(TCard *Card, UnicodeString S);
-	// void SetCardText(int nID, char *szChar);
 	void DeleteCard(int nID);
 	int SearchCardIndex(int nID);
 	void ClearCards();

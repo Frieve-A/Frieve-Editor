@@ -33,26 +33,26 @@ public:
 };
 
 class TDSDecoder : public TThread, ISampleGrabberCB {
-public: // ユーザー宣言
+public:
 	__fastcall TDSDecoder(bool CreateSuspended);
 	void __fastcall Execute();
 
-	// 設定
+	// Settings
 	UnicodeString m_FN;
 	ICBBMP *CBBMP;
 	ICBWAVE *CBWAVE;
-	bool m_bGrub; // データぶっこ抜き
+	bool m_bGrub; // Extract raw data
 	bool m_bUnsync;
-	bool m_bLoop; // 最後まで再生したら自動的に先頭に戻る
-	double m_fLoopStartPos, m_fLoopEndPos; // ループ箇所(ms)
+	bool m_bLoop; // Loop back to start when playback reaches end
+	double m_fLoopStartPos, m_fLoopEndPos; // Loop range (ms)
 
-	// 状態
-	bool m_bExecuted; // スレッドが実行に入っている
-	bool m_bPrepared; // 準備済み
-	bool m_bWaitToPlay; // 再生待ちする
-	bool m_bFinished; // 再生終了フラグ
+	// State
+	bool m_bExecuted; // Thread has started executing
+	bool m_bPrepared; // Prepared
+	bool m_bWaitToPlay; // Waiting to play
+	bool m_bFinished; // Playback finished flag
 
-	// 操作
+	// Operations
 	double GetLength();
 	double GetPosition();
 	void SetPosition(double ms);

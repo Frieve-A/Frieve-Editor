@@ -10,7 +10,7 @@ TDMatrix::TDMatrix(int num) : m_nDim(num) {
 	m_Data = new float[m_nDim * m_nDim];
 	m_IDValue = new TList();
 
-	// inline対策
+	// Inline workaround
 	ID(0);
 	S(0, 0);
 }
@@ -50,7 +50,7 @@ int __fastcall func_IDCmp(void * Item1, void * Item2) {
 void TDMatrix::Finalize() {
 	FreeIDValue();
 
-	// ソートされたIDとIndexのデータを作る
+	// Build sorted ID-to-Index mapping
 	for (int i = 0; i < m_nDim; i++) {
 		IDValue *IDV = new IDValue;
 		IDV->ID = ID(i);
@@ -62,10 +62,10 @@ void TDMatrix::Finalize() {
 
 // ---------------------------------------------------------------------------
 int TDMatrix::SearchIndex(int ID) {
-	// IDのIndexを検索
+	// Search Index by ID
 	int step = m_IDValue->Count >> 1;
 	int pos = step;
-	int count = 0; // 1ずつシフトしても見つからなかった回数
+	int count = 0; // Times not found when shifting by 1
 	while (true) {
 		int Cmp = ID - ((IDValue*)m_IDValue->Items[pos])->ID;
 		if (Cmp == 0) {
@@ -99,10 +99,10 @@ int TDMatrix::SearchIndex(int ID) {
 		}
 	}
 	/*
-	 //IDのIndexを検索
+	 // Search Index by ID
 	 int step = m_IDValue->Count >> 1;
 	 int pos = step;
-	 int count = 0;//1ずつシフトしても見つからなかった回数
+	 int count = 0; // Times not found when shifting by 1
 	 while (count < 2 && pos >= 0 && pos < m_IDValue->Count){
 	 int Cmp = ID - ((IDValue*)m_IDValue->Items[pos])->ID;
 	 if (Cmp == 0){
@@ -128,20 +128,20 @@ int TDMatrix::SearchIndex(int ID) {
 }
 
 // ---------------------------------------------------------------------------
-// コンストラクタ
+// Constructor
 TFList::TFList() : m_nSize(0), m_nCount(0), m_Data(NULL) {
 }
 
 // ---------------------------------------------------------------------------
-// デストラクタ
+// Destructor
 __fastcall TFList::~TFList() {
 	Clear();
 }
 
 // ---------------------------------------------------------------------------
-// ポインタリストを倍にする
+// Double pointer list buffer
 void TFList::Twice() {
-	// 次のサイズを決める
+	// Determine next size
 	void **newdata;
 	int lastsize = m_nSize;
 	if (m_nSize) {
@@ -151,34 +151,33 @@ void TFList::Twice() {
 		m_nSize = MINFLISTBUFSIZE;
 	}
 
-	// 新しい格納場所を作る
+	// Allocate new storage
 	newdata = new void*[m_nSize];
 	if (lastsize) {
-		// これまでの結果をコピー
+		// Copy existing data
 		memcpy(newdata, m_Data, sizeof(void*) * m_nCount);
 		delete[]m_Data;
 	}
 
-	// 新しい格納場所を代入
+	// Assign new storage
 	m_Data = newdata;
 }
 
 // ---------------------------------------------------------------------------
-// ポインタリストを半分にする
+// Halve pointer list buffer
 void TFList::Half() {
-	// 次のサイズを決める
+	// Determine next size
 	void **newdata;
 	m_nSize /= 2;
 
-	// 新しい格納場所を作る
+	// Allocate new storage
 	if (m_nSize) {
-		// サイズがある
 		newdata = new void*[m_nSize];
-		// これまでの結果をコピー
+		// Copy existing data
 		memcpy(newdata, m_Data, sizeof(void*) * m_nCount);
 		delete[]m_Data;
 
-		// 新しい格納場所を代入
+		// Assign new storage
 		m_Data = newdata;
 	}
 	else {
@@ -244,32 +243,32 @@ void __fastcall QuickSort(void **SortList, int L, int R,
 }
 
 // ---------------------------------------------------------------------------
-// クイックソート
+// Quick sort
 void TFList::QuickSort(TFListSortCompare CompFunc, int nLeft, int nRight) {
 	if (m_nCount <= 1) {
 		return;
 	}
 
-	// ピポット選択
+	// Pivot selection
 	void *p = m_Data[(nLeft + nRight + 1) / 2];
 	int Left = nLeft;
 	int Right = nRight;
 
 	while (true) {
-		// 左からp以上を探す
+		// Find first >= p from left
 		int lefti = Left;
-		while (CompFunc(m_Data[lefti], p) > 0) { // pより小さい
+		while (CompFunc(m_Data[lefti], p) > 0) { // Less than p
 			lefti++;
 		}
 
-		// 右からp以下を探す
+		// Find first <= p from right
 		int righti = Right;
-		while (CompFunc(m_Data[righti], p) < 0) { // pより大きい
+		while (CompFunc(m_Data[righti], p) < 0) { // Greater than p
 			righti--;
 		}
 
 		if (lefti < righti) {
-			// 並び替え発生
+			// Swap
 			void *tmp = m_Data[righti];
 			m_Data[righti] = m_Data[lefti];
 			m_Data[lefti] = tmp;
@@ -277,15 +276,15 @@ void TFList::QuickSort(TFListSortCompare CompFunc, int nLeft, int nRight) {
 			Right = righti - 1;
 		}
 		else {
-			// ピポットの左はピポット以下、右はピポット以上になった
+			// Left of pivot <= pivot, right >= pivot
 
-			// 左右に分割してソート
+			// Recursively sort left and right
 			if (nLeft < lefti - 1) {
-				// 左をソート
+				// Sort left
 				QuickSort(CompFunc, nLeft, lefti - 1);
 			}
 			if (lefti < nRight) {
-				// 右をソート
+				// Sort right
 				QuickSort(CompFunc, lefti, nRight);
 			}
 			break;
@@ -294,16 +293,16 @@ void TFList::QuickSort(TFListSortCompare CompFunc, int nLeft, int nRight) {
 }
 
 // ---------------------------------------------------------------------------
-// 数を得る
+// Get count
 int TFList::FCount() {
 	return m_nCount;
 }
 
 // ---------------------------------------------------------------------------
-// 追加
+// Add
 void *TFList::Add(void *p) {
 	if (m_nCount >= m_nSize) {
-		// 格納場所が足りなければ拡張
+		// Expand if storage insufficient
 		Twice();
 	}
 	m_Data[m_nCount++] = p;
@@ -311,22 +310,22 @@ void *TFList::Add(void *p) {
 }
 
 // ---------------------------------------------------------------------------
-// 変更
+// Set
 void *TFList::Set(int nIndex, void *p) {
 	m_Data[nIndex] = p;
 	return p;
 }
 
 // ---------------------------------------------------------------------------
-// 挿入
+// Insert
 void *TFList::Insert(int nIndex, void *p) {
 	if (nIndex < m_nCount) {
 		if (m_nCount >= m_nSize) {
-			// 格納場所が足りなければ拡張
+			// Expand if storage insufficient
 			Twice();
 		}
 
-		// 挿入箇所以降を1つ後ろにずらす
+		// Shift elements from insert position backward
 		for (int i = m_nCount; i > nIndex; i--) {
 			m_Data[i] = m_Data[i - 1];
 		}
@@ -336,32 +335,32 @@ void *TFList::Insert(int nIndex, void *p) {
 		return p;
 	}
 	else {
-		// 最後に挿入（Addと同じ動作）
+		// Append (same as Add)
 		return Add(p);
 	}
 }
 
 // ---------------------------------------------------------------------------
-// 削除
+// Delete
 void TFList::Delete(int nindex) {
-	// nindex番目のデータを削除
+	// Delete element at nindex
 
-	// nindex以降のデータを1つ手前にシフト
+	// Shift elements after nindex forward
 	for (int i = nindex; i < m_nCount - 1; i++) {
 		m_Data[i] = m_Data[i + 1];
 	}
 
-	// 数を減らす
+	// Decrement count
 	m_nCount--;
 
-	// 格納場所が大きすぎたら半分に
+	// Halve storage if too large
 	if (m_nCount <= m_nSize / 2 && m_nCount > MINFLISTBUFSIZE) {
 		Half();
 	}
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 void *TFList::FItems(int nindex) {
 	return m_Data[nindex];
 }
@@ -371,7 +370,7 @@ void TFList::FWrite(int nindex, void *P) {
 }
 
 // ---------------------------------------------------------------------------
-// 全削除
+// Clear all
 void TFList::Clear() {
 	if (m_nSize) {
 		delete[]m_Data;
@@ -382,7 +381,7 @@ void TFList::Clear() {
 }
 
 // ---------------------------------------------------------------------------
-// ソート
+// Sort
 void TFList::Sort(TFListSortCompare CompFunc) {
 	// QuickSort(CompFunc, 0, Count - 1);
 	if (m_nCount <= 1) {
@@ -392,7 +391,7 @@ void TFList::Sort(TFListSortCompare CompFunc) {
 }
 
 // ---------------------------------------------------------------------------
-// シャッフル
+// Shuffle
 void TFList::Shuffle() {
 	for (int i = 0; i < m_nCount; i++) {
 		int idx = rand() % m_nCount;
@@ -420,70 +419,57 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 	int maxcount, float pgmin, float pgmax, float &pgpos, bool &terminated,
 	int option) : m_nMaxCombi(maxcombi) {
 #ifdef DEBUG_SPEEDTUNE
-	// デバッグ用変数
-	int debug_orgtotal = 0; // もともとの組み合わせ総数
+	// Debug variables
+	int debug_orgtotal = 0; // Original combination count
 
-	int debug_fewdeleted = 0; // より短い組み合わせが1回以下しか出現していなかったため削除
-	int debug_dplxdeleted = 0; // 重複で削除された組み合わせの総数
-	int debug_shortdeleted = 0; // より短い組み合わせがより長い組み合わせと同数だったため削除
+	int debug_fewdeleted = 0; // Deleted: shorter combo appeared <= 1 time
+	int debug_dplxdeleted = 0; // Deleted: duplicate combinations
+	int debug_shortdeleted = 0; // Deleted: shorter combo same count as longer
 
-	int debug_totalremain = 0; // 抽出された組み合わせ総数
+	int debug_totalremain = 0; // Extracted combination count
 
 	unsigned int time_bunkai = 0, time_sort = 0, time_rekkyo = 0, t;
 #endif
 	WideString Ret = "\n";
 
 	m_Gram = new TWSandValueList*[maxcombi];
-	// N-gramループ
+	// N-gram loop
 	for (int i = 0; i < m_nMaxCombi; i++) {
 		m_Gram[i] = new TWSandValueList();
 	}
 	TWSandValueList *lastgram = NULL;
 	for (int i = 0; i < m_nMaxCombi && !terminated; i++) {
-		TWideStringList *Tmp = new TWideStringList(); // 各カードの重複なし組み合わせ格納用
+		TWideStringList *Tmp = new TWideStringList(); // Unique combos per card
 		if (i > 0) {
 			if (lastgram->Count == 0) {
-				// もう組み合わせが無い
+				// No more combinations
 				break;
 			}
 		}
 
 		TWSandValueList *gram = m_Gram[i];
 
-		// カードループ
+		// Card loop
 		for (int ic = 0; ic < SL->Count; ic++) {
-			// 小文字化
+			// Lowercase
 			// WideString WS = SL->Strings(ic);
 			WideString WS;
 			if (option & 0x1) {
-				// 小文字化禁止
+				// No lowercase
 				WS = SL->Strings(ic);
 			}
 			else {
-				// 通常はロバストネスのため小文字に統一
+				// Usually lowercase for robustness
 				WS = WideLowerCase(SL->Strings(ic));
 			}
 
-			// if (i > 0){
 #ifdef DEBUG_SPEEDTUNE
 			t = timeGetTime();
 #endif
-			// 組み合わせ分解
+			// Decompose combinations
 			int len = i + 1;
 			int wslen = WS.Length();
-			TWideStringList *Tmp2 = new TWideStringList(); // カード内の全組み合わせ格納用
-			/*
-			 for (int i2 = 0 ; i2 < wslen - i ; i2++){
-			 WideString W1 = WS.SubString(i2 + 1, len);
-			 int p = W1.Pos("\n");
-			 if (p == 0){
-			 Tmp2->Add(W1);
-			 }else{
-			 i2 += p - 1;
-			 }
-			 }
-			 // */
-			// *
+			TWideStringList *Tmp2 = new TWideStringList(); // All combos in card
 			int count = 0;
 			wchar_t *w1 = &WS[1];
 			for (int i2 = 0; i2 < wslen; i2++) {
@@ -499,7 +485,6 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 					}
 				}
 			}
-			// */
 #ifdef DEBUG_SPEEDTUNE
 			time_bunkai += timeGetTime() - t;
 
@@ -511,36 +496,33 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 			time_sort += timeGetTime() - t;
 #endif
 
-			// 重複削除しながらこのカードの組み合わせに追加
+			// Add to this card's combos while removing duplicates
 			// WS = "";
 #ifdef DEBUG_SPEEDTUNE
 			t = timeGetTime();
 #endif
 			if (Tmp2->Count > 0) {
 				if (i > 0) {
-					// 2回以上出現している組み合わせを含むより長い組み合わせのみ残す
+					// Keep only longer combos that contain combos appearing 2+ times
 					int lastindex = 0;
 					int lastcount = lastgram->Count;
 
-					WideString *TSL = NULL; // 直前の文字列保存用
+					WideString *TSL = NULL; // Previous string
 
 					int tmp2count = Tmp2->Count;
 					for (int i3 = 0; i3 < tmp2count; i3++) {
-						WideString *TS1 = Tmp2->StringsP(i3); // 追加すべきテキスト
-						// WideString *TS1 = (WideString*)&Tmp2->Strings(i3);//追加すべきテキスト
-						// bool add = true;
+						WideString *TS1 = Tmp2->StringsP(i3); // Text to add
 						bool add = i3 == 0 ? true :
 							(WideCompareStr(*TSL, *TS1) != 0);
 						// bool add = i3 == 0 ? true : (wcscmp(TSL, TS1) != 0);
-						if (add) { // Tmp2->Strings(i3)を追加すべき
-							WideString TSC = TS1->SubString(1, i); // 1文字短い追加対象
-							// WideString TSC = ((WideString)TS1).SubString(1, i);//1文字短い追加対象
+						if (add) { // Add Tmp2->Strings(i3)
+							WideString TSC = TS1->SubString(1, i); // 1-char shorter target
+							// WideString TSC = ((WideString)TS1).SubString(1, i);// 1-char shorter target
 							int cmp = 1;
 							while (lastindex < lastcount) {
 								cmp = WideCompareStr
 									(lastgram->Strings(lastindex), TSC);
-								// cmp = wcscmp(lastgram->Strings(lastindex), TSC);
-								if (cmp < 0) {
+							if (cmp < 0) {
 									lastindex++;
 								}
 								else {
@@ -548,12 +530,8 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 								}
 							}
 							if (cmp == 0) {
-								// WS += TS;
-								// *
 								Tmp->AddP(TS1);
 								Tmp2->SetNULL(i3);
-								// */
-								// Tmp->AddA(*TS1);
 							}
 #ifdef DEBUG_SPEEDTUNE
 							else {
@@ -571,15 +549,12 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 				}
 				else {
 
-					// 全ての組み合わせを残す
+					// Keep all combinations
 					WideString *WSL = NULL;
 
 					int tmp2count = Tmp2->Count;
 					for (int i3 = 0; i3 < tmp2count; i3++) {
 						WideString *TS1 = Tmp2->StringsP(i3);
-						// WideString *TS1 = (WideString*)&Tmp2->Strings(i3);
-
-						// bool add = true;
 						bool add = i3 == 0 ? true :
 							*TS1 != Ret && WideCompareStr(*WSL, *TS1) != 0;
 						if (add) {
@@ -621,14 +596,14 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 			 Tmp = "";
 			 }
 			 // */
-		} // カードループ
+		} // Card loop
 
-		// 全カードの結果合成
-		// 組み合わせ分解
+		// Merge results from all cards
+		// Decompose combinations
 		/*
 		 int len = i + 1;
 		 int count = Tmp.Length() / len;
-		 TWideStringList *Tmp2 = new TWideStringList();//カード内の全組み合わせ格納用
+		 TWideStringList *Tmp2 = new TWideStringList();// All combos in card
 		 for (int i2 = 0 ; i2 < count ; i2++){
 		 Tmp2->Add(Tmp.SubString(i2 * len + 1, len));
 		 }
@@ -636,7 +611,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 		 */
 		Tmp->Sort();
 
-		// 重複削除かつ2回出現したもののみこのカードの組み合わせに追加
+		// Add only combos that appear 2+ times (after dedup)
 		int count = 0;
 		int tmpcount = Tmp->Count;
 		if (tmpcount > 0) {
@@ -647,7 +622,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 				WideString *TS = Tmp->StringsP(i3);
 				// WideString *TS = (WideString*)&Tmp->Strings(i3);
 				if (WideCompareStr(*WSL, *TS) != 0) {
-					// 異なる
+					// Different
 					if (count > 0) {
 						count++;
 						gram->Values(gram->Count - 1) = count;
@@ -664,7 +639,7 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 					count = 0;
 				}
 				else {
-					// 同じ
+					// Same
 					count++;
 					if (count == 1) {
 						// gram->AddA(*TS);
@@ -694,19 +669,19 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 #endif
 		}
 		/*
-		 //m_Gramとm_GramCountの数が同じかチェック（デバッグ用）
+		 // Debug: check m_Gram and m_GramCount match
 		 if (gram->Count != m_GramCount[i]->Count){
 		 m_GramCount[i]->Add(NULL);
 		 }
 		 */
 
-		// (N-1)gramと出現回数が同じなら(N-1)gramを削除。同時にindex対応付け
+		// If (N-1)gram has same count as N-gram, remove (N-1)gram; map indices
 		if (i > 0) {
 			int lastindex = 0;
 			int lastcount = lastgram->Count;
 			int count = gram->Count;
 			for (int i3 = 0; i3 < count; i3++) {
-				WideString TSC = gram->Strings(i3).SubString(1, i); // 1文字短いテキスト
+				WideString TSC = gram->Strings(i3).SubString(1, i); // 1-char shorter text
 				int cmp = 1;
 				while (lastindex < lastcount) {
 					if ((cmp = WideCompareStr(lastgram->Strings(lastindex),
@@ -734,16 +709,16 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 			}
 		}
 
-		// 2文字目以降でソート
+		// Sort by 2nd character onward
 		gram->Sort2();
 
-		// 2文字目以降で(N-1)gramと出現回数が同じなら(N-1)gramを削除
+		// If (N-1)gram has same count when sorted by 2nd char, remove (N-1)gram
 		if (i > 0) {
 			int lastindex = 0;
 			int lastcount = lastgram->Count;
 			int count = gram->Count;
 			for (int i3 = 0; i3 < count; i3++) {
-				WideString TSC = gram->Strings(i3).SubString(2, i); // 1文字短いテキスト
+				WideString TSC = gram->Strings(i3).SubString(2, i); // 1-char shorter text
 				int cmp = 1;
 				while (lastindex < lastcount) {
 					if ((cmp = WideCompareStr(lastgram->Strings(lastindex),
@@ -767,21 +742,21 @@ TTextDecomposer::TTextDecomposer(TWideStringList *SL, int maxcombi,
 			}
 		}
 
-		// 順序を元に（1文字目からのソートに）戻す
+		// Restore order (sort from 1st character)
 		gram->Sort();
 
 		delete Tmp;
 
 		lastgram = gram;
 
-		// Progress
+		// Progress update
 		if (pgmax > pgmin) {
 			pgpos = ((pgmax - pgmin) * (i + 1)) / m_nMaxCombi + pgmin;
 			Application->ProcessMessages();
 		}
-	} // N-gramループ
+	} // N-gram loop
 
-	// 合計計算、シリアル振り
+	// Compute total, assign serial numbers
 	m_nMaxSN = 0;
 	for (int i = 0; i < m_nMaxCombi; i++) {
 		TWSandValueList *gram = m_Gram[i];
@@ -834,7 +809,7 @@ void _fastcall TWideStringList::Clear() {
 }
 
 // ---------------------------------------------------------------------------
-// 追加
+// Add
 void TWideStringList::Add(WideString S) {
 	WideString *S1 = new WideString;
 	*S1 = S;
@@ -842,7 +817,7 @@ void TWideStringList::Add(WideString S) {
 }
 
 // ---------------------------------------------------------------------------
-// 追加
+// Add
 void TWideStringList::AddA(WideString &S) {
 	WideString *S1 = new WideString;
 	*S1 = S;
@@ -860,7 +835,7 @@ void TWideStringList::SetNULL(int nindex) {
 }
 
 // ---------------------------------------------------------------------------
-// 削除
+// Delete
 void TWideStringList::Delete(int nindex) {
 	if (Items[nindex]) {
 		delete(WideString*)Items[nindex];
@@ -869,13 +844,13 @@ void TWideStringList::Delete(int nindex) {
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 WideString &TWideStringList::Strings(int nindex) {
 	return *(WideString*)Items[nindex];
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 WideString *TWideStringList::StringsP(int nindex) {
 	return (WideString*)Items[nindex];
 }
@@ -886,7 +861,7 @@ int __fastcall WideStringSortCompare(void * Item1, void * Item2) {
 }
 
 // ---------------------------------------------------------------------------
-// 昇順ソート
+// Ascending sort
 void TWideStringList::Sort() {
 	TFListforTP::Sort(WideStringSortCompare);
 }
@@ -909,7 +884,7 @@ void _fastcall TWSandValueList::Clear() {
 }
 
 // ---------------------------------------------------------------------------
-// 追加
+// Add
 void TWSandValueList::Add(WideString S) {
 	WSandValue *S1 = new WSandValue;
 	(*S1).WS = new WideString;
@@ -923,7 +898,7 @@ void TWSandValueList::Add(WideString S) {
 }
 
 // ---------------------------------------------------------------------------
-// 追加
+// Add
 void TWSandValueList::AddA(WideString &S) {
 	WSandValue *S1 = new WSandValue;
 	(*S1).WS = new WideString;
@@ -937,7 +912,7 @@ void TWSandValueList::AddA(WideString &S) {
 }
 
 // ---------------------------------------------------------------------------
-// 追加
+// Add
 void TWSandValueList::AddP(WideString *S) {
 	WSandValue *S1 = new WSandValue;
 	(*S1).WS = S;
@@ -950,7 +925,7 @@ void TWSandValueList::AddP(WideString *S) {
 }
 
 // ---------------------------------------------------------------------------
-// 削除
+// Delete
 void TWSandValueList::Delete(int nindex) {
 	delete((WSandValue*)Items[nindex])->WS;
 	delete(WSandValue*)Items[nindex];
@@ -958,37 +933,37 @@ void TWSandValueList::Delete(int nindex) {
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 WideString &TWSandValueList::Strings(int nindex) {
 	return *(*(WSandValue*)Items[nindex]).WS;
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 int &TWSandValueList::Values(int nindex) {
 	return (*(WSandValue*)Items[nindex]).Value;
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 bool &TWSandValueList::Enabled(int nindex) {
 	return (*(WSandValue*)Items[nindex]).Enabled;
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 int &TWSandValueList::From(int nindex) {
 	return (*(WSandValue*)Items[nindex]).From;
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 int &TWSandValueList::To(int nindex) {
 	return (*(WSandValue*)Items[nindex]).To;
 }
 
 // ---------------------------------------------------------------------------
-// 参照
+// Access
 int &TWSandValueList::SN(int nindex) {
 	return (*(WSandValue*)Items[nindex]).SN;
 }
@@ -1000,41 +975,41 @@ int _fastcall WSandValueSortCompare(void * Item1, void * Item2) {
 
 // ---------------------------------------------------------------------------
 int _fastcall WSandValueSortCompare2(void * Item1, void * Item2) {
-	// 2文字目以降
+	// From 2nd character onward
 	return WideCompareStr((*(WSandValue*)Item1).WS->SubString(2, 32767),
 		(*(WSandValue*)Item2).WS->SubString(2, 32767));
 }
 
 // ---------------------------------------------------------------------------
 int _fastcall WSandValueSortCompareValue(void * Item1, void * Item2) {
-	// 2文字目以降
+	// By value
 	return (*(WSandValue*)Item1).Value - (*(WSandValue*)Item2).Value;
 }
 
 // ---------------------------------------------------------------------------
-// 昇順ソート
+// Ascending sort
 void TWSandValueList::Sort() {
 	TFListforTP::Sort(TListSortCompare(WSandValueSortCompare));
 }
 
 // ---------------------------------------------------------------------------
-// 昇順ソート
+// Ascending sort
 void TWSandValueList::Sort2() {
 	TFListforTP::Sort(TListSortCompare(WSandValueSortCompare2));
 }
 
 // ---------------------------------------------------------------------------
-// 値でソート
+// Sort by value
 void TWSandValueList::SortValue() {
 	TFListforTP::Sort(TListSortCompare(WSandValueSortCompareValue));
 }
 
 // ---------------------------------------------------------------------------
 int TWSandValueList::Search(int from, int to, WideString &Key) {
-	// ソートされている前提で、数当て方式でfrom～toの間でKey（完全一致）を検索
+	// Binary search for Key (exact match) in from~to; assumes sorted
 	int step = (to + 1 - from) >> 1;
 	int pos = from + step;
-	int count = 0; // 1ずつシフトしても見つからなかった回数
+	int count = 0; // Times not found when shifting by 1
 	while (true) {
 		int CmpText = WideCompareStr(Strings(pos), Key);
 		if (CmpText == 0) {
@@ -1053,7 +1028,7 @@ int TWSandValueList::Search(int from, int to, WideString &Key) {
 			else if (step << 1 != laststep) {
 				count--;
 			}
-			if (CmpText > 0) { // Key < pos
+			if (CmpText > 0) { // Key less than pos
 				pos -= step;
 				if (pos < 0) {
 					return -1;
@@ -1070,7 +1045,7 @@ int TWSandValueList::Search(int from, int to, WideString &Key) {
 	/*
 	 int step = (to + 1 - from) / 2;
 	 int pos = from + step;
-	 int count = 0;//1ずつシフトしても見つからなかった回数
+	 int count = 0; // Times not found when shifting by 1
 	 while (count < 2 && pos >= from && pos <= to){
 	 int CmpText = WideCompareStr(Strings(pos), Key);
 	 if (CmpText == 0){
@@ -1084,7 +1059,7 @@ int TWSandValueList::Search(int from, int to, WideString &Key) {
 	 }else if (step * 2 != laststep){
 	 count--;
 	 }
-	 if (CmpText > 0){//Key < pos
+	 if (CmpText > 0){ // Key less than pos
 	 pos -= step;
 	 }else{
 	 pos += step;
@@ -1166,7 +1141,7 @@ void TSMatrix::PrepareCosRow() {
 	}
 	RowNorm = new float[rowcount];
 
-	// 行ループ
+	// Row loop
 	for (int i = 0; i < rowcount; i++) {
 		TFListforTP *list = RowList(i);
 		int count1 = list->Count;
@@ -1191,7 +1166,7 @@ float TSMatrix::CosCol(int col1, int col2) {
 		return 0.0f;
 	}
 
-	// Cos距離
+	// Cosine similarity
 	int count1 = ColList(col1)->Count;
 	int count2 = ColList(col2)->Count;
 	if (count1 > 0 && count2 > 0) {
@@ -1240,8 +1215,8 @@ float TSMatrix::CosRow(int row1, int row2) {
 	}
 
 	if (RowNorm) {
-		// Norm計算済み
-		// Cos距離
+		// Norm precomputed
+		// Cosine similarity
 		if (RowNorm[row1] > 0.0f && RowNorm[row2] > 0.0f) {
 			TFListforTP * list1 = RowList(row1);
 			TFListforTP * list2 = RowList(row2);
@@ -1278,7 +1253,7 @@ float TSMatrix::CosRow(int row1, int row2) {
 		}
 	}
 	else {
-		// Cos距離
+		// Cosine similarity
 		int count1 = RowList(row1)->Count;
 		int count2 = RowList(row2)->Count;
 		if (count1 > 0 && count2 > 0) {
@@ -1341,7 +1316,7 @@ void TSMatrix::Finalize(bool bAdd, float *pgpos, bool *terminated, float pgstep)
 	if (terminated == NULL) {
 		terminated = &term;
 	}
-	// 各ColをRow順ソートしてDuplexを見つける
+	// Sort each Col by Row to find duplicates
 	for (int i = 0; i < m_Cols->Count; i++) {
 		TFListforTP *list = ColList(i);
 		int listcount = list->Count;
@@ -1352,13 +1327,13 @@ void TSMatrix::Finalize(bool bAdd, float *pgpos, bool *terminated, float pgstep)
 				SMatrixItem *smi = (SMatrixItem*)list->Items[i2];
 				// &ColItem(i, i2);
 				if (last->Row == smi->Row) {
-					last->Flag = true; // 削除するアイテムのフラグを立てる
+					last->Flag = true; // Mark item for deletion
 					if (bAdd) {
-						// 値の足し合わせ
+						// Sum values
 						smi->Value += last->Value;
 						last->Value = 0.0f;
 					}
-					list->Delete(i2 - 1); // ColListから削除
+					list->Delete(i2 - 1); // Remove from ColList
 					listcount--;
 				}
 				else {
@@ -1374,15 +1349,15 @@ void TSMatrix::Finalize(bool bAdd, float *pgpos, bool *terminated, float pgstep)
 	}
 
 	if (!*terminated) {
-		// RowListから削除
+		// Remove from RowList
 		for (int i = 0; i < m_Rows->Count; i++) {
 			TFListforTP *list = RowList(i);
 			int listcount = list->Count;
 			list->Sort(func_SMIcolCmp);
 			for (int i2 = 0; i2 < listcount;) {
 				if (((SMatrixItem*)list->Items[i2])->Flag)
-				{ // if (RowItem(i, i2).Flag){
-					list->Delete(i2); // RowListから削除
+				{
+					list->Delete(i2); // Remove from RowList
 					listcount--;
 				}
 				else {
@@ -1396,14 +1371,14 @@ void TSMatrix::Finalize(bool bAdd, float *pgpos, bool *terminated, float pgstep)
 		}
 	}
 
-	// Itemsから削除
+	// Remove from Items
 	if (!*terminated) {
 		int listcount = m_Items->Count;
 		for (int i2 = 0; i2 < listcount;) {
 			SMatrixItem *item = &Item(i2);
 			if (item->Flag) {
-				delete item; // Item自体削除
-				m_Items->Delete(i2); // m_Itemから削除
+				delete item;
+				m_Items->Delete(i2);
 				listcount--;
 			}
 			else {
@@ -1425,9 +1400,9 @@ int __fastcall func_valueCmp(void * Item1, void * Item2) {
 
 // ---------------------------------------------------------------------------
 void TSMatrix::DeleteSameCol(bool bAdd) {
-	// 同じところに値が入っているColを削除（ただしColのIndexは変わらない）
+	// Remove Cols with identical values (Col Index unchanged)
 
-	// 同じColを見つけるために、各ColのIndexを各Colの数でソート
+	// Sort each Col by count to find same Cols
 	int docnum = m_Rows->Count;
 	TFListforTP *IDVList = new TFListforTP();
 	for (int i = 0; i < m_Cols->Count; i++) {
@@ -1453,10 +1428,10 @@ void TSMatrix::DeleteSameCol(bool bAdd) {
 			for (int il2 = il + 1; il2 < IDVList->Count; il2++) {
 				int value2 = ((IDValue*)IDVList->Items[il2])->Value;
 				if (value2 == value) {
-					// 数が同じ
+					// Same count
 					bool same = true;
 
-					// 一致判定
+					// Check equality
 					int col2 = ((IDValue*)IDVList->Items[il2])->ID;
 					TFListforTP *list2 = ColList(col2);
 					for (int i = 0; i < count && same; i++) {
@@ -1465,7 +1440,7 @@ void TSMatrix::DeleteSameCol(bool bAdd) {
 							((SMatrixItem *)list2->Items[i])->Row;
 					}
 					if (same) {
-						// 一致
+						// Match
 						for (int i = 0; i < count; i++) {
 							SMatrixItem * item1 = (SMatrixItem*)list1->Items[i];
 							if (bAdd) {
@@ -1497,14 +1472,14 @@ void TSMatrix::DeleteSameCol(bool bAdd) {
 	}
 	delete IDVList;
 
-	// RowListから削除
+	// Remove from RowList
 	for (int i = 0; i < m_Rows->Count; i++) {
 		TFListforTP *list = RowList(i);
 		int listcount = list->Count;
 		for (int i2 = 0; i2 < listcount;) {
 			if (((SMatrixItem*)list->Items[i2])->Flag)
-			{ // if (RowItem(i, i2).Flag){
-				list->Delete(i2); // RowListから削除
+			{
+				list->Delete(i2);
 				listcount--;
 			}
 			else {
@@ -1513,14 +1488,14 @@ void TSMatrix::DeleteSameCol(bool bAdd) {
 		}
 	}
 
-	// Itemsから削除
+	// Remove from Items
 	{
 		int listcount = m_Items->Count;
 		for (int i2 = 0; i2 < listcount;) {
 			SMatrixItem *item = &Item(i2);
 			if (item->Flag) {
-				delete item; // Item自体削除
-				m_Items->Delete(i2); // m_Itemから削除
+				delete item;
+				m_Items->Delete(i2);
 				listcount--;
 			}
 			else {
@@ -1553,11 +1528,11 @@ int __fastcall func_ivalueCmp(void * Item1, void * Item2) {
 
 // ---------------------------------------------------------------------------
 void TSMatrix::MergeCol(int block, float threshold, int target) {
-	int processed = 1; // 処理されたかペア数
+	int processed = 1; // Number of processed pairs
 	int wcount;
 	while (processed) {
-		// 同じColを見つけるために、各ColのIndexを各Colの数でソート
-		wcount = 0; // 有効な単語数
+		// Sort each Col by count to find same Cols
+		wcount = 0; // Valid word count
 		processed = 0;
 		TFListforTP *IDVList = new TFListforTP();
 		for (int i = 0; i < m_Cols->Count; i++) {
@@ -1571,23 +1546,23 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 		}
 
 		if (wcount > target) {
-			// 所望の単語数に達していない
+			// Target word count not reached
 
 			IDVList->Sort(func_valueCmp);
 
-			// blockずつループ
+			// Process in blocks
 			for (int ib = 0; ib <= wcount / block; ib++) {
 				int boffset = ib * block;
-				int bcount = wcount - boffset; // このblockで処理する数
+				int bcount = wcount - boffset; // Count for this block
 				if (bcount > block) {
 					bcount = block;
 				}
 				if (ib > 0 && bcount < block / 2) {
-					// blockが半数に満たないのでMergeしない
+					// Skip merge if block has less than half
 					break;
 				}
 
-				// 類似ペアリスト生成
+				// Build similar pair list
 				TFListforTP *SimList = new TFListforTP();
 				float debug_maxcos = 0.0f;
 				for (int i = 0; i < bcount; i++) {
@@ -1599,8 +1574,7 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 							debug_maxcos = cos;
 						}
 						if (cos > threshold) {
-							// Thresholdを超えたので追加
-							// 重複していない
+							// Above threshold, add
 							ColColValue *CCV = new ColColValue;
 							CCV->Col1 = col1;
 							CCV->Col2 = col2;
@@ -1609,10 +1583,10 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 						}
 					}
 				}
-				// 類似度（降順）でソート
+				// Sort by similarity (descending)
 				SimList->Sort(func_ivalueCmp);
 
-				// 合成
+				// Merge
 				for (int i = 0; i < SimList->Count; i++) {
 					ColColValue *CCV = (ColColValue*)SimList->Items[i];
 					int lastindex = 0;
@@ -1629,15 +1603,15 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 							}
 						}
 						if (cmp == 0) {
-							// 同じRow
+							// Same Row
 							ColItem(CCV->Col2, lastindex).Value +=
-								ColItem(CCV->Col1, ii).Value; // 値足しこみ
+								ColItem(CCV->Col1, ii).Value; // Add value
 							ColItem(CCV->Col1, ii).Flag = true;
 						}
 						else {
-							// 同じRowが無い
+							// No same Row
 
-							// ColをCol1からCol2に移動
+							// Move Col from Col1 to Col2
 							ColItem(CCV->Col1, ii).Col = CCV->Col2;
 							ColList(CCV->Col2)->Insert(lastindex++,
 								&ColItem(CCV->Col1, ii));
@@ -1645,14 +1619,14 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 					}
 					ColList(CCV->Col1)->Clear();
 
-					// 重複チェック
+					// Check for duplicates
 					for (int ix = i + 1; ix < SimList->Count;) {
 						ColColValue *CCV2 = (ColColValue*)SimList->Items[ix];
 						if ((CCV->Col1 == CCV2->Col1) ||
 							(CCV->Col2 == CCV2->Col1) ||
 							(CCV->Col2 == CCV2->Col2) ||
 							(CCV->Col2 == CCV2->Col2)) {
-							// 重複削除
+							// Remove duplicate
 							delete(ColColValue*)SimList->Items[ix];
 							SimList->Delete(ix);
 						}
@@ -1663,7 +1637,7 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 				}
 				processed += SimList->Count;
 
-				// 類似ペアリスト破棄
+				// Discard similar pair list
 				for (int i = 0; i < SimList->Count; i++) {
 					delete(ColColValue *)SimList->Items[i];
 				}
@@ -1677,13 +1651,13 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 		delete IDVList;
 	}
 
-	// RowListから削除
+	// Remove from RowList
 	for (int i = 0; i < m_Rows->Count; i++) {
 		TFListforTP *list = RowList(i);
 		int listcount = list->Count;
 		for (int i2 = 0; i2 < listcount;) {
 			if (RowItem(i, i2).Flag) {
-				list->Delete(i2); // RowListから削除
+				list->Delete(i2);
 				listcount--;
 			}
 			else {
@@ -1692,14 +1666,14 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
 		}
 	}
 
-	// Itemsから削除
+	// Remove from Items
 	{
 		int listcount = m_Items->Count;
 		for (int i2 = 0; i2 < listcount;) {
 			SMatrixItem *item = &Item(i2);
 			if (item->Flag) {
-				delete item; // Item自体削除
-				m_Items->Delete(i2); // m_Itemから削除
+				delete item;
+				m_Items->Delete(i2);
 				listcount--;
 			}
 			else {
@@ -1712,16 +1686,16 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
  //---------------------------------------------------------------------------
  TTextToFeature::TTextToFeature(TWideStringList *SL, int maxcombi, int maxcount)
  {
- //単語抽出
+ // Extract words
  TTextDecomposer *TD = new TTextDecomposer(SL, maxcombi, maxcount);
 
- //Doc-単語出現確率格納用
+ // Doc-word occurrence probability storage
  TSMatrix *SM = new TSMatrix();
 
- //TDの結果からSMを埋める
- //ドキュメントループ
+ // Fill SM from TD result
+ // Document loop
  for (int id = 0 ; id < SL->Count ; id++){
- //文字ループ
+ // Character loop
  WideString doc = SL->Strings(id);
  int doclen = doc.Length();
  for (int ic = 0 ; ic < doclen ; ic++){
@@ -1731,7 +1705,7 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
  while (start >= 0){
  TWSandValueList *WSVL = TD->m_Gram[len - 1];
  WideString c = doc.SubString(ic + 1, len);
- //1文字単語からこの文字を検索
+ // Search for this char in 1-char words
  int idx = WSVL->Search(start, end, c);
  if (idx >= 0){
  if (WSVL->Enabled(idx)){
@@ -1746,7 +1720,7 @@ void TSMatrix::MergeCol(int block, float threshold, int target) {
  }
  }
 
- //重複削除
+ // Remove duplicates
  SM->Finalize(true);
 
  delete SM;

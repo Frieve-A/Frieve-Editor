@@ -212,28 +212,28 @@ int TLabelList::GetLabel(int index) {
 // ---------------------------------------------------------------------------
 void TLabelList::SetLabel(int index, int labelid) {
 	if (Items[index] == (void*)labelid) {
-		// 変更の必要なし
+		// No change needed
 		return;
 	}
 
-	// 重複チェック
+	// Duplicate check
 	bool exist = false;
 	for (int il = 0; il < Count; il++) {
 		if (GetLabel(il) == labelid) {
-			// 重複
+			// Duplicate
 			exist = true;
 			break;
 		}
 	}
 
 	if (exist) {
-		// 重複あり
+		// Duplicate found
 
-		// 変更前のラベルを消して終了
+		// Remove old label and exit
 		DeleteLabel((int)Items[index]);
 	}
 	else {
-		// 重複無し
+		// No duplicate
 		Items[index] = (void*)labelid;
 	}
 }
@@ -241,13 +241,13 @@ void TLabelList::SetLabel(int index, int labelid) {
 // ---------------------------------------------------------------------------
 void TLabelList::AddLabel(int labelid) {
 	if (Count >= MAXLABELS) {
-		// これ以上付けられない
+		// Cannot add more
 		return;
 	}
 
 	for (int i = 0; i < Count; i++) {
 		if (GetLabel(i) == labelid) {
-			// 重複
+			// Duplicate
 			return;
 		}
 	}
@@ -259,7 +259,7 @@ void TLabelList::AddLabel(int labelid) {
 void TLabelList::DeleteLabel(int labelid) {
 	for (int i = 0; i < Count; i++) {
 		if (GetLabel(i) == labelid) {
-			// 削除
+			// Delete
 			Delete(i);
 			break;
 		}
@@ -280,7 +280,7 @@ bool TLabelList::Contain(int labelid) {
  //---------------------------------------------------------------------------
  bool TLabelList::IsSame(TLabelList *Labels)
  {
- //Labelのパラメータも見る必要が出てきたため、未使用
+ // Unused: Label params need to be considered
  if (Count != Labels->Count){
  return false;
  }

@@ -10,10 +10,10 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TFo_Search *Fo_Search;
-WideString SearchKeyword; // 検索キーワード
-WideString ReplaceKeyword; // 置換先キーワード
-int bSearchRequest = 0x30; // 検索要求
-int bLastSearchRequest = 0x30; // 大文字小文字区別なし、非表示カードも対象
+WideString SearchKeyword; // Search keyword
+WideString ReplaceKeyword; // Replace keyword
+int bSearchRequest = 0x30; // Search request
+int bLastSearchRequest = 0x30; // Case insensitive, include invisible cards
 
 // ---------------------------------------------------------------------------
 void TFo_Search::ApplyLanguageSetting() {
@@ -109,28 +109,28 @@ void __fastcall TFo_Search::Ed_KeywordChange(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Search::Bu_FindNextClick(TObject *Sender) {
 	if (Ch_CardTitle->Checked) {
-		bSearchRequest |= 0x1; // カードタイトル検索
+		bSearchRequest |= 0x1; // Search card title
 	}
 	if (Ch_Text->Checked) {
-		bSearchRequest |= 0x2; // 本文検索
+		bSearchRequest |= 0x2; // Search body text
 	}
 	if (bSearchRequest) {
-		bSearchRequest |= 0x8; // 検索後このWindowを再表示
+		bSearchRequest |= 0x8; // Redisplay this window after search
 	}
-	if (!Ch_MatchCase->Checked) { // チェックされてないとき
-		bSearchRequest |= 0x10; // 大文字と小文字を区別しない（0で区別）
+	if (!Ch_MatchCase->Checked) { // When unchecked
+		bSearchRequest |= 0x10; // Case insensitive (0=case sensitive)
 	}
 	if (Ch_InvisibleCard->Checked) {
-		bSearchRequest |= 0x20; // 非表示カードを検索
+		bSearchRequest |= 0x20; // Search invisible cards
 	}
 	if (Ch_GlobalSearch->Checked) {
-		bSearchRequest |= 0x40; // グローバル検索
+		bSearchRequest |= 0x40; // Global search
 	}
 	if (Ch_Backward->Checked) {
-		bSearchRequest |= 0x80; // 後方検索
+		bSearchRequest |= 0x80; // Backward search
 	}
 	if (bReplace) {
-		bSearchRequest |= 0x100; // 置換
+		bSearchRequest |= 0x100; // Replace
 		ReplaceKeyword = Ed_ReplaceTo->Text;
 	}
 	bLastSearchRequest = bSearchRequest;

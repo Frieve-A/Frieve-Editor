@@ -48,19 +48,19 @@ void TFo_Main::IterScore_Authenticity() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
-	float forall = 0.0f; // 全てのカードに足されるスコア
+	// Score transfer
+	float forall = 0.0f; // Score added to all cards
 	double sum = 0.0f;
 	int cardcount = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 			sum += Card->m_fScore;
 
-			// リンクを数え、リンク先を列挙
-			// リンクループ
+			// Count links, enumerate destinations
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -72,26 +72,26 @@ void TFo_Main::IterScore_Authenticity() {
 				}
 
 			if (count == 0) {
-				// リンクが無い場合、スコアはすべて適当なカードに移動
+				// No links: move all score to random card
 				forall += Card->m_fScore;
 			}
 			else {
 				forall += Card->m_fScore * allratio;
 				float addscore = (Card->m_fScore * (1.0f - allratio)) / count;
 				for (int il = 0; il < count; il++) {
-					// リンク先にスコアを加算
+					// Add score to link destination
 					score[index[il]] += addscore;
 				}
 			}
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
 		forall /= cardcount;
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -123,17 +123,17 @@ void TFo_Main::IterScore_StartingPoint() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 
-			// リンクを数え、リンク元を列挙
-			// リンクループ
+			// Count links, enumerate sources
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -145,28 +145,27 @@ void TFo_Main::IterScore_StartingPoint() {
 				}
 
 			if (count == 0) {
-				// リンクが無い
-				// forall += Card->m_fScore;
+				// No links
 			}
 			else {
 				for (int il = 0; il < count; il++) {
-					// リンク元にスコアを加算
+					// Add score to link source
 					score[index[il]] += Card->m_fScore;
 					sum += Card->m_fScore;
 				}
 			}
 
-			// 自分自身に1追加
+			// Add 1 to self
 			score[i] += 1.0f;
 			sum += 1.0;
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -198,17 +197,17 @@ void TFo_Main::IterScore_Destination() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 
-			// リンクを数え、リンク先を列挙
-			// リンクループ
+			// Count links, enumerate destinations
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -220,28 +219,27 @@ void TFo_Main::IterScore_Destination() {
 				}
 
 			if (count == 0) {
-				// リンクが無い
-				// forall += Card->m_fScore;
+				// No links
 			}
 			else {
 				for (int il = 0; il < count; il++) {
-					// リンク先にスコアを加算
+					// Add score to link destination
 					score[index[il]] += Card->m_fScore;
 					sum += Card->m_fScore;
 				}
 			}
 
-			// 自分自身に1追加
+			// Add 1 to self
 			score[i] += 1.0f;
 			sum += 1.0;
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -272,17 +270,17 @@ void TFo_Main::IterScore_Links_Out() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 
-			// リンクを数える
-			// リンクループ
+			// Count links
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -296,11 +294,11 @@ void TFo_Main::IterScore_Links_Out() {
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -330,17 +328,17 @@ void TFo_Main::IterScore_Links_In() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 
-			// リンクを数える
-			// リンクループ
+			// Count links
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -354,11 +352,11 @@ void TFo_Main::IterScore_Links_In() {
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -388,17 +386,17 @@ void TFo_Main::IterScore_Links_Total() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 
-			// リンクを数える
-			// リンクループ
+			// Count links
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -413,11 +411,11 @@ void TFo_Main::IterScore_Links_Total() {
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -447,18 +445,18 @@ void TFo_Main::IterScore_Links_InOut() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
 	int min = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
 			cardcount++;
 
-			// リンクを数える
-			// リンクループ
+			// Count links
+			// Link loop
 			int count = 0;
 			for (int il = 0; il < m_Document->m_Links->Count; il++)
 				if (m_LinkVisible[il]) {
@@ -478,12 +476,12 @@ void TFo_Main::IterScore_Links_InOut() {
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		sum += (1 - min) * cardcount; // マイナスにならないように、最小値+1を足すため
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		sum += (1 - min) * cardcount; // Add min+1 to avoid negative
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {
@@ -513,11 +511,11 @@ void TFo_Main::IterScore_TextLength() {
 	float *score = new float[m_Document->m_Cards->Count];
 	memset(score, 0, sizeof(float) * m_Document->m_Cards->Count);
 
-	// スコアの移動
+	// Score transfer
 	double sum = 0.0;
 	int cardcount = 0;
 	int min = 0;
-	// カードループ
+	// Card loop
 	for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 		TCard *Card = m_Document->GetCardByIndex(i);
 		if (Card->m_bVisible) {
@@ -527,12 +525,12 @@ void TFo_Main::IterScore_TextLength() {
 		}
 	}
 
-	// forallを加算し、正規化
+	// Add forall and normalize
 	m_fMinScore = 10000000.0f;
 	m_fMaxScore = 0.0f;
 	if (cardcount) {
-		sum += (1 - min) * cardcount; // マイナスにならないように、最小値+1を足すため
-		float normcoef = cardcount / sum; // 1カードあたり平均1になるように正規化
+		sum += (1 - min) * cardcount; // Add min+1 to avoid negative
+		float normcoef = cardcount / sum; // Normalize to avg 1 per card
 		for (int i = 0; i < m_Document->m_Cards->Count; i++) {
 			TCard *Card = m_Document->GetCardByIndex(i);
 			if (Card->m_bVisible) {

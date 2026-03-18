@@ -13,7 +13,7 @@
 
 // ---------------------------------------------------------------------------
 class TFo_Information : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TCppWebBrowser *WB;
 	TPanel *Pa_Top_;
 	TCheckBox *Ch_DontCheckNew;
@@ -22,10 +22,10 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall Ch_DontCheckNewClick(TObject *Sender);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_Information(TComponent* Owner);
-	// 多言語対応
+	// Multi-language support
 	void ApplyLanguageSetting();
 };
 

@@ -16,7 +16,7 @@
 
 // ---------------------------------------------------------------------------
 class TFo_View : public TForm {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TPageControl *PC_View;
 	TTabSheet *TS_Label;
 	TTabSheet *TS_Limitation;
@@ -92,8 +92,8 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall Bu_LinkTargetClick(TObject *Sender);
 	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_View(TComponent* Owner);
 
 	TDocument *m_Document;
@@ -101,10 +101,10 @@ public: // ユーザー宣言
 
 private:
 	void SettingToGUI();
-	void RefreshLinkTarget(); // LinkTargetボタン上のテキスト
+	void RefreshLinkTarget(); // Text on LinkTarget button
 
 public:
-	// 多言語対応
+	// Multi-language support
 	void ApplyLanguageSetting();
 };
 

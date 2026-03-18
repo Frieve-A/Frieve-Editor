@@ -6,14 +6,14 @@
 
 // ---------------------------------------------------------------------------
 WideString EncodeES(WideString S) {
-	// エスケープシーケンスのエンコード（13→\n、\→\\）
+	// Encode escape sequences (CRLF->\n, \->\\)
 	S = ReplaceText(S, "\\", "\\\\");
 	return ReplaceText(S, "\r\n", "\\n");
 }
 
 // ---------------------------------------------------------------------------
 WideString DecodeES(WideString S, WideString Ret) {
-	// エスケープシーケンスのデコード（13←\n、\←\\）
+	// Decode escape sequences (\n->CRLF, \\->\)
 	WideString result;
 	while (true) {
 		int p = S.Pos("\\");
@@ -49,7 +49,7 @@ TCard::TCard() {
 	m_nID = 0;
 	m_Title = "No title";
 
-	// 形、サイズ
+	// Shape, size
 	/*
 	 m_nShape = 2;//RoundRect
 	 m_nSize = 100;
@@ -61,17 +61,17 @@ TCard::TCard() {
 	m_bTop = false;
 	m_bFold = false;
 
-	// 座標
+	// Coordinates
 	m_fX = rand() % 10000 * 0.0001f;
 	m_fY = rand() % 10000 * 0.0001f;
 	m_bVisible = true;
 
-	// 日付
+	// Dates
 	m_fCreated = Now();
 	m_fUpdated = Now();
 	m_fViewed = Now();
 
-	// 保存されないデータ
+	// Non-persisted data
 	m_bGetFocus = true;
 
 	m_nLevel = 0;
@@ -84,9 +84,9 @@ TCard::TCard() {
 
 	m_ImageFN = "";
 
-	m_nMatrixX = 0; // 格子状に配置した際の座標
+	m_nMatrixX = 0; // Grid position when arranged in matrix
 	m_nMatrixY = 0;
-	m_fMatrixSpeed = 0.0f; // 格子間を移動する速度（～1.0）
+	m_fMatrixSpeed = 0.0f; // Movement speed between grid cells (0~1.0)
 
 	m_fTickerPos = 0;
 	m_bVisibleBak = false;
@@ -114,45 +114,45 @@ TCard::TCard(TCard &Card) {
 		m_Labels->AddLabel(Card.m_Labels->GetLabel(i));
 	}
 
-	// データ
+	// Data
 	m_nID = Card.m_nID;
-	m_Title = Card.m_Title; // タイトル
-	m_bVisible = Card.m_bVisible; // 表示、非表示
-	m_nShape = Card.m_nShape; // 形
-	m_nSize = Card.m_nSize; // サイズ（100分率）
+	m_Title = Card.m_Title; // Title
+	m_bVisible = Card.m_bVisible; // Visible/hidden
+	m_nShape = Card.m_nShape; // Shape
+	m_nSize = Card.m_nSize; // Size (100-based)
 	m_bTop = Card.m_bTop;
-	m_bFixed = Card.m_bFixed; // 位置固定
-	m_bFold = Card.m_bFold; // 階層表示時に折りたたみ
+	m_bFixed = Card.m_bFixed; // Position fixed
+	m_bFold = Card.m_bFold; // Fold in hierarchy view
 
-	// ネット共有されないデータ（追加の際は、Document->SoftLoadを修正する必要あり）
-	m_fX = Card.m_fX; // 座標
-	m_fY = Card.m_fY; // 座標
-	m_fCreated = Card.m_fCreated; // 日付
-	m_fUpdated = Card.m_fUpdated; // 日付
-	m_fViewed = Card.m_fViewed; // 日付
+	// Data not synced in network share (update Document->SoftLoad when adding)
+	m_fX = Card.m_fX; // Coordinates
+	m_fY = Card.m_fY; // Coordinates
+	m_fCreated = Card.m_fCreated; // Date
+	m_fUpdated = Card.m_fUpdated; // Date
+	m_fViewed = Card.m_fViewed; // Date
 
-	// 保存されないデータ
-	m_bGetFocus = Card.m_bGetFocus; // カーソル移動でフォーカスを得るかどうか
+	// Non-persisted data
+	m_bGetFocus = Card.m_bGetFocus; // Whether to get focus on cursor move
 
 	m_nLevel = Card.m_nLevel;
 
-	m_nCreatedOrder = Card.m_nCreatedOrder; // 日付をソート順で0.0～100.0に正規化したもの
-	m_nUpdatedOrder = Card.m_nUpdatedOrder; // 日付をソート順で0.0～100.0に正規化したもの
-	m_nViewedOrder = Card.m_nViewedOrder; // 日付をソート順で0.0～100.0に正規化したもの
-	m_fScore = Card.m_fScore; // スコア
-	m_ImageFN = Card.m_ImageFN; // 画像ファイル名（本文で最初に出てきた画像ファイル）
-	m_VideoFN = Card.m_VideoFN; // ビデオファイル名（本文で最初に出てきた動画ファイル）
+	m_nCreatedOrder = Card.m_nCreatedOrder; // Date normalized to 0.0~100.0 by sort order
+	m_nUpdatedOrder = Card.m_nUpdatedOrder; // Date normalized to 0.0~100.0 by sort order
+	m_nViewedOrder = Card.m_nViewedOrder; // Date normalized to 0.0~100.0 by sort order
+	m_fScore = Card.m_fScore; // Score
+	m_ImageFN = Card.m_ImageFN; // First image file in body
+	m_VideoFN = Card.m_VideoFN; // First video file in body
 
-	m_nMatrixX = Card.m_nMatrixX; // 格子状に配置した際の座標
-	m_nMatrixY = Card.m_nMatrixY; // 格子状に配置した際の座標
-	m_fMatrixSpeed = Card.m_fMatrixSpeed; // 格子間を移動する速度（～1.0）
+	m_nMatrixX = Card.m_nMatrixX; // Grid position when arranged in matrix
+	m_nMatrixY = Card.m_nMatrixY; // Grid position when arranged in matrix
+	m_fMatrixSpeed = Card.m_fMatrixSpeed; // Movement speed between grid cells (0~1.0)
 
-	m_bLabelIsFold = Card.m_bLabelIsFold; // このカードの全てのラベルが折りたたまれているかどうか
-	m_Color = Card.m_Color; // 描画時の色
+	m_bLabelIsFold = Card.m_bLabelIsFold; // Whether all labels on this card are folded
+	m_Color = Card.m_Color; // Color for drawing
 
-	m_fTickerPos = Card.m_fTickerPos; // Ticker。右端から何ドット左にスクロールしているか
+	m_fTickerPos = Card.m_fTickerPos; // Ticker: pixels scrolled from right edge
 
-	m_bVisibleBak = Card.m_bVisibleBak; // Visible情報のバックアップ（Visibleの変化を捉える）
+	m_bVisibleBak = Card.m_bVisibleBak; // Backup of Visible (to detect changes)
 
 	m_bSelected = Card.m_bSelected;
 	m_nSelected = Card.m_nSelected;
@@ -171,7 +171,7 @@ TCard::~TCard() {
 
 // ---------------------------------------------------------------------------
 void TCard::CheckImageFN() {
-	// 本文に現れた最初のイメージファイル名をこのカードのイメージとする
+	// Use first image file in body as this card's image
 	m_ImageFN = "";
 	m_VideoFN = "";
 	for (int i = 0; i < m_Lines->Count; i++) {
@@ -193,7 +193,7 @@ void TCard::LoadFromString(TStringList *SL, int &line, int version) {
 	m_Lines->Clear();
 
 	if (line >= SL->Count) {
-		// 読み込むラインがない
+		// No lines to read
 	}
 	else {
 		int LineNum = StrToIntDef(SL->Strings[line++], 0);
@@ -207,7 +207,7 @@ void TCard::LoadFromString(TStringList *SL, int &line, int version) {
 		m_Lines->Delete(0);
 
 		if (S == "-") {
-			// ヘッダ終わり
+			// End of header
 			break;
 		}
 		else if (S.SubString(1, 6) == "Title:") {
@@ -271,9 +271,9 @@ void TCard::SaveToString(TStringList *SL) {
 	TStringList *SL2 = new TStringList();
 	SL2->Assign(m_Lines);
 
-	// ヘッダの区切り
+	// Header separator
 	SL2->Insert(0, "-");
-	// ヘッダ
+	// Header
 	SL2->Insert(0, UnicodeString("Viewed:") + DateTimeToStr(m_fViewed));
 	SL2->Insert(0, UnicodeString("Updated:") + DateTimeToStr(m_fUpdated));
 	SL2->Insert(0, UnicodeString("Created:") + DateTimeToStr(m_fCreated));
@@ -310,7 +310,7 @@ void TCard::SaveToString(TStringList *SL) {
 
 // ---------------------------------------------------------------------------
 void TCard::LoadFromFile(UnicodeString FN) {
-	// 互換用
+	// Compatibility
 
 	m_Lines->LoadFromFile(FN, TEncoding::UTF8);
 
@@ -319,13 +319,13 @@ void TCard::LoadFromFile(UnicodeString FN) {
 		m_Lines->Delete(0);
 
 		if (S == "-") {
-			// ヘッダ終わり
+			// End of header
 			break;
 		}
 		else if (S.SubString(1, 6) == "Title:") {
 			m_Title = S.SubString(7, S.Length());
 		}
-		else if (S.SubString(1, 5) == "Type:") { // 互換用
+		else if (S.SubString(1, 5) == "Type:") { // Compatibility
 			m_Labels->Decode(S.SubString(6, S.Length()));
 		}
 		else if (S.SubString(1, 6) == "Label:") {
@@ -355,14 +355,14 @@ void TCard::LoadFromFile(UnicodeString FN) {
 
 // ---------------------------------------------------------------------------
 void TCard::SaveToFile(UnicodeString FN) {
-	// 互換用
+	// Compatibility
 
 	TStringList *SL = new TStringList();
 	SL->Assign(m_Lines);
 
-	// ヘッダの区切り
+	// Header separator
 	SL->Insert(0, "-");
-	// ヘッダ
+	// Header
 	SL->Insert(0, UnicodeString("Viewed:") + DateTimeToStr(m_fViewed));
 	SL->Insert(0, UnicodeString("Updated:") + DateTimeToStr(m_fUpdated));
 	SL->Insert(0, UnicodeString("Created:") + DateTimeToStr(m_fCreated));

@@ -31,12 +31,12 @@ void TFo_Main::BGAnimation(TCanvas *C) {
 
 // ---------------------------------------------------------------------------
 typedef struct MovingVHLineData_ {
-	bool bExist; // 割り当てあり
-	float fPos; // 座標
-	int fWidth; // 線の太さ
-	TColor Color; // 線の色
-	float fSpeed; // 1フレームで動く幅
-	int nType; // 0=上から下、1=下から上、2=左から右、3=右から左
+	bool bExist; // Assigned
+	float fPos; // Position
+	int fWidth; // Line width
+	TColor Color; // Line color
+	float fSpeed; // Movement per frame
+	int nType; // 0=top to bottom, 1=bottom to top, 2=left to right, 3=right to left
 } MovingVHLineData;
 
 // ---------------------------------------------------------------------------
@@ -84,7 +84,7 @@ void TFo_Main::BGAnimation_MovingVHLine(TCanvas *C) {
 			[emptyindex * BGANIMATIONOBJECTSIZE];
 		Data->bExist = true;
 		Data->fSpeed = (rand() % 9000 + 1000) * 0.0001f * 0.05f;
-		Data->fWidth = rand() % 3000 * 0.001f + 1; // 1～3ドット
+		Data->fWidth = rand() % 3000 * 0.001f + 1; // 1-3 pixels
 		Data->Color =
 			HalfColor(HalfColor((rand() % 256) | ((rand() % 256) << 8) |
 			((rand() % 256) << 16), m_nFGColor, 0.33f), m_nBGColor, 0.875f);
@@ -102,11 +102,11 @@ void TFo_Main::BGAnimation_MovingVHLine(TCanvas *C) {
 
 // ---------------------------------------------------------------------------
 typedef struct BubbleData_ {
-	bool bExist; // 割り当てあり
-	float fX, fY; // 座標
-	int fSize; // 泡の大きさ
-	TColor Color; // 泡の色（微妙に変化させる？）
-	float fSpeed; // 1フレームで動く大きさ
+	bool bExist; // Assigned
+	float fX, fY; // Position
+	int fSize; // Bubble size
+	TColor Color; // Bubble color
+	float fSpeed; // Size change per frame
 } BubbleData;
 
 // ---------------------------------------------------------------------------
@@ -162,13 +162,13 @@ void TFo_Main::BGAnimation_Bubble(TCanvas *C) {
 
 // ---------------------------------------------------------------------------
 typedef struct SnowData_ {
-	bool bExist; // 割り当てあり
-	float fX, fY; // 座標
-	float aX; // X座標増分
-	int fSize; // 大きさ
-	TColor Color; // 雪の色
-	TColor Color2; // 雪の色（薄い）
-	float fSpeed; // 1フレームで動く大きさ
+	bool bExist; // Assigned
+	float fX, fY; // Position
+	float aX; // X increment
+	int fSize; // Size
+	TColor Color; // Snow color
+	TColor Color2; // Snow color (light)
+	float fSpeed; // Size change per frame
 } SnowData;
 
 // ---------------------------------------------------------------------------
@@ -235,14 +235,14 @@ void TFo_Main::BGAnimation_Snow(TCanvas *C) {
 
 // ---------------------------------------------------------------------------
 typedef struct CBData_ {
-	bool bExist; // 割り当てあり
-	float fX, fY; // 座標
-	float fT1, fT2, fT3; // 回転角
-	float fAT1, fAT2, fAT3; // 角度加速度
-	float fAX, fAY; // 座標加速度
-	int fSize; // 大きさ
-	TColor Color, Color2; // 色
-	float fSpeed; // 1フレームで動く大きさ
+	bool bExist; // Assigned
+	float fX, fY; // Position
+	float fT1, fT2, fT3; // Rotation angle
+	float fAT1, fAT2, fAT3; // Angular acceleration
+	float fAX, fAY; // Position acceleration
+	int fSize; // Size
+	TColor Color, Color2; // Color
+	float fSpeed; // Size change per frame
 } CBData;
 
 // ---------------------------------------------------------------------------
@@ -253,12 +253,12 @@ void TFo_Main::BGAnimation_CherryBlossom(TCanvas *C) {
 	P->Style = psSolid;
 	B->Style = bsSolid;
 
-	const float CBShape[] = {0.0f, 1.0f, // 下
-		-0.8f, 0.2f, // 左
-		-0.3f, -1.0f, // 上左
-		0.0f, -0.7f, // 上
-		0.3f, -1.0f, // 上左
-		0.8f, 0.2f // 左
+	const float CBShape[] = {0.0f, 1.0f, // Bottom
+		-0.8f, 0.2f, // Left
+		-0.3f, -1.0f, // Top-left
+		0.0f, -0.7f, // Top
+		0.3f, -1.0f, // Top-right
+		0.8f, 0.2f // Right
 	};
 
 	int emptyindex = -1;
@@ -271,24 +271,23 @@ void TFo_Main::BGAnimation_CherryBlossom(TCanvas *C) {
 	for (int i = 0; i < 256 && i < BGANIMATIONMAXOBJECTS; i++) {
 		CBData *Data = (CBData*)&m_BGAnimationBuf[i * BGANIMATIONOBJECTSIZE];
 		if (Data->bExist) {
-			// 角度加速度加算
+			// Add angular acceleration
 			Data->fAT1 = Data->fAT1 * 0.9f + (rand() % 201 - 100)
 				* 0.01f * 0.1f;
 			Data->fAT2 = Data->fAT2 * 0.9f + (rand() % 201 - 100)
 				* 0.01f * 0.1f;
 			Data->fAT3 = Data->fAT3 * 0.9f + (rand() % 201 - 100)
 				* 0.01f * 0.1f;
-			// 角度加速
+			// Angular acceleration
 			Data->fT1 += Data->fAT1 * m_fBGAnimationSpeed * 30;
 			Data->fT2 += Data->fAT2 * m_fBGAnimationSpeed * 30;
 			Data->fT3 += Data->fAT3 * m_fBGAnimationSpeed * 30;
-			// 加速度加算
+			// Add acceleration
 			Data->fAX = Data->fAX * 0.85f + sin(Data->fT1) * sin(Data->fT2);
 			Data->fAY = Data->fAY * 0.85f +
 				fabs(sin(Data->fT1) * cos(Data->fT2)) + 0.1f;
-			float c = sqrt(fabs(cos(Data->fT3) * cos(Data->fT2))); // 色の濃さ
-			// float c = fabs(cos(Data->fT3) * cos(Data->fT2)) * 0.3f + 0.7f;//色の濃さ
-			// 加速
+			float c = sqrt(fabs(cos(Data->fT3) * cos(Data->fT2))); // Color intensity
+			// Accelerate
 			Data->fY +=
 				Data->fAY * 0.03f * Data->fSpeed * xYall * m_fBGAnimationSpeed;
 			Data->fX += Data->fAX * 0.03f * Data->fSpeed * m_fBGAnimationSpeed +
@@ -314,8 +313,6 @@ void TFo_Main::BGAnimation_CherryBlossom(TCanvas *C) {
 				P->Color = Data->Color;
 				TPoint P[6];
 				for (int ip = 0; ip < 6; ip++) {
-					// float fx = CBShape[ip * 2];
-					// float fy = CBShape[ip * 2 + 1];
 					float ct2 = cos(Data->fT2);
 					ct2 = Sign(ct2) * sqrt(sqrt(fabs(ct2)));
 					float st2 = sin(Data->fT2);

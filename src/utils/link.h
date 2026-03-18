@@ -9,28 +9,28 @@
 // ---------------------------------------------------------------------------
 class TLink {
 public:
-	// データ
-	int m_nFromID; // リンク元
-	int m_nDestID; // リンク先
-	int m_bDirection; // 方向性ありなし
-	int m_nShape; // 向き
-	TLabelList *m_Labels; // ラベル
-	UnicodeString m_Name; // リンク名
+	// Data
+	int m_nFromID; // Link source
+	int m_nDestID; // Link destination
+	int m_bDirection; // Direction visibility
+	int m_nShape; // Direction
+	TLabelList *m_Labels; // Labels
+	UnicodeString m_Name; // Link name
 
-	// 一時
+	// Transient
 	bool m_bVisible;
 	TColor m_Color;
 
-	// 作成、破棄
+	// Construction, destruction
 	void InitLink();
 	TLink();
 	TLink(UnicodeString S);
 	TLink(TLink &Link);
 	virtual ~TLink();
-	// 読み書き
+	// Read/write
 	void Decode(UnicodeString S);
-	void Decode_005(UnicodeString S); // LinkShape追加前
-	void Decode_006(UnicodeString S); // 下位互換前
+	void Decode_005(UnicodeString S); // Before LinkShape addition
+	void Decode_006(UnicodeString S); // Before backward compatibility
 	UnicodeString Encode();
 };
 #endif

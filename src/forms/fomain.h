@@ -39,7 +39,7 @@
 
 #define BGANIMATIONMAXOBJECTS 1024
 #define BGANIMATIONOBJECTSIZE 16
-// 何ms編集がなかったらバックアップするか
+// Ms of no edit before backup
 #define UNDOBACKUPSPAN 2000
 
 // ---------------------------------------------------------------------------
@@ -55,34 +55,34 @@ protected:
 
 class TCardImage {
 public:
-	TCardImage(UnicodeString FN); // コンストラクタ。作られた瞬間イメージを読み込む
+	TCardImage(UnicodeString FN); // Constructor. Loads image when created
 	virtual ~TCardImage();
 
-	UnicodeString m_FN; // イメージのファイル名
-	bool m_bExist; // 読み込み成功しているか
-	bool m_bUsed; // 使用されているか（更新チェック時に外部から使用）
-	TGraphic *m_Image; // イメージ
+	UnicodeString m_FN; // Image file name
+	bool m_bExist; // Load succeeded
+	bool m_bUsed; // In use (from outside for update check)
+	TGraphic *m_Image; // Image
 
 private:
 	TCardImage(const TCardImage &source);
 	TCardImage& operator=(const TCardImage &source);
 
 private:
-	Graphics::TBitmap *m_BMP; // BMPイメージ
-	TJPEGImage *m_Jpg; // Jpgイメージ
+	Graphics::TBitmap *m_BMP; // BMP image
+	TJPEGImage *m_Jpg; // JPG image
 };
 
 // ---------------------------------------------------------------------------
 
 class TCardVideo {
 public:
-	TCardVideo(UnicodeString FN); // コンストラクタ。作られた瞬間読み込む
+	TCardVideo(UnicodeString FN); // Constructor. Loads when created
 	virtual ~TCardVideo();
 
-	UnicodeString m_FN; // ファイル名
-	bool m_bExist; // 読み込み成功しているか
-	bool m_bUsed; // 使用されているか（更新チェック時に外部から使用）
-	// TDSDecoder *m_Video;//ビデオ
+	UnicodeString m_FN; // File name
+	bool m_bExist; // Load succeeded
+	bool m_bUsed; // In use (from outside for update check)
+	// TDSDecoder *m_Video;// Video
 	void *m_Video;
 private:
 	TCardVideo(const TCardVideo &source);
@@ -92,7 +92,7 @@ private:
 // ---------------------------------------------------------------------------
 
 class TFo_Main : public TForm, IProgress {
-__published: // IDE 管理のコンポーネント
+__published: // IDE-managed components
 	TPanel *Pa_List;
 	TSplitter *Sp_Left;
 	TTimer *Ti_Check;
@@ -835,30 +835,30 @@ __published: // IDE 管理のコンポーネント
 	void __fastcall ME_GPTClick(TObject *Sender);
 	void __fastcall MS_GPTAPIKeyClick(TObject *Sender);
 
-private: // ユーザー宣言
-public: // ユーザー宣言
+private: // User declarations
+public: // User declarations
 	__fastcall TFo_Main(TComponent* Owner);
 
-	// ドキュメント
+	// Document
 	TDocument *m_Document;
-	// Undoバッファ
+	// Undo buffer
 	TUndoRedo *m_UndoRedo;
-	// 表示更新用
+	// Display refresh
 	int m_nRefreshListCount;
 	int m_nRefreshLinkCount;
 	int m_nRefreshLabelCount;
-	int m_nTargetCard; // 編集中のカード
-	int m_nTargetLink; // 編集中のリンク
-	int m_nTargetCard2; // リンク先カード
-	int m_nCurrentCard; // 表示中のカード（TargetCardと異なったら画面更新）
-	int m_nCurrentLink; // 表示中のリンク（TargetLinkと異なったら画面更新）
+	int m_nTargetCard; // Card being edited
+	int m_nTargetLink; // Link being edited
+	int m_nTargetCard2; // Link destination card
+	int m_nCurrentCard; // Card displayed (refresh if differs from TargetCard)
+	int m_nCurrentLink; // Link displayed (refresh if differs from TargetLink)
 
-	void RefreshLinks(); // リンク表示更新
+	void RefreshLinks(); // Link display refresh
 
-	TList *m_LinkIndexes; // 表示中のリンクIndex
+	TList *m_LinkIndexes; // Link index displayed
 
-	// ラベル
-	void RefreshLabel(); // ラベル更新
+	// Label
+	void RefreshLabel(); // Label refresh
 
 	TButton *Bu_Label[MAXLABELS];
 	TList *MI_Labels;
@@ -867,83 +867,83 @@ public: // ユーザー宣言
 
 	void FreeMILabels();
 
-	int m_nToolLabel; // ラベル付けボタンで付けるラベル
-	int m_nToolLinkLabel; // ラベル付けボタンで付けるラベル
+	int m_nToolLabel; // Label from label button
+	int m_nToolLinkLabel; // Label from label button
 
-	// ブラウザ表示
+	// Browser display
 	int m_nBrowserWidth, m_nBrowserHeight;
 	int m_nBGColor, m_nFGColor;
 	float m_fFontZoom;
-	int m_nXOffset, m_nYOffset; // プリンタ表示時のオフセット
+	int m_nXOffset, m_nYOffset; // Offset for printer display
 
-	int m_nTmpCardsCount; // 以下の一時変数格納場所のサイズ（数が変わっていたらPaintSubでメモリ再確保）
-	int m_nTmpLinksCount; // 以下の一時変数格納場所のサイズ（数が変わっていたらPaintSubでメモリ再確保）
+	int m_nTmpCardsCount; // Temp var storage size (realloc in PaintSub if count changes)
+	int m_nTmpLinksCount; // Temp var storage size (realloc in PaintSub if count changes)
 	bool *m_CardVisible;
 	bool *m_LinkVisible;
-	UnicodeString *m_CardTitle; // 一時カードタイトル（TitleはFoldされていると変わる）
+	UnicodeString *m_CardTitle; // Temp card title (Title changes when Fold)
 	bool *m_CardRelated;
-	int *m_CardAssign; // Fold用。これの示す番号のカードとして移動する
-	int *m_CardShape; // カードの形（一時。Foldされているときは多数決で決まる）
-	// カードのサイズも本当はFoldされている平均にするべき！？
-	float *m_CardX; // 表示する実座標（画面サイズは考慮しない）
-	float *m_CardY; // 表示する実座標（画面サイズは考慮しない）
-	int *m_CardWidth; // 幅（実座標。Pixel）
-	int *m_CardHeight; // 高さ（実座標。Pixel）
+	int *m_CardAssign; // For Fold. Move as card of this index
+	int *m_CardShape; // Card shape (temp. Majority when Fold)
+	// Card size should be Fold average!?
+	float *m_CardX; // Display coords (ignore screen size)
+	float *m_CardY; // Display coords (ignore screen size)
+	int *m_CardWidth; // Width (real coords, Pixel)
+	int *m_CardHeight; // Height (real coords, Pixel)
 	int m_nFontHeight;
-	float m_fZoomSD; // Zoomする標準偏差。0.21が標準。小さくすると広い範囲を表示
-	float m_fTickerSpeed; // Tickerの移動量
+	float m_fZoomSD; // Zoom std dev. 0.21 default. Smaller=wider view
+	float m_fTickerSpeed; // Ticker movement
 	unsigned int m_nLastTimeOut;
 	bool m_bRedrawRequested;
 
-	// フレームレート計算
+	// Frame rate calculation
 	float m_fFPS;
 	int m_nFPSCount;
 	unsigned int m_nLastFPSTime;
 
-	// アレンジ
-	TDMatrix *m_SimMatrix; // カード毎の類似度Matrix
+	// Arrange
+	TDMatrix *m_SimMatrix; // Similarity matrix per card
 
 	void PrepareArrange();
 	void RefreshSimMatrix();
-	void ProgressFunc(); // Progressからの呼び出し用
-	void RefreshSimMatrix_(); // Progressからの呼び出し用
+	void ProgressFunc(); // For call from Progress
+	void RefreshSimMatrix_(); // For call from Progress
 	void FreeSimMatrix();
-	void BrowserArrangeByNormalize(float ratio = 1.0f); // ノーマライズ
-	void BrowserArrangeByRepulsion(float ratio = 1.0f); // 反発力のみに従い座標更新
-	void BrowserArrangeByLink(float ratio = 1.0f); // リンクに従い座標更新
-	void BrowserArrangeByLabel(float ratio = 1.0f); // ラベルに従い座標更新
-	void BrowserArrangeByIndex(float ratio = 1.0f); // カード順に従い座標更新
-	void BrowserArrangeByDate(int dateindex, float ratio = 1.0f); // 日付に従い座標更新
-	void BrowserArrangeByFold(float ratio = 1.0f); // 折りたたまれたラベルに従い座標更新
-	void BrowserArrangeBySimilarity(float ratio = 1.0f); // 類似度に従い座標更新
-	void BrowserArrangeByMatrix(int type, float ratio = 1.0f); // 格子状に配置
-	void BrowserArrangeByTree(int type, float ratio = 1.0f); // 階層表示
+	void BrowserArrangeByNormalize(float ratio = 1.0f); // Normalize
+	void BrowserArrangeByRepulsion(float ratio = 1.0f); // Update coords by repulsion only
+	void BrowserArrangeByLink(float ratio = 1.0f); // Update coords by link
+	void BrowserArrangeByLabel(float ratio = 1.0f); // Update coords by label
+	void BrowserArrangeByIndex(float ratio = 1.0f); // Update coords by card order
+	void BrowserArrangeByDate(int dateindex, float ratio = 1.0f); // Update coords by date
+	void BrowserArrangeByFold(float ratio = 1.0f); // Update coords by folded label
+	void BrowserArrangeBySimilarity(float ratio = 1.0f); // Update coords by similarity
+	void BrowserArrangeByMatrix(int type, float ratio = 1.0f); // Arrange in grid
+	void BrowserArrangeByTree(int type, float ratio = 1.0f); // Hierarchy view
 
-	// アレンジ（格子状配置）
-	int m_nMatrixWidth; // 格子状配置の際の幅
-	int m_nMatrixHeight; // 格子状配置の際の高さ
+	// Arrange (grid layout)
+	int m_nMatrixWidth; // Width for grid layout
+	int m_nMatrixHeight; // Height for grid layout
 
-	void PrepareMatrixArrange(int type); // 格子サイズを決め、全カードを格子に配置。typeはArrangeType
+	void PrepareMatrixArrange(int type); // Set grid size, place all cards. type=ArrangeType
 	void PrepareMatrixArrange_AssignToMatrix(int i, int *tmatrix, float minx,
-		float maxx, float miny, float maxy); // i番目のカードを、tmatrixで示すマトリクスに格納
+		float maxx, float miny, float maxy); // Store i-th card in matrix by tmatrix
 	void PrepareMatrixArrange_AssignToMatrix2(int i, int *tmatrix, float minx,
 		float maxx, float miny, float maxy);
-	// i番目のカードを、tmatrixで示すマトリクスに格納（円状から）
+	// Store i-th card in matrix by tmatrix (from circle)
 
 	// AutoScroll
-	float m_fBrowserScrollRatio; // スクロール量
-	float m_fBrowserScrollLastD; // 最後のターゲットまでの距離
-	int m_nScrollTargetX; // Overviewからのスクロール要求
+	float m_fBrowserScrollRatio; // Scroll amount
+	float m_fBrowserScrollLastD; // Distance to last target
+	int m_nScrollTargetX; // Scroll request from Overview
 	int m_nScrollTargetY;
 
-	bool BrowserAutoScroll(); // 現在カードが中心に来るように移動。返り値は座標が更新されたかどうか
+	bool BrowserAutoScroll(); // Move so current card centers. Returns if coords updated
 
-	// アニメーション
-	TDocument *m_DocBeforeAnimation; // アニメーション前のドキュメントをバックアップ
+	// Animation
+	TDocument *m_DocBeforeAnimation; // Backup document before animation
 	int m_nAnimation;
-	// アニメーション中かどうか。0=アニメーション無し、1=RandomCard、2=RandomCard2、3=RandomTrace
-	int m_nAnimationCount; // アニメーションの進行状況（使い方はアニメーションによる）
-	// アニメーション中の各種バックアップ
+	// Whether animating. 0=none, 1=RandomCard, 2=RandomCard2, 3=RandomTrace
+	int m_nAnimationCount; // Animation progress (usage varies by animation)
+	// Various backups during animation
 	int m_nAnimationBak_ArrangeType;
 	bool m_bAnimationBak_Arrange;
 	bool m_bAnimationBak_AutoScroll;
@@ -964,37 +964,37 @@ public: // ユーザー宣言
 
 	void Animation_RandomTrace();
 
-	// タイトル入力
+	// Title input
 	TEdit2 *Ed_TitleB;
 
 	void SetEdTitleBPos();
 	void CloseEditBox();
 
-	// Browserで本文編集
+	// Edit body in Browser
 	void SetTextEditPos();
 	void CloseTextEditBox();
 
 private:
-	// ブラウザ表示サブ
+	// Browser display area
 	void BrowserArrange_Initialize(float *CardX, float *CardY, bool *Norm);
 	void BrowserArrange_Link(int i, TCard *Card, float *CardX, float *CardY,
-		bool *Norm, float ratio); // リンクのあるカードの近くへ
+		bool *Norm, float ratio); // Toward linked cards
 	void BrowserArrange_Repulsion(int i, TCard *Card, float *CardX,
-		float *CardY, bool *Norm, float ratio); // 他のカードの遠くへ
-	void BrowserArrange_LabelPrepare(); // 各ラベルの中心座標計算
+		float *CardY, bool *Norm, float ratio); // Away from other cards
+	void BrowserArrange_LabelPrepare(); // Calc center coords per label
 	void BrowserArrange_Label(int i, TCard *Card, float *CardX, float *CardY,
-		bool *Norm, float ratio); // 同じラベルの近く、違うラベルの遠くへ
+		bool *Norm, float ratio); // Near same label, far from different
 	void BrowserArrange_Index(int i, TCard *Card, float *CardX, float *CardY,
-		bool *Norm, float ratio); // indexが近いものほど近くに
+		bool *Norm, float ratio); // Closer by index
 	void BrowserArrange_Date(int i, TCard *Card, float *CardX, float *CardY,
-		bool *Norm, float ratio, int dateindex); // 日付が近いものほど近くに
+		bool *Norm, float ratio, int dateindex); // Closer by date
 	void BrowserArrange_Similarity(int i, TCard *Card, float *CardX,
-		float *CardY, bool *Norm, float ratio, int *idxtable); // 類似カードの近くへ
+		float *CardY, bool *Norm, float ratio, int *idxtable); // Toward similar cards
 	void BrowserArrange_Memory(float *CardX, float *CardY, bool *Norm);
 	void BrowserArrange_Normalize(float *CardX, float *CardY, bool *Norm);
 
 public:
-	// ファイル
+	// File
 	TIniFile *Ini;
 
 	TMenuItem *MI_RecentFiles[10];
@@ -1002,63 +1002,63 @@ public:
 
 	void LoadSub(UnicodeString FN, bool bSoftLoad = false,
 		bool bRefreshRecent = true);
-	bool Save(); // 上書きもしくは名前をつけて保存
-	bool SaveAs(); // 名前をつけて保存
-	bool SaveCheck(); // ファイルが変更されています。保存しますか？
+	bool Save(); // Save (overwrite or save as)
+	bool SaveAs(); // Save as
+	bool SaveCheck(); // File changed. Save?
 	void RefreshRecent(UnicodeString FN);
 
-	// 操作用
-	int m_bMDownBrowser; // 1=通常ドラッグ、2=リンクのDest編集、3=リンクのFrom編集
+	// Operations
+	int m_bMDownBrowser; // 1=Normal drag, 2=Link Dest edit, 3=Link From edit
 	int m_bDblClicked;
 	bool m_bTitleEditRequested;
 	bool m_bTextEditRequested;
 	unsigned int m_uMDownBrowserLast;
-	bool m_bMDownBrowserMoved; // マウスボタンを押してから動いたかどうか
+	bool m_bMDownBrowserMoved; // Moved after mouse down
 	int m_nMDownBrowserOffsetX;
 	int m_nMDownBrowserOffsetY;
-	int m_nMDownBrowserX; // マウスを押したときの座標
+	int m_nMDownBrowserX; // Coords when mouse pressed
 	int m_nMDownBrowserY;
-	int m_nMDownTargetX; // リンク線先
+	int m_nMDownTargetX; // Link line end
 	int m_nMDownTargetY;
 	int m_nMDownBrowserScrollX;
 	int m_nMDownBrowserScrollY;
-	bool m_bShowRecent; // 最近表示したカードを強調表示（スペースキー）
+	bool m_bShowRecent; // Highlight recent cards (Space)
 
 	bool CheckTreeButton(int index, int X, int Y);
 
 private:
-	// 検索
+	// Search
 	bool m_bSearching;
 
 	void Search(int SearchRequest);
-	// 0x1カードタイトル、0x2本文、0x4Browserから検索、0x8ダイアログから検索
-	// 0x10 大文字小文字を区別しない
+	// 0x1 title, 0x2 body, 0x4 from Browser, 0x8 from dialog
+	// 0x10 case insensitive
 
-	TList *m_GlobalSearchResult; // グローバル検索結果（ヒットしたカードIDのリスト）
+	TList *m_GlobalSearchResult; // Global search result (hit card IDs)
 	int m_GlobalSearchItemHeight;
 	WideString m_GlobalSearchKeyword;
 	int m_GlobalSearchOption;
 	int m_GlobalSearchCursorIndex;
 
-	void GlobalSearch(int SearchRequest); // ヒットした結果をm_GlobalSearchResultに入れる
-	int ReplaceAll(int SearchRequest); // すべて置換。置換に成功した数を返す
+	void GlobalSearch(int SearchRequest); // Put hits in m_GlobalSearchResult
+	int ReplaceAll(int SearchRequest); // Replace all. Returns count
 
 	TList *MI_WebSearch;
 	TList *MI_GPT;
 
-	WideString GetSelText(); // 現在選択中のテキストを得る
+	WideString GetSelText(); // Get selected text
 	void __fastcall ME_WebSearchClick(TObject *Sender);
 	// Utils
 	void DispPosToCardPos(float dx, float dy, float &cx, float &cy);
 	void CardPosToDispPos(float cx, float cy, float &dx, float &dy);
-	void FilteringCard(); // Labelで表示するカードを選別する
-	void RefreshLaStatus(); // ステータスラベルの更新
+	void FilteringCard(); // Filter cards by Label
+	void RefreshLaStatus(); // Status label refresh
 	void RefreshWallPaper();
 	void RefreshFileList();
 
-	void MoveToSelectedAndRecentCard(); // 選択されているカードで、一番最近触ったカードに移動
+	void MoveToSelectedAndRecentCard(); // Move to most recent of selected
 	float MoveDistance(float sx, float sy, float dx, float dy,
-		int direction); // direction方向に動く際のs座標からd座標への距離
+		int direction); // Distance s to d when moving in direction
 	void LinkLimitationSub(int targetcard, int targetlink, int linkdepth,
 		int *Score, bool linkdirection, bool linkbackward);
 
@@ -1067,68 +1067,68 @@ private:
 	void BrowserNewBrotherCard();
 	void BrowserInsertCardToLink();
 
-	void SetFont(); // SettingView.m_Fontの名前、Charsetを適用
+	void SetFont(); // Apply SettingView.m_Font name, Charset
 
 	void AddTxtsInFolder(UnicodeString TopDir, TCard *Parent);
 
 	void ExitFullScreen();
 
-	void SetCardAssign(); // Paint時以外でLabelのFoldを考慮する必要がある際に呼ぶ
+	void SetCardAssign(); // Call when Fold needed outside Paint
 
-	bool TreeMode(); // 階層表示モードかどうかの判定
+	bool TreeMode(); // Check if hierarchy view mode
 
 	void LinktoAllCardswithDesignatedLabel(TList *IDs);
-	// 現在カードから指定ラベルIDを持つカードすべてにラベルを貼る
+	// Apply label to all with designated ID from current
 
-	// Undo、Redo用
-	unsigned int m_nLastModified; // 最後にテキストを編集した時間（Undo用にバックアップする際使用）
+	// For Undo, Redo
+	unsigned int m_nLastModified; // Last text edit time (for Undo backup)
 	int m_nNextCardID, m_nNextSelStart, m_nNextSelLength;
-	// Undo,Redoによるエディタのカーソル位置の移動
+	// Cursor move by Undo/Redo
 	int m_nLastSelLength;
-	bool m_bDoNotBackup; // 複合編集のため、細かい編集中のUndo用バックアップを禁止
+	bool m_bDoNotBackup; // Disable Undo backup during compound edit
 
 	void BackupSub(UnicodeString Action);
 	void TextEditBackupSub(UnicodeString Action, int CardID = -1, int SelStart =
-		0, int SelLength = 0); // テキスト編集前にUndo用バックアップを行う
+		0, int SelLength = 0); // Undo backup before text edit
 
-	// 保存用
+	// For save
 	void ExportBMP(int operation, UnicodeString Text);
-	// ブラウザ画像を保存orコピー(0=BMP, 1=JPEG, 2=コピー）
+	// Save or copy browser image (0=BMP, 1=JPEG, 2=copy)
 	void ExportCardText(int operation, bool btitle, UnicodeString Text);
-	// カード本文を保存orコピー
+	// Save or copy card body
 	void ExportHierarchicalText(TStringList *SL, int CurrentLevel,
 		UnicodeString HChar, TCard *CurrentParent);
-	// 階層テキスト出力のためのサブルーチン。CurrentParentにぶら下がっているすべてのカードについて、その下の階層を出力させる。このルーチンは再帰的に呼ばれる
-	// 描画用
+	// Sub for hierarchy text. Recursively outputs children of CurrentParent
+	// For drawing
 	void CalcCardSize(TCanvas *C, TCard *Card, int Size, int cardindex);
 	void DrawLabelCircleRect(TCanvas *C, bool drawtoporder, bool drawothers);
 	void DrawFocusCursor(TCanvas *C, float fx, float fy, float fw, float fh);
 	void DrawCard(TCanvas *C, TCard *Card, int Size, int cardindex,
-		TColor HMColor, int option); // 0x1で影描画,0x2で縁取り
+		TColor HMColor, int option); // 0x1 shadow, 0x2 outline
 	void DrawLink(TCanvas *C, TLink *Link, int card1index, int card2index,
-		TColor HMColor, int option); // 0x1で影描画,0x2で縁取り
+		TColor HMColor, int option); // 0x1 shadow, 0x2 outline
 	void DrawLink2(TCanvas *C, TLink *Link, int X1, int Y1, int X2, int Y2,
 		TColor HMColor, int option);
 	void DrawPatternLine(TCanvas *C, int Pattern, int X1, int Y1, int X2,
 		int Y2, int penwidth);
 	void DrawCurvedLine(TCanvas *C, int Pattern, int X1, int Y1, int X2, int Y2,
-		int penwidth, int direction); // 曲線描画
-	void SetCardVisible(bool bFoldTree = true); // 表示するカード決定
-	void Redraw(); // 全体再描画
+		int penwidth, int direction); // Curve drawing
+	void SetCardVisible(bool bFoldTree = true); // Determine cards to display
+	void Redraw(); // Full redraw
 	void PaintSub(TCanvas *C);
-	TColor GetCardColor(TCard *Card, float &SizeX); // ラベルによるカードの基本色を取得
+	TColor GetCardColor(TCard *Card, float &SizeX); // Get card base color by label
 
-	// overview座標
+	// Overview coordinates
 	int m_nOVWidth;
 	int m_nOVXOffset;
 	int m_nOVHeight;
 	int m_nOVYOffset;
 
-	// Focusを示すCursorの位置（0動き始め～100到達）
+	// Focus cursor (0 start~100 reach)
 	int m_nFocusCursorPos;
-	int m_nLastTarget; // 直前のターゲットカード
+	int m_nLastTarget; // Previous target card
 
-	// 外部リンク
+	// External links
 	void OpenExtLink(UnicodeString S);
 
 	TList *MI_ExtLink;
@@ -1136,7 +1136,7 @@ private:
 	void FreeMIExtLink();
 
 public:
-	// 言語選択
+	// Language selection
 	void __fastcall ChangeLanguageOnClick(TObject *Sender);
 
 	// Score
@@ -1153,24 +1153,24 @@ public:
 	void IterScore_Links_InOut();
 	void IterScore_TextLength();
 
-	// イメージリスト
+	// Image list
 	TList *m_ImageList;
 
-	bool UpdateImageList(); // 帰り値は変更があったらtrue
+	bool UpdateImageList(); // Returns true if changed
 	inline TCardImage *GetImage(int index);
 	TCardImage *SearchImage(UnicodeString FN);
 
-	// ビデオサムネイルリスト
+	// Video thumbnail list
 	TList *m_VideoList;
 
-	bool UpdateVideoList(); // 帰り値は変更があったらtrue
+	bool UpdateVideoList(); // Returns true if changed
 	inline TCardVideo *GetVideo(int index);
 	TCardVideo *SearchVideo(UnicodeString FN);
 
-	// 背景アニメーション
+	// Background animation
 	int m_BGAnimationBuf[BGANIMATIONOBJECTSIZE * BGANIMATIONMAXOBJECTS];
-	// 16int×256オブジェクト分
-	float m_fBGAnimationSpeed; // 何秒分アニメーションするか
+	// 16 int x 256 objects
+	float m_fBGAnimationSpeed; // Animation duration in seconds
 
 	void BGAnimation(TCanvas *C);
 	void BGAnimation_MovingVHLine(TCanvas *C);
@@ -1178,27 +1178,27 @@ public:
 	void BGAnimation_Snow(TCanvas *C);
 	void BGAnimation_CherryBlossom(TCanvas *C);
 
-	// 描画
-	TDrawing *m_Drawing; // 現在描画中の絵
-	TRect m_DrawingRect; // 描画領域
+	// Drawing
+	TDrawing *m_Drawing; // Drawing in progress
+	TRect m_DrawingRect; // Drawing area
 	int m_DrawingTool;
 
-	void ApplyDrawing(); // 絵が編集されていたらUndoを作成し、編集結果をカードのデータに反映
+	void ApplyDrawing(); // Create Undo if edited, apply to card
 
-	// 統計
-	float m_fStatisticsPos; // 滑らかにグラフを立ち上げる係数（0.0～1.0）
-	TList *m_StatisticsRectToCard; // 範囲選択したときに見せるカードのリスト
+	// Statistics
+	float m_fStatisticsPos; // Smooth graph rise factor (0.0~1.0)
+	TList *m_StatisticsRectToCard; // Cards shown on range selection
 
 	void ClearStatisticsRectToCard();
-	/*
-	 //読み上げ
+	 /*
+	 // Text-to-speech
 	 TAgent *m_Agent;
 	 IAgentCtlCharacter *m_AgentChar;
 	 TDirectSS *m_TTS;
 	 void LoadAgent();
 	 void UnloadAgent();
 	 */
-	// ファイルドロップ
+	// File drop
 	BEGIN_MESSAGE_MAP VCL_MESSAGE_HANDLER(WM_DROPFILES, TWMDropFiles,
 		WMDropFiles)
 		// VCL_MESSAGE_HANDLER(WM_ERASEBKGND, TWMEraseBkgnd, WMEraseBkgnd)
@@ -1206,21 +1206,21 @@ public:
 
 	void __fastcall WMDropFiles(TWMDropFiles &mes);
 	void __fastcall WMEraseBkgnd(TWMEraseBkgnd &msg);
-	// 多言語対応
+	// Multi-language
 	void ApplyLanguageSetting();
 
-	// 連続読み込み（編集中ファイルに更新があったらすぐ読み込み）
+	// Continuous load (reload when file updated)
 	bool m_bContinuousLoad;
-	int m_nCLFileAge; // 連続読み込みするファイルのタイムスタンプ
+	int m_nCLFileAge; // Timestamp for continuous load
 
 private:
-	// デモ
+	// Demo
 	UnicodeString m_DemoString;
 	TStringList *m_DemoStrings;
 	int m_nDemoIndex;
-	// 整合性を取るため
+	// For consistency
 	bool m_bSkipAutoZoom;
-	bool m_bFileListDragging; // FileList使用中に消さないため
+	bool m_bFileListDragging; // Don't delete while FileList in use
 };
 
 // ---------------------------------------------------------------------------

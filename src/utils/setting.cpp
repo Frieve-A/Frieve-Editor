@@ -11,33 +11,33 @@ TMLText MLText;
 
 // ---------------------------------------------------------------------------
 TMLText::TMLText() {
-	Cards = "Cards"; // カード
-	Links = "Links"; // リンク
-	Labels = "Labels"; // ラベル
-	Line = "Line"; // 行
-	Len = "Len"; // 文字
-	Size = "Size"; // サイズ
-	Title = "Title"; // 名前
-	Created = "Created"; // 作成日時
-	Edited = "Edited"; // 編集日時
-	Viewed = "Viewed"; // 閲覧日時
-	Hits = "Hits"; // 件
+	Cards = "Cards";
+	Links = "Links";
+	Labels = "Labels";
+	Line = "Line";
+	Len = "Len";
+	Size = "Size";
+	Title = "Title";
+	Created = "Created";
+	Edited = "Edited";
+	Viewed = "Viewed";
+	Hits = "Hits";
 
 	EditCardTitle = "Edit Card Title";
 	EditCardText = "Edit Card Text";
 	EditLinkTitle = "Edit Link Title";
 	EditDrawing = "Edit Drawing";
 
-	ChangeSize = "Change Size"; // サイズの変更
-	FixCardPosition = "Fix Card Position"; // カード位置の固定
-	SetAsRootCard = "Set as Root Card"; // ルートカードに指定
+	ChangeSize = "Change Size";
+	FixCardPosition = "Fix Card Position";
+	SetAsRootCard = "Set as Root Card";
 
-	EditLink = "Edit Link"; // リンクの編集
+	EditLink = "Edit Link";
 
-	AddLabel = "Add Label"; // ラベルの追加
-	DeleteLabel = "Delete Label"; // ラベルの削除
-	ChangeLabel = "Change Label"; // ラベルの変更
-	LabelName = "Label Name"; // ラベル名
+	AddLabel = "Add Label";
+	DeleteLabel = "Delete Label";
+	ChangeLabel = "Change Label";
+	LabelName = "Label Name";
 	SelectLinkDestination = "Select Destination";
 	SelectLabelOfDestination = "Select Label of Destination";
 	SelectLabel = "Select Label";
@@ -48,18 +48,18 @@ TMLText::TMLText() {
 
 	ProcessingTextAnalysis = "Processing text analysis...";
 
-	Enable = "Enable"; // 有効
-	Fold = "Fold"; // 折畳
-	Show = "Show"; // 表示
-	Hide = "Hide"; // 隠蔽
-	NoAssign = "No Assign"; // 未指定
-	NoLabel = "No Label"; // ラベルなし
-	SelectTargetCard = "Select Target Card"; // リンク先カードの選択
-	Old = "Old"; // 古い順
-	New = "New"; // 新しい順
-	Near = "Near"; // 近い順
-	Older = "Older"; // より古い
-	Newer = "Newer"; // より新しい
+	Enable = "Enable";
+	Fold = "Fold";
+	Show = "Show";
+	Hide = "Hide";
+	NoAssign = "No Assign";
+	NoLabel = "No Label";
+	SelectTargetCard = "Select Target Card";
+	Old = "Old";
+	New = "New";
+	Near = "Near";
+	Older = "Older";
+	Newer = "Newer";
 	SaveCheck = "This document has changed. Save?";
 	FailedToSave = "Failed to save ";
 	NotFound = " is not found.";
@@ -83,7 +83,7 @@ TSettingView::TSettingView() {
 
 	m_bLabelCircleVisible = false;
 	m_bLabelRectangleVisible = true;
-	m_bLavelCRFocusedOnTop = false; // 普通はfalse
+	m_bLavelCRFocusedOnTop = false; // Usually false
 	m_bLabelFill = false;
 	m_bLabelNameVisible = true;
 
@@ -104,11 +104,11 @@ TSettingView::TSettingView() {
 	m_bTextVisible = true;
 	m_bTextCentering = false;
 	m_bTextWordWrap = true;
-	m_bEditInBrowser = true; // Browser上で本文編集
-	m_bEditInBrowserAlways = false; // Browser上で本文編集（常に）
-	m_nEditInBrowserPos = 0; // 編集位置。0=カードの下、1=ブラウザ右、2=ブラウザ下
-	m_nEditorWidthInBrowser = 0; // Browser上で編集する際のWidth
-	m_nEditorHeightInBrowser = 0; // Browser上で編集する際のHeight
+	m_bEditInBrowser = true; // Edit body in browser
+	m_bEditInBrowserAlways = false; // Always edit body in browser
+	m_nEditInBrowserPos = 0; // Edit position: 0=below card, 1=right of browser, 2=below browser
+	m_nEditorWidthInBrowser = 0; // Editor width when editing in browser
+	m_nEditorHeightInBrowser = 0; // Editor height when editing in browser
 
 	m_nSizeLimitation = 100;
 	m_bSizeLimitation = false;
@@ -119,10 +119,10 @@ TSettingView::TSettingView() {
 	m_bLinkBackward = false;
 	m_nLinkTarget = -1;
 
-	m_bDateLimitation = false; // 日付による表示制限ON/OFF
-	m_nDateLimitation = 0; // 日付による表示制限の大きさ（意味はDateLimitationTypeによる）
-	m_DateLimitationType = 0; // 日付による制限の種類（Old, New, Near, Older, Newer）
-	m_DateLimitationDateType = 0; // 日付の種類（Created, Edited, Viewed）
+	m_bDateLimitation = false; // Display limit by date ON/OFF
+	m_nDateLimitation = 0; // Date limit magnitude (see DateLimitationType)
+	m_DateLimitationType = 0; // Date limit type (Old, New, Near, Older, Newer)
+	m_DateLimitationDateType = 0; // Date type (Created, Edited, Viewed)
 
 	m_bNoLabelVisible = true;
 	m_bNoLinkLabelVisible = true;
@@ -153,10 +153,10 @@ TSettingView::TSettingView() {
 	m_bFixWallPaper = true;
 	m_bTileWallPaper = false;
 
-	m_bCardList = true; // カードリスト
-	m_bFileList = true; // ファイルリスト
+	m_bCardList = true; // Card list
+	m_bFileList = true; // File list
 
-	m_bOverview = true; // 全体図
+	m_bOverview = true; // Overview
 
 	m_bTickerVisible = false;
 	m_nTickerLines = 1;
@@ -369,7 +369,7 @@ void TSettingView::ReadFromIni(TIniFile *Ini, UnicodeString Section) {
 
 	m_Language = Ini->ReadString(Section, "Language", m_Language);
 	if (m_Language == "Japanese" && m_Font->Charset != SHIFTJIS_CHARSET) {
-		// 文字化け対策。日本語を選択している場合は自動で文字セットをSHIFTJISにする
+		// Fix garbled text: use SHIFTJIS when Japanese is selected
 		m_Font->Charset = SHIFTJIS_CHARSET;
 	}
 
