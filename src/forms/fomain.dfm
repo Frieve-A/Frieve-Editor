@@ -809,8 +809,6 @@ object Fo_Main: TFo_Main
           Margins.Bottom = 2
           Align = alTop
           TabOrder = 1
-          ExplicitLeft = -4
-          ExplicitTop = -4
           object SB_EditorRelated: TSpeedButton
             Left = 6
             Top = 10
@@ -2127,6 +2125,10 @@ object Fo_Main: TFo_Main
       object ME_WebSearch: TMenuItem
         Caption = '&Web Search'
       end
+      object ME_ReadAloud: TMenuItem
+        Caption = 'Read Aloud'
+        ShortCut = 49184
+      end
       object N5: TMenuItem
         Caption = '-'
       end
@@ -2561,24 +2563,6 @@ object Fo_Main: TFo_Main
           OnClick = MVS_ScoreClickType
         end
       end
-      object MV_Read: TMenuItem
-        Caption = '&Read Aloud'
-        Visible = False
-        object MVR_Read: TMenuItem
-          Caption = '&Read Aroud'
-          OnClick = MVR_ReadClick
-        end
-        object MVR_ChangeAgent: TMenuItem
-          Caption = 'Change &Agent...'
-          Visible = False
-          OnClick = MVR_ChangeAgentClick
-        end
-        object MVR_ReadSetting: TMenuItem
-          Caption = '&Setting...'
-          Visible = False
-          OnClick = MVR_ReadSettingClick
-        end
-      end
       object MV_Others: TMenuItem
         Caption = '&Others'
         object MVO_CardList: TMenuItem
@@ -2744,6 +2728,45 @@ object Fo_Main: TFo_Main
       object MS_GPTAPIKey: TMenuItem
         Caption = '&GPT API Key...'
         OnClick = MS_GPTAPIKeyClick
+      end
+      object MS_ReadAloudRate: TMenuItem
+        Caption = '&Read Aloud Rate'
+        object MSR_Fast: TMenuItem
+          Tag = 10
+          Caption = 'Fast'
+          GroupIndex = 1
+          RadioItem = True
+        end
+        object MSR_Normal: TMenuItem
+          Tag = 5
+          Caption = 'Normal'
+          Checked = True
+          GroupIndex = 1
+          RadioItem = True
+        end
+        object MSR_Slow: TMenuItem
+          Caption = 'Slow'
+          GroupIndex = 1
+          RadioItem = True
+        end
+        object MVR_Read: TMenuItem
+          Caption = '&Read Aroud'
+          GroupIndex = 1
+          Visible = False
+          OnClick = MVR_ReadClick
+        end
+        object MVR_ChangeAgent: TMenuItem
+          Caption = 'Change &Agent...'
+          GroupIndex = 1
+          Visible = False
+          OnClick = MVR_ChangeAgentClick
+        end
+        object MVR_ReadSetting: TMenuItem
+          Caption = '&Setting...'
+          GroupIndex = 1
+          Visible = False
+          OnClick = MVR_ReadSettingClick
+        end
       end
     end
     object M_Help: TMenuItem

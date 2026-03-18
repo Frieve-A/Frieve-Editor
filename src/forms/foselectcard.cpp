@@ -116,7 +116,7 @@ void __fastcall TFo_Select::LB_ItemsDblClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Select::FormCreate(TObject *Sender) {
-	m_nType = 0; // カード。1=ラベル
+	m_nType = 0; // 繧ｫ繝ｼ繝峨�1=繝ｩ繝吶Ν
 	m_bMultiSelect = false;
 
 	m_IDs = new TList();

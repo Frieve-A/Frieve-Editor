@@ -63,7 +63,7 @@ void __fastcall TFo_Progress::Ti_CheckTimer(TObject *Sender) {
 		}
 		if (GetTickCount() - m_nStartTime > 500 && PG_Progress->Position <
 			PG_Progress->Max / 2 && Width == 0) {
-			// •\Ž¦
+			// è¡¨ç¤º
 			int w = PG_Progress->Width + PG_Progress->Left * 2;
 			int h = La_Progress->Top + Bu_Cancel->Top + Bu_Cancel->Height;
 			Left = Left - w / 2;

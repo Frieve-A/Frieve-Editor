@@ -50,7 +50,7 @@ object Fo_About: TFo_About
     Margins.Top = 4
     Margins.Right = 4
     Margins.Bottom = 4
-    Caption = 'Copyright (C) Frieve 2006-2020'
+    Caption = 'Copyright (C) Frieve 2006-2023'
     IsControl = True
   end
   object Comments: TLabel

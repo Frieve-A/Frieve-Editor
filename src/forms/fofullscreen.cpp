@@ -3,6 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
+#include <Vcl.Forms.hpp>
 #include "fofullscreen.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)

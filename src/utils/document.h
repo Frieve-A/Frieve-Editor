@@ -9,7 +9,7 @@
 #include "label.h"
 // ---------------------------------------------------------------------------
 /*
- helpに以下を追加
+ Add to help:
 
  ReadOnly=1
  DefaultView=1
@@ -17,7 +17,7 @@
 
 #define AppTitle "Frieve Editor"
 #define AppVersion 200
-#define FileVersion 007
+#define FileVersion 8
 #define AppURL "https://www.frieve.com/"
 #define SoftURL "https://www.frieve.com/software/frieve-editor"
 #define ReleaseURL "https://github.com/Frieve-A/Frieve-Editor/releases"
@@ -38,15 +38,15 @@ public:
 	virtual void ClearCardSelection() = 0;
 	virtual void SwapCard(int idx1, int idx2) = 0;
 	virtual int SearchParent(int CardID, bool bChild, bool bFocus) = 0;
-	// 親（もしくは子）カードを捜す
+	// Search parent (or child) card
 	virtual int SearchBrother(int CurrentID, int ParentID, bool bInverse,
-		bool bChild, bool bFocus) = 0; // 時計回り（もしくは逆周り）に兄弟ノードを探す
-	virtual int SearchLast(int CardID, bool bFocus) = 0; // 直前に表示していたカードを捜す
-	virtual void RefreshCardLevel() = 0; // Card->m_bTopとリンクに従って階層レベル設定、カードソート
+		bool bChild, bool bFocus) = 0; // Find sibling nodes clockwise (or counter)
+	virtual int SearchLast(int CardID, bool bFocus) = 0; // Find previously displayed card
+	virtual void RefreshCardLevel() = 0; // Set hierarchy level from Card->m_bTop and links, sort cards
 
 	virtual void AddLabelToCard(TCard* Card, int label) = 0;
 	virtual void DeleteLabelFromCard(TCard* Card, int label) = 0;
-	// データアクセス（リンク）
+	// Data access (links)
 	virtual TLink *NewLink() = 0;
 	virtual TLink *GetLinkByIndex(int index) = 0;
 	virtual void SetLinkName(TLink *Link, UnicodeString S) = 0;
@@ -56,7 +56,7 @@ public:
 	virtual void AddLabelToLink(TLink* Link, int label) = 0;
 	virtual void DeleteLabelFromLink(TLink* Link, int label) = 0;
 
-	// データアクセス（ラベル）
+	// Data access (labels)
 	virtual TCardLabel *NewLabel(int ltype) = 0;
 	virtual TCardLabel *GetLabelByIndex(int ltype, int index) = 0;
 	virtual TCardLabel *GetLabel(int ltype, UnicodeString S) = 0;
@@ -65,66 +65,66 @@ public:
 	virtual void InitLabel(int ltype) = 0;
 	virtual void ClearLabels(int ltype) = 0;
 
-	virtual bool LabelIsFold(TCard *Card) = 0; // カードのラベルが全て折りたたまれているか調べる
-	virtual int CountEnableLabel(TCard *Card) = 0; // カードの有効なラベル数を得る
+	virtual bool LabelIsFold(TCard *Card) = 0; // Check if all labels are folded
+	virtual int CountEnableLabel(TCard *Card) = 0; // Get enabled label count
 	virtual bool LabelIsSame(TCard *Card1, TCard *Card2) = 0;
-	// 2つのカードのラベルが同じか調べる
-	// 表示更新用
+	// Check if two cards have same labels
+	// Display refresh
 	virtual void RefreshList() = 0;
 	virtual void RefreshLink() = 0;
 	virtual void RefreshLabel() = 0;
-	// ファイル
+	// File
 	virtual bool Load(UnicodeString FN, bool bSoftLoad = false) = 0;
-	// SoftLoadでは、元データの座標を維持
+	// SoftLoad preserves original coordinates
 	virtual bool Save() = 0;
 	virtual bool LoadFromString(TStringList *SL, UnicodeString FN) = 0;
 	virtual bool SoftLoadFromString(TStringList *SL, UnicodeString FN) = 0;
 	virtual bool SaveToString(TStringList *SL) = 0;
-	// 情報取得
-	virtual int GetCheckCount() = 0; // 1回画面が更新されるたびにインクリメント
-	virtual int GetCardID() = 0; // 現在フォーカス中のカードID
-	virtual int CardCount() = 0; // カード数
-	virtual int LabelCount(int ltype) = 0; // ラベル数
-	virtual int LinkCount() = 0; // リンク数
-	// クリップボード
+	// Info access
+	virtual int GetCheckCount() = 0; // Incremented each display refresh
+	virtual int GetCardID() = 0; // Currently focused card ID
+	virtual int CardCount() = 0; // Card count
+	virtual int LabelCount(int ltype) = 0; // Label count
+	virtual int LinkCount() = 0; // Link count
+	// Clipboard
 	virtual void CopyToClipboard() = 0;
 	virtual void PasteFromClipboard(float fSpan) = 0;
 };
 
 class TDocument : public IDocCtrl {
 public:
-	// 作成、破棄
+	// Create, destroy
 	void InitDocument();
 	TDocument();
 	void CopyFrom(TDocument *Doc);
 	TDocument(TDocument &Doc);
 	virtual ~TDocument();
 
-	// コピー対象データ
-	// データ
+	// Copy target data
+	// Data
 	TList *m_Cards;
 
-	// リンクデータ
+	// Link data
 	TList *m_Links;
 
-	// ラベルデータ
+	// Label data
 	TList *m_Labels[2];
 
-	// 画面更新カウンタ
+	// Display update counter
 	int m_nCheckCount;
-	// 表示更新用
+	// Display refresh
 	int m_nRefreshListCount;
 	int m_nRefreshLinkCount;
 	int m_nRefreshLabelCount;
 
-	// その他
+	// Others
 	bool m_bChanged;
 	UnicodeString m_FN;
 	bool m_bReadOnly;
 
-	int m_nCardID; // 現在表示中のカード（保存用）
-	int m_nDefaultView; // 読み込んだ瞬間どの画面を表示するか（-1=なし、0=Browser、1=Editor）
-	// データアクセス
+	int m_nCardID; // Currently displayed card (for save)
+	int m_nDefaultView; // Which view on load (-1=none, 0=Browser, 1=Editor)
+	// Data access
 	int m_nMaxCardID;
 	int* m_CardIDToIndex;
 
@@ -143,28 +143,28 @@ public:
 	void ClearCards();
 	void ClearCardSelection();
 	void SwapCard(int idx1, int idx2);
-	void RefreshDateOrder(); // m_fCreatedOrderなどに正しい値を代入
-	void RefreshDateOrder_Label(); // m_fTouchedOrderなどに正しい値を代入
-	int SearchParent(int CardID, bool bChild, bool bFocus); // 親（もしくは子）カードを捜す
+	void RefreshDateOrder(); // Assign correct values to m_fCreatedOrder etc
+	void RefreshDateOrder_Label(); // Assign correct values to m_fTouchedOrder etc
+	int SearchParent(int CardID, bool bChild, bool bFocus); // Search parent (or child) card
 	int SearchBrother(int CurrentID, int ParentID, bool bInverse, bool bChild,
-		bool bFocus); // 時計回り（もしくは逆周り）に兄弟ノードを探す
-	int SearchLast(int CardID, bool bFocus); // 直前に表示していたカードを捜す
-	void RefreshCardLevel(); // Card->m_bTopとリンクに従って階層レベル設定、カードソート
+		bool bFocus); // Find sibling nodes clockwise (or counter)
+	int SearchLast(int CardID, bool bFocus); // Find previously displayed card
+	void RefreshCardLevel(); // Set hierarchy level from Card->m_bTop and links, sort cards
 
 	void AddLabelToCard(TCard* Card, int label);
 	void DeleteLabelFromCard(TCard* Card, int label);
 
 	TList *GetRelatedCard(bool bInverse, bool bVisibleOnly);
-	// 各カードから張られたリンク先のカードをIndex順に入れる
+	// Put link destination cards in Index order from each card
 	int RelatedCardNum(TList *RCard, int cardindex);
 	int RelatedIndex(TList *RCard, int cardindex, int index);
-	void FreeRelatedCard(TList *RCard); // RCardの破棄
+	void FreeRelatedCard(TList *RCard); // Free RCard
 
 private:
 	inline TCard* GetCardByIndex_(int nIndex);
 
 public:
-	// データアクセス（リンク）
+	// Data access (links)
 	TLink *NewLink();
 	inline TLink *GetLinkByIndex(int index);
 	void SetLinkName(TLink *Link, UnicodeString S);
@@ -174,7 +174,7 @@ public:
 	void AddLabelToLink(TLink* Link, int label);
 	void DeleteLabelFromLink(TLink* Link, int label);
 
-	// データアクセス（ラベル）
+	// Data access (labels)
 	TCardLabel *NewLabel(int ltype);
 	inline TCardLabel *GetLabelByIndex(int ltype, int index);
 	TCardLabel *GetLabel(int ltype, UnicodeString S);
@@ -183,34 +183,34 @@ public:
 	void InitLabel(int ltype);
 	void ClearLabels(int ltype);
 
-	bool LabelIsFold(TCard *Card); // カードのラベルが全て折りたたまれているか調べる
-	int CountEnableLabel(TCard *Card); // カードの有効なラベル数を得る
-	bool LabelIsSame(TCard *Card1, TCard *Card2); // 2つのカードのラベルが同じか調べる
+	bool LabelIsFold(TCard *Card); // Check if all labels are folded
+	int CountEnableLabel(TCard *Card); // Get enabled label count
+	bool LabelIsSame(TCard *Card1, TCard *Card2); // Check if two cards have same labels
 
-	// 表示更新用
+	// Display refresh
 	void RefreshList();
 	void RefreshLink();
 	void RefreshLabel();
-	// ファイル
+	// File
 	bool Load(UnicodeString FN, bool bSoftLoad = false);
-	// SoftLoadでは、元データの座標を維持
+	// SoftLoad preserves original coordinates
 	bool Save();
 	bool LoadFromString(TStringList *SL, UnicodeString FN);
 	bool SoftLoadFromString(TStringList *SL, UnicodeString FN);
 	bool SaveToString(TStringList *SL);
 
-	// フォルダ分けしていた時の互換用
+	// Compatibility for old folder structure
 	bool Load_Old(UnicodeString FN);
 	bool Save_Old();
 	int Request(char *Type, int Value, float fValue, void *option);
 
-	// 情報取得
-	int GetCheckCount(); // 1回画面が更新されるたびにインクリメント
-	int GetCardID(); // 現在フォーカス中のカードID
-	int CardCount(); // カード数
-	int LabelCount(int ltype); // ラベル数
-	int LinkCount(); // リンク数
-	// クリップボード
+	// Info access
+	int GetCheckCount(); // Incremented each display refresh
+	int GetCardID(); // Currently focused card ID
+	int CardCount(); // Card count
+	int LabelCount(int ltype); // Label count
+	int LinkCount(); // Link count
+	// Clipboard
 	void CopyToClipboard();
 	void PasteFromClipboard(float fSpan);
 };
@@ -219,8 +219,8 @@ class TUndoRedoData {
 public:
 	UnicodeString m_Name;
 	TDocument *m_Doc;
-	int m_nCardID; // 編集中のカードID
-	int m_nSelStart; // エディタ上のカーソル位置
+	int m_nCardID; // Card ID being edited
+	int m_nSelStart; // Cursor position in editor
 	int m_nSelLength;
 
 	TUndoRedoData(TDocument *Doc, UnicodeString Name, int m_nCardID = -1,
@@ -243,7 +243,7 @@ private:
 public:
 	TUndoRedo(int maxundo);
 	virtual ~TUndoRedo();
-	// Undo、Redo
+	// Undo, Redo
 	void ClearUndos();
 	void ClearRedos();
 	void Backup(TDocument *Doc, UnicodeString editname, int CardID = -1,
@@ -255,27 +255,27 @@ public:
 	bool GetCanUndo(UnicodeString &editname);
 	bool GetCanRedo(UnicodeString &editname);
 
-	int m_bChanged; // Undo、Redoが行われたことを示す
+	int m_bChanged; // Indicates Undo/Redo was performed
 private:
 	TUndoRedo(const TUndoRedo &source);
 	TUndoRedo& operator=(const TUndoRedo &source);
 };
 
 // ---------------------------------------------------------------------------
-// ドキュメントからの操作リクエスト(-1でリクエストなし)
-extern int bReqArrange; // アレンジのON/OFF
-extern int nReqArrangeMode; // 0から順にRepulsion、Link、Label、Index
-extern int bReqAutoScroll; // オートスクロール
-extern int bReqAutoZoom; // オートズーム
-extern int bReqFullScreen; // フルスクリーン
-extern int bReqExit; // 終了
-extern float fReqZoom, fReqX, fReqY; // ズームと座標
-extern int nReqTargetCard; // ターゲットカード変更
+// Document operation requests (-1 = no request)
+extern int bReqArrange; // Arrange ON/OFF
+extern int nReqArrangeMode; // 0=Repulsion, Link, Label, Index
+extern int bReqAutoScroll; // Auto scroll
+extern int bReqAutoZoom; // Auto zoom
+extern int bReqFullScreen; // Full screen
+extern int bReqExit; // Exit
+extern float fReqZoom, fReqX, fReqY; // Zoom and position
+extern int nReqTargetCard; // Target card change
 extern int bReqSizeLimitation, bReqLinkLimitation, bReqDateLimitation;
-// 表示制限のON/OFF
+// Display limit ON/OFF
 extern int nReqSizeLimitation;
 extern int nReqLinkLimitation, bReqLinkDirection, bReqLinkBackward,
 	nReqLinkTarget;
 extern int nReqDateLimitation, ReqDateLimitationDateType, ReqDateLimitationType;
-extern int nReqKeyDown; // 所定のキーを押した処理をする
+extern int nReqKeyDown; // Process specified key press
 #endif

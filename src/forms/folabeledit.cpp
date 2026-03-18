@@ -57,7 +57,7 @@ void __fastcall TFo_LabelEdit::SG_LabelsDrawCell(TObject *Sender, int ACol,
 	int ARow, TRect &Rect, TGridDrawState State) {
 	TCanvas *Canvas = SG_Labels->Canvas;
 
-	// ”wŒi
+	// èƒŒæ™¯
 	Canvas->Brush->Style = bsSolid;
 	Canvas->Brush->Color = clWhite;
 	if (ARow == 0) {
@@ -75,17 +75,17 @@ void __fastcall TFo_LabelEdit::SG_LabelsDrawCell(TObject *Sender, int ACol,
 			Rect.Bottom - 2));
 	}
 
-	// ˜g
+	// æž 
 	Canvas->Brush->Style = bsClear;
 	if (State.Contains(gdFocused) && ARow > 0) {
 		Canvas->Pen->Color = clBlue;
 		Canvas->Rectangle(Rect);
 	}
 
-	// Žš
+	// å­—
 	WideString S;
 	if (ARow == 0) {
-		// ƒ^ƒCƒgƒ‹s
+		// ã‚¿ã‚¤ãƒˆãƒ«è¡Œ
 		if (ACol == 0) {
 			S = MLText.LabelName;
 		}
@@ -94,7 +94,7 @@ void __fastcall TFo_LabelEdit::SG_LabelsDrawCell(TObject *Sender, int ACol,
 		}
 	}
 	else {
-		// ƒf[ƒ^s
+		// ãƒ‡ãƒ¼ã‚¿è¡Œ
 		if (ACol == 0) {
 			S = m_Document->GetLabelByIndex(m_LType, ARow - 1)->m_Name;
 		}
@@ -114,7 +114,7 @@ void __fastcall TFo_LabelEdit::SG_LabelsDrawCell(TObject *Sender, int ACol,
 void __fastcall TFo_LabelEdit::SG_LabelsSelectCell(TObject *Sender, int ACol,
 	int ARow, bool &CanSelect) {
 	if (ARow == 0) {
-		// ƒ^ƒCƒgƒ‹s
+		// ã‚¿ã‚¤ãƒˆãƒ«è¡Œ
 		return;
 	}
 
@@ -137,7 +137,7 @@ void __fastcall TFo_LabelEdit::SG_LabelsDblClick(TObject *Sender) {
 		return;
 	}
 	if (ACol == 0) {
-		// ƒ‰ƒxƒ‹–¼
+		// ãƒ©ãƒ™ãƒ«å
 		Fo_EditText = new TFo_EditText(this);
 		Fo_EditText->La_Text->Caption = MLText.LabelName + ":";
 		Fo_EditText->Ed_Text->Text = m_Document->GetLabelByIndex(m_LType,
@@ -154,7 +154,7 @@ void __fastcall TFo_LabelEdit::SG_LabelsDblClick(TObject *Sender) {
 		Fo_EditText->Release();
 	}
 	else {
-		// ƒ‰ƒxƒ‹F
+		// ãƒ©ãƒ™ãƒ«è‰²
 		CD->Color = (TColor)m_Document->GetLabelByIndex(m_LType, ARow - 1)
 			->m_nColor;
 		if (CD->Execute()) {

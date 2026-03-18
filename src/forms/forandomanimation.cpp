@@ -127,7 +127,7 @@ void __fastcall TFo_RandomAnimation::TB_ZoomChange(TObject *Sender) {
 
 void __fastcall TFo_RandomAnimation::TB_ZoomKeyDown(TObject *Sender, WORD &Key,
 	TShiftState Shift) {
-	// PgUp,DownÇ…ÇÊÇÈÉYÅ[ÉÄ
+	// PgUp,Down„Å´„Çà„Çã„Ç∫„Éº„É†
 	switch (Key) {
 	case 33: // PgUp
 		{

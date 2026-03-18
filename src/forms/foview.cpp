@@ -23,46 +23,46 @@ void TFo_View::ApplyLanguageSetting() {
 
 	Caption = Ini->ReadString("View", "Caption", Caption);
 	TS_Label->Caption = Ini->ReadString("View", "TS_Label",
-		TS_Label->Caption); // ÉâÉxÉã
+		TS_Label->Caption); // „É©„Éô„É´
 	La_Label->Caption = Ini->ReadString("View", "La_Label",
-		La_Label->Caption); // ÉâÉxÉã:
+		La_Label->Caption); // „É©„Éô„É´:
 	La_LabelFold->Caption = Ini->ReadString("View", "La_Fold",
-		La_LabelFold->Caption); // ê‹èÙ:
+		La_LabelFold->Caption); // ÊäòÁï≥:
 	La_LabelShow->Caption = Ini->ReadString("View", "La_Show",
-		La_LabelShow->Caption); // ï\é¶:
+		La_LabelShow->Caption); // Ë°®Á§∫:
 	La_LabelHide->Caption = Ini->ReadString("View", "La_Hide",
-		La_LabelHide->Caption); // âBï¡:
+		La_LabelHide->Caption); // Èö†ËîΩ:
 	La_LinkLabel->Caption = Ini->ReadString("View", "La_LinkLabel",
-		La_LinkLabel->Caption); // ÉäÉìÉNÉâÉxÉã:
+		La_LinkLabel->Caption); // „É™„É≥„ÇØ„É©„Éô„É´:
 	La_LinkLabelShow->Caption = Ini->ReadString("View", "La_Show",
-		La_LinkLabelShow->Caption); // ï\é¶:
+		La_LinkLabelShow->Caption); // Ë°®Á§∫:
 	La_LinkLabelHide->Caption = Ini->ReadString("View", "La_Hide",
-		La_LinkLabelHide->Caption); // âBï¡:
+		La_LinkLabelHide->Caption); // Èö†ËîΩ:
 	TS_Limitation->Caption = Ini->ReadString("View", "TS_Limitation",
-		TS_Limitation->Caption); // ï\é¶êßå¿
+		TS_Limitation->Caption); // Ë°®Á§∫Âà∂Èôê
 	Ch_SizeLimitation->Caption = Ini->ReadString("View", "Ch_SizeLimitation",
-		Ch_SizeLimitation->Caption); // ÉTÉCÉYÇ≈ï\é¶êßå¿
+		Ch_SizeLimitation->Caption); // „Çµ„Ç§„Ç∫„ÅßË°®Á§∫Âà∂Èôê
 	La_Size->Caption = Ini->ReadString("View", "La_Size",
-		La_Size->Caption); // ÉTÉCÉY
+		La_Size->Caption); // „Çµ„Ç§„Ç∫
 	Ch_LinkLimitation->Caption = Ini->ReadString("View", "Ch_LinkLimitation",
-		Ch_LinkLimitation->Caption); // ÉäÉìÉNÇ≈ï\é¶êßå¿
+		Ch_LinkLimitation->Caption); // „É™„É≥„ÇØ„ÅßË°®Á§∫Âà∂Èôê
 	La_Links->Caption = Ini->ReadString("View", "La_Links",
-		La_Links->Caption); // ÉäÉìÉN
+		La_Links->Caption); // „É™„É≥„ÇØ
 	Ch_LinkDirection->Caption = Ini->ReadString("View", "Ch_LinkDirection",
-		Ch_LinkDirection->Caption); // å¸Ç´
+		Ch_LinkDirection->Caption); // Âêë„Åç
 	RB_LinkForward->Caption = Ini->ReadString("View", "RB_LinkForward",
-		RB_LinkForward->Caption); // ëOå¸Ç´
+		RB_LinkForward->Caption); // ÂâçÂêë„Åç
 	RB_LinkBackward->Caption = Ini->ReadString("View", "RB_LinkBackward",
-		RB_LinkBackward->Caption); // å„å¸Ç´
+		RB_LinkBackward->Caption); // ÂæåÂêë„Åç
 	La_LinkTarget->Caption = Ini->ReadString("View", "La_LinkTarget",
-		La_LinkTarget->Caption); // ÉäÉìÉNêÊ:
+		La_LinkTarget->Caption); // „É™„É≥„ÇØÂÖà:
 	Ch_DateLimitation->Caption = Ini->ReadString("View", "Ch_DateLimitation",
-		Ch_DateLimitation->Caption); // ì˙éûÇ≈ï\é¶êßå¿
+		Ch_DateLimitation->Caption); // Êó•ÊôÇ„ÅßË°®Á§∫Âà∂Èôê
 	La_DateType->Caption = Ini->ReadString("View", "La_DateType",
-		La_DateType->Caption); // ì˙éûÇÃéÌóﬁ:
+		La_DateType->Caption); // Êó•ÊôÇ„ÅÆÁ®ÆÈ°û:
 	La_DateLimitationType->Caption =
 		Ini->ReadString("View", "La_DateLimitationType",
-		La_DateLimitationType->Caption); // ì˙éûêßå¿ï˚ñ@:
+		La_DateLimitationType->Caption); // Êó•ÊôÇÂà∂ÈôêÊñπÊ≥ï:
 	PT_NoAssign->Caption = Ini->ReadString("View", "PT_NoAssign",
 		PT_NoAssign->Caption);
 	PT_Select->Caption = Ini->ReadString("View", "PT_Select",
@@ -125,7 +125,7 @@ void TFo_View::SettingToGUI() {
 	// Label
 
 	SG_Labels->RowCount = 1 + 1 + m_Document->m_Labels[0]->Count;
-	// ê‡ñæçsÅ{No LabelÅ{é¿ç€ÇÃÉâÉxÉã
+	// Ë™¨ÊòéË°åÔºãNo LabelÔºãÂÆüÈöõ„ÅÆ„É©„Éô„É´
 	SG_Labels->Cells[1][0] = MLText.Enable;
 	SG_Labels->Cells[2][0] = MLText.Fold;
 	SG_Labels->Cells[3][0] = MLText.Show;
@@ -142,7 +142,7 @@ void TFo_View::SettingToGUI() {
 	// LinkLabel
 
 	SG_LinkLabels->RowCount = 1 + 1 + m_Document->m_Labels[1]->Count;
-	// ê‡ñæçsÅ{No LabelÅ{é¿ç€ÇÃÉâÉxÉã
+	// Ë™¨ÊòéË°åÔºãNo LabelÔºãÂÆüÈöõ„ÅÆ„É©„Éô„É´
 	SG_LinkLabels->Cells[1][0] = MLText.Show;
 	SG_LinkLabels->Cells[2][0] = MLText.Hide;
 	SG_LinkLabels->Cells[0][0] = MLText.LabelName;
@@ -165,7 +165,7 @@ void __fastcall TFo_View::TB_LinkLimitationChange(TObject *Sender) {
 	}
 	else {
 		/*
-		 //êßå¿ñ≥Çµ
+		 //Âà∂ÈôêÁÑ°„Åó
 		 La_Links->Caption = "None";
 		 */
 		La_Links->Caption = UnicodeString("- ") + MLText.Links;
@@ -297,7 +297,7 @@ void __fastcall TFo_View::SG_LabelsMouseDown(TObject *Sender,
 				int size =
 					(int)(log(m_Document->GetLabelByIndex(type,
 					ARow - 2)->m_nSize / 100.0) * (8 / log(4)) + 100.5)
-					- 100; // 8Ç≈4î{
+					- 100; // 8„Åß4ÂÄç
 				if (X < r.left + 13) {
 					// - button
 					if (size > -8) {
@@ -337,7 +337,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 	Canvas->Pen->Width = 1;
 	Canvas->Pen->Style = psSolid;
 
-	// îwåi
+	// ËÉåÊôØ
 	Canvas->Brush->Style = bsSolid;
 	Canvas->Brush->Color = clWhite;
 	if (ARow == 0) {
@@ -345,7 +345,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 	}
 	Canvas->FillRect(Rect);
 
-	// òg
+	// Êû†
 	if (State.Contains(gdFocused) && ARow > 0 && ACol > 0) {
 		Canvas->Brush->Style = bsClear;
 		Canvas->Pen->Color = clBlue;
@@ -369,7 +369,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 	}
 
 	if (ARow == 0 || ACol == 0) {
-		// éö
+		// Â≠ó
 		UnicodeString S = SG->Cells[ACol][ARow];
 		while (Canvas->TextWidth(S) > Rect.Width() - 4) {
 			S = S.SubString(1, S.Length() - 1);
@@ -430,7 +430,7 @@ void __fastcall TFo_View::SG_LabelsDrawCell(TObject *Sender, int ACol, int ARow,
 		}
 	}
 	else if (SG->Cells[ACol][0] == MLText.Size && ARow > 1) {
-		// +-É{É^Éì
+		// +-„Éú„Çø„É≥
 		Canvas->Brush->Style = bsSolid;
 		Canvas->Brush->Color = clSilver;
 		Canvas->Pen->Style = psSolid;

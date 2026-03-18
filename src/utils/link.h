@@ -9,28 +9,28 @@
 // ---------------------------------------------------------------------------
 class TLink {
 public:
-	// ƒf[ƒ^
-	int m_nFromID; // ƒŠƒ“ƒNŒ³
-	int m_nDestID; // ƒŠƒ“ƒNæ
-	int m_bDirection; // •ûŒü«‚ ‚è‚È‚µ
-	int m_nShape; // Œü‚«
-	TLabelList *m_Labels; // ƒ‰ƒxƒ‹
-	UnicodeString m_Name; // ƒŠƒ“ƒN–¼
+	// ãƒ‡ãƒ¼ã‚¿
+	int m_nFromID; // ãƒªãƒ³ã‚¯å…ƒ
+	int m_nDestID; // ãƒªãƒ³ã‚¯å…ˆ
+	int m_bDirection; // æ–¹å‘æ€§ã‚ã‚Šãªã—
+	int m_nShape; // å‘ã
+	TLabelList *m_Labels; // ãƒ©ãƒ™ãƒ«
+	UnicodeString m_Name; // ãƒªãƒ³ã‚¯å
 
-	// ˆê
+	// ä¸€æ™‚
 	bool m_bVisible;
 	TColor m_Color;
 
-	// ì¬A”jŠü
+	// ä½œæˆã€ç ´æ£„
 	void InitLink();
 	TLink();
 	TLink(UnicodeString S);
 	TLink(TLink &Link);
 	virtual ~TLink();
-	// “Ç‚İ‘‚«
+	// èª­ã¿æ›¸ã
 	void Decode(UnicodeString S);
-	void Decode_005(UnicodeString S); // LinkShape’Ç‰Á‘O
-	void Decode_006(UnicodeString S); // ‰ºˆÊŒİŠ·‘O
+	void Decode_005(UnicodeString S); // LinkShapeè¿½åŠ å‰
+	void Decode_006(UnicodeString S); // ä¸‹ä½äº’æ›å‰
 	UnicodeString Encode();
 };
 #endif

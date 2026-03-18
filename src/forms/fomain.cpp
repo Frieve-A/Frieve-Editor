@@ -12949,12 +12949,18 @@ void TFo_Main::ApplyLanguageSetting() {
 		MVS_Links_InOut->Caption); // リンク数（入力-出力）(&L)
 	MVS_TextLength->Caption = Ini->ReadString("MainWnd", "MVS_TextLength",
 		MVS_TextLength->Caption); // 本文の長さ(&X)
-	MV_Read->Caption = Ini->ReadString("MainWnd", "MV_Read",
-		MV_Read->Caption); // 読み上げ(&R)
-	MVR_Read->Caption = Ini->ReadString("MainWnd", "MVR_Read",
-		MVR_Read->Caption); // 読み上げ(&R)
-	MVR_ReadSetting->Caption = Ini->ReadString("MainWnd", "MVR_ReadSetting",
-		MVR_ReadSetting->Caption); // 読み上げの設定(&E)
+	if (MV_Read) {
+		MV_Read->Caption = Ini->ReadString("MainWnd", "MV_Read",
+			MV_Read->Caption); // 読み上げ(&R)
+	}
+	if (MVR_Read) {
+		MVR_Read->Caption = Ini->ReadString("MainWnd", "MVR_Read",
+			MVR_Read->Caption); // 読み上げ(&R)
+	}
+	if (MVR_ReadSetting) {
+		MVR_ReadSetting->Caption = Ini->ReadString("MainWnd", "MVR_ReadSetting",
+			MVR_ReadSetting->Caption); // 読み上げの設定(&E)
+	}
 	MVO_CardList->Caption = Ini->ReadString("MainWnd", "MVO_CardList",
 		MVO_CardList->Caption); //
 	MVO_FileList->Caption = Ini->ReadString("MainWnd", "MVO_FileList",

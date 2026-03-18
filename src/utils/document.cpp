@@ -5,27 +5,28 @@
 #include <IniFiles.hpp>
 #include <math.h>
 #include <clipbrd.hpp>
+#include <System.IOUtils.hpp>
 
 #include "document.h"
 #include "utils.h"
 
-// リクエスト
+// ???N?G?X?g
 int bReqArrange = -1;
 int nReqArrangeMode = -1;
 int bReqAutoScroll = -1;
 int bReqAutoZoom = -1;
 int bReqFullScreen = -1;
 int bReqExit = -1;
-float fReqZoom = -1000.0f, fReqX = -1000.0f, fReqY = -1000.0f; // ズームと座標
-int nReqTargetCard = -1000; // ターゲットカード変更
+float fReqZoom = -1000.0f, fReqX = -1000.0f, fReqY = -1000.0f; // ?Y?[??????W
+int nReqTargetCard = -1000; // ?^?[?Q?b?g?J?[?h??X
 int bReqSizeLimitation = -1, bReqLinkLimitation = -1,
-	bReqDateLimitation = -1; // 表示制限のON/OFF
+	bReqDateLimitation = -1; // ?\????????ON/OFF
 int nReqSizeLimitation = -1;
 int nReqLinkLimitation = -1, bReqLinkDirection = -1, bReqLinkBackward = -1,
 	nReqLinkTarget = -2;
 int nReqDateLimitation = -1, ReqDateLimitationDateType = -1,
 	ReqDateLimitationType = -1;
-int nReqKeyDown = -1; // 所定のキーを押した処理をする
+int nReqKeyDown = -1; // ?????L?[??????????????????
 
 // ---------------------------------------------------------------------------
 int __fastcall Func_CompCardRandom(void * Item1, void * Item2) {
@@ -173,7 +174,7 @@ int __fastcall Func_CompCardScoreI(void * Item1, void * Item2) {
 // ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
-// TUndoRedo系
+// TUndoRedo?n
 // ---------------------------------------------------------------------------
 TUndoRedoData::TUndoRedoData(TDocument *Doc, UnicodeString Name, int CardID,
 	int SelStart, int SelLength) : m_Doc(new TDocument(*Doc)), m_Name(Name),
@@ -245,14 +246,14 @@ void TUndoRedo::Undo(TDocument *Doc, int CardID, int SelStart, int SelLength,
 	*NextSelStart = Data->m_nSelStart;
 	*NextSelLength = Data->m_nSelLength;
 
-	// 今のデータをRedoに積む
+	// ????f?[?^??Redo????
 	m_Redos->Insert(0, new TUndoRedoData(Doc, UndoName, CardID, SelStart,
 		SelLength));
 
 	// Undo
 	Doc->CopyFrom(Data->m_Doc);
 
-	// 使ったUndoを削除
+	// ?g????Undo????
 	delete Data;
 	m_Undos->Delete(0);
 
@@ -268,14 +269,14 @@ void TUndoRedo::Redo(TDocument *Doc, int CardID, int SelStart, int SelLength,
 	*NextSelStart = Data->m_nSelStart;
 	*NextSelLength = Data->m_nSelLength;
 
-	// 今のデータをUndoに積む
+	// ????f?[?^??Undo????
 	m_Undos->Insert(0, new TUndoRedoData(Doc, RedoName, CardID, SelStart,
 		SelLength));
 
 	// Redo
 	Doc->CopyFrom(Data->m_Doc);
 
-	// 使ったRedoを削除
+	// ?g????Redo????
 	delete Data;
 	m_Redos->Delete(0);
 
@@ -511,9 +512,9 @@ void TDocument::SwapCard(int idx1, int idx2) {
 
 // ---------------------------------------------------------------------------
 void TDocument::RefreshDateOrder_Label() {
-	// m_fTouchedOrderなどに正しい値を代入
+	// m_fTouchedOrder??????????l????
 
-	// 触った順にソート
+	// ?G????????\?[?g
 	{
 		TList *List = new TList();
 		for (int il = 0; il < m_Labels[0]->Count; il++) {
@@ -529,9 +530,9 @@ void TDocument::RefreshDateOrder_Label() {
 
 // ---------------------------------------------------------------------------
 void TDocument::RefreshDateOrder() {
-	// m_fCreatedOrderなどに正しい値を代入
-	// これは、カードの各日付順でソートし、順位を0.0～100.0に正規化したもの
-	// Date Limitation（日付による表示制限）などで使用
+	// m_fCreatedOrder??????????l????
+	// ?????A?J?[?h??e???t????\?[?g???A?????0.0?`100.0????K??????????
+	// Date Limitation?i???t????\???????j????g?p
 
 	// DateCreated
 	{
@@ -575,16 +576,16 @@ void TDocument::RefreshDateOrder() {
 
 // ---------------------------------------------------------------------------
 int TDocument::SearchParent(int CardID, bool bChild, bool bFocus) {
-	// 親カードを捜す
+	// ?e?J?[?h??{??
 	int ParentID = -1;
 	double ParentDate = 0.0;
-	// リンクループ
+	// ?????N???[?v
 	for (int il = 0; il < m_Links->Count; il++) {
 		TLink *Link = GetLinkByIndex(il);
 		if (((Link->m_nDestID == CardID && !bChild) ||
 			(Link->m_nFromID == CardID && bChild))
 			&& Link->m_bDirection && Link->m_bVisible) {
-			// 現在のカードへリンクを貼っているカード
+			// ?????J?[?h??????N??\???????J?[?h
 			TCard *ParentCard;
 			if (!bChild) {
 				ParentCard = GetCard(Link->m_nFromID);
@@ -596,9 +597,9 @@ int TDocument::SearchParent(int CardID, bool bChild, bool bFocus) {
 				(ParentID == -1 || ParentCard->m_fViewed > ParentDate) &&
 				(ParentCard->m_bGetFocus || !bFocus)) {
 
-				// 親カードが見つかっていないか、一番最近見られた親カード
+				// ?e?J?[?h??????????????????A??????????e?J?[?h
 
-				// 親カードを更新
+				// ?e?J?[?h???X?V
 				ParentID = ParentCard->m_nID;
 				ParentDate = ParentCard->m_fViewed;
 			}
@@ -611,11 +612,11 @@ int TDocument::SearchParent(int CardID, bool bChild, bool bFocus) {
 // ---------------------------------------------------------------------------
 int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 	bool bChild, bool bFocus) {
-	// 親カードを捜す
+	// ?e?J?[?h??{??
 	int CardID = -1;
 	float MinD = 0.0f;
 
-	// リンクループ
+	// ?????N???[?v
 	TCard *ParentCard = GetCard(ParentID);
 	TCard *CurrentCard = GetCard(CurrentID);
 	if (ParentCard && CurrentCard) {
@@ -631,7 +632,7 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 			if (((Link->m_nDestID == ParentID && bChild) ||
 				(Link->m_nFromID == ParentID && !bChild))
 				&& Link->m_bDirection && Link->m_bVisible) {
-				// 親カードからリンクを貼っているカード（兄弟）
+				// ?e?J?[?h???????N??\???????J?[?h?i?Z??j
 				TCard *Card;
 				if (bChild) {
 					Card = GetCard(Link->m_nFromID);
@@ -641,7 +642,7 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 				}
 				if (Card->m_bVisible && Card->m_nID != CurrentID &&
 					(Card->m_bGetFocus || !bFocus)) {
-					// 角度を計算
+					// ?p?x???v?Z
 					float xd = ParentCard->m_fX - Card->m_fX;
 					float yd = ParentCard->m_fY - Card->m_fY;
 					float rad = 0.0f;
@@ -654,9 +655,9 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 					}
 
 					if (CardID == -1 || ((MinD < rad) == bInverse)) {
-						// これまでで一番近いカード
+						// ????????????J?[?h
 
-						// カードを更新
+						// ?J?[?h???X?V
 						CardID = Card->m_nID;
 						MinD = rad;
 					}
@@ -670,18 +671,18 @@ int TDocument::SearchBrother(int CurrentID, int ParentID, bool bInverse,
 
 // ---------------------------------------------------------------------------
 int TDocument::SearchLast(int CardID, bool bFocus) {
-	// 直前に表示していたカードを捜す
-	// 親カードを捜す
+	// ???O??\??????????J?[?h??{??
+	// ?e?J?[?h??{??
 	int LastID = -1;
 	double LastDate = 0.0;
-	// リンクループ
+	// ?????N???[?v
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		if (Card->m_bVisible && Card->m_nID != CardID && (LastID == -1 ||
 			Card->m_fViewed > LastDate) && (Card->m_bGetFocus || !bFocus)) {
-			// カードが見つかっていないか、一番最近見られたカード
+			// ?J?[?h??????????????????A??????????J?[?h
 
-			// カードを更新
+			// ?J?[?h???X?V
 			LastID = Card->m_nID;
 			LastDate = Card->m_fViewed;
 		}
@@ -692,42 +693,42 @@ int TDocument::SearchLast(int CardID, bool bFocus) {
 
 // ---------------------------------------------------------------------------
 void TDocument::RefreshCardLevel() {
-	// Card->m_bTopとリンクに従って階層レベル設定、カードソート
+	// Card->m_bTop??????N??]????K?w???x?????A?J?[?h?\?[?g
 
-	// 階層リセット
+	// ?K?w???Z?b?g
 	void **orderbak = new void*[m_Cards->Count];
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		orderbak[i] = Card;
 		Card->m_nLevel = 0;
-		Card->m_nParentID = -1; // 親カードIDとして使用
+		Card->m_nParentID = -1; // ?e?J?[?hID?????g?p
 		Card->m_bHasChild = false;
 	}
 
-	TList *RCard = GetRelatedCard(true, true); // カードにリンクされているカードを列挙
+	TList *RCard = GetRelatedCard(true, true); // ?J?[?h??????N????????J?[?h???
 
-	// 階層ループ
+	// ?K?w???[?v
 	bool changed = true;
 	int level = 1;
 	while (changed) {
 		changed = false;
-		// カードループ
+		// ?J?[?h???[?v
 		for (int i = 0; i < m_Cards->Count; i++) {
 			TCard *Card = GetCardByIndex(i);
 			if (!Card->m_bTop && Card->m_nLevel == 0 && Card->m_nParentID == -1)
 			{
-				// 階層が設定されていないカード
-				// このカードへのリンクを調べる
+				// ?K?w?????????????J?[?h
+				// ????J?[?h???????N????
 				int count = RelatedCardNum(RCard, i);
 				if (count) {
-					// このカードへ張られたリンクがある
+					// ????J?[?h???????????N??????
 
-					// 現在のカードから戻る方向に親カードを探す
+					// ?????J?[?h???????????e?J?[?h??T??
 					int startindex = 0;
 					for (int il = 0; il < count; il++) {
 						int index = RelatedIndex(RCard, i, il);
 						if (index < i) {
-							// Indexが前のカード
+							// Index???O??J?[?h
 							startindex = il;
 						}
 						else {
@@ -735,7 +736,7 @@ void TDocument::RefreshCardLevel() {
 						}
 					}
 
-					// 階層設定
+					// ?K?w???
 					bool changed1 = false;
 					int il = startindex;
 					int count2 = count;
@@ -745,9 +746,9 @@ void TDocument::RefreshCardLevel() {
 
 						if (i != index && (Card2->m_bTop || (Card2->m_nLevel >
 							0 && Card2->m_nLevel == level - 1))) {
-							// 親カードになり得る
+							// ?e?J?[?h??????
 
-							// 親カードにする
+							// ?e?J?[?h?????
 							Card->m_nLevel = level;
 							Card->m_nParentID = Card2->m_nID;
 							Card2->m_bHasChild = true;
@@ -755,10 +756,10 @@ void TDocument::RefreshCardLevel() {
 							break;
 						}
 
-						il = (il + count - 1) % count; // 1つ手前に
+						il = (il + count - 1) % count; // 1???O??
 						count2--;
 					}
-					while (count2); // リンクを全て評価するまで
+					while (count2); // ?????N??S??]????????
 
 					changed |= changed1;
 				}
@@ -770,16 +771,16 @@ void TDocument::RefreshCardLevel() {
 
 	FreeRelatedCard(RCard);
 
-	// 並び替え
+	// ????v??
 	FreeCardIDToIndex();
 
-	// Topノードを最初に持ってくる
+	// Top?m?[?h???????????????
 	for (int i = 1; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		if (Card->m_bTop) {
 			int index = i;
 			while (index > 0) {
-				TCard *Card2 = GetCardByIndex(index - 1); // 1つ前のカード
+				TCard *Card2 = GetCardByIndex(index - 1); // 1??O??J?[?h
 				if (!Card2->m_bTop) {
 					m_Cards->Items[index - 1] = Card;
 					m_Cards->Items[index] = Card2;
@@ -792,31 +793,31 @@ void TDocument::RefreshCardLevel() {
 		}
 	}
 
-	// 階層ループ
+	// ?K?w???[?v
 	level = 0;
 	int moved = true;
 	while (moved || level <= maxlevel) {
 		moved = false;
-		// 親ノードループ
-		// カードループ
+		// ?e?m?[?h???[?v
+		// ?J?[?h???[?v
 		for (int i = 0; i < m_Cards->Count; i++) {
 			TCard *Card = GetCardByIndex(i);
 			if ((Card->m_bTop && level == 0) ||
 				(Card->m_nLevel == level && Card->m_nLevel > 0)) {
-				// 親カード
-				int insindex = i + 1; // 親カードの次に子カードを持ってくる
+				// ?e?J?[?h
+				int insindex = i + 1; // ?e?J?[?h?????q?J?[?h???????????
 
-				// カードループ（子）
+				// ?J?[?h???[?v?i?q?j
 				for (int i2 = 0; i2 < m_Cards->Count; i2++) {
 					TCard *Card2 = GetCardByIndex(i2);
 					if (Card2->m_nParentID == Card->m_nID) {
-						// 親カードの子
+						// ?e?J?[?h??q
 						if (i2 < insindex) {
-							// 挿入位置より手前
-							// ありえないはず？
+							// ?}????u????O
+							// ???????????H
 						}
 						else if (i2 > insindex) {
-							// 挿入位置より後ろ＝間のカードinsindex<=x<i2を後ろに1つずつずらす
+							// ?}????u????????J?[?hinsindex<=x<i2??????1????????
 							for (int i3 = i2; i3 > insindex; i3--) {
 								m_Cards->Items[i3] = m_Cards->Items[i3 - 1];
 							}
@@ -827,7 +828,7 @@ void TDocument::RefreshCardLevel() {
 							i++;
 						}
 						else {
-							// 正しい位置＝位置の移動なし
+							// ????????u????u???????
 							insindex++;
 						}
 					}
@@ -838,7 +839,7 @@ void TDocument::RefreshCardLevel() {
 		level++;
 	}
 
-	// Index変更チェック
+	// Index??X?`?F?b?N
 	changed = false;
 	for (int i = 0; i < m_Cards->Count && !changed; i++) {
 		changed |= orderbak[i] != m_Cards->Items[i];
@@ -862,7 +863,7 @@ void TDocument::DeleteLabelFromCard(TCard *Card, int label) {
 
 // ---------------------------------------------------------------------------
 TList *TDocument::GetRelatedCard(bool bInverse, bool bVisibleOnly) {
-	// RCardに、各カードから張られたリンク先のカードをIndex順に入れる
+	// RCard??A?e?J?[?h????????????N???J?[?h??Index????????
 	TList *RCard = new TList();
 	if (m_Cards->Count) {
 		for (int i = 0; i < m_Cards->Count; i++) {
@@ -881,11 +882,11 @@ TList *TDocument::GetRelatedCard(bool bInverse, bool bVisibleOnly) {
 				TCard *Dest = GetCardByIndex(indexdest);
 				if ((From->m_bVisible && Dest->m_bVisible) || !bVisibleOnly) {
 					if (bInverse) {
-						// 逆方向（各カードへリンクを張っているカードのIndexが入る）
+						// ?t?????i?e?J?[?h??????N????????J?[?h??Index??????j
 						matrix[indexdest * m_Cards->Count + indexfrom] = true;
 					}
 					else {
-						// 順方向
+						// ??????
 						matrix[indexfrom * m_Cards->Count + indexdest] = true;
 					}
 				}
@@ -916,7 +917,7 @@ int TDocument::RelatedIndex(TList *RCard, int cardindex, int index) {
 
 // ---------------------------------------------------------------------------
 void TDocument::FreeRelatedCard(TList *RCard) {
-	// RCardの破棄
+	// RCard??j??
 	for (int i = 0; i < m_Cards->Count; i++) {
 		delete(TList *)RCard->Items[i];
 	}
@@ -967,7 +968,7 @@ void TDocument::InitDocument() {
 
 // ---------------------------------------------------------------------------
 TDocument::TDocument(TDocument &Doc) {
-	// 初期化
+	// ??????
 	InitDocument();
 
 	CopyFrom(&Doc);
@@ -980,7 +981,7 @@ void TDocument::CopyFrom(TDocument *Doc) {
 	ClearLabels(0);
 	ClearLabels(1);
 
-	// カードコピー
+	// ?J?[?h?R?s?[
 	for (int i = 0; i < Doc->m_Cards->Count; i++) {
 		TCard *Card = Doc->GetCardByIndex(i);
 		m_Cards->Add(new TCard(*Card));
@@ -989,33 +990,33 @@ void TDocument::CopyFrom(TDocument *Doc) {
 		}
 	}
 
-	// リンクコピー
+	// ?????N?R?s?[
 	for (int i = 0; i < Doc->m_Links->Count; i++) {
 		m_Links->Add(new TLink(*Doc->GetLinkByIndex(i)));
 	}
 
-	// ラベルコピー
+	// ???x???R?s?[
 	for (int il = 0; il < 2; il++) {
 		for (int i = 0; i < Doc->m_Labels[il]->Count; i++) {
 			m_Labels[il]->Add(new TCardLabel(*Doc->GetLabelByIndex(il, i)));
 		}
 	}
 
-	// 画面更新カウンタ
+	// ???X?V?J?E???^
 	m_nCheckCount = Doc->m_nCheckCount;
-	// 表示更新用
+	// ?\???X?V?p
 	m_nRefreshListCount = Doc->m_nRefreshListCount;
 	m_nRefreshLinkCount = Doc->m_nRefreshLinkCount;
 	m_nRefreshLabelCount = Doc->m_nRefreshLabelCount;
 
-	// その他
+	// ?????
 	m_bChanged = Doc->m_bChanged;
 	m_FN = Doc->m_FN;
 	m_bReadOnly = Doc->m_bReadOnly;
 
-	m_nCardID = Doc->m_nCardID; // 現在表示中のカード（保存用）
+	m_nCardID = Doc->m_nCardID; // ????\??????J?[?h?i????p?j
 	m_nDefaultView = Doc->m_nDefaultView;
-	// 読み込んだ瞬間どの画面を表示するか（-1=なし、0=Browser、1=Editor）
+	// ??????u???????\???????i-1=????A0=Browser?A1=Editor?j
 }
 
 // ---------------------------------------------------------------------------
@@ -1050,7 +1051,7 @@ void TDocument::RefreshList() {
 bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 	bool result = true;
 
-	// 初期化
+	// ??????
 	ClearCards();
 	ClearLinks();
 	ClearLabels(0);
@@ -1082,22 +1083,22 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// 読み取り専用
+	// ??????p
 	m_bReadOnly = Ini->ReadBool("Global", "ReadOnly", 0);
 	m_nDefaultView = Ini->ReadInteger("Global", "DefaultView", -1);
 
-	// 操作要求
+	// ????v??
 	bReqArrange = Ini->ReadInteger("Global", "Arrange", bReqArrange);
-	// アレンジのON/OFF
+	// ?A?????W??ON/OFF
 	nReqArrangeMode = Ini->ReadInteger("Global", "ArrangeMode",
-		nReqArrangeMode); // 0から順にRepulsion、Link、Label、Index
+		nReqArrangeMode); // 0??????Repulsion?ALink?ALabel?AIndex
 	bReqAutoScroll = Ini->ReadInteger("Global", "AutoScroll",
-		bReqAutoScroll); // オートスクロール
+		bReqAutoScroll); // ?I?[?g?X?N???[??
 	bReqAutoZoom = Ini->ReadInteger("Global", "AutoZoom", bReqAutoZoom);
-	// オートズーム
+	// ?I?[?g?Y?[??
 	bReqFullScreen = Ini->ReadInteger("Global", "FullScreen",
-		bReqFullScreen); // フルスクリーン
-	bReqExit = Ini->ReadInteger("Global", "Exit", bReqExit); // 終了
+		bReqFullScreen); // ?t???X?N???[??
+	bReqExit = Ini->ReadInteger("Global", "Exit", bReqExit); // ?I??
 	fReqZoom = Ini->ReadFloat("Global", "Zoom", fReqZoom);
 	fReqX = Ini->ReadFloat("Global", "X", fReqX);
 	fReqY = Ini->ReadFloat("Global", "Y", fReqY);
@@ -1125,7 +1126,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 	ReqDateLimitationType = Ini->ReadInteger("Global", "DateLimitationType",
 		ReqDateLimitationType);
 
-	// カードのIDを読み込み
+	// ?J?[?h??ID???????
 	int cardnum = Ini->ReadInteger("Card", "Num", 0);
 	m_nCardID = Ini->ReadInteger("Card", "CardID", -1);
 
@@ -1142,7 +1143,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 
 	m_nMaxCardID = maxid + 1;
 
-	// リンク読み込み
+	// ?????N??????
 	int linknum = Ini->ReadInteger("Link", "Num", 0);
 	for (int i = 0; i < linknum; i++) {
 		TLink *Link = NewLink();
@@ -1157,7 +1158,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ラベル読み込み
+	// ???x????????
 	int labelnum = Ini->ReadInteger("Label", "Num", -1);
 	if (labelnum < 0) {
 		InitLabel(0);
@@ -1187,7 +1188,7 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ラベル読み込み
+	// ???x????????
 	labelnum = Ini->ReadInteger("LinkLabel", "Num", -1);
 	if (labelnum < 0) {
 		InitLabel(1);
@@ -1234,10 +1235,10 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
 
 // ---------------------------------------------------------------------------
 bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
-	// 20070804現在_continuousload.fipのみで有効な機能
+	// 20070804????_continuousload.fip????L????@?\
 
-	// ラベル、リンクラベル、リンクはそのまま読み込み
-	// カードは、日付と位置は元の値を保持
+	// ???x???A?????N???x???A?????N????????????
+	// ?J?[?h??A???t???u?????l????
 
 	bool result = true;
 	ClearLinks();
@@ -1245,7 +1246,7 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 	TDocument *Tmp = new TDocument();
 	result &= Tmp->LoadFromString(SL, FN);
 
-	// カード座標、日付の引継ぎ
+	// ?J?[?h???W?A???t????p??
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex(i);
 		TCard *Card2 = Tmp->GetCard(Card->m_nID);
@@ -1257,7 +1258,7 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 			Card2->m_fViewed = Card->m_fViewed;
 		}
 	}
-	// カードコピー
+	// ?J?[?h?R?s?[
 	ClearCards();
 	int maxid = 0;
 	for (int i = 0; i < Tmp->m_Cards->Count; i++) {
@@ -1278,13 +1279,13 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 
 	m_nMaxCardID = maxid + 1;
 
-	// リンクコピー
+	// ?????N?R?s?[
 	for (int i = 0; i < Tmp->m_Links->Count; i++) {
 		TLink *Link = NewLink();
 		Link->Decode(Tmp->GetLinkByIndex(i)->Encode());
 	}
 
-	// ラベルパラメータの引継ぎ
+	// ???x???p?????[?^????p??
 	for (int il = 0; il < 2; il++) {
 		for (int i = 0; i < Tmp->m_Labels[il]->Count; i++) {
 			TCardLabel *Label2 = Tmp->GetLabelByIndex(il, i);
@@ -1298,7 +1299,7 @@ bool TDocument::SoftLoadFromString(TStringList *SL, UnicodeString FN) {
 		}
 	}
 
-	// ラベルコピー
+	// ???x???R?s?[
 	ClearLabels(0);
 	ClearLabels(1);
 	for (int il = 0; il < 2; il++) {
@@ -1320,15 +1321,15 @@ bool TDocument::SaveToString(TStringList *SL) {
 	SL->Add("[Global]");
 	SL->Add(UnicodeString("Version=") + IntToStr(FileVersion));
 
-	// 表示情報
-	SL->Add(UnicodeString("Arrange=") + IntToStr(bReqArrange)); // アレンジのON/OFF
+	// ?\?????
+	SL->Add(UnicodeString("Arrange=") + IntToStr(bReqArrange)); // ?A?????W??ON/OFF
 	SL->Add(UnicodeString("ArrangeMode=") + IntToStr(nReqArrangeMode));
-	// 0から順にRepulsion、Link、Label、Index
+	// 0??????Repulsion?ALink?ALabel?AIndex
 	SL->Add(UnicodeString("AutoScroll=") + IntToStr(bReqAutoScroll));
-	// オートスクロール
-	SL->Add(UnicodeString("AutoZoom=") + IntToStr(bReqAutoZoom)); // オートズーム
-	SL->Add(UnicodeString("FullScreen=") + IntToStr(bReqFullScreen)); // フルスクリーン
-	SL->Add(UnicodeString("Exit=") + IntToStr(bReqExit)); // 終了
+	// ?I?[?g?X?N???[??
+	SL->Add(UnicodeString("AutoZoom=") + IntToStr(bReqAutoZoom)); // ?I?[?g?Y?[??
+	SL->Add(UnicodeString("FullScreen=") + IntToStr(bReqFullScreen)); // ?t???X?N???[??
+	SL->Add(UnicodeString("Exit=") + IntToStr(bReqExit)); // ?I??
 	SL->Add(UnicodeString("Zoom=") + FloatToStr(fReqZoom));
 	SL->Add(UnicodeString("X=") + FloatToStr(fReqX));
 	SL->Add(UnicodeString("Y=") + FloatToStr(fReqY));
@@ -1347,7 +1348,7 @@ bool TDocument::SaveToString(TStringList *SL) {
 	SL->Add(UnicodeString("DateLimitationType=") +
 		IntToStr(ReqDateLimitationType));
 
-	// カードのIDを保存
+	// ?J?[?h??ID????
 	SL->Add("[Card]");
 	SL->Add(UnicodeString("CardID=") + m_nCardID);
 	SL->Add(UnicodeString("Num=") + m_Cards->Count);
@@ -1355,14 +1356,14 @@ bool TDocument::SaveToString(TStringList *SL) {
 		SL->Add(IntToStr(i) + UnicodeString("=") + GetCardByIndex_(i)->m_nID);
 	}
 
-	// リンク保存
+	// ?????N???
 	SL->Add("[Link]");
 	SL->Add(UnicodeString("Num=") + m_Links->Count);
 	for (int i = 0; i < m_Links->Count; i++) {
 		SL->Add(IntToStr(i) + UnicodeString("=") + GetLinkByIndex(i)->Encode());
 	}
 
-	// ラベル保存
+	// ???x?????
 	SL->Add("[Label]");
 	SL->Add(UnicodeString("Num=") + m_Labels[0]->Count);
 	for (int i = 0; i < m_Labels[0]->Count; i++) {
@@ -1370,7 +1371,7 @@ bool TDocument::SaveToString(TStringList *SL) {
 			i)->Encode());
 	}
 
-	// ラベル保存
+	// ???x?????
 	SL->Add("[LinkLabel]");
 	SL->Add(UnicodeString("Num=") + m_Labels[1]->Count);
 	for (int i = 0; i < m_Labels[1]->Count; i++) {
@@ -1378,7 +1379,7 @@ bool TDocument::SaveToString(TStringList *SL) {
 			i)->Encode());
 	}
 
-	// 各カードを保存
+	// ?e?J?[?h????
 	SL->Add("[CardData]");
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex_(i);
@@ -1399,7 +1400,17 @@ bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
 
 	TStringList *SL = new TStringList();
 	try {
-		SL->LoadFromFile(m_FN);
+		// Detect encoding: UTF-8 with BOM or Shift-JIS (legacy)
+		TBytes buffer = TFile::ReadAllBytes(m_FN);
+		TEncoding *enc = nullptr;
+		TEncoding::GetBufferEncoding(buffer, enc, TEncoding::GetEncoding(932));
+		TMemoryStream *stream = new TMemoryStream();
+		if (buffer.Length > 0) {
+			stream->WriteBuffer(&buffer[0], buffer.Length);
+			stream->Position = 0;
+		}
+		SL->LoadFromStream(stream, enc);
+		delete stream;
 		if (bSoftLoad) {
 			SoftLoadFromString(SL, m_FN);
 		}
@@ -1413,7 +1424,7 @@ bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
 	}
 	delete SL;
 
-	// ファイルが壊れていた場合の処理（必要ないが、一応）
+	// ?t?@?C???????????????????i?K?v??????A???j
 	if (SearchCardIndex(m_nCardID) == -1) {
 		m_nCardID = -1;
 	}
@@ -1425,13 +1436,14 @@ bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
 bool TDocument::Save() {
 	bool result;
 
-	// Globalデータ保存
+	// Global?f?[?^???
 	TStringList *SL = new TStringList();
 
 	result = SaveToString(SL);
 
 	try {
-		SL->SaveToFile(m_FN);
+		SL->WriteBOM = true;
+		SL->SaveToFile(m_FN, TEncoding::UTF8);
 	}
 	catch (...) {
 		result = false;
@@ -1449,18 +1461,18 @@ bool TDocument::Save() {
 bool TDocument::Load_Old(UnicodeString FN) {
 	m_FN = FN;
 
-	// 初期化
+	// ??????
 	ClearCards();
 	ClearLinks();
 
 	ClearLabels(0);
 	ClearLabels(1);
 
-	// 各カード保存用フォルダ
+	// ?e?J?[?h????p?t?H???_
 	UnicodeString Dir =
 		m_FN.SubString(1, m_FN.Length() - ExtractFileExt(m_FN).Length());
 
-	// カードのIDを読み込み
+	// ?J?[?h??ID???????
 	TIniFile *Ini = new TIniFile(m_FN);
 	int cardnum = Ini->ReadInteger("Card", "Num", 0);
 	m_nCardID = -1;
@@ -1479,14 +1491,14 @@ bool TDocument::Load_Old(UnicodeString FN) {
 
 	m_nMaxCardID = maxid + 1;
 
-	// リンク読み込み
+	// ?????N??????
 	int linknum = Ini->ReadInteger("Link", "Num", 0);
 	for (int i = 0; i < linknum; i++) {
 		TLink *Link = NewLink();
 		Link->Decode(Ini->ReadString("Link", IntToStr(i), ""));
 	}
 
-	// ラベル読み込み
+	// ???x????????
 	int labelnum = Ini->ReadInteger("Label", "Num", -1);
 	if (labelnum < 0) {
 		InitLabel(0);
@@ -1508,19 +1520,19 @@ bool TDocument::Load_Old(UnicodeString FN) {
 bool TDocument::Save_Old() {
 	TIniFile *Ini = new TIniFile(m_FN);
 
-	// カードのIDを保存
+	// ?J?[?h??ID????
 	Ini->WriteInteger("Card", "Num", m_Cards->Count);
 	for (int i = 0; i < m_Cards->Count; i++) {
 		Ini->WriteInteger("Card", IntToStr(i), GetCardByIndex_(i)->m_nID);
 	}
 
-	// リンク保存
+	// ?????N???
 	Ini->WriteInteger("Link", "Num", m_Links->Count);
 	for (int i = 0; i < m_Links->Count; i++) {
 		Ini->WriteString("Link", IntToStr(i), GetLinkByIndex(i)->Encode());
 	}
 
-	// ラベル保存
+	// ???x?????
 	Ini->WriteInteger("Label", "Num", m_Labels[0]->Count);
 	for (int i = 0; i < m_Labels[0]->Count; i++) {
 		Ini->WriteString("Label", IntToStr(i), GetLabelByIndex(0, i)->Encode());
@@ -1528,14 +1540,14 @@ bool TDocument::Save_Old() {
 
 	delete Ini;
 
-	// 各カード保存用フォルダ作成
+	// ?e?J?[?h????p?t?H???_??
 	UnicodeString Dir =
 		m_FN.SubString(1, m_FN.Length() - ExtractFileExt(m_FN).Length());
 	if (!DirectoryExists(Dir)) {
 		MkDir(Dir);
 	}
 
-	// 各カードを保存
+	// ?e?J?[?h????
 	for (int i = 0; i < m_Cards->Count; i++) {
 		TCard *Card = GetCardByIndex_(i);
 		Card->SaveToFile(Dir + "\\" + IntToDigit(Card->m_nID, 8) + ".txt");
@@ -1628,7 +1640,7 @@ void TDocument::ClearLabels(int ltype) {
 
 // ---------------------------------------------------------------------------
 bool TDocument::LabelIsFold(TCard *Card) {
-	// ラベルループ
+	// ???x?????[?v
 	bool fold = CountEnableLabel(Card) > 0;
 	for (int il = 0; il < Card->m_Labels->Count && fold; il++) {
 		TCardLabel *Label =
@@ -1643,9 +1655,9 @@ bool TDocument::LabelIsFold(TCard *Card) {
 
 // ---------------------------------------------------------------------------
 int TDocument::CountEnableLabel(TCard *Card) {
-	// カードの有効なラベル数を得る
+	// ?J?[?h??L??????x???????
 
-	// ラベルループ
+	// ???x?????[?v
 	int count = 0;
 	for (int il = 0; il < Card->m_Labels->Count; il++) {
 		TCardLabel *Label =
@@ -1663,7 +1675,7 @@ int TDocument::CountEnableLabel(TCard *Card) {
 
 // ---------------------------------------------------------------------------
 bool TDocument::LabelIsSame(TCard *Card1, TCard *Card2) {
-	// 2つのカードのラベルが同じか調べる
+	// 2???J?[?h????x???????????????
 
 	if (CountEnableLabel(Card1) != CountEnableLabel(Card2)) {
 		return false;
@@ -1704,18 +1716,18 @@ void TDocument::SetLabelName(TCardLabel *Label, UnicodeString S) {
 // ---------------------------------------------------------------------------
 void TDocument::DeleteLabelByIndex(int ltype, int index) {
 	if (ltype == 0) {
-		// カードラベル
+		// ?J?[?h???x??
 		for (int i = 0; i < m_Cards->Count; i++) {
 			TCard *Card = GetCardByIndex_(i);
 
 			for (int il = 0; il < Card->m_Labels->Count; il++) {
 				if (Card->m_Labels->GetLabel(il) > index + 1) {
-					// 消去するラベルより大きいIndexのラベルのIndexを一つ減らす
+					// ?????????x????????Index????x????Index????????
 					Card->m_Labels->SetLabel(il,
 						Card->m_Labels->GetLabel(il) - 1);
 				}
 				else if (Card->m_Labels->GetLabel(il) == index + 1) {
-					// 消去するラベルのついているカードのラベルをクリア
+					// ?????????x???????????J?[?h????x?????N???A
 					Card->m_Labels->DeleteLabel(index + 1);
 					il--;
 				}
@@ -1723,18 +1735,18 @@ void TDocument::DeleteLabelByIndex(int ltype, int index) {
 		}
 	}
 	else {
-		// リンクラベル
+		// ?????N???x??
 		for (int i = 0; i < m_Links->Count; i++) {
 			TLink *Link = GetLinkByIndex(i);
 
 			for (int il = 0; il < Link->m_Labels->Count; il++) {
 				if (Link->m_Labels->GetLabel(il) > index + 1) {
-					// 消去するラベルより大きいIndexのラベルのIndexを一つ減らす
+					// ?????????x????????Index????x????Index????????
 					Link->m_Labels->SetLabel(il,
 						Link->m_Labels->GetLabel(il) - 1);
 				}
 				else if (Link->m_Labels->GetLabel(il) == index + 1) {
-					// 消去するラベルのついているカードのラベルをクリア
+					// ?????????x???????????J?[?h????x?????N???A
 					Link->m_Labels->DeleteLabel(index + 1);
 					il--;
 				}
@@ -1823,18 +1835,18 @@ int TDocument::Request(char *Type, int Value, float fValue, void *option) {
 		result = 0;
 	}
 
-	return result; // 0で成功
+	return result; // 0?????
 }
 
 // ---------------------------------------------------------------------------
 int TDocument::GetCheckCount() {
-	// 1回画面が更新されるたびにインクリメント
+	// 1??????X?V?????????C???N???????g
 	return m_nCheckCount;
 }
 
 // ---------------------------------------------------------------------------
 int TDocument::GetCardID() {
-	// 現在フォーカス中のカードID
+	// ????t?H?[?J?X????J?[?hID
 	return m_nCardID;
 }
 
@@ -1855,10 +1867,10 @@ int TDocument::LinkCount() {
 
 // ---------------------------------------------------------------------------
 void TDocument::CopyToClipboard() {
-	// コピーしたドキュメントを作成
+	// ?R?s?[?????h?L???????g????
 	TDocument *D2 = new TDocument(*this);
 
-	// 選択されていないカードを削除（関連カードも同時に削除される）
+	// ?I????????????J?[?h?????i??A?J?[?h??????????????j
 	for (int i = D2->m_Cards->Count - 1; i >= 0; i--) {
 		TCard *Card = D2->GetCardByIndex(i);
 		if (!Card->m_bSelected) {
@@ -1866,8 +1878,8 @@ void TDocument::CopyToClipboard() {
 		}
 	}
 
-	// 使用されていないカードラベルを削除
-	// 使用されているラベル列挙
+	// ?g?p??????????J?[?h???x??????
+	// ?g?p?????????x????
 	bool *LabelUsed;
 	LabelUsed = new bool[D2->m_Labels[0]->Count];
 	memset(LabelUsed, 0, sizeof(bool) * D2->m_Labels[0]->Count);
@@ -1877,7 +1889,7 @@ void TDocument::CopyToClipboard() {
 			LabelUsed[Card->m_Labels->GetLabel(il) - 1] = true;
 		}
 	}
-	// 使用されていないラベルの削除
+	// ?g?p????????????x?????
 	for (int il = D2->m_Labels[0]->Count - 1; il >= 0; il--) {
 		if (!LabelUsed[il]) {
 			D2->DeleteLabelByIndex(0, il);
@@ -1885,8 +1897,8 @@ void TDocument::CopyToClipboard() {
 	}
 	delete[]LabelUsed;
 
-	// 使用されていないリンクラベルを削除
-	// 使用されているリンクラベル列挙
+	// ?g?p??????????????N???x??????
+	// ?g?p????????x???N???x????
 	LabelUsed = new bool[D2->m_Labels[1]->Count];
 	memset(LabelUsed, 0, sizeof(bool) * D2->m_Labels[1]->Count);
 	for (int i = 0; i < D2->m_Links->Count; i++) {
@@ -1895,7 +1907,7 @@ void TDocument::CopyToClipboard() {
 			LabelUsed[Link->m_Labels->GetLabel(il) - 1] = true;
 		}
 	}
-	// 使用されていないラベルの削除
+	// ?g?p????????????x?????
 	for (int il = D2->m_Labels[1]->Count - 1; il >= 0; il--) {
 		if (!LabelUsed[il]) {
 			D2->DeleteLabelByIndex(1, il);
@@ -1903,7 +1915,7 @@ void TDocument::CopyToClipboard() {
 	}
 	delete[]LabelUsed;
 
-	// クリップボードにコピー
+	// ?N???b?v?{?[?h??R?s?[
 	TStringList *SL = new TStringList();
 	D2->SaveToString(SL);
 	Clipboard()->SetTextBuf(SL->Text.c_str());
@@ -1922,7 +1934,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 	TDocument *D2 = new TDocument();
 	D2->LoadFromString(SL, "");
 
-	// ラベルの対応を取りながら追加
+	// ???x?????????????????
 	int *labelassign[2];
 	for (int lt = 0; lt < 2; lt++) {
 		labelassign[lt] = new int[D2->m_Labels[lt]->Count];
@@ -1944,7 +1956,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		}
 	}
 
-	// カードIDを振りなおしながら追加
+	// ?J?[?hID??U?????????????
 	int *cardassign = new int[D2->m_nMaxCardID];
 	for (int ic = 0; ic < D2->m_Cards->Count; ic++) {
 		TCard *Card = new TCard(*D2->GetCardByIndex(ic));
@@ -1952,7 +1964,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		cardassign[Card->m_nID] = m_nMaxCardID;
 		Card->m_nID = m_nMaxCardID++;
 
-		// ラベル置換
+		// ???x???u??
 		for (int il = 0; il < Card->m_Labels->Count; il++) {
 			Card->m_Labels->SetLabel(il,
 				labelassign[0][Card->m_Labels->GetLabel(il) - 1] + 1);
@@ -1971,13 +1983,13 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		m_Cards->Add(Card);
 	}
 
-	// リンクを追加
+	// ?????N????
 	for (int il = 0; il < D2->m_Links->Count; il++) {
 		TLink *Link = new TLink(*D2->GetLinkByIndex(il));
 		Link->m_nFromID = cardassign[Link->m_nFromID];
 		Link->m_nDestID = cardassign[Link->m_nDestID];
 
-		// ラベル置換
+		// ???x???u??
 		for (int il = 0; il < Link->m_Labels->Count; il++) {
 			Link->m_Labels->SetLabel(il,
 				labelassign[1][Link->m_Labels->GetLabel(il) - 1] + 1);
@@ -1986,7 +1998,7 @@ void TDocument::PasteFromClipboard(float fSpan) {
 		m_Links->Add(Link);
 	}
 
-	// 破棄
+	// ?j??
 	delete[]cardassign;
 	for (int lt = 0; lt < 2; lt++) {
 		delete[]labelassign[lt];
@@ -2000,12 +2012,12 @@ void TDocument::PasteFromClipboard(float fSpan) {
 	RefreshLabel();
 }
 // ---------------------------------------------------------------------------
-extern int bReqArrange; // アレンジのON/OFF
-extern int nReqArrangeMode; // 0から順にRepulsion、Link、Label、Index
-extern int bReqAutoScroll; // オートスクロール
-extern int bReqAutoZoom; // オートズーム
-extern int bReqFullScreen; // フルスクリーン
-extern int bReqExit; // 終了
-extern float fReqZoom, fReqX, fReqY; // ズームと座標
+extern int bReqArrange; // ?A?????W??ON/OFF
+extern int nReqArrangeMode; // 0??????Repulsion?ALink?ALabel?AIndex
+extern int bReqAutoScroll; // ?I?[?g?X?N???[??
+extern int bReqAutoZoom; // ?I?[?g?Y?[??
+extern int bReqFullScreen; // ?t???X?N???[??
+extern int bReqExit; // ?I??
+extern float fReqZoom, fReqX, fReqY; // ?Y?[??????W
 
 #pragma package(smart_init)

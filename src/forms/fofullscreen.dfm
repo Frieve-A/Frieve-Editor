@@ -13,11 +13,9 @@ object Fo_FullScreen: TFo_FullScreen
   Font.Style = []
   FormStyle = fsStayOnTop
   KeyPreview = True
-  OldCreateOrder = False
   Position = poDefault
   OnResize = FormResize
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 12
   object Bu_Enter: TButton
     Left = 9

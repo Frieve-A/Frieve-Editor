@@ -6,7 +6,7 @@
 #include <vcl.h>
 
 // ---------------------------------------------------------------------------
-// ‚‘¬Ini“Ç‚İ‚İ
+// é«˜é€ŸInièª­ã¿è¾¼ã¿
 class TFastIniSection {
 private:
 	int m_nLastIndex;
@@ -29,7 +29,7 @@ private:
 
 class TFastIni {
 private:
-	TList* m_Sections; // ŠeƒZƒNƒVƒ‡ƒ“
+	TList* m_Sections; // å„ã‚»ã‚¯ã‚·ãƒ§ãƒ³
 	int m_LastSectionIndex;
 	UnicodeString m_LastSection;
 
@@ -52,28 +52,28 @@ private:
 };
 
 // ---------------------------------------------------------------------------
-// ƒtƒ@ƒCƒ‹ŠÖ˜A
+// ãƒ•ã‚¡ã‚¤ãƒ«é–¢é€£
 void FileListCreator(UnicodeString TopDir, TStringList *SL, UnicodeString Exts,
 	bool SubFolder = true);
 bool IsFileNameOrURL(UnicodeString S);
 // ---------------------------------------------------------------------------
-// •¶š—ñŠÖŒW
-int CountStr(WideString S, WideString CountChar); // CountChar‚Ì”‚ğ”‚¦‚é
-WideString SplitStrBy(WideString &S, WideString SplitChar); // SplitChar‚ÌˆÊ’u‚ÅS‚ğ•ªŠ„
+// æ–‡å­—åˆ—é–¢ä¿‚
+int CountStr(WideString S, WideString CountChar); // CountCharã®æ•°ã‚’æ•°ãˆã‚‹
+WideString SplitStrBy(WideString &S, WideString SplitChar); // SplitCharã®ä½ç½®ã§Sã‚’åˆ†å‰²
 WideString ReplaceText(WideString S, WideString From, WideString To);
 UnicodeString IntToDigit(int i, int digit);
 UnicodeString SizeToStr(int i);
 UnicodeString ExtractFileNameOnly(UnicodeString S);
-UnicodeString ForFileName(UnicodeString S); // ƒtƒ@ƒCƒ‹ƒl[ƒ€‚Ég—p‚Å‚«‚È‚¢•¶š‚ğœ‚­
-UnicodeString DeleteActionKey(UnicodeString S); // &File, (&F)‚È‚Ç‚ÌƒAƒNƒVƒ‡ƒ“ƒL[•¶š—ñ‚ğœ‚­
+UnicodeString ForFileName(UnicodeString S); // ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ãƒ ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ã‚’é™¤ã
+UnicodeString DeleteActionKey(UnicodeString S); // &File, (&F)ãªã©ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚­ãƒ¼æ–‡å­—åˆ—ã‚’é™¤ã
 // ---------------------------------------------------------------------------
-// FŠÖŒW
+// è‰²é–¢ä¿‚
 TColor HalfColor(int C1, int C2, float A);
 TColor InverseColor(int C1);
 TColor BrightColor(int C1, float A);
 TColor GetColor(float f, int base, int cont);
 // ---------------------------------------------------------------------------
-// ŠÈˆÕƒKƒEƒX—”
+// ç°¡æ˜“ã‚¬ã‚¦ã‚¹ä¹±æ•°
 float GaussianRand();
 // ---------------------------------------------------------------------------
 #endif
