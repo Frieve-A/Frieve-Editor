@@ -73,8 +73,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>generated\;forms\;utils\;..\;src\;src\utils\;src\forms\;..\..\..\..\..\Documents\program\feditor_2000_cb10\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>generated\;forms\;utils\;..\;src\;src\utils\;src\forms\;..\..\..\..\..\Documents\program\feditor_2000_cb10\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>generated\;forms\;utils\;..\;src\;src\utils\;src\forms\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>generated\;forms\;utils\;..\;src\;src\utils\;src\forms\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>feditor</SanitizedProjectName>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_MinorVer>4</VerInfo_MinorVer>
@@ -182,7 +182,7 @@
         <UWP_CppLogo44>..\resource\icon\icon_44x44.png</UWP_CppLogo44>
         <UWP_CppLogo150>..\resource\icon\icon_150x150.png</UWP_CppLogo150>
         <PF_KeyStorePass>852947C05F81078BCF29E567A4027BF3E45208447EA4ECBB9F00776F8E3C3C87DB1DA3F8E3431C6BC1AE577CFADBC36BBAE93603046D229E167945DFE5FF22D6C924F373D516FACDBFBBAF5207401D4992333E581DE5096EE3EC16E31202ECFD</PF_KeyStorePass>
-        <FinalOutputDir>C:\Users\friev\Apps\feditor\</FinalOutputDir>
+        <FinalOutputDir>..\build\$(Platform)\$(Config)</FinalOutputDir>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="feditor.cpp">
