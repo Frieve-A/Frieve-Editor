@@ -4,6 +4,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
+#include <cwchar>
 #include <System.NetEncoding.hpp>
 #include "fomain.h"
 #include "fomain_search.h"
@@ -28,6 +29,52 @@ UnicodeString NormalizeWebSearchUrl(const UnicodeString &url) {
     }
   }
   return normalized;
+}
+
+int FindForwardMatch(const UnicodeString &target, const UnicodeString &key,
+                     int startPos) {
+  const int targetLength = target.Length();
+  const int keyLength = key.Length();
+  if (keyLength <= 0 || startPos < 0 || startPos > targetLength - keyLength) {
+    return -1;
+  }
+
+  const wchar_t *targetPtr = target.c_str();
+  const wchar_t *keyPtr = key.c_str();
+  for (int i = startPos; i <= targetLength - keyLength; i++) {
+    if (std::wmemcmp(targetPtr + i, keyPtr, keyLength) == 0) {
+      return i + 1;
+    }
+  }
+
+  return -1;
+}
+
+int FindBackwardMatch(const UnicodeString &target, const UnicodeString &key,
+                      int endPos) {
+  const int targetLength = target.Length();
+  const int keyLength = key.Length();
+  if (keyLength <= 0 || targetLength < keyLength) {
+    return -1;
+  }
+
+  int lastStart = endPos - keyLength;
+  if (lastStart > targetLength - keyLength) {
+    lastStart = targetLength - keyLength;
+  }
+  if (lastStart < 0) {
+    return -1;
+  }
+
+  const wchar_t *targetPtr = target.c_str();
+  const wchar_t *keyPtr = key.c_str();
+  for (int i = lastStart; i >= 0; i--) {
+    if (std::wmemcmp(targetPtr + i, keyPtr, keyLength) == 0) {
+      return i + 1;
+    }
+  }
+
+  return -1;
 }
 } // namespace
 
@@ -101,7 +148,10 @@ void __fastcall TFo_Main::ME_FindNextClick(TObject *Sender) {
     if (PC_Client->ActivePage == TS_Browser) {
       bSearchRequest = (bLastSearchRequest & 0x30) | 0x01;
     } else {
-      bSearchRequest = (bLastSearchRequest & 0x30) | 0x03;
+      bSearchRequest = (bLastSearchRequest & 0x33);
+      if (!(bSearchRequest & 0x03)) {
+        bSearchRequest |= 0x03;
+      }
     }
   } else {
     if (bLastSearchRequest & 0x100) {
@@ -118,7 +168,10 @@ void __fastcall TFo_Main::ME_FindPreviousClick(TObject *Sender) {
     if (PC_Client->ActivePage == TS_Browser) {
       bSearchRequest = (bLastSearchRequest & 0x30) | 0x81;
     } else {
-      bSearchRequest = (bLastSearchRequest & 0x30) | 0x83;
+      bSearchRequest = (bLastSearchRequest & 0x33) | 0x80;
+      if (!(bSearchRequest & 0x03)) {
+        bSearchRequest |= 0x03;
+      }
     }
   } else {
     ME_FindClick(Sender);
@@ -344,14 +397,7 @@ void TFo_Main::Search(int SearchRequest) {
   // Search start card
   int StartCard = CardIndex;
 
-  // RichEdit
-  // TRichEdit *RE = new TRichEdit(this);
-
-  TMemo *RE = new TMemo(this);
-  RE->Visible = false;
-  RE->Parent = this;
-
-  WideString Key;
+  UnicodeString Key;
   if (SearchRequest & 0x10) {
     // Case-insensitive key
     Key = WideLowerCase(SearchKeyword);
@@ -371,11 +417,10 @@ void TFo_Main::Search(int SearchRequest) {
     } else if (Target == 0) {
       if (SearchRequest & 0x1) {
         // Title search
-        int ToEnd;
-        WideString Target;
+        UnicodeString Target;
         if (SearchRequest & 0x10) {
           // Case-sensitive search
-          Target = WideLowerCase(WideString(Card->m_Title));
+          Target = WideLowerCase(Card->m_Title);
         } else {
           // Case-sensitive search
           Target = Card->m_Title;
@@ -385,32 +430,13 @@ void TFo_Main::Search(int SearchRequest) {
           if (resetpos) {
             Pos = Target.Length();
           }
-          int pos2 = 1, len = Pos;
-          while (true) {
-            int at = Target.SubString(pos2, len).Pos(Key);
-            if (at) {
-              foundat = at + pos2 - 1;
-              pos2 += at;
-              len -= at;
-            } else {
-              break;
-            }
-          }
-          if (foundat <= 0) {
-            foundat = -1;
-          }
+          foundat = FindBackwardMatch(Target, Key, Pos);
         } else {
           // Start search
           if (resetpos) {
             Pos = 0;
           }
-          ToEnd = Target.Length() - Pos;
-          foundat = Target.SubString(Pos + 1, ToEnd).Pos(Key);
-          if (foundat > 0) {
-            foundat += Pos;
-          } else {
-            foundat = -1;
-          }
+          foundat = FindForwardMatch(Target, Key, Pos);
         }
         if (foundat >= 0) {
           // Update?
@@ -431,47 +457,26 @@ void TFo_Main::Search(int SearchRequest) {
     } else {
       if (SearchRequest & 0x2) {
         // Body search
-        RE->Lines->Assign(Card->m_Lines);
-        int ToEnd;
-        WideString Target;
+        UnicodeString Target;
         if (SearchRequest & 0x10) {
           // Case-sensitive search
-          Target = WideLowerCase(WideString(RE->Text));
+          Target = WideLowerCase(Card->m_Lines->Text);
         } else {
           // Case-sensitive search
-          Target = RE->Text;
+          Target = WideString(Card->m_Lines->Text);
         }
         if (SearchRequest & 0x80) {
           // Updatesearch
           if (resetpos) {
             Pos = Target.Length();
           }
-          int pos2 = 1, len = Pos;
-          while (true) {
-            int at = Target.SubString(pos2, len).Pos(Key);
-            if (at) {
-              foundat = at + pos2 - 1;
-              pos2 += at;
-              len -= at;
-            } else {
-              break;
-            }
-          }
-          if (foundat <= 0) {
-            foundat = -1;
-          }
+          foundat = FindBackwardMatch(Target, Key, Pos);
         } else {
           // Start search
           if (resetpos) {
             Pos = 0;
           }
-          ToEnd = Target.Length() - Pos;
-          foundat = Target.SubString(Pos + 1, ToEnd).Pos(Key);
-          if (foundat > 0) {
-            foundat += Pos;
-          } else {
-            foundat = -1;
-          }
+          foundat = FindForwardMatch(Target, Key, Pos);
         }
 
         // RichEdit
@@ -526,8 +531,6 @@ void TFo_Main::Search(int SearchRequest) {
       NotFound = true;
     }
   }
-
-  delete RE;
 
   Screen->Cursor = crDefault;
 
