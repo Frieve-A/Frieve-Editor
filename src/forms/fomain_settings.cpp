@@ -92,6 +92,10 @@ void TFo_Main::ApplyLanguageSetting() {
                                      MF_Save->Caption); // Save(&S)
   MF_SaveAs->Caption = Ini->ReadString("MainWnd", "MF_SaveAs",
                                        MF_SaveAs->Caption); // Save As(&A)...
+  MF_AutoSave->Caption =
+      Ini->ReadString("MainWnd", "MF_AutoSave", MF_AutoSave->Caption);
+  MF_AutoReload->Caption =
+      Ini->ReadString("MainWnd", "MF_AutoReload", MF_AutoReload->Caption);
   MF_RecentFiles->Caption =
       Ini->ReadString("MainWnd", "MF_RecentFiles",
                       MF_RecentFiles->Caption); // Recent File(&R)
@@ -166,6 +170,8 @@ void TFo_Main::ApplyLanguageSetting() {
                       ME_FindPrevious->Caption); // Find previous(&V)
   ME_WebSearch->Caption = Ini->ReadString("MainWnd", "ME_WebSearch",
                                           ME_WebSearch->Caption); // W
+  ME_ReadAloud->Caption = Ini->ReadString("MainWnd", "ME_ReadAloud",
+                                          ME_ReadAloud->Caption);
   MD_SortCard->Caption = Ini->ReadString("MainWnd", "MD_SortCard",
                                          MD_SortCard->Caption); // Sort card(&S)
   MDS_Title->Caption = Ini->ReadString("MainWnd", "MDS_Title",
@@ -374,6 +380,27 @@ void TFo_Main::ApplyLanguageSetting() {
     MVR_ReadSetting->Caption =
         Ini->ReadString("MainWnd", "MVR_ReadSetting",
                         MVR_ReadSetting->Caption); // Read aloud setting(&E)
+  }
+  Setting1->Caption =
+      Ini->ReadString("MainWnd", "Setting1", Setting1->Caption);
+  MS_GPTAPIKey->Caption =
+      Ini->ReadString("MainWnd", "MS_GPTAPIKey", MS_GPTAPIKey->Caption);
+  if (MS_AutoSaveDefaults) {
+    MS_AutoSaveDefaults->Caption = Ini->ReadString(
+        "MainWnd", "MS_AutoSaveDefaults", MS_AutoSaveDefaults->Caption);
+  }
+  if (MS_AutoSaveDefault) {
+    MS_AutoSaveDefault->Caption = Ini->ReadString(
+        "MainWnd", "MS_AutoSaveDefault", MS_AutoSaveDefault->Caption);
+  }
+  if (MS_AutoReloadDefault) {
+    MS_AutoReloadDefault->Caption = Ini->ReadString(
+        "MainWnd", "MS_AutoReloadDefault", MS_AutoReloadDefault->Caption);
+  }
+  if (MS_ReadAloudRate) {
+    MS_ReadAloudRate->Caption =
+        Ini->ReadString("MainWnd", "MS_ReadAloudRate",
+                        MS_ReadAloudRate->Caption);
   }
   MVO_CardList->Caption = Ini->ReadString("MainWnd", "MVO_CardList",
                                           MVO_CardList->Caption);

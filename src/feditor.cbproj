@@ -80,7 +80,7 @@
         <VerInfo_MinorVer>4</VerInfo_MinorVer>
         <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
         <VerInfo_Locale>1041</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=Frieve;FileDescription=Frieve Editor;FileVersion=1.4.0.0;InternalName=;LegalCopyright=2006-2021 Frieve ;LegalTrademarks=;OriginalFilename=;ProgramID=com.frieve.feditor;ProductName=Frieve Editor;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Frieve;FileDescription=Frieve Editor;FileVersion=3.0.0.0;InternalName=;LegalCopyright=2006-2021 Frieve ;LegalTrademarks=;OriginalFilename=;ProgramID=com.frieve.feditor;ProductName=Frieve Editor;ProductVersion=3.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>

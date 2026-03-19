@@ -16,7 +16,7 @@
  */
 
 #define AppTitle "Frieve Editor"
-#define AppVersion 200
+#define AppVersion 300
 #define FileVersion 8
 #define AppURL "https://www.frieve.com/"
 #define SoftURL "https://www.frieve.com/software/frieve-editor"
@@ -218,6 +218,10 @@ public:
   // Clipboard
   void CopyToClipboard();
   void PasteFromClipboard(float fSpan);
+
+  // Per-file settings (0=off, 1=on)
+  int m_nAutoSave;
+  int m_nAutoReload;
 };
 
 class TUndoRedoData {

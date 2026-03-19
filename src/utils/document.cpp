@@ -907,6 +907,9 @@ void TDocument::InitDocument() {
   m_bReadOnly = false;
   m_nDefaultView = -1;
 
+  m_nAutoSave = 0;
+  m_nAutoReload = 0;
+
   m_nCheckCount = 0;
 }
 
@@ -1024,6 +1027,14 @@ bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
   // Load
   m_bReadOnly = Ini->ReadBool("Global", "ReadOnly", 0);
   m_nDefaultView = Ini->ReadInteger("Global", "DefaultView", -1);
+
+  // Backward compatibility:
+  // If an existing .fip has no AutoSave/AutoReload entries, treat them as OFF.
+  // Compatibility:
+  // Missing keys in older files mean OFF(0). If keys exist, follow 0/1.
+  // Any non-zero value is treated as ON.
+  m_nAutoSave = Ini->ReadInteger("Global", "AutoSave", 0) != 0 ? 1 : 0;
+  m_nAutoReload = Ini->ReadInteger("Global", "AutoReload", 0) != 0 ? 1 : 0;
 
   // Card order
   bReqArrange = Ini->ReadInteger("Global", "Arrange", bReqArrange);
@@ -1250,6 +1261,11 @@ bool TDocument::SaveToString(TStringList *SL) {
 
   SL->Add("[Global]");
   SL->Add(UnicodeString("Version=") + IntToStr(FileVersion));
+
+  // Always store explicit values (0/1). If keys are absent in older files,
+  // LoadFromString will treat them as OFF(0) for compatibility.
+  SL->Add(UnicodeString("AutoSave=") + IntToStr(m_nAutoSave));
+  SL->Add(UnicodeString("AutoReload=") + IntToStr(m_nAutoReload));
 
   // Read
   SL->Add(UnicodeString("Arrange=") + IntToStr(bReqArrange)); // Arrange ON/OFF

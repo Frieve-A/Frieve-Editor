@@ -32,6 +32,19 @@ https://www.embarcadero.com/products/cbuilder/starter
 
 feditor.exe will be created at "build\win64\release".
 
+You can also build and package from command line with `build_project.bat`.
+
+Examples:
+- `build_project.bat` (default: Release Win64)
+- `build_project.bat Debug Win64`
+
+The script creates `dist\feditor\` and `dist\feditor_<Platform>_<Config>.zip`.
+
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE`.
+
 
 
 ## How to use
@@ -83,6 +96,19 @@ https://www.embarcadero.com/jp/products/cbuilder/starter
 2. C++ Builderより "src/feditor.cbprpj" を開き、ビルドします。
 
  "build\win64\release"フォルダにfeditor.exeが作成されます。
+
+コマンドラインからは `build_project.bat` でもビルドとパッケージ作成が可能です。
+
+例:
+- `build_project.bat`（既定: Release Win64）
+- `build_project.bat Debug Win64`
+
+このスクリプトで `dist\feditor\` と `dist\feditor_<Platform>_<Config>.zip` が作成されます。
+
+
+## ライセンス
+
+このプロジェクトは MIT License の下で公開されています。詳細は `LICENSE` を参照してください。
 
 
 

@@ -1,0 +1,3117 @@
+﻿[Global]
+Version=8
+ReadOnly=1
+DefaultView=1
+Arrange=1
+ArrangeMode=2
+AutoScroll=1
+AutoZoom=1
+FullScreen=-1
+Exit=-1
+Zoom=-0.170000001788139
+X=0.519599974155426
+Y=0.519900023937225
+TargetCard=-1000
+SizeLimitation=0
+LinkLimitation=0
+DateLimitation=0
+SizeLimitation=100
+LinkLimitation=3
+LinkDirection=0
+LinkBackward=0
+LinkTarget=-1
+DateLimitation=0
+DateLimitationDateType=0
+DateLimitationType=0
+[Card]
+CardID=0
+Num=79
+0=0
+1=3
+2=1
+3=2
+4=59
+5=49
+6=50
+7=69
+8=51
+9=7
+10=6
+11=61
+12=15
+13=62
+14=8
+15=9
+16=78
+17=64
+18=14
+19=10
+20=22
+21=11
+22=52
+23=53
+24=77
+25=65
+26=12
+27=13
+28=17
+29=16
+30=63
+31=18
+32=19
+33=23
+34=20
+35=35
+36=36
+37=5
+38=21
+39=24
+40=25
+41=26
+42=27
+43=28
+44=73
+45=29
+46=30
+47=74
+48=32
+49=33
+50=34
+51=60
+52=4
+53=75
+54=67
+55=71
+56=48
+57=31
+58=40
+59=37
+60=56
+61=55
+62=76
+63=54
+64=58
+65=57
+66=38
+67=39
+68=70
+69=66
+70=68
+71=41
+72=42
+73=43
+74=44
+75=45
+76=46
+77=72
+78=47
+[Link]
+Num=88
+0=Fr3,De1,Di1,Sh5,Na
+1=Fr3,De2,Di1,Sh5,Na
+2=Fr0,De3,Di1,Sh5,Na
+3=Fr0,De7,Di1,Sh5,Na
+4=Fr7,De6,Di1,Sh5,Na
+5=Fr7,De8,Di1,Sh5,Na
+6=Fr7,De10,Di1,Sh5,Na
+7=Fr7,De11,Di1,Sh5,Na
+8=Fr0,De12,Di1,Sh5,Na
+9=Fr12,De13,Di1,Sh5,Na
+10=Fr7,De14,Di1,Sh5,Na
+11=Fr7,De15,Di1,Sh5,Na
+12=Fr12,De18,Di1,Sh5,Na
+13=Fr12,De16,Di1,Sh5,Na
+14=Fr12,De17,Di1,Sh5,Na
+15=Fr12,De19,Di1,Sh5,Na
+16=Fr12,De20,Di1,Sh5,Na
+17=Fr0,De21,Di1,Sh5,Na
+18=Fr7,De22,Di1,Sh5,Na
+19=Fr12,De23,Di1,Sh5,Na
+20=Fr7,De24,Di1,Sh5,Na
+21=Fr12,De25,Di1,Sh5,Na
+22=Fr21,De25,Di1,Sh5,Na
+23=Fr21,De24,Di1,Sh5,Na
+24=Fr21,De23,Di1,Sh5,Na
+25=Fr21,De22,Di1,Sh5,Na
+26=Fr21,De26,Di1,Sh5,Na
+27=Fr21,De27,Di1,Sh5,Na
+28=Fr21,De29,Di1,Sh5,Na
+29=Fr21,De28,Di1,Sh5,Na
+30=Fr0,De30,Di1,Sh5,Na
+31=Fr30,De31,Di1,Sh5,Na
+32=Fr30,De33,Di1,Sh5,Na
+33=Fr30,De34,Di1,Sh5,Na
+34=Fr30,De32,Di1,Sh5,Na
+35=Fr12,De36,Di1,Sh5,Na
+36=Fr12,De35,Di1,Sh5,Na
+37=Fr0,De37,Di1,Sh5,Na
+38=Fr37,De39,Di1,Sh5,Na
+39=Fr37,De38,Di1,Sh5,Na
+40=Fr30,De40,Di1,Sh5,Na
+41=Fr0,De41,Di1,Sh5,Na
+42=Fr41,De42,Di1,Sh5,Na
+43=Fr41,De43,Di1,Sh5,Na
+44=Fr41,De44,Di1,Sh5,Na
+45=Fr41,De45,Di1,Sh5,Na
+46=Fr41,De46,Di1,Sh5,Na
+47=Fr41,De47,Di1,Sh5,Na
+48=Fr30,De48,Di1,Sh5,Na
+49=Fr10,De24,Di1,Sh5,La1,Na
+50=Fr3,De50,Di1,Sh5,Na
+51=Fr3,De49,Di1,Sh5,Na
+52=Fr3,De51,Di1,Sh5,Na
+53=Fr7,De52,Di1,Sh5,Na
+54=Fr37,De54,Di1,Sh5,Na
+55=Fr37,De55,Di1,Sh5,Na
+56=Fr37,De56,Di1,Sh5,Na
+57=Fr37,De57,Di1,Sh5,Na
+58=Fr37,De58,Di1,Sh5,Na
+59=Fr52,De57,Di1,Sh5,La1,Na
+60=Fr19,De25,Di1,Sh5,La1,Na
+61=Fr3,De59,Di1,Sh5,Na
+62=Fr30,De60,Di1,Sh5,Na
+63=Fr7,De61,Di1,Sh5,Na
+64=Fr7,De62,Di1,Sh5,Na
+65=Fr30,De62,Di1,Sh5,Na
+66=Fr7,De64,Di1,Sh5,Na
+67=Fr12,De63,Di1,Sh5,Na
+68=Fr7,De65,Di1,Sh5,Na
+69=Fr0,De66,Di1,Sh5,Na
+70=Fr66,De68,Di1,Sh5,Na
+71=Fr66,De66,Di1,Sh5,Na
+72=Fr3,De69,Di1,Sh5,Na
+73=Fr30,De71,Di1,Sh5,Na
+74=Fr21,De73,Di1,Sh5,Na
+75=Fr30,De74,Di1,Sh5,Na
+76=Fr30,De75,Di1,Sh5,Na
+77=Fr7,De9,Di1,Sh5,Na
+78=Fr68,De68,Di1,Sh5,Na
+79=Fr30,De4,Di1,Sh5,Na
+80=Fr12,De5,Di1,Sh5,Na
+81=Fr7,De53,Di1,Sh5,Na
+82=Fr37,De76,Di1,Sh5,Na
+83=Fr30,De67,Di1,Sh5,Na
+84=Fr7,De77,Di1,Sh5,Na
+85=Fr37,De70,Di1,Sh5,Na
+86=Fr41,De72,Di1,Sh5,Na
+87=Fr7,De78,Di1,Sh0,Na
+[Label]
+Num=9
+0=Co16711680,En1,Sh1,Hi0,Fo0,Si100,NaOverview
+1=Co65280,En1,Sh1,Hi0,Fo0,Si100,NaCard Editing
+2=Co255,En1,Sh1,Hi0,Fo0,Si100,NaLink Editing
+3=Co33023,En1,Sh1,Hi0,Fo0,Si100,NaLabel Editing
+4=Co16711935,En1,Sh1,Hi0,Fo0,Si100,NaCard Arrangement
+5=Co65535,En1,Sh1,Hi0,Fo0,Si100,NaBrowsing
+6=Co16776960,En1,Sh1,Hi0,Fo0,Si100,NaMenu Guide
+7=Co14671839,En1,Sh1,Hi0,Fo0,Si168,NaNode
+8=Co15991944,En1,Sh1,Hi0,Fo0,Si100,NaPrinting
+[LinkLabel]
+Num=1
+0=Co16711680,En1,Sh0,Hi0,Fo1,Si0,NaRelated
+[CardData]
+24
+Title:Aide de Frieve Editor
+Fixed:0
+X:0.527909159660339
+Y:0.485341817140579
+Top:1
+Size:237
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:2013/11/02 22:35:21
+Viewed:2023/04/14 20:37:39
+-
+============================================================================
+Aide de Frieve Editor Version 3.00
+============================================================================
+
+Merci d'avoir téléchargé Frieve Editor.
+Frieve Editor est un éditeur d'un nouveau genre, conçu pour vous aider à organiser
+vos pensées et à faire émerger des idées originales.
+
+Pour parcourir cette aide, sélectionnez le sujet souhaité dans la liste Cards
+à gauche de l'écran.
+Vous pouvez également suivre les liens affichés en bas de l'écran pour accéder
+aux articles connexes.
+15
+Title:Présentation
+Label:1,8
+Fixed:0
+X:0.223215848207474
+Y:0.852238237857819
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Présentation
+============================================================================
+47
+Title: Objectif
+Label:1
+Fixed:0
+X:0.229445829987526
+Y:0.93997061252594
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Objectif
+----------------------------------------------------------------------------
+
+Frieve Editor est conçu pour les usages suivants.
+
+- En tant que processeur d'idées
+  Disposez sur l'écran des cartes contenant des mots-clés susceptibles de stimuler
+  votre créativité. Au fur et à mesure que de nouvelles idées vous viennent, placez-les
+  également sous forme de cartes, attribuez-leur des labels pour les classer et décrivez
+  leurs relations avec les autres mots-clés à l'aide de liens.
+  Les labels et les liens que vous ajoutez peuvent ensuite servir à organiser
+  automatiquement les cartes. Les fonctions d'affichage aléatoire des cartes ou de
+  parcours aléatoire des liens favorisent une réflexion libre et non conventionnelle.
+
+- Pour décrire et organiser des situations complexes
+  Décrivez des situations complexes dont les conditions sont imbriquées, en commençant
+  par les éléments que vous maîtrisez déjà.
+  En définissant les relations à l'aide de labels et de liens, vous pouvez décrire
+  des sujets complexes de manière plus claire. Cela vous aide à trouver des solutions
+  qui tiennent compte d'effets souvent négligés dans la réflexion quotidienne. Même
+  des idées compliquées, auparavant très difficiles à expliquer ou à partager, peuvent
+  être communiquées naturellement.
+
+- En tant qu'outil de gestion de projet
+  Décrivez les tâches à accomplir, leurs relations, l'ordre dans lequel les exécuter,
+  les budgets, les risques, etc.
+  Grâce aux labels, chaque carte peut être classée : tâche déjà terminée, à effectuer
+  immédiatement, à reporter, etc. Cela facilite les décisions sur ce qu'il faut faire
+  ensuite, ce qui risque de poser problème et comment le projet doit avancer.
+
+- Autres usages
+  Vous pouvez également l'utiliser pour des comptes rendus de réunion, des notes
+  personnelles, des descriptions de systèmes, des brouillons d'articles de blog
+  et bien d'autres choses.
+44
+Title: Caractéristiques principales
+Label:1
+Fixed:0
+X:0.238106444478035
+Y:0.904705762863159
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Caractéristiques principales
+----------------------------------------------------------------------------
+
+Voici les principales caractéristiques de Frieve Editor.
+
+- Représentation par cartes et liens
+  Dans Frieve Editor, chaque idée ou fait est inscrit sur une carte unique, et les
+  relations entre les cartes sont exprimées par des liens. Comme un lien peut être
+  tracé de n'importe quelle carte vers n'importe quelle autre, même les sujets
+  complexes se décrivent naturellement.
+
+- Classification des cartes et des liens par labels
+  Chaque carte et chaque lien peuvent recevoir plusieurs labels. Les labels sont
+  librement définis par l'utilisateur. Les cartes et les liens sont colorés à l'écran
+  en fonction de leurs labels, ce qui permet de saisir leur signification d'un coup d'œil.
+
+- Organisation automatique et filtrage de l'affichage des cartes
+  Frieve Editor peut organiser automatiquement la disposition des cartes en se fondant
+  sur les liens entre les cartes et les labels qui leur sont attribués. Cela permet
+  de visualiser facilement vos informations sous différents angles. Vous pouvez
+  également afficher ou masquer les cartes et les liens par label, ou limiter la
+  portée de l'affichage par nombre de liens, de sorte que seules les informations
+  nécessaires apparaissent.
+
+- Animation
+  Frieve Editor propose plusieurs animations pour stimuler la génération d'idées et
+  vous aider à comprendre ce qui a été décrit.
+  Les animations qui présentent les cartes de manière aléatoire encouragent de
+  nouvelles associations entre différentes cartes. Les animations qui parcourent
+  les liens de manière aléatoire vous aident à saisir intuitivement les relations
+  entre les cartes.
+43
+Title: Fonctions de base
+Label:1
+Fixed:0
+X:0.19487227499485
+Y:0.933239459991455
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2023/04/14 20:14:08
+-
+----------------------------------------------------------------------------
+Fonctions de base
+----------------------------------------------------------------------------
+
+- Cartes
+  Dans Frieve Editor, chaque élément de texte est stocké dans une carte.
+  Dès que vous pensez à quelque chose, créez une carte et notez-le. Pour décrire
+  les choses efficacement, décomposez un sujet en éléments aussi petits que possible
+  et décrivez-le à l'aide de nombreuses cartes.
+
+- Liens
+  Les liens définissent les relations entre les cartes. Un lien peut être tracé d'une
+  carte vers une autre. À partir de l'ensemble des liens entre les cartes, Frieve Editor
+  peut organiser automatiquement les cartes de sorte que les cartes liées soient
+  placées à proximité les unes des autres.
+
+- Labels
+  Frieve Editor vous permet d'attribuer des labels aux cartes comme aux liens.
+  Par défaut, trois labels sont définis : Probrem (Problème), Solution et Result
+  (Résultat), mais les labels peuvent être modifiés librement.
+
+  Attribuer des labels aux cartes vous aide à les organiser efficacement. Par exemple,
+  vous pouvez organiser automatiquement les cartes de sorte que celles portant le même
+  label soient placées à proximité, n'afficher que les cartes portant un certain label,
+  ou les masquer. Vous pouvez également regrouper les cartes portant le même label et
+  les afficher comme une seule carte.
+
+  De même, les labels attribués aux liens peuvent servir à n'afficher que les liens
+  portant un certain label, ou à les masquer. Combiné avec l'organisation automatique
+  qui rapproche les cartes liées, cela permet de réorganiser facilement les cartes en
+  se concentrant sur un type de relation particulier.
+325
+Title: Historique des versions
+Label:1
+Fixed:0
+X:0.153297424316406
+Y:0.897660434246063
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:2023/04/14 20:14:19
+Viewed:2023/04/14 20:14:08
+-
+----------------------------------------------------------------------------
+Historique des versions
+----------------------------------------------------------------------------
+
+- 3.00 (2026/03/19)
+  Ajout de la sauvegarde automatique et du rechargement automatique.
+  Amélioration de la molette et des gestes (molette = défilement, Ctrl+molette = zoom,
+  Ctrl+Shift+molette = taille de police, pincement = zoom).
+  Prise en charge de 13 langues (affichage des menus et fichiers d'aide adaptés à la langue choisie).
+  Rétablissement de la synthèse vocale (TTS).
+  Passage à la licence MIT.
+  Diverses améliorations et corrections mineures :
+    Optimisation de la vitesse de recherche.
+    Lorsqu'un fichier est déjà ouvert dans une autre instance, celle-ci est désormais activée.
+    Correction d'un bug de spécification du modèle GPT dans setting2.ini.
+    Correction de la fonction de recherche sur le Web.
+    Correction de la disposition des boutons de libellé.
+
+- 2.00 (2023/04/14)
+  Ajout de la prise en charge de l'API ChatGPT.
+
+- 1.40 (2021/08/09)
+  Plusieurs petites améliorations et corrections de bogues.
+
+- 1.32 (2013/11/02)
+  Ajout de la prise en charge des versions récentes de Windows.
+  Ajout de la prise en charge du 64 bits.
+  Changement de la langue par défaut en japonais.
+  Plusieurs autres petites améliorations et corrections de bogues.
+
+- 1.31 (2008/09/07)
+  L'enregistrement d'un fichier conserve désormais les coordonnées et les divers
+  réglages, et leur chargement les restaure.
+  Ajout de liens courbes.
+  Ajout de HierarchicalText dans Fichier → Exporter.
+  Ajout du remplacement de chaînes pour les noms de cartes et le corps du texte
+  (Édition → Remplacer, Ctrl+R).
+  Les liens sélectionnés clignotent désormais.
+  Les liens liés à la carte active sont désormais mis en surbrillance.
+  Le raccourci pour modifier le titre d'une carte est passé de Ctrl+T à F2.
+  Traduction en japonais de certains messages qui ne l'étaient pas encore.
+  Correction d'un bogue dans l'onglet Statistics où le jour de la semaine pouvait
+  être décalé.
+  Correction d'un bogue qui provoquait une erreur lors de la modification du corps
+  du texte à droite ou en bas du Browser.
+  Correction d'un bogue où l'utilisation de lignes pointillées pouvait provoquer
+  une erreur.
+  Correction d'une fuite mémoire lors de l'affichage de l'onglet Statistics.
+  Correction d'une fuite mémoire lors de l'organisation automatique Tree (Radial).
+
+- 1.30 (2008/06/15)
+  Ajout de la possibilité d'insérer des dessins simples dans les cartes (onglet Drawing).
+  Ajout de l'affichage de graphiques statistiques comme le nombre de labels (onglet Statistics).
+  Ajout d'une fonction pour lier toutes les cartes portant un label donné (menu Insérer).
+  Ajout d'une fonction pour ajouter un label donné à toutes les cartes de destination
+  (menu Insérer).
+  Traduction en japonais de toutes les fenêtres (View menu -> Language).
+  La barre d'état affiche désormais le nombre de cartes sélectionnées.
+  Plusieurs autres petites améliorations et corrections de bogues.
+
+- 1.23 (2008/04/15)
+  Il est désormais possible de saisir directement un titre sans cliquer au préalable
+  sur une carte.
+  La sélection en cours est désormais utilisée comme clé de recherche.
+  L'historique des mots-clés de recherche est désormais enregistré.
+  Le zoom avec les touches Page Up et Page Down est désormais possible.
+  Sélectionner un lien dans la liste des liens déplace désormais le Related Text.
+  Amélioration de la position initiale des cartes enfants et sœurs lorsque
+  l'organisation automatique est désactivée.
+  L'éditeur de corps affiché à droite ou en bas du Browser est désormais redimensionnable.
+  Correction d'un bogue sur Windows 98 où un clic droit après sélection de plusieurs
+  lignes provoquait une erreur.
+  Correction d'un problème où le texte en cours de conversion par l'IME pouvait ne pas
+  s'afficher.
+  Correction d'un problème où l'ajout d'images ou de vidéos par glisser-déposer n'était
+  pas immédiatement pris en compte.
+  Correction d'un problème où le zoom par molette de souris ne pouvait pas atteindre le
+  dernier niveau.
+  Correction d'un problème où les paramètres liés aux liens n'étaient pas enregistrés.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.22 (2008/02/11)
+  Ajout de la recherche globale (affichage en liste des résultats).
+  Ajout de la recherche internet à partir du texte sélectionné ou des titres de cartes.
+  Ajout de la prise en charge de l'insertion de liens externes par glisser-déposer et de
+  la création de cartes avec liens externes.
+  Ajout de Matrix (Index), qui organise les cartes de manière ordonnée selon leur ordre.
+  Ajout de Find Previous (Edit menu -> Find Previous, Shift+F3).
+  L'onglet Editor peut désormais afficher le corps des cartes liées (Related Text).
+  Il est désormais possible de couper du texte du corps et de créer une carte liée à
+  partir de la carte sélectionnée.
+  Ajout de la prise en charge de l'import de texte hiérarchique avec des points
+  (File menu -> Import).
+  Ajout de Text Length dans l'affichage des scores.
+  Ajout de Snow et Cherry Blossom dans les animations d'arrière-plan.
+  La sélection d'une carte provoque désormais un défilement immédiat par défaut
+  (modifiable depuis View menu -> Others).
+  Correction d'un bogue où F3 ne recherchait que les titres de cartes.
+  Correction d'un problème où la taille initiale de la liste des liens sous l'éditeur
+  était de 0.
+  Correction d'un problème où Ctrl+clic sur un lien externe dans l'onglet Editor ne
+  l'ouvrait pas toujours.
+  Correction d'un problème où les paramètres de type de score n'étaient pas enregistrés.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.21 (2007/12/01)
+  Ajout de l'organisation automatique hiérarchique (Tree(Radian) ; nécessite la
+  désignation d'une carte racine).
+  Ajout d'une liste de fichiers pour ouvrir rapidement des fichiers (déplacer la souris
+  vers le bord gauche de l'écran).
+  Ajout des animations Random Jump et Random Map.
+  Ajout de la conversion en lot de la direction des liens (Edit menu -> Batch Conversion).
+  La visibilité de la liste des cartes est désormais configurable (View menu -> Others).
+  La largeur de la liste des cartes et les paramètres associés sont désormais enregistrés
+  à la fermeture.
+  Ajout de la possibilité de spécifier la position de lecture vidéo
+  (début(ms)-fin(ms)| avant le nom de fichier).
+  L'animation du curseur peut désormais être activée ou désactivée (View menu -> Others).
+  Correction d'un bogue où le double-clic sur un lien sous l'onglet Editor ne le suivait
+  pas.
+  Correction d'un bogue où les titres ne pouvaient pas être modifiés dans le Browser
+  lorsque l'éditeur était toujours affiché.
+  Correction d'un bogue où le déplacement de cartes avec les touches de direction annulait
+  l'AutoZoom.
+  Correction d'un bogue où les cartes masquées pouvaient être sélectionnées par sélection
+  de zone.
+  Correction d'un bogue où le basculement Full Screen n'était pas possible pendant
+  une animation.
+  Correction d'un bogue où le glisser sur l'Overview n'était pas possible lorsque
+  l'anti-aliasing était activé.
+  Correction d'un bogue où appuyer sur Ctrl+E pendant la modification d'un titre de carte
+  dans le Browser provoquait une erreur.
+  Réduction du scintillement de l'écran.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.20 (2007/11/04)
+  Ajout de l'annulation et du rétablissement pour un maximum de 10 opérations d'édition.
+  Ajout de la sélection multiple de cartes.
+  Ajout du couper, copier et coller de cartes.
+  Ajout de la modification du corps dans l'écran Browser (View menu -> Text).
+  Ajout de la recherche limitée aux cartes actuellement visibles.
+  La carte active est désormais signalée par un curseur visible.
+  Ajout de l'animation d'arrière-plan (View menu -> Others).
+  Ajout de la traduction japonaise des menus contextuels.
+  L'ouverture des liens externes est passée de Ctrl+clic à Ctrl+Shift+clic.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.13 (2007/10/15)
+  Ajout de diverses commandes d'édition dans le menu contextuel du Browser.
+  Le style des liens peut désormais être modifié.
+  Ajout de la conversion en lot de toutes les formes de cartes et de liens
+  (Edit -> Change Shape).
+  Ajout de paramètres par défaut pour la taille, la forme et la position fixe des cartes
+  et des liens.
+  Ajout de l'affichage en défilement des une ou deux premières lignes du corps dans
+  le Browser.
+  Ajout de l'ombre portée des cartes.
+  Ajout d'un affichage en dégradé simple pour les cartes.
+  Ajout du contour des liens.
+  Ajout de la prise en charge de l'affichage vidéo à l'intérieur des cartes (saisir un
+  nom de fichier ou une URL dans le corps).
+  Ajout de la prise en charge de l'import de texte hiérarchique et de fichiers texte
+  dans des dossiers (File menu -> Import).
+  Ajout de l'export d'images du Browser aux formats BMP et JPEG (File menu -> Export).
+  Ajout de la prise en charge de la copie de diverses données dans le presse-papiers
+  (File menu -> Export).
+  Ajout de l'anti-aliasing pour l'affichage du Browser (View menu -> Others).
+  Inclusion d'exemples de fonds d'écran dans le dossier wallpaper du dossier
+  d'installation.
+  Ajout de diverses fonctions d'édition en mode plein écran (déplacer la souris vers le
+  haut de l'écran).
+  Correction d'un bogue où le LinkLabel de certains fichiers n'était pas chargé
+  correctement.
+  Correction d'un bogue où les cartes hexagonales n'étaient pas dessinées correctement.
+  Correction d'un bogue où le double-clic sur une carte en plein écran provoquait une
+  erreur.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.12 (2007/10/01)
+  Correction d'un bogue où l'ajout d'une carte avec Arrange ON et Zoom actifs provoquait
+  une erreur.
+  Plusieurs autres petites corrections de bogues.
+
+- 1.11 (2007/09/30)
+  Ajout de la position fixe des cartes (bouton punaise).
+  Ajout de Arrange (Matrix), qui organise les cartes en grille.
+  Ajout d'un aperçu de l'ensemble de la disposition des cartes en bas à droite du Browser.
+  Les cartes peuvent désormais être déplacées avec les touches de direction dans le Browser.
+  Ajout de Link Limitation qui n'affiche que les cartes liées dans le sens inverse.
+  Ajout de Link Limitation qui affiche les liens entre la carte active et la carte cible.
+  Ajout d'une nouvelle forme de carte qui dessine une petite figure au centre et
+  évide le texte.
+  En plus des cercles autour des cartes de même label, des rectangles peuvent désormais
+  être dessinés.
+  La police peut désormais être modifiée (View menu -> Font -> Change Font).
+  Un fond d'écran peut désormais être défini pour l'écran Browser (View menu -> Others).
+  Ajout de modes d'organisation Soft qui privilégient la prévention des chevauchements.
+  L'organisation automatique des cartes se poursuit désormais même pendant le glisser.
+  L'organisation automatique et le défilement sont désormais légèrement plus fluides.
+  Ajout de raccourcis pour basculer entre le Browser et l'Editor (Ctrl+B, Ctrl+E).
+  Le déclencheur de mise en surbrillance des trois dernières cartes consultées est passé
+  de Shift à Espace.
+  Le modificateur de glisser pour déplacer les cartes de même label est passé de Shift
+  à Ctrl.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.10 (2007/09/01)
+  Ajout d'un paramètre de retour à la ligne automatique du corps via View menu -> Text ->
+  WordWrap.
+  Les titres de cartes peuvent désormais contenir des sauts de ligne avec \n ou
+  Ctrl+Entrée dans le Browser.
+  Ajout de l'organisation par similarité de titre/corps (Similarity).
+  Ajout de Normalize, qui ajuste le zoom pour que les cartes tiennent à l'écran.
+  Ajout de la prise en charge de divers types de scores (View menu -> Score).
+  Ajout de la lecture à voix haute des titres de cartes (nécessite Microsoft Agent).
+  Ajout de la recherche insensible à la casse (décocher Match Case).
+  Correction d'un bogue où les raccourcis clavier ne fonctionnaient pas dans la boîte
+  de recherche.
+  Correction d'un problème où une erreur pouvait survenir juste après le démarrage.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.05 (2007/08/03)
+  Ajout de la sélection de menus en japonais via View menu -> Change Language.
+  Ajout de la prise en charge de l'affichage d'images spécifiées par liens externes
+  sur les cartes.
+  Ajout du calcul et de l'affichage des scores via View menu -> Others.
+  Ajout de l'export de la liste des titres de cartes via File menu -> Export.
+  Les cartes consultées plus récemment sont désormais affichées au premier plan.
+  Appuyer sur Shift met désormais en surbrillance les trois dernières cartes consultées.
+  Les noms des labels sont désormais affichés à l'intérieur des cercles de labels dans
+  le Browser.
+  La zone de disposition des cartes du Browser a été étendue à quatre fois sa taille
+  précédente (deux fois plus large et deux fois plus haute).
+  L'AutoZoom maintient désormais toujours les cartes liées dans l'écran visible.
+  Le chargement des fichiers est désormais plus rapide.
+  Correction d'un problème où les cartes pouvaient se chevaucher pendant l'organisation
+  automatique.
+  Correction d'un problème où la touche Suppr ne pouvait pas supprimer une carte
+  immédiatement après la modification de son titre.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.04 (2007/07/16)
+  Ajout de paramètres de taille de carte par label avec le bouton View de l'onglet Browser.
+  Les labels peuvent désormais être activés ou désactivés.
+  Ajout du filtrage des cartes visibles par date.
+  Ajout du filtrage des cartes visibles par taille minimale de carte.
+  Les couleurs de premier plan et d'arrière-plan peuvent désormais être modifiées depuis
+  View menu -> Others.
+  Plusieurs cartes peuvent désormais être créées simultanément à partir d'un texte
+  multi-lignes, en utilisant chaque ligne comme titre.
+  Le nom du fichier en cours d'édition est désormais affiché dans la barre des tâches.
+  Lorsqu'une carte est sélectionnée, Cards défile jusqu'à ce que la carte sélectionnée
+  soit visible.
+  Correction d'un bogue où le programme ne pouvait pas démarrer s'il n'existait pas
+  d'imprimante par défaut.
+  Correction d'un bogue où la suppression d'un Link Label utilisé provoquait une erreur et
+  rendait l'application inutilisable.
+  Correction d'un problème où l'enregistrement pouvait échouer en cas de charge élevée et
+  le curseur restait en sablier.
+  Correction d'un problème où la fermeture de la boîte de recherche ramenait le curseur
+  en haut de la page.
+  Correction d'un problème où cliquer dans un espace vide avec Fold actif pouvait
+  sélectionner une carte.
+  Correction d'un problème où la plage de sélection pendant la recherche était incorrecte.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.03 (2006/12/17)
+  Ajout de l'impression simple de l'affichage du Browser.
+  Ajout de Shift+Insert pour créer une carte nœud parent.
+  Les formes et tailles de cartes peuvent désormais être modifiées.
+  Ajout de la prise en charge de niveaux de zoom plus élevés.
+  Ajout d'une barre d'état affichant le nombre de caractères et d'autres informations
+  (la visibilité peut être modifiée depuis le View menu).
+  Ajout de Select All dans le Edit menu.
+  Correction de la corruption de l'affichage et du fichier lors du collage de RichText.
+  Correction d'un bogue où la suppression d'un lien avec la touche Suppr pendant un
+  glisser provoquait une erreur.
+  Correction d'un problème où la ligne n'était pas affichée lors du glisser d'un lien
+  avec label.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.02 (2006/10/21)
+  Ajout de Insert pour créer une carte nœud enfant.
+  Ajout de Entrée pour créer une carte nœud sœur.
+  Ajout de Insert avec un lien sélectionné pour créer une carte entre les cartes liées.
+  Les liens peuvent désormais être modifiés par glisser.
+  Ajout de la recherche limitée aux titres ou au corps des cartes.
+  Ajout de la recherche de titres de cartes depuis l'écran Browser.
+  Ajout de Shift+glisser pour déplacer ensemble les cartes de même label.
+  La recherche est désormais plus rapide.
+  L'affichage est désormais légèrement plus rapide.
+  Lors de la création d'une nouvelle carte, l'Index initial varie désormais en fonction
+  de la carte en cours d'édition.
+  Correction d'un problème où les cartes repliées repoussaient trop fortement pendant
+  l'Arrange.
+  Correction d'un problème où il était impossible d'insérer une tabulation dans le corps.
+  Plusieurs autres petites corrections et améliorations.
+
+- 1.01 (2006/10/07)
+  Les titres de cartes peuvent désormais être modifiés directement dans le Browser.
+  Immédiatement après la création d'une nouvelle carte, le programme passe en mode
+  d'édition du titre.
+  Ajout de l'Auto Zoom, qui ajuste automatiquement le zoom de l'écran Browser.
+  Ajout de l'organisation par ordre des cartes (Index).
+  View button -> Link Limitation peut désormais filtrer par direction du lien.
+  Ajout de Cut to New Card Title dans le menu contextuel de l'Editor.
+  Ajout de Shuffle, qui randomise les coordonnées des cartes dans le Browser.
+  Ajout de Shuffle (Edit -> Sort menu), qui randomise l'ordre des cartes.
+  Correction d'un bogue où cliquer sur une carte dans le Browser pouvait sélectionner la
+  carte située en dessous.
+
+- 1.00 (2006/09/24)
+  Version initiale.
+24
+Title: Droits d'auteur et licence
+Label:1
+Fixed:0
+X:0.127202451229095
+Y:0.852422893047333
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Droits d'auteur et licence
+----------------------------------------------------------------------------
+
+Ce logiciel est gratuit et les droits d'auteur appartiennent à Frieve.
+Même si l'utilisation de cette application devait causer un quelconque problème,
+nous ne pouvons en accepter la responsabilité.
+
+La redistribution est librement autorisée depuis la Version 1.00.
+Lors de la redistribution du logiciel, veuillez redistribuer la dernière version et
+conserver le format de fichier exactement tel qu'il a été téléchargé. Si vous souhaitez
+le redistribuer sous une forme particulière, veuillez contacter Frieve au préalable.
+62
+Title: Questions fréquentes
+Label:1
+Fixed:0
+X:0.173380136489868
+Y:0.835304021835327
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Questions fréquentes
+----------------------------------------------------------------------------
+
+Q. Existe-t-il un moyen d'agrandir la zone du Browser ?
+
+R. Dans Arrange (organisation automatique des cartes) en haut de l'écran du Browser,
+sélectionnez Normalize et appuyez sur le bouton Arrange ON. Les cartes seront organisées
+automatiquement autour du centre du Browser tout en conservant leurs positions relatives.
+Après l'organisation, vous pouvez utiliser la barre Zoom pour agrandir ou réduire, et
+vous pouvez modifier la zone visible du Browser en cliquant ou en faisant glisser les
+barres de défilement ou l'aperçu en bas à droite du Browser.
+
+
+Q. Peut-on lancer Frieve Editor depuis une clé USB ou un support similaire ?
+
+R. Copiez tous les fichiers du dossier d'installation de Frieve Editor
+(normalement c:\Program Files\Frieve Editor\) sur la clé USB.
+Vous pouvez ensuite utiliser Frieve Editor en exécutant editor.exe depuis cet emplacement.
+Frieve Editor n'utilise pas le registre.
+
+
+Q. J'aimerais utiliser Frieve Editor dans un cadre professionnel.
+
+R. Frieve Editor est gratuit, que ce soit pour un usage personnel ou commercial.
+Il n'est pas nécessaire de nous contacter, même en cas de déploiement à grande échelle.
+
+
+Q. Le logiciel semble se connecter à internet au démarrage. Que fait-il ?
+
+R. Il vérifie la disponibilité de la dernière version de Frieve Editor.
+C'est la même opération que Help menu -> Check Latest Release.
+Vous pouvez également configurer depuis Help menu -> Check Latest Release si la dernière
+version doit être vérifiée automatiquement.
+Si vous ne souhaitez pas qu'il se connecte, le bloquer avec un pare-feu ne causera
+aucun problème.
+
+
+Q. Le texte japonais apparaît déformé dans le Browser.
+
+R. Le jeu de caractères de la police est peut-être réglé sur une option non japonaise
+comme un jeu de caractères occidental. Ouvrez la boîte de dialogue de police depuis
+View menu -> Font -> Change Font, choisissez une police japonaise et réglez le jeu de
+caractères sur Japanese.
+
+
+Q. La vidéo associée à une carte ne se lit pas.
+
+R. Essayez d'installer le codec présenté ici :
+http://ja.wikipedia.org/wiki/Ffdshow
+25
+Title: Autres informations
+Label:1
+Fixed:0
+X:0.197277724742889
+Y:0.895450711250305
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Autres informations
+----------------------------------------------------------------------------
+
+Pour les dernières informations sur Frieve, veuillez visiter :
+http://www.frieve.com/
+
+Pour les dernières informations sur Frieve Editor, veuillez visiter :
+http://www.frieve.com/feditor/
+
+L'adresse e-mail de Frieve est indiquée ci-dessous.
+Veuillez noter que nous ne sommes pas toujours en mesure de répondre aux messages envoyés.
+frieve-a@frieve.com
+15
+Title:Édition des cartes
+Label:2,8
+Fixed:0
+X:0.135771751403809
+Y:0.464719504117966
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Édition des cartes
+============================================================================
+59
+Title: Comment créer une nouvelle carte
+Label:2
+Fixed:0
+X:0.0362772606313229
+Y:0.610172748565674
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment créer une nouvelle carte
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Double-cliquez sur une zone vide du Browser, là où aucune carte n'est placée.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée à la fin de la liste des cartes.
+
+Remarque : si vous cliquez sur le troisième bouton en partant de la gauche en haut à
+      gauche de l'écran du Browser (le bouton marqué d'un L et d'une carte), choisissez
+      un label, puis double-cliquez, vous pouvez ajouter une carte à laquelle ce label
+      est déjà attribué.
+
+Ou bien,
+
+Sélectionnez New Card dans le Insert menu.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée après la carte actuellement
+      sélectionnée. Si aucune carte n'est sélectionnée, elle est ajoutée à la fin
+      de la liste des cartes.
+
+Ou bien,
+
+1. Faites un clic droit dans la liste Cards à gauche de l'écran.
+2. Choisissez New Card dans le menu qui apparaît.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée avant la carte actuellement
+      sélectionnée. Si aucune carte n'est sélectionnée, elle est ajoutée à la fin
+      de la liste des cartes.
+
+Ou bien,
+
+1. Dans l'onglet Editor, sélectionnez une partie du corps d'une carte existante que
+   vous souhaitez utiliser comme corps de la nouvelle carte.
+2. Choisissez Cut to New Card dans le menu contextuel de l'Editor.
+   Une nouvelle carte est créée avec le texte sélectionné comme corps.
+
+Ou bien,
+
+1. Dans l'onglet Editor, sélectionnez la ou les lignes du corps d'une carte existante
+   que vous souhaitez utiliser comme titre de la nouvelle carte
+   (sélectionnez plusieurs lignes pour créer plusieurs cartes à la fois).
+2. Choisissez Cut to New Card Title ou Cut to New Card Title with Link dans le menu
+   contextuel de l'Editor. Une nouvelle carte est créée avec le texte sélectionné comme
+   titre. Si vous choisissez with Link, un lien est également créé de la carte
+   d'origine vers la carte nouvellement créée.
+61
+Title: Comment créer une carte liée à une carte existante
+Label:2
+Fixed:0
+X:0.00704234046861529
+Y:0.547152161598206
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment créer une carte liée à une carte existante
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Sélectionnez la carte source dans le Browser.
+3. Appuyez sur la touche Insert. Une nouvelle carte liée depuis la carte sélectionnée
+   est créée.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée après la dernière carte parmi
+      les cartes liées depuis la carte sélectionnée.
+
+Remarque : les labels de la carte sélectionnée sont hérités par la nouvelle carte.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Sélectionnez la carte source dans le Browser.
+3. Appuyez sur Shift+Insert. Une nouvelle carte liée vers la carte sélectionnée est créée.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée après la dernière carte parmi
+      les cartes liées vers la carte sélectionnée.
+
+Remarque : les labels de la carte sélectionnée sont hérités par la nouvelle carte.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Sélectionnez une carte qui est une carte sœur de celle que vous voulez créer.
+3. Appuyez sur Entrée. Une nouvelle carte liée depuis la carte source de la carte
+   sélectionnée est créée.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée après la carte actuellement
+      sélectionnée.
+
+Remarque : si plus d'une carte pointe vers la carte sélectionnée, la nouvelle carte
+      est créée depuis la plus récemment sélectionnée de ces cartes sources.
+
+Remarque : les labels de la carte sélectionnée sont hérités par la nouvelle carte.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Sélectionnez le lien où vous souhaitez insérer une carte.
+3. Appuyez sur la touche Insert. Une nouvelle carte est créée au milieu du lien
+   sélectionné.
+
+Remarque : dans ce cas, la nouvelle carte est ajoutée après la dernière carte parmi
+      les cartes liées depuis la carte source de la carte sélectionnée.
+32
+Title: Comment sélectionner des cartes
+Label:2
+Fixed:0
+X:0
+Y:0.419560462236404
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment sélectionner des cartes
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur la carte que vous souhaitez sélectionner. Pour sélectionner plusieurs
+   cartes simultanément, maintenez Ctrl enfoncé tout en cliquant sur les cartes.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Maintenez Shift enfoncé et faites glisser sur une zone vide pour définir une plage
+   de sélection. Les cartes situées dans la zone que vous délimitez sont sélectionnées.
+
+Ou bien,
+
+Cliquez sur les cartes dans la liste Cards à gauche de l'écran.
+Pour sélectionner plusieurs cartes, maintenez Ctrl enfoncé tout en cliquant sur les
+cartes, faites glisser sur la plage souhaitée ou sélectionnez la première carte de la
+plage puis maintenez Shift tout en cliquant sur la dernière carte.
+27
+Title: Comment déplacer des cartes
+Label:2,5
+Fixed:0
+X:0.340611904859543
+Y:0.683660268783569
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment déplacer des cartes
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Faites glisser la carte que vous souhaitez déplacer.
+
+Remarque : si plusieurs cartes sont sélectionnées, vous pouvez les déplacer toutes
+      ensemble.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Maintenez Ctrl enfoncé et faites glisser une carte.
+   Cela vous permet de déplacer ensemble les cartes portant le même label.
+18
+Title: Comment modifier le titre d'une carte
+Label:2
+Fixed:0
+X:0.0260267276316881
+Y:0.359273552894592
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier le titre d'une carte
+----------------------------------------------------------------------------
+
+1. Sélectionnez la carte dont vous souhaitez modifier le titre.
+2. Saisissez le nouveau titre dans Title sur le panneau Card.
+20
+Title: Comment modifier le contenu d'une carte
+Label:2
+Fixed:0
+X:0.00242089992389083
+Y:0.481038421392441
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2023/04/14 20:17:51
+-
+----------------------------------------------------------------------------
+Comment modifier le contenu d'une carte
+----------------------------------------------------------------------------
+
+1. Double-cliquez sur la carte que vous souhaitez modifier dans le Browser, ou
+   double-cliquez dessus dans la liste Card à gauche de l'écran. Si la carte est déjà
+   sélectionnée, cliquez sur l'onglet Editor pour afficher l'éditeur.
+2. Modifiez le contenu de la carte dans l'Editor.
+113
+Title: Comment modifier le contenu d'une carte avec GPT
+Label:2
+Fixed:0
+X:0.0822317451238632
+Y:0.539448618888855
+Size:100
+Shape:2
+Visible:1
+Created:2023/04/14 20:17:39
+Updated:2023/04/14 20:37:19
+Viewed:2023/04/14 20:23:50
+-
+----------------------------------------------------------------------------
+Comment modifier le contenu d'une carte avec GPT
+----------------------------------------------------------------------------
+
+1. Choisissez GPT dans le Edit menu, ou appuyez sur Ctrl+G au clavier.
+   L'utilisation de Ctrl+G est recommandée.
+2. Sélectionnez l'opération souhaitée dans le menu contextuel.
+3. La première fois que vous l'utilisez, saisissez votre clé API OpenAI dans la boîte
+   de dialogue qui apparaît.
+
+L'intégration GPT de Frieve Editor utilise l'API OpenAI, payante mais extrêmement peu
+coûteuse. Pour utiliser l'API OpenAI, vous devez créer un compte OpenAI et enregistrer
+une carte de crédit. Pour les détails sur l'obtention d'une clé API OpenAI, veuillez
+consulter le site web de l'API OpenAI.
+https://platform.openai.com/overview
+
+
+Les opérations suivantes sont disponibles par défaut.
+
+Create
+  Saisissez des instructions et générez un nouveau texte à partir de celles-ci.
+  Vous pouvez également utiliser le français dans les instructions.
+  Si aucun texte n'est sélectionné, le texte est généré à partir de zéro.
+  Si du texte est sélectionné, le résultat généré se fonde à la fois sur le texte
+  sélectionné et sur vos instructions.
+
+
+Continue
+  Génère un texte qui poursuit à partir de la position actuelle du curseur.
+
+Simplify
+  Remplace le texte sélectionné par une version simplifiée.
+
+Longer
+  Développe le texte sélectionné et le remplace par une version plus longue.
+
+Summarize
+  Résume le texte sélectionné.
+
+Proofread
+  Corrige les erreurs grammaticales, les fautes de frappe et les problèmes similaires
+  dans le texte sélectionné.
+
+Translate to English
+  Traduit le texte sélectionné en anglais.
+
+Translate to Japanese
+  Traduit le texte sélectionné en japonais.
+
+
+Title
+  Génère un titre de carte à partir du texte sélectionné.
+
+
+En modifiant le fichier setting2.ini, inclus avec Frieve Editor, dans un éditeur de
+texte, vous pouvez ajouter toutes les fonctionnalités d'intégration ChatGPT que
+vous souhaitez.
+
+[GPTSystem]
+SystemPrompt=Response should only be a single processing result. No additional explanations or excuses needed. Respond in the last language of the user's instructions without translating unless otherwise instructed by the user.
+[GPT]
+Create=Insert,(Input)
+-=
+Continue=InsertAfter, Generate text that follow the text below.
+Simplify=Replace,Replace the text below with simpler text.
+Longer=Replace,Inflate the text below and replace it with longer text than the original.
+Summarize=Replace,Summarize and replace the following text.
+Proofread=Replace,You are a professional multilingual proofreader. Replace the text below with the corrected text for grammar, misspellings, etc. If you do not need proofreading, please answer the original text as it is.
+-=
+Translate to English=Replace,Translate the following sentences into English.
+Translate to Japanese=Replace,Translate the following sentences into Japanese.
+-=
+Title=Title,Create a title based on the following sentences.Responses should be in the original language.
+
+[GPTSystem] SystemPrompt= est suivi du texte utilisé comme instruction système pour
+ChatGPT lors de l'appel de chaque fonction d'intégration GPT.
+
+Ajoutez les opérations souhaitées sur chaque ligne sous [GPT] au format suivant.
+NomOpération=TypeOpération,Instruction de traitement
+
+Tout texte peut être utilisé comme nom d'opération.
+Le nom d'opération spécifié ici est utilisé pour le menu contextuel affiché lors de
+l'appel de la fonction GPT.
+Si vous ajoutez une ligne « -= », le menu est affiché avec un séparateur à cet endroit.
+
+Choisissez l'un des quatre types d'opération suivants.
+
+Insert
+  Insère le texte généré à la position actuelle du curseur
+InsertAfter
+  Génère du texte à partir du texte jusqu'à la position actuelle du curseur et l'insère
+  à la position actuelle du curseur
+Replace
+  Remplace le texte de la sélection en cours par le texte généré
+Title
+  Définit le titre de la carte à partir du texte généré depuis la sélection en cours
+
+Tout texte peut être utilisé comme instruction de traitement.
+Vous pouvez également utiliser le français dans les instructions.
+Si vous spécifiez (Input), une boîte de dialogue s'ouvre après la sélection de
+l'opération et invite l'utilisateur à saisir une instruction.
+37
+Title: Comment rechercher des cartes
+Label:2
+Fixed:0
+X:0.0635863617062569
+Y:0.322657883167267
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2023/04/14 20:23:48
+-
+----------------------------------------------------------------------------
+Comment rechercher des cartes
+----------------------------------------------------------------------------
+
+1. Choisissez Find dans le Edit menu, ou appuyez sur Ctrl+F.
+2. Saisissez la chaîne de recherche dans la boîte de dialogue qui apparaît.
+3. Pour rechercher dans les titres de cartes, cochez Card Title.
+4. Pour rechercher dans le corps des cartes, cochez Text.
+5. Pour effectuer une recherche sensible à la casse, cochez Match Case.
+   Pour une recherche insensible à la casse, décochez Match Case.
+6. Pour inclure les cartes masquées dans le Browser dans la recherche, cochez
+   Invisible Card. Si vous ne souhaitez pas inclure les cartes masquées, décochez
+   Invisible Card.
+7. Appuyez sur Find Next.
+8. Pour rechercher le candidat suivant avec le même mot-clé et les mêmes conditions,
+   choisissez Find Next dans le Edit menu ou appuyez sur F3.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Saisissez la chaîne de recherche dans la zone de texte en haut à droite de l'onglet
+   Browser.
+3. Appuyez sur le bouton Find à droite de la zone de texte.
+   Cela recherche dans les cartes actuellement visibles les titres de cartes contenant
+   la chaîne de recherche.
+26
+Title: Comment supprimer des cartes
+Label:2
+Fixed:0
+X:0.24679708480835
+Y:0.473888546228409
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment supprimer des cartes
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Sélectionnez la carte que vous souhaitez supprimer.
+3. Appuyez sur la touche Suppr.
+
+Ou bien,
+
+1. Cliquez sur la carte que vous souhaitez supprimer dans la liste Cards à gauche
+   et sélectionnez-la.
+2. Faites un clic droit dans la liste Cards.
+3. Choisissez Delete Card dans le menu contextuel qui apparaît.
+28
+Title: Comment ajouter un label à une carte
+Label:2
+Fixed:0
+X:0.214659854769707
+Y:0.532409250736237
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ajouter un label à une carte
+----------------------------------------------------------------------------
+
+1. Sélectionnez la carte à laquelle vous souhaitez ajouter un label.
+2. Cliquez sur l'un des boutons à droite de Label sur le panneau Card qui n'a pas
+   encore de label attribué.
+3. Choisissez le label à appliquer à la carte dans le menu contextuel qui apparaît.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le troisième bouton en partant de la gauche en haut à gauche de l'écran
+   du Browser (le bouton marqué d'un L et d'une carte) pour le sélectionner.
+3. Choisissez le label à appliquer dans le menu contextuel qui apparaît.
+4. Cliquez sur la carte à laquelle vous souhaitez ajouter le label.
+20
+Title: Comment ajouter un nouveau label à une carte
+Label:2,4
+Fixed:0
+X:0.155212134122849
+Y:0.217682495713234
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ajouter un nouveau label à une carte
+----------------------------------------------------------------------------
+
+1. Sélectionnez la carte dont vous souhaitez modifier les labels.
+2. Choisissez New Label dans le Insert menu.
+3. Saisissez le nom du nouveau label dans la boîte de dialogue qui apparaît et
+   appuyez sur OK.
+21
+Title: Comment supprimer ou modifier le label d'une carte
+Label:2
+Fixed:0
+X:0.119580142199993
+Y:0.362847059965134
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment supprimer ou modifier le label d'une carte
+----------------------------------------------------------------------------
+
+1. Sélectionnez la carte dont vous souhaitez modifier les labels.
+2. Cliquez sur le bouton de label que vous souhaitez supprimer ou modifier parmi les
+   boutons à droite de Label sur le panneau Card.
+3. Choisissez le label à attribuer à la carte dans le menu contextuel qui apparaît.
+   Si vous choisissez No Label ici, le label est supprimé.
+28
+Title: Comment associer un fichier externe ou une URL à une carte
+Label:2
+Fixed:0
+X:0.208069488406181
+Y:0.412064760923386
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment associer un fichier externe ou une URL à une carte
+----------------------------------------------------------------------------
+
+1. Double-cliquez sur la carte que vous souhaitez modifier dans le Browser, ou
+   double-cliquez dessus dans la liste Card à gauche de l'écran. Si la carte est déjà
+   sélectionnée, cliquez sur l'onglet Editor pour afficher l'éditeur.
+2. Sur une ligne du corps de la carte, saisissez soit le nom de fichier (chemin complet)
+   du fichier externe, soit une URL.
+
+Ou bien,
+
+1. Sélectionnez la carte à associer à l'élément externe.
+2. Choisissez New Ext Link dans le Insert menu.
+3. Spécifiez le fichier à associer.
+   Le nom de fichier spécifié est ajouté comme dernière ligne du corps de la carte.
+36
+Title: Comment afficher des images ou une vidéo sur une carte
+Label:2
+Fixed:0
+X:0.1629708558321
+Y:0.582576215267181
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment afficher des images ou une vidéo sur une carte
+----------------------------------------------------------------------------
+
+1. Double-cliquez sur la carte que vous souhaitez modifier dans le Browser, ou
+   double-cliquez dessus dans la liste Card à gauche de l'écran. Si la carte est déjà
+   sélectionnée, cliquez sur l'onglet Editor pour afficher l'éditeur.
+2. Sur une ligne du corps de la carte, saisissez soit le nom du fichier image
+   (chemin complet), soit l'URL d'un fichier image ou vidéo.
+
+Ou bien,
+
+1. Sélectionnez la carte à associer au média.
+2. Choisissez New Ext Link dans le Insert menu.
+3. Spécifiez le fichier image ou vidéo.
+   Le nom de fichier spécifié est ajouté comme dernière ligne du corps de la carte.
+
+Remarque : les formats image et vidéo actuellement pris en charge sont bmp, jpg, avi
+      et mpg.
+
+Remarque : si vous écrivez « position de début de lecture (ms)-position de fin (ms)| »
+      avant le nom du fichier vidéo ou l'URL, la plage spécifiée sera lue en boucle.
+Exemple : 1000-5000|c:\movie.mpg
+         Lit en boucle de 1 seconde à 5 secondes de c:\movie.mpg
+73
+Title: Comment afficher des dessins sur une carte
+Label:2
+Fixed:0
+X:0.057452104985714
+Y:0.426572859287262
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment afficher des dessins sur une carte
+----------------------------------------------------------------------------
+
+1. Sélectionnez la carte dans laquelle vous souhaitez insérer un dessin, soit dans le
+   Browser, soit depuis la liste des cartes à gauche de l'écran.
+2. Cliquez sur l'onglet Drawing pour afficher l'éditeur de dessin.
+3. Modifiez le dessin dans l'onglet Drawing.
+4. Lorsque vous revenez au Browser, le dessin modifié est affiché sur la carte.
+
+
+- Pour ajouter une forme
+
+1. En haut à gauche de l'onglet Drawing, cliquez pour choisir le type de forme à
+   ajouter : trait libre, ligne droite, rectangle ou ellipse.
+2. Faites glisser la souris à l'intérieur du cadre en pointillés pour ajouter la forme.
+
+
+- Pour sélectionner une forme
+
+1. En haut à gauche de l'onglet Drawing, choisissez le bouton de sélection avec l'icône
+   de curseur de souris.
+2. Cliquez sur la forme que vous souhaitez sélectionner. Maintenez Ctrl enfoncé tout en
+   cliquant pour basculer la sélection de plusieurs formes, ou faites glisser sur une zone
+   pour sélectionner plusieurs formes à la fois. Pour sélectionner toutes les formes,
+   choisissez Select All dans le Edit menu ou dans le menu contextuel.
+
+
+- Pour couper, copier ou supprimer une forme
+
+1. Sélectionnez la forme à modifier.
+2. Choisissez Cut, Copy ou Delete dans le Edit menu ou dans le menu contextuel.
+   Vous pouvez également utiliser la touche Suppr pour la supprimer.
+
+
+- Pour coller une forme coupée ou copiée
+
+Choisissez Paste dans le Edit menu ou dans le menu contextuel.
+
+
+- Pour redimensionner une forme
+
+1. Sélectionnez la forme que vous souhaitez redimensionner.
+2. Faites glisser l'un des petits carrés affichés aux coins de la forme.
+
+
+- Pour déplacer une forme
+
+1. Sélectionnez la forme que vous souhaitez déplacer (la sélection multiple est permise).
+2. Faites glisser n'importe quelle partie de la forme autre que les poignées de coin.
+
+
+- Pour changer la couleur d'une forme
+
+1. Sélectionnez la forme.
+2. Choisissez une couleur avec Color.
+   Pour utiliser la couleur de dessin de la carte déterminée par les labels, cliquez sur
+   Default. Pour choisir une autre couleur, cliquez sur le petit bouton deux positions à
+   droite de Default et choisissez une couleur dans la boîte de dialogue de sélection de
+   couleur qui apparaît. Si la couleur souhaitée a déjà été sélectionnée, vous pouvez
+   simplement cliquer sur la zone de couleur immédiatement à droite de Default.
+26
+Title: Comment modifier la forme et la taille d'une carte
+Label:2
+Fixed:0
+X:0.0962711051106453
+Y:0.620324313640594
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier la forme et la taille d'une carte
+----------------------------------------------------------------------------
+
+1. Sélectionnez la carte dont vous souhaitez modifier la taille.
+2. Modifiez la valeur Size à droite de Title sur le panneau Card.
+   À +8, la carte devient quatre fois sa taille d'origine, et à -8 elle devient un quart.
+
+Ou bien,
+
+1. Sélectionnez la carte dont vous souhaitez modifier la forme.
+2. Cliquez sur le bouton affichant la forme de la carte à droite de Size sur le panneau
+   Card.
+3. Choisissez la forme de la carte dans le menu contextuel qui apparaît.
+15
+Title:Édition des liens
+Label:3,8
+Fixed:0
+X:0.623000621795654
+Y:0.104134030640125
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Édition des liens
+============================================================================
+48
+Title: Comment créer un lien entre des cartes
+Label:3
+Fixed:0
+X:0.566736936569214
+Y:0
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment créer un lien entre des cartes
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le deuxième bouton en partant de la gauche en haut à gauche de l'onglet
+   Browser (le bouton avec une ligne) pour le sélectionner.
+3. Faites glisser la souris de la carte source vers la carte de destination.
+
+Ou bien,
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur la carte source pour la sélectionner.
+3. Tout en maintenant Shift enfoncé, cliquez sur la carte de destination.
+   Vous pouvez créer des liens rapidement en continuant à cliquer sur les cartes tout
+   en maintenant Shift.
+
+Remarque : si vous cliquez sur le quatrième bouton en partant de la gauche en haut à
+      gauche de l'écran du Browser (le bouton marqué d'un L et d'une ligne), choisissez
+      un label, puis créez un lien, vous pouvez ajouter un lien auquel ce label est
+      attribué par défaut.
+
+Ou bien,
+
+1. Sélectionnez la carte source.
+2. Choisissez New Link dans le Insert menu.
+3. Sélectionnez la carte de destination dans la boîte de dialogue qui apparaît et
+   appuyez sur OK.
+
+Ou bien,
+
+1. Sélectionnez la carte source.
+2. Cliquez sur l'onglet Editor.
+3. Faites un clic droit dans la liste des liens en bas de l'écran.
+4. Choisissez New Link dans le menu contextuel qui apparaît.
+5. Sélectionnez la carte de destination dans la boîte de dialogue qui apparaît et
+   appuyez sur OK.
+18
+Title: Comment sélectionner des liens
+Label:3
+Fixed:0
+X:0.56929486989975
+Y:0.059209194034338
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment sélectionner des liens
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le lien que vous souhaitez sélectionner.
+18
+Title: Comment modifier le titre d'un lien
+Label:3
+Fixed:0
+X:0.678290367126465
+Y:0.0122391069307923
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier le titre d'un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien dont vous souhaitez modifier le titre.
+2. Saisissez le nouveau titre dans Title sur le panneau Link.
+25
+Title: Comment modifier la source ou la destination d'un lien
+Label:3
+Fixed:0
+X:0.621458947658539
+Y:4.14445894421078E-5
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier la source ou la destination d'un lien
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Faites glisser l'extrémité du lien la plus proche de la carte source.
+   Vous pouvez modifier la source vers une autre carte.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Faites glisser l'extrémité du lien la plus proche de la carte de destination.
+   Vous pouvez modifier la destination vers une autre carte.
+28
+Title: Comment supprimer des liens
+Label:3
+Fixed:0
+X:0.740672647953033
+Y:0.0434682369232178
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment supprimer des liens
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Sélectionnez le lien que vous souhaitez supprimer.
+3. Appuyez sur la touche Suppr.
+
+Ou bien,
+
+1. Sélectionnez une carte qui possède le lien que vous souhaitez supprimer.
+2. Cliquez sur l'onglet Editor.
+3. Sélectionnez le lien que vous souhaitez supprimer dans la liste des liens en bas
+   de l'écran.
+4. Faites un clic droit dans la liste des liens.
+5. Choisissez Delete Link dans le menu contextuel qui apparaît.
+27
+Title: Comment ajouter un label à un lien
+Label:3
+Fixed:0
+X:0.696277678012848
+Y:0.0758924931287766
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ajouter un label à un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien auquel vous souhaitez ajouter un label.
+2. Cliquez sur le bouton à droite de Label sur le panneau Link.
+3. Choisissez le label à appliquer au lien dans le menu contextuel qui apparaît.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le quatrième bouton en partant de la gauche en haut à gauche de l'écran
+   du Browser (le bouton marqué d'un L et d'une ligne) pour le sélectionner.
+3. Choisissez le label à appliquer dans le menu contextuel qui apparaît.
+4. Cliquez sur le lien auquel vous souhaitez ajouter le label.
+20
+Title: Comment ajouter un nouveau label à un lien
+Label:3,4
+Fixed:0
+X:0.44114363193512
+Y:0.0377795398235321
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ajouter un nouveau label à un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien dont vous souhaitez modifier les labels.
+2. Choisissez New Link Label dans le Insert menu.
+3. Saisissez le nom du nouveau label dans la boîte de dialogue qui apparaît et
+   appuyez sur OK.
+21
+Title: Comment supprimer ou modifier le label d'un lien
+Label:3
+Fixed:0
+X:0.659928321838379
+Y:0.18743234872818
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2013/11/02 22:43:18
+-
+----------------------------------------------------------------------------
+Comment supprimer ou modifier le label d'un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien dont vous souhaitez modifier les labels.
+2. Cliquez sur le bouton de label que vous souhaitez supprimer ou modifier parmi les
+   boutons à droite de Label sur le panneau Link.
+3. Choisissez le label à attribuer à la carte dans le menu contextuel qui apparaît.
+   Si vous choisissez No Label ici, le label est supprimé.
+18
+Title: Comment inverser la direction d'un lien
+Label:3
+Fixed:0
+X:0.766370892524719
+Y:0.0960935428738594
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment inverser la direction d'un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien dont vous souhaitez inverser la direction.
+2. Cliquez sur le bouton Inverse du panneau Link.
+18
+Title: Comment activer ou désactiver la direction d'un lien
+Label:3
+Fixed:0
+X:0.726710617542267
+Y:0.148985609412193
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment activer ou désactiver la direction d'un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien dont vous souhaitez modifier le paramètre de direction.
+2. Cochez ou décochez la case Direction sur le panneau Link.
+20
+Title: Comment modifier le style d'un lien
+Label:3
+Fixed:0
+X:0.5890052318573
+Y:0.169725924730301
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier le style d'un lien
+----------------------------------------------------------------------------
+
+1. Sélectionnez le lien dont vous souhaitez modifier le style de ligne.
+2. Cliquez sur le bouton affichant la ligne à droite du bouton Inverse sur le panneau
+   Link.
+3. Choisissez le style de ligne du lien dans le menu contextuel qui apparaît.
+15
+Title:Édition des labels
+Label:4,8
+Fixed:0
+X:0.309822618961334
+Y:0.138032555580139
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Édition des labels
+============================================================================
+18
+Title: Comment ouvrir l'éditeur de labels de cartes
+Label:2,4
+Fixed:0
+X:0.239311203360558
+Y:0.262179970741272
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ouvrir l'éditeur de labels de cartes
+----------------------------------------------------------------------------
+
+Choisissez Label dans le Edit menu.
+La boîte de dialogue d'édition des labels s'ouvre.
+18
+Title: Comment ouvrir l'éditeur de labels de liens
+Label:3,4
+Fixed:0
+X:0.450650095939636
+Y:0.125855848193169
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ouvrir l'éditeur de labels de liens
+----------------------------------------------------------------------------
+
+Choisissez Link Label dans le Edit menu.
+La boîte de dialogue d'édition des labels de liens s'ouvre.
+20
+Title: Comment créer un nouveau label
+Label:4
+Fixed:0
+X:0.249744102358818
+Y:0.0495991483330727
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment créer un nouveau label
+----------------------------------------------------------------------------
+
+1. Ouvrez l'écran d'édition des labels.
+2. Appuyez sur le bouton New en bas à gauche de l'écran d'édition.
+3. Saisissez le nom du nouveau label dans la boîte de dialogue qui apparaît et
+   appuyez sur OK.
+19
+Title: Comment renommer un label
+Label:4
+Fixed:0
+X:0.205345436930656
+Y:0.0864511057734489
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment renommer un label
+----------------------------------------------------------------------------
+
+1. Ouvrez l'écran d'édition des labels.
+2. Double-cliquez sur le nom du label que vous souhaitez modifier.
+3. Modifiez le nom du label dans la boîte de dialogue qui apparaît et appuyez sur OK.
+20
+Title: Comment modifier la couleur d'un label
+Label:4
+Fixed:0
+X:0.247681140899658
+Y:0.112559519708157
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier la couleur d'un label
+----------------------------------------------------------------------------
+
+1. Ouvrez l'écran d'édition des labels.
+2. Double-cliquez sur la zone de couleur du label que vous souhaitez modifier.
+3. Spécifiez la couleur du label dans la boîte de dialogue qui apparaît et
+   appuyez sur OK.
+22
+Title: Comment activer ou désactiver un label
+Label:4
+Fixed:0
+X:0.304129838943481
+Y:0.029614919796586
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment activer ou désactiver un label
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton VIEW à l'écran. La boîte de dialogue VIEW apparaît.
+3. Cliquez sur l'onglet Label pour le sélectionner.
+4. Cliquez sur la colonne Enable du label pour basculer entre activé et désactivé.
+   Les labels désactivés sont traités comme s'ils n'étaient pas attribués lors de
+   l'affichage et de l'organisation des cartes.
+19
+Title: Comment supprimer un label
+Label:4
+Fixed:0
+X:0.32245659828186
+Y:0.076952651143074
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment supprimer un label
+----------------------------------------------------------------------------
+
+1. Ouvrez l'écran d'édition des labels.
+2. Cliquez sur le label que vous souhaitez supprimer.
+3. Appuyez sur le bouton Delete en bas de l'écran d'édition.
+15
+Title:Organisation des cartes
+Label:5,8
+Fixed:0
+X:0.541004419326782
+Y:0.876301765441895
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Organisation des cartes
+============================================================================
+20
+Title: Comment faire tenir toutes les cartes à l'écran
+Label:5
+Fixed:0
+X:0.659723877906799
+Y:0.860044479370117
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment faire tenir toutes les cartes à l'écran
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Normalize dans le
+   menu contextuel qui apparaît.
+20
+Title: Comment organiser les cartes pour qu'elles ne se chevauchent pas
+Label:5
+Fixed:0
+X:0.609346568584442
+Y:0.806378960609436
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes pour qu'elles ne se chevauchent pas
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Repulsion dans le
+   menu contextuel qui apparaît.
+23
+Title: Comment organiser les cartes par liens
+Label:5
+Fixed:0
+X:0.427540153264999
+Y:0.961856842041016
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes par liens
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Link ou Link(Soft)
+   dans le menu contextuel qui apparaît.
+
+Remarque : par rapport à Link, Link(Soft) donne une priorité plus élevée à la
+      prévention des chevauchements de cartes.
+23
+Title: Comment organiser les cartes par labels
+Label:5
+Fixed:0
+X:0.536202609539032
+Y:0.785390555858612
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes par labels
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Label ou
+   Label(Soft) dans le menu contextuel qui apparaît.
+
+Remarque : par rapport à Label, Label(Soft) donne une priorité plus élevée à la
+      prévention des chevauchements de cartes.
+24
+Title: Comment organiser les cartes par index
+Label:5
+Fixed:0
+X:0.465191870927811
+Y:0.83367508649826
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes par index
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Index, Index(Soft)
+   ou Index(Matrix) dans le menu contextuel qui apparaît.
+
+Remarque : par rapport à Index, Index(Soft) donne une priorité plus élevée à la
+      prévention des chevauchements de cartes.
+Index(Matrix) organise les cartes de manière ordonnée depuis le coin supérieur gauche.
+20
+Title: Comment organiser les cartes en grille
+Label:5
+Fixed:0
+X:0.442980200052261
+Y:0.904361963272095
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes en grille
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Matrix dans le
+   menu contextuel qui apparaît.
+38
+Title: Comment organiser les cartes par similarité de titre/texte
+Label:5
+Fixed:0
+X:0.52382880449295
+Y:0.988851726055145
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes par similarité de titre/texte
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+3. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Similarity ou
+   Similarity(Soft) dans le menu contextuel qui apparaît.
+4. Pour organiser les cartes en utilisant les dernières valeurs de similarité, appuyez
+   sur le bouton de mise à jour plus à droite.
+
+Attention : dans les projets sans corps de texte, le calcul de similarité se termine en
+quelques secondes, mais si le nombre de cartes atteint des milliers ou si le fichier est
+centré sur le corps de texte, le calcul de similarité peut prendre beaucoup de temps. Par
+exemple, si la taille du corps de texte atteint environ 500 ko, le calcul peut prendre
+environ une minute sur un CPU de l'ordre de 2 GHz.
+
+Remarque : comme le calcul de similarité prend du temps, Frieve Editor ne calcule la
+      similarité entre les cartes qu'une seule fois, lorsque Similarity est sélectionné
+      alors que le bouton ON est enfoncé, ou lorsque le bouton ON est enfoncé alors que
+      Similarity est sélectionné. Après modification des titres ou du corps des cartes,
+      appuyez sur le bouton de mise à jour pour réorganiser les cartes avec les valeurs
+      de similarité reflétant ces modifications.
+
+Remarque : par rapport à Similarity, Similarity(Soft) donne une priorité plus élevée à
+      la prévention des chevauchements de cartes.
+48
+Title: Comment organiser les cartes de manière hiérarchique
+Label:5
+Fixed:0
+X:0.468564659357071
+Y:0.998640239238739
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment organiser les cartes de manière hiérarchique
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur la carte qui deviendra la racine (le sommet de la hiérarchie) pour la
+   sélectionner.
+3. Activez le bouton de désignation de racine à l'écran (à droite du bouton punaise et
+   à gauche du label).
+4. Cliquez sur le bouton Arrange ON pour qu'il soit enfoncé.
+5. Appuyez sur le bouton à droite du bouton Arrange ON et choisissez Tree (Radial) dans
+   le menu contextuel qui apparaît.
+
+Pour modifier l'ordre des cartes au sein d'un même niveau, utilisez les boutons
+Up/Down en haut à droite de la liste des cartes à gauche de l'écran, ou faites glisser
+les cartes vers le haut ou le bas dans le Browser.
+
+Pour modifier la hiérarchie elle-même, faites glisser les liens dans le Browser et
+reconnectez-les.
+
+Pour masquer les niveaux inférieurs sous une carte donnée, appuyez sur le bouton « - »
+affiché en bas à droite de la carte. Pour afficher à nouveau un niveau masqué, appuyez
+sur le bouton « + » affiché en bas à droite de la carte.
+
+Attention : lorsque l'organisation automatique est effectuée avec Tree (Radial), les
+valeurs d'Index des cartes sont forcément triées dans l'ordre hiérarchique.
+
+Remarque : une carte désignée comme racine affiche « > » à gauche de son titre dans la
+      liste des cartes à gauche de l'écran.
+
+Remarque : lorsque l'organisation automatique est effectuée avec Tree (Radial), la liste
+      des cartes à gauche de l'écran est affichée avec une indentation correspondant aux
+      niveaux hiérarchiques.
+
+Remarque : si plusieurs cartes sont définies comme racines, plusieurs arbres enracinés
+      à ces cartes sont organisés simultanément à l'écran.
+21
+Title: Comment modifier la taille des cartes par label
+Label:5
+Fixed:0
+X:0.586505353450775
+Y:1
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier la taille des cartes par label
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton VIEW à l'écran. La boîte de dialogue VIEW apparaît.
+3. Cliquez sur l'onglet Label pour le sélectionner.
+4. Dans les colonnes Label et Size, utilisez les boutons + et - pour spécifier dans
+   quelle mesure chaque label affecte la taille de la carte.
+23
+Title: Comment regrouper les cartes de même label
+Label:5
+Fixed:0
+X:0.655330836772919
+Y:0.973314940929413
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment regrouper les cartes de même label
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton VIEW à l'écran. La boîte de dialogue VIEW pour choisir les
+   cartes et liens à afficher apparaît.
+3. Cliquez sur l'onglet Label pour le sélectionner.
+4. Dans les colonnes Label et Fold, spécifiez le label que vous souhaitez regrouper.
+   Les cartes portant ce label coché sont affichées dans le Browser comme une seule
+   carte portant le nom du label.
+87
+Title: Comment choisir les cartes et liens affichés dans le Browser
+Label:5
+Fixed:0
+X:0.69487738609314
+Y:0.919996082782745
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment choisir les cartes et liens affichés dans le Browser
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cliquez sur le bouton VIEW à l'écran. La boîte de dialogue VIEW pour choisir les
+   cartes et liens à afficher apparaît.
+3. Cliquez sur l'onglet Label ou l'onglet Limitation.
+
+
+- Pour limiter les cartes visibles par taille de carte
+
+1. Cochez Size Limitation.
+2. Utilisez le curseur à droite de Size Limitation pour spécifier la taille minimale
+   des cartes à afficher.
+
+
+- Pour limiter les cartes visibles par nombre de liens depuis la carte sélectionnée
+
+1. Cochez Link Limitation.
+2. Utilisez le curseur Link Limitation pour spécifier la limite de liens.
+3. Pour limiter davantage le résultat par direction de lien avec ce paramètre,
+   cochez Direction.
+4. Pour limiter à la direction directe, cochez Forward. Pour limiter à la direction
+   inverse, cochez Backward.
+5. Pour ajouter une restriction par carte cible, appuyez sur le bouton à droite de
+   Target Card, choisissez Select et sélectionnez la carte cible dans la boîte de
+   dialogue.
+   Ou bien, dans le Browser, maintenez Alt enfoncé tout en cliquant sur la carte cible.
+   Pour supprimer la restriction de carte cible, appuyez sur le bouton à droite de
+   Target Card et choisissez No Assign.
+
+
+- Pour limiter les cartes visibles par date
+
+1. Cochez Date Limitation.
+2. Dans Date Type, choisissez la date à utiliser pour la restriction.
+   Created est la date et l'heure de création de la carte, Edited est la date et l'heure
+   de la dernière modification du corps de la carte, et Viewed est la date et l'heure de
+   la dernière sélection ou du dernier affichage de la carte.
+3. Dans Date Limitation Type, choisissez le mode d'application de la restriction.
+   Old affiche les cartes de la plus ancienne à la plus récente, New affiche les cartes
+   de la plus récente à la plus ancienne, Near affiche les cartes dont la date est proche
+   de celle de la carte sélectionnée, Older affiche les cartes plus anciennes que la carte
+   sélectionnée et proches en date, et Newer affiche les cartes plus récentes que la carte
+   sélectionnée et proches en date.
+2. Utilisez le curseur à droite de Date Limitation pour spécifier l'intensité de la
+   restriction.
+   Avec Old, les cartes les plus anciennes sont affichées lorsque le curseur est à
+   gauche, et des cartes plus récentes sont ajoutées en le déplaçant vers la droite.
+   Avec New, les cartes les plus récentes sont affichées lorsque le curseur est à droite,
+   et des cartes plus anciennes sont ajoutées en le déplaçant vers la gauche.
+   Avec Near, Older et Newer, déplacer le curseur vers la droite assouplit la restriction.
+
+
+- Pour afficher ou masquer les cartes avec des labels
+
+1. Pour afficher les cartes portant certains labels, spécifiez ces labels dans la colonne
+   Show sous Label. Si une carte possède un ou plusieurs des labels cochés, elle est
+   affichée.
+2. Pour masquer les cartes portant certains labels, spécifiez ces labels dans la colonne
+   Hide. Si une carte possède un ou plusieurs labels cochés dans cette colonne, elle est
+   masquée.
+   Les paramètres Hide ont priorité sur les paramètres Show.
+
+
+- Pour afficher ou masquer les liens avec des labels
+
+1. Pour afficher les liens portant certains labels, spécifiez ces labels dans la colonne
+   Show sous Link Label. Si un lien possède un ou plusieurs des labels cochés, il est
+   affiché.
+2. Pour masquer les liens portant certains labels, spécifiez ces labels dans la colonne
+   Hide. Si un lien possède un ou plusieurs labels cochés dans cette colonne, il est
+   masqué.
+   Les paramètres Hide ont priorité sur les paramètres Show.
+29
+Title: Comment trier les cartes
+Label:5
+Fixed:0
+X:0.602828919887543
+Y:0.92449277639389
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment trier les cartes
+----------------------------------------------------------------------------
+
+Choisissez une méthode de tri dans Edit menu -> Sort Card.
+Title trie les cartes par titre.
+Date Created trie par ordre de création.
+Date Edited trie par date de dernière modification de la carte.
+Date Viewed trie par date de dernière sélection de la carte.
+Les éléments marqués Inverse trient dans l'ordre inverse.
+
+Ou bien,
+
+1. Cliquez sur la carte que vous souhaitez réordonner dans la liste Cards à gauche
+   de l'écran.
+2. Utilisez les boutons UpDown en haut à droite de la liste Cards pour déplacer la
+   position de la carte dans la liste.
+15
+Title:Naviguer et animer
+Label:6,8
+Fixed:0
+X:0.900903046131134
+Y:0.648530066013336
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Naviguer et animer
+============================================================================
+38
+Title: Comment faire défiler le navigateur
+Label:6
+Fixed:0
+X:0.915158331394196
+Y:0.562265038490295
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment faire défiler le navigateur
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cochez Auto Scroll en haut à droite de l'onglet Browser.
+   Lorsque Auto Scroll est activé, chaque fois que vous sélectionnez une carte
+   ou un lien, le navigateur défile automatiquement pour centrer l'élément
+   sélectionné à l'écran.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Faites glisser une zone vide (sans carte).
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Utilisez les barres de défilement à droite et en bas du navigateur.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Utilisez la molette de la souris (sans Ctrl) pour faire défiler verticalement.
+   Maintenez Shift en tournant la molette pour un défilement horizontal
+   (ou faites glisser deux doigts sur le trackpad).
+36
+Title: Comment agrandir ou réduire l'affichage du navigateur
+Label:6
+Fixed:0
+X:0.843023300170898
+Y:0.610661089420319
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment agrandir ou réduire l'affichage du navigateur
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Cochez Auto Zoom en haut à droite de l'onglet Browser.
+   Lorsque Auto Zoom est activé, chaque fois que vous sélectionnez une carte
+   ou un lien, le navigateur ajuste automatiquement le zoom pour afficher
+   la carte ou le lien sélectionné ainsi que les cartes associées.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Faites glisser la commande Zoom de l'onglet Browser.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Maintenez Ctrl enfoncé et utilisez la molette de la souris pour zoomer.
+
+Ou bien,
+
+1. Cliquez sur l'onglet Browser.
+2. Pincez ou écartez les doigts sur le trackpad pour zoomer.
+37
+Title: Comment se déplacer entre les cartes au clavier
+Label:6
+Fixed:0
+X:0.862526595592499
+Y:0.718110978603363
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment se déplacer entre les cartes au clavier
+----------------------------------------------------------------------------
+
+Appuyez sur les touches fléchées.
+Cela permet de se déplacer vers la carte la plus proche de la carte active,
+indépendamment des liens.
+
+Ou bien,
+
+Appuyez sur Ctrl+Haut ou Ctrl+Bas.
+Cela permet de se déplacer vers la carte parent ou la carte enfant la plus récemment
+affichée, respectivement.
+
+Ou bien,
+
+Appuyez sur Ctrl+Gauche ou Ctrl+Droite.
+Cela permet de se déplacer vers les cartes sœurs dans le sens antihoraire ou horaire,
+respectivement.
+
+Ou bien,
+
+Appuyez sur Shift+touches fléchées.
+Parmi les cartes liées à la carte active, cela se déplace vers celle qui est la plus
+proche de la carte active.
+27
+Title: Comment modifier la taille du texte
+Label:6
+Fixed:0
+X:0.894776344299316
+Y:0.773412644863129
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment modifier la taille du texte
+----------------------------------------------------------------------------
+
+Dans le menu View, sous Font Size, choisissez Magnify (agrandir) ou Reduce (réduire).
+
+Ou bien,
+
+Appuyez sur Ctrl+Shift+PageUp pour agrandir ou Ctrl+Shift+PageDown pour réduire.
+
+Ou bien,
+
+Maintenez Ctrl+Shift enfoncés et utilisez la molette de la souris pour ajuster la taille du texte.
+
+Pour rétablir la taille par défaut, choisissez Default dans le menu View > Font Size, ou appuyez sur Ctrl+Shift+0.
+23
+Title: Comment utiliser le plein écran
+Label:6
+Fixed:0
+X:0.93836522102356
+Y:0.761452257633209
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment utiliser le plein écran
+----------------------------------------------------------------------------
+
+Choisissez Full Screen dans le View menu.
+
+Ou bien,
+
+Appuyez sur F10.
+
+Pour quitter le plein écran, appuyez sur Échap ou F10.
+29
+Title: Comment ouvrir les liens externes associés aux cartes
+Label:6
+Fixed:0
+X:0.968530714511871
+Y:0.712656259536743
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment ouvrir les liens externes associés aux cartes
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Browser.
+2. Maintenez Ctrl et Shift enfoncés tout en cliquant sur la carte dont vous souhaitez
+   ouvrir le lien externe.
+   Si la carte n'a qu'un seul lien externe, il s'ouvre immédiatement.
+3. Si la carte possède plusieurs liens externes, cliquez sur le lien souhaité dans le
+   menu contextuel qui apparaît.
+
+Ou bien,
+
+1. Double-cliquez sur la carte dont vous souhaitez ouvrir le lien externe dans le
+   Browser, ou double-cliquez dessus dans la liste Card à gauche de l'écran. Si cette
+   carte est déjà sélectionnée, cliquez sur l'onglet Editor pour afficher l'éditeur.
+2. Maintenez Ctrl enfoncé tout en cliquant sur la ligne contenant le lien externe.
+30
+Title: Comment afficher des cartes de manière aléatoire
+Label:6
+Fixed:0
+X:0.992111325263977
+Y:0.654013574123383
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment afficher des cartes de manière aléatoire
+----------------------------------------------------------------------------
+
+1. Choisissez Random Flash, Random Map, Random Scroll ou Random Jump dans le Animation
+   menu. L'animation démarre et la boîte de dialogue Random Animation apparaît.
+   Random Flash affiche le nombre spécifié de cartes les unes après les autres.
+   Random Map affiche une carte aléatoire, puis étend l'affichage aux cartes liées
+   depuis celle-ci.
+   Random Scroll fait défiler le nombre spécifié de cartes à travers l'écran.
+   Random Jump fait rebondir le nombre spécifié de cartes depuis le bas de l'écran.
+2. Pour agrandir ou réduire, modifiez Zoom.
+3. Pour modifier la vitesse d'affichage, ajustez Speed.
+4. Pour modifier le nombre de cartes affichées simultanément à l'écran, ajustez Cards.
+5. Pour passer en mode plein écran ou en sortir, appuyez sur le bouton Full Screen
+   ou sur F10.
+6. Pour mettre en pause ou reprendre l'animation, appuyez sur le bouton Pause.
+7. Pour arrêter l'animation, appuyez sur le bouton Stop.
+24
+Title: Comment parcourir les liens de manière aléatoire
+Label:6
+Fixed:0
+X:0.97888195514679
+Y:0.560383975505829
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment parcourir les liens de manière aléatoire
+----------------------------------------------------------------------------
+
+1. Choisissez Random Trace dans le Animation menu.
+   L'animation démarre et la boîte de dialogue Random Animation apparaît.
+2. Pour agrandir ou réduire, modifiez Zoom.
+3. Pour modifier la vitesse d'affichage, ajustez Speed.
+4. Pour passer en mode plein écran ou en sortir, appuyez sur le bouton Full Screen
+   ou sur F10.
+5. Pour mettre en pause ou reprendre l'animation, appuyez sur le bouton Pause.
+6. Pour arrêter l'animation, appuyez sur le bouton Stop.
+37
+Title: Comment consulter les statistiques
+Label:6
+Fixed:0
+X:1
+Y:0.603599071502686
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment consulter les statistiques
+----------------------------------------------------------------------------
+
+1. Cliquez sur l'onglet Statistics.
+   Par défaut, un graphique montrant le nombre de cartes par label est affiché.
+2. Pour modifier la clé utilisée pour l'affichage du graphique, cliquez sur le bouton
+   à droite de Key et choisissez l'une des options suivantes.
+
+   Label : affiche un graphique du nombre de cartes par label (par défaut)
+   Number of Link : affiche un graphique du nombre de cartes par nombre de liens
+   Created Date : affiche un graphique du nombre de cartes par date et heure de création
+   Edited Date : affiche un graphique du nombre de cartes par date et heure de dernière
+   modification
+   Viewed Date : affiche un graphique du nombre de cartes par date et heure de consultation
+
+   Si Created Date, Edited Date ou Viewed Date est sélectionné, vous pouvez également
+   choisir l'unité d'agrégation parmi Year, Month, Day, Week ou Hour.
+
+3. Pour lister les cartes incluses dans chaque barre du graphique, cliquez sur la barre.
+   Une liste des cartes incluses apparaît à droite de l'écran.
+
+
+Remarque : cette fonction peut également servir à lister uniquement les cartes portant
+      un label spécifique.
+15
+Title:Impression
+Label:9,8
+Fixed:0
+X:0.624003529548645
+Y:0.466246157884598
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+============================================================================
+Impression
+============================================================================
+25
+Title: Comment imprimer la vue du Browser
+Label:9
+Fixed:0
+X:0.675095319747925
+Y:0.453982561826706
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Comment imprimer la vue du Browser
+----------------------------------------------------------------------------
+
+1. Choisissez Print Image dans le File menu.
+2. Dans la boîte de dialogue qui apparaît, choisissez et configurez l'imprimante
+   selon vos besoins.
+3. Appuyez sur OK pour lancer l'impression.
+
+Remarque : la vue actuelle du Browser est imprimée centrée sur le papier sélectionné.
+
+Remarque : hormis la mise à l'échelle pour s'adapter à la taille du papier, la vue
+      actuelle du Browser est fondamentalement imprimée telle qu'elle apparaît à l'écran.
+15
+Title:Guide des menus
+Label:7,8
+Fixed:0
+X:0.896600604057312
+Y:0.321872353553772
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2023/04/14 20:14:35
+-
+============================================================================
+Guide des menus
+============================================================================
+87
+Title: Menu File
+Label:7
+Fixed:0
+X:0.959879457950592
+Y:0.36121729016304
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Menu File
+----------------------------------------------------------------------------
+
+New
+  Crée un nouveau projet.
+
+Open
+  Ouvre un projet enregistré.
+
+Save
+  Enregistre le projet en cours en écrasant le fichier existant.
+
+SaveAs
+  Enregistre le projet en cours sous un nouveau nom.
+
+Auto Save (This File)
+  Active ou désactive la sauvegarde automatique pour ce fichier.
+  Lorsque cette option est activée, les modifications sont automatiquement
+  enregistrées après un certain temps d'inactivité.
+  À la fermeture de l'application, les modifications non enregistrées sont
+  sauvegardées sans demande de confirmation.
+
+Auto Reload (This File)
+  Active ou désactive le rechargement automatique pour ce fichier.
+  Lorsque cette option est activée, le fichier est automatiquement rechargé
+  s'il est modifié par un programme externe.
+  Le rechargement automatique ne s'effectue pas tant que des modifications
+  non enregistrées existent dans l'application.
+
+
+Recent Files
+  Ouvre un projet précédemment utilisé.
+
+Recent Folders
+  Ouvre un projet depuis un dossier précédemment utilisé.
+
+
+Import
+  Charge des données à partir de fichiers autres que les fichiers fip.
+  Txt File charge un ou plusieurs fichiers texte, chacun comme une carte.
+  Hierarchical Text File charge un fichier texte hiérarchique dont l'indentation est
+  réalisée avec des tabulations ou des espaces, à raison d'une ligne par carte.
+  Hierarchical Text File 2 charge un fichier texte hiérarchique dans lequel la hiérarchie
+  est représentée par le nombre de points en début de ligne, le reste du texte devenant
+  le corps.
+  Text Files in a Folder charge tous les fichiers texte d'un dossier spécifié avec la
+  structure de dossiers.
+
+
+Export
+  Exporte des données vers des fichiers externes.
+  Txt file(Card Title) exporte tous les titres de cartes dans un seul fichier texte.
+  Txt file(Text) exporte le corps de toutes les cartes dans un seul fichier texte.
+  Txt files exporte chaque carte dans un fichier texte séparé. Dans ce cas, chaque nom
+  de fichier est le titre de la carte suivi de « .txt ».
+  html files exporte les données au format HTML pour consultation sur le web.
+  En plus du fichier portant le nom spécifié, « cards.html » et des fichiers nommés
+  numéro de carte + « .html » sont créés.
+  Hierarchical Text exporte un fichier texte dans lequel la hiérarchie est représentée
+  par le nombre de points en début de ligne. Le texte hiérarchique exporté dans ce format
+  peut être importé via Import menu -> Hierarchical Text File 2.
+
+Attention : lors des opérations d'Export qui créent plusieurs fichiers, si des fichiers
+  portant les mêmes noms existent déjà, ils sont écrasés sans avertissement.
+
+
+Print Image
+  Effectue une impression simple de l'affichage du Browser.
+  La vue actuelle du Browser est mise à l'échelle de la taille du papier sélectionné
+  et imprimée.
+
+
+Exit
+  Quitte Frieve Editor.
+70
+Title: Menu Edit
+Label:7
+Fixed:0
+X:0.908938229084015
+Y:0.362814664840698
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Menu Edit
+----------------------------------------------------------------------------
+
+Undo
+  Annule la dernière modification.
+
+Redo
+  Rétablit la modification la plus récemment annulée.
+
+
+Cut
+  Copie le texte sélectionné dans le presse-papiers puis le supprime.
+
+Copy
+  Copie le texte sélectionné dans le presse-papiers.
+
+Paste
+  Colle le texte du presse-papiers à la position actuelle.
+
+Delete
+  Supprime le texte sélectionné.
+
+Select All
+  Sélectionne tout le texte.
+
+
+Find
+  Recherche une chaîne spécifiée.
+
+Replace
+  Remplace une chaîne spécifiée par une autre chaîne.
+
+Find Next
+  Recherche l'occurrence suivante de la chaîne spécifiée.
+
+Find Previous
+  Recherche l'occurrence précédente de la chaîne spécifiée.
+
+Web Search
+  Effectue une recherche sur le web à partir du titre de la carte sélectionnée ou
+  du texte sélectionné.
+
+
+Sort Card
+  Trie les cartes par nom ou par date.
+
+Barch Conversion
+  All Cards Shape convertit en lot toutes les cartes vers la forme spécifiée.
+  All Links Shape convertit en lot tous les liens vers la forme spécifiée.
+  All Links Direction inverse la direction de tous les liens.
+
+
+Label
+  Ouvre la boîte de dialogue d'édition des labels.
+
+Link Label
+  Ouvre la boîte de dialogue d'édition des labels de liens.
+40
+Title: Menu Insert
+Label:7
+Fixed:0
+X:0.986021161079407
+Y:0.335430890321732
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Menu Insert
+----------------------------------------------------------------------------
+
+New Card
+  Crée une nouvelle carte.
+
+New Link
+  Crée un nouveau lien à partir de la carte sélectionnée.
+
+New Ext Link
+  Insère un lien externe (nom de fichier) dans la carte sélectionnée.
+
+New Label
+  Ajoute un nouveau label à la carte sélectionnée.
+
+New Link Label
+  Ajoute un nouveau label au lien sélectionné.
+
+
+Link to All Cards with Designated Label
+  Crée des liens depuis la carte active vers toutes les cartes portant le label spécifié.
+
+New Card Links to All Cards with Designated Label
+  Crée une nouvelle carte liée à toutes les cartes portant le label spécifié.
+
+Add Designated Label to All Destination Cards
+  Ajoute le label spécifié à toutes les cartes de destination.
+32
+Title: Menu Animation
+Label:7
+Fixed:0
+X:0.968556582927704
+Y:0.297196090221405
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:1899/12/30
+-
+----------------------------------------------------------------------------
+Menu Animation
+----------------------------------------------------------------------------
+
+Random Flash
+  Lance une animation qui affiche des cartes de manière aléatoire.
+
+Random Map
+  Lance une animation qui affiche une carte aléatoire puis étend l'affichage aux cartes
+  liées depuis celle-ci.
+
+Random Scroll
+  Lance une animation qui fait défiler des cartes de manière aléatoire.
+
+Random Jump
+  Lance une animation dans laquelle des cartes rebondissent aléatoirement depuis le bas
+  de l'écran.
+
+Random Trace
+  Lance une animation qui suit les liens de manière aléatoire.
+120
+Title: Menu View
+Label:7
+Fixed:0
+X:0.957366585731506
+Y:0.258614063262939
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2023/04/14 20:17:18
+-
+----------------------------------------------------------------------------
+Menu View
+----------------------------------------------------------------------------
+
+Font
+  Modifie la police.
+  Default Size rétablit la taille standard, Magnify l'agrandit et Reduce la réduit.
+  Pour changer la famille de police elle-même, choisissez Change Font et spécifiez
+  la police.
+
+Card
+  Modifie les paramètres d'affichage des cartes.
+  Shadow active ou désactive les ombres des cartes.
+  Gradation active ou désactive les dégradés des cartes.
+  Ticker active ou désactive l'affichage en défilement du corps sur les cartes. 1Line
+  affiche la première ligne du corps de la carte, et 2Lines affiche les deux premières
+  lignes en défilement.
+  Image active ou désactive l'affichage des miniatures d'images. Le premier fichier jpg
+  ou bmp inscrit dans le corps de la carte est utilisé.
+  Video active ou désactive l'affichage vidéo. Le premier fichier mpg ou avi inscrit dans
+  le corps de la carte est utilisé. L'affichage vidéo a priorité sur l'affichage d'images.
+  Drawing active ou désactive l'affichage des dessins. L'affichage des dessins a priorité
+  sur l'affichage des images et des vidéos.
+  32x32 à 320x320 spécifie la taille maximale des images, vidéos et dessins affichés sur
+  les cartes. Les médias plus grands sont réduits pour tenir dans la taille spécifiée.
+
+Link
+  Modifie les paramètres d'affichage des liens.
+  Link active ou désactive les lignes de liens, Hemming active ou désactive les contours
+  des liens, Direction active ou désactive la direction des liens, et Name active ou
+  désactive l'affichage du nom des liens.
+
+Label
+  Modifie les paramètres d'affichage des labels.
+  Circle active ou désactive les cercles montrant les groupes de même label.
+  Rectangle active ou désactive les rectangles montrant les groupes de même label.
+  Name active ou désactive l'affichage des noms de labels.
+
+Text
+  Modifie les paramètres d'affichage du corps de texte.
+  Text active ou désactive l'affichage du corps de la carte sélectionnée dans le Browser.
+  Centering bascule entre l'affichage centré et l'affichage en haut à gauche du corps
+  dans le Browser.
+  Edit In Browser active ou désactive la modification du corps par double-clic sur une
+  carte dans le Browser.
+  Always Show Editor active ou désactive l'affichage permanent de l'éditeur dans le
+  Browser (effectif avec tout paramètre sauf Under the Card).
+  Under the Card modifie le corps directement sous la carte.
+  Browser Right modifie le corps au bord droit du Browser.
+  Browser Bottom modifie le corps en bas du Browser.
+
+Score
+  Score active ou désactive l'affichage des scores.
+  Authenticity calcule un score dans lequel les cartes liées depuis des cartes à score
+  élevé obtiennent un score plus élevé.
+  StartingPoint donne des scores plus élevés aux cartes sources.
+  Destination donne des scores plus élevés aux cartes de destination.
+  Links(Out) utilise le nombre de liens sortants d'une carte.
+  Links(In) utilise le nombre de liens entrants vers une carte.
+  Links(Total) utilise le nombre total de liens d'une carte.
+  Links(In-Out) utilise les liens entrants moins les liens sortants.
+  Text Length utilise la longueur du corps de texte.
+
+Read Aloud
+  Read Aloud active ou désactive la lecture à voix haute des titres de cartes.
+
+Remarque : Microsoft Agent doit être installé pour lire les titres de cartes à voix haute.
+      Ce menu n'est pas affiché dans les environnements où Microsoft Agent ou les
+      composants vocaux associés ne sont pas installés.
+
+Remarque : Microsoft Agent est distribué gratuitement par Microsoft, mais ses adresses
+      de téléchargement et les fichiers requis semblent changer fréquemment. Si vous avez
+      besoin de la fonction de lecture à voix haute, veuillez vous appuyer sur les
+      informations disponibles sur le web et installer les fichiers nécessaires.
+
+Others
+  Modifie d'autres paramètres liés à l'affichage.
+  Card List active ou désactive la liste des cartes à gauche de l'écran.
+  File List active ou désactive la liste de fichiers affichée lorsque la souris est
+  déplacée vers le bord gauche de l'écran.
+  Overview active ou désactive l'aperçu en bas à droite du Browser.
+  FourgroundColor modifie la couleur de premier plan, et BackgroundColor modifie la
+  couleur d'arrière-plan.
+  Wallpaper spécifie un fond d'écran. Pour supprimer le fond d'écran, choisissez à
+  nouveau Wallpaper.
+  Fix Wallpaper fixe le fond d'écran pour qu'il remplisse l'écran.
+  Tile Wallpaper répète le fond d'écran sur toute la zone du Browser.
+  Background Animation active ou désactive l'animation d'arrière-plan.
+  Background Animation Type modifie le type d'animation d'arrière-plan.
+  Cursor Animation active ou désactive l'animation du curseur.
+  No Scroll Lag active ou désactive le défilement immédiat lors de la sélection d'une
+  carte.
+  Anti-Aliasing active ou désactive l'anti-aliasing.
+  2x effectue l'anti-aliasing à deux fois la résolution verticale et horizontale, et 4x
+  utilise quatre fois.
+
+Change Language
+  Modifie la langue des menus (actuellement l'anglais et le japonais sont pris en charge).
+  Pour prendre en charge d'autres langues, placez un fichier .lng dans le dossier de
+  Frieve Editor (format texte ; voir Japanese.lng pour le format).
+
+
+Full Screen
+  Bascule l'affichage plein écran du Browser.
+
+
+Status Bar
+  Active ou désactive la barre d'état.
+28
+Title: Menu Settings
+Label:7
+Fixed:0
+X:0.924349308013916
+Y:0.239721909165382
+Size:100
+Shape:2
+Visible:1
+Created:2023/04/14 20:14:47
+Updated:2023/04/14 20:17:21
+Viewed:2023/04/14 20:17:19
+-
+----------------------------------------------------------------------------
+Menu Settings
+----------------------------------------------------------------------------
+
+GPT API Key
+  Définit la clé API obtenue sur le site web d'OpenAI afin d'utiliser l'intégration GPT.
+
+Auto Save Default
+  Définit la valeur par défaut de la sauvegarde automatique pour les nouveaux fichiers.
+  Lorsque cette option est activée, les fichiers nouvellement créés ont
+  la sauvegarde automatique activée dès le départ.
+
+Auto Reload Default
+  Définit la valeur par défaut du rechargement automatique pour les nouveaux fichiers.
+  Lorsque cette option est activée, les fichiers nouvellement créés ont
+  le rechargement automatique activé dès le départ.
+31
+Title: Menu Help
+Label:7
+Fixed:0
+X:0.891983985900879
+Y:0.273029625415802
+Size:100
+Shape:2
+Visible:1
+Created:1899/12/30
+Updated:1899/12/30
+Viewed:2023/04/14 20:15:15
+-
+----------------------------------------------------------------------------
+Menu Help
+----------------------------------------------------------------------------
+
+Contents
+  Ouvre et affiche ce fichier d'aide dans Frieve Editor.
+
+Open Frieve Web Site
+  Ouvre le site web de Frieve dans le navigateur par défaut.
+
+Open Frieve Editor Web Site
+  Ouvre le site web de Frieve Editor dans le navigateur par défaut.
+
+Check Latest Release
+  Vérifie la dernière version publiée.
+
+
+About
+  Affiche les informations de version.

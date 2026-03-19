@@ -1949,6 +1949,14 @@ object Fo_Main: TFo_Main
         Caption = 'Save &As...'
         OnClick = MF_SaveAsClick
       end
+      object MF_AutoSave: TMenuItem
+        Caption = '&Auto Save (This File)'
+        OnClick = MF_AutoSaveClick
+      end
+      object MF_AutoReload: TMenuItem
+        Caption = '&Auto Reload (This File)'
+        OnClick = MF_AutoReloadClick
+      end
       object N1: TMenuItem
         Caption = '-'
       end
@@ -2729,6 +2737,17 @@ object Fo_Main: TFo_Main
       object MS_GPTAPIKey: TMenuItem
         Caption = '&GPT API Key...'
         OnClick = MS_GPTAPIKeyClick
+      end
+      object MS_AutoSaveDefaults: TMenuItem
+        Caption = '&Auto Save / Auto Reload Defaults'
+        object MS_AutoSaveDefault: TMenuItem
+          Caption = '&Auto Save Default'
+          OnClick = MS_AutoSaveDefaultClick
+        end
+        object MS_AutoReloadDefault: TMenuItem
+          Caption = '&Auto Reload Default'
+          OnClick = MS_AutoReloadDefaultClick
+        end
       end
       object MS_ReadAloudRate: TMenuItem
         Caption = '&Read Aloud Rate'

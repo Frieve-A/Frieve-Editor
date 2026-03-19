@@ -106,6 +106,8 @@ __published: // IDE-managed components
   TMenuItem *MF_Open;
   TMenuItem *MF_Save;
   TMenuItem *MF_SaveAs;
+  TMenuItem *MF_AutoSave;
+  TMenuItem *MF_AutoReload;
   TMenuItem *N1;
   TMenuItem *MF_Exit;
   TOpenDialog *OD;
@@ -584,6 +586,9 @@ __published: // IDE-managed components
   TMenuItem *ME_GPT;
   TMenuItem *Setting1;
   TMenuItem *MS_GPTAPIKey;
+  TMenuItem *MS_AutoSaveDefaults;
+  TMenuItem *MS_AutoSaveDefault;
+  TMenuItem *MS_AutoReloadDefault;
 
   void __fastcall FormCreate(TObject *Sender);
   void __fastcall FormDestroy(TObject *Sender);
@@ -599,6 +604,8 @@ __published: // IDE-managed components
   void __fastcall MF_OpenClick(TObject *Sender);
   void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
   void __fastcall MF_ExitClick(TObject *Sender);
+  void __fastcall MF_AutoSaveClick(TObject *Sender);
+  void __fastcall MF_AutoReloadClick(TObject *Sender);
   void __fastcall ME_UndoClick(TObject *Sender);
   void __fastcall ME_CutClick(TObject *Sender);
   void __fastcall ME_CopyClick(TObject *Sender);
@@ -844,6 +851,8 @@ __published: // IDE-managed components
                                  bool &Handled);
   void __fastcall ME_GPTClick(TObject *Sender);
   void __fastcall MS_GPTAPIKeyClick(TObject *Sender);
+  void __fastcall MS_AutoSaveDefaultClick(TObject *Sender);
+  void __fastcall MS_AutoReloadDefaultClick(TObject *Sender);
 
 private: // User declarations
 public:  // User declarations
@@ -1079,6 +1088,10 @@ private:
   void RefreshWallPaper();
   void RefreshFileList();
 
+  bool ActivateOtherInstanceIfFileAlreadyOpen(const UnicodeString &FN);
+
+  void UpdateAutoSaveReloadMenuStates();
+
   void MoveToSelectedAndRecentCard(); // Move to most recent of selected
   float MoveDistance(float sx, float sy, float dx, float dy,
                      int direction); // Distance s to d when moving in direction
@@ -1251,6 +1264,10 @@ public:
   // Continuous load (reload when file updated)
   bool m_bContinuousLoad;
   int m_nCLFileAge; // Timestamp for continuous load
+  unsigned int m_uLastUserEditTick;
+  unsigned int m_uLastAutoSaveTick;
+  unsigned int m_uLastAutoReloadCheckTick;
+  int m_nAutoReloadFileAge;
   int m_nBrowserWheelRemainderX;
   int m_nBrowserWheelRemainderY;
   int m_nBrowserZoomWheelRemainder;

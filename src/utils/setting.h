@@ -177,6 +177,13 @@ public:
   // GPT
   UnicodeString m_GPTAPIKey;
 
+  // Auto save / reload
+  bool m_bAutoSaveDefault;
+  bool m_bAutoReloadDefault;
+  int m_nAutoSaveMinIntervalSec;
+  int m_nAutoSaveIdleSec;
+  int m_nAutoReloadPollSec;
+
   void __stdcall (*fepLoadPlugIn)(void);
   void __stdcall (*fepTimeOut)(IDocCtrl *Doc);
   bool __stdcall (*fepOperation)(IDocCtrl *Doc, wchar_t *operation);

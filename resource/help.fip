@@ -1,7 +1,7 @@
-[Global]
-Version=8
-ReadOnly=1
+ï»¿[Global]
 DefaultView=1
+ReadOnly=1
+Version=8
 Arrange=1
 ArrangeMode=2
 AutoScroll=1
@@ -197,20 +197,20 @@ Num=88
 87=Fr7,De78,Di1,Sh0,Na
 [Label]
 Num=9
-0=Co16711680,En1,Sh1,Hi0,Fo0,Si100,NaŠT—v
-1=Co65280,En1,Sh1,Hi0,Fo0,Si100,NaƒJ[ƒh•ÒW
-2=Co255,En1,Sh1,Hi0,Fo0,Si100,NaƒŠƒ“ƒN•ÒW
-3=Co33023,En1,Sh1,Hi0,Fo0,Si100,Naƒ‰ƒxƒ‹•ÒW
-4=Co16711935,En1,Sh1,Hi0,Fo0,Si100,NaƒJ[ƒh®—
-5=Co65535,En1,Sh1,Hi0,Fo0,Si100,Naƒuƒ‰ƒEƒY
-6=Co16776960,En1,Sh1,Hi0,Fo0,Si100,Naƒƒjƒ…[‰ğà
-7=Co14671839,En1,Sh1,Hi0,Fo0,Si168,Naƒm[ƒh
-8=Co15991944,En1,Sh1,Hi0,Fo0,Si100,Naˆóü
+0=Co16711680,En1,Sh1,Hi0,Fo0,Si100,NaOverview
+1=Co65280,En1,Sh1,Hi0,Fo0,Si100,NaCard Editing
+2=Co255,En1,Sh1,Hi0,Fo0,Si100,NaLink Editing
+3=Co33023,En1,Sh1,Hi0,Fo0,Si100,NaLabel Editing
+4=Co16711935,En1,Sh1,Hi0,Fo0,Si100,NaCard Arrangement
+5=Co65535,En1,Sh1,Hi0,Fo0,Si100,NaBrowsing
+6=Co16776960,En1,Sh1,Hi0,Fo0,Si100,NaMenu Guide
+7=Co14671839,En1,Sh1,Hi0,Fo0,Si168,NaNode
+8=Co15991944,En1,Sh1,Hi0,Fo0,Si100,NaPrinting
 [LinkLabel]
 Num=1
-0=Co16711680,En1,Sh0,Hi0,Fo1,Si0,NaŠÖ˜A
+0=Co16711680,En1,Sh0,Hi0,Fo1,Si0,NaRelated
 [CardData]
-22
+23
 Title:Frieve Editor Help
 Fixed:0
 X:0.527909159660339
@@ -224,17 +224,18 @@ Updated:2013/11/02 22:35:21
 Viewed:2023/04/14 20:37:39
 -
 ============================================================================
-Frieve Editor Version 2.00 Help
+Frieve Editor Version 3.00 Help
 ============================================================================
 
-‚±‚Ì“x‚ÍFrieve Editor‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚½‚¾‚«‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·B
-Frieve Editor‚ÍAvl‚Ì®—‚âAaV‚ÈƒAƒCƒfƒA‚Ì”­‘z‚ğx‰‡‚·‚éV‚µ‚¢
-ƒGƒfƒBƒ^[‚Å‚·B
+Thank you for downloading Frieve Editor.
+Frieve Editor is a new kind of editor designed to help you organize your thoughts
+and come up with original ideas.
 
-ƒwƒ‹ƒv‚ğQÆ‚·‚é‚É‚ÍA‰æ–Ê¶‚ÌCards‚©‚ç–Ú“I‚ÌƒgƒsƒbƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-ŠÖ˜A‚·‚é‹L–‚ÍA‰æ–Ê‰º‚ÌƒŠƒ“ƒN‚ğ’H‚Á‚ÄQÆ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+To browse this help file, select the topic you want from Cards on the left side
+of the screen.
+You can also follow the links shown at the bottom of the screen to open related articles.
 15
-Title:ŠT—v
+Title:Overview
 Label:1,8
 Fixed:0
 X:0.223215848207474
@@ -247,10 +248,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ŠT—v
+Overview
 ============================================================================
-42
-Title: —p“r
+45
+Title: Purpose
 Label:1
 Fixed:0
 X:0.229445829987526
@@ -263,37 +264,40 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-—p“r
+Purpose
 ----------------------------------------------------------------------------
 
-Frieve Editor‚ÍAˆÈ‰º‚Ì‚æ‚¤‚È—p“r‚ğ‘z’è‚µ‚½ƒ\ƒtƒgƒEƒFƒA‚Å‚·B
+Frieve Editor is designed for uses such as the following.
 
-EƒAƒCƒfƒAƒvƒƒZƒbƒT[‚Æ‚µ‚Ä
-@ƒAƒCƒfƒA”­‘z‚Ì‘«‚ª‚©‚è‚Æ‚È‚éƒL[ƒ[ƒh‚ÌƒJ[ƒh‚ğŸX‚É‰æ–Ê‚É”z’u‚µ‚Ä
-‚¢‚«‚Ü‚·Bv‚¢‚Â‚¢‚½ƒAƒCƒfƒA‚ÌƒJ[ƒh‚à“¯—l‚É‰æ–Ê‚É”z’u‚µ‚È‚ª‚çAƒAƒCƒfƒA‚ğ
-•ª—Ş‚·‚éƒ‰ƒxƒ‹‚ğ•t—^‚µ‚½‚èAƒL[ƒ[ƒh‚Æ‚ÌŠÖ˜A«‚ğƒŠƒ“ƒN‚Å‘‚«‚ñ‚Å
-‚¢‚«‚Ü‚·B•t—^‚µ‚½ƒ‰ƒxƒ‹‚âƒŠƒ“ƒN‚É‚æ‚Á‚ÄAƒJ[ƒh‚ğ©“®“I‚É®—‚·‚é‚±‚Æ‚ª
-‚Å‚«‚Ü‚·BƒJ[ƒh‚ğƒ‰ƒ“ƒ_ƒ€‚É’ñ¦‚µ‚½‚èAƒŠƒ“ƒN‚ğƒ‰ƒ“ƒ_ƒ€‚ÉƒgƒŒ[ƒX‚·‚é
-ƒAƒjƒ[ƒVƒ‡ƒ“‹@”\‚ğ—p‚¢‚é‚±‚Æ‚ÅAaV‚ÈƒAƒCƒfƒA‚Ì”­‘z‚ğx‰‡‚µ‚Ü‚·B
+- As an idea processor
+  Place keyword cards that can spark ideas one after another on the screen.
+  As new ideas come to you, place those on the screen as cards as well, add labels
+  to classify them, and write their relationships to other keywords as links.
+  The labels and links you add can then be used to arrange the cards automatically.
+  Features such as randomly showing cards or randomly tracing links help support
+  fresh and unconventional thinking.
 
-E•¡G‚È–Û‚ÌŠÈŒ‰‚È‹LqA®——p“r‚É
-@—lX‚ÈğŒ‚ª•¡G‚É—‚İ‡‚Á‚½–Û‚ğA•ª‚©‚é”ÍˆÍ‚©‚ç‹Lq‚µ‚Ä‚¢‚«‚Ü‚·B
-•¨–‚ÌŠÖŒW‚ğƒ‰ƒxƒ‹‚âƒŠƒ“ƒN‚Å’è‹`‚µ‚Ä‚¢‚­‚±‚Æ‚É‚æ‚èA–Û‚ğ•ª‚©‚è‚â‚·‚­
-‹Lq‚Å‚«‚Ü‚·B‚±‚¤‚µ‚½‹Lq‚ğs‚¤‚±‚Æ‚É‚æ‚èA•’iŒ©—‚Æ‚µ‚ª‚¿‚È—lX‚È‰e‹¿‚ğ
-l—¶‚µ‚½‰ğŒˆô‚ğŒ©o‚·‚±‚Æ‚ª‚Å‚«‚Ü‚·B‚±‚ê‚Ü‚Å‘¼l‚É“`‚¦‚½‚èA‹¤—L‚·‚é‚±‚Æ‚Í
-”ñí‚É“ï‚µ‚©‚Á‚½•¡G‚Èvl‚àA–³—‚È‚­“`‚¦‚é‚±‚Æ‚ª‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
+- For concise description and organization of complex situations
+  Write down complex situations whose conditions are intertwined, starting from
+  whatever parts you already understand.
+  By defining relationships with labels and links, you can describe complex matters
+  more clearly. Doing so helps you discover solutions that take into account effects
+  that are easy to overlook in everyday thinking. Even complicated ideas that were
+  previously very hard to explain or share can be communicated naturally.
 
-EƒvƒƒWƒFƒNƒgŠÇ—ƒc[ƒ‹‚Æ‚µ‚Ä
-@s‚¤‚×‚«ì‹ÆA‚»‚ê‚ç‚ÌŠÖ˜A«Aì‹Æ‚ğs‚¤‡˜A—\ZAƒŠƒXƒN‚È‚Ç‚ğ
-‹Lq‚µ‚Ä‚¢‚«‚Ü‚·BŠeƒJ[ƒh‚Íƒ‰ƒxƒ‹‚ğ—p‚¢‚é‚±‚Æ‚ÅŠù‚ÉŠ®—¹‚µ‚½ì‹ÆA’¼‚¿‚É
-s‚¤‚×‚«ì‹ÆAŒã‰ñ‚µ‚É‚·‚éì‹Æ‚È‚Ç‚É•ª—Ş‚µ‚Ü‚·B‚±‚¤‚µ‚½‹Lq‚ÍAŸ‚És‚¤‚×‚«
-ì‹Æ‚Í‰½‚©A‰½‚ª–â‘è‚É‚È‚è‚»‚¤‚©A‚Ç‚¤i‚ß‚é‚×‚«‚©‚È‚Ç‚Ì”»’f‚ğ—eˆÕ‚É‚µ‚Ü‚·B
+- As a project management tool
+  Describe the tasks that need to be done, how they relate to one another, the order
+  in which they should be performed, budgets, risks, and so on.
+  With labels, each card can be classified as already completed, something that must
+  be done immediately, something to postpone, and more. This makes it easier to judge
+  what should be done next, what is likely to become a problem, and how the project
+  should move forward.
 
-E‚»‚Ì‘¼
-@‰ï‹c‚Ì‹c–˜^ì¬Aƒƒ‚—pAƒVƒXƒeƒ€‚Ì‹LqAblog‹L–‚Ì‰º‘‚«‚È‚ÇA
-—lX‚È—p“r‚É‚¨g‚¢‚¢‚½‚¾‚¯‚Ü‚·B
-45
-Title: å‚È“Á’¥
+- Other uses
+  You can also use it for meeting minutes, personal notes, system descriptions,
+  blog post drafts, and many other purposes.
+40
+Title: Key Features
 Label:1
 Fixed:0
 X:0.238106444478035
@@ -306,40 +310,35 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-å‚È“Á’¥
+Key Features
 ----------------------------------------------------------------------------
 
-Frieve Editor‚Ìå‚È“Á’¥‚ÍˆÈ‰º‚Ì‚Æ‚¨‚è‚Å‚·B
+The main features of Frieve Editor are as follows.
 
-EƒJ[ƒh‚ÆƒŠƒ“ƒN‚É‚æ‚é•\Œ»
-@Frieve Editor‚Å‚ÍA1‚Â‚Ì–‚ğ1‚Â‚ÌƒJ[ƒh‚É‹Lq‚µ‚Ä‚¢‚«A‚»‚ê‚ç‚ÌŠÖŒW‚ğ
-ƒŠƒ“ƒN‚Å•\Œ»‚µ‚Ü‚·BƒŠƒ“ƒN‚Í‚Ç‚ÌƒJ[ƒh‚©‚ç‚Ç‚ÌƒJ[ƒh‚Ö‚à“\‚é‚±‚Æ‚ª
-‚Å‚«‚Ü‚·‚Ì‚ÅA•¡G‚È–•¿‚à–³—‚È‚­‹Lq‚Å‚«‚Ü‚·B
+- Representation with cards and links
+  In Frieve Editor, each idea or fact is written on a single card, and the
+  relationships between cards are expressed with links. Because links can be drawn
+  from any card to any other card, even complex topics can be described naturally.
 
-Eƒ‰ƒxƒ‹‚É‚æ‚éƒJ[ƒhAƒŠƒ“ƒN‚Ì•ª—Ş
-@ŠeƒJ[ƒhAƒŠƒ“ƒN‚É‚ÍA•¡”‚Ìƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·Bƒ‰ƒxƒ‹‚Íƒ†[ƒU‚ª
-©—R‚É’è‹`‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·BƒJ[ƒhAƒŠƒ“ƒN‚Í‰æ–Êã‚Åƒ‰ƒxƒ‹‚É‚æ‚èF•ª‚¯‚µ‚Ä
-•\¦‚³‚ê‚é‚½‚ßAƒJ[ƒh‚âƒŠƒ“ƒN‚ÌˆÓ–¡‚ğˆê–Ú‚ÅŠm”F‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+- Classification of cards and links with labels
+  Each card and link can have multiple labels. Labels can be defined freely by the
+  user. Because cards and links are color-coded by label on screen, you can grasp
+  their meaning at a glance.
 
-EƒJ[ƒh‚Ì©“®®—A•\¦‘I‘ğ
-@Frieve Editor‚Å‚ÍAƒJ[ƒh‚É“\‚ç‚ê‚½ƒŠƒ“ƒN‚âAƒJ[ƒh‚É•t‚¯‚ç‚ê‚½
-ƒ‰ƒxƒ‹î•ñ‚ğŒ³‚ÉAƒJ[ƒh‚ÌƒŒƒCƒAƒEƒg‚ğ©“®“I‚É®—‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-‚±‚ê‚Ì‹@”\‚ÍA“ü—Í‚µ‚½î•ñ‚ğ—lX‚ÈŠp“x‚©‚çŒ©‚é‚±‚Æ‚ğ—eˆÕ‚É‚µ‚Ü‚·B
-ƒ‰ƒxƒ‹‚É‚æ‚Á‚ÄƒJ[ƒh‚âƒŠƒ“ƒN‚Ì•\¦/”ñ•\¦‚ğ‘I‘ğ‚µ‚½‚èAƒŠƒ“ƒN”‚É‚æ‚Á‚Ä
-•\¦‚·‚éƒJ[ƒh‚Ì”ÍˆÍ‚ğ§ŒÀ‚·‚é‚±‚Æ‚É‚æ‚èAŠÈ’P‚É•K—v‚Èî•ñ‚Ì‚İ‚ğ
-•\¦‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+- Automatic arrangement and display filtering for cards
+  Frieve Editor can automatically arrange card layouts based on the links attached to
+  cards and the labels assigned to them. This makes it easy to view your information
+  from different angles. You can also show or hide cards and links by label, or limit
+  the visible range by number of links, so that only the information you need is shown.
 
-EƒAƒjƒ[ƒVƒ‡ƒ“
-@Frieve Editor‚Å‚ÍAƒAƒCƒfƒA‚Ì”­‘z‚ğx‰‡‚µ‚½‚èA‹Lq‚³‚ê‚½–•¿‚É‘Î‚·‚é
-—‰ğ‚ğ•‚¯‚é‚½‚ß‚Ì‚¢‚­‚Â‚©‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚ğƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚·B
-@ì¬‚µ‚½ƒJ[ƒh‚ğƒ‰ƒ“ƒ_ƒ€‚É’ñ¦‚·‚éƒAƒjƒ[ƒVƒ‡ƒ“‚Å‚ÍAˆÙ‚È‚é
-ƒJ[ƒh“¯m‚©‚çƒAƒCƒfƒA‚ª¶‚Ü‚ê‚é‚Ì‚ğx‰‡‚µ‚Ü‚·BƒŠƒ“ƒN‚ğƒ‰ƒ“ƒ_ƒ€‚É
-ƒgƒŒ[ƒX‚·‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÍAƒJ[ƒh“¯m‚ÌŠÖ˜A‚ğ’¼Š´“I‚É—‰ğ‚·‚é‚Ì‚É
-–ğ—§‚¿‚Ü‚·B
-
-
-44
-Title: Šî–{‹@”\
+- Animation
+  Frieve Editor includes several animations to support idea generation and to help
+  you understand what has been described.
+  Animations that present created cards at random encourage new connections between
+  different cards. Animations that trace links at random help you intuitively grasp
+  how cards are related.
+41
+Title: Basic Features
 Label:1
 Fixed:0
 X:0.19487227499485
@@ -352,39 +351,36 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:14:08
 -
 ----------------------------------------------------------------------------
-Šî–{‹@”\
+Basic Features
 ----------------------------------------------------------------------------
 
-EƒJ[ƒh
-@Frieve Editor‚Å‚ÍAˆê‚Â‚Ì•¶Í‚ğˆê‚Â‚ÌƒJ[ƒh‚É‹Lq‚µ‚Ä‚¢‚«‚Ü‚·B
-‰½‚©v‚¢‚Â‚¢‚½‚±‚Æ‚ª‚ ‚ê‚Î‚Ç‚ñ‚Ç‚ñƒJ[ƒh‚ğì¬‚µA‚»‚Ì“à—e‚ğ‹Lq‚µ‚Ä
-‚¢‚«‚Ü‚·B•¨–‚ğŒø—¦“I‚É‹Lq‚·‚é‚É‚ÍA–Û‚ğ‚Å‚«‚é‚¾‚¯¬‚³‚¢’PˆÊ‚É•ª‚¯‚ÄA
-‚½‚­‚³‚ñ‚ÌƒJ[ƒh‚ğ—p‚¢‚Ä‹Lq‚µ‚Ü‚·B
+- Cards
+  In Frieve Editor, one piece of writing is stored in one card.
+  Whenever you think of something, create a card and write it down. To describe
+  things efficiently, break a topic down into pieces as small as possible and
+  describe it using many cards.
 
-EƒŠƒ“ƒN
-@ƒJ[ƒh“¯m‚ÌŠÖŒW‚ğ’è‹`‚·‚é‚à‚Ì‚Å‚·BƒŠƒ“ƒN‚ÍA1‚Â‚ÌƒJ[ƒh‚©‚ç‘¼‚Ì1‚Â‚Ì
-ƒJ[ƒh‚ÉŒü‚¯‚Ä“\‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·BƒJ[ƒhŠÔ‚É•t‚¯‚ç‚ê‚½•¡”‚ÌƒŠƒ“ƒN‚ğŒ³‚ÉA
-ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ª‹ß‚¢ˆÊ’u‚É”z’u‚³‚ê‚é‚æ‚¤‚ÉƒJ[ƒh‚Ì”z’u‚ğ©“®“I‚É
-®—‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+- Links
+  Links define relationships between cards. A link can be drawn from one card to
+  another card. Based on multiple links between cards, Frieve Editor can automatically
+  arrange cards so that linked cards are placed near one another.
 
-Eƒ‰ƒxƒ‹
-@Frieve Editor‚Å‚ÍAŠeƒJ[ƒhAƒŠƒ“ƒN‚Éƒ‰ƒxƒ‹‚ğ•t‚¯‚é–‚ª‚Å‚«‚Ü‚·B
-‰Šúó‘Ô‚Å‚ÍProbrem(–â‘è)ASolution(‰ğŒˆô)AResult(Œ‹‰Ê)‚Ì3‚Â‚Ìƒ‰ƒxƒ‹‚ª
-’è‹`‚³‚ê‚Ä‚¢‚Ü‚·‚ªAƒ‰ƒxƒ‹‚Í©—R‚É•ÒW‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+- Labels
+  Frieve Editor lets you assign labels to both cards and links.
+  By default, three labels are defined: Probrem (Problem), Solution, and Result,
+  but labels can be edited freely.
 
-@ƒJ[ƒh‚Éƒ‰ƒxƒ‹‚ğ•t‚¯‚Ä‚¢‚­‚±‚Æ‚É‚æ‚Á‚ÄAƒJ[ƒh‚ğŒø—¦“I‚É®—‚Å‚«‚Ü‚·B
-‹ï‘Ì“I‚É‚ÍA“¯‚¶ƒ‰ƒxƒ‹‚Ì•t‚¢‚Ä‚¢‚éƒJ[ƒh‚ª‹ß‚¢ˆÊ’u‚É”z’u‚³‚ê‚é‚æ‚¤‚É
-ƒJ[ƒh‚Ì”z’u‚ğ©“®“I‚É®—‚µ‚½‚èA‚ ‚éƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒJ[ƒh‚Ì‚İ•\¦
-‚µ‚½‚èA”ñ•\¦‚É‚µ‚½‚è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B‚Ü‚½A“¯‚¶ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚½
-ƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚Ä1‚Â‚ÌƒJ[ƒh‚Æ‚µ‚Ä•\¦‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B
+  Assigning labels to cards helps you organize them efficiently. For example, you can
+  automatically arrange cards so that cards with the same label are placed close to
+  one another, show only cards with a certain label, or hide them. You can also group
+  cards with the same label and display them as a single card.
 
-@“¯—l‚ÉƒŠƒ“ƒN‚É•t‚¯‚½ƒ‰ƒxƒ‹‚ğ—p‚¢‚ÄA‚ ‚éƒ‰ƒxƒ‹‚Ì‚Â‚¢‚½ƒŠƒ“ƒN‚Ì‚İ
-•\¦‚µ‚½‚èA”ñ•\¦‚É‚µ‚½‚è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B‚Ü‚½AƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚é
-ƒJ[ƒh‚ª‹ß‚¢ˆÊ’u‚É”z’u‚³‚ê‚é‚æ‚¤‚ÉƒJ[ƒh‚Ì”z’u‚ğ©“®“I‚É®—‚·‚é‹@”\‚Æ
-‘g‚İ‡‚í‚¹‚é‚±‚Æ‚ÅAŠÈ’P‚ÉƒJ[ƒh‚ğ‚ ‚éŠÖŒW‚É’…–Ú‚µ‚½”z’u‚É®—‚·‚é‚±‚Æ‚ª
-‚Å‚«‚Ü‚·B
-244
-Title: ƒo[ƒWƒ‡ƒ“ƒAƒbƒv—š—ğ
+  In the same way, labels attached to links can be used to show or hide only links
+  with a certain label. Combined with automatic arrangement based on linked cards being
+  placed close together, this makes it easy to reorganize cards while focusing on a
+  particular kind of relationship.
+277
+Title: Version History
 Label:1
 Fixed:0
 X:0.153297424316406
@@ -397,239 +393,272 @@ Updated:2023/04/14 20:14:19
 Viewed:2023/04/14 20:14:08
 -
 ----------------------------------------------------------------------------
-ƒo[ƒWƒ‡ƒ“ƒAƒbƒv—š—ğ
+Version History
 ----------------------------------------------------------------------------
 
-E2.00(2023/04/14)
-@ChatGPT‚ÌAPI‚ÌŒÄ‚Ño‚µ‚É‘Î‰‚µ‚Ü‚µ‚½
+- 3.00 (2026/03/19)
+  Added Auto Save / Auto Reload functionality.
+  Improved wheel and gesture operations (wheel = scroll, Ctrl+wheel = zoom,
+  Ctrl+Shift+wheel = font size, pinch = zoom).
+  Added support for 13 languages (menu display and language-specific help files).
+  Restored text-to-speech (TTS) functionality.
+  Changed to the MIT license.
+  Also made several small improvements and bug fixes:
+    Optimized search speed.
+    When the same file is already open in another instance, that instance is now activated.
+    Fixed a bug with GPT model specification in setting2.ini.
+    Fixed web search functionality.
+    Fixed label button layout.
 
-E1.40(2021/08/09)
-@‚¢‚­‚Â‚©‚Ì×‚©‚È‰ü‘PA•s‹ï‡‚ÌC³‚ğs‚¢‚Ü‚µ‚½
+- 2.00 (2023/04/14)
+  Added support for calling the ChatGPT API.
 
-E1.32(2013/11/02)
-@ÅV‚ÌWindows‚É‘Î‰‚µ‚Ü‚µ‚½
-@64bit‚É‘Î‰‚µ‚Ü‚µ‚½
-@ƒfƒtƒHƒ‹ƒg‚ÌŒ¾Œê‚ğ“ú–{Œê‚É‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A‚¢‚­‚Â‚©‚Ì×‚©‚È‰ü‘PA•s‹ï‡‚ÌC³‚ğs‚¢‚Ü‚µ‚½
+- 1.40 (2021/08/09)
+  Made several small improvements and bug fixes.
 
-E1.31(2008/09/07)
-@ƒtƒ@ƒCƒ‹‚É•\¦’†‚ÌÀ•W‚âŠeíİ’è‚ğ•Û‘¶‚µA“Ç‚İ‚İ‚É”½‰f‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ƒŠƒ“ƒN‚ÌŒ`‚É‹Èü‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@Fileƒƒjƒ…[AExport‚ÉHierarchicalText‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@ƒJ[ƒh–¼A–{•¶‚Ì•¶š—ñ‚Ì’uŠ·‚É‘Î‰‚µ‚Ü‚µ‚½iEditƒƒjƒ…[AReplaceBCtrl+Rj
-@‘I‘ğ’†‚ÌƒŠƒ“ƒN‚ğ“_–Å•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Œ»İƒJ[ƒh‚ÆŠÖ˜A‚·‚éƒŠƒ“ƒN‚ğ‹­’²•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ƒJ[ƒhƒ^ƒCƒgƒ‹‚Ì•ÒW‚ÌƒVƒ‡[ƒgƒJƒbƒg‚ğCtrl+T‚©‚çF2‚É•ÏX‚µ‚Ü‚µ‚½
-@ˆê•”“ú–{Œê‰»‘Î‰‚³‚ê‚Ä‚¢‚È‚©‚Á‚½ƒƒbƒZ[ƒW‚ğ“ú–{Œê‰»‘Î‰‚µ‚Ü‚µ‚½
-@Statisticsƒ^ƒu‚Å—j“ú‚ª‚¸‚ê‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@Browser‰E‚à‚µ‚­‚Í‰º‚Å–{•¶‚ğ•ÒW‚·‚é‚ÆƒGƒ‰[‚É‚È‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@“_ü‚ğg—p‚·‚é‚ÆƒGƒ‰[‚ªo‚é‚±‚Æ‚ª‚ ‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@Statisticsƒ^ƒu‚ğ•\¦‚·‚é‚Æƒƒ‚ƒŠƒŠ[ƒN‚·‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@Tree(Radial)©“®®—‚ğs‚¤‚Æƒƒ‚ƒŠƒŠ[ƒN‚·‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
+- 1.32 (2013/11/02)
+  Added support for newer versions of Windows.
+  Added 64-bit support.
+  Changed the default language to Japanese.
+  Also made several small improvements and bug fixes.
 
-E1.30(2008/06/15)
-@ƒJ[ƒh‚ÉŠÈ’P‚ÈŠG‚Ì‘}“ü‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iDrawingƒ^ƒuj
-@ƒ‰ƒxƒ‹”‚È‚Ç‚Ì“ŒvƒOƒ‰ƒt•\¦‹@”\‚ª‚Â‚«‚Ü‚µ‚½iStatisticsƒ^ƒuj
-@w’èƒ‰ƒxƒ‹‚ğ‚Â‘S‚Ä‚ÌƒJ[ƒh‚ÉƒŠƒ“ƒN‚·‚é‹@”\‚ª‚Â‚«‚Ü‚µ‚½iInsertƒƒjƒ…[j
-@ƒŠƒ“ƒNæ‚Ì‘S‚Ä‚ÌƒJ[ƒh‚Éw’èƒ‰ƒxƒ‹‚ğ’Ç‰Á‚·‚é‹@”\‚ª‚Â‚«‚Ü‚µ‚½iInsertƒƒjƒ…[j
-@‚·‚×‚Ä‚ÌƒEƒCƒ“ƒhƒE‚ğ“ú–{Œê‰»‘Î‰‚µ‚Ü‚µ‚½iViewƒƒjƒ…[ALanguagej
-@ƒXƒe[ƒ^ƒXƒo[ã‚É‘I‘ğ’†‚ÌƒJ[ƒh”‚ğ•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A‚¢‚­‚Â‚©‚Ì×‚©‚È‰ü‘PA•s‹ï‡‚ÌC³‚ğs‚¢‚Ü‚µ‚½
+- 1.31 (2008/09/07)
+  Saving a file now stores the current coordinates and various settings, and loading
+  the file restores them.
+  Added curved links.
+  Added HierarchicalText to File menu -> Export.
+  Added string replacement for card names and body text (Edit menu -> Replace, Ctrl+R).
+  Selected links now blink.
+  Links related to the current card are now highlighted.
+  Changed the shortcut for editing a card title from Ctrl+T to F2.
+  Localized some messages that had not yet been translated into Japanese.
+  Fixed a bug in the Statistics tab where the day of the week could shift.
+  Fixed a bug that caused an error when editing body text on the right or bottom side
+  of the Browser.
+  Fixed a bug where using dotted lines could sometimes cause an error.
+  Fixed a memory leak when displaying the Statistics tab.
+  Fixed a memory leak when using Tree (Radial) auto-arrangement.
 
-E1.23(2008/04/15)
-@ƒJ[ƒh‚ğˆê“xƒNƒŠƒbƒN‚µ‚È‚­‚Ä‚à’¼Úƒ^ƒCƒgƒ‹“ü—Í‚ğŠJn‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚µ‚½
-@Œ»İ‚Ì‘I‘ğ•¶š—ñ‚ğŒŸõƒL[‚É‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ŒŸõƒL[ƒ[ƒh‚Ì—š—ğ‚ğ•Û‘¶‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Page UpAPage DownƒL[‚É‚æ‚éƒY[ƒ€‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒŠƒ“ƒNƒŠƒXƒg‚ÅƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é‚ÆRelated Text‚ğˆÚ“®‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@©“®®—‚ğg—p‚µ‚È‚¢ó‘Ô‚Å‚ÌqƒJ[ƒhAŒZ’íƒJ[ƒh‚Ì‰ŠúˆÊ’u‚ğ‰ü‘P‚µ‚Ü‚µ‚½
-@ƒuƒ‰ƒEƒU‚Ì‰E‚â‰º‚É•\¦‚³‚ê‚é–{•¶ƒGƒfƒBƒ^‚ÌƒTƒCƒY‚ª‰Â•Ï‚É‚È‚è‚Ü‚µ‚½
-@Windows 98‚Å•¡”s‘I‘ğŒã‰EƒNƒŠƒbƒN‚ÅƒGƒ‰[‚É‚È‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@IME‚Å•ÏŠ·’†‚Ì•¶š‚ª•\¦‚³‚ê‚È‚¢‚±‚Æ‚ª‚ ‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‰æ‘œ‚â“®‰æ‚ğƒhƒ‰ƒbƒO‚Å’Ç‰Á‚µ‚Ä‚à‘¦À‚É”½‰f‚³‚ê‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒ}ƒEƒXƒzƒC[ƒ‹‚ÅÅŒã‚Ü‚ÅƒY[ƒ€‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒŠƒ“ƒNŠÖ˜A‚Ìİ’è‚ª•Û‘¶‚³‚ê‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.30 (2008/06/15)
+  Added support for inserting simple drawings into cards (Drawing tab).
+  Added statistical graph display such as label counts (Statistics tab).
+  Added a function to link to all cards with a designated label (Insert menu).
+  Added a function to add a designated label to all destination cards (Insert menu).
+  Added Japanese localization for all windows (View menu -> Language).
+  The status bar now shows the number of selected cards.
+  Also made several small improvements and bug fixes.
 
-E1.22(2008/02/11)
-@ƒOƒ[ƒoƒ‹ŒŸõiŒŸõŒ‹‰Ê‚Ìˆê——•\¦j‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@‘I‘ğƒeƒLƒXƒg‚âƒJ[ƒhƒ^ƒCƒgƒ‹“™‚ÅƒCƒ“ƒ^[ƒlƒbƒgŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒhƒ‰ƒbƒO‚É‚æ‚éŠO•”ƒŠƒ“ƒN‚Ì‘}“üAŠO•”ƒŠƒ“ƒN‚ğ‚ÂƒJ[ƒh‚Ìì¬‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@©“®®—‚ÉƒJ[ƒh‡‚ÉƒJ[ƒh‚ğ®‘R‚Æ”z’u‚·‚éMatrixiIndexj‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@u‘O‚ğŒŸõv‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iEditƒƒjƒ…[AFind PreviousBShift+F3j
-@Editorƒ^ƒu‚ÅƒŠƒ“ƒN‚µ‚Ä‚¢‚éƒJ[ƒh‚Ì–{•¶‚ª•\¦‰Â”\‚É‚È‚è‚Ü‚µ‚½iRelated Textj
-@–{•¶‚©‚çƒJƒbƒg‚µ‚ÄA‘I‘ğ’†‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚µ‚½ƒJ[ƒh‚Ìì¬‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒsƒŠƒIƒh‚ÅŠK‘w‚ğ•\‚·ƒeƒLƒXƒg‚Ì“Ç‚İ‚İ‚É‘Î‰‚µ‚Ü‚µ‚½iFileƒƒjƒ…[Importj
-@ƒXƒRƒA•\¦‚É–{•¶‚Ì’·‚³iText Lengthj‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@”wŒiƒAƒjƒ[ƒVƒ‡ƒ“‚ÉSnowACherry Blossom‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‘I‘ğA‘¦ƒXƒNƒ[ƒ‹‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½iViewƒƒjƒ…[Others‚©‚ç•ÏX‰Âj
-@F3ƒL[‚ÅƒJ[ƒhƒ^ƒCƒgƒ‹‚µ‚©ŒŸõ‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒGƒfƒBƒ^‰º‚ÌƒŠƒ“ƒNƒŠƒXƒg‚ÌƒTƒCƒY‚Ì‰Šú’l‚ª0‚É‚È‚Á‚Ä‚¢‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒGƒfƒBƒ^ƒ^ƒu‚ÅŠO•”ƒŠƒ“ƒN‚ğCtrl+ƒNƒŠƒbƒN‚ÅŠJ‚¯‚È‚¢‚±‚Æ‚ª‚ ‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒXƒRƒA‚Ìí—Ş‚Ìİ’è‚ª•Û‘¶‚³‚ê‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.23 (2008/04/15)
+  You can now start typing a title directly without clicking a card first.
+  The current selection is now used as the search key.
+  Search keyword history is now saved.
+  Zooming with the Page Up and Page Down keys is now supported.
+  Selecting a link in the link list now moves Related Text.
+  Improved the initial position of child and sibling cards when auto-arrangement is off.
+  The body editor shown on the right or bottom of the Browser is now resizable.
+  Fixed a bug on Windows 98 where right-clicking after selecting multiple lines caused
+  an error.
+  Fixed an issue where text being converted by the IME could fail to display.
+  Fixed an issue where adding images or video by drag and drop was not reflected immediately.
+  Fixed an issue where zooming with the mouse wheel could not reach the final zoom level.
+  Fixed an issue where link-related settings were not saved.
+  Also made several small bug fixes and improvements.
 
-E1.21(2007/12/01)
-@ŠK‘wŒ^‚Ì©“®®—‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iTree(Radian)B—vƒ‹[ƒgƒJ[ƒh‚Ìw’èj
-@ƒtƒ@ƒCƒ‹‚ğŠÈ’P‚ÉŠJ‚­‚½‚ß‚Ìƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ğ’Ç‰Á‚µ‚Ü‚µ‚½i‰æ–Ê¶‚Éƒ}ƒEƒX‚ğˆÚ“®j
-@ƒAƒjƒ[ƒVƒ‡ƒ“‚ÉRandom JumpARandom Map‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@ƒŠƒ“ƒN•ûŒü‚ÌˆêŠ‡•ÏX‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iEditƒƒjƒ…[‚ÌBatch Conversionj
-@ƒJ[ƒhƒŠƒXƒg‚Ì•\¦A”ñ•\¦‚ğİ’è‰Â”\‚É‚µ‚Ü‚µ‚½iViewƒƒjƒ…[AOthersj
-@ƒJ[ƒhƒŠƒXƒg‚Ì•‚È‚Ç‚ğI—¹‚É•Û‘¶‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@“®‰æ‚ÌÄ¶ˆÊ’u‚ğw’è‰Â”\‚É‚È‚è‚Ü‚µ‚½iƒtƒ@ƒCƒ‹–¼‚Ì‘O‚ÉŠJnˆÊ’u(ms)-I—¹ˆÊ’u|j
-@ƒJ[ƒ\ƒ‹ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌON/OFF‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iViewƒƒjƒ…[AOthersj
-@Editorƒ^ƒu‰º‚ÌƒŠƒ“ƒN‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚ÄƒŠƒ“ƒN‚ğ’H‚ê‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@í‚ÉƒGƒfƒBƒ^‚ğ•\¦ó‘Ô‚ÅABrowser‚Åƒ^ƒCƒgƒ‹‚ª•ÒW‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒJ[ƒ\ƒ‹‚Å‚ÌƒJ[ƒh‚ğˆÚ“®‚ÅAutoZoom‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì”ÍˆÍ‘I‘ğ‚ÅA”ñ•\¦‚ÌƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒAƒjƒ[ƒVƒ‡ƒ“’†‚ÉFull Screen‚ÌØ‚è‘Ö‚¦‚ª‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@Anti-aliasingg—p‚ÉOverviewã‚Åƒhƒ‰ƒbƒO‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@Browser‚ÅƒJ[ƒhƒ^ƒCƒgƒ‹•ÒW’†‚ÉCtrl+E‚ÅƒGƒ‰[‚É‚È‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@‰æ–Ê•\¦‚Ì‚¿‚ç‚Â‚«‚ğŒyŒ¸‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.22 (2008/02/11)
+  Added global search (list display of search results).
+  Added internet search using selected text or card titles.
+  Added support for inserting external links by drag and drop and creating cards with
+  external links.
+  Added Matrix (Index), which arranges cards neatly by card order.
+  Added Find Previous (Edit menu -> Find Previous, Shift+F3).
+  The Editor tab can now display the body text of linked cards (Related Text).
+  You can now cut text from the body and create a linked card from the selected card.
+  Added support for importing text in which hierarchy is represented with periods
+  (File menu -> Import).
+  Added Text Length to score display.
+  Added Snow and Cherry Blossom to background animations.
+  Selecting a card now scrolls immediately by default (this can be changed from
+  View menu -> Others).
+  Fixed a bug where F3 could search only card titles.
+  Fixed an issue where the initial size of the link list under the editor was 0.
+  Fixed an issue where Ctrl+click on an external link in the Editor tab sometimes
+  did not open it.
+  Fixed an issue where score type settings were not saved.
+  Also made several small bug fixes and improvements.
 
-E1.20(2007/11/04)
-@—lX‚È•ÒW‚É‚Â‚¢‚ÄÅ‘å10‰ñ‚Ü‚Å‚ÌUndoARedo‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì•¡”‘I‘ğ‘€ì‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚ÌƒJƒbƒgAƒRƒs[Aƒy[ƒXƒg‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Browser‰æ–Ê‚Å–{•¶‚Ì•ÒW‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iViewƒƒjƒ…[ATextj
-@•\¦’†‚ÌƒJ[ƒh‚Ì‚İ‘ÎÛ‚É‚µ‚½ŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Œ»İ‘I‘ğ’†‚ÌƒJ[ƒh‚ÌƒJ[ƒ\ƒ‹‚ª•\¦‚³‚ê‚é‚æ‚¤‚É‚È‚è‚Ü‚µ‚½
-@”wŒi‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iViewƒƒjƒ…[AOthersj
-@Šeƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ“ú–{Œê•\¦‚É‘Î‰‚µ‚Ü‚µ‚½
-@ŠO•”ƒŠƒ“ƒN‚ğŠJ‚­‘€ì‚ğCtrl+ƒNƒŠƒbƒN‚©‚çCtrl+Shift+ƒNƒŠƒbƒN‚É•ÏX‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.21 (2007/12/01)
+  Added hierarchical auto-arrangement (Tree(Radian); requires a root card).
+  Added a file list for quickly opening files (move the mouse to the left side of
+  the screen).
+  Added Random Jump and Random Map animations.
+  Added batch conversion of link direction (Edit menu -> Batch Conversion).
+  Card list visibility can now be configured (View menu -> Others).
+  The width of the card list and related settings are now saved when the program exits.
+  Added support for specifying video playback position
+  (start(ms)-end(ms)| before the file name).
+  Cursor animation can now be turned on and off (View menu -> Others).
+  Fixed a bug where double-clicking a link under the Editor tab did not follow it.
+  Fixed a bug where titles could not be edited in the Browser while the editor was
+  always visible.
+  Fixed a bug where moving cards with the cursor canceled AutoZoom.
+  Fixed a bug where hidden cards could be selected by range selection.
+  Fixed a bug where Full Screen could not be toggled during animation.
+  Fixed a bug where dragging on the Overview was not possible when anti-aliasing
+  was enabled.
+  Fixed a bug where pressing Ctrl+E while editing a card title in the Browser caused
+  an error.
+  Reduced screen flicker.
+  Also made several small bug fixes and improvements.
 
-E1.13(2007/10/15)
-@ƒuƒ‰ƒEƒU‚Ì‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çŠeí•ÒW‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒŠƒ“ƒN‚ÌŒ`‚ª•ÏX‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@‘S‚Ä‚ÌƒJ[ƒhAƒŠƒ“ƒN‚ÌŒ`‚ÌˆêŠ‡•ÏX‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iEditAChange Shapej
-@ƒJ[ƒhAƒŠƒ“ƒN‚ÌƒfƒtƒHƒ‹ƒgƒTƒCƒYAŒ`AŒÅ’èİ’è‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒuƒ‰ƒEƒU‚Å–{•¶‚ÌÅ‰‚Ì1s‚à‚µ‚­‚Í2s‚ğƒeƒBƒbƒJ[•\¦‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì‰e‚Ì•`‰æ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚ğŠÈˆÕƒOƒ‰ƒf[ƒVƒ‡ƒ“•\¦‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒŠƒ“ƒN‚Ì‰æ‚è‚Ì•`‰æ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh’†‚É“®‰æ‚ğ•\¦‰Â”\‚É‚È‚è‚Ü‚µ‚½i–{•¶‚Éƒtƒ@ƒCƒ‹–¼‚à‚µ‚­‚ÍURL‚ğ“ü—Íj
-@ŠK‘wƒeƒLƒXƒgAƒtƒHƒ‹ƒ_“àƒeƒLƒXƒg‚Ì“ü—Í‚É‘Î‰‚µ‚Ü‚µ‚½iFileƒƒjƒ…[AImportj
-@ƒuƒ‰ƒEƒU‰æ‘œ‚ÌBMP,JPEGŒ`®‚Å‚Ìo—Í‚É‘Î‰‚µ‚Ü‚µ‚½iFileƒƒjƒ…[AExportj
-@ƒNƒŠƒbƒvƒ{[ƒh‚Ö‚ÌŠeíƒf[ƒ^‚ÌƒRƒs[‚É‘Î‰‚µ‚Ü‚µ‚½iFileƒƒjƒ…[AExportj
-@ƒuƒ‰ƒEƒU•\¦‚ÌƒAƒ“ƒ`ƒGƒCƒŠƒAƒX‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iViewƒƒjƒ…[AOthersj
-@ƒCƒ“ƒXƒg[ƒ‹ƒtƒHƒ‹ƒ_‚Ì‰º‚Ìwallpaper‚ÉƒTƒ“ƒvƒ‹‚Ì•Ç†‚ğû˜^‚µ‚Ü‚µ‚½
-@ƒtƒ‹ƒXƒNƒŠ[ƒ“ó‘Ô‚Å‚ÌŠeí•ÒW‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½i‰æ–Êã‚Éƒ}ƒEƒX‚ğˆÚ“®j
-@ˆê•”‚Ìƒtƒ@ƒCƒ‹‚ÌLinkLabel‚ª³‚µ‚­“Ç‚İ‚ß‚È‚¢ƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@˜ZŠpŒ`‚ÌƒJ[ƒh‚ÌŒ`‚ª³‚µ‚­•`‰æ‚³‚ê‚È‚©‚Á‚½ƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@ƒtƒ‹ƒXƒNƒŠ[ƒ“‚ÅƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚ÆƒGƒ‰[‚É‚È‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.20 (2007/11/04)
+  Added Undo and Redo for up to 10 editing operations.
+  Added multiple-card selection.
+  Added cut, copy, and paste for cards.
+  Added body editing in the Browser screen (View menu -> Text).
+  Added search limited to currently visible cards.
+  The current card is now marked with a visible cursor.
+  Added background animation (View menu -> Others).
+  Added Japanese localization for popup menus.
+  Changed opening external links from Ctrl+click to Ctrl+Shift+click.
+  Also made several small bug fixes and improvements.
 
-E1.12(2007/10/01)
-@Arrange ONAZoom’†ƒJ[ƒh‚ğ’Ç‰Á‚·‚é‚ÆƒGƒ‰[‚É‚È‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³‚ğs‚¢‚Ü‚µ‚½
+- 1.13 (2007/10/15)
+  Added various editing commands to the Browser right-click menu.
+  Link style can now be changed.
+  Added batch conversion of all card shapes and all link shapes (Edit -> Change Shape).
+  Added default size, shape, and fixed-position settings for cards and links.
+  Added ticker display of the first one or two lines of body text in the Browser.
+  Added card shadow drawing.
+  Added simple gradient display for cards.
+  Added outline drawing for links.
+  Added support for displaying video inside cards (enter a file name or URL in the body).
+  Added support for importing hierarchical text and text files in folders (File menu -> Import).
+  Added export of Browser images in BMP and JPEG formats (File menu -> Export).
+  Added support for copying various data to the clipboard (File menu -> Export).
+  Added anti-aliasing for Browser display (View menu -> Others).
+  Included sample wallpapers in the wallpaper folder under the installation folder.
+  Added various editing features in full-screen mode (move the mouse to the top of the screen).
+  Fixed a bug where LinkLabel in some files was not loaded correctly.
+  Fixed a bug where hexagonal cards were not drawn correctly.
+  Fixed a bug where double-clicking a card in full screen caused an error.
+  Also made several small bug fixes and improvements.
 
-E1.11(2007/09/30)
-@ƒJ[ƒhˆÊ’u‚ÌŒÅ’è‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½i‰Ÿ‚µƒsƒ“ƒ{ƒ^ƒ“j
-@ƒJ[ƒh‚ğŠiqó‚É®‘R‚Æ®—‚·‚éArrangeiMatrixj‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Browser‰E‰º‚ÉƒJ[ƒhƒŒƒCƒAƒEƒg‚Ì‘S‘Ì‘œ‚ğ•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Browser‚ÅƒJ[ƒ\ƒ‹ƒL[‚É‚æ‚éƒJ[ƒh‚ÌˆÚ“®‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@‹t•ûŒü‚ÉƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚Ì‚İ•\¦‚·‚éLinkLimitation‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Œ»İ‚ÌƒJ[ƒh‚ÆTarget‚ÌŠÔ‚ÌƒŠƒ“ƒN‚ğ•\¦‚·‚éLinkLimitation‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@’†‰›‚É¬‚³‚­}Œ`‚ğ•\¦‚µ•¶š‚ğ’†”²‚«•\¦‚·‚éV‚µ‚¢ƒJ[ƒh‚ÌŒ`‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚ğˆÍ‚Ş‰~‚É‰Á‚¦‚ÄA‹éŒ`‚ª•`‰æ‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒtƒHƒ“ƒg‚ª•ÏX‰Â”\‚É‚È‚è‚Ü‚µ‚½iViewƒƒjƒ…[‚ÌFontAChange Font‚©‚çj
-@Browser‰æ–Ê‚Ì•Ç†‚ªw’è‰Â”\‚É‚È‚è‚Ü‚µ‚½iViewƒƒjƒ…[‚ÌOthers‚©‚çj
-@ƒJ[ƒh‚ªd‚È‚ç‚È‚¢‚±‚Æ‚ğ—Dæ‚·‚éArrangeiSoftŒnj‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒhƒ‰ƒbƒO’†‚É‚àƒJ[ƒh‚Ì©“®®—‚ğŒp‘±‚·‚é‚æ‚¤‚É•ÏX‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì©“®®—‚âƒXƒNƒ[ƒ‹‚Ì“®‚«‚ª­‚µƒXƒ€[ƒY‚É‚È‚è‚Ü‚µ‚½
-@ƒVƒ‡[ƒgƒJƒbƒg‚É‚æ‚éBrowserAEditor‚ÌˆÚ“®‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iCtrl+B,Ej
-@Å‹ß•\¦‚µ‚½ƒJ[ƒh3–‡‚Ì‹­’²‘€ì‚ğShiftƒL[‚©‚çSpaceƒL[‚É•ÏX‚µ‚Ü‚µ‚½
-@“¯‚¶ƒ‰ƒxƒ‹‚ğ‚Ü‚Æ‚ß‚Äƒhƒ‰ƒbƒO‘€ì‚ğAShiftƒL[‚©‚çCtrlƒL[‚É•ÏX‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.12 (2007/10/01)
+  Fixed a bug where adding a card while Arrange ON and Zoom were active caused an error.
+  Also made several small bug fixes.
 
-E1.10(2007/09/01)
-@Viewƒƒjƒ…[‚ÌTextAWordWrap‚©‚ç–{•¶‚ğ‰E’[‚ÅÜ‚è•Ô‚·İ’è‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@\n‚à‚µ‚­‚ÍBrowserã‚ÅCtrl+Enter‚ÅƒJ[ƒhƒ^ƒCƒgƒ‹‚Ì‰üs‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒ^ƒCƒgƒ‹‚â–{•¶‚Ì—Ş—“x‚É‚æ‚éƒJ[ƒh‚ÌArrange(Similarity)‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚ª‰æ–Ê‚Éû‚Ü‚é‚æ‚¤‚ÉŠg‘åk¬‚·‚éArrange(Normalize)‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@—lX‚ÈƒXƒRƒA‚É‘Î‰‚µ‚Ü‚µ‚½iViewƒƒjƒ…[AScore‚©‚ç•ÏX‰Âj
-@ƒJ[ƒhƒ^ƒCƒgƒ‹‚Ì“Ç‚İã‚°‚É‘Î‰‚µ‚Ü‚µ‚½i—vMicrosoft Agentj
-@‘å/¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢ŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½iMatch Case‚ğƒ`ƒFƒbƒN‚µ‚È‚¢j
-@ŒŸõƒ_ƒCƒAƒƒO‚ÅƒVƒ‡[ƒgƒJƒbƒgƒL[‚ªg‚¦‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‹N“®’¼Œã‚Ì‘€ì‚ÅƒGƒ‰[‚ªo‚é‚±‚Æ‚ª‚ ‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.11 (2007/09/30)
+  Added fixed card positions (pushpin button).
+  Added Arrange (Matrix), which arranges cards neatly in a grid.
+  Added an overview of the whole card layout in the lower-right corner of the Browser.
+  Cards can now be moved with the cursor keys in the Browser.
+  Added Link Limitation that shows only cards linked in the reverse direction.
+  Added Link Limitation that shows links between the current card and the target.
+  Added a new card shape that draws a small figure at the center and hollows out the text.
+  In addition to circles around cards with the same label, rectangles can now be drawn.
+  The font can now be changed (View menu -> Font -> Change Font).
+  Wallpaper can now be specified for the Browser screen (View menu -> Others).
+  Added Soft arrangement modes that prioritize avoiding overlap.
+  Card auto-arrangement now continues even while dragging.
+  Auto-arrangement and scrolling are now slightly smoother.
+  Added shortcuts for moving between Browser and Editor (Ctrl+B, Ctrl+E).
+  Changed the highlight trigger for the three most recently viewed cards from Shift
+  to Space.
+  Changed the drag modifier for moving cards with the same label from Shift to Ctrl.
+  Also made several small bug fixes and improvements.
 
-E1.05(2007/08/03)
-@Viewƒƒjƒ…[AChange Language‚©‚ç“ú–{Œêƒƒjƒ…[‚ª‘I‘ğ‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ŠO•”ƒŠƒ“ƒN‚Åw’è‚µ‚½‰æ‘œ‚ğƒJ[ƒhã‚É•\¦‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Viewƒƒjƒ…[AOthers‚©‚çƒJ[ƒh‚ÌƒXƒRƒAŒvZA•\¦‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Fileƒƒjƒ…[AExport‚ÅƒJ[ƒhƒ^ƒCƒgƒ‹ˆê——‚ÌExport‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ÅŒã‚ÉQÆ‚µ‚½ƒJ[ƒh‚Ù‚Çè‘O‚É•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ShiftƒL[‚ğ‰Ÿ‚µ‚½Û‚ÉAÅ‹ß•\¦‚µ‚½ƒJ[ƒh3–‡‚ğ‹­’²‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Browser‚Ìƒ‰ƒxƒ‹‚Ì‰~‚Éƒ‰ƒxƒ‹–¼‚ğ•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Browser‚ÌƒJ[ƒh”z’uƒGƒŠƒA‚ğ4”{ic‰¡2”{j‚ÉL‚°‚Ü‚µ‚½
-@AutoZoom‚ÅAŠÖ˜AƒJ[ƒh‚ª•K‚¸‰æ–Ê“à‚É•\¦‚³‚ê‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚ª‚‘¬‰»‚³‚ê‚Ü‚µ‚½
-@©“®®—‚ÌÛƒJ[ƒh‚ªd‚È‚Á‚Ä‚µ‚Ü‚¤‚±‚Æ‚ª‚ ‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ƒ^ƒCƒgƒ‹•ÒW’¼Œã‚ÉƒJ[ƒh‚ªDeleteƒL[‚Åíœ‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.10 (2007/09/01)
+  Added a setting to wrap body text at the right edge via View menu -> Text -> WordWrap.
+  Card titles can now contain line breaks using \n or Ctrl+Enter in the Browser.
+  Added arrangement by title/body similarity (Similarity).
+  Added Normalize, which zooms the layout so cards fit on screen.
+  Added support for various score types (View menu -> Score).
+  Added read-aloud for card titles (requires Microsoft Agent).
+  Added case-insensitive search (leave Match Case unchecked).
+  Fixed a bug where shortcut keys could not be used in the search dialog.
+  Fixed an issue where an error could occur right after startup.
+  Also made several small bug fixes and improvements.
 
-E1.04(2007/07/16)
-@Browserƒ^ƒu‚ÌViewƒ{ƒ^ƒ“‚Åƒ‰ƒxƒ‹–ˆ‚ÌƒJ[ƒhƒTƒCƒY‚ğw’è‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒhƒ‰ƒxƒ‹‚Ì—LŒø–³Œø‚ªw’è‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚ÌŠeí“ú•tw’è‚É‚æ‚é•\¦‚·‚éƒJ[ƒh‚Ìi‚İ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì‰ºŒÀƒTƒCƒYw’è‚É‚æ‚é•\¦‚·‚éƒJ[ƒh‚Ìi‚İ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Viewƒƒjƒ…[‚ÌOthers‚©‚ç‘OŒiA”wŒiF‚ª•ÏX‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@•¡”s‚ÌƒeƒLƒXƒg‚ÌŠes‚ğƒ^ƒCƒgƒ‹‚Æ‚·‚éƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚Äì¬‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒ^ƒXƒNƒo[‚É•ÒW’†‚Ìƒtƒ@ƒCƒ‹–¼‚ğ•\¦‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‘I‘ğCards‚É‘I‘ğƒJ[ƒh‚ª•\¦‚³‚ê‚é‚Ü‚ÅƒXƒNƒ[ƒ‹‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ƒfƒtƒHƒ‹ƒgƒvƒŠƒ“ƒ^‚ª‘¶İ‚µ‚È‚¢‚ÆƒGƒ‰[‚ªo‚Ä‹N“®‚Å‚«‚È‚¢ƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@g—p’†‚ÌLink Label‚ğíœ‚·‚é‚ÆƒGƒ‰[‚ªo‚Ä‘€ì•s”\‚É‚È‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@‚•‰‰×•Û‘¶‚É¸”s‚µAƒJ[ƒ\ƒ‹‚ª»Œv‚Ì‚Ü‚Ü‚É‚È‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ŒŸõƒ_ƒCƒAƒƒO‚ğ•Â‚¶‚é‚ÆƒJ[ƒ\ƒ‹ˆÊ’u‚ªƒy[ƒWæ“ª‚É–ß‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@FoldA‹ó”’‚ğƒNƒŠƒbƒN‚µ‚ÄƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚é‚±‚Æ‚ª‚ ‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@ŒŸõ‚Ì‘I‘ğ”ÍˆÍ‚ª³‚µ‚­‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.05 (2007/08/03)
+  Added Japanese menu selection via View menu -> Change Language.
+  Added support for displaying images specified by external links on cards.
+  Added score calculation and display via View menu -> Others.
+  Added export of the card title list via File menu -> Export.
+  Cards viewed more recently are now displayed in front.
+  Pressing Shift now highlights the three most recently viewed cards.
+  Label names are now displayed inside the label circles in the Browser.
+  Expanded the Browser card layout area to four times the previous size
+  (twice as wide and twice as tall).
+  AutoZoom now always keeps related cards within the visible screen.
+  File loading is now faster.
+  Fixed an issue where cards could overlap during auto-arrangement.
+  Fixed an issue where Delete could not remove a card immediately after editing its title.
+  Also made several small bug fixes and improvements.
 
-E1.03(2006/12/17)
-@Browser•\¦‚ÌŠÈˆÕˆóü‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Shift+InsertƒL[‚ÅAeƒm[ƒh‚É‚ ‚½‚éƒJ[ƒh‚Ìì¬‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚ÌŒ`AƒTƒCƒY‚ª•ÏX‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@‚æ‚è‘å‚«‚¢ƒY[ƒ€•\¦‚É‘Î‰‚µ‚Ü‚µ‚½
-@•¶š”‚È‚Ç‚ğ•\¦‚·‚éStatusƒo[‚ª•t‚«‚Ü‚µ‚½iViewƒƒjƒ…[‚æ‚è•\¦•ÏX‰Âj
-@Editƒƒjƒ…[‚ÉSelect All‚ª‚Â‚«‚Ü‚µ‚½
-@RichText‚ğ“\‚è•t‚¯‚½ê‡‚Ì•\¦‚Ì—‚êAƒtƒ@ƒCƒ‹‚ª‰ó‚ê‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@ƒŠƒ“ƒN‚ğƒhƒ‰ƒbƒO’†‚ÉDeleteƒL[‚Åíœ‚·‚é‚ÆƒGƒ‰[‚ªo‚éƒoƒO‚ğC³‚µ‚Ü‚µ‚½
-@ƒ‰ƒxƒ‹•t‚«ƒŠƒ“ƒN‚ğƒhƒ‰ƒbƒO‚Å’£‚éÛAü‚ª•\¦‚³‚ê‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.04 (2007/07/16)
+  Added per-label card size settings with the View button on the Browser tab.
+  Labels can now be enabled or disabled.
+  Added filtering of visible cards by date.
+  Added filtering of visible cards by minimum card size.
+  Foreground and background colors can now be changed from View menu -> Others.
+  Multiple cards can now be created at once from multi-line text, using each line as a title.
+  The file name of the file being edited is now shown on the taskbar.
+  When a card is selected, Cards now scrolls until the selected card is visible.
+  Fixed a bug where the program could not start if no default printer existed.
+  Fixed a bug where deleting a Link Label that was in use caused an error and left the
+  application unusable.
+  Fixed an issue where saving could fail under heavy load and the cursor remained as an
+  hourglass.
+  Fixed an issue where closing the search dialog returned the cursor position to the top
+  of the page.
+  Fixed an issue where clicking blank space while Fold was active could select a card.
+  Fixed an issue where the selection range during search was incorrect.
+  Also made several small bug fixes and improvements.
 
-E1.02(2006/10/21)
-@InsertƒL[‚ÅAqƒm[ƒh‚É‚ ‚½‚éƒJ[ƒh‚Ìì¬‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@EnterƒL[‚ÅAŒZ’íƒm[ƒh‚É‚ ‚½‚éƒJ[ƒh‚Ìì¬‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒŠƒ“ƒN‘I‘ğ’†‚ÉInsertƒL[‚ÅAƒŠƒ“ƒN‚ÌŠÔ‚ÌƒJ[ƒhì¬‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒŠƒ“ƒN‚Ìƒhƒ‰ƒbƒO‚É‚æ‚é•ÒW‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒhƒ^ƒCƒgƒ‹A–{•¶‚ÉŒÀ’è‚µ‚½ŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ƒuƒ‰ƒEƒU‰æ–Ê‚©‚çƒJ[ƒhƒ^ƒCƒgƒ‹‚ÌŒŸõ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Shift+ƒhƒ‰ƒbƒO‚Å“¯‚¶ƒ‰ƒxƒ‹‚ÌƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚ÄˆÚ“®‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@ŒŸõ‚ª‚‘¬‚É‚È‚è‚Ü‚µ‚½
-@•\¦‚ªáŠ±‚‘¬‚É‚È‚è‚Ü‚µ‚½
-@ƒJ[ƒh‚ÌV‹Kì¬A•ÒW’†‚ÌƒJ[ƒh‚É‰‚¶‰ŠúIndex‚ğ•ÏX‚·‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Arrange‚ÉFold‚µ‚½ƒJ[ƒh‚Ì”½”­‚ª‹­‚·‚¬‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@–{•¶‚ÉTab‚ª‘}“ü‚Å‚«‚È‚¢•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
-@‚»‚Ì‘¼A×‚©‚È•s‹ï‡C³A‰ü‘P‚ğs‚¢‚Ü‚µ‚½
+- 1.03 (2006/12/17)
+  Added simple printing of the Browser display.
+  Added Shift+Insert to create a parent-node card.
+  Card shapes and sizes can now be changed.
+  Added support for larger zoom levels.
+  Added a status bar showing character counts and similar information
+  (visibility can be changed from the View menu).
+  Added Select All to the Edit menu.
+  Fixed display corruption and file corruption when pasting RichText.
+  Fixed a bug where deleting a link with the Delete key while dragging it caused an error.
+  Fixed an issue where the line was not shown when dragging a labeled link.
+  Also made several small bug fixes and improvements.
 
-E1.01 (2006/10/07)
-@ƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚ğBrowserã‚Å•ÒW‚Å‚«‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‚ÌV‹Kì¬’¼Œã‚ÉƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹•ÒW‘€ì‚ÉˆÚ‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½
-@Browser‰æ–Ê‚ğ©“®“I‚ÉŠg‘åAk¬‚·‚éAuto Zoom‹@”\‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì‡˜‚É‚æ‚éArrange‹@”\‚ğ’Ç‰Á‚µ‚Ü‚µ‚½(Index)
-@Viewƒ{ƒ^ƒ“‚ÌLink Limitation‚ÅAƒŠƒ“ƒN‚Ì•ûŒü‚É‚æ‚é§ŒÀ‚ª‰Â”\‚É‚È‚è‚Ü‚µ‚½
-@Editor‚Ì‰EƒNƒŠƒbƒNƒƒjƒ…[‚ÉACut to New Card Title‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@ƒ‰ƒ“ƒ_ƒ€‚ÉBrowserã‚ÌƒJ[ƒh‚ÌÀ•W‚ğ•ÏX‚·‚éShuffle‹@”\‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@ƒJ[ƒh‚Ì•À‚Ñ‡‚ğƒVƒƒƒbƒtƒ‹‚·‚éShuffleiEditASortƒƒjƒ…[j‚ğ’Ç‰Á‚µ‚Ü‚µ‚½
-@Browser‚ÅAƒNƒŠƒbƒN‚µ‚½ƒJ[ƒh‚Ì‰º‚ÌƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚é•s‹ï‡‚ğC³‚µ‚Ü‚µ‚½
+- 1.02 (2006/10/21)
+  Added Insert to create a child-node card.
+  Added Enter to create a sibling-node card.
+  Added Insert while a link is selected to create a card between the linked cards.
+  Links can now be edited by dragging.
+  Added search limited to card titles or body text.
+  Added card-title search from the Browser screen.
+  Added Shift+drag to move cards with the same label together.
+  Search is now faster.
+  Display is now slightly faster.
+  When creating a new card, the initial Index now changes depending on the card currently
+  being edited.
+  Fixed an issue where folded cards repelled too strongly during Arrange.
+  Fixed an issue where Tab could not be inserted into the body.
+  Also made several small bug fixes and improvements.
 
-E1.00 (2006/09/24)
-@Å‰‚ÌƒŠƒŠ[ƒX
+- 1.01 (2006/10/07)
+  Card titles can now be edited directly in the Browser.
+  Immediately after creating a new card, the program now enters title editing mode.
+  Added Auto Zoom, which automatically zooms the Browser screen in or out.
+  Added arrangement by card order (Index).
+  View button -> Link Limitation can now limit by link direction.
+  Added Cut to New Card Title to the Editor right-click menu.
+  Added Shuffle, which randomizes card coordinates in the Browser.
+  Added Shuffle (Edit -> Sort menu), which randomizes card order.
+  Fixed a bug where clicking a card in the Browser could select the card underneath it.
+
+- 1.00 (2006/09/24)
+  Initial release.
 24
-Title: ’˜ìŒ Aƒ‰ƒCƒZƒ“ƒX‚É‚Â‚¢‚Ä
+Title: Copyright and License
 Label:1
 Fixed:0
 X:0.127202451229095
@@ -642,19 +671,19 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-’˜ìŒ Aƒ‰ƒCƒZƒ“ƒX‚É‚Â‚¢‚Ä
+Copyright and License
 ----------------------------------------------------------------------------
 
-‚±‚Ìƒ\ƒtƒg‚ÍƒtƒŠ[ƒ\ƒtƒgƒEƒFƒA‚ÅA’˜ìŒ ‚ÍFrieve‚É‚ ‚è‚Ü‚·B
-–{ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìg—p‚É‚æ‚è‚È‚ñ‚ç‚©‚Ì•s‹ï‡‚ª¶‚¶‚½‚Æ‚µ‚Ä‚àA“–•û‚Å‚Í
-‚¢‚©‚È‚éÓ”C‚ğ‚à•‰‚¢‚©‚Ë‚Ü‚·B
+This software is freeware, and the copyright belongs to Frieve.
+Even if the use of this application causes some kind of problem, we cannot accept
+any responsibility.
 
-“]Ú‚ÍVersion 1.00‚æ‚è©—R‚É‚µ‚Ä‚¢‚½‚¾‚¢‚ÄŒ‹\‚Å‚·B‚±‚ÌÛA
-ÅV‚Ìƒo[ƒWƒ‡ƒ“‚ğ“]Ú‚·‚é‚±‚ÆA‚»‚µ‚Äƒ_ƒEƒ“ƒ[ƒh‚µ‚½‚Ì‚Ü‚Ü‚Ì
-ƒtƒ@ƒCƒ‹Œ`®‚Å“]Ú‚·‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B‚à‚µA“Áê‚ÈŒ`‚Å‚Ì“]Ú‚ğ
-Šó–]‚³‚ê‚éê‡‚ÍA–‘O‚ÉFrieve‚Ü‚Å‚²‘Š’k‚­‚¾‚³‚¢B
-58
-Title: ‚æ‚­Šñ‚¹‚ç‚ê‚é¿–â‚Æ‚»‚Ì“š‚¦
+Redistribution has been freely permitted since Version 1.00.
+When redistributing the software, please redistribute the latest version and keep
+the file format exactly as it was when downloaded. If you would like to redistribute
+it in a special form, please contact Frieve in advance.
+61
+Title: Frequently Asked Questions
 Label:1
 Fixed:0
 X:0.173380136489868
@@ -667,53 +696,56 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-‚æ‚­Šñ‚¹‚ç‚ê‚é¿–â‚Æ‚»‚Ì“š‚¦
+Frequently Asked Questions
 ----------------------------------------------------------------------------
 
-Q.Browser‰æ–Ê‚ğ‚à‚Á‚ÆL‚­‚·‚é•û–@‚Í‚ ‚è‚Ü‚·‚©
+Q. Is there any way to make the Browser area larger?
 
-A.Browser‰æ–Êã•û‚ÌArrangeiƒJ[ƒh‚Ì©“®®—j‚ÅANormalize‚ğ‘I‘ğ‚µ‚Ä
-©“®®—ONƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·BƒJ[ƒh‚ª‘Š‘Î“I‚ÈˆÊ’uŠÖŒW‚ğ•Û‚µ‚½‚Ü‚ÜBrowser‰æ–Ê
-’†S‚É©“®®—‚³‚ê‚Ü‚·B©“®®—‚µ‚½Œã‚ÍAZoomƒo[‚Å•\¦‚ğŠg‘åk¬‚µ‚½‚èA
-ƒXƒNƒ[ƒ‹ƒo[‚âBrowser‰æ–Ê‰E‰º‚Ì‘S‘Ì‘œ•\¦‚ğƒNƒŠƒbƒN‚à‚µ‚­‚Íƒhƒ‰ƒbƒO‚·‚é‚±‚Æ‚Å
-Browser‰æ–Ê‚Ì•\¦”ÍˆÍ‚ğ•ÏX‚Å‚«‚Ü‚·B
-
-
-Q.Frieve Editor‚ğUSBƒƒ‚ƒŠ‚È‚Ç‚©‚ç‹N“®‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚·‚©
-
-A.Frieve Editor‚ÌƒCƒ“ƒXƒg[ƒ‹ƒtƒHƒ‹ƒ_i’Êí‚Íc:\Program Files\Frieve Editor\j
-‚É‚ ‚é‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ğUSBƒƒ‚ƒŠ‚ÉƒRƒs[‚µ‚Ä‚­‚¾‚³‚¢B‚±‚Ì’†‚Ìeditor.exe‚ğ
-Às‚·‚é‚±‚Æ‚ÅFrieve Editor‚ğg—p‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-@Frieve Editor‚ÍƒŒƒWƒXƒgƒŠ‚È‚Ç‚ğg—p‚µ‚Ü‚¹‚ñB
+A. In Arrange (automatic card layout) at the top of the Browser screen, select
+Normalize and press the Arrange ON button. The cards will be arranged automatically
+around the center of the Browser while preserving their relative positions.
+After arranging, you can use the Zoom bar to zoom in or out, and you can change the
+visible area of the Browser by clicking or dragging the scrollbars or the overview
+display at the lower right of the Browser.
 
 
-Q.Frieve Editor‚ğ‹Æ–±‚Å—˜—p‚µ‚½‚¢‚Ì‚Å‚·‚ª
+Q. Can Frieve Editor be started from a USB memory device or similar media?
 
-A.Frieve Editor‚Í„—pA¤—p—˜—p–â‚í‚¸–³—¿‚Å‚¨g‚¢‚¢‚½‚¾‚¯‚Ü‚·B‘å—Ê“±“ü
-‚³‚ê‚éê‡‚È‚Ç‚à“Á‚É‚²˜A—‚¢‚½‚¾‚­•K—v‚Í‚ ‚è‚Ü‚¹‚ñB
-
-
-Q.‹N“®‚ÉƒCƒ“ƒ^[ƒlƒbƒg‚ÉÚ‘±‚µ‚Ä‚¢‚é‚æ‚¤‚Å‚·‚ªA‚±‚ê‚Í‰½‚ğ‚µ‚Ä‚¢‚é‚Ì‚Å‚·‚©
-
-A.Frieve Editor‚ÌÅV”Å‚ÌXVó‹µ‚ğæ“¾‚µ‚Ä‚¢‚Ü‚·BHelpƒƒjƒ…[‚ÌCheck 
-  Latest Release‚Æ“¯‚¶“®ì‚É‚È‚è‚Ü‚·B©“®“I‚ÉÅV”Å‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚Í
-@“¯‚¶‚­Helpƒƒjƒ…[‚ÌCheck Latest Release‚É‚Äİ’è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-@Ú‘±‚µ‚½‚­‚È‚¯‚ê‚Îƒtƒ@ƒCƒAƒEƒH[ƒ‹“™‚ÅÕ’f‚µ‚Ä‚à‘S‚­–â‘è‚Í‚ ‚è‚Ü‚¹‚ñB
+A. Copy every file from the Frieve Editor installation folder
+(normally c:\Program Files\Frieve Editor\) to the USB memory device.
+You can then use Frieve Editor by running editor.exe there.
+Frieve Editor does not use the registry.
 
 
-Q.Browser‰æ–Ê‚Å‚Ì“ú–{Œê•\¦‚ª•¶š‰»‚¯‚µ‚Ü‚·
+Q. I would like to use Frieve Editor for work.
 
-A.ƒtƒHƒ“ƒg‚Ì•¶šƒZƒbƒg‚ª‰¢•¶ƒtƒHƒ“ƒg‚È‚ÇA“ú–{ŒêˆÈŠO‚É‚È‚Á‚Ä‚¢‚é‰Â”\«‚ª
-‚ ‚è‚Ü‚·BViewƒƒjƒ…[AFontAChange Font‚ğ‘I‘ğ‚µ‚ÄƒtƒHƒ“ƒgƒ_ƒCƒAƒƒO‚ğ
-ŠJ‚«A“ú–{ŒêƒtƒHƒ“ƒg‚ğ‘I‘ğ‚µA•¶šƒZƒbƒg‚Åu“ú–{Œêv‚ğ‘I‘ğ‚µ‚Ü‚·B
+A. Frieve Editor is free for both personal and commercial use.
+You do not need to contact us even if you deploy it widely.
 
 
-Q.ƒJ[ƒh‚É“\‚è•t‚¯‚½“®‰æ‚ªÄ¶‚Å‚«‚Ü‚¹‚ñ
+Q. It seems to connect to the internet when it starts. What is it doing?
 
-A.ˆÈ‰º‚ÅĞ‰î‚³‚ê‚Ä‚¢‚éƒR[ƒfƒbƒN‚ğƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚İ‚Ä‚­‚¾‚³‚¢
+A. It is checking the update status of the latest Frieve Editor release.
+This is the same operation as Help menu -> Check Latest Release.
+You can also configure from Help menu -> Check Latest Release whether the newest
+release should be checked automatically.
+If you do not want it to connect, blocking it with a firewall or similar tool will
+not cause any problem at all.
+
+
+Q. Japanese text appears garbled in the Browser.
+
+A. The font character set may be set to a non-Japanese option such as a Western
+font set. Open the font dialog from View menu -> Font -> Change Font, choose a
+Japanese font, and set the character set to Japanese.
+
+
+Q. Video attached to a card will not play.
+
+A. Try installing the codec introduced here:
 http://ja.wikipedia.org/wiki/Ffdshow
 25
-Title: ‚»‚Ì‘¼
+Title: Other Information
 Label:1
 Fixed:0
 X:0.197277724742889
@@ -726,20 +758,20 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-‚»‚Ì‘¼
+Other Information
 ----------------------------------------------------------------------------
 
-Frieve‚ÌÅVî•ñ‚É‚Â‚¢‚Ä‚ÍˆÈ‰º‚ÌƒTƒCƒg‚ğ‚²QÆ‚­‚¾‚³‚¢B
+For the latest information about Frieve, please visit:
 http://www.frieve.com/
 
-Frieve Editor‚ÌÅVî•ñ‚É‚Â‚¢‚Ä‚ÍˆÈ‰º‚ÌƒTƒCƒg‚ğ‚²QÆ‚­‚¾‚³‚¢B
+For the latest information about Frieve Editor, please visit:
 http://www.frieve.com/feditor/
 
-Frieve‚ÌE-MailƒAƒhƒŒƒX‚ÍˆÈ‰º‚Ì‚Æ‚¨‚è‚Å‚·B‚¨‘—‚è‚¢‚½‚¾‚¢‚½ƒ[ƒ‹‚É‚Í
-•ÔM‚Å‚«‚È‚¢‚±‚Æ‚ª‚ ‚è‚Ü‚·B—\‚ß‚²—¹³‚­‚¾‚³‚¢B
+Frieve's email address is shown below.
+Please note that we may not always be able to reply to messages you send.
 frieve-a@frieve.com
 15
-Title:ƒJ[ƒh‚ğ•ÒW‚·‚é
+Title:Edit Cards
 Label:2,8
 Fixed:0
 X:0.135771751403809
@@ -752,10 +784,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ƒJ[ƒh‚ğ•ÒW‚·‚é
+Edit Cards
 ============================================================================
-55
-Title: V‚µ‚¢ƒJ[ƒh‚ğì¬‚·‚é‚É‚Í
+56
+Title: How to Create a New Card
 Label:2
 Fixed:0
 X:0.0362772606313229
@@ -768,50 +800,51 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-V‚µ‚¢ƒJ[ƒh‚ğì¬‚·‚é‚É‚Í
+How to Create a New Card
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserã‚ÅƒJ[ƒh‚Ì”z’u‚³‚ê‚Ä‚¢‚È‚¢”CˆÓ‚Ì‰ÓŠ‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Double-click any empty area in the Browser where no card is placed.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚ÍƒJ[ƒhƒŠƒXƒg‚ÌÅŒã‚É’Ç‰Á‚³‚ê‚Ü‚·B
+Note: In this case, the new card is added to the end of the card list.
 
-QljBrowser‰æ–Ê¶ã‚ÌA¶‚©‚ç3”Ô–Ú‚Ìƒ{ƒ^ƒ“iL‚ÆƒJ[ƒh‚Ì‘‚©‚ê‚½ƒ{ƒ^ƒ“j‚ğ
-@@@ƒNƒŠƒbƒN‚µAƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚½ó‘Ô‚Åƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚ÆAƒfƒtƒHƒ‹ƒg‚Å
-@@@ƒ‰ƒxƒ‹‚Ìİ’è‚³‚ê‚½ƒJ[ƒh‚ğ’Ç‰Á‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+Note: If you click the third button from the left at the top-left of the Browser
+      screen (the button marked with L and a card), choose a label, and then
+      double-click, you can add a card that already has that label assigned.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@Insertƒƒjƒ…[‚ÌNew Card‚ğ‘I‘ğ‚µ‚Ü‚·B
+Select New Card from the Insert menu.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚ÌŸ‚É’Ç‰Á‚³‚ê‚Ü‚·B
-@@@‘I‘ğ’†‚ÌƒJ[ƒh‚ª–³‚¢ê‡‚ÍƒJ[ƒhƒŠƒXƒg‚ÌÅŒã‚É’Ç‰Á‚³‚ê‚Ü‚·B
+Note: In this case, the new card is added after the currently selected card.
+      If no card is selected, it is added to the end of the card list.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.‰æ–Ê¶‚ÌCardsƒŠƒXƒg‚Å‰EƒNƒŠƒbƒN‚µ‚Ü‚·B
-2.•\¦‚³‚ê‚½‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çNew Card‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Right-click in the Cards list on the left side of the screen.
+2. Choose New Card from the menu that appears.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚Ì‘O‚É’Ç‰Á‚³‚ê‚Ü‚·B
-@@@‘I‘ğ’†‚ÌƒJ[ƒh‚ª–³‚¢ê‡‚ÍƒJ[ƒhƒŠƒXƒg‚ÌÅŒã‚É’Ç‰Á‚³‚ê‚Ü‚·B
+Note: In this case, the new card is added before the currently selected card.
+      If no card is selected, it is added to the end of the card list.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Editorƒ^ƒu‚ÅAŠù‘¶‚ÌƒJ[ƒh‚Ì–{•¶‚Ì‚¤‚¿AV‚µ‚¢ƒJ[ƒh‚Ì–{•¶‚É‚·‚é•¶Í‚ğ
-@”ÍˆÍ‘I‘ğ‚µ‚Ü‚·B
-2.Editor‰æ–Ê‚Ì‰EƒNƒŠƒbƒNƒƒjƒ…[‚ÅACut to New Card‚ğ‘I‘ğ‚µ‚Ü‚·B
-@‘I‘ğ‚µ‚½•¶Í‚ğ–{•¶‚Æ‚µ‚½V‚µ‚¢ƒJ[ƒh‚ªì¬‚³‚ê‚Ü‚·B
+1. In the Editor tab, select a portion of an existing card's body text that you
+   want to use as the body of a new card.
+2. Choose Cut to New Card from the Editor's right-click menu.
+   A new card is created using the selected text as its body.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Editorƒ^ƒu‚ÅAŠù‘¶‚ÌƒJ[ƒh‚Ì–{•¶‚Ì‚¤‚¿AV‚µ‚¢ƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚É‚·‚és‚ğ
-@”ÍˆÍ‘I‘ğ‚µ‚Ü‚·i•¡”s‘I‘ğ‚Å•¡”ƒJ[ƒh‚ğ“¯‚Éì¬jB
-2.Editor‰æ–Ê‚Ì‰EƒNƒŠƒbƒNƒƒjƒ…[‚ÅACut to New Card TitleA‚à‚µ‚­‚Í
-@Cut to New Card Title with Link‚ğ‘I‘ğ‚µ‚Ü‚·B‘I‘ğ‚µ‚½•¶Í‚ğ
-@ƒ^ƒCƒgƒ‹‚Æ‚µ‚½V‚µ‚¢ƒJ[ƒh‚ªì¬‚³‚ê‚Ü‚·Bwith Link‚ğ‘I‘ğ‚µ‚½ê‡A
-@‚³‚ç‚ÉŒ³‚ÌƒJ[ƒh‚©‚çV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚ÉƒŠƒ“ƒN‚³‚ê‚Ü‚·B
-62
-Title: Šù‘¶‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚µ‚½ƒJ[ƒh‚ğì¬‚·‚é‚É‚Í
+1. In the Editor tab, select the line or lines in an existing card's body that you
+   want to use as the title of a new card
+   (select multiple lines to create multiple cards at once).
+2. Choose Cut to New Card Title or Cut to New Card Title with Link from the
+   Editor's right-click menu. A new card is created using the selected text as
+   its title. If you choose with Link, a link is also created from the original
+   card to the newly created card.
+57
+Title: How to Create a Card Linked from an Existing Card
 Label:2
 Fixed:0
 X:0.00704234046861529
@@ -824,57 +857,52 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Šù‘¶‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚µ‚½ƒJ[ƒh‚ğì¬‚·‚é‚É‚Í
+How to Create a Card Linked from an Existing Card
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserã‚Åì¬‚·‚éƒJ[ƒh‚ÌƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ƒL[ƒ{[ƒh‚ÌInsertƒL[‚ğ‰Ÿ‚µ‚Ü‚·B‘I‘ğ’†‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚Ì’£‚ç‚ê‚½
-@V‚µ‚¢ƒJ[ƒh‚ªì¬‚³‚ê‚Ü‚·B
+1. Click the Browser tab.
+2. Select the source card in the Browser.
+3. Press the Insert key. A new card linked from the selected card is created.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚Ì’£‚ç‚ê‚½
-@@@ƒJ[ƒh‚Ì‚¤‚¿AÅŒã‚ÌƒJ[ƒh‚ÌŸ‚É’Ç‰Á‚³‚ê‚Ü‚·B
+Note: In this case, the new card is added after the last card among the cards
+      linked from the selected card.
 
-QljV‚µ‚¢ƒJ[ƒh‚É‚ÍA‘I‘ğ‚µ‚Ä‚¢‚½ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ªˆø‚«Œp‚ª‚ê‚Ü‚·
+Note: The labels of the selected card are inherited by the new card.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserã‚Åì¬‚·‚éƒJ[ƒh‚ÌƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ƒL[ƒ{[ƒh‚ÌShift+InsertƒL[‚ğ‰Ÿ‚µ‚Ü‚·B‘I‘ğ’†‚ÌƒJ[ƒh‚ÖƒŠƒ“ƒN‚Ì
-@’£‚ç‚ê‚½V‚µ‚¢ƒJ[ƒh‚ªì¬‚³‚ê‚Ü‚·B
+1. Click the Browser tab.
+2. Select the source card in the Browser.
+3. Press Shift+Insert. A new card linked to the selected card is created.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚ÖƒŠƒ“ƒN‚Ì’£‚ç‚ê‚½
-@@@ƒJ[ƒh‚Ì‚¤‚¿AÅŒã‚ÌƒJ[ƒh‚ÌŸ‚É’Ç‰Á‚³‚ê‚Ü‚·B
+Note: In this case, the new card is added after the last card among the cards
+      linked to the selected card.
 
-QljV‚µ‚¢ƒJ[ƒh‚É‚ÍA‘I‘ğ‚µ‚Ä‚¢‚½ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ªˆø‚«Œp‚ª‚ê‚Ü‚·
+Note: The labels of the selected card are inherited by the new card.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserã‚Åì¬‚·‚éƒJ[ƒh‚ÌŒZ’íŠÖŒW‚É‚ ‚½‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ƒL[ƒ{[ƒh‚ÌEnterƒL[‚ğ‰Ÿ‚µ‚Ü‚·B‘I‘ğ’†‚ÌƒJ[ƒh‚ÌƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚©‚ç
-@ƒŠƒ“ƒN‚Ì’£‚ç‚ê‚½V‚µ‚¢ƒJ[ƒh‚ªì¬‚³‚ê‚Ü‚·B
+1. Click the Browser tab.
+2. Select a card that is a sibling of the card you want to create.
+3. Press Enter. A new card linked from the source card of the selected card is created.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚ÌŸ‚É’Ç‰Á‚³‚ê‚Ü‚·B
+Note: In this case, the new card is added after the currently selected card.
 
-Qlj‘I‘ğ’†‚ÌƒJ[ƒh‚ÉŒü‚¯‚ÄƒŠƒ“ƒN‚ª’£‚ç‚ê‚½ƒJ[ƒh‚ª•¡”‚ ‚éê‡‚ÍA
-@@@‚»‚Ì‚¤‚¿‚Ìˆê”ÔÅ‹ß‘I‘ğ‚³‚ê‚½ƒJ[ƒh‚©‚çƒŠƒ“ƒN‚Ì’£‚ç‚ê‚½V‚µ‚¢ƒJ[ƒh‚ª
-@@@ì¬‚³‚ê‚Ü‚·B
+Note: If more than one card links to the selected card, the new card is created
+      from the most recently selected of those source cards.
 
-QljV‚µ‚¢ƒJ[ƒh‚É‚ÍA‘I‘ğ‚µ‚Ä‚¢‚½ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚ªˆø‚«Œp‚ª‚ê‚Ü‚·
+Note: The labels of the selected card are inherited by the new card.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserã‚ÅƒJ[ƒh‚ğ‘}“ü‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ƒL[ƒ{[ƒh‚ÌInsertƒL[‚ğ‰Ÿ‚µ‚Ü‚·B‘I‘ğ’†‚ÌƒŠƒ“ƒN‚ÌŠÔ‚ÉV‚µ‚¢ƒJ[ƒh‚ª
-@ì¬‚³‚ê‚Ü‚·B
+1. Click the Browser tab.
+2. Select the link where you want to insert a card.
+3. Press the Insert key. A new card is created in the middle of the selected link.
 
-Qlj‚±‚Ìê‡AV‚µ‚­ì¬‚µ‚½ƒJ[ƒh‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚ÌƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚©‚ç
-@@@ƒŠƒ“ƒN‚Ì’£‚ç‚ê‚½ƒJ[ƒh‚Ì‚¤‚¿AÅŒã‚ÌƒJ[ƒh‚ÌŸ‚É’Ç‰Á‚³‚ê‚Ü‚·B
-33
-Title: ƒJ[ƒh‚ğ‘I‘ğ‚·‚é‚É‚Í
+Note: In this case, the new card is added after the last card among the cards
+      linked from the source card of the selected card.
+32
+Title: How to Select Cards
 Label:2
 Fixed:0
 X:0
@@ -887,28 +915,27 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğ‘I‘ğ‚·‚é‚É‚Í
+How to Select Cards
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‘I‘ğ‚·‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B•¡”‚ÌƒJ[ƒh‚ğ“¯‚É‘I‘ğ‚·‚é‚É‚ÍACtrlƒL[‚ğ
-@‰Ÿ‚µ‚È‚ª‚çƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the card you want to select. To select multiple cards at the same time,
+   hold down Ctrl while clicking cards.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ShiftƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çAƒJ[ƒh‚Ì‚È‚¢•”•ª‚ğƒhƒ‰ƒbƒO‚µ‚Ä‘I‘ğ”ÍˆÍ‚ğw’è‚µ‚Ü‚·B
-@ƒ}ƒEƒX‚Åw’è‚µ‚½”ÍˆÍ“à‚É‚ ‚éƒJ[ƒh‚ª‘I‘ğ‚³‚ê‚Ü‚·B
+1. Click the Browser tab.
+2. Hold down Shift and drag over an empty area to define a selection range.
+   Cards inside the range you drag out with the mouse are selected.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@‰æ–Ê¶‚ÌCardsƒŠƒXƒg‚ÅA‘I‘ğ‚·‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B•¡”‚ÌƒJ[ƒh‚ğ
-@‘I‘ğ‚·‚é‚É‚ÍACtrlƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒJ[ƒh‚ğƒNƒŠƒbƒN‚·‚é‚©A‘I‘ğ‚·‚é”ÍˆÍ‚ğ
-@ƒ}ƒEƒX‚Åƒhƒ‰ƒbƒO‚·‚é‚©A‘I‘ğ‚·‚é”ÍˆÍ‚Ìæ“ª‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚½ŒãAShiftƒL[‚ğ
-@‰Ÿ‚µ‚È‚ª‚ç‘I‘ğ‚·‚é”ÍˆÍ‚ÌÅŒã‚ÌƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
-
+Click cards in the Cards list on the left side of the screen.
+To select multiple cards, hold down Ctrl while clicking cards, drag over the
+range you want to select, or select the first card in the range and then hold
+down Shift while clicking the last card in the range.
 26
-Title: ƒJ[ƒh‚ğˆÚ“®‚·‚é‚É‚Í
+Title: How to Move Cards
 Label:2,5
 Fixed:0
 X:0.340611904859543
@@ -921,21 +948,21 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğˆÚ“®‚·‚é‚É‚Í
+How to Move Cards
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ˆÚ“®‚·‚éƒJ[ƒh‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Drag the card you want to move.
 
-Qlj•¡”‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ä‚¨‚­‚ÆA‘I‘ğƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚ÄˆÚ“®‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+Note: If multiple cards are selected, you can move all selected cards together.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.CtrlƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒJ[ƒh‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·B“¯‚¶ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚½ƒJ[ƒh‚ğ
-@‚Ü‚Æ‚ß‚Ä“®‚©‚·‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+1. Click the Browser tab.
+2. Hold down Ctrl and drag a card.
+   This lets you move cards with the same label together.
 18
-Title: ƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚ğ•ÒW‚·‚é‚É‚Í
+Title: How to Edit a Card Title
 Label:2
 Fixed:0
 X:0.0260267276316881
@@ -948,13 +975,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚ğ•ÒW‚·‚é‚É‚Í
+How to Edit a Card Title
 ----------------------------------------------------------------------------
 
-1.ƒ^ƒCƒgƒ‹‚ğ•ÒW‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌCardƒpƒlƒ‹‚ÌTitle‚ÉAƒJ[ƒh‚ÌV‚µ‚¢ƒ^ƒCƒgƒ‹‚ğ“ü—Í‚µ‚Ü‚·B
+1. Select the card whose title you want to edit.
+2. Enter the new title in Title on the Card panel.
 20
-Title: ƒJ[ƒh‚Ì“à—e‚ğ•ÒW‚·‚é‚É‚Í
+Title: How to Edit Card Content
 Label:2
 Fixed:0
 X:0.00242089992389083
@@ -967,15 +994,15 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:51
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚Ì“à—e‚ğ•ÒW‚·‚é‚É‚Í
+How to Edit Card Content
 ----------------------------------------------------------------------------
 
-1.Browser‰æ–Ê‚©‚ç“à—e‚ğ•ÒW‚·‚éƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©A‰æ–Ê¶‚Ì
-@CardƒŠƒXƒg‚©‚ç“à—e‚ğ•ÒW‚·‚éƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©AŠù‚É•ÒW‚·‚é
-@ƒJ[ƒh‚ğ‘I‘ğ’†‚Ìê‡‚ÍEditorƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚ÄEditor‰æ–Ê‚ğ•\¦‚µ‚Ü‚·B
-2.Editor‰æ–Ê‚ÅƒJ[ƒh‚Ì“à—e‚ğ•ÒW‚µ‚Ü‚·B
-103
-Title: GPT‚ğ—˜—p‚µ‚ÄƒJ[ƒh‚Ì“à—e‚ğ•ÒW‚·‚é‚É‚Í
+1. Double-click the card you want to edit in the Browser, or double-click it in
+   the Card list on the left side of the screen. If the card is already selected,
+   click the Editor tab to display the Editor.
+2. Edit the card content in the Editor.
+109
+Title: How to Edit Card Content with GPT
 Label:2
 Fixed:0
 X:0.0822317451238632
@@ -988,55 +1015,58 @@ Updated:2023/04/14 20:37:19
 Viewed:2023/04/14 20:23:50
 -
 ----------------------------------------------------------------------------
-GPT‚ğ—˜—p‚µ‚ÄƒJ[ƒh‚Ì“à—e‚ğ•ÒW‚·‚é‚É‚Í
+How to Edit Card Content with GPT
 ----------------------------------------------------------------------------
 
-1. Editƒƒjƒ…[‚©‚çGPT‚ğ‘I‘ğ‚·‚é‚©AƒL[ƒ{[ƒh‚ÌCtrl{GƒL[‚ğ‰Ÿ‚µ‚Ü‚·BCtrl+GƒL[‚É‚æ‚éŒÄ‚Ño‚µ‚ğ‚¨‚·‚·‚ß‚µ‚Ü‚·B
-2. ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç”CˆÓ‚Ìˆ—‚ğ‘I‘ğ‚µ‚Ü‚·B
-3. ‰‚ß‚ÄÀs‚·‚éê‡A•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉOpenAI‚ÌAPI Key‚ğ“ü—Í‚µ‚Ü‚·B
+1. Choose GPT from the Edit menu, or press Ctrl+G on the keyboard.
+   Using Ctrl+G is recommended.
+2. Select the operation you want from the popup menu.
+3. The first time you use it, enter your OpenAI API Key in the dialog box that appears.
 
-Frieve Editor‚ÌGPT˜AŒg‹@”\‚ÍA—L—¿‚Ìi‚µ‚©‚µ‹É‚ß‚ÄˆÀ‰¿‚ÈjOpenAI API‚ğ—˜—p‚µ‚ÄÀŒ»‚³‚ê‚Ä‚¢‚Ü‚·B
-OpenAI‚ÌAPI‚Ì—˜—p‚É‚ÍOpenAIƒAƒJƒEƒ“ƒg‚Ìì¬AƒNƒŒƒWƒbƒgƒJ[ƒh‚Ì“o˜^‚ª•K—v‚Å‚·B
-OpenAI API Key‚Ìæ“¾•û–@‚É‚Â‚¢‚Ä‚ÍAOpenAI API‚ÌWebƒTƒCƒg‚ğ‚²QÆ‚­‚¾‚³‚¢B
+Frieve Editor's GPT integration uses the paid, but extremely inexpensive, OpenAI API.
+To use the OpenAI API, you need to create an OpenAI account and register a credit card.
+For details on obtaining an OpenAI API Key, please refer to the OpenAI API website.
 https://platform.openai.com/overview
 
 
-ƒfƒtƒHƒ‹ƒg‚Å‘I‘ğ‰Â”\‚Èˆ—‚ÍˆÈ‰º‚Ì’Ê‚è‚Å‚·B
+The following operations are available by default.
 
 Create
-@ƒvƒƒ“ƒvƒg‚É‚æ‚éw¦‚ğ“ü—Í‚µA‚»‚ê‚ğŒ³‚ÉV‚µ‚¢ƒeƒLƒXƒg‚ğ¶¬‚µ‚Ü‚·B
-@ƒvƒƒ“ƒvƒg‚É‚Í“ú–{Œê‚ğ—p‚¢‚é‚±‚Æ‚à‰Â”\‚Å‚·B
-@‰½‚àƒeƒLƒXƒg‚ğ‘I‘ğ‚µ‚Ä‚¢‚È‚¢ó‘Ô‚Å‚ÍƒXƒNƒ‰ƒbƒ`‚©‚çƒeƒLƒXƒg‚ğ¶¬‚µ‚Ü‚·B
-@ƒeƒLƒXƒg‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éó‘Ô‚Å‚ÍA‘I‘ğ‚µ‚Ä‚¢‚éƒeƒLƒXƒg‚Æw¦‚Ì—¼•û‚ğŒ³‚É‚µ‚½ƒeƒLƒXƒg‚ğ¶¬‚µ‚Ü‚·B
+  Enter prompt instructions and generate new text based on them.
+  You can use Japanese in the prompt as well.
+  If no text is selected, text is generated from scratch.
+  If text is selected, the generated result is based on both the selected text
+  and your instruction.
 
 
 Continue
-@Œ»İ‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚Ü‚Å‚ÌƒeƒLƒXƒg‚É‘±‚­ƒeƒLƒXƒg‚ğ¶¬‚µ‚Ü‚·B
+  Generates text that continues from the current cursor position.
 
-Simplity
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğ‚æ‚èŠÈŒ‰‚ÈƒeƒLƒXƒg‚Å’u‚«Š·‚¦‚Ü‚·B
+Simplify
+  Replaces the selected text with a simpler version.
 
 Longer
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğ–c‚ç‚Ü‚¹A‚æ‚è’·‚¢ƒeƒLƒXƒg‚Å’u‚«Š·‚¦‚Ü‚·B
+  Expands the selected text and replaces it with a longer version.
 
 Summarize
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğ—v–ñ‚µ‚Ü‚·B
+  Summarizes the selected text.
 
 Proofread
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚Ì•¶–@“IŒë‚è‚âŒëš’Eš‚ğC³‚µ‚Ü‚·B
+  Corrects grammar mistakes, typos, and similar issues in the selected text.
 
 Translate to English
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğ‰pŒê‚É–|–ó‚µ‚Ü‚·B
+  Translates the selected text into English.
 
 Translate to Japanese
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğ“ú–{Œê‚É–|–ó‚µ‚Ü‚·B
+  Translates the selected text into Japanese.
 
 
 Title
-@‘I‘ğ’†‚ÌƒeƒLƒXƒg‚ğŒ³‚ÉAƒJ[ƒhƒ^ƒCƒgƒ‹‚ğ¶¬‚µ‚Ü‚·
+  Generates a card title based on the selected text.
 
 
-Frieve Editor‚ÉŠÜ‚Ü‚ê‚éƒtƒ@ƒCƒ‹‚Ì‚¤‚¿Asetting2.ini‚ğƒeƒLƒXƒgƒGƒfƒBƒ^‚Å•ÒW‚·‚é‚±‚Æ‚ÅA”CˆÓ‚ÌChatGPT˜AŒg‹@”\‚ğ’Ç‰Á‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+By editing setting2.ini, which is included with Frieve Editor, in a text editor,
+you can add any ChatGPT integration features you want.
 
 [GPTSystem]
 SystemPrompt=Response should only be a single processing result. No additional explanations or excuses needed. Respond in the last language of the user's instructions without translating unless otherwise instructed by the user.
@@ -1054,32 +1084,35 @@ Translate to Japanese=Replace,Translate the following sentences into Japanese.
 -=
 Title=Title,Create a title based on the following sentences.Responses should be in the original language.
 
-[GPTSystem]‚ÌSystemPrompt=‚É‘±‚«A‘S‚Ä‚ÌGPT˜AŒg‹@”\‚ÌŒÄ‚Ño‚µ‚Ì‚½‚ßChatGPT‚ÌƒVƒXƒeƒ€‚Ö‚Ìw¦‚É—p‚¢‚éƒeƒLƒXƒg‚ğ“ü—Í‚µ‚Ü‚·B
+[GPTSystem] SystemPrompt= is followed by the text used as the system instruction
+for ChatGPT when every GPT integration feature is called.
 
-[GPT]‚ÌŠes‚ÉAˆÈ‰º‚ÌƒtƒH[ƒ}ƒbƒg‚Å”CˆÓ‚Ìˆ—‚ğ’Ç‰Á‚µ‚Ü‚·B
-ˆ—–¼=ˆ—ƒ^ƒCƒv,ˆ—“à—e‚ğw¦‚·‚éƒvƒƒ“ƒvƒg
+Add any operation you like to each line under [GPT] in the following format.
+OperationName=OperationType,Prompt that instructs the processing
 
-ˆ—–¼‚Æ‚µ‚Ä‚Í”CˆÓ‚ÌƒeƒLƒXƒg‚ğg—p‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-‚±‚±‚Åw’è‚µ‚½ˆ—–¼‚ÍAGPT‹@”\ŒÄ‚Ño‚µ‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚Ì•\¦‚É—p‚¢‚ç‚ê‚Ü‚·B
-u-=v‚Æ‘‚¢‚½s‚ğ’Ç‰Á‚·‚é‚±‚Æ‚ÅAƒƒjƒ…[‚ğ‹æØ‚Á‚Ä•\¦‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+Any text can be used as the operation name.
+The operation name specified here is used for the popup menu shown when calling
+the GPT feature.
+If you add a line that says "-=", the menu is shown with a separator there.
 
-ˆ—ƒ^ƒCƒv‚ÍˆÈ‰º‚Ì4‚Â‚©‚ç‘I‘ğ‚Å‚«‚Ü‚·B
+Choose one of the following four operation types.
 
 Insert
-@Œ»İ‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚É¶¬‚µ‚½ƒeƒLƒXƒg‚ğ‘}“ü
+  Insert generated text at the current cursor position
 InsertAfter
-@Œ»İ‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚Ü‚Å‚ÌƒeƒLƒXƒg‚ğŒ³‚ÉAŒ»İ‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚É¶¬‚µ‚½ƒeƒLƒXƒg‚ğ‘}“ü
+  Generate text based on the text up to the current cursor position and insert
+  it at the current cursor position
 Replace
-@Œ»İ‚Ì‘I‘ğ”ÍˆÍ‚ÌƒeƒLƒXƒg‚ğA¶¬‚µ‚½ƒeƒLƒXƒg‚Å’u‚«Š·‚¦‚é
+  Replace the text in the current selection with generated text
 Title
-@Œ»İ‚Ì‘I‘ğ”ÍˆÍ‚ÌƒeƒLƒXƒg‚ÉŠî‚Ã‚«¶¬‚µ‚½ƒeƒLƒXƒg‚ğAƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚Éİ’è‚·‚é
+  Set the card title to text generated from the text in the current selection
 
-ˆ—“à—e‚ğw¦‚·‚éƒvƒƒ“ƒvƒg‚Æ‚µ‚Ä‚Í”CˆÓ‚ÌƒeƒLƒXƒg‚ğ—p‚¢‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-ƒvƒƒ“ƒvƒg‚É‚Í“ú–{Œê‚ğ—p‚¢‚é‚±‚Æ‚à‰Â”\‚Å‚·B
-(Input)‚ğw’è‚·‚é‚ÆAˆ—w’èŒã‚Éƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ªŠJ‚«Aƒ†[ƒU‚É”CˆÓ‚Ìƒvƒƒ“ƒvƒg‚Ì“ü—Í‚ğ‘£‚µ‚Ü‚·B
-
+Any text can be used as the prompt that instructs the processing.
+You may also use Japanese in the prompt.
+If you specify (Input), a dialog box opens after the operation is selected and
+prompts the user to enter any prompt.
 35
-Title: ƒJ[ƒh‚ğŒŸõ‚·‚é‚É‚Í
+Title: How to Search for Cards
 Label:2
 Fixed:0
 X:0.0635863617062569
@@ -1092,30 +1125,30 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:23:48
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğŒŸõ‚·‚é‚É‚Í
+How to Search for Cards
 ----------------------------------------------------------------------------
 
-1.Editƒƒjƒ…[‚©‚çFind‚ğ‘I‘ğ‚·‚é‚©AƒL[ƒ{[ƒh‚ÌCtrl+FƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
-2.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉŒŸõ•¶š—ñ‚ğ“ü—Í‚µ‚Ü‚·B
-3.ƒJ[ƒhƒ^ƒCƒgƒ‹‚ğŒŸõ‘ÎÛ‚É‚·‚é‚É‚ÍACard Title‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-4.ƒJ[ƒh‚Ì–{•¶‚ğŒŸõ‘ÎÛ‚É‚·‚é‚É‚ÍAText‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-5.‘å•¶šA¬•¶š‚ğ‹æ•Ê‚µ‚½ŒŸõ‚ğs‚¤‚É‚ÍAMatch Case‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-@‘å•¶šA¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢ŒŸõ‚ğs‚¤‚É‚ÍAMatch Case‚Ìƒ`ƒFƒbƒN‚ğŠO‚µ‚Ü‚·B
-6.Browser‚Å”ñ•\¦‚É‚È‚Á‚Ä‚¢‚éƒJ[ƒh‚à‘ÎÛ‚ÉŒŸõ‚ğs‚¤‚É‚ÍAInvisible Card‚ğ
-@ƒ`ƒFƒbƒN‚µ‚Ü‚·B”ñ•\¦ƒJ[ƒh‚ğŒŸõ‘ÎÛ‚É‚µ‚È‚¢ê‡‚ÍAInvisible Card‚Ì
-@ƒ`ƒFƒbƒN‚ğ‚Í‚¸‚µ‚Ü‚·B
-7.Find Nextƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
-8.“¯‚¶ƒL[ƒ[ƒhAŒŸõğŒ‚É‚æ‚éŸ‚ÌŒó•â‚ğŒŸõ‚·‚é‚É‚ÍAEditƒƒjƒ…[‚©‚ç
-@Find Next‚ğ‘I‘ğ‚·‚é‚©AƒL[ƒ{[ƒh‚ÌF3ƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Choose Find from the Edit menu, or press Ctrl+F.
+2. Enter the search string in the dialog box that appears.
+3. To search card titles, check Card Title.
+4. To search the body text of cards, check Text.
+5. To perform a case-sensitive search, check Match Case.
+   To perform a case-insensitive search, clear Match Case.
+6. To include cards hidden in the Browser in the search, check Invisible Card.
+   If you do not want hidden cards included, clear Invisible Card.
+7. Press Find Next.
+8. To search for the next candidate using the same keyword and conditions,
+   choose Find Next from the Edit menu or press F3.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserƒ^ƒu‰Eã‚ÌƒGƒfƒBƒbƒgƒ{ƒbƒNƒX‚ÉŒŸõ•¶š—ñ‚ğ“ü—Í‚µ‚Ü‚·B
-3.ƒGƒfƒBƒbƒgƒ{ƒbƒNƒX‰E‚ÌFindƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B•\¦’†‚ÌƒJ[ƒh‚©‚çA
-@ƒJ[ƒhƒ^ƒCƒgƒ‹‚ÉŒŸõ•¶š—ñ‚ğŠÜ‚ŞƒJ[ƒh‚ğŒŸõ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+1. Click the Browser tab.
+2. Enter the search string in the edit box at the upper right of the Browser tab.
+3. Press the Find button to the right of the edit box.
+   This searches the currently visible cards for card titles that contain the
+   search string.
 25
-Title: ƒJ[ƒh‚ğíœ‚·‚é‚É‚Í
+Title: How to Delete Cards
 Label:2
 Fixed:0
 X:0.24679708480835
@@ -1128,20 +1161,20 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğíœ‚·‚é‚É‚Í
+How to Delete Cards
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.íœ‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ƒL[ƒ{[ƒh‚ÌDeleteƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Select the card you want to delete.
+3. Press the Delete key.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.‰æ–Ê¶‚ÌCardsƒŠƒXƒg‚Åíœ‚·‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-2.CardsƒŠƒXƒg‚Å‰EƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çDelete Card‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the card you want to delete in the Cards list on the left and select it.
+2. Right-click in the Cards list.
+3. Choose Delete Card from the popup menu that appears.
 28
-Title: ƒJ[ƒh‚Éƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+Title: How to Add a Label to a Card
 Label:2
 Fixed:0
 X:0.214659854769707
@@ -1154,23 +1187,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚Éƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+How to Add a Label to a Card
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌCardƒpƒlƒ‹‚ÌLabel‰E‚Ìƒ{ƒ^ƒ“‚Ì‚¤‚¿Aƒ‰ƒxƒ‹‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢‚à‚Ì‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çƒJ[ƒh‚É‚Â‚¯‚éƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Select the card you want to label.
+2. Click one of the buttons to the right of Label on the Card panel that does not
+   currently have a label assigned.
+3. Choose the label to apply to the card from the popup menu that appears.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browser‰æ–Ê¶ã‚ÌA¶‚©‚ç3”Ô–Ú‚Ìƒ{ƒ^ƒ“iL‚ÆƒJ[ƒh‚Ì‘‚©‚ê‚½ƒ{ƒ^ƒ“j‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çA‚Â‚¯‚éƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚Ü‚·B
-4.ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the third button from the left at the top-left of the Browser screen
+   (the button marked with L and a card) to select it.
+3. Choose the label to apply from the popup menu that appears.
+4. Click the card you want to label.
 19
-Title: ƒJ[ƒh‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+Title: How to Add a New Label to a Card
 Label:2,4
 Fixed:0
 X:0.155212134122849
@@ -1183,14 +1216,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+How to Add a New Label to a Card
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚ğ•ÒW‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Insertƒƒjƒ…[‚©‚çANew Label‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉV‚µ‚¢ƒ‰ƒxƒ‹–¼‚ğ“ü—Í‚µAOKƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Select the card whose labels you want to edit.
+2. Choose New Label from the Insert menu.
+3. Enter the new label name in the dialog box that appears and press OK.
 21
-Title: ƒJ[ƒh‚É‚Â‚¯‚½ƒ‰ƒxƒ‹‚ğÁ‹A•ÏX‚·‚é‚É‚Í
+Title: How to Remove or Change a Card Label
 Label:2
 Fixed:0
 X:0.119580142199993
@@ -1203,16 +1236,16 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚É‚Â‚¯‚½ƒ‰ƒxƒ‹‚ğÁ‹A•ÏX‚·‚é‚É‚Í
+How to Remove or Change a Card Label
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚ğ•ÒW‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌCardƒpƒlƒ‹‚ÌLabel‰E‚Ìƒ{ƒ^ƒ“‚Ì‚¤‚¿AÁ‹A•ÏX‚·‚éƒ‰ƒxƒ‹‚Ìƒ{ƒ^ƒ“‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çƒJ[ƒh‚É‚Â‚¯‚éƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚Ü‚·B
-@‚±‚±‚ÅNo Label‚ğ‘I‘ğ‚·‚é‚ÆAƒ‰ƒxƒ‹‚ªÁ‹‚³‚ê‚Ü‚·B
+1. Select the card whose labels you want to edit.
+2. Click the label button you want to remove or change among the buttons to the
+   right of Label on the Card panel.
+3. Choose the label to assign to the card from the popup menu that appears.
+   If you choose No Label here, the label is removed.
 28
-Title: ƒJ[ƒh‚ÉŠO•”ƒtƒ@ƒCƒ‹AURL‚ğŠÖ˜A•t‚¯‚é‚É‚Í
+Title: How to Associate an External File or URL with a Card
 Label:2
 Fixed:0
 X:0.208069488406181
@@ -1225,23 +1258,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ÉŠO•”ƒtƒ@ƒCƒ‹AURL‚ğŠÖ˜A•t‚¯‚é‚É‚Í
+How to Associate an External File or URL with a Card
 ----------------------------------------------------------------------------
 
-1.Browser‰æ–Ê‚©‚ç“à—e‚ğ•ÒW‚·‚éƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©A‰æ–Ê¶‚Ì
-@CardƒŠƒXƒg‚©‚ç“à—e‚ğ•ÒW‚·‚éƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©AŠù‚É•ÒW‚·‚é
-@ƒJ[ƒh‚ğ‘I‘ğ’†‚Ìê‡‚ÍEditorƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚ÄEditor‰æ–Ê‚ğ•\¦‚µ‚Ü‚·B
-2.ƒJ[ƒh–{•¶’†‚Ì1s‚ÉAŠO•”ƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹–¼iƒtƒ‹ƒpƒXjA‚à‚µ‚­‚ÍURL‚ğ
-@‹Lq‚µ‚Ü‚·B
+1. Double-click the card you want to edit in the Browser, or double-click it in
+   the Card list on the left side of the screen. If the card is already selected,
+   click the Editor tab to display the Editor.
+2. On one line in the card body, enter either the file name (full path) of the
+   external file or a URL.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.ŠÖ˜A•t‚¯æ‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Insertƒƒjƒ…[‚©‚çNew Ext Link‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ŠÖ˜A•t‚¯‚éƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ü‚·Bw’è‚µ‚½ƒtƒ@ƒCƒ‹–¼‚ª–{•¶ˆê”ÔÅŒã‚Ì
-@s‚É’Ç‰Á‚³‚ê‚Ü‚·B
+1. Select the card to associate with the external item.
+2. Choose New Ext Link from the Insert menu.
+3. Specify the file to associate.
+   The specified file name is added as the last line of the card body.
 35
-Title: ƒJ[ƒh‚É‰æ‘œ‚â‰f‘œ‚ğ•\¦‚·‚é‚É‚Í
+Title: How to Display Images or Video on a Card
 Label:2
 Fixed:0
 X:0.1629708558321
@@ -1254,30 +1287,30 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚É‰æ‘œ‚â‰f‘œ‚ğ•\¦‚·‚é‚É‚Í
+How to Display Images or Video on a Card
 ----------------------------------------------------------------------------
 
-1.Browser‰æ–Ê‚©‚ç“à—e‚ğ•ÒW‚·‚éƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©A‰æ–Ê¶‚Ì
-@CardƒŠƒXƒg‚©‚ç“à—e‚ğ•ÒW‚·‚éƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©AŠù‚É•ÒW‚·‚é
-@ƒJ[ƒh‚ğ‘I‘ğ’†‚Ìê‡‚ÍEditorƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚ÄEditor‰æ–Ê‚ğ•\¦‚µ‚Ü‚·B
-2.ƒJ[ƒh–{•¶’†‚Ì1s‚ÉA‰æ‘œƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹–¼iƒtƒ‹ƒpƒXjA‚à‚µ‚­‚Í
-@‰æ‘œƒtƒ@ƒCƒ‹A‰f‘œƒtƒ@ƒCƒ‹‚ÌURL‚ğ‹Lq‚µ‚Ü‚·B
+1. Double-click the card you want to edit in the Browser, or double-click it in
+   the Card list on the left side of the screen. If the card is already selected,
+   click the Editor tab to display the Editor.
+2. On one line in the card body, enter either the image file name (full path) or
+   the URL of an image or video file.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.ŠÖ˜A•t‚¯æ‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Insertƒƒjƒ…[‚©‚çNew Ext Link‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.‰æ‘œ‚à‚µ‚­‚Í‰f‘œƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ü‚·Bw’è‚µ‚½ƒtƒ@ƒCƒ‹–¼‚ª–{•¶‚Ìˆê”ÔÅŒã‚Ì
-@s‚É’Ç‰Á‚³‚ê‚Ü‚·B
+1. Select the card to associate with the media.
+2. Choose New Ext Link from the Insert menu.
+3. Specify the image or video file.
+   The specified file name is added as the last line of the card body.
 
-QljŒ»İ‰æ‘œA‰f‘œƒtƒ@ƒCƒ‹‚Æ‚µ‚ÄAbmpAjpgAaviAmpg‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+Note: Supported image and video formats are currently bmp, jpg, avi, and mpg.
 
-Qlj“®‰æ‚Ìƒtƒ@ƒCƒ‹–¼‚à‚µ‚­‚ÍURL‚Ì‘O‚ÉuÄ¶ŠJnˆÊ’u(ms)-Ä¶I—¹ˆÊ’u(ms)|v‚Æ
-‘‚«‚Ş‚±‚Æ‚ÅAw’è”ÍˆÍ“à‚ğƒ‹[ƒvÄ¶‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-—áF1000-5000|c:\movie.mpg
-@@c:\movie.mpg‚Ì1•b‚©‚ç5•b‚ğƒ‹[ƒvÄ¶
-70
-Title: ƒJ[ƒh‚É}‚ğ•\¦‚·‚é‚É‚Í
+Note: If you write "playback start position (ms)-playback end position (ms)|"
+      before the video file name or URL, the specified range will loop.
+Example: 1000-5000|c:\movie.mpg
+         Loops playback from 1 second to 5 seconds of c:\movie.mpg
+73
+Title: How to Display Drawings on a Card
 Label:2
 Fixed:0
 X:0.057452104985714
@@ -1290,65 +1323,68 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚É}‚ğ•\¦‚·‚é‚É‚Í
+How to Display Drawings on a Card
 ----------------------------------------------------------------------------
 
-1.Browser‰æ–ÊA‚à‚µ‚­‚Í‰æ–Ê¶‚ÌƒJ[ƒhƒŠƒXƒg‚©‚ç}‚ğ‘}“ü‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Drawingƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä}‚Ì•ÒW‰æ–Ê‚ğ•\¦‚µ‚Ü‚·B
-3.Drawingƒ^ƒu‚Å}‚ğ•ÒW‚µ‚Ü‚·B
-4.Browser‰æ–Ê‚ğ•\¦‚·‚é‚ÆAƒJ[ƒh‚É•ÒW‚µ‚½}Œ`‚ª•\¦‚³‚ê‚Ü‚·B
+1. Select the card into which you want to insert a drawing, either in the Browser
+   or from the card list on the left side of the screen.
+2. Click the Drawing tab to display the drawing editor.
+3. Edit the drawing in the Drawing tab.
+4. When you return to the Browser, the edited drawing is displayed on the card.
 
 
-E}Œ`‚ğ’Ç‰Á‚·‚é‚É‚Í
+- To add a shape
 
-1.Drawingƒ^ƒu¶ã‚ÅA’Ç‰Á‚·‚é}Œ`‚Ìí—Ş‚ğ©—R‹ÈüA’¼üA‹éŒ`A‘È‰~‚Ì’†‚©‚ç
-@ƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-2.“_ü‚ÅˆÍ‚Ü‚ê‚½˜g“à‚Åƒ}ƒEƒX‚ğƒhƒ‰ƒbƒO‚µ‚ÄA}Œ`‚ğ’Ç‰Á‚µ‚Ü‚·B
-
-
-E}Œ`‚ğ‘I‘ğ‚·‚é‚É‚Í
-
-1.Drawingƒ^ƒu¶ã‚Ìƒ{ƒ^ƒ“‚ÅAƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌŒ`‚ğ‚µ‚½‘I‘ğƒ{ƒ^ƒ“‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‘I‘ğ‚·‚é}Œ`‚ğƒNƒŠƒbƒN‚µ‚Ü‚·BCtrlƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒNƒŠƒbƒN‚·‚é‚±‚Æ‚Å•¡”‚Ì
-@}Œ`‚Ì‘I‘ğA”ñ‘I‘ğ‚ğØ‚è‘Ö‚¦‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B‚à‚µ‚­‚ÍA}Œ`‚ªŠÜ‚Ü‚ê‚é”ÍˆÍ‚ğ
-@ƒhƒ‰ƒbƒO‚µ‚Ä‚Ü‚Æ‚ß‚Ä}Œ`‚ğ‘I‘ğ‚µ‚Ü‚·B}Œ`‚ğ‚·‚×‚Ä‘I‘ğ‚·‚é‚É‚ÍAEditƒƒjƒ…[
-@‚à‚µ‚­‚Í‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çSelect All‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. At the upper left of the Drawing tab, click to choose the type of shape to add:
+   freehand line, straight line, rectangle, or ellipse.
+2. Drag the mouse inside the dotted frame to add the shape.
 
 
-E}Œ`‚ğØ‚èæ‚èAƒRƒs[Aíœ‚·‚é‚É‚Í
+- To select a shape
 
-1.•ÒW‘ÎÛ‚Ì}Œ`‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Editƒƒjƒ…[‚à‚µ‚­‚Í‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çA‚»‚ê‚¼‚êCutACopyADelete‚ğ
-@‘I‘ğ‚µ‚Ü‚·Bíœ‚É‚ÍDeleteƒL[‚ğ—p‚¢‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B
-
-
-EØ‚èæ‚èAƒRƒs[‚µ‚½}Œ`‚ğ’£‚è•t‚¯‚·‚é‚É‚Í
-
-@Editƒƒjƒ…[‚à‚µ‚­‚Í‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çPaste‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. At the upper left of the Drawing tab, choose the selection button with the
+   mouse cursor icon.
+2. Click the shape you want to select. Hold down Ctrl while clicking to toggle
+   selection for multiple shapes, or drag over an area to select several shapes
+   at once. To select all shapes, choose Select All from the Edit menu or from
+   the right-click menu.
 
 
-E}Œ`‚Ì‘å‚«‚³‚ğ•ÏX‚·‚é‚É‚Í
+- To cut, copy, or delete a shape
 
-1.‘å‚«‚³‚ğ•ÏX‚·‚é}Œ`‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.}Œ`‚Ìl‹÷‚É•\¦‚³‚ê‚é¬‚³‚¢lŠp‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·B
-
-
-E}Œ`‚ğ•½sˆÚ“®‚·‚é‚É‚Í
-
-1.•½sˆÚ“®‚·‚é}Œ`‚ğ‘I‘ğ‚µ‚Ü‚·i•¡”‘I‘ğ‰ÂjB
-2.}Œ`‚Ìl‹÷ˆÈŠO‚ğƒhƒ‰ƒbƒO‚µ‚ÄˆÚ“®‚µ‚Ü‚·B
+1. Select the shape to edit.
+2. Choose Cut, Copy, or Delete from the Edit menu or the right-click menu.
+   You can also use the Delete key to delete it.
 
 
-E}Œ`‚ÌF‚ğ•ÏX‚·‚é‚É‚Í
+- To paste a cut or copied shape
 
-1.}Œ`‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Color‚Å}Œ`‚ÌF‚ğ‘I‘ğ‚µ‚Ü‚·Bƒ‰ƒxƒ‹‚ÅŒˆ’è‚³‚ê‚éƒJ[ƒh‚Ì•`‰æF‚ğ
-@—p‚¢‚é‚É‚ÍADefault‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B‚»‚Ì‘¼‚ÌF‚ğ‘I‘ğ‚·‚é‚É‚ÍA
-@Default‚Ì2‚Â‰E‚Ì¬‚³‚¢ƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µA•\¦‚³‚ê‚éF‚Ì‘I‘ğ
-@ƒ_ƒCƒAƒƒO‚ÅF‚ğ‘I‘ğ‚µ‚Ü‚·BŠù‚Ég—p‚µ‚½‚¢F‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éê‡‚ÍA
-@Default‚Ì‰E—×‚ÌF‚Ì•”•ª‚ğƒNƒŠƒbƒN‚·‚é‚±‚Æ‚ÅF‚ğw’è‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-26
-Title: ƒJ[ƒh‚ÌŒ`AƒTƒCƒY‚ğ•ÏX‚·‚é‚É‚Í
+Choose Paste from the Edit menu or the right-click menu.
+
+
+- To resize a shape
+
+1. Select the shape you want to resize.
+2. Drag one of the small squares shown at the corners of the shape.
+
+
+- To move a shape
+
+1. Select the shape you want to move (multiple selection is allowed).
+2. Drag any part of the shape other than the corner handles.
+
+
+- To change the color of a shape
+
+1. Select the shape.
+2. Choose a color with Color.
+   To use the card drawing color determined by labels, click Default.
+   To choose another color, click the small button two positions to the right of
+   Default and choose a color in the color selection dialog that appears.
+   If the color you want has already been selected, you can simply click the color
+   area immediately to the right of Default.
+25
+Title: How to Change a Card's Shape and Size
 Label:2
 Fixed:0
 X:0.0962711051106453
@@ -1361,21 +1397,20 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ÌŒ`AƒTƒCƒY‚ğ•ÏX‚·‚é‚É‚Í
+How to Change a Card's Shape and Size
 ----------------------------------------------------------------------------
 
-1.ƒTƒCƒY‚ğ•ÏX‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌCardƒpƒlƒ‹‚ÌTitle‰E‚ÌASize‚Ì’l‚ğ•ÏX‚µ‚Ü‚·BƒJ[ƒh‚Í+8‚ÅŒ³‚Ì4”{A
-@-8‚Å1/4‚ÌƒTƒCƒY‚É‚È‚è‚Ü‚·B
+1. Select the card whose size you want to change.
+2. Change the Size value to the right of Title on the Card panel.
+   At +8 the card becomes four times its original size, and at -8 it becomes one quarter.
 
-‚Ü‚½‚ÍA
+Or,
 
-1.Œ`‚ğ•ÏX‚·‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌCardƒpƒlƒ‹‚ÌSize‰E‚ÌAƒJ[ƒh‚ÌŒ`‚ª•\¦‚³‚ê‚½ƒ{ƒ^ƒ“‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çƒJ[ƒh‚ÌŒ`‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Select the card whose shape you want to change.
+2. Click the button showing the card shape to the right of Size on the Card panel.
+3. Choose the card shape from the popup menu that appears.
 15
-Title:ƒŠƒ“ƒN‚ğ•ÒW‚·‚é
+Title:Edit Links
 Label:3,8
 Fixed:0
 X:0.623000621795654
@@ -1388,10 +1423,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ƒŠƒ“ƒN‚ğ•ÒW‚·‚é
+Edit Links
 ============================================================================
-47
-Title: ƒJ[ƒh‚ÌŠÔ‚ÉƒŠƒ“ƒN‚ğ“\‚é‚É‚Í
+44
+Title: How to Create a Link Between Cards
 Label:3
 Fixed:0
 X:0.566736936569214
@@ -1404,42 +1439,39 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ÌŠÔ‚ÉƒŠƒ“ƒN‚ğ’£‚é‚É‚Í
+How to Create a Link Between Cards
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserƒ^ƒu¶ã‚ÌA¶‚©‚ç2”Ô–Ú‚Ìƒ{ƒ^ƒ“iü‚ÌŠ|‚©‚ê‚½ƒ{ƒ^ƒ“j‚ğƒNƒŠƒbƒN‚µ‚Ä
-@‘I‘ğ‚µ‚Ü‚·B
-3.ƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚©‚çAƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚Ü‚Åƒ}ƒEƒX‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the second button from the left at the top-left of the Browser tab
+   (the button with a line on it) to select it.
+3. Drag the mouse from the source card to the destination card.
 
-‚à‚µ‚­‚ÍA
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-3.ƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚ğƒL[ƒ{[ƒh‚ÌShiftƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒNƒŠƒbƒN‚µ‚Ü‚·B
-@ShiftƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çŸX‚ÉƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ä‚¢‚­‚±‚Æ‚ÅA‚·‚Î‚â‚­
-@ƒŠƒ“ƒN‚ğ’£‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+Or,
+1. Click the Browser tab.
+2. Click the source card to select it.
+3. While holding down Shift, click the destination card.
+   You can create links quickly by continuing to click cards while holding Shift.
 
-QljBrowser‰æ–Ê¶ã‚ÌA¶‚©‚ç4”Ô–Ú‚Ìƒ{ƒ^ƒ“iL‚Æü‚Ì‘‚©‚ê‚½ƒ{ƒ^ƒ“j‚ğ
-@@@ƒNƒŠƒbƒN‚µAƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚½ó‘Ô‚ÅƒŠƒ“ƒN‚ğ’£‚é‚ÆAƒfƒtƒHƒ‹ƒg‚Å
-@@@ƒ‰ƒxƒ‹‚Ìİ’è‚³‚ê‚½ƒŠƒ“ƒN‚ğ’Ç‰Á‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+Note: If you click the fourth button from the left at the top-left of the Browser
+      screen (the button marked with L and a line), choose a label, and then
+      create a link, you can add a link with that label assigned by default.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.ƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Insertƒƒjƒ…[‚ÌNew Link‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚©‚çƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µAOKƒ{ƒ^ƒ“‚ğ
-@‰Ÿ‚µ‚Ü‚·B
+1. Select the source card.
+2. Choose New Link from the Insert menu.
+3. Select the destination card in the dialog box that appears and press OK.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.ƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Editorƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-3.‰æ–Ê‰º‚ÌƒŠƒ“ƒNƒŠƒXƒg‚Å‰EƒNƒŠƒbƒN‚µ‚Ü‚·B
-4.•\¦‚³‚ê‚½‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çNew Link‚ğ‘I‘ğ‚µ‚Ü‚·B
-5.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚©‚çƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µAOKƒ{ƒ^ƒ“‚ğ
-@‰Ÿ‚µ‚Ü‚·B
+1. Select the source card.
+2. Click the Editor tab.
+3. Right-click in the link list at the bottom of the screen.
+4. Choose New Link from the popup menu that appears.
+5. Select the destination card in the dialog box that appears and press OK.
 18
-Title: ƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é‚É‚Í
+Title: How to Select Links
 Label:3
 Fixed:0
 X:0.56929486989975
@@ -1452,13 +1484,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é‚É‚Í
+How to Select Links
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‘I‘ğ‚·‚éƒŠƒ“ƒN‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the link you want to select.
 18
-Title: ƒŠƒ“ƒN‚Ìƒ^ƒCƒgƒ‹‚ğ•ÒW‚·‚é‚É‚Í
+Title: How to Edit a Link Title
 Label:3
 Fixed:0
 X:0.678290367126465
@@ -1471,13 +1503,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚Ìƒ^ƒCƒgƒ‹‚ğ•ÒW‚·‚é‚É‚Í
+How to Edit a Link Title
 ----------------------------------------------------------------------------
 
-1.ƒ^ƒCƒgƒ‹‚ğ•ÒW‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌLinkƒpƒlƒ‹‚ÌTitle‚ÉAƒJ[ƒh‚ÌV‚µ‚¢ƒ^ƒCƒgƒ‹‚ğ“ü—Í‚µ‚Ü‚·B
-26
-Title: ƒŠƒ“ƒNŒ³AƒŠƒ“ƒNæ‚ğC³‚·‚é‚É‚Í
+1. Select the link whose title you want to edit.
+2. Enter the new title in Title on the Link panel.
+25
+Title: How to Change a Link's Source or Destination
 Label:3
 Fixed:0
 X:0.621458947658539
@@ -1490,21 +1522,20 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒNŒ³AƒŠƒ“ƒNæ‚ğC³‚·‚é‚É‚Í
+How to Change a Link's Source or Destination
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ƒŠƒ“ƒNŒ³‚ğC³‚·‚éƒŠƒ“ƒN‚ÌAƒŠƒ“ƒNŒ³‚É‹ß‚¢‚Ù‚¤‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·BƒŠƒ“ƒNŒ³‚ğ
-@‘¼‚ÌƒJ[ƒh‚É•ÏX‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+1. Click the Browser tab.
+2. Drag the end of the link that is closer to the source card.
+   You can change the source to another card.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ƒŠƒ“ƒNæ‚ğC³‚·‚éƒŠƒ“ƒN‚ÌAƒŠƒ“ƒNæ‚É‹ß‚¢‚Ù‚¤‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·BƒŠƒ“ƒNæ‚ğ
-@‘¼‚ÌƒJ[ƒh‚É•ÏX‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-
+1. Click the Browser tab.
+2. Drag the end of the link that is closer to the destination card.
+   You can change the destination to another card.
 27
-Title: ƒŠƒ“ƒN‚ğíœ‚·‚é‚É‚Í
+Title: How to Delete Links
 Label:3
 Fixed:0
 X:0.740672647953033
@@ -1517,22 +1548,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚ğíœ‚·‚é‚É‚Í
+How to Delete Links
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.íœ‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.ƒL[ƒ{[ƒh‚ÌDeleteƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Select the link you want to delete.
+3. Press the Delete key.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.íœ‚·‚éƒŠƒ“ƒN‚Ì“\‚ç‚ê‚Ä‚¢‚éƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Editorƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-3.‰æ–Ê‰º‚ÌƒŠƒ“ƒNƒŠƒXƒg‚©‚çAíœ‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-4.ƒŠƒ“ƒNƒŠƒXƒg‚Å‰EƒNƒŠƒbƒN‚µ‚Ü‚·B
-5.•\¦‚³‚ê‚½‰EƒNƒŠƒbƒNƒƒjƒ…[‚©‚çDelete Link‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Select a card that has the link you want to delete.
+2. Click the Editor tab.
+3. Select the link you want to delete from the link list at the bottom of the screen.
+4. Right-click in the link list.
+5. Choose Delete Link from the popup menu that appears.
 27
-Title: ƒŠƒ“ƒN‚Éƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+Title: How to Add a Label to a Link
 Label:3
 Fixed:0
 X:0.696277678012848
@@ -1545,22 +1576,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚Éƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+How to Add a Label to a Link
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌLinkƒpƒlƒ‹‚ÌLabel‰E‚Ìƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çƒŠƒ“ƒN‚É‚Â‚¯‚éƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Select the link you want to label.
+2. Click the button to the right of Label on the Link panel.
+3. Choose the label to apply to the link from the popup menu that appears.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browser‰æ–Ê¶ã‚ÌA¶‚©‚ç4”Ô–Ú‚Ìƒ{ƒ^ƒ“iL‚Æü‚Ì‘‚©‚ê‚½ƒ{ƒ^ƒ“j‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çA‚Â‚¯‚éƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚Ü‚·B
-4.ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚éƒŠƒ“ƒN‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the fourth button from the left at the top-left of the Browser screen
+   (the button marked with L and a line) to select it.
+3. Choose the label to apply from the popup menu that appears.
+4. Click the link you want to label.
 19
-Title: ƒŠƒ“ƒN‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+Title: How to Add a New Label to a Link
 Label:3,4
 Fixed:0
 X:0.44114363193512
@@ -1573,14 +1604,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚é‚É‚Í
+How to Add a New Label to a Link
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚ğ•ÒW‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.Insertƒƒjƒ…[‚©‚çANew Link Label‚ğ‘I‘ğ‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÉV‚µ‚¢ƒ‰ƒxƒ‹–¼‚ğ“ü—Í‚µAOKƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Select the link whose labels you want to edit.
+2. Choose New Link Label from the Insert menu.
+3. Enter the new label name in the dialog box that appears and press OK.
 21
-Title: ƒŠƒ“ƒN‚É‚Â‚¯‚½ƒ‰ƒxƒ‹‚ğÁ‹A•ÏX‚·‚é‚É‚Í
+Title: How to Remove or Change a Link Label
 Label:3
 Fixed:0
 X:0.659928321838379
@@ -1593,16 +1624,16 @@ Updated:1899/12/30
 Viewed:2013/11/02 22:43:18
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚É‚Â‚¯‚½ƒ‰ƒxƒ‹‚ğÁ‹A•ÏX‚·‚é‚É‚Í
+How to Remove or Change a Link Label
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚ğ•ÒW‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌLinkƒpƒlƒ‹‚ÌLabel‰E‚Ìƒ{ƒ^ƒ“‚Ì‚¤‚¿AÁ‹A•ÏX‚·‚éƒ‰ƒxƒ‹‚Ìƒ{ƒ^ƒ“‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çƒJ[ƒh‚É‚Â‚¯‚éƒ‰ƒxƒ‹‚ğ‘I‘ğ‚µ‚Ü‚·B
-@‚±‚±‚ÅNo Label‚ğ‘I‘ğ‚·‚é‚ÆAƒ‰ƒxƒ‹‚ªÁ‹‚³‚ê‚Ü‚·B
+1. Select the link whose labels you want to edit.
+2. Click the label button you want to remove or change among the buttons to the
+   right of Label on the Link panel.
+3. Choose the label to assign to the card from the popup menu that appears.
+   If you choose No Label here, the label is removed.
 18
-Title: ƒŠƒ“ƒN‚Ì•ûŒü‚ğ”½“]‚·‚é‚É‚Í
+Title: How to Reverse Link Direction
 Label:3
 Fixed:0
 X:0.766370892524719
@@ -1615,13 +1646,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚Ì•ûŒü‚ğ”½“]‚·‚é‚É‚Í
+How to Reverse Link Direction
 ----------------------------------------------------------------------------
 
-1.•ûŒü‚ğ”½“]‚·‚é‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌLinkƒpƒlƒ‹‚ÌInverseƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Select the link whose direction you want to reverse.
+2. Click the Inverse button on the Link panel.
 18
-Title: ƒŠƒ“ƒN‚Ì•ûŒü‚ ‚è/‚È‚µ‚ğØ‚è‘Ö‚¦‚é‚É‚Í
+Title: How to Toggle Link Direction On or Off
 Label:3
 Fixed:0
 X:0.726710617542267
@@ -1634,13 +1665,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚Ì•ûŒü‚ ‚è/‚È‚µ‚ğØ‚è‘Ö‚¦‚é‚É‚Í
+How to Toggle Link Direction On or Off
 ----------------------------------------------------------------------------
 
-1.•ûŒü‚ ‚è/‚È‚µ‚ğØ‚è‘Ö‚¦‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌLinkƒpƒlƒ‹‚ÌDirectionƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Select the link whose direction setting you want to toggle.
+2. Click the Direction checkbox on the Link panel.
 20
-Title: ƒŠƒ“ƒN‚ÌŒ`‚ğ•ÏX‚·‚é‚É‚Í
+Title: How to Change Link Style
 Label:3
 Fixed:0
 X:0.5890052318573
@@ -1653,15 +1684,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚Ìü‚ğ•ÏX‚·‚é‚É‚Í
+How to Change Link Style
 ----------------------------------------------------------------------------
 
-1.ü‚ğ•ÏX‚·‚éƒŠƒ“ƒN‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌLinkƒpƒlƒ‹‚ÌInverseƒ{ƒ^ƒ“‰E‚ÌAü‚ª•\¦‚³‚ê‚½ƒ{ƒ^ƒ“‚ğ
-@ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚çƒŠƒ“ƒN‚Ìü‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Select the link whose line style you want to change.
+2. Click the button showing the line to the right of the Inverse button on the
+   Link panel.
+3. Choose the link line style from the popup menu that appears.
 15
-Title:ƒ‰ƒxƒ‹‚ğ•ÒW‚·‚é
+Title:Edit Labels
 Label:4,8
 Fixed:0
 X:0.309822618961334
@@ -1674,10 +1705,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ƒ‰ƒxƒ‹‚ğ•ÒW‚·‚é
+Edit Labels
 ============================================================================
-17
-Title: ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚­‚É‚Í
+18
+Title: How to Open the Card Label Editor
 Label:2,4
 Fixed:0
 X:0.239311203360558
@@ -1690,12 +1721,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚Ìƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚­‚É‚Í
+How to Open the Card Label Editor
 ----------------------------------------------------------------------------
 
-@Editƒƒjƒ…[‚©‚çLabel‚ğ‘I‘ğ‚µ‚Ü‚·BLabel•ÒWƒ_ƒCƒAƒƒO‚ªŠJ‚«‚Ü‚·B
+Choose Label from the Edit menu.
+The Label editing dialog opens.
 18
-Title: ƒŠƒ“ƒN‚Ìƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚­‚É‚Í
+Title: How to Open the Link Label Editor
 Label:3,4
 Fixed:0
 X:0.450650095939636
@@ -1708,13 +1740,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒŠƒ“ƒN‚Ìƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚­‚É‚Í
+How to Open the Link Label Editor
 ----------------------------------------------------------------------------
 
-@Editƒƒjƒ…[‚©‚çLink Label‚ğ‘I‘ğ‚µ‚Ü‚·BLink Label•ÒWƒ_ƒCƒAƒƒO‚ª
-@ŠJ‚«‚Ü‚·B
-20
-Title: V‚µ‚¢ƒ‰ƒxƒ‹‚ğì¬‚·‚é‚É‚Í
+Choose Link Label from the Edit menu.
+The Link Label editing dialog opens.
+19
+Title: How to Create a New Label
 Label:4
 Fixed:0
 X:0.249744102358818
@@ -1727,15 +1759,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-V‚µ‚¢ƒ‰ƒxƒ‹‚ğì¬‚·‚é‚É‚Í
+How to Create a New Label
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚«‚Ü‚·B
-2.•ÒW‰æ–Ê¶‰º‚ÌANewƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚ÅAV‚µ‚¢ƒ‰ƒxƒ‹‚Ì–¼‘O‚ğ“ü—Í‚µAOKƒ{ƒ^ƒ“‚ğ
-@‰Ÿ‚µ‚Ü‚·B
+1. Open the label editing screen.
+2. Press the New button at the lower left of the editing screen.
+3. Enter the new label name in the dialog box that appears and press OK.
 19
-Title: ƒ‰ƒxƒ‹‚Ì–¼‘O‚ğ•ÏX‚·‚é‚É‚Í
+Title: How to Rename a Label
 Label:4
 Fixed:0
 X:0.205345436930656
@@ -1748,14 +1779,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒ‰ƒxƒ‹‚Ì–¼‘O‚ğ•ÏX‚·‚é‚É‚Í
+How to Rename a Label
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚«‚Ü‚·B
-2.•ÏX‚·‚éƒ‰ƒxƒ‹‚Ìƒ‰ƒxƒ‹–¼‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Åƒ‰ƒxƒ‹‚Ì–¼‘O‚ğ•ÏX‚µAOKƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Open the label editing screen.
+2. Double-click the name of the label you want to change.
+3. Change the label name in the dialog box that appears and press OK.
 19
-Title: ƒ‰ƒxƒ‹‚ÌF‚ğ•ÏX‚·‚é‚É‚Í
+Title: How to Change a Label Color
 Label:4
 Fixed:0
 X:0.247681140899658
@@ -1768,14 +1799,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒ‰ƒxƒ‹‚ÌF‚ğ•ÏX‚·‚é‚É‚Í
+How to Change a Label Color
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚«‚Ü‚·B
-2.•ÏX‚·‚éƒ‰ƒxƒ‹‚ÌF‚Ì•”•ª‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚Ü‚·B
-3.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Åƒ‰ƒxƒ‹‚ÌF‚ğw’è‚µAOKƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Open the label editing screen.
+2. Double-click the color area of the label you want to change.
+3. Specify the label color in the dialog box that appears and press OK.
 22
-Title: ƒ‰ƒxƒ‹‚Ì—LŒøA–³Œø‚ğØ‚è‘Ö‚¦‚é‚É‚Í
+Title: How to Enable or Disable a Label
 Label:4
 Fixed:0
 X:0.304129838943481
@@ -1788,17 +1819,17 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒ‰ƒxƒ‹‚Ì—LŒøA–³Œø‚ğØ‚è‘Ö‚¦‚é‚É‚Í
+How to Enable or Disable a Label
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌVIEWƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ü‚·BVIEWƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ü‚·B
-3.Labelƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-4.Label‚ÌEnable—ñ‚ğƒNƒŠƒbƒN‚µ‚ÄAƒ‰ƒxƒ‹‚Ì—LŒøA–³Œø‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@–³Œøó‘Ô‚Ìƒ‰ƒxƒ‹‚Í‚Â‚¢‚Ä‚¢‚È‚¢‚à‚Ì‚Æ‚µ‚Ä@‰æ–Ê•\¦AƒJ[ƒh‚Ì®—‚ª
-@s‚í‚ê‚Ü‚·B
+1. Click the Browser tab.
+2. Click the VIEW button on the screen. The VIEW dialog appears.
+3. Click the Label tab to select it.
+4. Click the Enable column for the label to toggle the label between enabled and disabled.
+   Disabled labels are treated as if they are not attached when displaying cards
+   and arranging them.
 19
-Title: ƒ‰ƒxƒ‹‚ğíœ‚·‚é‚É‚Í
+Title: How to Delete a Label
 Label:4
 Fixed:0
 X:0.32245659828186
@@ -1811,14 +1842,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒ‰ƒxƒ‹‚ğíœ‚·‚é‚É‚Í
+How to Delete a Label
 ----------------------------------------------------------------------------
 
-1.ƒ‰ƒxƒ‹‚Ì•ÒW‰æ–Ê‚ğŠJ‚«‚Ü‚·B
-2.íœ‚·‚éƒ‰ƒxƒ‹‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-3.•ÒW‰æ–Ê‰º‚ÌDeleteƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Open the label editing screen.
+2. Click the label you want to delete.
+3. Press the Delete button at the bottom of the editing screen.
 15
-Title:ƒJ[ƒh‚ğ®—‚·‚é
+Title:Arrange Cards
 Label:5,8
 Fixed:0
 X:0.541004419326782
@@ -1831,10 +1862,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ƒJ[ƒh‚ğ®—‚·‚é
+Arrange Cards
 ============================================================================
 20
-Title: ‘S‚Ä‚ÌƒJ[ƒh‚ğ‰æ–Ê“à‚Éû‚ß‚é‚É‚Í
+Title: How to Fit All Cards on Screen
 Label:5
 Fixed:0
 X:0.659723877906799
@@ -1847,15 +1878,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-‘S‚Ä‚ÌƒJ[ƒh‚ğ‰æ–Ê“à‚Éû‚ß‚é‚É‚Í
+How to Fit All Cards on Screen
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Normalize‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Normalize
+   from the popup menu that appears.
 20
-Title: ƒJ[ƒh‚ğd‚È‚ç‚È‚¢‚æ‚¤‚É•À‚×‚é‚É‚Í
+Title: How to Arrange Cards So They Do Not Overlap
 Label:5
 Fixed:0
 X:0.609346568584442
@@ -1868,15 +1899,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğd‚È‚ç‚È‚¢‚æ‚¤‚É•À‚×‚é‚É‚Í
+How to Arrange Cards So They Do Not Overlap
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Repulsion‚ğ‘I‘ğ‚µ‚Ü‚·B
-22
-Title: ƒJ[ƒh‚ğƒŠƒ“ƒN‚É]‚¢®—‚·‚é‚É‚Í
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Repulsion
+   from the popup menu that appears.
+23
+Title: How to Arrange Cards by Links
 Label:5
 Fixed:0
 X:0.427540153264999
@@ -1889,17 +1920,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğƒŠƒ“ƒN‚É]‚¢®—‚·‚é‚É‚Í
+How to Arrange Cards by Links
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Link‚à‚µ‚­‚ÍLink(Soft)‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Link or
+   Link(Soft) from the popup menu that appears.
 
-QljLink(Soft)‚ÍLink‚Æ”äŠr‚µ‚ÄƒJ[ƒh‚ªd‚È‚ç‚È‚¢‚±‚Æ‚ğ—Dæ‚µ‚Ü‚·B
-22
-Title: ƒJ[ƒh‚ğƒ‰ƒxƒ‹‚É]‚¢®—‚·‚é‚É‚Í
+Note: Compared with Link, Link(Soft) gives higher priority to preventing cards
+      from overlapping.
+23
+Title: How to Arrange Cards by Labels
 Label:5
 Fixed:0
 X:0.536202609539032
@@ -1912,17 +1944,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğƒ‰ƒxƒ‹‚É]‚¢®—‚·‚é‚É‚Í
+How to Arrange Cards by Labels
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Label‚à‚µ‚­‚ÍLabel(Soft)‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Label or
+   Label(Soft) from the popup menu that appears.
 
-QljLabel(Soft)‚ÍLabel‚Æ”äŠr‚µ‚ÄƒJ[ƒh‚ªd‚È‚ç‚È‚¢‚±‚Æ‚ğ—Dæ‚µ‚Ü‚·B
-23
-Title: ƒJ[ƒh‚ğƒJ[ƒh‚ÌIndex‚É]‚¢®—‚·‚é‚É‚Í
+Note: Compared with Label, Label(Soft) gives higher priority to preventing cards
+      from overlapping.
+24
+Title: How to Arrange Cards by Index
 Label:5
 Fixed:0
 X:0.465191870927811
@@ -1935,18 +1968,19 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğƒJ[ƒh‚ÌIndex‚É]‚¢®—‚·‚é‚É‚Í
+How to Arrange Cards by Index
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Index‚à‚µ‚­‚ÍIndex(Soft)‚à‚µ‚­‚ÍIndex(Matrix)‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Index,
+   Index(Soft), or Index(Matrix) from the popup menu that appears.
 
-QljIndex(Soft)‚ÍIndex‚Æ”äŠr‚µ‚ÄƒJ[ƒh‚ªd‚È‚ç‚È‚¢‚±‚Æ‚ğ—Dæ‚µ‚Ü‚·B
-Index(Matrix)‚ÍƒJ[ƒh‚ğ¶ã‚©‚ç‡‚É®‘R‚Æ•À‚×‚Ä•\¦‚µ‚Ü‚·B
+Note: Compared with Index, Index(Soft) gives higher priority to preventing cards
+      from overlapping.
+Index(Matrix) arranges cards neatly in order from the upper left.
 20
-Title: ƒJ[ƒh‚ğŠiqó‚É®‘R‚Æ®—‚·‚é‚É‚Í
+Title: How to Arrange Cards in a Grid
 Label:5
 Fixed:0
 X:0.442980200052261
@@ -1959,15 +1993,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğŠiqó‚É®‘R‚Æ®—‚·‚é‚É‚Í
+How to Arrange Cards in a Grid
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Matrix‚ğ‘I‘ğ‚µ‚Ü‚·B
-35
-Title: ƒJ[ƒh‚ğƒ^ƒCƒgƒ‹‚â–{•¶‚Ì—Ş—“x‚É]‚¢®—‚·‚é‚É‚Í
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Matrix from
+   the popup menu that appears.
+37
+Title: How to Arrange Cards by Title/Text Similarity
 Label:5
 Fixed:0
 X:0.52382880449295
@@ -1980,30 +2014,32 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğƒ^ƒCƒgƒ‹‚â–{•¶‚Ì—Ş—“x‚É]‚¢®—‚·‚é‚É‚Í
+How to Arrange Cards by Title/Text Similarity
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-3.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Similarity‚à‚µ‚­‚ÍSimilarity(Soft)‚ğ‘I‘ğ‚µ‚Ü‚·B
-4.ÅV‚Ì—Ş—“x‚ÅƒJ[ƒh‚ğ®—‚·‚é‚É‚ÍA‚³‚ç‚É‰E—×‚ÌXVƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the Arrange ON button so that it is pressed.
+3. Press the button to the right of the Arrange ON button and choose Similarity
+   or Similarity(Soft) from the popup menu that appears.
+4. To arrange cards using the latest similarity values, press the update button
+   further to the right.
 
-‚²’ˆÓj–{•¶‚Ì‘‚©‚ê‚Ä‚¢‚È‚¢ƒvƒƒWƒFƒNƒg‚Å‚Í—Ş—“x‚ÌŒvZ‚Í”•b‚ÅI—¹
-‚µ‚Ü‚·‚ªAƒJ[ƒh‚Ì”‚ª”ç‚É‹y‚ñ‚¾‚èA–{•¶‚ª’†S‚Ìƒtƒ@ƒCƒ‹‚Ìê‡‚ÍA
-—Ş—“x‚ÌŒvZ‚É‘½‚­‚ÌŠÔ‚ª‚©‚©‚é‚±‚Æ‚ª‚ ‚è‚Ü‚·B—á‚¦‚Î–{•¶‚ÌƒTƒCƒY‚ª500kB‚É
-‚È‚é‚ÆA2GHz’ö“x‚ÌCPU‚Å—Ş—“xŒvZ‚É–ñ1•ª‚ÌŠÔ‚ª‚©‚©‚è‚Ü‚·B
+Caution: In projects without body text, similarity calculation finishes in a few
+seconds, but if the number of cards reaches the thousands or the file is centered
+on body text, similarity calculation may take a long time. For example, if the
+body text size reaches about 500 kB, the calculation can take about one minute on
+a CPU around 2 GHz.
 
-QljƒJ[ƒh‚Ì—Ş—“x‚ÌŒvZ‚É‚ÍŠÔ‚ª‚©‚©‚é‚½‚ßAFrieve Editor‚ÍONƒ{ƒ^ƒ“‚ª
-‰Ÿ‚³‚ê‚½ó‘Ô‚ÅSimilarity‚ğ‘I‘ğ‚µ‚½‚èASimilarity‚ª‘I‘ğ‚³‚ê‚½ó‘Ô‚Å
-ONƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Éˆê“x‚¾‚¯ƒJ[ƒhŠÔ‚Ì—Ş—“x‚ğŒvZ‚µ‚Ü‚·B‚»‚ÌŒãƒJ[ƒh‚Ì
-ƒ^ƒCƒgƒ‹‚â–{•¶‚ª•ÒW‚µ‚½ê‡‚ÍAXVƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚±‚Æ‚Åƒ^ƒCƒgƒ‹‚â–{•¶‚Ì
-•ÒW“à—e‚ğ”½‰f‚µ‚½—Ş—“x‚ÅƒJ[ƒh‚ª®—‚³‚ê‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
+Note: Because similarity calculation takes time, Frieve Editor calculates similarity
+      between cards only once when Similarity is selected while the ON button is
+      pressed, or when the ON button is pressed while Similarity is selected.
+      After card titles or body text are edited, press the update button to rearrange
+      cards using similarity values that reflect those edits.
 
-QljSimilarity(Soft)‚ÍSimilarity‚Æ”äŠr‚µ‚ÄƒJ[ƒh‚ªd‚È‚ç‚È‚¢‚±‚Æ‚ğ
-—Dæ‚µ‚Ü‚·B
-43
-Title: ƒJ[ƒh‚ğŠK‘wó‚É®—‚·‚é‚É‚Í
+Note: Compared with Similarity, Similarity(Soft) gives higher priority to preventing
+      cards from overlapping.
+46
+Title: How to Arrange Cards Hierarchically
 Label:5
 Fixed:0
 X:0.468564659357071
@@ -2016,38 +2052,41 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğŠK‘wó‚É®—‚·‚é‚É‚Í
+How to Arrange Cards Hierarchically
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ƒ‹[ƒgiŠK‘w‚ÌÅãˆÊj‚É‚È‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-3.‰æ–Êã‚Ìƒ‹[ƒgw’èƒ{ƒ^ƒ“i‰Ÿ‚µƒsƒ“ƒ{ƒ^ƒ“‰EAƒ‰ƒxƒ‹¶j‚ğ‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-4.‰æ–Êã‚ÌArrange‚ÌONƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ä‰Ÿ‚³‚ê‚½ó‘Ô‚É‚µ‚Ü‚·B
-5.Arrange‚ÌONƒ{ƒ^ƒ“‰E—×‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•\¦‚³‚ê‚éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@Tree (Radial)‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the card that will become the root (the top of the hierarchy) to select it.
+3. Turn on the root designation button on the screen
+   (to the right of the pushpin button and to the left of the label).
+4. Click the Arrange ON button so that it is pressed.
+5. Press the button to the right of the Arrange ON button and choose Tree (Radial)
+   from the popup menu that appears.
 
-@“¯‚¶ŠK‘wŠÔ‚Å‚ÌƒJ[ƒh‡‚Ì“ü‚ê‘Ö‚¦‚ğs‚¤‚É‚ÍA‰æ–Ê¶‚ÌƒJ[ƒhƒŠƒXƒg‰Eã‚Ìã‰ºˆÚ“®
-ƒ{ƒ^ƒ“‚ğg‚¤‚©ABrowserã‚ÅƒJ[ƒh‚ğã‰º‚Éƒhƒ‰ƒbƒO‚µ‚Ü‚·B
+To change the order of cards within the same level, use the Up/Down buttons at the
+upper right of the card list on the left side of the screen, or drag cards up and
+down in the Browser.
 
-@ŠK‘w\‘¢‚ğ•ÒW‚·‚é‚É‚ÍABrowserã‚ÅƒŠƒ“ƒN‚ğƒhƒ‰ƒbƒO‚µ‚Ä•t‚¯‘Ö‚¦‚Ü‚·B
+To edit the hierarchy itself, drag links in the Browser and reconnect them.
 
-@“Á’è‚ÌƒJ[ƒh‚Ì‰º‚ÌŠK‘w‚ğ”ñ•\¦‚É‚·‚é‚É‚ÍAƒJ[ƒh‰E‰º‚É•\¦‚³‚ê‚éu-vƒ{ƒ^ƒ“‚ğ
-‰Ÿ‚µ‚Ü‚·B”ñ•\¦‚É‚µ‚½ŠK‘w‚ğÄ‚Ñ•\¦‚·‚é‚É‚ÍA“¯‚¶‚­ƒJ[ƒh‰E‰º‚É•\¦‚³‚ê‚é
-u+vƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
+To hide the lower levels under a specific card, press the "-" button shown at the
+lower right of the card. To show a hidden level again, press the "+" button shown
+at the lower right of the card.
 
-‚²’ˆÓjTree (Radial)‚Å©“®®—‚ğs‚¤‚ÆAƒJ[ƒh‚ÌIndex‚ª‹­§“I‚ÉŠK‘w‡‚Éƒ\[ƒg
-‚³‚ê‚Ü‚·B
+Caution: When auto-arrangement is performed with Tree (Radial), card Index values
+are forcibly sorted into hierarchy order.
 
-Qljƒ‹[ƒg‚Éw’è‚µ‚½ƒJ[ƒh‚ÍA‰æ–Ê¶‚ÌƒJ[ƒhƒŠƒXƒg‚ÅƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚Ì¶‚É
-">"‚ª•\¦‚³‚ê‚Ü‚·B
+Note: A card designated as a root shows ">" to the left of its title in the card
+      list on the left side of the screen.
 
-QljTree (Radial)‚Å©“®®—‚ğs‚¤‚ÆA‰æ–Ê¶‚ÌƒJ[ƒhƒŠƒXƒg‚ªŠK‘wƒŒƒxƒ‹‚É‡‚í‚¹‚½
-ƒCƒ“ƒfƒ“ƒg•t‚«‚Ì•\¦‚É‚È‚è‚Ü‚·B
+Note: When auto-arrangement is performed with Tree (Radial), the card list on the
+      left side of the screen is displayed with indentation that matches hierarchy
+      levels.
 
-Qlj•¡”‚ÌƒJ[ƒh‚ğƒ‹[ƒg‚Éİ’è‚·‚é‚ÆA‚»‚ê‚¼‚ê‚ÌƒJ[ƒh‚ğƒ‹[ƒg‚Æ‚·‚é•¡”‚Ì
-ƒcƒŠ[‚ª‰æ–Êã‚É“¯‚É”z’u‚³‚ê‚Ü‚·B
-20
-Title: ƒJ[ƒh‚ÌƒTƒCƒY‚ğƒ‰ƒxƒ‹‚É]‚¢•ÏX‚·‚é‚É‚Í
+Note: If multiple cards are set as roots, multiple trees rooted at those cards are
+      arranged on screen at the same time.
+21
+Title: How to Change Card Size by Label
 Label:5
 Fixed:0
 X:0.586505353450775
@@ -2060,15 +2099,16 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ÌƒTƒCƒY‚ğƒ‰ƒxƒ‹‚É]‚¢•ÏX‚·‚é‚É‚Í
+How to Change Card Size by Label
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌVIEWƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ü‚·BVIEWƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ü‚·B
-3.Labelƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-4.LabelASize‚Ì—ñ‚Ì+,-ƒ{ƒ^ƒ“‚Åƒ‰ƒxƒ‹‚ªƒJ[ƒh‚ÌƒTƒCƒY‚É‹y‚Ú‚·’l‚ğw’è‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the VIEW button on the screen. The VIEW dialog appears.
+3. Click the Label tab to select it.
+4. In the Label and Size columns, use the + and - buttons to specify how much each
+   label affects card size.
 23
-Title: “¯‚¶ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚½ƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚Ä•\¦‚·‚é‚É‚Í
+Title: How to Group Cards with the Same Label
 Label:5
 Fixed:0
 X:0.655330836772919
@@ -2081,18 +2121,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-“¯‚¶ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚½ƒJ[ƒh‚ğ‚Ü‚Æ‚ß‚Ä•\¦‚·‚é‚É‚Í
+How to Group Cards with the Same Label
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌVIEWƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B•\¦‚·‚éƒJ[ƒhAƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é
-@VIEWƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ü‚·B
-3.Labelƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-4.LabelAFold‚Ì—ñ‚Å‚Ü‚Æ‚ß‚Ä•\¦‚·‚éƒ‰ƒxƒ‹‚ğw’è‚µ‚Ü‚·Bƒ`ƒFƒbƒN‚µ‚½ƒ‰ƒxƒ‹‚Ì
-@‚Â‚¢‚½ƒJ[ƒh‚Íƒuƒ‰ƒEƒUã‚ÅAƒ‰ƒxƒ‹‚Ì–¼‘O‚ª‚Â‚¢‚½1‚Â‚ÌƒJ[ƒh‚Æ‚µ‚Ä
-@•\¦‚³‚ê‚Ü‚·B
-81
-Title: Browser‚É•\¦‚·‚éƒJ[ƒhAƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é‚É‚Í
+1. Click the Browser tab.
+2. Click the VIEW button on the screen. The VIEW dialog for choosing which cards
+   and links to display appears.
+3. Click the Label tab to select it.
+4. In the Label and Fold columns, specify the label you want to group.
+   Cards with that checked label are shown in the Browser as a single card with the
+   label's name.
+78
+Title: How to Choose Which Cards and Links Are Shown in the Browser
 Label:5
 Fixed:0
 X:0.69487738609314
@@ -2105,76 +2145,73 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Browser‚É•\¦‚·‚éƒJ[ƒhAƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é‚É‚Í
+How to Choose Which Cards and Links Are Shown in the Browser
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰æ–Êã‚ÌVIEWƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B•\¦‚·‚éƒJ[ƒhAƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é
-@VIEWƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ü‚·B
-3.Label‚à‚µ‚­‚ÍLimitationƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Click the VIEW button on the screen. The VIEW dialog for choosing which cards
+   and links to display appears.
+3. Click either the Label tab or the Limitation tab.
 
 
-EƒJ[ƒh‚ÌƒTƒCƒY‚Å•\¦‚·‚éƒJ[ƒh‚ğ§ŒÀ‚·‚é‚É‚Í
+- To limit visible cards by card size
 
-1.Size Limitation‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-2.Size Limitation‰E‚ÌƒXƒ‰ƒCƒhƒo[‚Å•\¦‚·‚éƒJ[ƒh‚Ì‰ºŒÀƒTƒCƒY‚ğw’è‚µ‚Ü‚·B
-
-
-E‘I‘ğ‚µ‚½ƒJ[ƒh‚©‚ç‚ÌƒŠƒ“ƒN”‚Å•\¦‚·‚éƒJ[ƒh‚ğ§ŒÀ‚·‚é‚É‚Í
-
-1.Link Limitation‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-2.Link LimitationƒXƒ‰ƒCƒhƒo[‚ÅƒŠƒ“ƒN‚Ì§ŒÀ”‚ğw’è‚µ‚Ü‚·B
-3.‘I‘ğ‚µ‚½ƒJ[ƒh‚©‚ç‚ÌƒŠƒ“ƒN”‚Å•\¦‚·‚éƒJ[ƒh‚ğ§ŒÀ‚µ‚½ó‘Ô‚ÅA‚³‚ç‚É
-@ƒŠƒ“ƒN‚ÌŒü‚«‚É‚æ‚é§ŒÀ‚ğ‰Á‚¦‚é‚É‚ÍADirection‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-4.ƒŠƒ“ƒN‚ÌŒü‚«‚ğA‡•ûŒü‚É§ŒÀ‚·‚éê‡‚ÍForward‚ğA‹t•ûŒü‚É§ŒÀ‚·‚éê‡‚Í
-@Backward‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-5.ƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚É‚æ‚é§ŒÀ‚ğ‰Á‚¦‚é‚É‚ÍATarget Card‰E‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µA
-@Select‚ğ‘I‘ğ‚µAƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚©‚çƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚ğ‘I‘ğ‚µ‚Ü‚·B
-@‚à‚µ‚­‚ÍABrowser‰æ–Ê‚ÅƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚ğAltƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç
-@ƒNƒŠƒbƒN‚µ‚Ü‚·BƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚É‚æ‚é§ŒÀ‚ğ‰ğœ‚·‚é‚É‚ÍA
-@Target Card‰E‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µANo Assign‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Check Size Limitation.
+2. Use the slider to the right of Size Limitation to specify the minimum size of
+   cards to display.
 
 
-E“ú•t‚Å•\¦‚·‚éƒJ[ƒh‚ğ§ŒÀ‚·‚é‚É‚Í
+- To limit visible cards by the number of links from the selected card
 
-1.Date Limitation‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
-2.Date Type‚ÅA§ŒÀ‚É—p‚¢‚é“ú•t‚ğ‘I‘ğ‚µ‚Ü‚·BCreated‚ÍƒJ[ƒh‚ğì¬‚µ‚½
-@“úAEdited‚ÍÅŒã‚ÉƒJ[ƒh‚Ì–{•¶‚ğ•ÒW‚µ‚½“úAViewed‚ÍÅŒã‚ÉƒJ[ƒh‚ğ
-@‘I‘ğ‚à‚µ‚­‚Í•\¦‚µ‚½“ú‚Å‚·B
-3.Date Limitation Type‚ÅA§ŒÀ‚Ì•û–@‚ğ‘I‘ğ‚µ‚Ü‚·BOld‚ÍŒÃ‚¢ƒJ[ƒh‚©‚ç
-@‡‚É•\¦ANew‚ÍV‚µ‚¢ƒJ[ƒh‚©‚ç‡‚É•\¦ANear‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚©‚ç
-@“ú•t‚ª‹ß‚¢ƒJ[ƒh‚ğ•\¦AOlder‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚æ‚èŒÃ‚¢ƒJ[ƒh‚Å“ú•t‚ª
-@‹ß‚¢ƒJ[ƒhANewer‚Í‘I‘ğ’†‚ÌƒJ[ƒh‚æ‚èV‚µ‚¢ƒJ[ƒh‚Å“ú•t‚ª‹ß‚¢
-@ƒJ[ƒh‚Å‚·B
-2.Date Limitation‰E‚ÌƒXƒ‰ƒCƒhƒo[‚Å§ŒÀ‚Ì‘å‚«‚³‚ğw’è‚µ‚Ü‚·B
-@Old‚Å‚ÍƒXƒ‰ƒCƒhƒo[‚ª¶‚Ìó‘Ô‚ÅÅ‚àŒÃ‚¢ƒJ[ƒh‚ª•\¦‚³‚êAƒXƒ‰ƒCƒhƒo[‚ğ
-@‰E‚ÉƒXƒ‰ƒCƒh‚·‚é‚Ù‚ÇV‚µ‚¢ƒJ[ƒh‚à•\¦‚³‚ê‚Ü‚·B
-@New‚Å‚ÍƒXƒ‰ƒCƒhƒo[‚ª‰E‚Ìó‘Ô‚ÅÅ‚àV‚µ‚¢ƒJ[ƒh‚ª•\¦‚³‚êA
-@ƒXƒ‰ƒCƒhƒo[‚ğ¶‚ÉƒXƒ‰ƒCƒh‚·‚é‚Ù‚ÇŒÃ‚¢ƒJ[ƒh‚à•\¦‚³‚ê‚Ü‚·B
-@NearAOlderANewer‚Å‚ÍAƒo[‚ğ‰E‚ÉƒXƒ‰ƒCƒh‚·‚é‚Ù‚Ç§ŒÀ‚ªŠÉ‚­‚È‚è‚Ü‚·B
+1. Check Link Limitation.
+2. Use the Link Limitation slider to specify the link limit.
+3. To further limit the result by link direction while using this setting, check Direction.
+4. To limit to forward direction, check Forward. To limit to reverse direction, check Backward.
+5. To add a restriction by target card, press the button to the right of Target Card,
+   choose Select, and select the target card in the dialog box.
+   Or, in the Browser, hold down Alt while clicking the target card.
+   To clear the target-card restriction, press the button to the right of Target Card
+   and choose No Assign.
 
 
-Eƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒJ[ƒh‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚é‚É‚Í
+- To limit visible cards by date
 
-1.ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒJ[ƒh‚ğ•\¦‚·‚é‚É‚ÍALabel‚ÌShow‚Ì—ñ‚Å•\¦‚·‚é
-@ƒ‰ƒxƒ‹‚ğw’è‚µ‚Ü‚·B‚±‚±‚Åƒ`ƒFƒbƒN‚µ‚½ƒ‰ƒxƒ‹‚ª1‚ÂˆÈã‚Â‚¢‚Ä‚¢‚½ê‡A
-@‚»‚ÌƒJ[ƒh‚Í•\¦‚³‚ê‚Ü‚·B
-2.ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒJ[ƒh‚ğ”ñ•\¦‚É‚·‚é‚É‚ÍAHide‚Ì—ñ‚Å”ñ•\¦‚É‚·‚é
-@ƒ‰ƒxƒ‹‚ğw’è‚µ‚Ü‚·B‚±‚±‚Åƒ`ƒFƒbƒN‚µ‚½ƒ‰ƒxƒ‹‚ª1‚ÂˆÈã‚Â‚¢‚Ä‚¢‚½ê‡A‚»‚Ì
-@ƒJ[ƒh‚Í”ñ•\¦‚É‚È‚è‚Ü‚·B”ñ•\¦‚Ìw’è‚ÍA•\¦‚Ìw’è‚æ‚è—Dæ‚³‚ê‚Ü‚·B
+1. Check Date Limitation.
+2. In Date Type, choose the date to use for the restriction.
+   Created is the date and time the card was created, Edited is the date and time the
+   card body was last edited, and Viewed is the date and time the card was last selected
+   or shown.
+3. In Date Limitation Type, choose how the restriction is applied.
+   Old shows cards in order from oldest, New shows cards in order from newest,
+   Near shows cards with dates close to the currently selected card, Older shows cards
+   that are older than the selected card and close in date, and Newer shows cards that
+   are newer than the selected card and close in date.
+2. Use the slider to the right of Date Limitation to specify the strength of the restriction.
+   With Old, the oldest cards are shown when the slider is at the left, and newer cards
+   are added as you move it right.
+   With New, the newest cards are shown when the slider is at the right, and older cards
+   are added as you move it left.
+   With Near, Older, and Newer, moving the bar to the right relaxes the restriction.
 
 
-Eƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒŠƒ“ƒN‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚é‚É‚Í
+- To show or hide cards with labels
 
-1.ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒŠƒ“ƒN‚ğ•\¦‚·‚é‚É‚ÍALink Label‚ÌShow‚Ì—ñ‚Å•\¦‚·‚é
-@ƒ‰ƒxƒ‹‚ğ@w’è‚µ‚Ü‚·B‚±‚±‚Åƒ`ƒFƒbƒN‚µ‚½ƒ‰ƒxƒ‹‚ª1‚ÂˆÈã‚Â‚¢‚Ä‚¢‚½ê‡A
-@‚»‚ÌƒŠƒ“ƒN‚Í@•\¦‚³‚ê‚Ü‚·B
-2.ƒ‰ƒxƒ‹‚Ì‚Â‚¢‚Ä‚¢‚éƒŠƒ“ƒN‚ğ”ñ•\¦‚É‚·‚é‚É‚ÍAHide‚Ì—ñ‚Å
-@”ñ•\¦‚É‚·‚é@ƒ‰ƒxƒ‹‚ğw’è‚µ‚Ü‚·B‚±‚±‚Åƒ`ƒFƒbƒN‚µ‚½ƒ‰ƒxƒ‹‚ª1‚ÂˆÈã
-@‚Â‚¢‚Ä‚¢‚½ê‡A‚»‚Ì@ƒŠƒ“ƒN‚Í”ñ•\¦‚É‚È‚è‚Ü‚·B”ñ•\¦‚Ìw’è‚ÍA•\¦‚Ì
-@w’è‚æ‚è—Dæ‚³‚ê‚Ü‚·B
-27
-Title: ƒJ[ƒh‚ğƒ\[ƒg‚·‚é‚É‚Í
+1. To show cards with certain labels, specify those labels in the Show column under Label.
+   If a card has one or more of the checked labels, it is shown.
+2. To hide cards with certain labels, specify those labels in the Hide column.
+   If a card has one or more labels checked there, it is hidden.
+   Hide settings take priority over show settings.
+
+
+- To show or hide links with labels
+
+1. To show links with certain labels, specify those labels in the Show column under
+   Link Label. If a link has one or more of the checked labels, it is shown.
+2. To hide links with certain labels, specify those labels in the Hide column.
+   If a link has one or more labels checked there, it is hidden.
+   Hide settings take priority over show settings.
+28
+Title: How to Sort Cards
 Label:5
 Fixed:0
 X:0.602828919887543
@@ -2187,22 +2224,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ğƒ\[ƒg‚·‚é‚É‚Í
+How to Sort Cards
 ----------------------------------------------------------------------------
 
-@Editƒƒjƒ…[‚ÌSort Card‚©‚çƒ\[ƒg•û–@‚ğ‘I‘ğ‚µ‚Ü‚·B
-@Title‚ÍAƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹‚ğƒ\[ƒg‚µ‚Ü‚·B
-@Date Created‚ÍAƒJ[ƒh‚Ìì¬‡‚Éƒ\[ƒg‚µ‚Ü‚·B
-@Date Edited‚ÍAƒJ[ƒh‚ÌÅŒã‚É•ÒW‚³‚ê‚½“ú•t‡‚Éƒ\[ƒg‚µ‚Ü‚·B
-@Date Viewed‚ÍAƒJ[ƒh‚ªÅŒã‚É‘I‘ğ‚³‚ê‚½“ú•t‡‚Éƒ\[ƒg‚µ‚Ü‚·B
-@Inverse‚ª‚Â‚¢‚½‚à‚Ì‚ÍA‚»‚ê‚¼‚ê‹t‡‚Éƒ\[ƒg‚µ‚Ü‚·B
+Choose a sort method from Edit menu -> Sort Card.
+Title sorts cards by title.
+Date Created sorts by creation order.
+Date Edited sorts by the date the card was last edited.
+Date Viewed sorts by the date the card was last selected.
+Items marked Inverse sort in the reverse order.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.‰æ–Ê¶‚ÌCardsƒŠƒXƒg‚Å•À‚Ñ‘Ö‚¦‚éƒJ[ƒh‚ğƒNƒŠƒbƒN‚µ‚Ä‘I‘ğ‚µ‚Ü‚·B
-2.CardsƒŠƒXƒg‰Eã‚ÌUpDownƒ{ƒ^ƒ“‚ÅAƒŠƒXƒg’†‚ÌƒJ[ƒh‚ÌˆÊ’u‚ğˆÚ“®‚µ‚Ü‚·B
+1. Click the card you want to reorder in the Cards list on the left side of the screen.
+2. Use the UpDown buttons at the upper right of the Cards list to move the card's
+   position in the list.
 15
-Title:ƒuƒ‰ƒEƒYAƒAƒjƒ[ƒVƒ‡ƒ“•\¦‚·‚é
+Title:Browse and Animate
 Label:6,8
 Fixed:0
 X:0.900903046131134
@@ -2215,10 +2253,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ƒAƒjƒ[ƒVƒ‡ƒ“•\¦‚·‚é
+Browse and Animate
 ============================================================================
-31
-Title: Browser‰æ–Ê‚ğƒXƒNƒ[ƒ‹‚·‚é‚É‚Í
+37
+Title: How to Scroll the Browser
 Label:6
 Fixed:0
 X:0.915158331394196
@@ -2231,26 +2269,32 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Browser‰æ–Ê‚ğƒXƒNƒ[ƒ‹‚·‚é‚É‚Í
+How to Scroll the Browser
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserƒ^ƒu‰Eã‚ÌAuto Scroll‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·BAuto Scroll‚ªƒ`ƒFƒbƒN‚³‚ê‚½
-@ó‘Ô‚Å‚ÍAƒJ[ƒh‚à‚µ‚­‚ÍƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é“x‚ÉA‘I‘ğ‚µ‚½ƒJ[ƒh‚à‚µ‚­‚Í
-@ƒŠƒ“ƒN‚ª‰æ–Ê‚Ì’†‰›‚É—ˆ‚é‚æ‚¤‚É©“®“I‚ÉƒXƒNƒ[ƒ‹‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Check Auto Scroll at the upper right of the Browser tab.
+   While Auto Scroll is checked, each time you select a card or link, the Browser
+   scrolls automatically so that the selected card or link comes to the center of
+   the screen.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.‰½‚àƒJ[ƒh‚Ì‚È‚¢•”•ª‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Drag an empty area where there is no card.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browser‰æ–Ê‰E‚Æ‰º‚ÌƒXƒNƒ[ƒ‹ƒo[‚ÅBrowser‰æ–Ê‚ğƒXƒNƒ[ƒ‹‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Use the scroll bars on the right and bottom of the Browser screen.
 
-30
-Title: Browser‰æ–Ê‚ğŠg‘åAk¬‚·‚é‚É‚Í
+Or,
+
+1. Click the Browser tab.
+2. Use the mouse wheel (without Ctrl) to scroll vertically.
+   Hold Shift for horizontal panning (trackpad two-finger scroll).
+35
+Title: How to Zoom the Browser
 Label:6
 Fixed:0
 X:0.843023300170898
@@ -2263,25 +2307,30 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Browser‰æ–Ê‚ğŠg‘åAk¬‚·‚é‚É‚Í
+How to Zoom the Browser
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserƒ^ƒu‰Eã‚ÌAuto Zoom‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·BAuto Zoom‚ªƒ`ƒFƒbƒN‚³‚ê‚½
-@ó‘Ô‚Å‚ÍAƒJ[ƒh‚à‚µ‚­‚ÍƒŠƒ“ƒN‚ğ‘I‘ğ‚·‚é“x‚ÉA‘I‘ğ‚µ‚½ƒJ[ƒh‚à‚µ‚­‚Í
-@ƒŠƒ“ƒN‚ÆŠÖ˜A‚ ‚éƒJ[ƒh‚ª‰æ–Ê“à‚Éû‚Ü‚é‚æ‚¤‚É©“®“I‚ÉƒY[ƒ€‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Check Auto Zoom at the upper right of the Browser tab.
+   While Auto Zoom is checked, each time you select a card or link, the Browser
+   automatically zooms so that the selected card or link and related cards fit on screen.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.Browserƒ^ƒuã‚ÌZoom‚ğƒhƒ‰ƒbƒO‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Drag the Zoom control on the Browser tab.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ƒ}ƒEƒX‚ÌƒzƒC[ƒ‹‚ğ‘€ì‚µ‚Ü‚·B
-33
-Title: ƒL[ƒ{[ƒh‚ÅƒJ[ƒh‚ğˆÚ“®‚·‚é‚É‚Í
+1. Click the Browser tab.
+2. Hold down Ctrl and use the mouse wheel to zoom in and out.
+
+Or,
+
+1. Click the Browser tab.
+2. Pinch/stretch on a touchpad to zoom in and out.
+34
+Title: How to Move Between Cards with the Keyboard
 Label:6
 Fixed:0
 X:0.862526595592499
@@ -2294,28 +2343,29 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒL[ƒ{[ƒh‚ÅƒJ[ƒh‚ğˆÚ“®‚·‚é‚É‚Í
+How to Move Between Cards with the Keyboard
 ----------------------------------------------------------------------------
 
-@ƒJ[ƒ\ƒ‹ƒL[‚Ìã‰º¶‰E‚ğ‰Ÿ‚µ‚Ü‚·BƒŠƒ“ƒN‚ÉŠÖ‚í‚ç‚¸AŒ»İ‚ÌƒJ[ƒh‚©‚çÅ‚à
-@‹ß‚¢ƒJ[ƒh‚ÉˆÚ“®‚µ‚Ü‚·B
+Press the arrow keys.
+This moves to the card nearest to the current card, regardless of links.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@Ctrl+ƒJ[ƒ\ƒ‹ƒL[‚Ìã‰º‚ğ‰Ÿ‚µ‚Ü‚·B‚»‚ê‚¼‚êAÅ‹ß•\¦‚µ‚½eƒJ[ƒhA
-@qƒJ[ƒh‚ÉˆÚ“®‚µ‚Ü‚·B
+Press Ctrl+Up or Ctrl+Down.
+These move to the most recently shown parent card or child card, respectively.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@Ctrl+ƒJ[ƒ\ƒ‹ƒL[‚Ì¶‰E‚ğ‰Ÿ‚µ‚Ü‚·B‚»‚ê‚¼‚êAŒZ’íƒJ[ƒh‚ğŒv‰ñ‚èA
-@”½Œv‰ñ‚è‚ÉˆÚ“®‚µ‚Ü‚·B
+Press Ctrl+Left or Ctrl+Right.
+These move to sibling cards counterclockwise or clockwise, respectively.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@Shift+ƒJ[ƒ\ƒ‹ƒL[‚Ìã‰º¶‰E‚ğ‰Ÿ‚µ‚Ü‚·BŒ»İ‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚é
-ƒJ[ƒh‚Ì‚¤‚¿AŒ»İ‚ÌƒJ[ƒh‚©‚çÅ‚à‹ß‚¢ƒJ[ƒh‚ÉˆÚ“®‚µ‚Ü‚·B
-23
-Title: •¶š‚ğŠg‘åAk¬‚·‚é‚É‚Í
+Press Shift+arrow keys.
+Among the cards linked to the current card, this moves to the one nearest to the
+current card.
+27
+Title: How to Change Text Size
 Label:6
 Fixed:0
 X:0.894776344299316
@@ -2328,18 +2378,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-•¶š‚ğŠg‘åAk¬‚·‚é‚É‚Í
+How to Change Text Size
 ----------------------------------------------------------------------------
 
-@Viewƒƒjƒ…[‚ÌFont Size‚ÅAMagnifyiŠg‘åjAReduceik¬j‚ğ‘I‘ğ‚µ‚Ü‚·B
+Choose Magnify or Reduce from View menu -> Font Size.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@ƒL[ƒ{[ƒh‚ÌCtrl+PageUpƒL[iŠg‘åjACtrl+PageDownƒL[ik¬j‚ğ‰Ÿ‚µ‚Ü‚·B
+Press Ctrl+Shift+PageUp to enlarge or Ctrl+Shift+PageDown to reduce.
 
-@•¶š‚ÌƒTƒCƒY‚ğŒ³‚É–ß‚·‚É‚ÍAViewƒƒjƒ…[‚ÌFont Size‚ÅDefault‚ğ‘I‘ğ‚µ‚Ü‚·B
+Or,
+
+Hold down Ctrl+Shift and use the mouse wheel to change the font size.
+
+To return the text size to its default value, choose Default from View menu -> Font Size, or press Ctrl+Shift+0.
 23
-Title: ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦‚·‚é‚É‚Í
+Title: How to Use Full Screen
 Label:6
 Fixed:0
 X:0.93836522102356
@@ -2352,18 +2406,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦‚·‚é‚É‚Í
+How to Use Full Screen
 ----------------------------------------------------------------------------
 
-@Viewƒƒjƒ…[‚ÌFull Screen‚ğ‘I‘ğ‚µ‚Ü‚·B
+Choose Full Screen from the View menu.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-@ƒL[ƒ{[ƒh‚ÌF10ƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
+Press F10.
 
-@Full Screen‚ğ‰ğœ‚·‚é‚É‚ÍAƒL[ƒ{[ƒh‚ÌESCƒL[‚à‚µ‚­‚ÍF10ƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
-29
-Title: ƒJ[ƒh‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ŠO•”ƒŠƒ“ƒN‚ğŠJ‚­‚É‚Í
+To leave Full Screen, press Esc or F10.
+28
+Title: How to Open External Links Attached to Cards
 Label:6
 Fixed:0
 X:0.968530714511871
@@ -2376,24 +2430,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒJ[ƒh‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ŠO•”ƒŠƒ“ƒN‚ğŠJ‚­‚É‚Í
+How to Open External Links Attached to Cards
 ----------------------------------------------------------------------------
 
-1.Browserƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B
-2.ŠO•”ƒŠƒ“ƒN‚ğŠJ‚­ƒJ[ƒh‚ğCtrl‚ÆShiftƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒNƒŠƒbƒN‚µ‚Ü‚·BŠO•”ƒŠƒ“ƒN‚ª
-@1‚Â‚Ì‚İ‘¶İ‚·‚éê‡‚Í‘¦À‚ÉŠO•”ƒŠƒ“ƒN‚ªŠJ‚«‚Ü‚·B
-3.•¡”‚ÌŠO•”ƒŠƒ“ƒN‚ª‘¶İ‚·‚éê‡‚ÍA•\¦‚³‚ê‚½ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚©‚ç
-@ŠJ‚­ƒŠƒ“ƒN‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
+1. Click the Browser tab.
+2. Hold down Ctrl and Shift while clicking the card whose external link you want to open.
+   If the card has only one external link, it opens immediately.
+3. If the card has multiple external links, click the link you want to open in the
+   popup menu that appears.
 
-‚à‚µ‚­‚ÍA
+Or,
 
-1.Browser‰æ–Ê‚©‚çŠO•”ƒŠƒ“ƒN‚ğŠJ‚­ƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©A‰æ–Ê¶‚Ì
-@CardƒŠƒXƒg‚©‚çŠO•”ƒŠƒ“ƒN‚ğŠJ‚­ƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚é‚©AŠù‚É
-@ŠO•”ƒŠƒ“ƒN‚ğŠJ‚­ƒJ[ƒh‚ğ‘I‘ğ’†‚Ìê‡‚ÍEditorƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä
-@Editor‰æ–Ê‚ğ•\¦‚µ‚Ü‚·B
-2.ŠO•”ƒŠƒ“ƒN‚Ì‘‚©‚ê‚½s‚ğCtrlƒL[‚ğ‰Ÿ‚µ‚È‚ª‚çƒNƒŠƒbƒN‚µ‚Ü‚·B
-30
-Title: ƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ğ’ñ¦‚·‚é‚É‚Í
+1. Double-click the card whose external link you want to open in the Browser, or
+   double-click it in the Card list on the left side of the screen. If that card is
+   already selected, click the Editor tab to display the Editor.
+2. Hold down Ctrl while clicking the line that contains the external link.
+28
+Title: How to Show Cards Randomly
 Label:6
 Fixed:0
 X:0.992111325263977
@@ -2406,25 +2459,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ğ’ñ¦‚·‚é‚É‚Í
+How to Show Cards Randomly
 ----------------------------------------------------------------------------
 
-1.Animationƒƒjƒ…[‚©‚çRandom Flash‚à‚µ‚­‚ÍRandom Map‚à‚µ‚­‚Í
-@Random Scroll‚à‚µ‚­‚ÍRandom Jump‚ğ‘I‘ğ‚µ‚Ü‚·BƒAƒjƒ[ƒVƒ‡ƒ“‚ªŠJn‚µA
-@Random Animationƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ü‚·B
-@Random Flash‚Å‚ÍAw’è”‚ÌƒJ[ƒh‚ğŸX‚É‰æ–Ê‚É•\¦‚µ‚Ü‚·B
-@Random Map‚Å‚ÍAƒ‰ƒ“ƒ_ƒ€‚ÈƒJ[ƒh‚©‚çƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚ğ•\¦‚µ‚Ä‚¢‚«‚Ü‚·B
-@Random Scroll‚Å‚ÍAw’è”‚ÌƒJ[ƒh‚ª‰æ–Êã‚ğ—¬‚ê‚Ä‚¢‚«‚Ü‚·B
-@Random Jump‚Å‚ÍAw’è”‚ÌƒJ[ƒh‚ª‰æ–Ê‰º‚©‚ç’µ‚Ëã‚ª‚é‚æ‚¤‚É•\¦‚³‚ê‚Ü‚·B
-2.‰æ–Ê‚ğŠg‘åAk¬‚·‚é‚É‚ÍAZoom‚ğ•ÏX‚µ‚Ü‚·B
-3.•\¦‘¬“x‚ğ•ÏX‚·‚é‚É‚ÍASpeed‚ğ’²ß‚µ‚Ü‚·B
-4.‰æ–Ê‚Éˆê“x‚É•\¦‚·‚éƒJ[ƒh‚Ì”‚ğ•ÏX‚·‚é‚É‚ÍACards‚ğ•ÏX‚µ‚Ü‚·B
-5.ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦/ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦‰ğœ‚·‚é‚É‚ÍAFull Screenƒ{ƒ^ƒ“
-@‚à‚µ‚­‚ÍƒL[ƒ{[ƒh‚ÌF10ƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
-6.ƒAƒjƒ[ƒVƒ‡ƒ“‚Ìˆê’â~/‰ğœ‚·‚é‚É‚ÍAPauseƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
-7.ƒAƒjƒ[ƒVƒ‡ƒ“‚ğI—¹‚·‚é‚É‚ÍAStopƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
-24
-Title: ƒ‰ƒ“ƒ_ƒ€‚ÉƒŠƒ“ƒN‚ğƒgƒŒ[ƒX‚·‚é‚É‚Í
+1. Choose Random Flash, Random Map, Random Scroll, or Random Jump from the Animation
+   menu. The animation starts and the Random Animation dialog appears.
+   Random Flash displays the specified number of cards one after another.
+   Random Map displays a random card, then expands the display to cards linked from it.
+   Random Scroll scrolls the specified number of cards across the screen.
+   Random Jump makes the specified number of cards bounce up from the bottom of the screen.
+2. To zoom in or out, change Zoom.
+3. To change the display speed, adjust Speed.
+4. To change how many cards are shown on the screen at once, adjust Cards.
+5. To enter or leave full-screen mode, press the Full Screen button or F10.
+6. To pause or resume the animation, press the Pause button.
+7. To end the animation, press the Stop button.
+23
+Title: How to Trace Links Randomly
 Label:6
 Fixed:0
 X:0.97888195514679
@@ -2437,19 +2488,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒ‰ƒ“ƒ_ƒ€‚ÉƒŠƒ“ƒN‚ğƒgƒŒ[ƒX‚·‚é‚É‚Í
+How to Trace Links Randomly
 ----------------------------------------------------------------------------
 
-1.Animationƒƒjƒ…[‚©‚çRandom Trace‚ğ‘I‘ğ‚µ‚Ü‚·B
-@ƒAƒjƒ[ƒVƒ‡ƒ“‚ªŠJn‚µARandom Animationƒ_ƒCƒAƒƒO‚ª•\¦‚³‚ê‚Ü‚·B
-2.‰æ–Ê‚ğŠg‘åAk¬‚·‚é‚É‚ÍAZoom‚ğ•ÏX‚µ‚Ü‚·B
-3.•\¦‘¬“x‚ğ•ÏX‚·‚é‚É‚ÍASpeed‚ğ’²ß‚µ‚Ü‚·B
-4.ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦/ƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦‰ğœ‚·‚é‚É‚ÍAFull Screenƒ{ƒ^ƒ“
-@‚à‚µ‚­‚ÍƒL[ƒ{[ƒh‚ÌF10ƒL[‚ğ‰Ÿ‚µ‚Ü‚·B
-5.ƒAƒjƒ[ƒVƒ‡ƒ“‚Ìˆê’â~/‰ğœ‚·‚é‚É‚ÍAPauseƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
-6.ƒAƒjƒ[ƒVƒ‡ƒ“‚ğI—¹‚·‚é‚É‚ÍAStopƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ü‚·B
-36
-Title: “Œv•\¦‚ğs‚¤‚É‚Í
+1. Choose Random Trace from the Animation menu.
+   The animation starts and the Random Animation dialog appears.
+2. To zoom in or out, change Zoom.
+3. To change the display speed, adjust Speed.
+4. To enter or leave full-screen mode, press the Full Screen button or F10.
+5. To pause or resume the animation, press the Pause button.
+6. To end the animation, press the Stop button.
+35
+Title: How to View Statistics
 Label:6
 Fixed:0
 X:1
@@ -2462,31 +2512,30 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-“Œv•\¦‚ğs‚¤‚É‚Í
+How to View Statistics
 ----------------------------------------------------------------------------
 
-1.Statisticsƒ^ƒu‚ğƒNƒŠƒbƒN‚µ‚Ä•\¦‚µ‚Ü‚·B‰Šúó‘Ô‚ÅŠeƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚Ì”‚ğ
-@‚ ‚ç‚í‚·ƒOƒ‰ƒt‚ª•\¦‚³‚ê‚Ü‚·B
-2.ƒOƒ‰ƒt•\¦‚É—p‚¢‚éƒL[‚ğ•ÏX‚·‚é‚É‚ÍAKey‰E‚Ìƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚ÄˆÈ‰º‚©‚ç
-@ƒL[‚ğ‘I‘ğ‚µ‚Ü‚·B
+1. Click the Statistics tab.
+   Initially, a graph showing the number of cards for each label is displayed.
+2. To change the key used for the graph display, click the button to the right of Key
+   and choose one of the following.
 
-@LabelFŠeƒ‰ƒxƒ‹‚Ì‚ÂƒJ[ƒh‚Ì”‚ÌƒOƒ‰ƒt‚ğ•\¦iƒfƒtƒHƒ‹ƒgj
-@Number of LinkFƒŠƒ“ƒN”–ˆ‚ÌƒJ[ƒh‚Ì”‚ğƒOƒ‰ƒt•\¦
-@Created DateFƒJ[ƒhì¬“ú–ˆ‚ÉƒJ[ƒh‚Ì”‚ğƒOƒ‰ƒt•\¦
-@Edited DateFƒJ[ƒh•ÒW“ú–ˆ‚ÉƒJ[ƒh‚Ì”‚ğƒOƒ‰ƒt•\¦
-@Viewed DateFƒJ[ƒh‰{——“ú–ˆ‚ÉƒJ[ƒh‚Ì”‚ğƒOƒ‰ƒt•\¦
+   Label: Displays a graph of the number of cards for each label (default)
+   Number of Link: Displays a graph of the number of cards for each link count
+   Created Date: Displays a graph of the number of cards by creation date and time
+   Edited Date: Displays a graph of the number of cards by last edited date and time
+   Viewed Date: Displays a graph of the number of cards by viewed date and time
 
-@Created DateAEdited DateAViewed Date‚ğ‘I‘ğ‚µ‚½ê‡‚ÍA‚³‚ç‚É“ú‚ğ‚Ç‚Ì
-@—±“x‚Å@WŒv‚·‚é‚©‚ğ”N–ˆiYearjAŒ–ˆiMonthjA“ú–ˆiDayjA
-@T–ˆiWeekjAHouriŠÔj‚©‚ç‘I‘ğ‚µ‚Ü‚·B
+   If Created Date, Edited Date, or Viewed Date is selected, you can also choose the
+   aggregation unit from Year, Month, Day, Week, or Hour.
 
-3.ŠeƒOƒ‰ƒt‚ÉŠÜ‚Ü‚ê‚éƒJ[ƒh‚ğˆê——•\¦‚·‚é‚É‚ÍAƒOƒ‰ƒt‚Ìƒo[‚ğƒNƒŠƒbƒN‚µ‚Ü‚·B
-@‰æ–Ê‰E‚ÉŠÜ‚Ü‚ê‚éƒJ[ƒh‚Ìˆê——‚ª•\¦‚³‚ê‚Ü‚·B
+3. To list the cards included in each graph, click a bar in the graph.
+   A list of included cards appears on the right side of the screen.
 
 
-Qlj‚±‚Ì‹@”\‚ÍA“Á’è‚Ìƒ‰ƒxƒ‹‚ğ‚ÂƒJ[ƒh‚Ì‚İ—ñ‹“‚·‚é‚½‚ß‚È‚Ç‚É‚à—˜—p‚Å‚«‚Ü‚·B
+Note: This feature can also be used to list only cards that have a specific label.
 15
-Title:ˆóü‚·‚é
+Title:Print
 Label:9,8
 Fixed:0
 X:0.624003529548645
@@ -2499,10 +2548,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-ˆóü‚·‚é
+Print
 ============================================================================
 24
-Title: ƒuƒ‰ƒEƒU‚Ì•\¦“à—e‚ğˆóü‚·‚é‚É‚Í
+Title: How to Print the Browser View
 Label:9
 Fixed:0
 X:0.675095319747925
@@ -2515,19 +2564,19 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-ƒuƒ‰ƒEƒU‚Ì•\¦“à—e‚ğˆóü‚·‚é‚É‚Í
+How to Print the Browser View
 ----------------------------------------------------------------------------
 
-1.Fileƒƒjƒ…[‚©‚çPrint Image‚ğ‘I‘ğ‚µ‚Ü‚·B
-2.•\¦‚³‚ê‚½ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Å•K—v‚É‰‚¶‚ÄƒvƒŠƒ“ƒ^‚Ì‘I‘ğAİ’è‚ğs‚¢‚Ü‚·B
-3.OKƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚Æˆóü‚ğŠJn‚µ‚Ü‚·B
+1. Choose Print Image from the File menu.
+2. In the dialog box that appears, choose and configure the printer as needed.
+3. Press OK to start printing.
 
-QljŒ»İ‚Ìƒuƒ‰ƒEƒU‚Ì•\¦“à—e‚ªAw’è—p†‚Ì’†S‚Éˆóü‚³‚ê‚Ü‚·B
+Note: The current Browser view is printed centered on the selected paper.
 
-Qlj•\¦‚ªƒvƒŠƒ“ƒ^—p†‚É‡‚í‚¹‚ÄŠg‘åk¬‚³‚ê‚é‚±‚Æ‚ğœ‚«AŠî–{“I‚ÉŒ»İ‚Ì
-@@@ƒuƒ‰ƒEƒU‚Ì•\¦“à—e‚ª‚»‚Ì‚Ü‚Üˆóü‚³‚ê‚Ü‚·B
+Note: Except for being scaled to fit the paper size, the current Browser view is
+      basically printed as it appears on screen.
 15
-Title:ƒƒjƒ…[‰ğà
+Title:Menu Guide
 Label:7,8
 Fixed:0
 X:0.896600604057312
@@ -2540,10 +2589,10 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:14:35
 -
 ============================================================================
-ƒƒjƒ…[‰ğà
+Menu Guide
 ============================================================================
-71
-Title: Fileƒƒjƒ…[
+81
+Title: File Menu
 Label:7
 Fixed:0
 X:0.959879457950592
@@ -2556,66 +2605,76 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Fileƒƒjƒ…[
+File Menu
 ----------------------------------------------------------------------------
 
 New
-@V‚µ‚¢ƒvƒƒWƒFƒNƒg‚ğì¬‚µ‚Ü‚·B
+  Creates a new project.
 
 Open
-@•Û‘¶‚µ‚½ƒvƒƒWƒFƒNƒg‚ğŠJ‚«‚Ü‚·B
+  Opens a saved project.
 
 Save
-@Œ»İ‚ÌƒvƒƒWƒFƒNƒg‚ğã‘‚«•Û‘¶‚µ‚Ü‚·B
+  Overwrites the current project.
 
 SaveAs
-@Œ»İ‚ÌƒvƒƒWƒFƒNƒg‚É–¼‘O‚ğ‚Â‚¯‚Ä•Û‘¶‚µ‚Ü‚·B
+  Saves the current project with a new name.
+
+Auto Save (This File)
+  Toggles automatic saving on or off for this file.
+  When enabled, changes are automatically saved after a period of inactivity.
+  On application exit, unsaved changes are saved without a confirmation dialog.
+
+Auto Reload (This File)
+  Toggles automatic reloading on or off for this file.
+  When enabled, the file is automatically reloaded when modified externally.
+  However, automatic reloading does not occur while unsaved changes exist in the application.
 
 
 Recent Files
-@ˆÈ‘Og—p‚µ‚½ƒvƒƒWƒFƒNƒg‚ğŠJ‚«‚Ü‚·B
+  Opens a project that was used before.
 
 Recent Folders
-@ˆÈ‘Og—p‚µ‚½ƒtƒHƒ‹ƒ_‚©‚çAƒvƒƒWƒFƒNƒg‚ğŠJ‚«‚Ü‚·B
+  Opens a project from a folder that was used before.
 
 
 Import
-@fipƒtƒ@ƒCƒ‹ˆÈŠO‚Ìƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İ‚Ü‚·BTxt File‚Å‚ÍA1‚Â‚Ü‚½‚Í
-@•¡”‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ1‚Â‚ÌƒJ[ƒh‚Æ‚µ‚Ä“Ç‚İ‚İ‚Ü‚·B
-@Hierarchical Text File‚Å‚ÍAs“ª‚ªƒ^ƒu‚âƒXƒy[ƒX‚È‚Ç‚ÅƒCƒ“ƒfƒ“ƒg‚³‚ê‚½ŠK‘wŒ^
-@ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğA1s1ƒJ[ƒh‚Æ‚µ‚Ä“Ç‚İ‚İ‚Ü‚·B
-@Hierarchical Text File 2‚Å‚ÍAŠK‘w‚ğs“ª‚ÌƒsƒŠƒIƒh‚È‚Ç‚ÌŒÂ”‚Å•\‚µA‚»‚êˆÈŠO‚Ì
-@ƒeƒLƒXƒg‚ğ–{•¶‚Æ‚·‚éŠK‘wŒ^ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ‚Ü‚·B
-@Text Files in a Folder‚Å‚ÍAw’èƒtƒHƒ‹ƒ_ˆÈ‰º‚É‚ ‚é‘S‚Ä‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğA
-@ƒtƒHƒ‹ƒ_\‘¢‚Æ‹¤‚É“Ç‚İ‚İ‚Ü‚·B
+  Loads data from files other than fip files.
+  Txt File loads one or more text files as one card each.
+  Hierarchical Text File loads a hierarchical text file whose leading indentation is
+  made with tabs or spaces, using one line per card.
+  Hierarchical Text File 2 loads a hierarchical text file in which the hierarchy is
+  represented by the number of leading periods and the remaining text becomes the body.
+  Text Files in a Folder loads all text files under a specified folder together with
+  the folder structure.
 
 
 Export
-@ƒf[ƒ^‚ğŠO•”ƒtƒ@ƒCƒ‹‚Éo—Í‚µ‚Ü‚·BTxt file(Card Title)‚Å‚ÍA‘S‚Ä‚ÌƒJ[ƒh‚Ì
-@ƒ^ƒCƒgƒ‹‚ğ1‚Â‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Éo—Í‚µ‚Ü‚·BTxt file(Text)‚Å‚ÍA‘S‚Ä‚Ì
-@ƒJ[ƒh‚Ì–{•¶‚ğ1‚Â‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Éo—Í‚µ‚Ü‚·BTxt files‚Å‚ÍA1–‡‚Ì
-@ƒJ[ƒh‚ğ1‚Â‚Ìƒtƒ@ƒCƒ‹‚Æ‚µ‚ÄƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Éo—Í‚µ‚Ü‚·B‚±‚ÌÛA
-@ŠeƒJ[ƒh‚Ìƒtƒ@ƒCƒ‹–¼‚Í@ƒJ[ƒh‚Ìƒ^ƒCƒgƒ‹–¼+".txt"‚É‚È‚è‚Ü‚·B
-@html files‚Å‚ÍAƒf[ƒ^‚ğƒuƒ‰ƒEƒU‚Å‰{——‚Å‚«‚éhtmlŒ`®‚É‚µ‚Äo—Í‚µ‚Ü‚·B
-@w’è‚µ‚½–¼‘O‚Ìƒtƒ@ƒCƒ‹‚Ì‚Ù‚©AƒJ[ƒhˆê——‚ğ•\¦‚·‚é"cards.html"‹y‚Ñ
-@ƒJ[ƒh”Ô†+".html"‚Ìƒtƒ@ƒCƒ‹‚ªì¬‚³‚ê‚Ü‚·B
-@Hierarchical Text‚Å‚ÍAŠK‘w‚ğs“ª‚ÌƒsƒŠƒIƒh‚ÌŒÂ”‚Å•\‚·ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Å
-@o—Í‚µ‚Ü‚·B‚±‚ÌŒ`®‚Åo—Í‚µ‚½ŠK‘wƒeƒLƒXƒg‚ÍImportƒƒjƒ…[‚ÌHierarchical
-@Text File 2‚ÅƒCƒ“ƒ|[ƒg‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+  Exports data to external files.
+  Txt file(Card Title) outputs all card titles to a single text file.
+  Txt file(Text) outputs the body text of all cards to a single text file.
+  Txt files outputs each card as a separate text file. In that case, each file name is
+  the card title plus ".txt".
+  html files outputs the data in HTML format for browsing on the web.
+  In addition to the file with the specified name, "cards.html" and files named
+  card number + ".html" are created.
+  Hierarchical Text outputs a text file in which hierarchy is represented by the number
+  of leading periods. Hierarchical text exported in this format can be imported with
+  Import menu -> Hierarchical Text File 2.
 
-‚²’ˆÓj•¡”‚Ìƒtƒ@ƒCƒ‹‚ğo—Í‚·‚éExportì‹Æ‚ğs‚Á‚½ÛAŠù‚É“¯–¼‚Ìƒtƒ@ƒCƒ‹‚ª
-@‘¶İ‚µ‚½ê‡AŠù‘¶‚Ìƒtƒ@ƒCƒ‹‚ÍŒx–³‚µ‚Éã‘‚«‚³‚ê‚Ü‚·B
+Caution: When performing Export operations that create multiple files, if files with
+  the same names already exist, they are overwritten without warning.
 
 
 Print Image
-@ƒuƒ‰ƒEƒU•\¦‰æ–Ê‚ÌŠÈˆÕˆóü‚ğs‚¢‚Ü‚·B
-@Œ»İ‚Ìƒuƒ‰ƒEƒU‚Ì•\¦ó‘Ô‚ğAw’è—p†‚ÌƒTƒCƒY‚ÉŠg‘åk¬‚µ‚Äˆóü‚µ‚Ü‚·B
+  Performs simple printing of the Browser display.
+  The current Browser view is scaled to the selected paper size and printed.
 
 
 Exit
-@Frieve Editor‚ğI—¹‚µ‚Ü‚·B
+  Exits Frieve Editor.
 69
-Title: Editƒƒjƒ…[
+Title: Edit Menu
 Label:7
 Fixed:0
 X:0.908938229084015
@@ -2628,64 +2687,64 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Editƒƒjƒ…[
+Edit Menu
 ----------------------------------------------------------------------------
 
 Undo
-@’¼‘O‚És‚Á‚½•ÒW‚ğæ‚èÁ‚µ‚Ü‚·B
+  Cancels the most recent edit.
 
 Redo
-@’¼‘O‚ÉUndo‚µ‚½•ÒW‚ğÄ“xs‚¢‚Ü‚·B
+  Repeats the edit that was most recently undone.
 
 
 Cut
-@‘I‘ğ’†‚Ì•¶š—ñ‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚µ‚½Œãíœ‚µ‚Ü‚·B
+  Copies the selected text to the clipboard and then deletes it.
 
 Copy
-@‘I‘ğ’†‚Ì•¶š—ñ‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚µ‚Ü‚·B
+  Copies the selected text to the clipboard.
 
 Paste
-@ƒNƒŠƒbƒvƒ{[ƒh‚Ì•¶š—ñ‚ğŒ»İˆÊ’u‚É“\‚è•t‚¯‚Ü‚·B
+  Pastes the clipboard text at the current position.
 
 Delete
-@‘I‘ğ’†‚Ì•¶š—ñ‚ğíœ‚µ‚Ü‚·B
+  Deletes the selected text.
 
 Select All
-@•¶š‚ğ‘S‚Ä‘I‘ğ‚µ‚Ü‚·B
+  Selects all text.
 
 
 Find
-@w’è•¶š—ñ‚ğŒŸõ‚µ‚Ü‚·B
+  Searches for a specified string.
 
 Replace
-@w’è•¶š—ñ‚ğ‘¼‚Ì•¶š—ñ‚É’uŠ·‚µ‚Ü‚·B
+  Replaces a specified string with another string.
 
 Find Next
-@Ÿ‚Ìw’è•¶š—ñ‚ğŒŸõ‚µ‚Ü‚·B
+  Searches for the next occurrence of the specified string.
 
 Find Previous
-@‘O‚Ìw’è•¶š—ñ‚ğŒŸõ‚µ‚Ü‚·B
+  Searches for the previous occurrence of the specified string.
 
 Web Search
-@‘I‘ğ’†‚ÌƒJ[ƒhƒ^ƒCƒgƒ‹‚â‘I‘ğ’†‚Ì•¶š—ñ‚ğƒlƒbƒgŒŸõ‚µ‚Ü‚·B
+  Searches the web using the selected card title or selected text.
 
 
 Sort Card
-@ƒJ[ƒh‚ğƒJ[ƒh–¼‚â“ú•t‚Å•À‚Ñ‘Ö‚¦‚Ü‚·B
+  Sorts cards by card name or date.
 
 Barch Conversion
-@All Cards Shape‚Å‚ÍA‘S‚Ä‚ÌƒJ[ƒh‚ÌŒ`‚ğw’è‚µ‚½Œ`‚ÉˆêŠ‡•ÏŠ·‚µ‚Ü‚·B
-@All Links Shape‚Å‚ÍA‘S‚Ä‚ÌƒŠƒ“ƒN‚ÌŒ`‚ğw’è‚µ‚½Œ`‚ÉˆêŠ‡•ÏŠ·‚µ‚Ü‚·B
-@All Links Direction‚Å‚ÍA‘S‚Ä‚ÌƒŠƒ“ƒN‚ÌŒü‚«‚ğ”½“]‚µ‚Ü‚·B
+  All Cards Shape batch-converts all cards to the specified shape.
+  All Links Shape batch-converts all links to the specified shape.
+  All Links Direction reverses the direction of all links.
 
 
 Label
-@ƒ‰ƒxƒ‹‚Ì•ÒWƒ_ƒCƒAƒƒO‚ğŠJ‚«‚Ü‚·B
+  Opens the label editing dialog.
 
 Link Label
-@ƒŠƒ“ƒNƒ‰ƒxƒ‹‚Ì•ÒWƒ_ƒCƒAƒƒO‚ğŠJ‚«‚Ü‚·B
+  Opens the link label editing dialog.
 40
-Title: Insertƒƒjƒ…[
+Title: Insert Menu
 Label:7
 Fixed:0
 X:0.986021161079407
@@ -2698,35 +2757,35 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Insertƒƒjƒ…[
+Insert Menu
 ----------------------------------------------------------------------------
 
 New Card
-@V‚µ‚¢ƒJ[ƒh‚ğì¬‚µ‚Ü‚·B
+  Creates a new card.
 
 New Link
-@‘I‘ğ’†‚ÌƒJ[ƒh‚©‚çV‚µ‚¢ƒŠƒ“ƒN‚ğ“\‚è‚Ü‚·B
+  Creates a new link from the selected card.
 
 New Ext Link
-@‘I‘ğ’†‚ÌƒJ[ƒh‚ÉŠO•”ƒŠƒ“ƒNiƒtƒ@ƒCƒ‹–¼j‚ğ‘}“ü‚µ‚Ü‚·B
+  Inserts an external link (file name) into the selected card.
 
 New Label
-@‘I‘ğ’†‚ÌƒJ[ƒh‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚Ü‚·B
+  Adds a new label to the selected card.
 
 New Link Label
-@‘I‘ğ’†‚ÌƒŠƒ“ƒN‚ÉV‚µ‚¢ƒ‰ƒxƒ‹‚ğ‚Â‚¯‚Ü‚·B
+  Adds a new label to the selected link.
 
 
 Link to All Cards with Designated Label
-@Œ»İ‚ÌƒJ[ƒh‚©‚çAw’èƒ‰ƒxƒ‹‚ğ‚Â‚·‚×‚Ä‚ÌƒJ[ƒh‚ÉƒŠƒ“ƒN‚µ‚Ü‚·B
+  Creates links from the current card to all cards that have the specified label.
 
 New Card Links to All Cards with Designated Label
-@w’èƒ‰ƒxƒ‹‚ğ‚Â‚·‚×‚Ä‚ÌƒJ[ƒh‚ÉƒŠƒ“ƒN‚µ‚½V‚µ‚¢ƒJ[ƒh‚ğì¬‚µ‚Ü‚·B
+  Creates a new card linked to all cards that have the specified label.
 
 Add Designated Label to All Destination Cards
-@ƒŠƒ“ƒNæ‚Ì‚·‚×‚Ä‚ÌƒJ[ƒh‚Éw’èƒ‰ƒxƒ‹‚ğ’Ç‰Á‚µ‚Ü‚·B
+  Adds the specified label to all destination cards.
 31
-Title: Animationƒƒjƒ…[
+Title: Animation Menu
 Label:7
 Fixed:0
 X:0.968556582927704
@@ -2739,26 +2798,26 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Animationƒƒjƒ…[
+Animation Menu
 ----------------------------------------------------------------------------
 
 Random Flash
-@ƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ğ•\¦‚·‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ğs‚¢‚Ü‚·B
+  Runs an animation that shows cards at random.
 
 Random Map
-@ƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ğ•\¦‚µA‚»‚ÌƒJ[ƒh‚©‚çƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚É•\¦‚ğL‚°‚é
-ƒAƒjƒ[ƒVƒ‡ƒ“‚ğs‚¢‚Ü‚·B
+  Runs an animation that shows a random card and then expands the display to cards
+  linked from that card.
 
 Random Scroll
-@ƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ğƒXƒNƒ[ƒ‹‚·‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ğs‚¢‚Ü‚·B
+  Runs an animation that scrolls cards at random.
 
 Random Jump
-@‰æ–Ê‰º‚©‚çƒ‰ƒ“ƒ_ƒ€‚ÉƒJ[ƒh‚ª’µ‚Ëã‚ª‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ğs‚¢‚Ü‚·B
+  Runs an animation in which cards bounce up randomly from the bottom of the screen.
 
 Random Trace
-@ƒ‰ƒ“ƒ_ƒ€‚ÉƒŠƒ“ƒN‚ğ’H‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ğs‚¢‚Ü‚·B
-112
-Title: Viewƒƒjƒ…[
+  Runs an animation that follows links at random.
+111
+Title: View Menu
 Label:7
 Fixed:0
 X:0.957366585731506
@@ -2771,107 +2830,106 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:18
 -
 ----------------------------------------------------------------------------
-Viewƒƒjƒ…[
+View Menu
 ----------------------------------------------------------------------------
 
 Font
-@ƒtƒHƒ“ƒg‚ğ•ÏX‚µ‚Ü‚·BDefault Size‚Å•W€ƒTƒCƒY‚ÉAMagnify‚ÅŠg‘åA
-@Reduce‚Åk¬‚µ‚Ü‚·BƒtƒHƒ“ƒg‚Ìí—Ş‚ğ•ÏX‚·‚é‚É‚ÍAChange Font‚ğ‘I‘ğ‚µA
-@ƒtƒHƒ“ƒg‚ğw’è‚µ‚Ü‚·B
+  Changes the font.
+  Default Size restores the standard size, Magnify enlarges it, and Reduce makes it smaller.
+  To change the font family itself, choose Change Font and specify the font.
 
 Card
-@ƒJ[ƒh‚Ì•\¦‚ğ•ÏX‚µ‚Ü‚·B
-@Shadow‚ÅAƒJ[ƒh‚Ì‰e‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Gradation‚ÅAƒJ[ƒh‚ÌƒOƒ‰ƒf[ƒVƒ‡ƒ“‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Ticker‚ÅAƒJ[ƒhã‚Ì–{•¶‚ÌƒeƒBƒbƒJ[•\¦‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B1Line‚Å‚Í
-@ƒJ[ƒh–{•¶1s–Ú‚Ì“à—e‚ªA2Lines‚Å‚ÍƒJ[ƒh–{•¶1s–Ú‚Æ2s–Ú‚Ì“à—e‚ªTicker
-@•\¦‚³‚ê‚Ü‚·B
-@Image‚ÅA‰æ‘œ‚ÌƒTƒ€ƒlƒCƒ‹•\¦‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B‰æ‘œ‚É‚ÍAƒJ[ƒh–{•¶‚É
-@Å‰‚É‘‚©‚ê‚½jpg‚à‚µ‚­‚Íbmpƒtƒ@ƒCƒ‹‚ªg‚í‚ê‚Ü‚·B
-@Video‚ÅA“®‰æ•\¦‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B“®‰æ‚É‚ÍAƒJ[ƒh–{•¶‚ÉÅ‰‚É‘‚©‚ê‚½
-@mpg‚à‚µ‚­‚Íaviƒtƒ@ƒCƒ‹‚ªg‚í‚ê‚Ü‚·B“®‰æ‚Ì•\¦‚ÍA‰æ‘œ‚Ì•\¦‚É—Dæ‚³‚ê‚Ü‚·B
-@Drawing‚ÅA}‚Ì•\¦‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B}‚Ì•\¦‚ÍA‰æ‘œA“®‰æ‚É
-@—Dæ‚³‚ê‚Ü‚·B
-@32x32`320x320‚ÅAƒJ[ƒhã‚É•\¦‚·‚é‰æ‘œA“®‰æA}‚ÌÅ‘åƒTƒCƒY‚ğw’è‚µ‚Ü‚·B
-@‚±‚ê‚æ‚è‘å‚«‚¢‰æ‘œA“®‰æ‚ÍAw’èƒTƒCƒY“à‚Éû‚Ü‚é‚æ‚¤‚Ék¬•\¦‚³‚ê‚Ü‚·B
+  Changes card display settings.
+  Shadow toggles card shadows on or off.
+  Gradation toggles card gradients on or off.
+  Ticker toggles ticker display of body text on cards. 1Line displays the first line
+  of the card body, and 2Lines displays the first and second lines as ticker text.
+  Image toggles thumbnail display of images on or off. The first jpg or bmp file written
+  in the card body is used.
+  Video toggles video display on or off. The first mpg or avi file written in the card body
+  is used. Video display takes priority over image display.
+  Drawing toggles drawing display on or off. Drawing display takes priority over image
+  and video display.
+  32x32 to 320x320 specifies the maximum size of images, video, and drawings shown on cards.
+  Media larger than that is reduced so it fits within the specified size.
 
 Link
-@ƒŠƒ“ƒNü‚Ì•\¦‚ğ•ÏX‚µ‚Ü‚·B‚»‚ê‚¼‚êLink‚ÅƒŠƒ“ƒNüAHemming‚ÅƒŠƒ“ƒN‚Ì
-@‰æ‚èADirection‚ÅƒŠƒ“ƒN‚Ì•ûŒüAName‚ÅƒŠƒ“ƒN–¼‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
+  Changes link display settings.
+  Link toggles link lines, Hemming toggles link outlines, Direction toggles link direction,
+  and Name toggles link-name display on or off.
 
 Label
-@ƒ‰ƒxƒ‹‚Ì•\¦‚ğ•ÏX‚µ‚Ü‚·BCircle‚ÅA“¯‚¶ƒ‰ƒxƒ‹‚Ì‚Ü‚Æ‚Ü‚è‚ğ¦‚·‰~‚Ì
-@•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·BRectangle‚ÅA“¯‚¶ƒ‰ƒxƒ‹‚Ì‚Ü‚Æ‚Ü‚è‚ğ¦‚·‹éŒ`‚Ì
-@•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·BName‚Åƒ‰ƒxƒ‹–¼‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
+  Changes label display settings.
+  Circle toggles circles that show groups of the same label on or off.
+  Rectangle toggles rectangles that show groups of the same label on or off.
+  Name toggles label-name display on or off.
 
 Text
-@–{•¶‚ÉŠÖ‚·‚é•\¦‚ğ•ÏX‚µ‚Ü‚·BText‚ÅABrowser‰æ–Ê‚Ö‚Ì
-@‘I‘ğ’†‚ÌƒJ[ƒh‚Ì–{•¶‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·BCentering‚ÅA
-@Browser‰æ–Ê‚É‚¨‚¯‚é–{•¶‚ÌƒZƒ“ƒ^ƒŠƒ“ƒO•\¦/¶ã•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Edit In Browser‚ÅABrowser‰æ–Ê‚ÅƒJ[ƒh‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚½ÛA‚»‚Ìê‚Å
-@–{•¶‚ğ•ÒW‚·‚é‚©‚Ç‚¤‚©‚ğØ‚è‘Ö‚¦‚Ü‚·BAlways Show Editor‚Å‚ÍAƒGƒfƒBƒ^‚ğ
-@í‚ÉBrowser‰æ–Ê‚É•\¦‚·‚é‚©‚Ç‚¤‚©‚ğØ‚è‘Ö‚¦‚Ü‚·iUnder the CardˆÈŠO‚Å—LŒøjB
-@Under the Card‚Å‚ÍAƒJ[ƒh‚Ì‚·‚®‰º‚Å–{•¶‚ğ•ÒW‚µ‚Ü‚·BBrowser Right‚Å‚ÍA
-@Browser‰æ–Ê‰E’[‚Å–{•¶‚ğ•ÒW‚µ‚Ü‚·BBrowser Bottom‚Å‚ÍABrowser‰æ–Ê‰º‚Å
-@–{•¶‚ğ•ÒW‚µ‚Ü‚·B
+  Changes body-text display settings.
+  Text toggles display of the selected card's body text in the Browser.
+  Centering toggles centered display or top-left display of body text in the Browser.
+  Edit In Browser toggles whether double-clicking a card in the Browser edits its body in place.
+  Always Show Editor toggles whether the editor is always shown in the Browser
+  (effective with any setting except Under the Card).
+  Under the Card edits the body immediately below the card.
+  Browser Right edits the body at the right edge of the Browser.
+  Browser Bottom edits the body at the bottom of the Browser.
 
 Score
-@Score‚ÅAƒJ[ƒh‚ÌƒXƒRƒA‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Authenticity‚Å‚ÍAƒXƒRƒA‚ğƒJ[ƒh‚ÌM—Š“xiƒXƒRƒA‚Ì‚‚¢ƒJ[ƒh‚©‚ç‘½‚­
-@ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒJ[ƒh‚Ù‚ÇƒXƒRƒA‚ª‚‚­‚È‚é‚æ‚¤‚ÉŒvZj‚Æ‚µ‚Ü‚·B
-@StartingPoint‚Å‚ÍAƒŠƒ“ƒNŒ³‚ÌƒJ[ƒh‚Ù‚ÇƒXƒRƒA‚ª‚‚­‚È‚é‚æ‚¤‚É‚µ‚Ü‚·B
-@Destination‚Å‚ÍAƒŠƒ“ƒNæ‚ÌƒJ[ƒh‚Ù‚ÇƒXƒRƒA‚ª‚‚­‚È‚é‚æ‚¤‚É‚µ‚Ü‚·B
-@Links(Out)‚Å‚ÍAƒXƒRƒA‚ğƒJ[ƒh‚©‚ç’£‚ç‚ê‚Ä‚¢‚éƒŠƒ“ƒN‚Ì”‚Æ‚µ‚Ü‚·B
-@Links(In)‚Å‚ÍAƒXƒRƒA‚ğƒJ[ƒh‚Ö’£‚ç‚ê‚Ä‚¢‚éƒŠƒ“ƒN‚Ì”‚Æ‚µ‚Ü‚·B
-@Links(Total)‚Å‚ÍAƒXƒRƒA‚ğƒJ[ƒh‚É’£‚ç‚ê‚½‡ŒvƒŠƒ“ƒN”‚Æ‚µ‚Ü‚·B
-@Links(In-Out)‚Å‚ÍAƒXƒRƒA‚ğ“ü—ÍƒŠƒ“ƒN”-o—ÍƒŠƒ“ƒN”‚Æ‚µ‚Ü‚·B
-@Text Length‚Å‚ÍAƒXƒRƒA‚ğ–{•¶‚Ì’·‚³‚Æ‚µ‚Ü‚·B
+  Score toggles score display on or off.
+  Authenticity calculates a score in which cards linked from high-score cards become
+  higher in score.
+  StartingPoint gives higher scores to source cards.
+  Destination gives higher scores to destination cards.
+  Links(Out) uses the number of outgoing links from a card.
+  Links(In) uses the number of incoming links to a card.
+  Links(Total) uses the total number of links on a card.
+  Links(In-Out) uses incoming links minus outgoing links.
+  Text Length uses the length of the body text.
 
 Read Aloud
-@Read Aloud‚ÅƒJ[ƒhƒ^ƒCƒgƒ‹‚æ‚İã‚°‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
+  Read Aloud toggles reading card titles aloud on or off.
 
-QljƒJ[ƒhƒ^ƒCƒgƒ‹‚Ì“Ç‚İã‚°‚É‚ÍAMicrosoft Agent‚ªƒCƒ“ƒXƒg[ƒ‹
-‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·BMicrosoft Agent‹y‚ÑMicrosoft Agent‚Ì“Ç‚İã‚°
-ŠÖ˜A‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg‚ªƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚È‚¢ŠÂ‹«‚Å‚Í‚±‚Ìƒƒjƒ…[‚Í
-•\¦‚³‚ê‚Ü‚¹‚ñB
+Note: Microsoft Agent must be installed to read card titles aloud.
+      This menu is not shown in environments where Microsoft Agent or the related
+      speech components are not installed.
 
-QljMicrosoft Agent‚ÍMicrosoft‚æ‚è–³—¿‚Å”z•z‚³‚ê‚Ä‚¢‚Ü‚·‚ªA
-ƒ_ƒEƒ“ƒ[ƒhæ‚ÌƒAƒhƒŒƒX‚â•K—v‚Èƒtƒ@ƒCƒ‹‚Í•p”É‚É•Ï‚í‚Á‚Ä‚¢‚é‚æ‚¤‚Å‚·B
-“Ç‚İã‚°‹@”\‚ª•K—v‚Èê‡‚ÍWeb‚È‚Ç‚Ìî•ñ‚ğ—Š‚è‚É‚±‚ê‚ç‚Ìƒtƒ@ƒCƒ‹‚Ì
-ƒCƒ“ƒXƒg[ƒ‹‚ğs‚Á‚Ä‚­‚¾‚³‚¢B
+Note: Microsoft Agent is distributed free of charge by Microsoft, but its download
+      addresses and required files appear to change frequently.
+      If you need the read-aloud feature, please rely on information on the web and
+      install the necessary files.
 
 Others
-@‚»‚Ì‘¼‚Ì•\¦ŠÖ˜Aİ’è‚ğ•ÏX‚µ‚Ü‚·B
-@Card List‚ÅA‰æ–Ê¶‚ÌƒJ[ƒhƒŠƒXƒg‚Ì•\¦A”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@File List‚ÅA‰æ–Ê¶‚Éƒ}ƒEƒX‚ğˆÚ“®‚µ‚½‚Æ‚«‚É•\¦‚³‚ê‚éƒtƒ@ƒCƒ‹ƒŠƒXƒg‚Ì
-@•\¦A”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Overview‚ÅABrowser‰æ–Ê‰E‰º‚Ì‘S‘Ì‘œ•\¦‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@FourgroundColor‚Å‘OŒiFABackgroundColor‚Å”wŒiF‚ğ•ÏX‚µ‚Ü‚·B
-@Wallpaper‚Å•Ç†‚ğw’è‚µ‚Ü‚·B•Ç†‚ğ‰ğœ‚·‚é‚É‚ÍAÄ“xWallpaper‚ğ
-@‘I‘ğ‚µ‚Ü‚·BFix Wallpaper‚ÅA•Ç†‚ğ‰æ–Ê‚¢‚Á‚Ï‚¢‚ÉŒÅ’è‚µ‚Ä•\¦‚µ‚Ü‚·B
-@Tile Wallpaper‚ÅA•Ç†‚ğBrowser‰æ–Ê‘S‘Ì‚É•À‚×‚Ä•\¦‚µ‚Ü‚·B
-@Background Animation‚ÅA”wŒiƒAƒjƒ[ƒVƒ‡ƒ“‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Background Animation Type‚ÅA”wŒiƒAƒjƒ[ƒVƒ‡ƒ“‚Ìí—Ş‚ğ•ÏX‚µ‚Ü‚·B
-@Cursor Animation‚ÅAƒJ[ƒ\ƒ‹‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@No Scroll Lag‚ÅAƒJ[ƒh‚ğ‘I‘ğ‚µ‚½Û‘¦ƒI[ƒgƒXƒNƒ[ƒ‹‚©‚Ç‚¤‚©‚Ì
-@ON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@Anti-Aliasing‚ÅAƒAƒ“ƒ`ƒGƒCƒŠƒAƒXˆ—‚ÌON/OFF‚ğØ‚è‘Ö‚¦‚Ü‚·B
-@2x‚Åc‰¡2”{A4x‚Å4”{‚ÌƒAƒ“ƒ`ƒGƒCƒŠƒAƒVƒ“ƒO‚ğs‚¢‚Ü‚·B
+  Changes other display-related settings.
+  Card List toggles the card list on the left side of the screen on or off.
+  File List toggles the file list shown when the mouse is moved to the left side
+  of the screen on or off.
+  Overview toggles the overview display at the lower right of the Browser on or off.
+  FourgroundColor changes the foreground color, and BackgroundColor changes the background color.
+  Wallpaper specifies a wallpaper. To clear the wallpaper, choose Wallpaper again.
+  Fix Wallpaper fixes the wallpaper to fill the screen.
+  Tile Wallpaper tiles the wallpaper across the whole Browser area.
+  Background Animation toggles background animation on or off.
+  Background Animation Type changes the kind of background animation.
+  Cursor Animation toggles cursor animation on or off.
+  No Scroll Lag toggles whether auto-scroll happens immediately when a card is selected.
+  Anti-Aliasing toggles anti-aliasing on or off.
+  2x performs anti-aliasing at twice the vertical and horizontal resolution, and 4x uses four times.
 
 Change Language
-@ƒƒjƒ…[‚ÌŒ¾Œê‚ğ•ÏX‚µ‚Ü‚·iŒ»İ‰pŒê‚Ì‚Ù‚©“ú–{Œê‚É‘Î‰jB
-@‚»‚Ì‘¼‚ÌŒ¾Œê‚É‘Î‰‚·‚é‚É‚ÍAFrieve Editor‚Ì‚ ‚éƒtƒHƒ‹ƒ_‚É.lngƒtƒ@ƒCƒ‹
-@iƒeƒLƒXƒgƒtƒ@ƒCƒ‹Œ`®AƒtƒH[ƒ}ƒbƒg‚ÍJapanese.lngQÆj‚ğ—pˆÓ‚µ‚Ü‚·B
+  Changes the menu language (currently English and Japanese are supported).
+  To support other languages, place a .lng file in the Frieve Editor folder
+  (text-file format; see Japanese.lng for the format).
 
 
 Full Screen
-@ƒuƒ‰ƒEƒU‚Ìƒtƒ‹ƒXƒNƒŠ[ƒ“•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
+  Toggles full-screen display of the Browser.
 
 
 Status Bar
-@ƒXƒe[ƒ^ƒXƒo[‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚Ü‚·B
-18
-Title: Settingƒƒjƒ…[
+  Toggles the status bar on or off.
+26
+Title: Settings Menu
 Label:7
 Fixed:0
 X:0.924349308013916
@@ -2884,13 +2942,21 @@ Updated:2023/04/14 20:17:21
 Viewed:2023/04/14 20:17:19
 -
 ----------------------------------------------------------------------------
-Settingƒƒjƒ…[
+Settings Menu
 ----------------------------------------------------------------------------
 
 GPT API Key
-@GPT˜AŒg‹@”\‚ğ—˜—p‚·‚é‚½‚ßAOpen AI‚ÌWebƒTƒCƒg‚Åæ“¾‚µ‚½API Key‚ğİ’è‚µ‚Ü‚·B
+  Sets the API Key obtained from the OpenAI website in order to use GPT integration.
+
+Auto Save Default
+  Toggles the default automatic saving setting for newly created files.
+  When enabled, new files will have automatic saving turned on from the start.
+
+Auto Reload Default
+  Toggles the default automatic reloading setting for newly created files.
+  When enabled, new files will have automatic reloading turned on from the start.
 31
-Title: Helpƒƒjƒ…[
+Title: Help Menu
 Label:7
 Fixed:0
 X:0.891983985900879
@@ -2903,21 +2969,21 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:15:15
 -
 ----------------------------------------------------------------------------
-Helpƒƒjƒ…[
+Help Menu
 ----------------------------------------------------------------------------
 
 Contents
-@‚±‚Ìƒwƒ‹ƒv‚ğFrieve Editor‚ÅŠJ‚¢‚Ä•\¦‚µ‚Ü‚·B
+  Opens and displays this help file in Frieve Editor.
 
 Open Frieve Web Site
-@Frieve‚ÌWebƒTƒCƒg‚ğŠù’è‚Ìƒuƒ‰ƒEƒU‚ÅŠJ‚«‚Ü‚·B
+  Opens the Frieve website in the default browser.
 
 Open Frieve Editor Web Site
-@Frieve Editor‚ÌWebƒTƒCƒg‚ğŠù’è‚Ìƒuƒ‰ƒEƒU‚ÅŠJ‚«‚Ü‚·B
+  Opens the Frieve Editor website in the default browser.
 
 Check Latest Release
-@ÅVƒo[ƒWƒ‡ƒ“‚ÌƒŠƒŠ[ƒX‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
+  Checks the latest released version.
 
 
 About
-@ƒo[ƒWƒ‡ƒ“î•ñ‚ğ•\¦‚µ‚Ü‚·B
+  Displays version information.

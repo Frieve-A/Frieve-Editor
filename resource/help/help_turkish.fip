@@ -1,0 +1,3902 @@
+﻿[Global]
+
+DefaultView=1
+
+ReadOnly=1
+
+Version=8
+
+Arrange=1
+
+ArrangeMode=2
+
+AutoScroll=1
+
+AutoZoom=1
+
+FullScreen=-1
+
+Exit=-1
+
+Zoom=-0.170000001788139
+
+X=0.519599974155426
+
+Y=0.519900023937225
+
+TargetCard=-1000
+
+SizeLimitation=0
+
+LinkLimitation=0
+
+DateLimitation=0
+
+SizeLimitation=100
+
+LinkLimitation=3
+
+LinkDirection=0
+
+LinkBackward=0
+
+LinkTarget=-1
+
+DateLimitation=0
+
+DateLimitationDateType=0
+
+DateLimitationType=0
+
+[Card]
+
+CardID=0
+
+Num=79
+
+0=0
+
+1=3
+
+2=1
+
+3=2
+
+4=59
+
+5=49
+
+6=50
+
+7=69
+
+8=51
+
+9=7
+
+10=6
+
+11=61
+
+12=15
+
+13=62
+
+14=8
+
+15=9
+
+16=78
+
+17=64
+
+18=14
+
+19=10
+
+20=22
+
+21=11
+
+22=52
+
+23=53
+
+24=77
+
+25=65
+
+26=12
+
+27=13
+
+28=17
+
+29=16
+
+30=63
+
+31=18
+
+32=19
+
+33=23
+
+34=20
+
+35=35
+
+36=36
+
+37=5
+
+38=21
+
+39=24
+
+40=25
+
+41=26
+
+42=27
+
+43=28
+
+44=73
+
+45=29
+
+46=30
+
+47=74
+
+48=32
+
+49=33
+
+50=34
+
+51=60
+
+52=4
+
+53=75
+
+54=67
+
+55=71
+
+56=48
+
+57=31
+
+58=40
+
+59=37
+
+60=56
+
+61=55
+
+62=76
+
+63=54
+
+64=58
+
+65=57
+
+66=38
+
+67=39
+
+68=70
+
+69=66
+
+70=68
+
+71=41
+
+72=42
+
+73=43
+
+74=44
+
+75=45
+
+76=46
+
+77=72
+
+78=47
+
+[Link]
+
+Num=88
+
+0=Fr3,De1,Di1,Sh5,Na
+
+1=Fr3,De2,Di1,Sh5,Na
+
+2=Fr0,De3,Di1,Sh5,Na
+
+3=Fr0,De7,Di1,Sh5,Na
+
+4=Fr7,De6,Di1,Sh5,Na
+
+5=Fr7,De8,Di1,Sh5,Na
+
+6=Fr7,De10,Di1,Sh5,Na
+
+7=Fr7,De11,Di1,Sh5,Na
+
+8=Fr0,De12,Di1,Sh5,Na
+
+9=Fr12,De13,Di1,Sh5,Na
+
+10=Fr7,De14,Di1,Sh5,Na
+
+11=Fr7,De15,Di1,Sh5,Na
+
+12=Fr12,De18,Di1,Sh5,Na
+
+13=Fr12,De16,Di1,Sh5,Na
+
+14=Fr12,De17,Di1,Sh5,Na
+
+15=Fr12,De19,Di1,Sh5,Na
+
+16=Fr12,De20,Di1,Sh5,Na
+
+17=Fr0,De21,Di1,Sh5,Na
+
+18=Fr7,De22,Di1,Sh5,Na
+
+19=Fr12,De23,Di1,Sh5,Na
+
+20=Fr7,De24,Di1,Sh5,Na
+
+21=Fr12,De25,Di1,Sh5,Na
+
+22=Fr21,De25,Di1,Sh5,Na
+
+23=Fr21,De24,Di1,Sh5,Na
+
+24=Fr21,De23,Di1,Sh5,Na
+
+25=Fr21,De22,Di1,Sh5,Na
+
+26=Fr21,De26,Di1,Sh5,Na
+
+27=Fr21,De27,Di1,Sh5,Na
+
+28=Fr21,De29,Di1,Sh5,Na
+
+29=Fr21,De28,Di1,Sh5,Na
+
+30=Fr0,De30,Di1,Sh5,Na
+
+31=Fr30,De31,Di1,Sh5,Na
+
+32=Fr30,De33,Di1,Sh5,Na
+
+33=Fr30,De34,Di1,Sh5,Na
+
+34=Fr30,De32,Di1,Sh5,Na
+
+35=Fr12,De36,Di1,Sh5,Na
+
+36=Fr12,De35,Di1,Sh5,Na
+
+37=Fr0,De37,Di1,Sh5,Na
+
+38=Fr37,De39,Di1,Sh5,Na
+
+39=Fr37,De38,Di1,Sh5,Na
+
+40=Fr30,De40,Di1,Sh5,Na
+
+41=Fr0,De41,Di1,Sh5,Na
+
+42=Fr41,De42,Di1,Sh5,Na
+
+43=Fr41,De43,Di1,Sh5,Na
+
+44=Fr41,De44,Di1,Sh5,Na
+
+45=Fr41,De45,Di1,Sh5,Na
+
+46=Fr41,De46,Di1,Sh5,Na
+
+47=Fr41,De47,Di1,Sh5,Na
+
+48=Fr30,De48,Di1,Sh5,Na
+
+49=Fr10,De24,Di1,Sh5,La1,Na
+
+50=Fr3,De50,Di1,Sh5,Na
+
+51=Fr3,De49,Di1,Sh5,Na
+
+52=Fr3,De51,Di1,Sh5,Na
+
+53=Fr7,De52,Di1,Sh5,Na
+
+54=Fr37,De54,Di1,Sh5,Na
+
+55=Fr37,De55,Di1,Sh5,Na
+
+56=Fr37,De56,Di1,Sh5,Na
+
+57=Fr37,De57,Di1,Sh5,Na
+
+58=Fr37,De58,Di1,Sh5,Na
+
+59=Fr52,De57,Di1,Sh5,La1,Na
+
+60=Fr19,De25,Di1,Sh5,La1,Na
+
+61=Fr3,De59,Di1,Sh5,Na
+
+62=Fr30,De60,Di1,Sh5,Na
+
+63=Fr7,De61,Di1,Sh5,Na
+
+64=Fr7,De62,Di1,Sh5,Na
+
+65=Fr30,De62,Di1,Sh5,Na
+
+66=Fr7,De64,Di1,Sh5,Na
+
+67=Fr12,De63,Di1,Sh5,Na
+
+68=Fr7,De65,Di1,Sh5,Na
+
+69=Fr0,De66,Di1,Sh5,Na
+
+70=Fr66,De68,Di1,Sh5,Na
+
+71=Fr66,De66,Di1,Sh5,Na
+
+72=Fr3,De69,Di1,Sh5,Na
+
+73=Fr30,De71,Di1,Sh5,Na
+
+74=Fr21,De73,Di1,Sh5,Na
+
+75=Fr30,De74,Di1,Sh5,Na
+
+76=Fr30,De75,Di1,Sh5,Na
+
+77=Fr7,De9,Di1,Sh5,Na
+
+78=Fr68,De68,Di1,Sh5,Na
+
+79=Fr30,De4,Di1,Sh5,Na
+
+80=Fr12,De5,Di1,Sh5,Na
+
+81=Fr7,De53,Di1,Sh5,Na
+
+82=Fr37,De76,Di1,Sh5,Na
+
+83=Fr30,De67,Di1,Sh5,Na
+
+84=Fr7,De77,Di1,Sh5,Na
+
+85=Fr37,De70,Di1,Sh5,Na
+
+86=Fr41,De72,Di1,Sh5,Na
+
+87=Fr7,De78,Di1,Sh0,Na
+
+[Label]
+
+Num=9
+
+0=Co16711680,En1,Sh1,Hi0,Fo0,Si100,NaGenel Bakış
+1=Co65280,En1,Sh1,Hi0,Fo0,Si100,NaKart Düzenleme
+2=Co255,En1,Sh1,Hi0,Fo0,Si100,NaBağlantı Düzenleme
+3=Co33023,En1,Sh1,Hi0,Fo0,Si100,NaEtiket Düzenleme
+4=Co16711935,En1,Sh1,Hi0,Fo0,Si100,NaKartları Sıralama
+5=Co65535,En1,Sh1,Hi0,Fo0,Si100,NaGöz Atma
+6=Co16776960,En1,Sh1,Hi0,Fo0,Si100,NaMenü Kılavuzu
+7=Co14671839,En1,Sh1,Hi0,Fo0,Si168,NaDüğüm
+8=Co15991944,En1,Sh1,Hi0,Fo0,Si100,NaYazdırma
+[LinkLabel]
+
+Num=1
+
+0=Co16711680,En1,Sh0,Hi0,Fo1,Si0,Naİlişkili
+[CardData]
+33
+Title:Frieve Editor Yardım
+Fixed:0
+
+X:0.527909159660339
+
+Y:0.485341817140579
+
+Top:1
+
+Size:237
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:2013/11/02 22:35:21
+
+Viewed:2023/04/14 20:37:39
+
+-
+============================================================================
+Frieve Editor Sürüm 3.00 Yardım
+============================================================================
+
+Frieve Editor'ı indirdiğiniz için teşekkür ederiz.
+Frieve Editor, düşüncelerinizi düzenlemenize ve özgün fikirler
+üretmenize yardımcı olan yeni nesil bir editördür.
+
+Yardım içeriğine erişmek için ekranın solundaki Kartlar bölümünden
+istediğiniz konuyu seçin.
+İlgili makalelere, ekranın altındaki bağlantıları takip ederek ulaşabilirsiniz.
+25
+Title:Genel Bakış
+Label:1,8
+
+Fixed:0
+
+X:0.223215848207474
+
+Y:0.852238237857819
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Genel Bakış
+============================================================================
+55
+Title:Kullanım Amaçları
+Label:1
+
+Fixed:0
+
+X:0.229445829987526
+
+Y:0.93997061252594
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kullanım Amaçları
+----------------------------------------------------------------------------
+
+Frieve Editor aşağıdaki amaçlarla kullanılmak üzere tasarlanmış bir yazılımdır.
+
+- Fikir işlemcisi olarak
+  Fikir üretmeye başlangıç noktası oluşturacak anahtar kelime kartlarını
+  ekrana sırayla yerleştirirsiniz. Aklınıza gelen fikirlerin kartlarını da aynı
+  şekilde ekrana eklerken, fikirleri sınıflandırmak için etiketler atar ve anahtar
+  kelimelerle ilişkilerini bağlantılarla belirtirsiniz. Atanan etiketler ve
+  bağlantılar sayesinde kartlar otomatik olarak düzenlenebilir. Kartları rastgele
+  sunma ve bağlantıları rastgele izleyen animasyon özellikleri, özgün fikirlerin
+  ortaya çıkmasını destekler.
+
+- Karmaşık olayların özlü biçimde açıklanması ve düzenlenmesi için
+  Pek çok koşulun iç içe geçtiği karmaşık olayları, anlaşılan kısımlardan
+  başlayarak açıklarsınız. Olaylar arasındaki ilişkileri etiketler ve bağlantılarla
+  tanımlayarak durumu anlaşılır biçimde ifade edebilirsiniz. Bu sayede, normalde
+  gözden kaçan çeşitli etkileri göz önünde bulunduran çözümler bulabilirsiniz.
+  Daha önce başkalarına aktarılması çok zor olan karmaşık düşünceler artık
+  kolaylıkla iletilebilir hale gelir.
+
+- Proje yönetim aracı olarak
+  Yapılması gereken işler, bunlar arasındaki ilişkiler, yapılış sırası, bütçe
+  ve riskler gibi bilgileri kaydedersiniz. Her kart, etiketler aracılığıyla
+  tamamlanmış, hemen yapılması gereken veya ertelenecek işler gibi kategorilere
+  ayrılır. Bu tür bir kayıt; sıradaki işin ne olduğu, neyin sorun yaratabileceği
+  ve nasıl ilerlenmesi gerektiği konusundaki kararları kolaylaştırır.
+
+- Diğer kullanım alanları
+  Toplantı tutanakları, not alma, sistem açıklamaları, blog yazısı taslakları
+  ve daha pek çok amaç için kullanılabilir.
+51
+Title:Temel Özellikler
+Label:1
+
+Fixed:0
+
+X:0.238106444478035
+
+Y:0.904705762863159
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Temel Özellikler
+----------------------------------------------------------------------------
+
+Frieve Editor'ın temel özellikleri aşağıda açıklanmıştır.
+
+- Kartlar ve bağlantılarla ifade
+  Frieve Editor'da her konu ayrı bir karta yazılır; kartlar arasındaki ilişkiler
+  bağlantılarla gösterilir. Bir karttan herhangi başka bir karta bağlantı
+  eklenebildiğinden, karmaşık konular bile kolaylıkla ifade edilebilir.
+
+- Etiketlerle kart ve bağlantı sınıflandırması
+  Her karta ve bağlantıya birden fazla etiket atanabilir. Etiketler kullanıcı
+  tarafından serbestçe tanımlanabilir. Kartlar ve bağlantılar ekranda etiketlerine
+  göre renk kodlarıyla görüntülendiğinden, anlamları tek bakışta anlaşılabilir.
+
+- Kartların otomatik düzenlenmesi ve görüntüleme seçenekleri
+  Frieve Editor, kartlara eklenen bağlantı ve etiket bilgilerine dayanarak kart
+  düzenini otomatik olarak organize edebilir. Bu özellik, girilen bilgilere farklı
+  açılardan bakılmasını kolaylaştırır. Etiketlere göre kartları ve bağlantıları
+  gösterip gizleyerek ya da bağlantı sayısına göre görüntülenen kart aralığını
+  sınırlayarak yalnızca ihtiyaç duyulan bilgileri görüntüleyebilirsiniz.
+
+- Animasyon
+  Frieve Editor, fikir üretimini desteklemek ve anlatılan konuların anlaşılmasına
+  yardımcı olmak amacıyla çeşitli animasyon seçenekleri sunar.
+  Kartları rastgele sunan animasyon, farklı kartlar arasında yeni fikirlerin
+  doğmasını kolaylaştırır. Bağlantıları rastgele izleyen animasyon ise kartlar
+  arasındaki ilişkilerin sezgisel olarak kavranmasına yardımcı olur.
+52
+Title:Temel İşlevler
+Label:1
+
+Fixed:0
+
+X:0.19487227499485
+
+Y:0.933239459991455
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2023/04/14 20:14:08
+
+-
+----------------------------------------------------------------------------
+Temel İşlevler
+----------------------------------------------------------------------------
+
+- Kartlar
+  Frieve Editor'da her yazı ayrı bir kartta saklanır. Aklınıza bir şey geldiğinde
+  hemen yeni bir kart oluşturun ve yazın. Konuları verimli biçimde anlatmak için
+  mümkün olduğunca küçük parçalara ayırın ve çok sayıda kart kullanın.
+
+- Bağlantılar
+  Bağlantılar, kartlar arasındaki ilişkileri tanımlar. Bir karttan başka herhangi
+  bir karta bağlantı çizilebilir. Frieve Editor, kartlar arasındaki bağlantılara
+  dayanarak bağlantılı kartları birbirine yakın yerleştirecek şekilde otomatik
+  düzenleme yapabilir.
+
+- Etiketler
+  Frieve Editor, hem kartlara hem de bağlantılara etiket atamanıza olanak tanır.
+  Varsayılan olarak üç etiket tanımlanmıştır: Problem, Solution ve Result; ancak
+  etiketler serbestçe düzenlenebilir.
+
+  Kartlara etiket atamak, onları verimli biçimde düzenlemenize yardımcı olur.
+  Örneğin, aynı etiketli kartları birbirine yakın yerleştirecek şekilde otomatik
+  düzenleme yapabilir, belirli bir etikete sahip kartları gösterebilir ya da
+  gizleyebilirsiniz. Ayrıca aynı etikete sahip kartları gruplandırarak tek bir
+  kart olarak da görüntüleyebilirsiniz.
+
+  Aynı şekilde bağlantılara eklenen etiketler, yalnızca belirli bir etikete sahip
+  bağlantıları gösterip gizlemek için kullanılabilir. Bağlantılı kartların yakın
+  yerleştirilmesine dayanan otomatik düzenlemeyle birlikte bu özellik, belirli bir
+  ilişki türüne odaklanırken kartların kolayca yeniden düzenlenmesini sağlar.
+209
+Title:Sürüm Geçmişi
+Label:1
+
+Fixed:0
+
+X:0.153297424316406
+
+Y:0.897660434246063
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:2023/04/14 20:14:19
+
+Viewed:2023/04/14 20:14:08
+
+-
+----------------------------------------------------------------------------
+Sürüm Geçmişi
+----------------------------------------------------------------------------
+
+- 3.00 (2023/04/14)
+  ChatGPT API çağrısı desteği eklendi.
+
+- 1.40 (2021/08/09)
+  Çeşitli küçük iyileştirmeler ve hata düzeltmeleri yapıldı.
+
+- 1.32 (2013/11/02)
+  Windows'un yeni sürümleri için destek eklendi.
+  64 bit desteği eklendi.
+  Varsayılan dil Japonca olarak değiştirildi.
+  Çeşitli küçük iyileştirmeler ve hata düzeltmeleri de yapıldı.
+
+- 1.31 (2008/09/07)
+  Dosya kaydedilirken mevcut koordinatlar ve çeşitli ayarlar da kaydediliyor,
+  dosya açıldığında geri yükleniyor.
+  Eğri bağlantılar eklendi.
+  Dosya menüsü -> Dışa Aktar'a Hiyerarşik Metin eklendi.
+  Kart adları ve gövde metni için metin değiştirme eklendi (Düzenle -> Değiştir, Ctrl+R).
+  Seçili bağlantılar artık yanıp sönüyor.
+  Geçerli kartla ilgili bağlantılar artık vurgulanıyor.
+  Kart başlığı düzenleme kısayolu Ctrl+T'den F2'ye değiştirildi.
+  Japonca çevirisi yapılmamış bazı mesajlar Japonca'ya çevrildi.
+  İstatistikler sekmesinde haftanın günü kayması hatası düzeltildi.
+  Tarayıcının sağında veya altında gövde metni düzenlerken hata oluşması düzeltildi.
+  Noktalı çizgi kullanımında bazen hata oluşması düzeltildi.
+  İstatistikler sekmesi görüntülenirken bellek sızıntısı düzeltildi.
+  Tree (Radial) otomatik düzenlemede bellek sızıntısı düzeltildi.
+
+- 1.30 (2008/06/15)
+  Kartlara basit çizim ekleme desteği eklendi (Çizim sekmesi).
+  Etiket sayıları gibi istatistik grafik görüntüleme eklendi (İstatistikler sekmesi).
+  Belirtilen etikete sahip tüm kartlara bağlantı ekleme işlevi eklendi (Ekle menüsü).
+  Tüm hedef kartlara belirtilen etiket ekleme işlevi eklendi (Ekle menüsü).
+  Tüm pencerelere Japonca yerelleştirme eklendi (Görünüm -> Dil).
+  Durum çubuğunda seçili kart sayısı gösteriliyor.
+  Çeşitli küçük iyileştirmeler ve hata düzeltmeleri de yapıldı.
+
+- 1.23 (2008/04/15)
+  Kart başlığı yazmaya, karta tıklamadan doğrudan başlanabiliyor.
+  Geçerli seçim artık arama anahtarı olarak kullanılıyor.
+  Arama anahtar kelimesi geçmişi kaydediliyor.
+  Page Up ve Page Down tuşlarıyla yakınlaştırma destekleniyor.
+  Bağlantı listesinden bağlantı seçildiğinde İlgili Metin'e taşınılıyor.
+  Otomatik düzenleme kapalıyken alt ve kardeş kartların başlangıç konumu iyileştirildi.
+  Tarayıcının sağında veya altında gösterilen gövde düzenleyicisi boyutlandırılabilir hale getirildi.
+  Çeşitli hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.22 (2008/02/11)
+  Genel arama (arama sonuçlarının liste görüntüsü) eklendi.
+  Seçili metin veya kart başlıklarıyla internet araması eklendi.
+  Sürükleyip bırakarak harici bağlantı ekleme ve harici bağlantılı kart oluşturma eklendi.
+  Kartları kart sırasına göre düzenleyen Matrix (Index) eklendi.
+  Öncekini Bul eklendi (Düzenle -> Öncekini Bul, Shift+F3).
+  Düzenleyici sekmesi artık bağlantılı kartların gövde metnini gösterebiliyor (İlgili Metin).
+  Gövde metninden keserek bağlantılı kart oluşturulabiliyor.
+  Hiyerarşiyi noktalarla gösteren metin dosyalarını içe aktarma desteği eklendi.
+  Puan gösterimine Metin Uzunluğu eklendi.
+  Arka plan animasyonlarına Kar ve Kiraz Çiçeği eklendi.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.21 (2007/12/01)
+  Hiyerarşik otomatik düzenleme eklendi (Tree(Radian); bir kök kart gerektirir).
+  Dosyaları hızla açmak için dosya listesi eklendi (fareyi ekranın soluna taşıyın).
+  Random Jump ve Random Map animasyonları eklendi.
+  Bağlantı yönünün toplu değiştirilmesi eklendi (Düzenle -> Toplu Dönüştürme).
+  Kart listesi görünürlüğü ayarlanabilir hale getirildi (Görünüm -> Diğer).
+  Kart listesi genişliği ve ilgili ayarlar programdan çıkıldığında kaydediliyor.
+  Video oynatma konumu belirtme desteği eklendi.
+  İmleç animasyonu açılıp kapatılabilir hale getirildi (Görünüm -> Diğer).
+  Çeşitli hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.20 (2007/11/04)
+  10 adıma kadar düzenleme için Geri Al ve Yinele eklendi.
+  Birden fazla kart seçimi eklendi.
+  Kart kesme, kopyalama ve yapıştırma eklendi.
+  Tarayıcı ekranında gövde düzenleme eklendi (Görünüm -> Metin).
+  Yalnızca görünür kartlar arasında arama eklendi.
+  Geçerli kart artık görünür bir imleçle işaretleniyor.
+  Arka plan animasyonu eklendi (Görünüm -> Diğer).
+  Açılır menülere Japonca yerelleştirme eklendi.
+  Harici bağlantı açma Ctrl+tıklamadan Ctrl+Shift+tıklamaya değiştirildi.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.13 (2007/10/15)
+  Tarayıcı sağ tıklama menüsüne çeşitli düzenleme komutları eklendi.
+  Bağlantı stili değiştirilebilir hale getirildi.
+  Tüm kartların ve bağlantıların şeklinin toplu değiştirilmesi eklendi.
+  Kartlar ve bağlantılar için varsayılan boyut, şekil ve sabit konum ayarları eklendi.
+  Tarayıcıda gövde metninin ilk bir veya iki satırının kayan yazı gösterimi eklendi.
+  Kart gölgesi çizimi eklendi.
+  Kartlar için basit degrade gösterimi eklendi.
+  Bağlantılar için dış çizgi eklendi.
+  Kart içinde video gösterme desteği eklendi.
+  Hiyerarşik metin ve klasördeki metin dosyalarını içe aktarma eklendi.
+  BMP ve JPEG formatında tarayıcı görüntüsü dışa aktarma eklendi.
+  Panoya çeşitli verilerin kopyalanması desteği eklendi.
+  Tarayıcı gösterimi için kenar yumuşatma eklendi (Görünüm -> Diğer).
+  Tam ekran modunda çeşitli düzenleme özellikleri eklendi.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.12 (2007/10/01)
+  Düzenleme AÇIK ve Yakınlaştırma etkinken kart eklemede hata oluşması düzeltildi.
+  Çeşitli küçük hata düzeltmeleri de yapıldı.
+
+- 1.11 (2007/09/30)
+  Sabit kart konumları eklendi (raptiye düğmesi).
+  Kartları ızgara biçiminde düzenleyen Düzenleme (Matrix) eklendi.
+  Tarayıcının sağ alt köşesine tüm kart düzeni genel bakışı eklendi.
+  Tarayıcıda ok tuşlarıyla kart taşıma eklendi.
+  Yalnızca ters yönde bağlantılı kartları gösteren Bağlantı Sınırlaması eklendi.
+  Geçerli kart ile hedef arasındaki bağlantıları gösteren Bağlantı Sınırlaması eklendi.
+  Yazı tipi değiştirilebilir hale getirildi (Görünüm -> Yazı Tipi -> Değiştir).
+  Tarayıcı ekranı için duvar kağıdı belirlenebilir hale getirildi (Görünüm -> Diğer).
+  Çakışmayı önlemeyi ön planda tutan Yumuşak düzenleme modları eklendi.
+  Sürükleme sırasında da otomatik düzenleme devam ediyor.
+  Tarayıcı ile Düzenleyici arasında geçiş kısayolları eklendi (Ctrl+B, Ctrl+E).
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.10 (2007/09/01)
+  Gövde metnini sağ kenarda sarma ayarı eklendi (Görünüm -> Metin -> Sözcük Kaydırma).
+  Kart başlıklarında \n veya Ctrl+Enter ile satır sonu kullanılabiliyor.
+  Başlık/gövde benzerliğine göre düzenleme eklendi (Similarity).
+  Kartların ekrana sığması için ölçeklendiren Normalize eklendi.
+  Çeşitli puan türleri desteği eklendi (Görünüm -> Puan).
+  Kart başlığı sesli okuma eklendi (Microsoft Agent gerektirir).
+  Büyük/küçük harf duyarsız arama eklendi.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.05 (2007/08/03)
+  Görünüm -> Dil Değiştir üzerinden Japonca menü seçimi eklendi.
+  Harici bağlantıyla belirtilen görüntülerin kartlar üzerinde gösterilmesi eklendi.
+  Görünüm -> Diğer üzerinden kart puanı hesaplama ve gösterimi eklendi.
+  Dosya -> Dışa Aktar ile kart başlığı listesi dışa aktarma eklendi.
+  En son görüntülenen kartlar en önde gösterilmeye başlandı.
+  Tarayıcıdaki etiket dairelerinde etiket adları görüntüleniyor.
+  Tarayıcı kart düzenleme alanı dört katına genişletildi.
+  Otomatik Yakınlaştırma artık ilgili kartları her zaman ekranda tutuyor.
+  Dosya yükleme hızlandırıldı.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.04 (2007/07/16)
+  Tarayıcı sekmesindeki Görünüm düğmesiyle etiket başına kart boyutu belirlenebilir.
+  Etiketler etkinleştirilebilir veya devre dışı bırakılabilir hale getirildi.
+  Tarihe göre görünür kart filtreleme eklendi.
+  Minimum boyuta göre görünür kart filtreleme eklendi.
+  Ön plan ve arka plan renkleri Görünüm -> Diğer'den değiştirilebilir.
+  Çok satırlı metinden, her satırı başlık olarak kullanan kartlar toplu oluşturulabiliyor.
+  Görev çubuğunda düzenlenen dosya adı gösterilmeye başlandı.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.03 (2006/12/17)
+  Tarayıcı görüntüsünün basit yazdırılması eklendi.
+  Üst düğüm kartı oluşturmak için Shift+Insert eklendi.
+  Kart şekilleri ve boyutları değiştirilebilir hale getirildi.
+  Daha büyük yakınlaştırma düzeyleri desteği eklendi.
+  Karakter sayıları gibi bilgileri gösteren durum çubuğu eklendi.
+  Düzenle menüsüne Tümünü Seç eklendi.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.02 (2006/10/21)
+  Alt düğüm kartı oluşturmak için Insert eklendi.
+  Kardeş düğüm kartı oluşturmak için Enter eklendi.
+  Bağlantı seçiliyken Insert ile bağlantılı kartlar arasına kart ekleme eklendi.
+  Bağlantılar sürüklenerek düzenlenebilir hale getirildi.
+  Kart başlığı veya gövde metniyle sınırlı arama eklendi.
+  Tarayıcıdan kart başlığı araması eklendi.
+  Shift+sürükleme ile aynı etikete sahip kartları birlikte taşıma eklendi.
+  Arama hızlandırıldı.
+  Çeşitli küçük hata düzeltmeleri ve iyileştirmeler de yapıldı.
+
+- 1.01 (2006/10/07)
+  Kart başlıkları doğrudan Tarayıcıda düzenlenebilir hale getirildi.
+  Yeni kart oluşturulduktan sonra program başlık düzenleme moduna geçiyor.
+  Tarayıcı ekranını otomatik yakınlaştıran/uzaklaştıran Auto Zoom eklendi.
+  Kart sırasına göre düzenleme eklendi (Index).
+  Görünüm düğmesi -> Bağlantı Sınırlaması ile bağlantı yönüne göre sınırlama yapılabiliyor.
+  Düzenleyici sağ tıklama menüsüne Yeni Kart Başlığına Kes eklendi.
+  Tarayıcıda kart koordinatlarını rastgele değiştiren Karıştır işlevi eklendi.
+  Kart sırasını karıştıran Karıştır (Düzenle -> Sırala) eklendi.
+  Tarayıcıda tıklanan kartın altındaki kartın seçilmesi hatası düzeltildi.
+
+- 1.00 (2006/09/24)
+  İlk sürüm.
+34
+Title:Telif Hakkı ve Lisans
+Label:1
+
+Fixed:0
+
+X:0.127202451229095
+
+Y:0.852422893047333
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Telif Hakkı ve Lisans
+----------------------------------------------------------------------------
+
+Bu yazılım ücretsiz bir yazılımdır ve telif hakkı Frieve'e aittir.
+Bu uygulamanın kullanımından kaynaklanan herhangi bir sorun için hiçbir
+sorumluluk kabul edilmez.
+
+Sürüm 1.00'dan itibaren yeniden dağıtım serbesttir.
+Yeniden dağıtım yaparken lütfen en güncel sürümü kullanın ve dosyaları
+indirdiğiniz haliyle dağıtın. Özel bir biçimde yeniden dağıtım yapmak
+istiyorsanız, öncesinde Frieve ile iletişime geçin.
+72
+Title:Sıkça Sorulan Sorular
+Label:1
+
+Fixed:0
+
+X:0.173380136489868
+
+Y:0.835304021835327
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Sıkça Sorulan Sorular
+----------------------------------------------------------------------------
+
+S. Tarayıcı alanını daha büyük yapmanın bir yolu var mı?
+
+C. Tarayıcı ekranının üst kısmındaki Düzenle bölümünde Normalize seçeneğini seçin
+ve Düzenle AÇIK düğmesine basın. Kartlar, göreli konumları korunarak Tarayıcının
+merkezine otomatik olarak yerleştirilir. Düzenleme sonrasında Yakınlaştırma çubuğunu
+kullanarak yakınlaştırıp uzaklaştırabilir, kaydırma çubuklarına veya Tarayıcının sağ
+alt köşesindeki genel bakış ekranına tıklayarak ya da sürükleyerek görüntülenen
+alanı değiştirebilirsiniz.
+
+
+S. Frieve Editor USB bellekten çalıştırılabilir mi?
+
+C. Frieve Editor kurulum klasöründeki (genellikle c:\Program Files\Frieve Editor\)
+tüm dosyaları USB belleğe kopyalayın. Ardından oradaki editor.exe dosyasını
+çalıştırarak Frieve Editor'ı kullanabilirsiniz.
+Frieve Editor kayıt defteri kullanmaz.
+
+
+S. Frieve Editor'ı iş yerinde kullanmak istiyorum.
+
+C. Frieve Editor hem kişisel hem de ticari kullanım için ücretsizdir.
+Kurumsal olarak yaygın biçimde dağıtsanız bile bizimle iletişime geçmenize
+gerek yoktur.
+
+
+S. Program başlarken internete bağlanıyor gibi görünüyor. Ne yapıyor?
+
+C. En son Frieve Editor sürümünün güncelleme durumunu kontrol ediyor.
+Bu işlem, Help menüsü -> Check Latest Release seçeneğiyle aynıdır.
+En yeni sürümün otomatik olarak kontrol edilip edilmeyeceğini yine Help menüsü ->
+Check Latest Release üzerinden yapılandırabilirsiniz.
+Bağlantıyı istemiyorsanız güvenlik duvarı gibi araçlarla engellemek herhangi bir
+soruna yol açmaz.
+
+
+S. Tarayıcıda Japonca metin bozuk görünüyor.
+
+C. Yazı tipi karakter seti, Batı yazı tipi seti gibi Japonca dışı bir seçeneğe
+ayarlanmış olabilir. View menüsü -> Font -> Change Font üzerinden yazı tipi iletişim
+kutusunu açın, Japonca bir yazı tipi seçin ve karakter setini Japonca olarak ayarlayın.
+
+
+S. Karta eklenen video oynatılmıyor.
+
+C. Aşağıdaki adreste tanıtılan codec'i yüklemeyi deneyin:
+http://ja.wikipedia.org/wiki/Ffdshow
+36
+Title:Diğer Bilgiler
+Label:1
+
+Fixed:0
+
+X:0.197277724742889
+
+Y:0.895450711250305
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Diğer Bilgiler
+----------------------------------------------------------------------------
+
+Frieve hakkında en güncel bilgiler için lütfen aşağıdaki siteyi ziyaret edin:
+http://www.frieve.com/
+
+Frieve Editor hakkında en güncel bilgiler için lütfen aşağıdaki siteyi ziyaret edin:
+http://www.frieve.com/feditor/
+
+Frieve'in e-posta adresi aşağıda verilmiştir.
+Gönderdiğiniz mesajlara her zaman yanıt veremeyebileceğimizi lütfen göz önünde
+bulundurun.
+frieve-a@frieve.com
+25
+Title:Kartları Düzenle
+Label:2,8
+
+Fixed:0
+
+X:0.135771751403809
+
+Y:0.464719504117966
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Kartları Düzenle
+============================================================================
+65
+Title:Yeni Kart Nasıl Oluşturulur
+Label:2
+
+Fixed:0
+
+X:0.0362772606313229
+
+Y:0.610172748565674
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Yeni Kart Nasıl Oluşturulur
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcıda kart bulunmayan boş bir alana çift tıklayın.
+
+Not: Bu durumda yeni kart, kart listesinin sonuna eklenir.
+
+Not: Tarayıcı ekranının sol üst köşesindeki soldan üçüncü düğmeye (L ve kart
+     simgesiyle işaretli düğme) tıklayarak bir etiket seçer ve ardından çift
+     tıklarsanız, o etiket zaten atanmış bir kart ekleyebilirsiniz.
+
+Veya,
+
+Insert menüsünden New Card seçeneğini seçin.
+
+Not: Bu durumda yeni kart, seçili kartın ardına eklenir.
+     Hiçbir kart seçili değilse listenin sonuna eklenir.
+
+Veya,
+
+1. Ekranın sol tarafındaki Kartlar listesinde sağ tıklayın.
+2. Görünen menüden New Card seçeneğini seçin.
+
+Not: Bu durumda yeni kart, seçili kartın önüne eklenir.
+     Hiçbir kart seçili değilse listenin sonuna eklenir.
+
+Veya,
+
+1. Düzenleyici sekmesinde, mevcut bir kartın gövde metninden yeni kartın gövdesi
+   olarak kullanmak istediğiniz bölümü seçin.
+2. Düzenleyicinin sağ tıklama menüsünden Cut to New Card seçeneğini seçin.
+   Seçilen metin gövde olarak kullanılarak yeni bir kart oluşturulur.
+
+Veya,
+
+1. Düzenleyici sekmesinde, yeni kartın başlığı olarak kullanmak istediğiniz satırı
+   veya satırları seçin (birden fazla satır seçerek aynı anda birden fazla kart
+   oluşturabilirsiniz).
+2. Sağ tıklama menüsünden Cut to New Card Title veya Cut to New Card Title with
+   Link seçeneğini seçin. Seçilen metin başlık olarak kullanılarak yeni bir kart
+   oluşturulur. with Link seçerseniz, özgün karttan yeni karta bir bağlantı da eklenir.
+65
+Title:Mevcut Karttan Bağlantılı Kart Nasıl Oluşturulur
+Label:2
+
+Fixed:0
+
+X:0.00704234046861529
+
+Y:0.547152161598206
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Mevcut Karttan Bağlantılı Kart Nasıl Oluşturulur
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcıda kaynak kartı seçin.
+3. Insert tuşuna basın. Seçili karttan bağlantılı yeni bir kart oluşturulur.
+
+Not: Yeni kart, seçili karttan bağlantılı kartların sonuncusunun ardına eklenir.
+
+Not: Seçili kartın etiketleri yeni karta aktarılır.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcıda kaynak kartı seçin.
+3. Shift+Insert tuşlarına basın. Seçili karta bağlantılı yeni bir kart oluşturulur.
+
+Not: Yeni kart, seçili karta bağlantılı kartların sonuncusunun ardına eklenir.
+
+Not: Seçili kartın etiketleri yeni karta aktarılır.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Oluşturmak istediğiniz kartın kardeşi olan bir kartı seçin.
+3. Enter tuşuna basın. Seçili kartın kaynak kartından bağlantılı yeni bir kart oluşturulur.
+
+Not: Yeni kart, seçili kartın ardına eklenir.
+
+Not: Seçili karta birden fazla karttan bağlantı varsa, yeni kart en son seçilmiş
+     olan kaynak karttan oluşturulur.
+
+Not: Seçili kartın etiketleri yeni karta aktarılır.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Kart eklemek istediğiniz bağlantıyı seçin.
+3. Insert tuşuna basın. Seçili bağlantının ortasına yeni bir kart oluşturulur.
+
+Not: Yeni kart, seçili kartın kaynak kartından bağlantılı kartların sonuncusunun
+     ardına eklenir.
+42
+Title:Kart Nasıl Seçilir
+Label:2
+
+Fixed:0
+
+X:0
+
+Y:0.419560462236404
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Nasıl Seçilir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Seçmek istediğiniz karta tıklayın. Birden fazla kart seçmek için Ctrl
+   tuşunu basılı tutarak kartlara tıklayın.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Shift tuşunu basılı tutarak kart olmayan bir alanda sürükleyerek seçim
+   aralığını belirleyin. Fare ile çizilen alandaki kartlar seçilir.
+
+Veya,
+
+Ekranın sol tarafındaki Kartlar listesinde kartlara tıklayarak seçin.
+Birden fazla kart seçmek için Ctrl tuşunu basılı tutarak tıklayın, aralığı
+sürükleyin veya ilk kartı seçtikten sonra Shift tuşunu basılı tutarak son
+karta tıklayın.
+36
+Title:Kart Nasıl Taşınır
+Label:2,5
+
+Fixed:0
+
+X:0.340611904859543
+
+Y:0.683660268783569
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Nasıl Taşınır
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Taşımak istediğiniz kartı sürükleyin.
+
+Not: Birden fazla kart seçiliyse tüm seçili kartlar birlikte taşınır.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ctrl tuşunu basılı tutarak bir kartı sürükleyin.
+   Aynı etikete sahip kartlar birlikte taşınır.
+28
+Title:Kart Başlığı Nasıl Düzenlenir
+Label:2
+
+Fixed:0
+
+X:0.0260267276316881
+
+Y:0.359273552894592
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Başlığı Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Başlığını düzenlemek istediğiniz kartı seçin.
+2. Kart panelindeki Başlık alanına yeni başlığı girin.
+30
+Title:Kart İçeriği Nasıl Düzenlenir
+Label:2
+
+Fixed:0
+
+X:0.00242089992389083
+
+Y:0.481038421392441
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2023/04/14 20:17:51
+
+-
+----------------------------------------------------------------------------
+Kart İçeriği Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcıda veya ekranın solundaki Kart listesinde düzenlemek istediğiniz
+   karta çift tıklayın. Kart zaten seçiliyse Düzenleyici sekmesine tıklayarak
+   Düzenleyici ekranını açın.
+2. Düzenleyici ekranında kart içeriğini düzenleyin.
+119
+Title:GPT ile Kart İçeriği Nasıl Düzenlenir
+Label:2
+
+Fixed:0
+
+X:0.0822317451238632
+
+Y:0.539448618888855
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:2023/04/14 20:17:39
+
+Updated:2023/04/14 20:37:19
+
+Viewed:2023/04/14 20:23:50
+
+-
+----------------------------------------------------------------------------
+GPT ile Kart İçeriği Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Edit menüsünden GPT seçeneğini seçin veya Ctrl+G tuşlarına basın.
+   Ctrl+G kısayolunu kullanmanız önerilir.
+2. Açılır menüden istediğiniz işlemi seçin.
+3. İlk kullanımda, görüntülenen iletişim kutusuna OpenAI API Anahtarınızı girin.
+
+Frieve Editor'ın GPT entegrasyonu, ücretli ancak son derece uygun fiyatlı OpenAI
+API'sini kullanır. OpenAI API'sini kullanmak için bir OpenAI hesabı oluşturmanız
+ve kredi kartı kaydetmeniz gerekir. OpenAI API Anahtarı edinme hakkında ayrıntılı
+bilgi için OpenAI API web sitesine bakın.
+https://platform.openai.com/overview
+
+
+Varsayılan olarak kullanılabilecek işlemler aşağıdadır.
+
+Create
+  İstem talimatı girin ve buna dayalı yeni metin oluşturun.
+  İstemde Türkçe de kullanabilirsiniz.
+  Metin seçili değilse sıfırdan metin oluşturulur.
+  Metin seçiliyse, hem seçili metin hem de talimatınız dikkate alınarak
+  metin oluşturulur.
+
+
+Continue
+  Geçerli imleç konumundan itibaren devam eden metin oluşturur.
+
+Simplify
+  Seçili metni daha sade bir sürümle değiştirir.
+
+Longer
+  Seçili metni genişletip daha uzun bir sürümle değiştirir.
+
+Summarize
+  Seçili metni özetler.
+
+Proofread
+  Seçili metindeki dilbilgisi hatalarını, yazım hatalarını ve benzeri sorunları düzeltir.
+
+Translate to English
+  Seçili metni İngilizce'ye çevirir.
+
+Translate to Japanese
+  Seçili metni Japonca'ya çevirir.
+
+
+Title
+  Seçili metne dayalı bir kart başlığı oluşturur.
+
+
+Frieve Editor ile birlikte gelen setting2.ini dosyasını bir metin düzenleyiciyle
+düzenleyerek istediğiniz ChatGPT entegrasyon özelliklerini ekleyebilirsiniz.
+
+[GPTSystem]
+SystemPrompt=Response should only be a single processing result. No additional explanations or excuses needed. Respond in the last language of the user's instructions without translating unless otherwise instructed by the user.
+[GPT]
+Create=Insert,(Input)
+-=
+Continue=InsertAfter, Generate text that follow the text below.
+Simplify=Replace,Replace the text below with simpler text.
+Longer=Replace,Inflate the text below and replace it with longer text than the original.
+Summarize=Replace,Summarize and replace the following text.
+Proofread=Replace,You are a professional multilingual proofreader. Replace the text below with the corrected text for grammar, misspellings, etc. If you do not need proofreading, please answer the original text as it is.
+-=
+Translate to English=Replace,Translate the following sentences into English.
+Translate to Japanese=Replace,Translate the following sentences into Japanese.
+-=
+Title=Title,Create a title based on the following sentences.Responses should be in the original language.
+
+[GPTSystem] SystemPrompt= satırının ardına, tüm GPT entegrasyon özelliklerinde
+ChatGPT'ye sistem talimatı olarak kullanılacak metin girilir.
+
+[GPT] bölümünün her satırına aşağıdaki biçimde istediğiniz işlemi ekleyebilirsiniz.
+İşlemAdı=İşlemTürü,İşlem talimatını belirten istem
+
+İşlem adı olarak herhangi bir metin kullanılabilir.
+Burada belirttiğiniz işlem adı, GPT özelliği çağrıldığında açılır menüde görünür.
+"-=" yazan bir satır ekleyerek menüyü ayırıcıyla bölebilirsiniz.
+
+Dört işlem türünden birini seçebilirsiniz.
+
+Insert
+  Oluşturulan metni geçerli imleç konumuna ekler
+InsertAfter
+  Geçerli imleç konumuna kadar olan metne dayalı olarak oluşturulan metni
+  geçerli imleç konumuna ekler
+Replace
+  Geçerli seçimdeki metni oluşturulan metinle değiştirir
+Title
+  Geçerli seçimdeki metne dayalı olarak oluşturulan metni kart başlığı olarak ayarlar
+
+İşlem talimatını belirten istem olarak herhangi bir metin kullanılabilir.
+İstemde Türkçe de kullanabilirsiniz.
+(Input) belirtirseniz, işlem seçildikten sonra kullanıcıdan istem girişi
+isteyen bir iletişim kutusu açılır.
+44
+Title:Kart Nasıl Aranır
+Label:2
+
+Fixed:0
+
+X:0.0635863617062569
+
+Y:0.322657883167267
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2023/04/14 20:23:48
+
+-
+----------------------------------------------------------------------------
+Kart Nasıl Aranır
+----------------------------------------------------------------------------
+
+1. Edit menüsünden Find seçeneğini seçin veya Ctrl+F tuşlarına basın.
+2. Görüntülenen iletişim kutusuna arama metnini girin.
+3. Kart başlıklarında aramak için Card Title seçeneğini işaretleyin.
+4. Kart gövde metninde aramak için Text seçeneğini işaretleyin.
+5. Büyük/küçük harf duyarlı arama yapmak için Match Case seçeneğini işaretleyin.
+   Duyarsız arama için Match Case işaretini kaldırın.
+6. Tarayıcıda gizli kartları da aramaya dahil etmek için Invisible Card
+   seçeneğini işaretleyin. Gizli kartları hariç tutmak için işareti kaldırın.
+7. Find Next düğmesine basın.
+8. Aynı anahtar kelime ve koşullarla sonraki eşleşmeyi aramak için Edit menüsünden
+   Find Next seçeneğini seçin veya F3 tuşuna basın.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı sekmesinin sağ üstündeki metin kutusuna arama metnini girin.
+3. Metin kutusunun sağındaki Find düğmesine basın. Görüntülenen kartların
+   başlıkları arasında arama yapılır.
+35
+Title:Kart Nasıl Silinir
+Label:2
+
+Fixed:0
+
+X:0.24679708480835
+
+Y:0.473888546228409
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Nasıl Silinir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Silmek istediğiniz kartı seçin.
+3. Delete tuşuna basın.
+
+Veya,
+
+1. Ekranın sol tarafındaki Kartlar listesinde silmek istediğiniz karta tıklayın.
+2. Kartlar listesinde sağ tıklayın.
+3. Görüntülenen menüden Delete Card seçeneğini seçin.
+38
+Title:Karta Etiket Nasıl Eklenir
+Label:2
+
+Fixed:0
+
+X:0.214659854769707
+
+Y:0.532409250736237
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Karta Etiket Nasıl Eklenir
+----------------------------------------------------------------------------
+
+1. Etiket eklemek istediğiniz kartı seçin.
+2. Kart panelindeki Label alanının sağındaki düğmelerden, henüz etiket
+   atanmamış birine tıklayın.
+3. Açılır menüden karta atamak istediğiniz etiketi seçin.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı ekranının sol üst köşesindeki soldan üçüncü düğmeye (L ve kart
+   simgesiyle işaretli düğme) tıklayarak seçin.
+3. Açılır menüden atamak istediğiniz etiketi seçin.
+4. Etiket eklemek istediğiniz karta tıklayın.
+29
+Title:Karta Yeni Etiket Nasıl Eklenir
+Label:2,4
+
+Fixed:0
+
+X:0.155212134122849
+
+Y:0.217682495713234
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Karta Yeni Etiket Nasıl Eklenir
+----------------------------------------------------------------------------
+
+1. Etiketlerini düzenlemek istediğiniz kartı seçin.
+2. Insert menüsünden New Label seçeneğini seçin.
+3. Görüntülenen iletişim kutusuna yeni etiket adını girin ve OK düğmesine basın.
+31
+Title:Kart Etiketi Nasıl Kaldırılır veya Değiştirilir
+Label:2
+
+Fixed:0
+
+X:0.119580142199993
+
+Y:0.362847059965134
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Etiketi Nasıl Kaldırılır veya Değiştirilir
+----------------------------------------------------------------------------
+
+1. Etiketlerini düzenlemek istediğiniz kartı seçin.
+2. Kart panelindeki Label alanının sağındaki düğmelerden, kaldırmak veya
+   değiştirmek istediğinize tıklayın.
+3. Açılır menüden karta atamak istediğiniz etiketi seçin.
+   No Label seçerseniz etiket kaldırılır.
+37
+Title:Kartla Harici Dosya veya URL Nasıl İlişkilendirilir
+Label:2
+
+Fixed:0
+
+X:0.208069488406181
+
+Y:0.412064760923386
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartla Harici Dosya veya URL Nasıl İlişkilendirilir
+----------------------------------------------------------------------------
+
+1. Tarayıcıda veya ekranın solundaki Kart listesinde düzenlemek istediğiniz
+   karta çift tıklayın. Kart zaten seçiliyse Düzenleyici sekmesine tıklayarak
+   Düzenleyici ekranını açın.
+2. Kart gövdesinde bir satıra harici dosyanın dosya adını (tam yol) veya
+   bir URL girin.
+
+Veya,
+
+1. İlişkilendirmek istediğiniz kartı seçin.
+2. Insert menüsünden New Ext Link seçeneğini seçin.
+3. İlişkilendirilecek dosyayı belirtin. Dosya adı gövdenin son satırına eklenir.
+43
+Title:Kartta Görüntü veya Video Nasıl Gösterilir
+Label:2
+
+Fixed:0
+
+X:0.1629708558321
+
+Y:0.582576215267181
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartta Görüntü veya Video Nasıl Gösterilir
+----------------------------------------------------------------------------
+
+1. Tarayıcıda veya Kart listesinde düzenlemek istediğiniz karta çift tıklayın.
+   Kart zaten seçiliyse Düzenleyici sekmesine tıklayarak Düzenleyici ekranını açın.
+2. Kart gövdesinde bir satıra görüntü dosyasının dosya adını (tam yol) veya
+   görüntü ya da video dosyasının URL'sini girin.
+
+Veya,
+
+1. İlişkilendirmek istediğiniz kartı seçin.
+2. Insert menüsünden New Ext Link seçeneğini seçin.
+3. Görüntü veya video dosyasını belirtin. Dosya adı gövdenin son satırına eklenir.
+
+Not: Desteklenen görüntü ve video formatları: bmp, jpg, avi, mpg.
+
+Not: Video dosya adı veya URL'sinin önüne "başlangıç(ms)-bitiş(ms)|" yazarak
+     belirtilen aralığı döngülü oynatabilirsiniz.
+Örnek: 1000-5000|c:\film.mpg
+       c:\film.mpg dosyasının 1. saniyeden 5. saniyeye kadar döngülü oynatılması
+80
+Title:Kartta Çizim Nasıl Gösterilir
+Label:2
+
+Fixed:0
+
+X:0.057452104985714
+
+Y:0.426572859287262
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartta Çizim Nasıl Gösterilir
+----------------------------------------------------------------------------
+
+1. Tarayıcıda veya ekranın solundaki kart listesinden çizim eklemek istediğiniz
+   kartı seçin.
+2. Drawing sekmesine tıklayarak çizim düzenleme ekranını açın.
+3. Drawing sekmesinde çizimi düzenleyin.
+4. Tarayıcı ekranına döndüğünüzde, düzenlenen çizim kartın üzerinde görünür.
+
+
+- Şekil eklemek için
+
+1. Drawing sekmesinin sol üstünde eklemek istediğiniz şekil türünü seçin:
+   serbest çizim, düz çizgi, dikdörtgen veya elips.
+2. Noktalı çerçeve içinde fareyi sürükleyerek şekli ekleyin.
+
+
+- Şekil seçmek için
+
+1. Drawing sekmesinin sol üstünde fare imleci simgeli seçim düğmesini seçin.
+2. Seçmek istediğiniz şekle tıklayın. Birden fazla şeklin seçimini değiştirmek
+   için Ctrl tuşunu basılı tutarak tıklayın veya bir alanı sürükleyerek birden
+   fazla şekli seçin. Tüm şekilleri seçmek için Edit menüsünden ya da sağ tıklama
+   menüsünden Select All seçeneğini seçin.
+
+
+- Şekil kesmek, kopyalamak veya silmek için
+
+1. Düzenlenecek şekli seçin.
+2. Edit menüsünden ya da sağ tıklama menüsünden Cut, Copy veya Delete seçeneğini
+   seçin. Silmek için Delete tuşunu da kullanabilirsiniz.
+
+
+- Kesilmiş veya kopyalanmış şekli yapıştırmak için
+
+Edit menüsünden ya da sağ tıklama menüsünden Paste seçeneğini seçin.
+
+
+- Şeklin boyutunu değiştirmek için
+
+1. Boyutunu değiştirmek istediğiniz şekli seçin.
+2. Şeklin köşelerinde görünen küçük kareleri sürükleyin.
+
+
+- Şekli taşımak için
+
+1. Taşımak istediğiniz şekli seçin (birden fazla da seçilebilir).
+2. Köşe tutamaçları dışında bir yerden sürükleyin.
+
+
+- Şeklin rengini değiştirmek için
+
+1. Şekli seçin.
+2. Color ile renk seçin. Etiketle belirlenen kart çizim rengini kullanmak için
+   Default düğmesine tıklayın. Başka bir renk seçmek için Default'un iki sağındaki
+   küçük düğmeye tıklayın ve renk seçim iletişim kutusundan renk seçin. İstediğiniz
+   renk zaten seçiliyse Default'un hemen sağındaki renkli alana tıklayabilirsiniz.
+35
+Title:Kartın Şekli ve Boyutu Nasıl Değiştirilir
+Label:2
+
+Fixed:0
+
+X:0.0962711051106453
+
+Y:0.620324313640594
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartın Şekli ve Boyutu Nasıl Değiştirilir
+----------------------------------------------------------------------------
+
+1. Boyutunu değiştirmek istediğiniz kartı seçin.
+2. Kart panelindeki Title alanının sağında bulunan Size değerini değiştirin.
+   +8 ile kart orijinal boyutunun dört katına, -8 ile dörtte birine olur.
+
+Veya,
+
+1. Şeklini değiştirmek istediğiniz kartı seçin.
+2. Kart panelinde Size'ın sağındaki kart şekli düğmesine tıklayın.
+3. Açılır menüden istediğiniz kart şeklini seçin.
+25
+Title:Bağlantıları Düzenle
+Label:3,8
+
+Fixed:0
+
+X:0.623000621795654
+
+Y:0.104134030640125
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Bağlantıları Düzenle
+============================================================================
+56
+Title:Kartlar Arasında Bağlantı Nasıl Oluşturulur
+Label:3
+
+Fixed:0
+
+X:0.566736936569214
+
+Y:0
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Arasında Bağlantı Nasıl Oluşturulur
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı sekmesinin sol üstündeki soldan ikinci düğmeye (çizgi düğmesi)
+   tıklayarak seçin.
+3. Kaynak karttan hedef karta fareyi sürükleyin.
+
+Veya,
+1. Tarayıcı sekmesine tıklayın.
+2. Kaynak karta tıklayarak seçin.
+3. Shift tuşunu basılı tutarak hedef karta tıklayın.
+   Shift tuşunu basılı tutarak art arda kartlara tıklayarak hızla bağlantı
+   oluşturabilirsiniz.
+
+Not: Tarayıcı ekranının sol üst köşesindeki soldan dördüncü düğmeye (L ve çizgi
+     simgesiyle işaretli düğme) tıklayarak bir etiket seçer ve ardından bağlantı
+     oluşturursanız, varsayılan olarak o etiketin atanmış olduğu bir bağlantı
+     ekleyebilirsiniz.
+
+Veya,
+
+1. Kaynak kartı seçin.
+2. Insert menüsünden New Link seçeneğini seçin.
+3. Görüntülenen iletişim kutusundan hedef kartı seçin ve OK düğmesine basın.
+
+Veya,
+
+1. Kaynak kartı seçin.
+2. Düzenleyici sekmesine tıklayın.
+3. Ekranın altındaki bağlantı listesinde sağ tıklayın.
+4. Görüntülenen menüden New Link seçeneğini seçin.
+5. Görüntülenen iletişim kutusundan hedef kartı seçin ve OK düğmesine basın.
+28
+Title:Bağlantılar Nasıl Seçilir
+Label:3
+
+Fixed:0
+
+X:0.56929486989975
+
+Y:0.059209194034338
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantılar Nasıl Seçilir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Seçmek istediğiniz bağlantıya tıklayın.
+28
+Title:Bağlantı Başlığı Nasıl Düzenlenir
+Label:3
+
+Fixed:0
+
+X:0.678290367126465
+
+Y:0.0122391069307923
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantı Başlığı Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Başlığını düzenlemek istediğiniz bağlantıyı seçin.
+2. Bağlantı panelindeki Title alanına yeni başlığı girin.
+35
+Title:Bağlantının Kaynağı veya Hedefi Nasıl Değiştirilir
+Label:3
+
+Fixed:0
+
+X:0.621458947658539
+
+Y:4.14445894421078E-5
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantının Kaynağı veya Hedefi Nasıl Değiştirilir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Bağlantının kaynak karta yakın ucunu sürükleyin. Kaynağı başka bir karta
+   değiştirebilirsiniz.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Bağlantının hedef karta yakın ucunu sürükleyin. Hedefi başka bir karta
+   değiştirebilirsiniz.
+37
+Title:Bağlantılar Nasıl Silinir
+Label:3
+
+Fixed:0
+
+X:0.740672647953033
+
+Y:0.0434682369232178
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantılar Nasıl Silinir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Silmek istediğiniz bağlantıyı seçin.
+3. Delete tuşuna basın.
+
+Veya,
+
+1. Silmek istediğiniz bağlantıya sahip kartı seçin.
+2. Düzenleyici sekmesine tıklayın.
+3. Ekranın altındaki bağlantı listesinden silmek istediğiniz bağlantıyı seçin.
+4. Bağlantı listesinde sağ tıklayın.
+5. Görüntülenen menüden Delete Link seçeneğini seçin.
+37
+Title:Bağlantıya Etiket Nasıl Eklenir
+Label:3
+
+Fixed:0
+
+X:0.696277678012848
+
+Y:0.0758924931287766
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantıya Etiket Nasıl Eklenir
+----------------------------------------------------------------------------
+
+1. Etiket eklemek istediğiniz bağlantıyı seçin.
+2. Bağlantı panelindeki Label alanının sağındaki düğmeye tıklayın.
+3. Açılır menüden bağlantıya atamak istediğiniz etiketi seçin.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı ekranının sol üst köşesindeki soldan dördüncü düğmeye (L ve çizgi
+   simgesiyle işaretli düğme) tıklayarak seçin.
+3. Açılır menüden atamak istediğiniz etiketi seçin.
+4. Etiket eklemek istediğiniz bağlantıya tıklayın.
+29
+Title:Bağlantıya Yeni Etiket Nasıl Eklenir
+Label:3,4
+
+Fixed:0
+
+X:0.44114363193512
+
+Y:0.0377795398235321
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantıya Yeni Etiket Nasıl Eklenir
+----------------------------------------------------------------------------
+
+1. Etiketlerini düzenlemek istediğiniz bağlantıyı seçin.
+2. Insert menüsünden New Link Label seçeneğini seçin.
+3. Görüntülenen iletişim kutusuna yeni etiket adını girin ve OK düğmesine basın.
+31
+Title:Bağlantı Etiketi Nasıl Kaldırılır veya Değiştirilir
+Label:3
+
+Fixed:0
+
+X:0.659928321838379
+
+Y:0.18743234872818
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2013/11/02 22:43:18
+
+-
+----------------------------------------------------------------------------
+Bağlantı Etiketi Nasıl Kaldırılır veya Değiştirilir
+----------------------------------------------------------------------------
+
+1. Etiketlerini düzenlemek istediğiniz bağlantıyı seçin.
+2. Bağlantı panelindeki Label alanının sağındaki düğmelerden, kaldırmak veya
+   değiştirmek istediğinize tıklayın.
+3. Açılır menüden karta atamak istediğiniz etiketi seçin.
+   No Label seçerseniz etiket kaldırılır.
+28
+Title:Bağlantı Yönü Nasıl Tersine Çevrilir
+Label:3
+
+Fixed:0
+
+X:0.766370892524719
+
+Y:0.0960935428738594
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantı Yönü Nasıl Tersine Çevrilir
+----------------------------------------------------------------------------
+
+1. Yönünü tersine çevirmek istediğiniz bağlantıyı seçin.
+2. Bağlantı panelindeki Inverse düğmesine tıklayın.
+28
+Title:Bağlantı Yönü Nasıl Açılır veya Kapatılır
+Label:3
+
+Fixed:0
+
+X:0.726710617542267
+
+Y:0.148985609412193
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantı Yönü Nasıl Açılır veya Kapatılır
+----------------------------------------------------------------------------
+
+1. Yön ayarını değiştirmek istediğiniz bağlantıyı seçin.
+2. Bağlantı panelindeki Direction onay kutusuna tıklayın.
+29
+Title:Bağlantı Stili Nasıl Değiştirilir
+Label:3
+
+Fixed:0
+
+X:0.5890052318573
+
+Y:0.169725924730301
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantı Stili Nasıl Değiştirilir
+----------------------------------------------------------------------------
+
+1. Çizgi stilini değiştirmek istediğiniz bağlantıyı seçin.
+2. Bağlantı panelinde Inverse düğmesinin sağındaki çizgi düğmesine tıklayın.
+3. Açılır menüden istediğiniz bağlantı çizgi stilini seçin.
+25
+Title:Etiketleri Düzenle
+Label:4,8
+
+Fixed:0
+
+X:0.309822618961334
+
+Y:0.138032555580139
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Etiketleri Düzenle
+============================================================================
+28
+Title:Kart Etiketi Düzenleyicisi Nasıl Açılır
+Label:2,4
+
+Fixed:0
+
+X:0.239311203360558
+
+Y:0.262179970741272
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Etiketi Düzenleyicisi Nasıl Açılır
+----------------------------------------------------------------------------
+
+Edit menüsünden Label seçeneğini seçin.
+Etiket düzenleme iletişim kutusu açılır.
+28
+Title:Bağlantı Etiketi Düzenleyicisi Nasıl Açılır
+Label:3,4
+
+Fixed:0
+
+X:0.450650095939636
+
+Y:0.125855848193169
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantı Etiketi Düzenleyicisi Nasıl Açılır
+----------------------------------------------------------------------------
+
+Edit menüsünden Link Label seçeneğini seçin.
+Bağlantı Etiketi düzenleme iletişim kutusu açılır.
+29
+Title:Yeni Etiket Nasıl Oluşturulur
+Label:4
+
+Fixed:0
+
+X:0.249744102358818
+
+Y:0.0495991483330727
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Yeni Etiket Nasıl Oluşturulur
+----------------------------------------------------------------------------
+
+1. Etiket düzenleme ekranını açın.
+2. Düzenleme ekranının sol altındaki New düğmesine basın.
+3. Görüntülenen iletişim kutusuna yeni etiketin adını girin ve OK düğmesine basın.
+29
+Title:Etiket Nasıl Yeniden Adlandırılır
+Label:4
+
+Fixed:0
+
+X:0.205345436930656
+
+Y:0.0864511057734489
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Etiket Nasıl Yeniden Adlandırılır
+----------------------------------------------------------------------------
+
+1. Etiket düzenleme ekranını açın.
+2. Değiştirmek istediğiniz etiketin adına çift tıklayın.
+3. Görüntülenen iletişim kutusunda etiket adını değiştirin ve OK düğmesine basın.
+29
+Title:Etiket Rengi Nasıl Değiştirilir
+Label:4
+
+Fixed:0
+
+X:0.247681140899658
+
+Y:0.112559519708157
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Etiket Rengi Nasıl Değiştirilir
+----------------------------------------------------------------------------
+
+1. Etiket düzenleme ekranını açın.
+2. Değiştirmek istediğiniz etiketin renk alanına çift tıklayın.
+3. Görüntülenen iletişim kutusunda etiket rengini belirleyin ve OK düğmesine basın.
+32
+Title:Etiket Nasıl Etkinleştirilir veya Devre Dışı Bırakılır
+Label:4
+
+Fixed:0
+
+X:0.304129838943481
+
+Y:0.029614919796586
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Etiket Nasıl Etkinleştirilir veya Devre Dışı Bırakılır
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki VIEW düğmesine tıklayın. VIEW iletişim kutusu görüntülenir.
+3. Label sekmesine tıklayarak seçin.
+4. Enable sütununa tıklayarak etiketin etkin/devre dışı durumunu değiştirin.
+   Devre dışı etiketler, eklenmemiş gibi kabul edilir; ekran gösterimi ve kart
+   düzenlemesi buna göre yapılır.
+29
+Title:Etiket Nasıl Silinir
+Label:4
+
+Fixed:0
+
+X:0.32245659828186
+
+Y:0.076952651143074
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Etiket Nasıl Silinir
+----------------------------------------------------------------------------
+
+1. Etiket düzenleme ekranını açın.
+2. Silmek istediğiniz etikete tıklayarak seçin.
+3. Düzenleme ekranının altındaki Delete düğmesine basın.
+25
+Title:Kartları Sıralama
+Label:5,8
+
+Fixed:0
+
+X:0.541004419326782
+
+Y:0.876301765441895
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Kartları Sıralama
+============================================================================
+29
+Title:Tüm Kartlar Ekrana Nasıl Sığdırılır
+Label:5
+
+Fixed:0
+
+X:0.659723877906799
+
+Y:0.860044479370117
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Tüm Kartlar Ekrana Nasıl Sığdırılır
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Normalize seçeneğini seçin.
+29
+Title:Kartlar Üst Üste Gelmeyecek Şekilde Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.609346568584442
+
+Y:0.806378960609436
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Üst Üste Gelmeyecek Şekilde Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Repulsion seçeneğini seçin.
+33
+Title:Kartlar Bağlantılara Göre Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.427540153264999
+
+Y:0.961856842041016
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Bağlantılara Göre Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Link veya Link(Soft)
+   seçeneğini seçin.
+
+Not: Link(Soft), Link ile karşılaştırıldığında kartların üst üste gelmemesine
+     daha çok öncelik verir.
+33
+Title:Kartlar Etiketlere Göre Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.536202609539032
+
+Y:0.785390555858612
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Etiketlere Göre Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Label veya Label(Soft)
+   seçeneğini seçin.
+
+Not: Label(Soft), Label ile karşılaştırıldığında kartların üst üste gelmemesine
+     daha çok öncelik verir.
+34
+Title:Kartlar Dizine Göre Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.465191870927811
+
+Y:0.83367508649826
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Dizine Göre Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Index, Index(Soft)
+   veya Index(Matrix) seçeneğini seçin.
+
+Not: Index(Soft), Index ile karşılaştırıldığında kartların üst üste gelmemesine
+     daha çok öncelik verir.
+Index(Matrix), kartları sol üstten başlayarak düzenli biçimde sıralar.
+29
+Title:Kartlar Izgara Biçiminde Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.442980200052261
+
+Y:0.904361963272095
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Izgara Biçiminde Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Matrix seçeneğini seçin.
+47
+Title:Kartlar Başlık/Metin Benzerliğine Göre Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.52382880449295
+
+Y:0.988851726055145
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Başlık/Metin Benzerliğine Göre Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+3. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Similarity veya
+   Similarity(Soft) seçeneğini seçin.
+4. En güncel benzerlik değerleriyle düzenlemek için daha sağdaki güncelleme
+   düğmesine basın.
+
+Dikkat: Gövde metni bulunmayan projelerde benzerlik hesaplaması birkaç saniyede
+tamamlanır; ancak kart sayısı binlere ulaştığında veya dosya ağırlıklı olarak
+gövde metninden oluşuyorsa hesaplama uzun sürebilir. Örneğin gövde metni boyutu
+500 kB'a ulaştığında, 2 GHz civarında bir CPU ile hesaplama yaklaşık bir dakika
+sürebilir.
+
+Not: Benzerlik hesaplaması zaman aldığından, Frieve Editor ON düğmesi basılıyken
+     Similarity seçildiğinde veya Similarity seçiliyken ON düğmesine basıldığında
+     kartlar arası benzerliği yalnızca bir kez hesaplar. Kart başlıkları veya gövde
+     metni düzenlendikten sonra güncelleme düğmesine basarak düzenlemeleri yansıtan
+     benzerlik değerleriyle kartları yeniden düzenleyebilirsiniz.
+
+Not: Similarity(Soft), Similarity ile karşılaştırıldığında kartların üst üste
+     gelmemesine daha çok öncelik verir.
+56
+Title:Kartlar Hiyerarşik Olarak Nasıl Düzenlenir
+Label:5
+
+Fixed:0
+
+X:0.468564659357071
+
+Y:0.998640239238739
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Hiyerarşik Olarak Nasıl Düzenlenir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Kök (hiyerarşinin en üstü) olacak kartı tıklayarak seçin.
+3. Ekrandaki kök belirleme düğmesini (raptiye düğmesinin sağında, etiketin
+   solunda) basılı duruma getirin.
+4. Ekrandaki Arrange ON düğmesine tıklayarak basılı duruma getirin.
+5. ON düğmesinin sağındaki düğmeye basın ve açılır menüden Tree (Radial)
+   seçeneğini seçin.
+
+Aynı seviyedeki kartların sırasını değiştirmek için ekranın solundaki kart
+listesinin sağ üstündeki Yukarı/Aşağı düğmelerini kullanın veya Tarayıcıda
+kartları yukarı-aşağı sürükleyin.
+
+Hiyerarşi yapısını düzenlemek için Tarayıcıda bağlantıları sürükleyerek
+yeniden bağlayın.
+
+Belirli bir kartın alt seviyelerini gizlemek için kartın sağ alt köşesindeki
+"-" düğmesine basın. Gizlenen seviyeleri yeniden göstermek için aynı yerdeki
+"+" düğmesine basın.
+
+Dikkat: Tree (Radial) ile otomatik düzenleme yapıldığında, kart dizin değerleri
+zorla hiyerarşi sırasına göre sıralanır.
+
+Not: Kök olarak belirlenen kart, ekranın solundaki kart listesinde başlığının
+     solunda ">" işaretiyle gösterilir.
+
+Not: Tree (Radial) ile otomatik düzenleme yapıldığında, ekranın solundaki kart
+     listesi hiyerarşi seviyelerine göre girintili görünüme geçer.
+
+Not: Birden fazla kart kök olarak ayarlanırsa, bu kartları kök alan birden fazla
+     ağaç ekranda aynı anda düzenlenir.
+31
+Title:Kart Boyutu Etikete Göre Nasıl Değiştirilir
+Label:5
+
+Fixed:0
+
+X:0.586505353450775
+
+Y:1
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kart Boyutu Etikete Göre Nasıl Değiştirilir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki VIEW düğmesine tıklayın. VIEW iletişim kutusu görüntülenir.
+3. Label sekmesine tıklayarak seçin.
+4. Label ve Size sütunlarındaki + ve - düğmeleriyle her etiketin kart boyutuna
+   olan etkisini belirleyin.
+33
+Title:Aynı Etikete Sahip Kartlar Nasıl Gruplandırılır
+Label:5
+
+Fixed:0
+
+X:0.655330836772919
+
+Y:0.973314940929413
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Aynı Etikete Sahip Kartlar Nasıl Gruplandırılır
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki VIEW düğmesine tıklayın. Hangi kartların ve bağlantıların
+   görüntüleneceğini seçen VIEW iletişim kutusu görüntülenir.
+3. Label sekmesine tıklayarak seçin.
+4. Label ve Fold sütunlarında gruplandırmak istediğiniz etiketi belirleyin.
+   İşaretlenen etikete sahip kartlar, Tarayıcıda etiketin adını taşıyan tek
+   bir kart olarak görüntülenir.
+90
+Title:Tarayıcıda Hangi Kart ve Bağlantıların Gösterileceği Nasıl Seçilir
+Label:5
+
+Fixed:0
+
+X:0.69487738609314
+
+Y:0.919996082782745
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Tarayıcıda Hangi Kart ve Bağlantıların Gösterileceği Nasıl Seçilir
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ekrandaki VIEW düğmesine tıklayın. Hangi kartların ve bağlantıların
+   görüntüleneceğini seçen VIEW iletişim kutusu görüntülenir.
+3. Label veya Limitation sekmesine tıklayarak seçin.
+
+
+- Kart boyutuna göre görünür kartları sınırlamak için
+
+1. Size Limitation seçeneğini işaretleyin.
+2. Size Limitation'ın sağındaki kaydırıcıyla görüntülenecek kartların minimum
+   boyutunu belirleyin.
+
+
+- Seçili karttan bağlantı sayısına göre görünür kartları sınırlamak için
+
+1. Link Limitation seçeneğini işaretleyin.
+2. Link Limitation kaydırıcısıyla bağlantı sınırını belirleyin.
+3. Bu ayarı kullanırken bağlantı yönüne göre ek sınırlama eklemek için Direction
+   seçeneğini işaretleyin.
+4. İleri yönde sınırlamak için Forward'ı, ters yönde sınırlamak için Backward'ı
+   işaretleyin.
+5. Hedef karta göre sınırlama eklemek için Target Card'ın sağındaki düğmeye basın,
+   Select seçeneğini seçin ve iletişim kutusundan hedef kartı seçin.
+   Veya Tarayıcıda Alt tuşunu basılı tutarak hedef karta tıklayın.
+   Hedef kart sınırlamasını kaldırmak için Target Card'ın sağındaki düğmeye basın
+   ve No Assign seçeneğini seçin.
+
+
+- Tarihe göre görünür kartları sınırlamak için
+
+1. Date Limitation seçeneğini işaretleyin.
+2. Date Type ile sınırlama için kullanılacak tarihi seçin. Created kartın oluşturulma
+   tarihi, Edited gövde metninin son düzenlenme tarihi, Viewed kartın son seçilme
+   veya gösterilme tarihidir.
+3. Date Limitation Type ile sınırlamanın nasıl uygulanacağını seçin. Old eskilerin
+   sırayla gösterilmesi, New yenilerin sırayla gösterilmesi, Near seçili karta
+   tarih olarak yakın kartların gösterilmesi, Older seçili karttan eski ve tarihe
+   yakın kartlar, Newer ise seçili karttan yeni ve tarihe yakın kartlardır.
+2. Date Limitation'ın sağındaki kaydırıcıyla sınırlamanın gücünü belirleyin.
+   Old ile kaydırıcı soldayken en eski kartlar, sağa kaydırdıkça daha yeni
+   kartlar da gösterilir.
+   New ile kaydırıcı sağdayken en yeni kartlar, sola kaydırdıkça daha eski
+   kartlar da gösterilir.
+   Near, Older ve Newer ile çubuk sağa kaydırdıkça sınırlama gevşer.
+
+
+- Etikete sahip kartları göstermek/gizlemek için
+
+1. Belirli etiketli kartları göstermek için Label altındaki Show sütununda
+   gösterilecek etiketleri belirleyin. İşaretlenen etiketlerden en az biri
+   varsa kart gösterilir.
+2. Belirli etiketli kartları gizlemek için Hide sütununda gizlenecek etiketleri
+   belirleyin. İşaretlenen etiketlerden en az biri varsa kart gizlenir.
+   Gizleme ayarları gösterme ayarlarından önceliklidir.
+
+
+- Etikete sahip bağlantıları göstermek/gizlemek için
+
+1. Belirli etiketli bağlantıları göstermek için Link Label altındaki Show
+   sütununda gösterilecek etiketleri belirleyin. İşaretlenen etiketlerden en az
+   biri varsa bağlantı gösterilir.
+2. Belirli etiketli bağlantıları gizlemek için Hide sütununda gizlenecek etiketleri
+   belirleyin. İşaretlenen etiketlerden en az biri varsa bağlantı gizlenir.
+   Gizleme ayarları gösterme ayarlarından önceliklidir.
+38
+Title:Kartlar Nasıl Sıralanır
+Label:5
+
+Fixed:0
+
+X:0.602828919887543
+
+Y:0.92449277639389
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Nasıl Sıralanır
+----------------------------------------------------------------------------
+
+Edit menüsünden Sort Card seçeneğiyle sıralama yöntemini seçin.
+Title, kartları başlığa göre sıralar.
+Date Created, oluşturulma sırasına göre sıralar.
+Date Edited, son düzenlenme tarihine göre sıralar.
+Date Viewed, son seçilme tarihine göre sıralar.
+Inverse işaretli olanlar ters sırada sıralar.
+
+Veya,
+
+1. Ekranın solundaki Kartlar listesinde yeniden sıralamak istediğiniz karta tıklayın.
+2. Kartlar listesinin sağ üstündeki Yukarı/Aşağı düğmeleriyle kartın konumunu
+   değiştirin.
+25
+Title:Göz Atma ve Animasyon
+Label:6,8
+
+Fixed:0
+
+X:0.900903046131134
+
+Y:0.648530066013336
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Göz Atma ve Animasyon
+============================================================================
+46
+Title:Tarayıcı Nasıl Kaydırılır
+Label:6
+
+Fixed:0
+
+X:0.915158331394196
+
+Y:0.562265038490295
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Tarayıcı Nasıl Kaydırılır
+----------------------------------------------------------------------------
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı sekmesinin sağ üstündeki Auto Scroll seçeneğini işaretleyin.
+   Auto Scroll işaretliyken, bir kart veya bağlantı seçtiğinizde seçilen öğe
+   ekranın ortasına gelecek şekilde otomatik olarak kaydırılır.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Kart olmayan boş bir alanı sürükleyin.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı ekranının sağındaki ve altındaki kaydırma çubuklarını kullanın.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Fare tekerleğini (Ctrl olmadan) kullanarak dikey yönde kaydırın.
+   Yatay kaydırma için Shift tuşunu basılı tutarak tekerleği kullanın
+   (dokunmatik yüzeyde iki parmakla kaydırma).
+44
+Title:Tarayıcı Nasıl Yakınlaştırılır/Uzaklaştırılır
+Label:6
+
+Fixed:0
+
+X:0.843023300170898
+
+Y:0.610661089420319
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Tarayıcı Nasıl Yakınlaştırılır/Uzaklaştırılır
+----------------------------------------------------------------------------
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı sekmesinin sağ üstündeki Auto Zoom seçeneğini işaretleyin.
+   Auto Zoom işaretliyken, bir kart veya bağlantı seçtiğinizde seçilen öğe
+   ve ilgili kartlar ekrana sığacak şekilde otomatik olarak yakınlaştırılır.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Tarayıcı sekmesindeki Zoom kontrolünü sürükleyin.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Ctrl tuşunu basılı tutarak fare tekerleğini kullanarak yakınlaştırın/uzaklaştırın.
+
+Veya,
+
+1. Tarayıcı sekmesine tıklayın.
+2. Dokunmatik yüzeyde sıkıştırma/genişletme hareketiyle yakınlaştırın/uzaklaştırın.
+43
+Title:Klavye ile Kartlar Arasında Nasıl Geçilir
+Label:6
+
+Fixed:0
+
+X:0.862526595592499
+
+Y:0.718110978603363
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Klavye ile Kartlar Arasında Nasıl Geçilir
+----------------------------------------------------------------------------
+
+Ok tuşlarının yukarı, aşağı, sol ve sağına basın. Bağlantılardan bağımsız olarak
+geçerli karttan en yakın karta geçilir.
+
+Veya,
+
+Ctrl+Yukarı veya Ctrl+Aşağı tuşlarına basın. Sırasıyla en son gösterilen üst
+karta veya alt karta geçilir.
+
+Veya,
+
+Ctrl+Sol veya Ctrl+Sağ tuşlarına basın. Sırasıyla kardeş kartlar arasında saat
+yönünde veya saat yönünün tersine geçilir.
+
+Veya,
+
+Shift+ok tuşlarına basın. Geçerli karttan bağlantılı kartlar arasında en yakın
+karta geçilir.
+39
+Title:Metin Boyutu Nasıl Değiştirilir
+Label:6
+
+Fixed:0
+
+X:0.894776344299316
+
+Y:0.773412644863129
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Metin Boyutu Nasıl Değiştirilir
+----------------------------------------------------------------------------
+View menüsünden Font Size seçeneğiyle Magnify (büyüt) veya Reduce (küçült)
+seçeneğini seçin.
+
+Veya,
+
+Büyütmek için Ctrl+Shift+PageUp, küçültmek için Ctrl+Shift+PageDown tuşlarına basın.
+
+Veya,
+
+Ctrl+Shift tuşlarını basılı tutarak fare tekerleğini kullanarak metin boyutunu
+değiştirin.
+
+Metin boyutunu varsayılan değerine döndürmek için View menüsünden Font Size -> Default
+seçeneğini seçin veya Ctrl+Shift+0 tuşlarına basın.
+33
+Title:Tam Ekran Nasıl Kullanılır
+Label:6
+
+Fixed:0
+
+X:0.93836522102356
+
+Y:0.761452257633209
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Tam Ekran Nasıl Kullanılır
+----------------------------------------------------------------------------
+
+View menüsünden Full Screen seçeneğini seçin.
+
+Veya,
+
+F10 tuşuna basın.
+
+Tam Ekrandan çıkmak için Esc veya F10 tuşuna basın.
+38
+Title:Kartlara Eklenmiş Harici Bağlantılar Nasıl Açılır
+Label:6
+
+Fixed:0
+
+X:0.968530714511871
+
+Y:0.712656259536743
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlara Eklenmiş Harici Bağlantılar Nasıl Açılır
+----------------------------------------------------------------------------
+
+1. Tarayıcı sekmesine tıklayın.
+2. Harici bağlantısını açmak istediğiniz karta Ctrl ve Shift tuşlarını basılı
+   tutarak tıklayın. Kartın yalnızca bir harici bağlantısı varsa hemen açılır.
+3. Birden fazla harici bağlantı varsa, açılır menüden açmak istediğiniz
+   bağlantıya tıklayın.
+
+Veya,
+
+1. Harici bağlantısını açmak istediğiniz karta Tarayıcıda veya ekranın solundaki
+   Kart listesinde çift tıklayın. Kart zaten seçiliyse Düzenleyici sekmesine
+   tıklayarak Düzenleyici ekranını açın.
+2. Harici bağlantının yazılı olduğu satıra Ctrl tuşunu basılı tutarak tıklayın.
+38
+Title:Kartlar Rastgele Nasıl Gösterilir
+Label:6
+
+Fixed:0
+
+X:0.992111325263977
+
+Y:0.654013574123383
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Kartlar Rastgele Nasıl Gösterilir
+----------------------------------------------------------------------------
+
+1. Animation menüsünden Random Flash, Random Map, Random Scroll veya Random Jump
+   seçeneğini seçin. Animasyon başlar ve Random Animation iletişim kutusu görüntülenir.
+   Random Flash belirtilen sayıda kartı birbiri ardına ekranda gösterir.
+   Random Map rastgele bir kart gösterir, ardından bağlantılı kartlara genişler.
+   Random Scroll belirtilen sayıda kartı ekranda kaydırır.
+   Random Jump belirtilen sayıda kartı ekranın altından zıplatır.
+2. Yakınlaştırma/uzaklaştırma için Zoom'u değiştirin.
+3. Gösterim hızını değiştirmek için Speed'i ayarlayın.
+4. Ekranda aynı anda gösterilecek kart sayısını değiştirmek için Cards'ı ayarlayın.
+5. Tam ekrana geçmek/çıkmak için Full Screen düğmesine veya F10 tuşuna basın.
+6. Animasyonu duraklatmak/devam ettirmek için Pause düğmesine basın.
+7. Animasyonu sonlandırmak için Stop düğmesine basın.
+33
+Title:Bağlantılar Rastgele Nasıl İzlenir
+Label:6
+
+Fixed:0
+
+X:0.97888195514679
+
+Y:0.560383975505829
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Bağlantılar Rastgele Nasıl İzlenir
+----------------------------------------------------------------------------
+
+1. Animation menüsünden Random Trace seçeneğini seçin.
+   Animasyon başlar ve Random Animation iletişim kutusu görüntülenir.
+2. Yakınlaştırma/uzaklaştırma için Zoom'u değiştirin.
+3. Gösterim hızını değiştirmek için Speed'i ayarlayın.
+4. Tam ekrana geçmek/çıkmak için Full Screen düğmesine veya F10 tuşuna basın.
+5. Animasyonu duraklatmak/devam ettirmek için Pause düğmesine basın.
+6. Animasyonu sonlandırmak için Stop düğmesine basın.
+46
+Title:İstatistikler Nasıl Görüntülenir
+Label:6
+
+Fixed:0
+
+X:1
+
+Y:0.603599071502686
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+İstatistikler Nasıl Görüntülenir
+----------------------------------------------------------------------------
+
+1. Statistics sekmesine tıklayın. Başlangıçta her etiketin kart sayısını gösteren
+   bir grafik görüntülenir.
+2. Grafik gösterimi için kullanılan anahtarı değiştirmek üzere Key'in sağındaki
+   düğmeye tıklayın ve aşağıdakilerden birini seçin.
+
+   Label: Her etiketin kart sayısı grafiği (varsayılan)
+   Number of Link: Bağlantı sayısına göre kart sayısı grafiği
+   Created Date: Oluşturulma tarihine göre kart sayısı grafiği
+   Edited Date: Düzenlenme tarihine göre kart sayısı grafiği
+   Viewed Date: Görüntülenme tarihine göre kart sayısı grafiği
+
+   Created Date, Edited Date veya Viewed Date seçildiğinde, tarih ayrıntı düzeyini
+   Year (yıl), Month (ay), Day (gün), Week (hafta) veya Hour (saat) olarak da
+   seçebilirsiniz.
+
+3. Her grafiğe dahil kartları listelemek için grafikteki bir çubuğa tıklayın.
+   Ekranın sağında dahil kartların listesi görüntülenir.
+
+
+Not: Bu özellik, belirli bir etikete sahip kartları listelemek için de kullanılabilir.
+25
+Title:Yazdırma
+Label:9,8
+
+Fixed:0
+
+X:0.624003529548645
+
+Y:0.466246157884598
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+============================================================================
+Yazdırma
+============================================================================
+34
+Title:Tarayıcı Görünümü Nasıl Yazdırılır
+Label:9
+
+Fixed:0
+
+X:0.675095319747925
+
+Y:0.453982561826706
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Tarayıcı Görünümü Nasıl Yazdırılır
+----------------------------------------------------------------------------
+
+1. File menüsünden Print Image seçeneğini seçin.
+2. Görüntülenen iletişim kutusunda gerekirse yazıcı seçimini ve ayarlarını yapın.
+3. OK düğmesine basarak yazdırmayı başlatın.
+
+Not: Geçerli Tarayıcı görünümü, seçilen kağıdın merkezine yazdırılır.
+
+Not: Yazıcı kağıdı boyutuna göre ölçeklenmesi dışında, geçerli Tarayıcı görünümü
+     temelde ekranda göründüğü gibi yazdırılır.
+25
+Title:Menü Kılavuzu
+Label:7,8
+
+Fixed:0
+
+X:0.896600604057312
+
+Y:0.321872353553772
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2023/04/14 20:14:35
+
+-
+============================================================================
+Menü Kılavuzu
+============================================================================
+92
+Title:File Menüsü
+Label:7
+
+Fixed:0
+
+X:0.959879457950592
+
+Y:0.36121729016304
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+File Menüsü
+----------------------------------------------------------------------------
+
+New
+  Yeni bir proje oluşturur.
+
+Open
+  Kaydedilmiş bir projeyi açar.
+
+Save
+  Geçerli projenin üzerine kaydeder.
+
+SaveAs
+  Geçerli projeyi yeni bir adla kaydeder.
+
+Auto Save (This File)
+  Bu dosya için otomatik kaydetmeyi açar/kapatır.
+  Etkinleştirildiğinde, düzenleme sonrası belirli bir süre geçtikten sonra
+  otomatik olarak kaydedilir.
+  Uygulamadan çıkıldığında, kaydedilmemiş değişiklikler onay sorulmadan kaydedilir.
+
+Auto Reload (This File)
+  Bu dosya için otomatik yeniden yüklemeyi açar/kapatır.
+  Etkinleştirildiğinde, .fip dosyası dışarıdan değiştirildiğinde otomatik olarak
+  yeniden yüklenir.
+  Ancak uygulama tarafında kaydedilmemiş değişiklikler varken yeniden yüklenmez.
+
+
+Recent Files
+  Daha önce kullanılan bir projeyi açar.
+
+Recent Folders
+  Daha önce kullanılan bir klasörden proje açar.
+
+
+Import
+  fip dosyası dışındaki dosyalardan veri yükler. Txt File ile bir veya birden fazla
+  metin dosyası birer kart olarak yüklenir.
+  Hierarchical Text File ile satır başında sekme veya boşluklarla girintili hiyerarşik
+  metin dosyası, her satır bir kart olarak yüklenir.
+  Hierarchical Text File 2 ile hiyerarşi satır başındaki nokta sayısıyla gösterilir,
+  geri kalan metin gövde olur.
+  Text Files in a Folder ile belirtilen klasör altındaki tüm metin dosyaları klasör
+  yapısıyla birlikte yüklenir.
+
+
+Export
+  Verileri harici dosyalara aktarır. Txt file(Card Title) ile tüm kart başlıkları
+  tek bir metin dosyasına aktarılır. Txt file(Text) ile tüm kartların gövde metni
+  tek bir dosyaya aktarılır. Txt files ile her kart ayrı bir metin dosyasına aktarılır;
+  bu durumda her dosyanın adı kart başlığı + ".txt" olur.
+  html files ile veriler tarayıcıda görüntülenebilir HTML biçiminde aktarılır.
+  Belirtilen adlı dosyanın yanı sıra "cards.html" ve kart numarası + ".html"
+  dosyaları oluşturulur.
+  Hierarchical Text ile hiyerarşi satır başındaki nokta sayısıyla gösterilen bir
+  metin dosyası aktarılır. Bu biçimde aktarılan hiyerarşik metin, Import menüsündeki
+  Hierarchical Text File 2 ile içe aktarılabilir.
+
+Dikkat: Birden fazla dosya oluşturan Export işlemlerinde, aynı ada sahip dosyalar
+  varsa uyarı olmadan üzerine yazılır.
+
+
+Print Image
+  Tarayıcı görüntüsünün basit yazdırmasını yapar.
+  Geçerli Tarayıcı görünümü, seçilen kağıt boyutuna ölçeklenerek yazdırılır.
+
+
+Exit
+  Frieve Editor'dan çıkar.
+79
+Title:Edit Menüsü
+Label:7
+
+Fixed:0
+
+X:0.908938229084015
+
+Y:0.362814664840698
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Edit Menüsü
+----------------------------------------------------------------------------
+
+Undo
+  Son yapılan düzenlemeyi geri alır.
+
+Redo
+  Son geri alınan düzenlemeyi yineler.
+
+
+Cut
+  Seçili metni panoya kopyalar ve siler.
+
+Copy
+  Seçili metni panoya kopyalar.
+
+Paste
+  Panodaki metni geçerli konuma yapıştırır.
+
+Delete
+  Seçili metni siler.
+
+Select All
+  Tüm metni seçer.
+
+
+Find
+  Belirtilen metni arar.
+
+Replace
+  Belirtilen metni başka bir metinle değiştirir.
+
+Find Next
+  Belirtilen metnin sonraki eşleşmesini arar.
+
+Find Previous
+  Belirtilen metnin önceki eşleşmesini arar.
+
+Web Search
+  Seçili kart başlığı veya seçili metinle web araması yapar.
+
+
+Sort Card
+  Kartları kart adına veya tarihe göre sıralar.
+
+Batch Conversion
+  All Cards Shape ile tüm kartların şekli belirtilen şekle toplu dönüştürülür.
+  All Links Shape ile tüm bağlantıların şekli belirtilen şekle toplu dönüştürülür.
+  All Links Direction ile tüm bağlantıların yönü tersine çevrilir.
+
+
+Label
+  Etiket düzenleme iletişim kutusunu açar.
+
+Link Label
+  Bağlantı etiketi düzenleme iletişim kutusunu açar.
+50
+Title:Insert Menüsü
+Label:7
+
+Fixed:0
+
+X:0.986021161079407
+
+Y:0.335430890321732
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Insert Menüsü
+----------------------------------------------------------------------------
+
+New Card
+  Yeni bir kart oluşturur.
+
+New Link
+  Seçili karttan yeni bir bağlantı oluşturur.
+
+New Ext Link
+  Seçili karta harici bağlantı (dosya adı) ekler.
+
+New Label
+  Seçili karta yeni bir etiket ekler.
+
+New Link Label
+  Seçili bağlantıya yeni bir etiket ekler.
+
+
+Link to All Cards with Designated Label
+  Geçerli karttan belirtilen etikete sahip tüm kartlara bağlantı oluşturur.
+
+New Card Links to All Cards with Designated Label
+  Belirtilen etikete sahip tüm kartlara bağlantılı yeni bir kart oluşturur.
+
+Add Designated Label to All Destination Cards
+  Belirtilen etiketi tüm hedef kartlara ekler.
+41
+Title:Animation Menüsü
+Label:7
+
+Fixed:0
+
+X:0.968556582927704
+
+Y:0.297196090221405
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:1899/12/30
+
+-
+----------------------------------------------------------------------------
+Animation Menüsü
+----------------------------------------------------------------------------
+
+Random Flash
+  Kartları rastgele gösteren bir animasyon başlatır.
+
+Random Map
+  Rastgele bir kart gösterir, ardından o karttan bağlantılı kartlara doğru
+  gösterimi genişleten bir animasyon başlatır.
+
+Random Scroll
+  Kartları rastgele kaydıran bir animasyon başlatır.
+
+Random Jump
+  Kartların ekranın altından rastgele zıplayarak yükseldiği bir animasyon başlatır.
+
+Random Trace
+  Bağlantıları rastgele izleyen bir animasyon başlatır.
+123
+Title:View Menüsü
+Label:7
+
+Fixed:0
+
+X:0.957366585731506
+
+Y:0.258614063262939
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2023/04/14 20:17:18
+
+-
+----------------------------------------------------------------------------
+View Menüsü
+----------------------------------------------------------------------------
+
+Font
+  Yazı tipini değiştirir. Default Size ile standart boyuta, Magnify ile büyütme,
+  Reduce ile küçültme yapılır. Yazı tipi ailesini değiştirmek için Change Font
+  seçeneğini seçin ve yazı tipini belirleyin.
+
+Card
+  Kart görüntüleme ayarlarını değiştirir.
+  Shadow ile kart gölgesi gösterimini açar/kapatır.
+  Gradation ile kart degradesini açar/kapatır.
+  Ticker ile kart üzerindeki gövde metninin kayan yazı gösterimini açar/kapatır.
+  1Line ile kart gövdesinin 1. satırı, 2Lines ile 1. ve 2. satırları kayan yazı
+  olarak gösterilir.
+  Image ile görüntü küçük resim gösterimini açar/kapatır. Kart gövdesinde ilk yazılan
+  jpg veya bmp dosyası kullanılır.
+  Video ile video gösterimini açar/kapatır. Kart gövdesinde ilk yazılan mpg veya avi
+  dosyası kullanılır. Video gösterimi görüntü gösteriminden önceliklidir.
+  Drawing ile çizim gösterimini açar/kapatır. Çizim gösterimi görüntü ve videodan
+  önceliklidir.
+  32x32 ile 320x320 arasında, kart üzerinde gösterilen görüntü, video ve çizimin
+  maksimum boyutunu belirler. Bundan büyük medya, belirtilen boyuta sığacak şekilde
+  küçültülerek gösterilir.
+
+Link
+  Bağlantı görüntüleme ayarlarını değiştirir. Link ile bağlantı çizgileri, Hemming
+  ile bağlantı dış çizgileri, Direction ile bağlantı yönü, Name ile bağlantı adı
+  gösterimini açar/kapatır.
+
+Label
+  Etiket görüntüleme ayarlarını değiştirir. Circle ile aynı etikete sahip
+  kartları gösteren daire gösterimini açar/kapatır. Rectangle ile aynı etikete
+  sahip kartları gösteren dikdörtgen gösterimini açar/kapatır. Name ile etiket adı
+  gösterimini açar/kapatır.
+
+Text
+  Gövde metni görüntüleme ayarlarını değiştirir. Text ile Tarayıcıda seçili kartın
+  gövde metninin gösterimini açar/kapatır. Centering ile Tarayıcıda gövde metninin
+  ortalanmış/sol üst gösterimini değiştirir. Edit In Browser ile Tarayıcıda karta çift
+  tıklayınca gövdenin yerinde düzenlenip düzenlenmeyeceğini ayarlar. Always Show Editor
+  ile düzenleyicinin Tarayıcıda her zaman gösterilip gösterilmeyeceğini ayarlar (Under
+  the Card dışındaki ayarlarda geçerli). Under the Card ile gövde kartın hemen altında
+  düzenlenir. Browser Right ile Tarayıcının sağ kenarında, Browser Bottom ile Tarayıcının
+  altında düzenlenir.
+
+Score
+  Score ile kart puanı gösterimini açar/kapatır.
+  Authenticity ile puan, yüksek puanlı kartlardan çok bağlantı alan kartlara yüksek
+  puan verilecek şekilde hesaplanır.
+  StartingPoint ile kaynak kartlara daha yüksek puan verilir.
+  Destination ile hedef kartlara daha yüksek puan verilir.
+  Links(Out) ile puan, karttan çıkan bağlantı sayısı olur.
+  Links(In) ile puan, karta gelen bağlantı sayısı olur.
+  Links(Total) ile puan, toplam bağlantı sayısı olur.
+  Links(In-Out) ile puan, gelen bağlantı eksi giden bağlantı olur.
+  Text Length ile puan, gövde metninin uzunluğu olur.
+
+Read Aloud
+  Read Aloud ile kart başlığı sesli okumayı açar/kapatır.
+
+Not: Kart başlıklarını sesli okumak için Microsoft Agent kurulu olmalıdır.
+     Microsoft Agent veya ilgili konuşma bileşenleri kurulu olmayan ortamlarda
+     bu menü gösterilmez.
+
+Not: Microsoft Agent, Microsoft tarafından ücretsiz dağıtılmaktadır; ancak indirme
+     adresleri ve gerekli dosyalar sıklıkla değişiyor gibi görünmektedir. Sesli okuma
+     özelliğine ihtiyacınız varsa lütfen web'deki bilgilere başvurarak gerekli dosyaları
+     yükleyin.
+
+Others
+  Diğer görüntüleme ayarlarını değiştirir.
+  Card List ile ekranın solundaki kart listesini gösterir/gizler.
+  File List ile fare ekranın soluna taşındığında gösterilen dosya listesini gösterir/gizler.
+  Overview ile Tarayıcının sağ alt köşesindeki genel bakış gösterimini açar/kapatır.
+  ForegroundColor ile ön plan rengini, BackgroundColor ile arka plan rengini değiştirir.
+  Wallpaper ile duvar kağıdı belirler. Duvar kağıdını kaldırmak için tekrar Wallpaper
+  seçeneğini seçin.
+  Fix Wallpaper ile duvar kağıdını ekrana sığdırarak sabitler.
+  Tile Wallpaper ile duvar kağıdını tüm Tarayıcı alanına döşer.
+  Background Animation ile arka plan animasyonunu açar/kapatır.
+  Background Animation Type ile arka plan animasyonunun türünü değiştirir.
+  Cursor Animation ile imleç animasyonunu açar/kapatır.
+  No Scroll Lag ile kart seçildiğinde anında otomatik kaydırma yapılıp yapılmayacağını
+  açar/kapatır.
+  Anti-Aliasing ile kenar yumuşatma işlemini açar/kapatır.
+  2x ile dikey ve yatay 2 kat, 4x ile 4 kat kenar yumuşatma yapılır.
+
+Change Language
+  Menü dilini değiştirir (şu anda İngilizce ve Japonca desteklenmektedir).
+  Diğer dilleri desteklemek için Frieve Editor klasörüne .lng dosyası (metin dosyası
+  biçimi; format için Japanese.lng dosyasına bakın) yerleştirin.
+
+
+Full Screen
+  Tarayıcının tam ekran gösterimini açar/kapatır.
+
+
+Status Bar
+  Durum çubuğunu gösterir/gizler.
+39
+Title:Settings Menüsü
+Label:7
+
+Fixed:0
+
+X:0.924349308013916
+
+Y:0.239721909165382
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:2023/04/14 20:14:47
+
+Updated:2023/04/14 20:17:21
+
+Viewed:2023/04/14 20:17:19
+
+-
+----------------------------------------------------------------------------
+Settings Menüsü
+----------------------------------------------------------------------------
+
+GPT API Key
+  GPT entegrasyon özelliğini kullanmak için OpenAI web sitesinden alınan API
+  Anahtarını ayarlar.
+
+Auto Save Default
+  Yeni oluşturulan dosyalar için varsayılan otomatik kaydetme ayarını (AÇIK/KAPALI)
+  değiştirir. AÇIK olduğunda, yeni oluşturulan dosyalar baştan otomatik kaydetme
+  etkin olarak başlar.
+
+Auto Reload Default
+  Yeni oluşturulan dosyalar için varsayılan otomatik yeniden yükleme ayarını
+  (AÇIK/KAPALI) değiştirir. AÇIK olduğunda, yeni oluşturulan dosyalar baştan
+  otomatik yeniden yükleme etkin olarak başlar.
+41
+Title:Help Menüsü
+Label:7
+
+Fixed:0
+
+X:0.891983985900879
+
+Y:0.273029625415802
+
+Size:100
+
+Shape:2
+
+Visible:1
+
+Created:1899/12/30
+
+Updated:1899/12/30
+
+Viewed:2023/04/14 20:15:15
+
+-
+----------------------------------------------------------------------------
+Help Menüsü
+----------------------------------------------------------------------------
+
+Contents
+  Bu yardım dosyasını Frieve Editor'da açarak görüntüler.
+
+Open Frieve Web Site
+  Frieve web sitesini varsayılan tarayıcıda açar.
+
+Open Frieve Editor Web Site
+  Frieve Editor web sitesini varsayılan tarayıcıda açar.
+
+Check Latest Release
+  En son yayınlanan sürümü kontrol eder.
+
+
+About
+  Sürüm bilgilerini görüntüler.

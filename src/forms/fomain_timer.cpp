@@ -37,6 +37,73 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
     }
   }
 
+  // Auto reload (external file updates)
+  if (m_Document && m_Document->m_FN != "" && !m_bContinuousLoad) {
+    bool autoReloadEnabled = (m_Document->m_nAutoReload != 0);
+    if (autoReloadEnabled) {
+      int pollSec = SettingFile.m_nAutoReloadPollSec;
+      if (pollSec < 1) {
+        pollSec = 1;
+      }
+      unsigned int pollMs = (unsigned int)pollSec * 1000u;
+      if (m_uLastAutoReloadCheckTick == 0 ||
+          tgt - m_uLastAutoReloadCheckTick >= pollMs) {
+        m_uLastAutoReloadCheckTick = tgt;
+        int newage = FileAge(m_Document->m_FN);
+        if (newage != m_nAutoReloadFileAge && newage != -1) {
+          if (!m_Document->m_bChanged) {
+            // Preserve current UI selection during auto reload.
+            // Soft reload may otherwise adopt m_nCardID saved in the file,
+            // which can differ from what is currently selected in the UI.
+            int prevTargetCard = m_nTargetCard;
+            LoadSub(m_Document->m_FN, true);
+            if (prevTargetCard >= 0 &&
+                m_Document->SearchCardIndex(prevTargetCard) >= 0) {
+              m_nTargetCard = prevTargetCard;
+            } else {
+              m_nTargetCard = -1;
+            }
+
+            // Ensure a single selected card for stable highlight rendering.
+            m_Document->ClearCardSelection();
+            if (m_nTargetCard >= 0) {
+              TCard *Card = m_Document->GetCard(m_nTargetCard);
+              if (Card) {
+                Card->m_bSelected = true;
+              }
+            }
+          } else {
+            m_nAutoReloadFileAge = newage;
+          }
+        }
+      }
+    }
+  }
+
+  // Auto save
+  if (m_Document && m_Document->m_FN != "" && !m_Document->m_bReadOnly) {
+    if (m_Document->m_nAutoSave != 0 && m_Document->m_bChanged) {
+      int idleSec = SettingFile.m_nAutoSaveIdleSec;
+      if (idleSec < 0) {
+        idleSec = 0;
+      }
+      int minSec = SettingFile.m_nAutoSaveMinIntervalSec;
+      if (minSec < 1) {
+        minSec = 1;
+      }
+      unsigned int idleMs = (unsigned int)idleSec * 1000u;
+      unsigned int minMs = (unsigned int)minSec * 1000u;
+
+      if (tgt - m_uLastUserEditTick >= idleMs &&
+          (m_uLastAutoSaveTick == 0 || tgt - m_uLastAutoSaveTick >= minMs)) {
+        if (Save()) {
+          m_uLastAutoSaveTick = tgt;
+          m_nAutoReloadFileAge = FileAge(m_Document->m_FN);
+        }
+      }
+    }
+  }
+
   // Plugin timeout
   if (SettingFile.fepTimeOut) {
     SettingFile.fepTimeOut(m_Document);

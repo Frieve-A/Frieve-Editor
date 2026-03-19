@@ -68,7 +68,8 @@ TMLText::TMLText() {
 
 // ---------------------------------------------------------------------------
 UnicodeString LanguageFileName() {
-  return ExtractFilePath(ParamStr(0)) + SettingView.m_Language + ".lng";
+  return ExtractFilePath(ParamStr(0)) + "lng\\" + SettingView.m_Language +
+         ".lng";
 }
 
 // ---------------------------------------------------------------------------
@@ -405,6 +406,12 @@ TSettingFile::TSettingFile() {
   m_WebSearch = "";
 
   m_GPTAPIKey = "";
+
+  m_bAutoSaveDefault = true;
+  m_bAutoReloadDefault = true;
+  m_nAutoSaveMinIntervalSec = 60;
+  m_nAutoSaveIdleSec = 3;
+  m_nAutoReloadPollSec = 2;
 }
 
 // ---------------------------------------------------------------------------
@@ -438,6 +445,12 @@ void TSettingFile::WriteToIni(TIniFile *Ini, UnicodeString Section) {
   Ini->WriteString(Section, "WebSearch", m_WebSearch);
 
   Ini->WriteString(Section, "GPTAPIKey", m_GPTAPIKey);
+
+  Ini->WriteBool(Section, "AutoSaveDefault", m_bAutoSaveDefault);
+  Ini->WriteBool(Section, "AutoReloadDefault", m_bAutoReloadDefault);
+  Ini->WriteInteger(Section, "AutoSaveMinIntervalSec", m_nAutoSaveMinIntervalSec);
+  Ini->WriteInteger(Section, "AutoSaveIdleSec", m_nAutoSaveIdleSec);
+  Ini->WriteInteger(Section, "AutoReloadPollSec", m_nAutoReloadPollSec);
 }
 
 // ---------------------------------------------------------------------------
@@ -481,6 +494,26 @@ void TSettingFile::ReadFromIni(TIniFile *Ini, UnicodeString Section) {
   m_WebSearch = Ini->ReadString(Section, "WebSearch", m_WebSearch);
 
   m_GPTAPIKey = Ini->ReadString(Section, "GPTAPIKey", m_GPTAPIKey);
+
+  // Compatibility:
+  // Older settings may store numeric values (e.g. -1/0/1) instead of true/false.
+  // Treat any non-zero as ON(=true).
+  {
+    int v = Ini->ReadInteger(Section, "AutoSaveDefault",
+                             m_bAutoSaveDefault ? 1 : 0);
+    m_bAutoSaveDefault = (v != 0);
+  }
+  {
+    int v = Ini->ReadInteger(Section, "AutoReloadDefault",
+                             m_bAutoReloadDefault ? 1 : 0);
+    m_bAutoReloadDefault = (v != 0);
+  }
+  m_nAutoSaveMinIntervalSec =
+      Ini->ReadInteger(Section, "AutoSaveMinIntervalSec", m_nAutoSaveMinIntervalSec);
+  m_nAutoSaveIdleSec =
+      Ini->ReadInteger(Section, "AutoSaveIdleSec", m_nAutoSaveIdleSec);
+  m_nAutoReloadPollSec =
+      Ini->ReadInteger(Section, "AutoReloadPollSec", m_nAutoReloadPollSec);
 }
 
 // ---------------------------------------------------------------------------

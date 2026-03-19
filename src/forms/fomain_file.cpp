@@ -4,6 +4,8 @@
 #include <vcl.h>
 #pragma hdrstop
 
+#include <windows.h>
+
 #include "fomain.h"
 #include "fomain_file.h"
 #include "setting.h"
@@ -12,17 +14,135 @@
 #pragma package(smart_init)
 
 // ---------------------------------------------------------------------------
+static UnicodeString NormalizePathForCompare(const UnicodeString &FN) {
+  if (FN.IsEmpty()) {
+    return UnicodeString();
+  }
+
+  UnicodeString full = ExpandFileName(FN);
+  full = StringReplace(full, UnicodeString("/"), UnicodeString("\\"),
+                       TReplaceFlags() << rfReplaceAll);
+  return UpperCase(full);
+}
+
+static bool IsHelpDocumentPath(const UnicodeString &FN) {
+  UnicodeString full = NormalizePathForCompare(FN);
+  if (full.IsEmpty()) {
+    return false;
+  }
+  UnicodeString exeDir = NormalizePathForCompare(ExtractFilePath(ParamStr(0)));
+  if (full == exeDir + "HELP.FIP") {
+    return true;
+  }
+  return full.Pos(exeDir + "HELP\\HELP_") == 1 &&
+         ExtractFileExt(full) == ".FIP";
+}
+
+struct TFindOpenFileWindowCtx {
+  UnicodeString TargetPathUpper;
+  HWND SelfHwnd;
+  HWND FoundHwnd;
+};
+
+static BOOL CALLBACK EnumWindowsFindOpenFileProc(HWND hwnd, LPARAM lParam) {
+  TFindOpenFileWindowCtx *ctx = reinterpret_cast<TFindOpenFileWindowCtx *>(lParam);
+  if (!ctx || ctx->FoundHwnd) {
+    return FALSE;
+  }
+
+  if (hwnd == ctx->SelfHwnd) {
+    return TRUE;
+  }
+
+  int len = GetWindowTextLengthW(hwnd);
+  if (len <= 0) {
+    return TRUE;
+  }
+
+  wchar_t *buf = new wchar_t[len + 1];
+  buf[0] = L'\0';
+  GetWindowTextW(hwnd, buf, len + 1);
+  UnicodeString title(buf);
+  delete[] buf;
+
+  UnicodeString upper = UpperCase(title);
+
+  if (upper.Pos(UnicodeString(AppTitle).UpperCase()) != 1) {
+    return TRUE;
+  }
+
+  if (upper.Pos(ctx->TargetPathUpper) > 0) {
+    ctx->FoundHwnd = hwnd;
+    return FALSE;
+  }
+
+  return TRUE;
+}
+
+bool TFo_Main::ActivateOtherInstanceIfFileAlreadyOpen(const UnicodeString &FN) {
+  UnicodeString targetUpper = NormalizePathForCompare(FN);
+  if (targetUpper.IsEmpty()) {
+    return false;
+  }
+
+  TFindOpenFileWindowCtx ctx;
+  ctx.TargetPathUpper = targetUpper;
+  ctx.SelfHwnd = Handle;
+  ctx.FoundHwnd = NULL;
+
+  EnumWindows(EnumWindowsFindOpenFileProc, reinterpret_cast<LPARAM>(&ctx));
+
+  if (!ctx.FoundHwnd) {
+    return false;
+  }
+
+  if (IsIconic(ctx.FoundHwnd)) {
+    ShowWindow(ctx.FoundHwnd, SW_RESTORE);
+  } else {
+    ShowWindow(ctx.FoundHwnd, SW_SHOW);
+  }
+
+  SetForegroundWindow(ctx.FoundHwnd);
+  BringWindowToTop(ctx.FoundHwnd);
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::UpdateAutoSaveReloadMenuStates() {
+  if (!m_Document) {
+    return;
+  }
+
+  bool effectiveAutoSave = (m_Document->m_nAutoSave != 0);
+  bool effectiveAutoReload = (m_Document->m_nAutoReload != 0);
+
+  if (MF_AutoSave) {
+    MF_AutoSave->Checked = effectiveAutoSave;
+  }
+  if (MF_AutoReload) {
+    MF_AutoReload->Checked = effectiveAutoReload;
+  }
+
+  if (MS_AutoSaveDefault) {
+    MS_AutoSaveDefault->Checked = SettingFile.m_bAutoSaveDefault;
+  }
+  if (MS_AutoReloadDefault) {
+    MS_AutoReloadDefault->Checked = SettingFile.m_bAutoReloadDefault;
+  }
+}
+
+// ---------------------------------------------------------------------------
 void TFo_Main::BackupSub(UnicodeString Action) {
   if (!m_bDoNotBackup) {
     m_UndoRedo->Backup(m_Document, DeleteActionKey(Action).c_str());
   }
+  m_uLastUserEditTick = GetTickCount();
 }
 
 // ---------------------------------------------------------------------------
 void TFo_Main::RefreshRecent(UnicodeString FN) {
   // History update
-  if (FN != "" &&
-      FN != (ExtractFilePath(ParamStr(0)) + UnicodeString("help.fip"))) {
+  if (FN != "" && !IsHelpDocumentPath(FN)) {
     // File name
     for (int i = 0; i < 10; i++) {
       if (SettingFile.m_RecentFiles[i] == FN) {
@@ -228,6 +348,12 @@ void TFo_Main::LoadSub(UnicodeString FN, bool bSoftLoad, bool bRefreshRecent) {
   bool result = m_Document->Load(FN, bSoftLoad);
 
   if (result) {
+    m_uLastUserEditTick = GetTickCount();
+    m_uLastAutoSaveTick = m_uLastUserEditTick;
+    m_uLastAutoReloadCheckTick = 0;
+    m_nAutoReloadFileAge = FileAge(m_Document->m_FN);
+    UpdateAutoSaveReloadMenuStates();
+
     if (bSoftLoad) {
       m_nCurrentCard = -1;
       m_nTargetLink = -1;
@@ -299,8 +425,12 @@ void TFo_Main::RefreshFileList() {
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::MF_RecentFilesClick(TObject *Sender) {
+  UnicodeString fn = SettingFile.m_RecentFiles[((TMenuItem *)Sender)->Tag];
+  if (ActivateOtherInstanceIfFileAlreadyOpen(fn)) {
+    return;
+  }
   if (SaveCheck()) {
-    LoadSub(SettingFile.m_RecentFiles[((TMenuItem *)Sender)->Tag]);
+    LoadSub(fn);
   }
 }
 // ---------------------------------------------------------------------------
@@ -319,6 +449,9 @@ void __fastcall TFo_Main::MF_NewClick(TObject *Sender) {
     m_bContinuousLoad = false;
     delete m_Document;
     m_Document = new TDocument();
+    // New file defaults: explicitly apply app defaults.
+    m_Document->m_nAutoSave = SettingFile.m_bAutoSaveDefault ? 1 : 0;
+    m_Document->m_nAutoReload = SettingFile.m_bAutoReloadDefault ? 1 : 0;
     m_UndoRedo->ClearUndos();
     m_UndoRedo->ClearRedos();
     m_nCurrentCard = -1;
@@ -333,6 +466,7 @@ void __fastcall TFo_Main::MF_NewClick(TObject *Sender) {
     SB_Arrange->Down = false;
 
     RefreshFileList();
+    UpdateAutoSaveReloadMenuStates();
   }
 }
 
@@ -344,16 +478,30 @@ void __fastcall TFo_Main::MF_SaveAsClick(TObject *Sender) { SaveAs(); }
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::MF_OpenClick(TObject *Sender) {
+  OD->InitialDir = ExtractFileDir(m_Document->m_FN);
+  if (!OD->Execute()) {
+    return;
+  }
+
+  if (ActivateOtherInstanceIfFileAlreadyOpen(OD->FileName)) {
+    return;
+  }
+
   if (SaveCheck()) {
-    OD->InitialDir = ExtractFileDir(m_Document->m_FN);
-    if (OD->Execute()) {
-      LoadSub(OD->FileName);
-    }
+    LoadSub(OD->FileName);
   }
 }
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormCloseQuery(TObject *Sender, bool &CanClose) {
+  if (m_Document && m_Document->m_bChanged && !m_Document->m_bReadOnly) {
+    // For a new (not-yet-saved) file, behave like AutoSave is OFF:
+    // let SaveCheck handle the prompt (and SaveAs if needed).
+    if (m_Document->m_FN != "" && m_Document->m_nAutoSave != 0) {
+      CanClose = Save();
+      return;
+    }
+  }
   CanClose = SaveCheck();
 }
 
@@ -370,12 +518,15 @@ void __fastcall TFo_Main::LB_FileListClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::LB_FileListDblClick(TObject *Sender) {
   if (LB_FileList->ItemIndex >= 0) {
+    UnicodeString fn = ExtractFileDir(SettingFile.m_RecentFolders[0] + "file") +
+                       UnicodeString("\\") +
+                       LB_FileList->Items->Strings[LB_FileList->ItemIndex] +
+                       UnicodeString(".fip");
+    if (ActivateOtherInstanceIfFileAlreadyOpen(fn)) {
+      return;
+    }
     if (SaveCheck()) {
-      LoadSub(ExtractFileDir(SettingFile.m_RecentFolders[0] + "file") +
-                  UnicodeString("\\") +
-                  LB_FileList->Items->Strings[LB_FileList->ItemIndex] +
-                  UnicodeString(".fip"),
-              false, false);
+      LoadSub(fn, false, false);
     }
   }
 }

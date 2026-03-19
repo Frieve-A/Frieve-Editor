@@ -117,7 +117,7 @@ TFastIni::TFastIni(UnicodeString FN) : m_LastSectionIndex(-1) {
 
   TStringList *SL = new TStringList();
   if (FileExists(FN)) {
-    SL->LoadFromFile(FN);
+    SL->LoadFromFile(FN, TEncoding::UTF8);
   }
 
   LoadFromString(SL);

@@ -60,6 +60,21 @@ int ConsumeWheelSteps(int &remainder, int wheelDelta) {
   return steps;
 }
 
+UnicodeString ResolveLocalizedHelpPath() {
+  UnicodeString exeDir = ExtractFilePath(ParamStr(0));
+  UnicodeString lang = Trim(SettingView.m_Language);
+  if (lang == "" || lang == "English") {
+    return exeDir + "help.fip";
+  }
+
+  UnicodeString suffix = LowerCase(lang);
+  UnicodeString localized = exeDir + "help\\help_" + suffix + ".fip";
+  if (FileExists(localized)) {
+    return localized;
+  }
+  return exeDir + "help.fip";
+}
+
 } // namespace
 
 bool TFo_Main::ShouldHandleBrowserWheel(const TPoint &MousePos) {
@@ -240,11 +255,10 @@ void __fastcall TFo_Main::MV_BrowserClick(TObject *Sender) {
 void __fastcall TFo_Main::MH_ContentsClick(TObject *Sender) {
   ExitFullScreen();
 
-  UnicodeString S = UnicodeString(ExtractFilePath(ParamStr(0))) +
-                    UnicodeString("feditor.exe");
-  UnicodeString S2 = UnicodeString("\"") +
-                     UnicodeString(ExtractFilePath(ParamStr(0))) +
-                     UnicodeString("help.fip\"");
+  UnicodeString S =
+      UnicodeString(ExtractFilePath(ParamStr(0))) + UnicodeString("feditor.exe");
+  UnicodeString S2 = UnicodeString("\"") + ResolveLocalizedHelpPath() +
+                     UnicodeString("\"");
   ShellExecute(Handle, NULL, S.c_str(), S2.c_str(), NULL, SW_SHOW);
 }
 // ---------------------------------------------------------------------------
@@ -3173,4 +3187,46 @@ void __fastcall TFo_Main::MS_GPTAPIKeyClick(TObject *Sender) {
     SettingFile.m_GPTAPIKey = Fo_EditText->Ed_Text->Text;
   }
 }
+//---------------------------------------------------------------------------
+
+void __fastcall TFo_Main::MF_AutoSaveClick(TObject *Sender) {
+  if (!m_Document || !MF_AutoSave) {
+    return;
+  }
+
+  bool nextChecked = (m_Document->m_nAutoSave == 0);
+  m_Document->m_nAutoSave = nextChecked ? 1 : 0; // Store as an explicit override.
+  UpdateAutoSaveReloadMenuStates();
+}
+
+void __fastcall TFo_Main::MF_AutoReloadClick(TObject *Sender) {
+  if (!m_Document || !MF_AutoReload) {
+    return;
+  }
+
+  bool nextChecked = (m_Document->m_nAutoReload == 0);
+  m_Document->m_nAutoReload = nextChecked ? 1 : 0; // Store as an explicit override.
+  UpdateAutoSaveReloadMenuStates();
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TFo_Main::MS_AutoSaveDefaultClick(TObject *Sender) {
+  if (!MS_AutoSaveDefault) {
+    return;
+  }
+
+  SettingFile.m_bAutoSaveDefault = !SettingFile.m_bAutoSaveDefault;
+  UpdateAutoSaveReloadMenuStates();
+}
+
+void __fastcall TFo_Main::MS_AutoReloadDefaultClick(TObject *Sender) {
+  if (!MS_AutoReloadDefault) {
+    return;
+  }
+
+  SettingFile.m_bAutoReloadDefault = !SettingFile.m_bAutoReloadDefault;
+  UpdateAutoSaveReloadMenuStates();
+}
+
 //---------------------------------------------------------------------------

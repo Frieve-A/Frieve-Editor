@@ -89,6 +89,61 @@ int SpeechRatePercentToSapiRate(int value) {
     return 0;
   }
 }
+
+UnicodeString MapLangIdToLanguageName(LANGID langId) {
+  switch (PRIMARYLANGID(langId)) {
+  case LANG_JAPANESE:
+    return "Japanese";
+  case LANG_FRENCH:
+    return "French";
+  case LANG_GERMAN:
+    return "German";
+  case LANG_ITALIAN:
+    return "Italian";
+  case LANG_SPANISH:
+    return "Spanish";
+  case LANG_PORTUGUESE:
+    return "Portuguese";
+  case LANG_RUSSIAN:
+    return "Russian";
+  case LANG_KOREAN:
+    return "Korean";
+  case LANG_ARABIC:
+    return "Arabic";
+  case LANG_HINDI:
+    return "Hindi";
+  case LANG_CHINESE:
+    switch (SUBLANGID(langId)) {
+    case SUBLANG_CHINESE_SIMPLIFIED:
+    case SUBLANG_CHINESE_SINGAPORE:
+      return "ChineseSimplified";
+    case SUBLANG_CHINESE_TRADITIONAL:
+    case SUBLANG_CHINESE_HONGKONG:
+    case SUBLANG_CHINESE_MACAU:
+      return "ChineseTraditional";
+    default:
+      return "";
+    }
+  default:
+    return "";
+  }
+}
+
+UnicodeString ResolveInitialLanguageByOS() {
+  UnicodeString language = MapLangIdToLanguageName(GetUserDefaultUILanguage());
+  if (language == "") {
+    language = MapLangIdToLanguageName(GetSystemDefaultUILanguage());
+  }
+  if (language == "") {
+    return "English";
+  }
+  UnicodeString lngPath =
+      ExtractFilePath(ParamStr(0)) + "lng\\" + language + ".lng";
+  if (FileExists(lngPath)) {
+    return language;
+  }
+  return "English";
+}
 }
 
 // ---------------------------------------------------------------------------
@@ -194,6 +249,10 @@ void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes) {
       }
     } else {
       // Open
+      if (ActivateOtherInstanceIfFileAlreadyOpen(FN)) {
+        DragFinish((HDROP)mes.Drop);
+        return;
+      }
       if (SaveCheck()) {
         LoadSub(FN);
       }
@@ -335,6 +394,10 @@ __fastcall TFo_Main::TFo_Main(TComponent *Owner)
       // Continuous load (reload when edited file changes)
       m_bContinuousLoad(false),
       m_nCLFileAge(0), // Timestamp of file for continuous load
+      m_uLastUserEditTick(0),
+      m_uLastAutoSaveTick(0),
+      m_uLastAutoReloadCheckTick(0),
+      m_nAutoReloadFileAge(0),
 
       m_nBrowserWheelRemainderX(0), m_nBrowserWheelRemainderY(0),
       m_nBrowserZoomWheelRemainder(0), m_nBrowserFontWheelRemainder(0),
@@ -365,8 +428,16 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 
   // Fast load initial settings
   Ini = new TIniFile(ExtractFilePath(ParamStr(0)) + "setting.ini");
+  bool hasLanguageSetting = Ini->ValueExists("View", "Language");
   SettingFile.ReadFromIni(Ini, "File");
   SettingView.ReadFromIni(Ini, "View");
+  if (!hasLanguageSetting) {
+    // First launch: prefer OS language when a matching lng file exists.
+    SettingView.m_Language = ResolveInitialLanguageByOS();
+  } else if (Trim(SettingView.m_Language) == "") {
+    // Backward compatibility: old English setting used empty string.
+    SettingView.m_Language = "English";
+  }
   SettingView.m_nReadSpeed =
       NormalizeSpeechRateSetting(SettingView.m_nReadSpeed);
 
@@ -379,8 +450,28 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
   MVF_Reduce->ShortCut = TextToShortCut("Ctrl+Shift+PgDn");
   ConfigureTouchGestures();
 
+  // Do not rely on AutoCheck for state changes.
+  // Checked visuals are driven explicitly by UpdateAutoSaveReloadMenuStates()
+  // and by the click handlers updating the underlying values.
+  if (MF_AutoSave) {
+    MF_AutoSave->AutoCheck = false;
+  }
+  if (MF_AutoReload) {
+    MF_AutoReload->AutoCheck = false;
+  }
+  if (MS_AutoSaveDefault) {
+    MS_AutoSaveDefault->AutoCheck = false;
+  }
+  if (MS_AutoReloadDefault) {
+    MS_AutoReloadDefault->AutoCheck = false;
+  }
+
   m_Document = new TDocument();
+  // New file defaults: explicitly apply app defaults.
+  m_Document->m_nAutoSave = SettingFile.m_bAutoSaveDefault ? 1 : 0;
+  m_Document->m_nAutoReload = SettingFile.m_bAutoReloadDefault ? 1 : 0;
   m_Document->GetCardByIndex(0)->m_bSelected = true;
+  UpdateAutoSaveReloadMenuStates();
   m_UndoRedo = new TUndoRedo(SettingFile.m_nUndoTimes);
   m_nLastModified = 0;
   m_nNextSelStart = 0;
@@ -1013,7 +1104,12 @@ void __fastcall TFo_Main::FormShow(TObject *Sender) {
   RefreshRecent("");
 
   if (ParamCount() > 0) {
-    LoadSub(ParamStr(1));
+    UnicodeString fn = ParamStr(1);
+    if (ActivateOtherInstanceIfFileAlreadyOpen(fn)) {
+      Application->Terminate();
+      return;
+    }
+    LoadSub(fn);
   } else {
     m_nTargetCard = 0;
   }
@@ -1061,6 +1157,7 @@ void TFo_Main::TextEditBackupSub(UnicodeString Action, int CardID, int SelStart,
     }
     m_nLastModified = tgt;
   }
+  m_uLastUserEditTick = GetTickCount();
 }
 
 // ---------------------------------------------------------------------------
@@ -2320,7 +2417,7 @@ void __fastcall TFo_Main::MVL_LabelNameClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::MVC_EnglishClick(TObject *Sender) {
   MVC_English->Checked = true;
-  SettingView.m_Language = "";
+  SettingView.m_Language = "English";
   ShowMessage("Please restart Frieve Editor.");
 }
 
