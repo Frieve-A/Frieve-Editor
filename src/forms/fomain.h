@@ -1229,17 +1229,34 @@ public:
   void SpeakCardTitle(TCard *Card, bool force = false);
   // File drop
   BEGIN_MESSAGE_MAP VCL_MESSAGE_HANDLER(WM_DROPFILES, TWMDropFiles, WMDropFiles)
+      VCL_MESSAGE_HANDLER(WM_MOUSEHWHEEL, TMessage, WMMouseHWheel)
+      VCL_MESSAGE_HANDLER(WM_GESTURE, TMessage, WMGesture)
       // VCL_MESSAGE_HANDLER(WM_ERASEBKGND, TWMEraseBkgnd, WMEraseBkgnd)
       END_MESSAGE_MAP(TForm);
 
   void __fastcall WMDropFiles(TWMDropFiles &mes);
   void __fastcall WMEraseBkgnd(TWMEraseBkgnd &msg);
+  void __fastcall WMMouseHWheel(TMessage &msg);
+  void __fastcall WMGesture(TMessage &msg);
   // Multi-language
   void ApplyLanguageSetting();
+  bool ShouldHandleBrowserWheel(const TPoint &MousePos);
+  void ScrollBrowserWheel(TScrollBar *ScrollBar, int &Remainder, int WheelDelta,
+                          bool positiveMovesForward);
+  void ZoomBrowserWheel(int WheelDelta);
+  void ResizeFontWheel(int WheelDelta);
+  void ResetBrowserZoom();
+  void ConfigureTouchGestures();
 
   // Continuous load (reload when file updated)
   bool m_bContinuousLoad;
   int m_nCLFileAge; // Timestamp for continuous load
+  int m_nBrowserWheelRemainderX;
+  int m_nBrowserWheelRemainderY;
+  int m_nBrowserZoomWheelRemainder;
+  int m_nBrowserFontWheelRemainder;
+  ULONGLONG m_uGestureZoomBeginDistance;
+  int m_nGestureZoomBeginPos;
 
 private:
   // Demo

@@ -463,6 +463,40 @@ void __fastcall TFo_Main::FormKeyDown(TObject *Sender, WORD &Key,
                                       TShiftState Shift) {
   // M_File->Caption = Key;
   // M_File->Caption = (int)Active;
+  if (PC_Client->ActivePage == TS_Browser && Shift.Contains(ssCtrl) &&
+      !Shift.Contains(ssAlt) && !RE_Edit->Focused() &&
+      !Ed_LinkTitle->Focused() && !Ed_TitleB->Visible &&
+      !m_bTitleEditRequested) {
+    bool fontShortcut = Shift.Contains(ssShift);
+    switch (Key) {
+    case VK_PRIOR:
+      if (fontShortcut) {
+        MVF_MagnifyClick(Sender);
+      } else {
+        ZoomBrowserWheel(WHEEL_DELTA);
+      }
+      Key = 0;
+      return;
+    case VK_NEXT:
+      if (fontShortcut) {
+        MVF_ReduceClick(Sender);
+      } else {
+        ZoomBrowserWheel(-WHEEL_DELTA);
+      }
+      Key = 0;
+      return;
+    case '0':
+    case VK_NUMPAD0:
+      if (fontShortcut) {
+        MVF_DefaultSizeClick(Sender);
+      } else {
+        ResetBrowserZoom();
+      }
+      Key = 0;
+      return;
+    }
+  }
+
   if (Key >= 37 && Key <= 40 && PC_Client->ActivePage == TS_Browser &&
       m_CardVisible && TB_Zoom->Focused()) {
     // if (Key >= 37 && Key <= 40 && PC_Client->ActivePage == TS_Browser &&

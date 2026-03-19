@@ -5,6 +5,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
+#include <math.h>
 #include <DateUtils.hpp>
 #include <Vcl.filectrl.hpp>
 #include <clipbrd.hpp>
@@ -30,6 +31,102 @@
 #include <System.Net.URLClient.hpp>
 
 #pragma package(smart_init)
+
+namespace {
+
+bool IsMouseOnControl(TControl *Control, const TPoint &MousePos) {
+  if (!Control || !Control->Visible) {
+    return false;
+  }
+
+  TPoint P = Control->ScreenToClient(MousePos);
+  return P.x >= 0 && P.y >= 0 && P.x < Control->Width && P.y < Control->Height;
+}
+
+int ClampValue(int value, int minValue, int maxValue) {
+  if (value < minValue) {
+    return minValue;
+  }
+  if (value > maxValue) {
+    return maxValue;
+  }
+  return value;
+}
+
+int ConsumeWheelSteps(int &remainder, int wheelDelta) {
+  remainder += wheelDelta;
+  int steps = remainder / WHEEL_DELTA;
+  remainder %= WHEEL_DELTA;
+  return steps;
+}
+
+} // namespace
+
+bool TFo_Main::ShouldHandleBrowserWheel(const TPoint &MousePos) {
+  if (PC_Client->ActivePage != TS_Browser || !TB_Zoom->Visible) {
+    return false;
+  }
+
+  return IsMouseOnControl(PB_Browser, MousePos) ||
+         IsMouseOnControl(Sc_X, MousePos) || IsMouseOnControl(Sc_Y, MousePos);
+}
+
+void TFo_Main::ScrollBrowserWheel(TScrollBar *ScrollBar, int &Remainder,
+                                  int WheelDelta, bool positiveMovesForward) {
+  if (!ScrollBar) {
+    return;
+  }
+
+  int steps = ConsumeWheelSteps(Remainder, WheelDelta);
+  if (steps == 0) {
+    return;
+  }
+
+  int stepSize = ScrollBar->SmallChange;
+  if (stepSize < 1) {
+    stepSize = 1;
+  }
+
+  int pos = ScrollBar->Position;
+  if (positiveMovesForward) {
+    pos += stepSize * steps;
+  } else {
+    pos -= stepSize * steps;
+  }
+
+  ScrollBar->Position = ClampValue(pos, ScrollBar->Min, ScrollBar->Max);
+}
+
+void TFo_Main::ZoomBrowserWheel(int WheelDelta) {
+  int steps = ConsumeWheelSteps(m_nBrowserZoomWheelRemainder, WheelDelta);
+  if (steps == 0) {
+    return;
+  }
+
+  int stepSize = (TB_Zoom->Max - TB_Zoom->Min) / 50;
+  if (stepSize < 1) {
+    stepSize = 1;
+  }
+
+  int pos = TB_Zoom->Position + stepSize * steps;
+  TB_Zoom->Position = ClampValue(pos, TB_Zoom->Min, TB_Zoom->Max);
+}
+
+void TFo_Main::ResizeFontWheel(int WheelDelta) {
+  int steps = ConsumeWheelSteps(m_nBrowserFontWheelRemainder, WheelDelta);
+  while (steps > 0) {
+    MVF_MagnifyClick(this);
+    steps--;
+  }
+  while (steps < 0) {
+    MVF_ReduceClick(this);
+    steps++;
+  }
+}
+
+void TFo_Main::ResetBrowserZoom() {
+  TB_Zoom->Position = ClampValue(0, TB_Zoom->Min, TB_Zoom->Max);
+}
 
 
 void __fastcall TFo_Main::SB_ArrangeRefreshClick(TObject *Sender) {
@@ -1216,6 +1313,7 @@ void __fastcall TFo_Main::PB_GlobalSearchPaint(TObject *Sender) {
     largechange = 1;
   }
   Sc_GlobalSearch->LargeChange = largechange;
+  Sc_GlobalSearch->SmallChange = 1;
 
   // Get current index
   m_GlobalSearchCursorIndex = -1;
@@ -2803,26 +2901,114 @@ void __fastcall TFo_Main::MS_ImportCSVClick(TObject *Sender) {
 void __fastcall TFo_Main::FormMouseWheel(TObject *Sender, TShiftState Shift,
                                          int WheelDelta, TPoint &MousePos,
                                          bool &Handled) {
-  if (Shift.Contains(ssCtrl)) {
-    if (WheelDelta > 0) {
-      MVF_MagnifyClick(Sender);
-    } else {
-      MVF_ReduceClick(Sender);
-    }
+  bool browserTarget = ShouldHandleBrowserWheel(MousePos);
+
+  if (browserTarget && Shift.Contains(ssCtrl) && Shift.Contains(ssShift)) {
+    ResizeFontWheel(WheelDelta);
     Handled = true;
-  } else if (PC_Client->ActivePage == TS_Browser && TB_Zoom->Visible) {
-    int pos = TB_Zoom->Position +
-              ((TB_Zoom->Max - TB_Zoom->Min) * WheelDelta) / (120 * 50);
-    if (pos < TB_Zoom->Min) {
-      pos = TB_Zoom->Min;
+  } else if (browserTarget && Shift.Contains(ssCtrl)) {
+    ZoomBrowserWheel(WheelDelta);
+    Handled = true;
+  } else if (
+      Pa_GlobalSearch->Visible &&
+      (Sc_GlobalSearch->Focused() || IsMouseOnControl(PB_GlobalSearch, MousePos) ||
+       IsMouseOnControl(Sc_GlobalSearch, MousePos))) {
+    int step = Sc_GlobalSearch->SmallChange;
+    if (step < 1) {
+      step = 1;
     }
-    if (pos > TB_Zoom->Max) {
-      pos = TB_Zoom->Max;
+
+    int delta = (step * abs(WheelDelta) + 119) / 120;
+    if (delta < 1) {
+      delta = 1;
     }
-    TB_Zoom->Position = pos;
+
+    int pos = Sc_GlobalSearch->Position;
+    if (WheelDelta > 0) {
+      pos -= delta;
+    } else {
+      pos += delta;
+    }
+
+    if (pos < 0) {
+      pos = 0;
+    }
+    if (pos > Sc_GlobalSearch->Max) {
+      pos = Sc_GlobalSearch->Max;
+    }
+
+    Sc_GlobalSearch->Position = pos;
+    Handled = true;
+  } else if (browserTarget && Shift.Contains(ssShift)) {
+    ScrollBrowserWheel(Sc_X, m_nBrowserWheelRemainderX, WheelDelta, false);
+    Handled = true;
+  } else if (browserTarget) {
+    ScrollBrowserWheel(Sc_Y, m_nBrowserWheelRemainderY, WheelDelta, false);
     Handled = true;
   }
 }
+//---------------------------------------------------------------------------
+void __fastcall TFo_Main::WMMouseHWheel(TMessage &msg) {
+  TPoint mousePos((int)(short)LOWORD(msg.LParam),
+                  (int)(short)HIWORD(msg.LParam));
+  if (ShouldHandleBrowserWheel(mousePos)) {
+    ScrollBrowserWheel(Sc_X, m_nBrowserWheelRemainderX,
+                       GET_WHEEL_DELTA_WPARAM(msg.WParam), true);
+    msg.Result = 1;
+    return;
+  }
+
+  msg.Result = DefWindowProc(Handle, WM_MOUSEHWHEEL, msg.WParam, msg.LParam);
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TFo_Main::WMGesture(TMessage &msg) {
+  GESTUREINFO gestureInfo;
+  memset(&gestureInfo, 0, sizeof(gestureInfo));
+  gestureInfo.cbSize = sizeof(gestureInfo);
+
+  ::HGESTUREINFO gestureHandle =
+      reinterpret_cast<::HGESTUREINFO>(msg.LParam);
+  if (!::GetGestureInfo(gestureHandle, &gestureInfo)) {
+    msg.Result = DefWindowProc(Handle, WM_GESTURE, msg.WParam, msg.LParam);
+    return;
+  }
+
+  bool handled = false;
+  if (gestureInfo.dwID == GID_ZOOM) {
+    TPoint mousePos(gestureInfo.ptsLocation.x, gestureInfo.ptsLocation.y);
+    if (ShouldHandleBrowserWheel(mousePos)) {
+      if ((gestureInfo.dwFlags & GF_BEGIN) != 0) {
+        m_uGestureZoomBeginDistance = gestureInfo.ullArguments;
+        m_nGestureZoomBeginPos = TB_Zoom->Position;
+        handled = true;
+      } else if (m_uGestureZoomBeginDistance > 0 &&
+                 gestureInfo.ullArguments > 0) {
+        double scale =
+            (double)gestureInfo.ullArguments / m_uGestureZoomBeginDistance;
+        double zoomOffset = 2000.0 * log(scale) / log(2.0);
+        int delta =
+            zoomOffset >= 0.0 ? (int)(zoomOffset + 0.5) : (int)(zoomOffset - 0.5);
+        int pos = m_nGestureZoomBeginPos + delta;
+        TB_Zoom->Position = ClampValue(pos, TB_Zoom->Min, TB_Zoom->Max);
+        handled = true;
+      }
+
+      if ((gestureInfo.dwFlags & GF_END) != 0) {
+        m_uGestureZoomBeginDistance = 0;
+      }
+    }
+  }
+
+  if (handled) {
+    ::CloseGestureInfoHandle(gestureHandle);
+    msg.Result = 1;
+    return;
+  }
+
+  msg.Result = DefWindowProc(Handle, WM_GESTURE, msg.WParam, msg.LParam);
+}
+
 //---------------------------------------------------------------------------
 void __fastcall TFo_Main::ME_GPTClick(TObject *Sender) {
   int tag = ((TMenuItem *)Sender)->Tag;

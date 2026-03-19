@@ -336,6 +336,10 @@ __fastcall TFo_Main::TFo_Main(TComponent *Owner)
       m_bContinuousLoad(false),
       m_nCLFileAge(0), // Timestamp of file for continuous load
 
+      m_nBrowserWheelRemainderX(0), m_nBrowserWheelRemainderY(0),
+      m_nBrowserZoomWheelRemainder(0), m_nBrowserFontWheelRemainder(0),
+      m_uGestureZoomBeginDistance(0), m_nGestureZoomBeginPos(0),
+
       // Demo
       m_DemoStrings(NULL), m_nDemoIndex(0),
       // For consistency
@@ -369,6 +373,11 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
   TIniFile *FIni = new TIniFile(ExtractFilePath(ParamStr(0)) + "setting2.ini");
   Setting2Function.ReadFromIni(FIni);
   delete FIni;
+
+  MVF_DefaultSize->ShortCut = TextToShortCut("Ctrl+Shift+0");
+  MVF_Magnify->ShortCut = TextToShortCut("Ctrl+Shift+PgUp");
+  MVF_Reduce->ShortCut = TextToShortCut("Ctrl+Shift+PgDn");
+  ConfigureTouchGestures();
 
   m_Document = new TDocument();
   m_Document->GetCardByIndex(0)->m_bSelected = true;
@@ -925,10 +934,22 @@ void TFo_Main::SetEdTitleBPos() {
 }
 
 // ---------------------------------------------------------------------------
+void TFo_Main::ConfigureTouchGestures() {
+  GESTURECONFIG config;
+  memset(&config, 0, sizeof(config));
+  config.dwID = GID_ZOOM;
+  config.dwWant = GC_ZOOM;
+
+  if (HandleAllocated()) {
+    SetGestureConfig(Handle, 0, 1, &config, sizeof(config));
+  }
+}
+
+// ---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormShow(TObject *Sender) {
   // Language menu
   TStringList *SL = new TStringList();
-  FileListCreator(ExtractFileDir(ParamStr(0)), SL, ".lng", false);
+  FileListCreator(ExtractFilePath(ParamStr(0)) + "lng", SL, ".lng", false);
   for (int i = 0; i < SL->Count; i++) {
     TMenuItem *MI = new TMenuItem(MV_ChangeLanguage);
     // MI->Parent = MV_ChangeLanguage;
