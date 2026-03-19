@@ -4,7 +4,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include <IdURI.hpp>
+#include <System.NetEncoding.hpp>
 #include "fomain.h"
 #include "fomain_search.h"
 #include "foabout.h"
@@ -13,6 +13,23 @@
 #include "setting.h"
 
 #pragma package(smart_init)
+
+namespace {
+UnicodeString NormalizeWebSearchUrl(const UnicodeString &url) {
+  UnicodeString normalized = Trim(url);
+  if (normalized.IsEmpty()) {
+    return normalized;
+  }
+  if (normalized.Pos("://") == 0) {
+    if (normalized.Pos("//") == 1) {
+      normalized = "https:" + normalized;
+    } else {
+      normalized = "https://" + normalized;
+    }
+  }
+  return normalized;
+}
+} // namespace
 
 
 void TFo_Main::GlobalSearch(int SearchRequest) {
@@ -603,16 +620,23 @@ void __fastcall TFo_Main::ME_WebSearchClick(TObject *Sender) {
 
   TMenuItem *MI = (TMenuItem *)Sender;
 
-  WideString Key = GetSelText();
+  WideString Key = Trim(GetSelText());
+  UnicodeString SearchName = Setting2Function.m_WebSearch->Names[MI->Tag];
 
-  UnicodeString S = Setting2Function.m_WebSearch
-                        ->Values[Setting2Function.m_WebSearch->Names[MI->Tag]] +
-                    TIdURI::URLEncode(Key);
-  UnicodeString S2 = "";
-  ShellExecute(Handle, NULL, S.c_str(), S2.c_str(), NULL, SW_SHOW);
+  UnicodeString BaseUrl = Setting2Function.m_WebSearch->Values[SearchName];
+  UnicodeString Url = NormalizeWebSearchUrl(BaseUrl);
+  if (Url.IsEmpty()) {
+    return;
+  }
+  UnicodeString EncodedKey = TNetEncoding::URL->Encode(UnicodeString(Key));
+  Url += EncodedKey;
+
+  UnicodeString Params =
+      UnicodeString("url.dll,FileProtocolHandler \"") + Url + UnicodeString("\"");
+  ShellExecute(Handle, L"open", L"rundll32.exe", Params.c_str(), NULL, SW_SHOW);
 
   // Status bar update
-  SettingFile.m_WebSearch = Setting2Function.m_WebSearch->Names[MI->Tag];
+  SettingFile.m_WebSearch = SearchName;
   for (int i = 0; i < Setting2Function.m_WebSearch->Count; i++) {
     TMenuItem *MI = (TMenuItem *)MI_WebSearch->Items[i];
     if (SettingFile.m_WebSearch ==
