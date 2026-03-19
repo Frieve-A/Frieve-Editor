@@ -2128,6 +2128,7 @@ object Fo_Main: TFo_Main
       object ME_ReadAloud: TMenuItem
         Caption = 'Read Aloud'
         ShortCut = 49184
+        OnClick = ME_ReadAloudClick
       end
       object N5: TMenuItem
         Caption = '-'
@@ -2731,22 +2732,40 @@ object Fo_Main: TFo_Main
       end
       object MS_ReadAloudRate: TMenuItem
         Caption = '&Read Aloud Rate'
-        object MSR_Fast: TMenuItem
-          Tag = 10
-          Caption = 'Fast'
+        object MSR_Slow: TMenuItem
+          Tag = -10
+          Caption = '-10'
           GroupIndex = 1
+          OnClick = MSR_ReadSpeedClick
+          RadioItem = True
+        end
+        object MSR_075x: TMenuItem
+          Tag = -5
+          Caption = '-5'
+          GroupIndex = 1
+          OnClick = MSR_ReadSpeedClick
           RadioItem = True
         end
         object MSR_Normal: TMenuItem
-          Tag = 5
-          Caption = 'Normal'
+          Tag = 0
+          Caption = '0'
           Checked = True
           GroupIndex = 1
+          OnClick = MSR_ReadSpeedClick
           RadioItem = True
         end
-        object MSR_Slow: TMenuItem
-          Caption = 'Slow'
+        object MSR_15x: TMenuItem
+          Tag = 5
+          Caption = '5'
           GroupIndex = 1
+          OnClick = MSR_ReadSpeedClick
+          RadioItem = True
+        end
+        object MSR_Fast: TMenuItem
+          Tag = 10
+          Caption = '10'
+          GroupIndex = 1
+          OnClick = MSR_ReadSpeedClick
           RadioItem = True
         end
         object MVR_Read: TMenuItem

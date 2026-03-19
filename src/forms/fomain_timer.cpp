@@ -502,6 +502,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
           Ed_Title->Tag = 1;
           Ed_Title->Text = Card->m_Title;
           Ed_Title->Tag = 0;
+          SpeakCardTitle(Card);
         }
         UnicodeString TB = DecodeES(Card->m_Title, "\r\n");
         if (Ed_TitleB->Text != TB) {
@@ -574,6 +575,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
     int nDrawingTool = m_Drawing->m_nTool;
 
     if (m_nCurrentCard == -1) {
+      StopSpeech();
       Pa_Editor->Visible = false;
       Ed_Title->Tag = 1;
       Ed_Title->Text = "";
@@ -627,6 +629,7 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
 
           Ed_Title->Tag = 0;
         }
+        SpeakCardTitle(Card, true);
         // Label update
         RefreshLabel();
 
@@ -1752,6 +1755,35 @@ void __fastcall TFo_Main::Ti_CheckTimer(TObject *Sender) {
   }
   if (MVS_TextLength->Checked != (SettingView.m_ScoreType == 7)) {
     MVS_TextLength->Checked = (SettingView.m_ScoreType == 7);
+  }
+
+  // View->Read aloud
+  if (MVR_Read->Visible != true) {
+    MVR_Read->Visible = true;
+  }
+  if (MVR_Read->Checked != SettingView.m_bRead) {
+    MVR_Read->Checked = SettingView.m_bRead;
+  }
+  if (MSR_Fast->Checked != (SettingView.m_nReadSpeed == MSR_Fast->Tag)) {
+    MSR_Fast->Checked = (SettingView.m_nReadSpeed == MSR_Fast->Tag);
+  }
+  if (MSR_15x->Checked != (SettingView.m_nReadSpeed == MSR_15x->Tag)) {
+    MSR_15x->Checked = (SettingView.m_nReadSpeed == MSR_15x->Tag);
+  }
+  if (MSR_Normal->Checked != (SettingView.m_nReadSpeed == MSR_Normal->Tag)) {
+    MSR_Normal->Checked = (SettingView.m_nReadSpeed == MSR_Normal->Tag);
+  }
+  if (MSR_075x->Checked != (SettingView.m_nReadSpeed == MSR_075x->Tag)) {
+    MSR_075x->Checked = (SettingView.m_nReadSpeed == MSR_075x->Tag);
+  }
+  if (MSR_Slow->Checked != (SettingView.m_nReadSpeed == MSR_Slow->Tag)) {
+    MSR_Slow->Checked = (SettingView.m_nReadSpeed == MSR_Slow->Tag);
+  }
+  if (MVR_ReadSetting->Visible != false) {
+    MVR_ReadSetting->Visible = false;
+  }
+  if (MVR_ChangeAgent->Visible != false) {
+    MVR_ChangeAgent->Visible = false;
   }
 
   // View->Others

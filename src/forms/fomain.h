@@ -23,6 +23,7 @@
 #include <XPMan.hpp>
 // #include "dsdecoder.h"
 #include "drawing.h"
+#include "SpeechLib_TLB.h"
 #include <System.ImageList.hpp>
 #include <Vcl.WinXCtrls.hpp>
 // #include "C:\My Documents\RAD Studio\5.0\Imports\HTTSLib_OCX.h"
@@ -289,6 +290,12 @@ __published: // IDE-managed components
   TMenuItem *MV_Score;
   TMenuItem *N17;
   TMenuItem *MV_Read;
+  TMenuItem *MS_ReadAloudRate;
+  TMenuItem *MSR_Fast;
+  TMenuItem *MSR_075x;
+  TMenuItem *MSR_15x;
+  TMenuItem *MSR_Normal;
+  TMenuItem *MSR_Slow;
   TMenuItem *MVR_Read;
   TMenuItem *MVR_ReadSetting;
   TOpenDialog *OD_ACS;
@@ -447,6 +454,7 @@ __published: // IDE-managed components
   TMenuItem *MVO_FileList;
   TMenuItem *N46;
   TMenuItem *ME_WebSearch;
+  TMenuItem *ME_ReadAloud;
   TMenuItem *N12;
   TMenuItem *PBC_WebSearch;
   TMenuItem *N47;
@@ -702,6 +710,8 @@ __published: // IDE-managed components
   void __fastcall MDS_ScoreClick(TObject *Sender);
   void __fastcall MVC_ImageClick(TObject *Sender);
   void __fastcall MVI_ImageLimitationClick(TObject *Sender);
+  void __fastcall MSR_ReadSpeedClick(TObject *Sender);
+  void __fastcall ME_ReadAloudClick(TObject *Sender);
   void __fastcall MVR_ReadClick(TObject *Sender);
   void __fastcall MVR_ReadSettingClick(TObject *Sender);
   void __fastcall MVR_ChangeAgentClick(TObject *Sender);
@@ -1205,14 +1215,18 @@ public:
   TList *m_StatisticsRectToCard; // Cards shown on range selection
 
   void ClearStatisticsRectToCard();
-  /*
   // Text-to-speech
-  TAgent *m_Agent;
-  IAgentCtlCharacter *m_AgentChar;
-  TDirectSS *m_TTS;
-  void LoadAgent();
-  void UnloadAgent();
-  */
+  Speechlib_tlb::ISpVoice *m_SpeechVoice;
+  bool m_bSpeechInitTried;
+  bool m_bSpeechAvailable;
+  int m_nSpokenCardID;
+  UnicodeString m_SpokenTitle;
+
+  bool InitializeSpeech();
+  void ShutdownSpeech();
+  void StopSpeech();
+  void UpdateSpeechRate();
+  void SpeakCardTitle(TCard *Card, bool force = false);
   // File drop
   BEGIN_MESSAGE_MAP VCL_MESSAGE_HANDLER(WM_DROPFILES, TWMDropFiles, WMDropFiles)
       // VCL_MESSAGE_HANDLER(WM_ERASEBKGND, TWMEraseBkgnd, WMEraseBkgnd)

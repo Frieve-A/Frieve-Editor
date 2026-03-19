@@ -141,7 +141,7 @@ TSettingView::TSettingView() {
   m_ScoreType = 0;
 
   m_bRead = false;
-  m_nReadSpeed = 5;
+  m_nReadSpeed = 0;
   m_ReadAgentFile = "";
 
   m_nFourgroundColor = 0x000000;

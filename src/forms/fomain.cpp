@@ -10,6 +10,7 @@
 #include <Vcl.filectrl.hpp>
 #include <clipbrd.hpp>
 #include <math.h>
+#include <objbase.h>
 #include <printers.hpp>
 #include <stdio.h>
 
@@ -54,6 +55,41 @@
 TFo_Main *Fo_Main;
 
 #define float_ double
+
+namespace {
+const unsigned long kSpeechSpeakAsync = 1;
+const unsigned long kSpeechPurgeBeforeSpeak = 2;
+
+int NormalizeSpeechRateSetting(int value) {
+  switch (value) {
+  case -10:
+  case -5:
+  case 0:
+  case 5:
+  case 10:
+    return value;
+  default:
+    return 0;
+  }
+}
+
+int SpeechRatePercentToSapiRate(int value) {
+  switch (NormalizeSpeechRateSetting(value)) {
+  case -10:
+    return -10;
+  case -5:
+    return -5;
+  case 0:
+    return 0;
+  case 5:
+    return 5;
+  case 10:
+    return 10;
+  default:
+    return 0;
+  }
+}
+}
 
 // ---------------------------------------------------------------------------
 TCardImage::TCardImage(UnicodeString FN)
@@ -292,6 +328,10 @@ __fastcall TFo_Main::TFo_Main(TComponent *Owner)
       m_fStatisticsPos(0.0),        // Smooth graph rise factor (0.0~1.0)
       m_StatisticsRectToCard(NULL), // Cards to show on range selection
 
+      // Text-to-speech
+      m_SpeechVoice(NULL), m_bSpeechInitTried(false), m_bSpeechAvailable(false),
+      m_nSpokenCardID(-1), m_SpokenTitle(""),
+
       // Continuous load (reload when edited file changes)
       m_bContinuousLoad(false),
       m_nCLFileAge(0), // Timestamp of file for continuous load
@@ -323,6 +363,8 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
   Ini = new TIniFile(ExtractFilePath(ParamStr(0)) + "setting.ini");
   SettingFile.ReadFromIni(Ini, "File");
   SettingView.ReadFromIni(Ini, "View");
+  SettingView.m_nReadSpeed =
+      NormalizeSpeechRateSetting(SettingView.m_nReadSpeed);
 
   TIniFile *FIni = new TIniFile(ExtractFilePath(ParamStr(0)) + "setting2.ini");
   Setting2Function.ReadFromIni(FIni);
@@ -569,7 +611,97 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
 }
 
 // ---------------------------------------------------------------------------
+bool TFo_Main::InitializeSpeech() {
+  if (m_SpeechVoice) {
+    return true;
+  }
+  if (m_bSpeechInitTried && !m_bSpeechAvailable) {
+    return false;
+  }
+
+  m_bSpeechInitTried = true;
+  m_bSpeechAvailable = false;
+
+  HRESULT hr =
+      CoCreateInstance(Speechlib_tlb::CLSID_SpVoice, NULL, CLSCTX_ALL,
+                       Speechlib_tlb::IID_ISpVoice,
+                       reinterpret_cast<void **>(&m_SpeechVoice));
+  if (FAILED(hr) || !m_SpeechVoice) {
+    m_SpeechVoice = NULL;
+    return false;
+  }
+
+  m_bSpeechAvailable = true;
+  m_SpeechVoice->SetVolume(100);
+  UpdateSpeechRate();
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::ShutdownSpeech() {
+  StopSpeech();
+  if (m_SpeechVoice) {
+    m_SpeechVoice->Release();
+    m_SpeechVoice = NULL;
+  }
+  m_bSpeechAvailable = false;
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::StopSpeech() {
+  if (m_SpeechVoice) {
+    UnicodeString EmptyText;
+    m_SpeechVoice->Speak(const_cast<LPWSTR>(EmptyText.c_str()),
+                         kSpeechSpeakAsync | kSpeechPurgeBeforeSpeak, NULL);
+  }
+  m_nSpokenCardID = -1;
+  m_SpokenTitle = "";
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::UpdateSpeechRate() {
+  if (!m_SpeechVoice) {
+    return;
+  }
+
+  SettingView.m_nReadSpeed =
+      NormalizeSpeechRateSetting(SettingView.m_nReadSpeed);
+  m_SpeechVoice->SetRate(SpeechRatePercentToSapiRate(SettingView.m_nReadSpeed));
+}
+
+// ---------------------------------------------------------------------------
+void TFo_Main::SpeakCardTitle(TCard *Card, bool force) {
+  if (!SettingView.m_bRead) {
+    StopSpeech();
+    return;
+  }
+  if (!Card) {
+    StopSpeech();
+    return;
+  }
+  if (!InitializeSpeech()) {
+    return;
+  }
+
+  UnicodeString Title = DecodeES(Card->m_Title, "\r\n");
+  if (!force && m_nSpokenCardID == Card->m_nID && m_SpokenTitle == Title) {
+    return;
+  }
+
+  UpdateSpeechRate();
+  if (SUCCEEDED(m_SpeechVoice->Speak(const_cast<LPWSTR>(Title.c_str()),
+                                     kSpeechSpeakAsync |
+                                         kSpeechPurgeBeforeSpeak,
+                                     NULL))) {
+    m_nSpokenCardID = Card->m_nID;
+    m_SpokenTitle = Title;
+  }
+}
+
+// ---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormDestroy(TObject *Sender) {
+  ShutdownSpeech();
+
   delete m_DemoStrings;
 
   if (m_DocBeforeAnimation) {
@@ -2328,15 +2460,64 @@ void __fastcall TFo_Main::MVI_ImageLimitationClick(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
+void __fastcall TFo_Main::MSR_ReadSpeedClick(TObject *Sender) {
+  TMenuItem *MI = (TMenuItem *)Sender;
+  SettingView.m_nReadSpeed = NormalizeSpeechRateSetting(MI->Tag);
+  UpdateSpeechRate();
+
+  if (SettingView.m_bRead) {
+    SpeakCardTitle(m_Document->GetCard(m_nTargetCard), true);
+  }
+}
+// ---------------------------------------------------------------------------
+
 void __fastcall TFo_Main::MVR_ReadClick(TObject *Sender) {
   SettingView.m_bRead = !SettingView.m_bRead;
+  if (SettingView.m_bRead) {
+    if (!InitializeSpeech()) {
+      SettingView.m_bRead = false;
+      Application->MessageBox(L"Text-to-speech is not available on this system.",
+                              UnicodeString(AppTitle).c_str(),
+                              MB_OK | MB_ICONWARNING);
+      return;
+    }
+    SpeakCardTitle(m_Document->GetCard(m_nTargetCard), true);
+  } else {
+    StopSpeech();
+  }
+}
+// ---------------------------------------------------------------------------
+
+void __fastcall TFo_Main::ME_ReadAloudClick(TObject *Sender) {
+  UnicodeString Text = DecodeES(GetSelText(), "\r\n").Trim();
+  if (Text.IsEmpty()) {
+    return;
+  }
+
+  if (!InitializeSpeech()) {
+    Application->MessageBox(L"Text-to-speech is not available on this system.",
+                            UnicodeString(AppTitle).c_str(),
+                            MB_OK | MB_ICONWARNING);
+    return;
+  }
+
+  UpdateSpeechRate();
+  if (SUCCEEDED(m_SpeechVoice->Speak(const_cast<LPWSTR>(Text.c_str()),
+                                     kSpeechSpeakAsync |
+                                         kSpeechPurgeBeforeSpeak,
+                                     NULL))) {
+    m_nSpokenCardID = -1;
+    m_SpokenTitle = Text;
+  }
 }
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MVR_ReadSettingClick(TObject *Sender) {}
 // ---------------------------------------------------------------------------
 
-void __fastcall TFo_Main::MVR_ChangeAgentClick(TObject *Sender) {}
+void __fastcall TFo_Main::MVR_ChangeAgentClick(TObject *Sender) {
+  MVR_ReadSettingClick(Sender);
+}
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MVT_WordWrapClick(TObject *Sender) {
