@@ -1,4 +1,4 @@
-﻿[Global]
+[Global]
 DefaultView=1
 ReadOnly=1
 Version=8
@@ -379,7 +379,7 @@ Basic Features
   with a certain label. Combined with automatic arrangement based on linked cards being
   placed close together, this makes it easy to reorganize cards while focusing on a
   particular kind of relationship.
-278
+279
 Title: Version History
 Label:1
 Fixed:0
@@ -397,6 +397,7 @@ Version History
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Changed the default file format to the AI-friendly fip2 format.
   Added Auto Save / Auto Reload functionality.
   Improved wheel and gesture operations (wheel = scroll, Ctrl+wheel = zoom,
   Ctrl+Shift+wheel = font size, pinch = zoom).
