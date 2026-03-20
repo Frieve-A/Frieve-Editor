@@ -367,7 +367,7 @@ Basic Features
 
 - Labels
   Frieve Editor lets you assign labels to both cards and links.
-  By default, three labels are defined: Probrem (Problem), Solution, and Result,
+  By default, three labels are defined: Problem, Solution, and Result,
   but labels can be edited freely.
 
   Assigning labels to cards helps you organize them efficiently. For example, you can
@@ -379,7 +379,7 @@ Basic Features
   with a certain label. Combined with automatic arrangement based on linked cards being
   placed close together, this makes it easy to reorganize cards while focusing on a
   particular kind of relationship.
-277
+278
 Title: Version History
 Label:1
 Fixed:0
@@ -487,7 +487,7 @@ Version History
   Also made several small bug fixes and improvements.
 
 - 1.21 (2007/12/01)
-  Added hierarchical auto-arrangement (Tree(Radian); requires a root card).
+  Added hierarchical auto-arrangement (Tree (Radial); requires a root card).
   Added a file list for quickly opening files (move the mouse to the left side of
   the screen).
   Added Random Jump and Random Map animations.
@@ -573,7 +573,8 @@ Version History
   Added arrangement by title/body similarity (Similarity).
   Added Normalize, which zooms the layout so cards fit on screen.
   Added support for various score types (View menu -> Score).
-  Added read-aloud for card titles (requires Microsoft Agent).
+  Added read-aloud for card titles (at the time, Microsoft Agent; the current app uses
+  Windows speech synthesis / SAPI).
   Added case-insensitive search (leave Match Case unchecked).
   Fixed a bug where shortcut keys could not be used in the search dialog.
   Fixed an issue where an error could occur right after startup.
@@ -713,7 +714,7 @@ Q. Can Frieve Editor be started from a USB memory device or similar media?
 
 A. Copy every file from the Frieve Editor installation folder
 (normally c:\Program Files\Frieve Editor\) to the USB memory device.
-You can then use Frieve Editor by running editor.exe there.
+You can then use Frieve Editor by running feditor.exe there.
 Frieve Editor does not use the registry.
 
 
@@ -1630,7 +1631,7 @@ How to Remove or Change a Link Label
 1. Select the link whose labels you want to edit.
 2. Click the label button you want to remove or change among the buttons to the
    right of Label on the Link panel.
-3. Choose the label to assign to the card from the popup menu that appears.
+3. Choose the label to assign to the link from the popup menu that appears.
    If you choose No Label here, the label is removed.
 18
 Title: How to Reverse Link Direction
@@ -2186,7 +2187,7 @@ How to Choose Which Cards and Links Are Shown in the Browser
    Near shows cards with dates close to the currently selected card, Older shows cards
    that are older than the selected card and close in date, and Newer shows cards that
    are newer than the selected card and close in date.
-2. Use the slider to the right of Date Limitation to specify the strength of the restriction.
+4. Use the slider to the right of Date Limitation to specify the strength of the restriction.
    With Old, the oldest cards are shown when the slider is at the left, and newer cards
    are added as you move it right.
    With New, the newest cards are shown when the slider is at the right, and older cards
@@ -2617,7 +2618,7 @@ Open
 Save
   Overwrites the current project.
 
-SaveAs
+Save As
   Saves the current project with a new name.
 
 Auto Save (This File)
@@ -2673,7 +2674,7 @@ Print Image
 
 Exit
   Exits Frieve Editor.
-69
+72
 Title: Edit Menu
 Label:7
 Fixed:0
@@ -2728,11 +2729,14 @@ Find Previous
 Web Search
   Searches the web using the selected card title or selected text.
 
+Read Aloud
+  Reads the selected text in the Editor using Windows speech synthesis (SAPI).
+
 
 Sort Card
   Sorts cards by card name or date.
 
-Barch Conversion
+Batch Conversion
   All Cards Shape batch-converts all cards to the specified shape.
   All Links Shape batch-converts all links to the specified shape.
   All Links Direction reverses the direction of all links.
@@ -2816,7 +2820,7 @@ Random Jump
 
 Random Trace
   Runs an animation that follows links at random.
-111
+107
 Title: View Menu
 Label:7
 Fixed:0
@@ -2888,16 +2892,11 @@ Score
   Text Length uses the length of the body text.
 
 Read Aloud
-  Read Aloud toggles reading card titles aloud on or off.
+  Toggles read-aloud for card titles on or off.
 
-Note: Microsoft Agent must be installed to read card titles aloud.
-      This menu is not shown in environments where Microsoft Agent or the related
-      speech components are not installed.
-
-Note: Microsoft Agent is distributed free of charge by Microsoft, but its download
-      addresses and required files appear to change frequently.
-      If you need the read-aloud feature, please rely on information on the web and
-      install the necessary files.
+Note: Card title read-aloud uses Windows speech synthesis (SAPI / Text-to-Speech).
+      If speech is not available in the environment, a warning is shown when you try
+      to enable it and the option turns off.
 
 Others
   Changes other display-related settings.
@@ -2905,7 +2904,7 @@ Others
   File List toggles the file list shown when the mouse is moved to the left side
   of the screen on or off.
   Overview toggles the overview display at the lower right of the Browser on or off.
-  FourgroundColor changes the foreground color, and BackgroundColor changes the background color.
+  ForegroundColor changes the foreground color, and BackgroundColor changes the background color.
   Wallpaper specifies a wallpaper. To clear the wallpaper, choose Wallpaper again.
   Fix Wallpaper fixes the wallpaper to fill the screen.
   Tile Wallpaper tiles the wallpaper across the whole Browser area.
@@ -2917,9 +2916,10 @@ Others
   2x performs anti-aliasing at twice the vertical and horizontal resolution, and 4x uses four times.
 
 Change Language
-  Changes the menu language (currently English and Japanese are supported).
-  To support other languages, place a .lng file in the Frieve Editor folder
-  (text-file format; see Japanese.lng for the format).
+  Changes the menu language (multiple languages are supported; see the bundled .lng files).
+  To add or replace a language, place a .lng file in the Frieve Editor folder
+  (text-file format; see Japanese.lng for the format). Language-specific help uses
+  help_<language>.fip when available.
 
 
 Full Screen

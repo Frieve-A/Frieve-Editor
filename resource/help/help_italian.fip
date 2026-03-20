@@ -231,7 +231,7 @@ Grazie per aver scaricato Frieve Editor.
 Frieve Editor è un nuovo tipo di editor pensato per organizzare i propri pensieri
 e stimolare idee originali.
 
-Per consultare questa guida, selezionare l'argomento desiderato dalla lista Cards
+Per consultare questa guida, selezionare l'argomento desiderato dall'elenco delle carte
 sul lato sinistro dello schermo.
 È inoltre possibile seguire i collegamenti nella parte inferiore dello schermo per accedere agli articoli correlati.
 15
@@ -371,8 +371,8 @@ Funzionalità di base
 
 - Etichette
   Frieve Editor consente di assegnare etichette sia alle carte sia ai collegamenti.
-  Per impostazione predefinita sono definite tre etichette: Probrem (Problema), Solution
-  (Soluzione) e Result (Risultato), ma le etichette possono essere modificate liberamente.
+  Per impostazione predefinita sono definite tre etichette: Problema, Soluzione e Risultato,
+  ma le etichette possono essere modificate liberamente.
 
   Assegnare etichette alle carte ne facilita l'organizzazione. Ad esempio, è possibile
   disporre automaticamente le carte in modo che quelle con la stessa etichetta siano
@@ -431,31 +431,31 @@ Cronologia delle versioni
   Il salvataggio di un file ora memorizza le coordinate e le varie impostazioni correnti;
   il caricamento le ripristina.
   Aggiunti i collegamenti curvi.
-  Aggiunto HierarchicalText nel menu File -> Export.
+  Aggiunto Testo gerarchico nel menu File -> Esporta.
   Aggiunta la sostituzione di stringhe per nomi di carte e corpo del testo
-  (menu Edit -> Replace, Ctrl+R).
+  (menu Modifica -> Sostituisci, Ctrl+R).
   I collegamenti selezionati ora lampeggiano.
   I collegamenti correlati alla carta corrente vengono ora evidenziati.
   Cambiata la scorciatoia per la modifica del titolo di una carta da Ctrl+T a F2.
   Localizzati alcuni messaggi non ancora tradotti in giapponese.
-  Corretto un bug nella scheda Statistics in cui il giorno della settimana poteva
+  Corretto un bug nella scheda Stat. in cui il giorno della settimana poteva
   risultare sfasato.
   Corretto un bug che causava un errore durante la modifica del corpo del testo a destra
   o in basso nel Browser.
   Corretto un bug per cui l'uso di linee tratteggiate poteva causare un errore.
-  Corretta una perdita di memoria durante la visualizzazione della scheda Statistics.
+  Corretta una perdita di memoria durante la visualizzazione della scheda Stat..
   Corretta una perdita di memoria durante l'uso della disposizione automatica
-  Tree (Radial).
+  Albero (radiale).
 
 - 1.30 (2008/06/15)
-  Aggiunta la possibilità di inserire disegni semplici nelle carte (scheda Drawing).
+  Aggiunta la possibilità di inserire disegni semplici nelle carte (scheda Disegno).
   Aggiunta la visualizzazione di grafici statistici come il conteggio delle etichette
-  (scheda Statistics).
+  (scheda Stat.).
   Aggiunta una funzione per collegare tutte le carte con un'etichetta specificata
-  (menu Insert).
+  (menu Inserisci).
   Aggiunta una funzione per aggiungere un'etichetta specificata a tutte le carte di
-  destinazione (menu Insert).
-  Localizzazione in giapponese di tutte le finestre (menu View -> Language).
+  destinazione (menu Inserisci).
+  Localizzazione in giapponese di tutte le finestre (menu Visualizza -> Language).
   La barra di stato ora mostra il numero di carte selezionate.
   Apportati inoltre diversi piccoli miglioramenti e correzioni di bug.
 
@@ -465,7 +465,7 @@ Cronologia delle versioni
   La selezione corrente viene ora utilizzata come chiave di ricerca.
   La cronologia delle parole chiave di ricerca viene ora salvata.
   Aggiunto lo zoom con i tasti Page Up e Page Down.
-  Selezionando un collegamento nella lista dei collegamenti ora si sposta il Related Text.
+  Selezionando un collegamento nella lista dei collegamenti ora si sposta il Testo rel..
   Migliorata la posizione iniziale di carte figlie e carte sorelle quando la disposizione
   automatica è disattivata.
   L'editor del corpo del testo visualizzato a destra o in basso nel Browser è ora
@@ -486,18 +486,18 @@ Cronologia delle versioni
   Aggiunta la ricerca su internet tramite testo selezionato o titolo della carta.
   Aggiunto il supporto per l'inserimento di collegamenti esterni tramite trascinamento
   e la creazione di carte con collegamenti esterni.
-  Aggiunto Matrix (Index), che dispone le carte ordinatamente secondo il loro ordine.
-  Aggiunta la funzione Trova precedente (menu Edit -> Find Previous, Shift+F3).
+  Aggiunto Matrice (Ordine), che dispone le carte ordinatamente secondo il loro ordine.
+  Aggiunta la funzione Trova precedente (menu Modifica -> Trova precedente, Shift+F3).
   La scheda Editor ora può visualizzare il corpo del testo delle carte collegate
-  (Related Text).
+  (Testo rel.).
   È ora possibile tagliare testo dal corpo e creare una carta collegata dalla carta
   selezionata.
   Aggiunto il supporto per l'importazione di testo con gerarchia rappresentata da punti
-  (menu File -> Import).
-  Aggiunto Text Length alla visualizzazione del punteggio.
-  Aggiunte le animazioni di sfondo Snow e Cherry Blossom.
+  (menu File -> Importa).
+  Aggiunto Lunghezza del corpo alla visualizzazione del punteggio.
+  Aggiunte le animazioni di sfondo Neve e Fiori di ciliegio.
   La selezione di una carta ora provoca uno scorrimento immediato per impostazione
-  predefinita (modificabile da menu View -> Others).
+  predefinita (modificabile da menu Visualizza -> Altro).
   Corretto un bug per cui F3 poteva cercare solo i titoli delle carte.
   Corretta un'anomalia per cui la dimensione iniziale della lista dei collegamenti
   sotto l'editor era 0.
@@ -507,29 +507,29 @@ Cronologia delle versioni
   Apportate inoltre diverse piccole correzioni e miglioramenti.
 
 - 1.21 (2007/12/01)
-  Aggiunta la disposizione automatica gerarchica (Tree(Radian); richiede la designazione
+  Aggiunta la disposizione automatica gerarchica (Albero(Radian); richiede la designazione
   di una carta radice).
   Aggiunta una lista di file per aprire rapidamente i file (spostare il mouse sul lato
   sinistro dello schermo).
-  Aggiunte le animazioni Random Jump e Random Map.
-  Aggiunta la conversione in blocco della direzione dei collegamenti (menu Edit ->
-  Batch Conversion).
-  La visibilità della lista delle carte è ora configurabile (menu View -> Others).
+  Aggiunte le animazioni Salto casuale e Mappa casuale.
+  Aggiunta la conversione in blocco della direzione dei collegamenti (menu Modifica ->
+  Modifica in blocco).
+  La visibilità della lista delle carte è ora configurabile (menu Visualizza -> Altro).
   La larghezza della lista delle carte e le impostazioni correlate vengono ora salvate
   alla chiusura del programma.
   Aggiunto il supporto per specificare la posizione di riproduzione dei video
   (posizioneinizio(ms)-posizionefine(ms)| prima del nome del file).
-  L'animazione del cursore può ora essere attivata e disattivata (menu View -> Others).
+  L'animazione del cursore può ora essere attivata e disattivata (menu Visualizza -> Altro).
   Corretto un bug per cui il doppio clic su un collegamento sotto la scheda Editor non lo
   seguiva.
   Corretto un bug per cui non era possibile modificare i titoli nel Browser con l'editor
   sempre visibile.
-  Corretto un bug per cui lo spostamento delle carte con il cursore annullava l'AutoZoom.
+  Corretto un bug per cui lo spostamento delle carte con il cursore annullava lo Zoom auto.
   Corretto un bug per cui le carte nascoste potevano essere selezionate con la selezione
   per area.
-  Corretto un bug per cui non era possibile passare alla modalità Full Screen durante
+  Corretto un bug per cui non era possibile passare alla modalità Schermo intero durante
   le animazioni.
-  Corretto un bug per cui il trascinamento sull'Overview non funzionava con l'anti-aliasing
+  Corretto un bug per cui il trascinamento sulla Panoramica non funzionava con l'antialiasing
   attivato.
   Corretto un bug per cui premere Ctrl+E durante la modifica del titolo di una carta nel
   Browser causava un errore.
@@ -537,13 +537,13 @@ Cronologia delle versioni
   Apportate inoltre diverse piccole correzioni e miglioramenti.
 
 - 1.20 (2007/11/04)
-  Aggiunti Undo e Redo per un massimo di 10 operazioni di modifica.
+  Aggiunti Annulla e Ripristina per un massimo di 10 operazioni di modifica.
   Aggiunta la selezione multipla di carte.
   Aggiunti taglia, copia e incolla per le carte.
-  Aggiunta la modifica del corpo del testo nella schermata del Browser (menu View -> Text).
+  Aggiunta la modifica del corpo del testo nella schermata del Browser (menu Visualizza -> Testo del corpo).
   Aggiunta la ricerca limitata alle carte attualmente visibili.
   La carta corrente è ora contrassegnata con un cursore visibile.
-  Aggiunta l'animazione di sfondo (menu View -> Others).
+  Aggiunta l'animazione di sfondo (menu Visualizza -> Altro).
   Aggiunta la localizzazione in giapponese per i menu a comparsa.
   Cambiata l'apertura dei collegamenti esterni da Ctrl+clic a Ctrl+Shift+clic.
   Apportate inoltre diverse piccole correzioni e miglioramenti.
@@ -552,7 +552,7 @@ Cronologia delle versioni
   Aggiunti vari comandi di modifica al menu contestuale del Browser.
   Lo stile dei collegamenti può ora essere modificato.
   Aggiunta la conversione in blocco di tutte le forme delle carte e dei collegamenti
-  (Edit -> Change Shape).
+  (Modifica -> Modifica in blocco).
   Aggiunte le impostazioni predefinite per dimensione, forma e posizione fissa di carte
   e collegamenti.
   Aggiunta la visualizzazione a scorrimento (ticker) delle prime righe del corpo del testo
@@ -563,39 +563,39 @@ Cronologia delle versioni
   Aggiunto il supporto per la visualizzazione di video all'interno delle carte
   (inserire un nome di file o URL nel corpo).
   Aggiunto il supporto per l'importazione di testo gerarchico e file di testo in cartelle
-  (menu File -> Import).
+  (menu File -> Importa).
   Aggiunta l'esportazione delle immagini del Browser in formato BMP e JPEG
-  (menu File -> Export).
-  Aggiunto il supporto per la copia di vari dati negli appunti (menu File -> Export).
-  Aggiunto l'anti-aliasing per la visualizzazione del Browser (menu View -> Others).
+  (menu File -> Esporta).
+  Aggiunto il supporto per la copia di vari dati negli appunti (menu File -> Esporta).
+  Aggiunto l'antialiasing per la visualizzazione del Browser (menu Visualizza -> Altro).
   Inclusi sfondi di esempio nella cartella wallpaper all'interno della cartella di
   installazione.
   Aggiunte varie funzionalità di modifica in modalità a schermo intero (spostare il mouse
   nella parte superiore dello schermo).
-  Corretto un bug per cui il LinkLabel di alcuni file non veniva caricato correttamente.
+  Corretto un bug per cui l'etichetta link di alcuni file non veniva caricata correttamente.
   Corretto un bug per cui le carte esagonali non venivano disegnate correttamente.
   Corretto un bug per cui il doppio clic su una carta a schermo intero causava un errore.
   Apportate inoltre diverse piccole correzioni e miglioramenti.
 
 - 1.12 (2007/10/01)
-  Corretto un bug per cui l'aggiunta di una carta con Arrange ON e Zoom attivi causava
+  Corretto un bug per cui l'aggiunta di una carta con Auto ON e Zoom attivi causava
   un errore.
   Apportate inoltre alcune piccole correzioni.
 
 - 1.11 (2007/09/30)
   Aggiunta la posizione fissa delle carte (pulsante puntina).
-  Aggiunto Arrange (Matrix), che dispone le carte ordinatamente in una griglia.
+  Aggiunta la disposizione automatica (Matrice), che dispone le carte ordinatamente in una griglia.
   Aggiunta una panoramica dell'intero layout nell'angolo inferiore destro del Browser.
   Le carte possono ora essere spostate con i tasti cursore nel Browser.
-  Aggiunta la Link Limitation che mostra solo le carte collegate in direzione inversa.
-  Aggiunta la Link Limitation che mostra i collegamenti tra la carta corrente e la
+  Aggiunta la Limita visualizzazione per link che mostra solo le carte collegate in direzione inversa.
+  Aggiunta la Limita visualizzazione per link che mostra i collegamenti tra la carta corrente e la
   destinazione.
   Aggiunta una nuova forma per le carte che disegna una piccola figura al centro e
   scava il testo.
   Oltre ai cerchi, ora è possibile disegnare rettangoli attorno alle carte con la stessa
   etichetta.
-  Il tipo di carattere può ora essere cambiato (menu View -> Font -> Change Font).
-  È ora possibile specificare uno sfondo per la schermata del Browser (menu View -> Others).
+  Il tipo di carattere può ora essere cambiato (menu Visualizza -> Carattere -> Cambia carattere).
+  È ora possibile specificare uno sfondo per la schermata del Browser (menu Visualizza -> Altro).
   Aggiunte le modalità di disposizione Soft che danno priorità alla prevenzione delle
   sovrapposizioni.
   La disposizione automatica delle carte prosegue ora anche durante il trascinamento.
@@ -608,33 +608,33 @@ Cronologia delle versioni
   Apportate inoltre diverse piccole correzioni e miglioramenti.
 
 - 1.10 (2007/09/01)
-  Aggiunta un'impostazione per il ritorno a capo automatico tramite menu View -> Text ->
-  WordWrap.
+  Aggiunta un'impostazione per il ritorno a capo automatico tramite menu Visualizza -> Testo del corpo ->
+  A capo al bordo destro.
   I titoli delle carte possono ora contenere interruzioni di riga utilizzando \n o
   Ctrl+Invio nel Browser.
-  Aggiunta la disposizione per similarità di titolo e corpo del testo (Similarity).
-  Aggiunto Normalize, che adatta lo zoom affinché le carte rientrino nello schermo.
-  Aggiunto il supporto per vari tipi di punteggio (menu View -> Score).
-  Aggiunta la lettura ad alta voce dei titoli delle carte (richiede Microsoft Agent).
+  Aggiunta la disposizione per similarità di titolo e corpo del testo (Somiglianza).
+  Aggiunto Normalizza, che adatta lo zoom affinché le carte rientrino nello schermo.
+  Aggiunto il supporto per vari tipi di punteggio (menu Visualizza -> Punteggio).
+  Aggiunta la lettura ad alta voce dei titoli delle carte (sintesi vocale Windows / SAPI).
   Aggiunta la ricerca senza distinzione tra maiuscole e minuscole (deselezionare
-  Match Case).
+  Maiuscole/minuscole).
   Corretto un bug per cui le scorciatoie da tastiera non funzionavano nella finestra di
   ricerca.
   Corretta un'anomalia per cui poteva verificarsi un errore subito dopo l'avvio.
   Apportate inoltre diverse piccole correzioni e miglioramenti.
 
 - 1.05 (2007/08/03)
-  Aggiunta la selezione del menu in giapponese tramite menu View -> Change Language.
+  Aggiunta la selezione del menu in giapponese tramite menu Visualizza -> Cambia lingua.
   Aggiunto il supporto per la visualizzazione sulle carte di immagini specificate da
   collegamenti esterni.
-  Aggiunti il calcolo e la visualizzazione del punteggio tramite menu View -> Others.
-  Aggiunta l'esportazione dell'elenco dei titoli delle carte tramite menu File -> Export.
+  Aggiunti il calcolo e la visualizzazione del punteggio tramite menu Visualizza -> Altro.
+  Aggiunta l'esportazione dell'elenco dei titoli delle carte tramite menu File -> Esporta.
   Le carte visualizzate più di recente vengono ora mostrate in primo piano.
   Premendo Shift vengono ora evidenziate le tre carte visualizzate più di recente.
   I nomi delle etichette sono ora visualizzati all'interno dei cerchi etichetta nel Browser.
   L'area di layout delle carte nel Browser è stata ampliata a quattro volte la dimensione
   precedente (doppia larghezza e doppia altezza).
-  AutoZoom mantiene ora sempre le carte correlate all'interno dell'area visibile.
+  Zoom auto mantiene ora sempre le carte correlate all'interno dell'area visibile.
   Il caricamento dei file è ora più veloce.
   Corretta un'anomalia per cui le carte potevano sovrapporsi durante la disposizione
   automatica.
@@ -644,25 +644,25 @@ Cronologia delle versioni
 
 - 1.04 (2007/07/16)
   Aggiunte le impostazioni di dimensione delle carte per etichetta tramite il pulsante
-  View nella scheda Browser.
+  Visualizza nella scheda Browser.
   Le etichette possono ora essere abilitate o disabilitate.
   Aggiunto il filtro delle carte visibili per data.
   Aggiunto il filtro delle carte visibili per dimensione minima.
-  I colori di primo piano e sfondo possono ora essere modificati dal menu View -> Others.
+  I colori di primo piano e sfondo possono ora essere modificati dal menu Visualizza -> Altro.
   È ora possibile creare più carte contemporaneamente da testo su più righe, utilizzando
   ogni riga come titolo.
   Il nome del file in fase di modifica è ora mostrato sulla barra delle applicazioni.
-  Quando si seleziona una carta, Cards ora scorre fino a rendere visibile la carta
+  Quando si seleziona una carta, l'elenco delle carte ora scorre fino a rendere visibile la carta
   selezionata.
   Corretto un bug per cui il programma non si avviava in assenza di una stampante
   predefinita.
-  Corretto un bug per cui l'eliminazione di un Link Label in uso causava un errore e
+  Corretto un bug per cui l'eliminazione di un'etichetta link in uso causava un errore e
   rendeva l'applicazione inutilizzabile.
   Corretta un'anomalia per cui il salvataggio poteva fallire sotto carico elevato e il
   cursore restava a clessidra.
   Corretta un'anomalia per cui la chiusura della finestra di ricerca riportava la posizione
   del cursore all'inizio della pagina.
-  Corretta un'anomalia per cui facendo clic su un'area vuota con Fold attivo veniva
+  Corretta un'anomalia per cui facendo clic su un'area vuota con Piega attivo veniva
   selezionata una carta.
   Corretta un'anomalia per cui l'intervallo di selezione durante la ricerca era errato.
   Apportate inoltre diverse piccole correzioni e miglioramenti.
@@ -673,8 +673,8 @@ Cronologia delle versioni
   Le forme e le dimensioni delle carte possono ora essere modificate.
   Aggiunto il supporto per livelli di zoom più elevati.
   Aggiunta una barra di stato che mostra il conteggio dei caratteri e informazioni simili
-  (la visibilità può essere modificata dal menu View).
-  Aggiunto Seleziona tutto al menu Edit.
+  (la visibilità può essere modificata dal menu Visualizza).
+  Aggiunto Seleziona tutto al menu Modifica.
   Corretti problemi di visualizzazione e corruzione dei file durante l'incollaggio di
   RichText.
   Corretto un bug per cui l'eliminazione di un collegamento con il tasto Canc durante il
@@ -696,8 +696,8 @@ Cronologia delle versioni
   La visualizzazione è ora leggermente più rapida.
   Quando si crea una nuova carta, l'indice iniziale cambia ora in base alla carta
   attualmente in modifica.
-  Corretta un'anomalia per cui le carte raggruppate con Fold respingevano troppo
-  energicamente durante Arrange.
+  Corretta un'anomalia per cui le carte raggruppate con Piega respingevano troppo
+  energicamente durante la disposizione automatica.
   Corretta un'anomalia per cui non era possibile inserire Tab nel corpo del testo.
   Apportate inoltre diverse piccole correzioni e miglioramenti.
 
@@ -705,13 +705,13 @@ Cronologia delle versioni
   I titoli delle carte possono ora essere modificati direttamente nel Browser.
   Subito dopo la creazione di una nuova carta, il programma entra in modalità di modifica
   del titolo.
-  Aggiunto Auto Zoom, che regola automaticamente lo zoom della schermata del Browser.
-  Aggiunta la disposizione per ordine delle carte (Index).
-  Il pulsante View -> Link Limitation ora consente di limitare per direzione del
+  Aggiunto Zoom auto, che regola automaticamente lo zoom della schermata del Browser.
+  Aggiunta la disposizione per ordine delle carte (Ordine).
+  Il pulsante Visualizza -> Limita visualizzazione per link ora consente di limitare per direzione del
   collegamento.
   Aggiunto Taglia nel titolo nuova carta al menu contestuale dell'Editor.
-  Aggiunto Shuffle, che randomizza le coordinate delle carte nel Browser.
-  Aggiunto Shuffle (menu Edit -> Sort), che randomizza l'ordine delle carte.
+  Aggiunto Casuale, che randomizza le coordinate delle carte nel Browser.
+  Aggiunto Casuale (menu Modifica -> Ordina carte), che randomizza l'ordine delle carte.
   Corretto un bug per cui facendo clic su una carta nel Browser veniva selezionata la
   carta sottostante.
 
@@ -761,8 +761,8 @@ Domande frequenti
 
 D. Esiste un modo per ingrandire l'area del Browser?
 
-R. Nella sezione Arrange (disposizione automatica delle carte) nella parte superiore
-della schermata del Browser, selezionare Normalize e premere il pulsante Arrange ON.
+R. Nella sezione Auto (disposizione automatica delle carte) nella parte superiore
+della schermata del Browser, selezionare Normalizza e premere il pulsante Auto ON.
 Le carte verranno disposte automaticamente attorno al centro del Browser mantenendo
 le posizioni relative. Dopo la disposizione, è possibile usare la barra Zoom per
 ingrandire o ridurre la vista, e modificare l'area visibile del Browser facendo clic
@@ -774,7 +774,7 @@ D. È possibile avviare Frieve Editor da una chiavetta USB o da un supporto simi
 
 R. Copiare tutti i file dalla cartella di installazione di Frieve Editor (normalmente
 c:\Program Files\Frieve Editor\) sulla chiavetta USB. Sarà poi possibile utilizzare
-Frieve Editor eseguendo editor.exe da tale posizione. Frieve Editor non utilizza il
+Frieve Editor eseguendo feditor.exe da tale posizione. Frieve Editor non utilizza il
 registro di sistema.
 
 
@@ -787,8 +787,8 @@ contattarci nemmeno in caso di distribuzione su larga scala.
 D. All'avvio sembra connettersi a internet. Cosa sta facendo?
 
 R. Sta verificando lo stato di aggiornamento dell'ultima versione di Frieve Editor.
-Si tratta della stessa operazione di menu Help -> Check Latest Release. È anche possibile
-configurare dal menu Help -> Check Latest Release se la versione più recente debba essere
+Si tratta della stessa operazione di menu Guida -> Controlla ultima versione. È anche possibile
+configurare dal menu Guida -> Controlla ultima versione se la versione più recente debba essere
 controllata automaticamente. Se non si desidera la connessione, bloccarla con un firewall
 o strumenti simili non causerà alcun problema.
 
@@ -796,8 +796,8 @@ o strumenti simili non causerà alcun problema.
 D. Il testo giapponese appare corrotto nel Browser.
 
 R. Il set di caratteri del font potrebbe essere impostato su un'opzione non giapponese
-come un set occidentale. Aprire la finestra di dialogo dei font dal menu View -> Font ->
-Change Font, scegliere un font giapponese e impostare il set di caratteri su Japanese.
+come un set occidentale. Aprire la finestra di dialogo dei font dal menu Visualizza -> Carattere ->
+Cambia carattere, scegliere un font giapponese e impostare il set di caratteri su giapponese.
 
 
 D. Il video associato a una carta non viene riprodotto.
@@ -875,15 +875,15 @@ Nota: facendo clic sul terzo pulsante da sinistra in alto a sinistra della scher
 
 Oppure,
 
-Selezionare New Card dal menu Insert.
+Selezionare Nuova carta dal menu Inserisci.
 
 Nota: in questo caso la nuova carta viene aggiunta dopo la carta attualmente selezionata.
       Se non è selezionata alcuna carta, viene aggiunta alla fine dell'elenco.
 
 Oppure,
 
-1. Fare clic destro nell'elenco Cards sul lato sinistro dello schermo.
-2. Scegliere New Card dal menu visualizzato.
+1. Fare clic destro nell'elenco delle carte sul lato sinistro dello schermo.
+2. Scegliere Nuova carta dal menu visualizzato.
 
 Nota: in questo caso la nuova carta viene aggiunta prima della carta attualmente
       selezionata. Se non è selezionata alcuna carta, viene aggiunta alla fine dell'elenco.
@@ -892,7 +892,7 @@ Oppure,
 
 1. Nella scheda Editor, selezionare una porzione del corpo del testo di una carta
    esistente da usare come corpo di una nuova carta.
-2. Scegliere Cut to New Card dal menu contestuale dell'Editor.
+2. Scegliere Usa il testo selezionato come corpo di una nuova carta dal menu contestuale dell'Editor.
    Viene creata una nuova carta utilizzando il testo selezionato come corpo.
 
 Oppure,
@@ -900,10 +900,10 @@ Oppure,
 1. Nella scheda Editor, selezionare la riga o le righe del corpo di una carta esistente
    da usare come titolo di una nuova carta (selezionare più righe per creare più carte
    contemporaneamente).
-2. Scegliere Cut to New Card Title oppure Cut to New Card Title with Link dal menu
-   contestuale dell'Editor. Viene creata una nuova carta con il testo selezionato come
-   titolo. Scegliendo la variante with Link, viene anche creato un collegamento dalla
-   carta originale alla nuova carta.
+2. Scegliere Usa il testo selezionato come titolo di una nuova carta oppure la variante con
+   collegamento dal menu contestuale dell'Editor. Viene creata una nuova carta con il testo
+   selezionato come titolo. Scegliendo la variante con collegamento, viene anche creato un
+   collegamento dalla carta originale alla nuova carta.
 59
 Title: Come creare una carta collegata da una carta esistente
 Label:2
@@ -993,7 +993,7 @@ Oppure,
 
 Oppure,
 
-Fare clic sulle carte nell'elenco Cards sul lato sinistro dello schermo.
+Fare clic sulle carte nell'elenco delle carte sul lato sinistro dello schermo.
 Per selezionare più carte, tenere premuto Ctrl mentre si fa clic, trascinare sull'intervallo
 desiderato, oppure selezionare la prima carta dell'intervallo e poi tenere premuto Shift
 facendo clic sull'ultima carta dell'intervallo.
@@ -1042,7 +1042,7 @@ Come modificare il titolo di una carta
 ----------------------------------------------------------------------------
 
 1. Selezionare la carta di cui si desidera modificare il titolo.
-2. Inserire il nuovo titolo nel campo Title del pannello Card.
+2. Inserire il nuovo titolo nel campo Nome nel pannello Carta.
 20
 Title: Come modificare il contenuto di una carta
 Label:2
@@ -1081,15 +1081,15 @@ Viewed:2023/04/14 20:23:50
 Come modificare il contenuto di una carta con GPT
 ----------------------------------------------------------------------------
 
-1. Scegliere GPT dal menu Edit, oppure premere Ctrl+G sulla tastiera.
+1. Scegliere GPT dal menu Modifica, oppure premere Ctrl+G sulla tastiera.
    Si consiglia l'utilizzo di Ctrl+G.
 2. Selezionare l'operazione desiderata dal menu a comparsa.
-3. Al primo utilizzo, inserire la propria OpenAI API Key nella finestra di dialogo
+3. Al primo utilizzo, inserire la propria chiave API OpenAI nella finestra di dialogo
    visualizzata.
 
 L'integrazione GPT di Frieve Editor utilizza l'API OpenAI, a pagamento ma estremamente
 economica. Per utilizzare l'API OpenAI è necessario creare un account OpenAI e registrare
-una carta di credito. Per i dettagli su come ottenere una OpenAI API Key, consultare il
+una carta di credito. Per i dettagli su come ottenere una chiave API OpenAI, consultare il
 sito web dell'API OpenAI.
 https://platform.openai.com/overview
 
@@ -1191,24 +1191,24 @@ Viewed:2023/04/14 20:23:48
 Come cercare le carte
 ----------------------------------------------------------------------------
 
-1. Scegliere Find dal menu Edit, oppure premere Ctrl+F.
+1. Scegliere Trova dal menu Modifica, oppure premere Ctrl+F.
 2. Inserire la stringa di ricerca nella finestra di dialogo visualizzata.
-3. Per cercare nei titoli delle carte, selezionare Card Title.
-4. Per cercare nel corpo del testo delle carte, selezionare Text.
+3. Per cercare nei titoli delle carte, selezionare Nome carta.
+4. Per cercare nel corpo del testo delle carte, selezionare Corpo carta.
 5. Per effettuare una ricerca con distinzione tra maiuscole e minuscole, selezionare
-   Match Case. Per una ricerca senza distinzione, deselezionare Match Case.
-6. Per includere nella ricerca le carte nascoste nel Browser, selezionare Invisible Card.
-   Per escluderle, deselezionare Invisible Card.
-7. Premere Find Next.
+   Maiuscole/minuscole. Per una ricerca senza distinzione, deselezionare Maiuscole/minuscole.
+6. Per includere nella ricerca le carte nascoste nel Browser, selezionare Carte nascoste.
+   Per escluderle, deselezionare Carte nascoste.
+7. Premere Trova successivo.
 8. Per cercare il candidato successivo con la stessa parola chiave e le stesse condizioni,
-   scegliere Find Next dal menu Edit oppure premere F3.
+   scegliere Trova successivo dal menu Modifica oppure premere F3.
 
 Oppure,
 
 1. Fare clic sulla scheda Browser.
 2. Inserire la stringa di ricerca nella casella di testo in alto a destra della scheda
    Browser.
-3. Premere il pulsante Find a destra della casella di testo.
+3. Premere il pulsante Trova a destra della casella di testo.
    Questa funzione cerca tra le carte attualmente visibili quelle il cui titolo contiene
    la stringa inserita.
 25
@@ -1234,9 +1234,9 @@ Come eliminare le carte
 
 Oppure,
 
-1. Fare clic sulla carta da eliminare nell'elenco Cards sul lato sinistro e selezionarla.
-2. Fare clic destro nell'elenco Cards.
-3. Scegliere Delete Card dal menu a comparsa visualizzato.
+1. Fare clic sulla carta da eliminare nell'elenco delle carte sul lato sinistro e selezionarla.
+2. Fare clic destro nell'elenco delle carte.
+3. Scegliere Elimina carta dal menu a comparsa visualizzato.
 28
 Title: Come aggiungere un'etichetta a una carta
 Label:2
@@ -1255,7 +1255,7 @@ Come aggiungere un'etichetta a una carta
 ----------------------------------------------------------------------------
 
 1. Selezionare la carta a cui si desidera assegnare un'etichetta.
-2. Fare clic su uno dei pulsanti a destra di Label nel pannello Card che non ha ancora
+2. Fare clic su uno dei pulsanti a destra di Etichetta nel pannello Carta che non ha ancora
    un'etichetta assegnata.
 3. Scegliere l'etichetta da applicare alla carta dal menu a comparsa visualizzato.
 
@@ -1284,7 +1284,7 @@ Come aggiungere una nuova etichetta a una carta
 ----------------------------------------------------------------------------
 
 1. Selezionare la carta di cui si desiderano modificare le etichette.
-2. Scegliere New Label dal menu Insert.
+2. Scegliere Nuova etichetta dal menu Inserisci.
 3. Inserire il nome della nuova etichetta nella finestra di dialogo e premere OK.
 21
 Title: Come rimuovere o cambiare l'etichetta di una carta
@@ -1305,9 +1305,9 @@ Come rimuovere o cambiare l'etichetta di una carta
 
 1. Selezionare la carta di cui si desiderano modificare le etichette.
 2. Fare clic sul pulsante etichetta da rimuovere o cambiare tra i pulsanti a destra di
-   Label nel pannello Card.
+   Etichetta nel pannello Carta.
 3. Scegliere l'etichetta da assegnare alla carta dal menu a comparsa visualizzato.
-   Scegliendo No Label l'etichetta viene rimossa.
+   Scegliendo Nessuna etichetta l'etichetta viene rimossa.
 28
 Title: Come associare un file esterno o un URL a una carta
 Label:2
@@ -1334,7 +1334,7 @@ Come associare un file esterno o un URL a una carta
 Oppure,
 
 1. Selezionare la carta da associare all'elemento esterno.
-2. Scegliere New Ext Link dal menu Insert.
+2. Scegliere Nuovo link esterno dal menu Inserisci.
 3. Specificare il file da associare.
    Il nome del file specificato viene aggiunto come ultima riga del corpo della carta.
 36
@@ -1363,7 +1363,7 @@ Come visualizzare immagini o video su una carta
 Oppure,
 
 1. Selezionare la carta da associare al contenuto multimediale.
-2. Scegliere New Ext Link dal menu Insert.
+2. Scegliere Nuovo link esterno dal menu Inserisci.
 3. Specificare il file immagine o video.
    Il nome del file specificato viene aggiunto come ultima riga del corpo della carta.
 
@@ -1393,38 +1393,38 @@ Come visualizzare disegni su una carta
 
 1. Selezionare la carta in cui si desidera inserire un disegno, nel Browser o dall'elenco
    delle carte sul lato sinistro dello schermo.
-2. Fare clic sulla scheda Drawing per visualizzare l'editor di disegno.
-3. Modificare il disegno nella scheda Drawing.
+2. Fare clic sulla scheda Disegno per visualizzare l'editor di disegno.
+3. Modificare il disegno nella scheda Disegno.
 4. Tornando al Browser, il disegno modificato viene visualizzato sulla carta.
 
 
 - Per aggiungere una forma
 
-1. In alto a sinistra della scheda Drawing, fare clic per scegliere il tipo di forma da
+1. In alto a sinistra della scheda Disegno, fare clic per scegliere il tipo di forma da
    aggiungere: linea a mano libera, linea retta, rettangolo o ellisse.
 2. Trascinare il mouse all'interno del riquadro tratteggiato per aggiungere la forma.
 
 
 - Per selezionare una forma
 
-1. In alto a sinistra della scheda Drawing, scegliere il pulsante di selezione con
+1. In alto a sinistra della scheda Disegno, scegliere il pulsante di selezione con
    l'icona del cursore del mouse.
 2. Fare clic sulla forma da selezionare. Tenere premuto Ctrl mentre si fa clic per
    alternare la selezione di più forme, oppure trascinare su un'area per selezionare
-   più forme contemporaneamente. Per selezionare tutte le forme, scegliere Select All
-   dal menu Edit o dal menu contestuale.
+   più forme contemporaneamente. Per selezionare tutte le forme, scegliere Seleziona tutto
+   dal menu Modifica o dal menu contestuale.
 
 
 - Per tagliare, copiare o eliminare una forma
 
 1. Selezionare la forma da modificare.
-2. Scegliere Cut, Copy o Delete dal menu Edit o dal menu contestuale.
+2. Scegliere Taglia, Copia o Elimina dal menu Modifica o dal menu contestuale.
    È anche possibile usare il tasto Canc per eliminarla.
 
 
 - Per incollare una forma tagliata o copiata
 
-Scegliere Paste dal menu Edit o dal menu contestuale.
+Scegliere Incolla dal menu Modifica o dal menu contestuale.
 
 
 - Per ridimensionare una forma
@@ -1442,12 +1442,12 @@ Scegliere Paste dal menu Edit o dal menu contestuale.
 - Per cambiare il colore di una forma
 
 1. Selezionare la forma.
-2. Scegliere un colore con Color.
+2. Scegliere un colore con Colore.
    Per usare il colore di disegno della carta determinato dalle etichette, fare clic
-   su Default. Per scegliere un altro colore, fare clic sul piccolo pulsante due
-   posizioni a destra di Default e scegliere un colore nella finestra di selezione colore
+   su Auto. Per scegliere un altro colore, fare clic sul piccolo pulsante due
+   posizioni a destra di Auto e scegliere un colore nella finestra di selezione colore
    visualizzata. Se il colore desiderato è già stato selezionato, è sufficiente fare clic
-   sull'area colore immediatamente a destra di Default.
+   sull'area colore immediatamente a destra di Auto.
 25
 Title: Come cambiare forma e dimensione di una carta
 Label:2
@@ -1466,13 +1466,13 @@ Come cambiare forma e dimensione di una carta
 ----------------------------------------------------------------------------
 
 1. Selezionare la carta di cui si desidera modificare la dimensione.
-2. Modificare il valore Size a destra di Title nel pannello Card.
+2. Modificare il valore Dim. a destra di Nome nel pannello Carta.
    Con +8 la carta diventa quattro volte la dimensione originale, con -8 diventa un quarto.
 
 Oppure,
 
 1. Selezionare la carta di cui si desidera modificare la forma.
-2. Fare clic sul pulsante che mostra la forma della carta a destra di Size nel pannello Card.
+2. Fare clic sul pulsante che mostra la forma della carta a destra di Dim. nel pannello Carta.
 3. Scegliere la forma della carta dal menu a comparsa visualizzato.
 15
 Title:Modifica dei collegamenti
@@ -1527,7 +1527,7 @@ Nota: facendo clic sul quarto pulsante da sinistra in alto a sinistra della sche
 Oppure,
 
 1. Selezionare la carta di origine.
-2. Scegliere New Link dal menu Insert.
+2. Scegliere Nuovo link dal menu Inserisci.
 3. Selezionare la carta di destinazione nella finestra di dialogo e premere OK.
 
 Oppure,
@@ -1535,7 +1535,7 @@ Oppure,
 1. Selezionare la carta di origine.
 2. Fare clic sulla scheda Editor.
 3. Fare clic destro nella lista dei collegamenti nella parte inferiore dello schermo.
-4. Scegliere New Link dal menu a comparsa visualizzato.
+4. Scegliere Nuovo link dal menu a comparsa visualizzato.
 5. Selezionare la carta di destinazione nella finestra di dialogo e premere OK.
 18
 Title: Come selezionare i collegamenti
@@ -1574,7 +1574,7 @@ Come modificare il titolo di un collegamento
 ----------------------------------------------------------------------------
 
 1. Selezionare il collegamento di cui si desidera modificare il titolo.
-2. Inserire il nuovo titolo nel campo Title del pannello Link.
+2. Inserire il nuovo titolo nel campo Nome nel pannello Link.
 25
 Title: Come cambiare l'origine o la destinazione di un collegamento
 Label:3
@@ -1629,7 +1629,7 @@ Oppure,
 3. Selezionare il collegamento da eliminare dalla lista dei collegamenti nella parte
    inferiore dello schermo.
 4. Fare clic destro nella lista dei collegamenti.
-5. Scegliere Delete Link dal menu a comparsa visualizzato.
+5. Scegliere Elimina link dal menu a comparsa visualizzato.
 27
 Title: Come aggiungere un'etichetta a un collegamento
 Label:3
@@ -1648,7 +1648,7 @@ Come aggiungere un'etichetta a un collegamento
 ----------------------------------------------------------------------------
 
 1. Selezionare il collegamento a cui si desidera assegnare un'etichetta.
-2. Fare clic sul pulsante a destra di Label nel pannello Link.
+2. Fare clic sul pulsante a destra di Etichetta nel pannello Link.
 3. Scegliere l'etichetta da applicare al collegamento dal menu a comparsa visualizzato.
 
 Oppure,
@@ -1676,7 +1676,7 @@ Come aggiungere una nuova etichetta a un collegamento
 ----------------------------------------------------------------------------
 
 1. Selezionare il collegamento di cui si desiderano modificare le etichette.
-2. Scegliere New Link Label dal menu Insert.
+2. Scegliere Nuova etichetta link dal menu Inserisci.
 3. Inserire il nome della nuova etichetta nella finestra di dialogo e premere OK.
 21
 Title: Come rimuovere o cambiare l'etichetta di un collegamento
@@ -1697,9 +1697,9 @@ Come rimuovere o cambiare l'etichetta di un collegamento
 
 1. Selezionare il collegamento di cui si desiderano modificare le etichette.
 2. Fare clic sul pulsante etichetta da rimuovere o cambiare tra i pulsanti a destra di
-   Label nel pannello Link.
-3. Scegliere l'etichetta da assegnare alla carta dal menu a comparsa visualizzato.
-   Scegliendo No Label l'etichetta viene rimossa.
+   Etichetta nel pannello Link.
+3. Scegliere l'etichetta da assegnare al collegamento dal menu a comparsa visualizzato.
+   Scegliendo Nessuna etichetta l'etichetta viene rimossa.
 18
 Title: Come invertire la direzione di un collegamento
 Label:3
@@ -1718,7 +1718,7 @@ Come invertire la direzione di un collegamento
 ----------------------------------------------------------------------------
 
 1. Selezionare il collegamento di cui si desidera invertire la direzione.
-2. Fare clic sul pulsante Inverse nel pannello Link.
+2. Fare clic sul pulsante Inverti nel pannello Link.
 19
 Title: Come attivare o disattivare la direzione di un collegamento
 Label:3
@@ -1738,7 +1738,7 @@ Come attivare o disattivare la direzione di un collegamento
 
 1. Selezionare il collegamento per il quale si desidera modificare l'impostazione della
    direzione.
-2. Fare clic sulla casella di controllo Direction nel pannello Link.
+2. Fare clic sulla casella di controllo Direzione nel pannello Link.
 20
 Title: Come cambiare lo stile di un collegamento
 Label:3
@@ -1757,7 +1757,7 @@ Come cambiare lo stile di un collegamento
 ----------------------------------------------------------------------------
 
 1. Selezionare il collegamento di cui si desidera cambiare lo stile della linea.
-2. Fare clic sul pulsante che mostra la linea a destra del pulsante Inverse nel pannello
+2. Fare clic sul pulsante che mostra la linea a destra del pulsante Inverti nel pannello
    Link.
 3. Scegliere lo stile della linea del collegamento dal menu a comparsa visualizzato.
 15
@@ -1793,7 +1793,7 @@ Viewed:1899/12/30
 Come aprire l'editor delle etichette delle carte
 ----------------------------------------------------------------------------
 
-Scegliere Label dal menu Edit.
+Scegliere Modifica etichette dal menu Modifica.
 Si apre la finestra di modifica delle etichette.
 18
 Title: Come aprire l'editor delle etichette dei collegamenti
@@ -1812,7 +1812,7 @@ Viewed:1899/12/30
 Come aprire l'editor delle etichette dei collegamenti
 ----------------------------------------------------------------------------
 
-Scegliere Link Label dal menu Edit.
+Scegliere Modifica etichette link dal menu Modifica.
 Si apre la finestra di modifica delle etichette dei collegamenti.
 19
 Title: Come creare una nuova etichetta
@@ -1832,7 +1832,7 @@ Come creare una nuova etichetta
 ----------------------------------------------------------------------------
 
 1. Aprire la schermata di modifica delle etichette.
-2. Premere il pulsante New in basso a sinistra nella schermata di modifica.
+2. Premere il pulsante Nuovo in basso a sinistra nella schermata di modifica.
 3. Inserire il nome della nuova etichetta nella finestra di dialogo e premere OK.
 19
 Title: Come rinominare un'etichetta
@@ -1892,9 +1892,9 @@ Come abilitare o disabilitare un'etichetta
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante VIEW sullo schermo. Viene visualizzata la finestra VIEW.
+2. Fare clic sul pulsante Visualizza sullo schermo. Viene visualizzata la finestra Visualizza.
 3. Fare clic sulla scheda Label per selezionarla.
-4. Fare clic sulla colonna Enable dell'etichetta per alternare tra abilitata e disabilitata.
+4. Fare clic sulla colonna Abilita dell'etichetta per alternare tra abilitata e disabilitata.
    Le etichette disabilitate vengono trattate come se non fossero assegnate durante la
    visualizzazione e la disposizione delle carte.
 19
@@ -1951,8 +1951,8 @@ Come adattare tutte le carte allo schermo
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Normalize dal menu
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Normalizza dal menu
    a comparsa visualizzato.
 20
 Title: Come disporre le carte senza sovrapposizioni
@@ -1972,8 +1972,8 @@ Come disporre le carte senza sovrapposizioni
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Repulsion dal menu
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Repulsione dal menu
    a comparsa visualizzato.
 23
 Title: Come disporre le carte in base ai collegamenti
@@ -1993,11 +1993,11 @@ Come disporre le carte in base ai collegamenti
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Link oppure
-   Link(Soft) dal menu a comparsa visualizzato.
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Link oppure
+   Link (soft) dal menu a comparsa visualizzato.
 
-Nota: rispetto a Link, Link(Soft) dà maggiore priorità alla prevenzione delle
+Nota: rispetto a Link, Link (soft) dà maggiore priorità alla prevenzione delle
       sovrapposizioni tra carte.
 23
 Title: Come disporre le carte in base alle etichette
@@ -2017,11 +2017,11 @@ Come disporre le carte in base alle etichette
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Label oppure
-   Label(Soft) dal menu a comparsa visualizzato.
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Etichetta oppure
+   Etichetta (soft) dal menu a comparsa visualizzato.
 
-Nota: rispetto a Label, Label(Soft) dà maggiore priorità alla prevenzione delle
+Nota: rispetto a Etichetta, Etichetta (soft) dà maggiore priorità alla prevenzione delle
       sovrapposizioni tra carte.
 24
 Title: Come disporre le carte per indice
@@ -2041,13 +2041,13 @@ Come disporre le carte per indice
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Index, Index(Soft)
-   oppure Index(Matrix) dal menu a comparsa visualizzato.
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Ordine, Ordine (soft)
+   oppure Ordine (matrice) dal menu a comparsa visualizzato.
 
-Nota: rispetto a Index, Index(Soft) dà maggiore priorità alla prevenzione delle
+Nota: rispetto a Ordine, Ordine (soft) dà maggiore priorità alla prevenzione delle
       sovrapposizioni tra carte.
-Index(Matrix) dispone le carte ordinatamente partendo dall'angolo superiore sinistro.
+Ordine (matrice) dispone le carte ordinatamente partendo dall'angolo superiore sinistro.
 20
 Title: Come disporre le carte in una griglia
 Label:5
@@ -2066,8 +2066,8 @@ Come disporre le carte in una griglia
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Matrix dal menu
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Matrice dal menu
    a comparsa visualizzato.
 38
 Title: Come disporre le carte per similarità di titolo e testo
@@ -2087,9 +2087,9 @@ Come disporre le carte per similarità di titolo e testo
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-3. Premere il pulsante a destra del pulsante Arrange ON e scegliere Similarity oppure
-   Similarity(Soft) dal menu a comparsa visualizzato.
+2. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+3. Premere il pulsante a destra del pulsante Auto ON e scegliere Somiglianza oppure
+   Somiglianza (soft) dal menu a comparsa visualizzato.
 4. Per disporre le carte utilizzando i valori di similarità più recenti, premere il
    pulsante di aggiornamento ancora più a destra.
 
@@ -2100,13 +2100,13 @@ dimensione del corpo del testo raggiunge circa 500 kB, il calcolo può richieder
 un minuto su una CPU da circa 2 GHz.
 
 Nota: poiché il calcolo della similarità richiede tempo, Frieve Editor calcola la
-      similarità tra le carte solo una volta quando si seleziona Similarity con il
-      pulsante ON premuto, oppure quando si preme il pulsante ON con Similarity
+      similarità tra le carte solo una volta quando si seleziona Somiglianza con il
+      pulsante ON premuto, oppure quando si preme il pulsante ON con Somiglianza
       selezionato. Dopo la modifica dei titoli o del corpo delle carte, premere il
       pulsante di aggiornamento per ridisporre le carte con valori di similarità
       aggiornati.
 
-Nota: rispetto a Similarity, Similarity(Soft) dà maggiore priorità alla prevenzione
+Nota: rispetto a Somiglianza, Somiglianza (soft) dà maggiore priorità alla prevenzione
       delle sovrapposizioni tra carte.
 46
 Title: Come disporre le carte gerarchicamente
@@ -2129,8 +2129,8 @@ Come disporre le carte gerarchicamente
 2. Fare clic sulla carta che diventerà la radice (la cima della gerarchia) per selezionarla.
 3. Attivare il pulsante di designazione della radice sullo schermo (a destra del pulsante
    puntina e a sinistra dell'etichetta).
-4. Fare clic sul pulsante Arrange ON in modo che risulti premuto.
-5. Premere il pulsante a destra del pulsante Arrange ON e scegliere Tree (Radial) dal
+4. Fare clic sul pulsante Auto ON in modo che risulti premuto.
+5. Premere il pulsante a destra del pulsante Auto ON e scegliere Albero (radiale) dal
    menu a comparsa visualizzato.
 
 Per modificare l'ordine delle carte all'interno dello stesso livello, utilizzare i
@@ -2143,13 +2143,13 @@ Per nascondere i livelli inferiori sotto una carta specifica, premere il pulsant
 mostrato in basso a destra della carta. Per mostrare nuovamente un livello nascosto,
 premere il pulsante "+" mostrato in basso a destra della carta.
 
-Attenzione: quando la disposizione automatica viene eseguita con Tree (Radial), i valori
-Index delle carte vengono forzatamente ordinati secondo l'ordine gerarchico.
+Attenzione: quando la disposizione automatica viene eseguita con Albero (radiale), i numeri
+d'ordine delle carte vengono riallineati forzatamente secondo la gerarchia.
 
 Nota: una carta designata come radice mostra ">" a sinistra del titolo nell'elenco delle
       carte sul lato sinistro dello schermo.
 
-Nota: quando la disposizione automatica viene eseguita con Tree (Radial), l'elenco
+Nota: quando la disposizione automatica viene eseguita con Albero (radiale), l'elenco
       delle carte sul lato sinistro dello schermo viene visualizzato con rientri
       corrispondenti ai livelli gerarchici.
 
@@ -2173,9 +2173,9 @@ Come cambiare la dimensione delle carte per etichetta
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante VIEW sullo schermo. Viene visualizzata la finestra VIEW.
-3. Fare clic sulla scheda Label per selezionarla.
-4. Nelle colonne Label e Size, utilizzare i pulsanti + e - per specificare quanto ogni
+2. Fare clic sul pulsante Visualizza sullo schermo. Viene visualizzata la finestra Visualizza.
+3. Fare clic sulla scheda Etichetta per selezionarla.
+4. Nelle colonne Etichetta e Dim., utilizzare i pulsanti + e - per specificare quanto ogni
    etichetta influisce sulla dimensione delle carte.
 23
 Title: Come raggruppare le carte con la stessa etichetta
@@ -2195,10 +2195,10 @@ Come raggruppare le carte con la stessa etichetta
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante VIEW sullo schermo. Viene visualizzata la finestra VIEW per
+2. Fare clic sul pulsante Visualizza sullo schermo. Viene visualizzata la finestra Visualizza per
    scegliere quali carte e collegamenti mostrare.
-3. Fare clic sulla scheda Label per selezionarla.
-4. Nelle colonne Label e Fold, specificare l'etichetta da raggruppare.
+3. Fare clic sulla scheda Etichetta per selezionarla.
+4. Nelle colonne Etichetta e Piega, specificare l'etichetta da raggruppare.
    Le carte con quell'etichetta selezionata vengono mostrate nel Browser come un'unica
    carta con il nome dell'etichetta.
 85
@@ -2219,74 +2219,74 @@ Come scegliere quali carte e collegamenti mostrare nel Browser
 ----------------------------------------------------------------------------
 
 1. Fare clic sulla scheda Browser.
-2. Fare clic sul pulsante VIEW sullo schermo. Viene visualizzata la finestra VIEW per
+2. Fare clic sul pulsante Visualizza sullo schermo. Viene visualizzata la finestra Visualizza per
    scegliere quali carte e collegamenti mostrare.
-3. Fare clic sulla scheda Label oppure sulla scheda Limitation.
+3. Fare clic sulla scheda Etichetta oppure sulla scheda Filtro.
 
 
 - Per limitare le carte visibili in base alla dimensione
 
-1. Selezionare Size Limitation.
-2. Utilizzare il cursore a destra di Size Limitation per specificare la dimensione minima
+1. Selezionare Limita visualizzazione per dimensione.
+2. Utilizzare il cursore a destra di Limita visualizzazione per dimensione per specificare la dimensione minima
    delle carte da visualizzare.
 
 
 - Per limitare le carte visibili in base al numero di collegamenti dalla carta selezionata
 
-1. Selezionare Link Limitation.
-2. Utilizzare il cursore di Link Limitation per specificare il limite dei collegamenti.
+1. Selezionare Limita visualizzazione per link.
+2. Utilizzare il cursore di Limita visualizzazione per link per specificare il limite dei collegamenti.
 3. Per limitare ulteriormente il risultato in base alla direzione del collegamento,
-   selezionare Direction.
-4. Per limitare alla direzione in avanti, selezionare Forward. Per la direzione inversa,
-   selezionare Backward.
+   selezionare Direzione.
+4. Per limitare alla direzione in avanti, selezionare Avanti. Per la direzione inversa,
+   selezionare Indietro.
 5. Per aggiungere una restrizione per carta destinazione, premere il pulsante a destra di
-   Target Card, scegliere Select e selezionare la carta destinazione nella finestra di
+   Dest., scegliere Seleziona... e selezionare la carta destinazione nella finestra di
    dialogo. In alternativa, nel Browser, tenere premuto Alt facendo clic sulla carta
    destinazione. Per rimuovere la restrizione per carta destinazione, premere il pulsante
-   a destra di Target Card e scegliere No Assign.
+   a destra di Dest. e scegliere Non assegnato.
 
 
 - Per limitare le carte visibili in base alla data
 
-1. Selezionare Date Limitation.
-2. In Date Type, scegliere la data da utilizzare per la restrizione.
-   Created è la data e ora di creazione della carta, Edited è la data e ora dell'ultima
-   modifica del corpo della carta, e Viewed è la data e ora dell'ultima selezione o
+1. Selezionare Limita visualizzazione per data e ora.
+2. In Data/ora, scegliere la data da utilizzare per la restrizione.
+   Data di creazione è la data e ora di creazione della carta, Data di modifica è la data e ora dell'ultima
+   modifica del corpo della carta, e Data di visualizzazione è la data e ora dell'ultima selezione o
    visualizzazione della carta.
-3. In Date Limitation Type, scegliere come applicare la restrizione.
-   Old mostra le carte in ordine dalla più vecchia, New dalla più recente, Near mostra le
-   carte con date vicine a quella della carta selezionata, Older mostra le carte più vecchie
-   della carta selezionata e vicine in data, e Newer mostra le carte più recenti della carta
+3. In Metodo:, scegliere come applicare la restrizione.
+   Più vecchio prima mostra le carte in ordine dalla più vecchia, Più nuovo prima dalla più recente, Più vicino prima mostra le
+   carte con date vicine a quella della carta selezionata, Più vecchio mostra le carte più vecchie
+   della carta selezionata e vicine in data, e Più nuovo mostra le carte più recenti della carta
    selezionata e vicine in data.
-2. Utilizzare il cursore a destra di Date Limitation per specificare l'intensità della
+4. Utilizzare il cursore a destra di Limita visualizzazione per data e ora per specificare l'intensità della
    restrizione.
-   Con Old, le carte più vecchie sono mostrate con il cursore tutto a sinistra, e carte
+   Con Più vecchio prima, le carte più vecchie sono mostrate con il cursore tutto a sinistra, e carte
    più recenti vengono aggiunte spostando il cursore verso destra.
-   Con New, le carte più recenti sono mostrate con il cursore tutto a destra, e carte
+   Con Più nuovo prima, le carte più recenti sono mostrate con il cursore tutto a destra, e carte
    più vecchie vengono aggiunte spostando il cursore verso sinistra.
-   Con Near, Older e Newer, spostare il cursore verso destra attenua la restrizione.
+   Con Più vicino prima, Più vecchio e Più nuovo, spostare il cursore verso destra attenua la restrizione.
 
 
 - Per mostrare o nascondere carte con etichette
 
 1. Per mostrare le carte con determinate etichette, specificare quelle etichette nella
-   colonna Show sotto Label.
+   colonna Mostra sotto Etichetta.
    Se una carta ha una o più delle etichette selezionate, viene mostrata.
 2. Per nascondere le carte con determinate etichette, specificare quelle etichette nella
-   colonna Hide.
+   colonna Nascondi.
    Se una carta ha una o più delle etichette selezionate, viene nascosta.
-   Le impostazioni di Hide hanno priorità su quelle di Show.
+   Le impostazioni di Nascondi hanno priorità su quelle di Mostra.
 
 
 - Per mostrare o nascondere collegamenti con etichette
 
 1. Per mostrare i collegamenti con determinate etichette, specificare quelle etichette nella
-   colonna Show sotto Link Label.
+   colonna Mostra sotto Etichetta link.
    Se un collegamento ha una o più delle etichette selezionate, viene mostrato.
 2. Per nascondere i collegamenti con determinate etichette, specificare quelle etichette
-   nella colonna Hide.
+   nella colonna Nascondi.
    Se un collegamento ha una o più delle etichette selezionate, viene nascosto.
-   Le impostazioni di Hide hanno priorità su quelle di Show.
+   Le impostazioni di Nascondi hanno priorità su quelle di Mostra.
 28
 Title: Come ordinare le carte
 Label:5
@@ -2304,17 +2304,17 @@ Viewed:1899/12/30
 Come ordinare le carte
 ----------------------------------------------------------------------------
 
-Scegliere un metodo di ordinamento dal menu Edit -> Sort Card.
-Title ordina le carte per titolo.
-Date Created ordina per data di creazione.
-Date Edited ordina per data dell'ultima modifica.
-Date Viewed ordina per data dell'ultima selezione.
-Le voci contrassegnate con Inverse ordinano in ordine inverso.
+Scegliere un metodo di ordinamento dal menu Modifica -> Ordina carte.
+Titolo ordina le carte per titolo.
+Data di creazione ordina per data di creazione.
+Data di modifica ordina per data dell'ultima modifica.
+Data di visualizzazione ordina per data dell'ultima selezione.
+Le voci con (decrescente) nel nome ordinano in ordine inverso.
 
 Oppure,
 
-1. Fare clic sulla carta da riordinare nell'elenco Cards sul lato sinistro dello schermo.
-2. Utilizzare i pulsanti UpDown in alto a destra dell'elenco Cards per spostare la posizione
+1. Fare clic sulla carta da riordinare nell'elenco delle carte sul lato sinistro dello schermo.
+2. Utilizzare i pulsanti freccia su e giù in alto a destra dell'elenco delle carte per spostare la posizione
    della carta nell'elenco.
 15
 Title:Navigazione e animazioni
@@ -2350,8 +2350,8 @@ Come scorrere la vista del Browser
 ----------------------------------------------------------------------------
 
 1. Fate clic sulla scheda Browser.
-2. Attivate Auto Scroll in alto a destra nella scheda Browser.
-   Quando Auto Scroll è attivo, ogni volta che selezionate una carta o un
+2. Attivate Scorr. auto in alto a destra nella scheda Browser.
+   Quando Scorr. auto è attivo, ogni volta che selezionate una carta o un
    collegamento, la vista scorre automaticamente per centrare l'elemento
    selezionato sullo schermo.
 
@@ -2389,8 +2389,8 @@ Come ingrandire o ridurre la vista del Browser
 ----------------------------------------------------------------------------
 
 1. Fate clic sulla scheda Browser.
-2. Attivate Auto Zoom in alto a destra nella scheda Browser.
-   Quando Auto Zoom è attivo, ogni volta che selezionate una carta o un
+2. Attivate Zoom auto in alto a destra nella scheda Browser.
+   Quando Zoom auto è attivo, ogni volta che selezionate una carta o un
    collegamento, lo zoom viene regolato automaticamente per mostrare la carta
    selezionata e le carte correlate.
 
@@ -2463,7 +2463,7 @@ Viewed:1899/12/30
 Come modificare la dimensione del testo
 ----------------------------------------------------------------------------
 
-Nel menu View, sotto Font Size, scegliete Magnify (ingrandire) o Reduce (ridurre).
+Nel menu Visualizza, sotto Dimensione carattere, scegliete Ingrandisci o Riduci.
 
 Oppure:
 
@@ -2473,7 +2473,7 @@ Oppure:
 
 Tenete premuti Ctrl+Shift e utilizzate la rotellina del mouse per regolare la dimensione del testo.
 
-Per ripristinare la dimensione predefinita, scegliete Default nel menu View > Font Size oppure premete Ctrl+Shift+0.
+Per ripristinare la dimensione predefinita, scegliete Dimensione predefinita nel menu Visualizza > Dimensione carattere oppure premete Ctrl+Shift+0.
 23
 Title: Come usare lo schermo intero
 Label:6
@@ -2491,7 +2491,7 @@ Viewed:1899/12/30
 Come usare lo schermo intero
 ----------------------------------------------------------------------------
 
-Scegliere Full Screen dal menu View.
+Scegliere Schermo intero dal menu Visualizza.
 
 Oppure,
 
@@ -2528,7 +2528,7 @@ Oppure,
    Browser, oppure nell'elenco delle carte sul lato sinistro dello schermo. Se la carta
    è già selezionata, fare clic sulla scheda Editor per visualizzare l'Editor.
 2. Tenere premuto Ctrl facendo clic sulla riga che contiene il collegamento esterno.
-29
+30
 Title: Come mostrare le carte in modo casuale
 Label:6
 Fixed:0
@@ -2545,19 +2545,20 @@ Viewed:1899/12/30
 Come mostrare le carte in modo casuale
 ----------------------------------------------------------------------------
 
-1. Scegliere Random Flash, Random Map, Random Scroll o Random Jump dal menu Animation.
-   L'animazione inizia e viene visualizzata la finestra Random Animation.
-   Random Flash mostra il numero specificato di carte una dopo l'altra.
-   Random Map mostra una carta casuale e poi espande la visualizzazione alle carte collegate.
-   Random Scroll scorre il numero specificato di carte attraverso lo schermo.
-   Random Jump fa rimbalzare il numero specificato di carte dal basso dello schermo.
+1. Scegliere Flash casuale, Mappa casuale, Scorrimento casuale o Salto casuale dal menu Animazione.
+   L'animazione inizia e viene visualizzata la finestra Animazione casuale.
+   Flash casuale mostra il numero specificato di carte una dopo l'altra.
+   Mappa casuale mostra una carta casuale e poi espande la visualizzazione alle carte collegate.
+   Scorrimento casuale scorre il numero specificato di carte attraverso lo schermo.
+   Salto casuale fa rimbalzare il numero specificato di carte dal basso dello schermo.
 2. Per ingrandire o ridurre la vista, modificare Zoom.
-3. Per cambiare la velocità di visualizzazione, regolare Speed.
-4. Per modificare il numero di carte mostrate contemporaneamente, regolare Cards.
-5. Per entrare o uscire dalla modalità a schermo intero, premere il pulsante Full Screen
+3. Per cambiare la velocità di visualizzazione, regolare Velocità.
+4. Per modificare il numero di carte mostrate contemporaneamente, regolare
+   Carte.
+5. Per entrare o uscire dalla modalità a schermo intero, premere il pulsante Schermo intero
    o F10.
-6. Per mettere in pausa o riprendere l'animazione, premere il pulsante Pause.
-7. Per terminare l'animazione, premere il pulsante Stop.
+6. Per mettere in pausa o riprendere l'animazione, premere il pulsante Pausa.
+7. Per terminare l'animazione, premere il pulsante Ferma.
 24
 Title: Come percorrere i collegamenti in modo casuale
 Label:6
@@ -2575,14 +2576,14 @@ Viewed:1899/12/30
 Come percorrere i collegamenti in modo casuale
 ----------------------------------------------------------------------------
 
-1. Scegliere Random Trace dal menu Animation.
-   L'animazione inizia e viene visualizzata la finestra Random Animation.
+1. Scegliere Traccia casuale dal menu Animazione.
+   L'animazione inizia e viene visualizzata la finestra Animazione casuale.
 2. Per ingrandire o ridurre la vista, modificare Zoom.
-3. Per cambiare la velocità di visualizzazione, regolare Speed.
-4. Per entrare o uscire dalla modalità a schermo intero, premere il pulsante Full Screen
+3. Per cambiare la velocità di visualizzazione, regolare Velocità.
+4. Per entrare o uscire dalla modalità a schermo intero, premere il pulsante Schermo intero
    o F10.
-5. Per mettere in pausa o riprendere l'animazione, premere il pulsante Pause.
-6. Per terminare l'animazione, premere il pulsante Stop.
+5. Per mettere in pausa o riprendere l'animazione, premere il pulsante Pausa.
+6. Per terminare l'animazione, premere il pulsante Ferma.
 36
 Title: Come visualizzare le statistiche
 Label:6
@@ -2600,19 +2601,19 @@ Viewed:1899/12/30
 Come visualizzare le statistiche
 ----------------------------------------------------------------------------
 
-1. Fare clic sulla scheda Statistics.
+1. Fare clic sulla scheda Stat..
    Inizialmente viene visualizzato un grafico con il numero di carte per ogni etichetta.
 2. Per cambiare la chiave usata per la visualizzazione del grafico, fare clic sul pulsante
-   a destra di Key e scegliere una delle opzioni seguenti.
+   a destra di Chiave e scegliere una delle opzioni seguenti.
 
-   Label: visualizza un grafico del numero di carte per etichetta (predefinito)
-   Number of Link: visualizza un grafico del numero di carte per numero di collegamenti
-   Created Date: visualizza un grafico del numero di carte per data e ora di creazione
-   Edited Date: visualizza un grafico del numero di carte per data e ora dell'ultima modifica
-   Viewed Date: visualizza un grafico del numero di carte per data e ora di visualizzazione
+   Etichetta: visualizza un grafico del numero di carte per etichetta (predefinito)
+   Numero link: visualizza un grafico del numero di carte per numero di collegamenti
+   Data di creazione: visualizza un grafico del numero di carte per data e ora di creazione
+   Data di modifica: visualizza un grafico del numero di carte per data e ora dell'ultima modifica
+   Data di visualizzazione: visualizza un grafico del numero di carte per data e ora di visualizzazione
 
-   Se è selezionato Created Date, Edited Date o Viewed Date, è inoltre possibile scegliere
-   l'unità di aggregazione tra Year, Month, Day, Week o Hour.
+   Se è selezionato Data di creazione, Data di modifica o Data di visualizzazione, è inoltre possibile scegliere
+   l'unità di aggregazione tra Raggruppa per anno, Raggruppa per mese, Raggruppa per giorno, Raggruppa per settimana o Raggruppa per ora.
 
 3. Per elencare le carte incluse in ogni elemento del grafico, fare clic su una barra del
    grafico. L'elenco delle carte incluse appare sul lato destro dello schermo.
@@ -2653,7 +2654,7 @@ Viewed:1899/12/30
 Come stampare la vista del Browser
 ----------------------------------------------------------------------------
 
-1. Scegliere Print Image dal menu File.
+1. Scegliere Stampa vista browser dal menu File.
 2. Nella finestra di dialogo visualizzata, scegliere e configurare la stampante secondo
    necessità.
 3. Premere OK per avviare la stampa.
@@ -2695,26 +2696,26 @@ Viewed:1899/12/30
 Menu File
 ----------------------------------------------------------------------------
 
-New
+Nuovo
   Crea un nuovo progetto.
 
-Open
+Apri
   Apre un progetto salvato.
 
-Save
+Salva
   Sovrascrive il progetto corrente.
 
-SaveAs
+Salva con nome
   Salva il progetto corrente con un nuovo nome.
 
-Auto Save (This File)
+Salvataggio automatico (questo file)
   Attiva o disattiva il salvataggio automatico per questo file.
   Quando è attivo, le modifiche vengono salvate automaticamente dopo un
   periodo di inattività.
   Alla chiusura dell'applicazione, le modifiche non salvate vengono
   salvate senza richiedere conferma.
 
-Auto Reload (This File)
+Ricarica automatica (questo file)
   Attiva o disattiva il ricaricamento automatico per questo file.
   Quando è attivo, il file viene ricaricato automaticamente se viene
   modificato da un programma esterno.
@@ -2722,51 +2723,51 @@ Auto Reload (This File)
   presenti modifiche non salvate.
 
 
-Recent Files
+File recenti
   Apre un progetto utilizzato in precedenza.
 
-Recent Folders
+Cartelle recenti
   Apre un progetto da una cartella utilizzata in precedenza.
 
 
-Import
+Importa
   Carica dati da file diversi dai file fip.
-  Txt File carica uno o più file di testo come una carta ciascuno.
-  Hierarchical Text File carica un file di testo gerarchico la cui indentazione è
+  File di testo carica uno o più file di testo come una carta ciascuno.
+  File di testo gerarchico carica un file di testo gerarchico la cui indentazione è
   composta da tabulazioni o spazi, con una riga per carta.
-  Hierarchical Text File 2 carica un file di testo gerarchico in cui la gerarchia è
+  File di testo gerarchico 2 carica un file di testo gerarchico in cui la gerarchia è
   rappresentata dal numero di punti iniziali e il testo rimanente diventa il corpo.
-  Text Files in a Folder carica tutti i file di testo contenuti in una cartella
+  Testi in una cartella carica tutti i file di testo contenuti in una cartella
   specificata insieme alla struttura delle cartelle.
 
 
-Export
+Esporta
   Esporta i dati in file esterni.
-  Txt file(Card Title) produce un unico file di testo con tutti i titoli delle carte.
-  Txt file(Text) produce un unico file di testo con il corpo del testo di tutte le carte.
-  Txt files produce ogni carta come file di testo separato. In tal caso, ogni nome di
+  File di testo (titolo carta) produce un unico file di testo con tutti i titoli delle carte.
+  File di testo (corpo) produce un unico file di testo con il corpo del testo di tutte le carte.
+  File di testo produce ogni carta come file di testo separato. In tal caso, ogni nome di
   file corrisponde al titolo della carta più ".txt".
-  html files produce i dati in formato HTML per la consultazione sul web.
+  File Html produce i dati in formato HTML per la consultazione sul web.
   Oltre al file con il nome specificato, vengono creati "cards.html" e file denominati
   numero della carta + ".html".
-  Hierarchical Text produce un file di testo in cui la gerarchia è rappresentata dal
+  Testo gerarchico produce un file di testo in cui la gerarchia è rappresentata dal
   numero di punti iniziali. Il testo gerarchico esportato in questo formato può essere
-  importato con il menu Import -> Hierarchical Text File 2.
+  importato con il menu Importa -> File di testo gerarchico 2.
 
-Attenzione: quando si eseguono operazioni di Export che creano più file, se esistono
+Attenzione: quando si eseguono operazioni di Esporta che creano più file, se esistono
   già file con lo stesso nome, questi vengono sovrascritti senza preavviso.
 
 
-Print Image
+Stampa vista browser
   Esegue una stampa semplice della visualizzazione del Browser.
   La vista corrente del Browser viene ridimensionata al formato carta selezionato e
   stampata.
 
 
-Exit
+Esci
   Chiude Frieve Editor.
 70
-Title: Menu Edit
+Title: Menu Modifica
 Label:7
 Fixed:0
 X:0.908938229084015
@@ -2779,65 +2780,65 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menu Edit
+Menu Modifica
 ----------------------------------------------------------------------------
 
-Undo
+Annulla
   Annulla la modifica più recente.
 
-Redo
+Ripristina
   Ripete la modifica annullata più di recente.
 
 
-Cut
+Taglia
   Copia il testo selezionato negli appunti e poi lo elimina.
 
-Copy
+Copia
   Copia il testo selezionato negli appunti.
 
-Paste
+Incolla
   Incolla il testo dagli appunti nella posizione corrente.
 
-Delete
+Elimina
   Elimina il testo selezionato.
 
-Select All
+Seleziona tutto
   Seleziona tutto il testo.
 
 
-Find
+Trova
   Cerca una stringa specificata.
 
-Replace
+Sostituisci
   Sostituisce una stringa specificata con un'altra stringa.
 
-Find Next
+Trova successivo
   Cerca la successiva occorrenza della stringa specificata.
 
-Find Previous
+Trova precedente
   Cerca la precedente occorrenza della stringa specificata.
 
-Web Search
+Ricerca Web
   Effettua una ricerca sul web utilizzando il titolo della carta selezionata o il testo
   selezionato.
 
 
-Sort Card
+Ordina carte
   Ordina le carte per nome o per data.
 
-Barch Conversion
-  All Cards Shape converte in blocco tutte le carte nella forma specificata.
-  All Links Shape converte in blocco tutti i collegamenti nella forma specificata.
-  All Links Direction inverte la direzione di tutti i collegamenti.
+Modifica in blocco
+  Forma di tutte le carte converte in blocco tutte le carte nella forma specificata.
+  Forma di tutti i link converte in blocco tutti i collegamenti nella forma specificata.
+  Direzione di tutti i link inverte la direzione di tutti i collegamenti.
 
 
-Label
+Modifica etichette
   Apre la finestra di modifica delle etichette.
 
-Link Label
+Modifica etichette link
   Apre la finestra di modifica delle etichette dei collegamenti.
 40
-Title: Menu Insert
+Title: Menu Inserisci
 Label:7
 Fixed:0
 X:0.986021161079407
@@ -2850,35 +2851,35 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menu Insert
+Menu Inserisci
 ----------------------------------------------------------------------------
 
-New Card
+Nuova carta
   Crea una nuova carta.
 
-New Link
+Nuovo link
   Crea un nuovo collegamento dalla carta selezionata.
 
-New Ext Link
+Nuovo link esterno
   Inserisce un collegamento esterno (nome del file) nella carta selezionata.
 
-New Label
+Nuova etichetta
   Aggiunge una nuova etichetta alla carta selezionata.
 
-New Link Label
+Nuova etichetta link
   Aggiunge una nuova etichetta al collegamento selezionato.
 
 
-Link to All Cards with Designated Label
+Collega tutte le carte con l'etichetta indicata
   Crea collegamenti dalla carta corrente a tutte le carte che hanno l'etichetta specificata.
 
-New Card Links to All Cards with Designated Label
+Nuova carta collegata a tutte le carte con l'etichetta indicata
   Crea una nuova carta collegata a tutte le carte che hanno l'etichetta specificata.
 
-Add Designated Label to All Destination Cards
+Aggiungi l'etichetta indicata a tutte le carte di destinazione
   Aggiunge l'etichetta specificata a tutte le carte di destinazione.
 31
-Title: Menu Animation
+Title: Menu Animazione
 Label:7
 Fixed:0
 X:0.968556582927704
@@ -2891,26 +2892,26 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menu Animation
+Menu Animazione
 ----------------------------------------------------------------------------
 
-Random Flash
+Flash casuale
   Avvia un'animazione che mostra carte in modo casuale.
 
-Random Map
+Mappa casuale
   Avvia un'animazione che mostra una carta casuale e poi espande la visualizzazione alle
   carte da essa collegate.
 
-Random Scroll
+Scorrimento casuale
   Avvia un'animazione che scorre carte in modo casuale.
 
-Random Jump
+Salto casuale
   Avvia un'animazione in cui le carte rimbalzano casualmente dal basso dello schermo.
 
-Random Trace
+Traccia casuale
   Avvia un'animazione che segue i collegamenti in modo casuale.
-120
-Title: Menu View
+115
+Title: Menu Visualizza
 Label:7
 Fixed:0
 X:0.957366585731506
@@ -2923,27 +2924,27 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:18
 -
 ----------------------------------------------------------------------------
-Menu View
+Menu Visualizza
 ----------------------------------------------------------------------------
 
-Font
+Carattere
   Cambia il tipo di carattere.
-  Default Size ripristina la dimensione standard, Magnify la ingrandisce e Reduce la riduce.
-  Per cambiare la famiglia di caratteri, scegliere Change Font e specificare il font.
+  Dimensione predefinita ripristina la dimensione standard, Ingrandisci la ingrandisce e Riduci la riduce.
+  Per cambiare la famiglia di caratteri, scegliere Cambia carattere e specificare il font.
 
-Card
+Carta
   Modifica le impostazioni di visualizzazione delle carte.
-  Shadow attiva o disattiva le ombre delle carte.
-  Gradation attiva o disattiva il gradiente delle carte.
+  Ombra carta attiva o disattiva le ombre delle carte.
+  Sfumatura attiva o disattiva il gradiente delle carte.
   Ticker attiva o disattiva la visualizzazione a scorrimento del corpo del testo sulle carte.
-  1Line visualizza la prima riga del corpo della carta e 2Lines visualizza la prima e la
+  Prima riga del corpo visualizza la prima riga del corpo della carta e Prime 2 righe del corpo visualizza la prima e la
   seconda riga come testo a scorrimento.
-  Image attiva o disattiva la visualizzazione delle miniature delle immagini. Viene
+  Immagine attiva o disattiva la visualizzazione delle miniature delle immagini. Viene
   utilizzato il primo file jpg o bmp scritto nel corpo della carta.
   Video attiva o disattiva la visualizzazione dei video. Viene utilizzato il primo file
   mpg o avi scritto nel corpo della carta. La visualizzazione video ha priorità su quella
   delle immagini.
-  Drawing attiva o disattiva la visualizzazione dei disegni. La visualizzazione dei disegni
+  Disegno attiva o disattiva la visualizzazione dei disegni. La visualizzazione dei disegni
   ha priorità su quella delle immagini e dei video.
   32x32 fino a 320x320 specifica la dimensione massima di immagini, video e disegni
   mostrati sulle carte. I contenuti più grandi vengono ridotti per rientrare nella
@@ -2951,87 +2952,82 @@ Card
 
 Link
   Modifica le impostazioni di visualizzazione dei collegamenti.
-  Link attiva o disattiva le linee dei collegamenti, Hemming i contorni, Direction la
-  direzione e Name la visualizzazione dei nomi dei collegamenti.
+  Link attiva o disattiva le linee dei collegamenti, Contorno link i contorni, Direzione link la
+  direzione e Nome link la visualizzazione dei nomi dei collegamenti.
 
-Label
+Etichetta
   Modifica le impostazioni di visualizzazione delle etichette.
-  Circle attiva o disattiva i cerchi che indicano i gruppi con la stessa etichetta.
-  Rectangle attiva o disattiva i rettangoli che indicano i gruppi con la stessa etichetta.
-  Name attiva o disattiva la visualizzazione dei nomi delle etichette.
+  Cerchio etichetta attiva o disattiva i cerchi che indicano i gruppi con la stessa etichetta.
+  Rettangolo etichetta attiva o disattiva i rettangoli che indicano i gruppi con la stessa etichetta.
+  Nome etichetta attiva o disattiva la visualizzazione dei nomi delle etichette.
 
-Text
+Testo del corpo
   Modifica le impostazioni di visualizzazione del corpo del testo.
-  Text attiva o disattiva la visualizzazione del corpo del testo della carta selezionata
+  Testo del corpo attiva o disattiva la visualizzazione del corpo del testo della carta selezionata
   nel Browser.
-  Centering alterna tra visualizzazione centrata e in alto a sinistra del corpo del testo
+  Centra alterna tra visualizzazione centrata e in alto a sinistra del corpo del testo
   nel Browser.
-  Edit In Browser attiva o disattiva la modifica del corpo con doppio clic su una carta
+  Modifica il corpo nel browser attiva o disattiva la modifica del corpo con doppio clic su una carta
   nel Browser.
-  Always Show Editor attiva o disattiva la visualizzazione permanente dell'editor nel
-  Browser (effettivo con qualsiasi impostazione tranne Under the Card).
-  Under the Card modifica il corpo immediatamente sotto la carta.
-  Browser Right modifica il corpo sul bordo destro del Browser.
-  Browser Bottom modifica il corpo nella parte inferiore del Browser.
+  Mostra sempre l'editor nel browser attiva o disattiva la visualizzazione permanente dell'editor nel
+  Browser (effettivo con qualsiasi impostazione tranne Sotto la carta).
+  Sotto la carta modifica il corpo immediatamente sotto la carta.
+  A destra del browser modifica il corpo sul bordo destro del Browser.
+  Sotto il browser modifica il corpo nella parte inferiore del Browser.
 
-Score
-  Score attiva o disattiva la visualizzazione del punteggio.
-  Authenticity calcola un punteggio in cui le carte collegate da carte ad alto punteggio
+Punteggio
+  Punteggio attiva o disattiva la visualizzazione del punteggio.
+  Affidabilità calcola un punteggio in cui le carte collegate da carte ad alto punteggio
   ottengono a loro volta un punteggio più alto.
-  StartingPoint assegna punteggi più alti alle carte di origine.
-  Destination assegna punteggi più alti alle carte di destinazione.
-  Links(Out) utilizza il numero di collegamenti in uscita da una carta.
-  Links(In) utilizza il numero di collegamenti in entrata verso una carta.
-  Links(Total) utilizza il numero totale di collegamenti di una carta.
-  Links(In-Out) utilizza i collegamenti in entrata meno quelli in uscita.
-  Text Length utilizza la lunghezza del corpo del testo.
+  Punto iniziale assegna punteggi più alti alle carte di origine.
+  Destinazione assegna punteggi più alti alle carte di destinazione.
+  Numero link (uscita) utilizza il numero di collegamenti in uscita da una carta.
+  Numero link (ingresso) utilizza il numero di collegamenti in entrata verso una carta.
+  Numero link (totale) utilizza il numero totale di collegamenti di una carta.
+  Numero link (ingresso-uscita) utilizza i collegamenti in entrata meno quelli in uscita.
+  Lunghezza del corpo utilizza la lunghezza del corpo del testo.
 
-Read Aloud
-  Read Aloud attiva o disattiva la lettura ad alta voce dei titoli delle carte.
+Lettura ad alta voce
+  Lettura ad alta voce attiva o disattiva la lettura ad alta voce dei titoli delle carte.
 
-Nota: per la lettura ad alta voce dei titoli delle carte è necessario che sia installato
-      Microsoft Agent. Questo menu non viene visualizzato in ambienti in cui Microsoft
-      Agent o i relativi componenti vocali non sono installati.
+Nota: la lettura ad alta voce dei titoli delle carte usa la sintesi vocale di Windows
+      (SAPI / text-to-speech). Se non è disponibile sul sistema, attivandola viene mostrato
+      un avviso e l'opzione si disattiva di nuovo.
 
-Nota: Microsoft Agent è distribuito gratuitamente da Microsoft, ma gli indirizzi di
-      download e i file necessari sembrano cambiare frequentemente. Per la funzionalità
-      di lettura ad alta voce, fare riferimento alle informazioni disponibili sul web e
-      installare i file necessari.
-
-Others
+Altro
   Modifica altre impostazioni relative alla visualizzazione.
-  Card List attiva o disattiva l'elenco delle carte sul lato sinistro dello schermo.
-  File List attiva o disattiva la lista dei file mostrata quando il mouse viene spostato
+  Elenco carte attiva o disattiva l'elenco delle carte sul lato sinistro dello schermo.
+  Elenco file attiva o disattiva la lista dei file mostrata quando il mouse viene spostato
   sul lato sinistro dello schermo.
-  Overview attiva o disattiva la panoramica nell'angolo inferiore destro del Browser.
-  FourgroundColor modifica il colore di primo piano e BackgroundColor modifica il colore
+  Panoramica attiva o disattiva la panoramica nell'angolo inferiore destro del Browser.
+  Cambia colore primo piano modifica il colore di primo piano e Cambia colore sfondo modifica il colore
   di sfondo.
-  Wallpaper specifica uno sfondo. Per rimuovere lo sfondo, scegliere nuovamente Wallpaper.
-  Fix Wallpaper fissa lo sfondo a riempire lo schermo.
-  Tile Wallpaper affianca lo sfondo su tutta l'area del Browser.
-  Background Animation attiva o disattiva l'animazione di sfondo.
-  Background Animation Type cambia il tipo di animazione di sfondo.
-  Cursor Animation attiva o disattiva l'animazione del cursore.
-  No Scroll Lag attiva o disattiva lo scorrimento automatico immediato alla selezione
+  Sfondo specifica uno sfondo. Per rimuovere lo sfondo, scegliere nuovamente Sfondo.
+  Fissa sfondo fissa lo sfondo a riempire lo schermo.
+  Ripeti sfondo affianca lo sfondo su tutta l'area del Browser.
+  Animazione sfondo attiva o disattiva l'animazione di sfondo.
+  Tipo animazione sfondo cambia il tipo di animazione di sfondo.
+  Animazione cursore attiva o disattiva l'animazione del cursore.
+  Scorrimento immediato attiva o disattiva lo scorrimento automatico immediato alla selezione
   di una carta.
-  Anti-Aliasing attiva o disattiva l'anti-aliasing.
-  2x esegue l'anti-aliasing al doppio della risoluzione orizzontale e verticale, 4x al
+  Antialiasing attiva o disattiva l'antialiasing.
+  2x esegue l'antialiasing al doppio della risoluzione orizzontale e verticale, 4x al
   quadruplo.
 
-Change Language
-  Cambia la lingua dei menu (attualmente sono supportati inglese e giapponese).
-  Per supportare altre lingue, inserire un file .lng nella cartella di Frieve Editor
+Cambia lingua
+  Cambia la lingua dei menu. Sono supportati vari idiomi, tra cui giapponese e inglese.
+  Per aggiungere o sostituire lingue, inserire un file .lng nella cartella di Frieve Editor
   (formato file di testo; consultare Japanese.lng per il formato).
 
 
-Full Screen
+Schermo intero
   Attiva o disattiva la visualizzazione a schermo intero del Browser.
 
 
-Status Bar
+Barra di stato
   Attiva o disattiva la barra di stato.
 28
-Title: Menu Settings
+Title: Menu Impostazioni
 Label:7
 Fixed:0
 X:0.924349308013916
@@ -3044,23 +3040,23 @@ Updated:2023/04/14 20:17:21
 Viewed:2023/04/14 20:17:19
 -
 ----------------------------------------------------------------------------
-Menu Settings
+Menu Impostazioni
 ----------------------------------------------------------------------------
 
-GPT API Key
-  Imposta l'API Key ottenuta dal sito web di OpenAI per utilizzare l'integrazione GPT.
+Chiave API GPT
+  Imposta la chiave API GPT ottenuta dal sito web di OpenAI per utilizzare l'integrazione GPT.
 
-Auto Save Default
+Predefinito salvataggio automatico
   Imposta il valore predefinito del salvataggio automatico per i nuovi file.
   Quando è attivo, i file appena creati avranno il salvataggio automatico
   già abilitato.
 
-Auto Reload Default
+Predefinito ricarica automatica
   Imposta il valore predefinito del ricaricamento automatico per i nuovi file.
   Quando è attivo, i file appena creati avranno il ricaricamento automatico
   già abilitato.
 31
-Title: Menu Help
+Title: Menu Guida
 Label:7
 Fixed:0
 X:0.891983985900879
@@ -3073,21 +3069,21 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:15:15
 -
 ----------------------------------------------------------------------------
-Menu Help
+Menu Guida
 ----------------------------------------------------------------------------
 
-Contents
+Contenuto
   Apre e visualizza questo file di aiuto in Frieve Editor.
 
-Open Frieve Web Site
+Sito Frieve
   Apre il sito web di Frieve nel browser predefinito.
 
-Open Frieve Editor Web Site
+Sito Frieve Editor
   Apre il sito web di Frieve Editor nel browser predefinito.
 
-Check Latest Release
+Controlla ultima versione
   Verifica l'ultima versione rilasciata.
 
 
-About
+Informazioni
   Visualizza le informazioni sulla versione.

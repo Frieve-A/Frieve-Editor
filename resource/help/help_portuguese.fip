@@ -231,7 +231,7 @@ Obrigado por baixar o Frieve Editor.
 O Frieve Editor é um novo tipo de editor projetado para ajudar você a organizar
 seus pensamentos e gerar ideias originais.
 
-Para navegar por esta ajuda, selecione o tópico desejado na lista de Cards
+Para navegar por esta ajuda, selecione o tópico desejado na lista de cartões
 no lado esquerdo da tela.
 Você também pode seguir os links exibidos na parte inferior da tela para abrir artigos relacionados.
 15
@@ -270,18 +270,18 @@ Finalidade
 O Frieve Editor foi projetado para os seguintes tipos de uso.
 
 - Como processador de ideias
-  Coloque na tela, um após o outro, cards com palavras-chave que possam
+  Coloque na tela, um após o outro, cartões com palavras-chave que possam
   inspirar ideias. Conforme novas ideias surgirem, coloque-as também na tela
-  como cards, atribua labels para classificá-las e registre suas relações com
+  como cartões, atribua rótulos para classificá-las e registre suas relações com
   outras palavras-chave por meio de links.
-  Os labels e links adicionados podem ser usados para organizar os cards
-  automaticamente. Recursos como a exibição aleatória de cards ou o
+  Os rótulos e links adicionados podem ser usados para organizar os cartões
+  automaticamente. Recursos como a exibição aleatória de cartões ou o
   rastreamento aleatório de links estimulam um pensamento criativo e inovador.
 
 - Para descrição e organização concisa de situações complexas
   Descreva situações complexas cujas condições estejam interligadas, começando
   pelas partes que você já compreende.
-  Ao definir relações com labels e links, você consegue descrever assuntos
+  Ao definir relações com rótulos e links, você consegue descrever assuntos
   complexos com mais clareza. Isso ajuda a encontrar soluções que levem em
   conta efeitos fáceis de passar despercebidos no dia a dia. Até mesmo ideias
   complicadas, que antes eram muito difíceis de explicar ou compartilhar,
@@ -290,7 +290,7 @@ O Frieve Editor foi projetado para os seguintes tipos de uso.
 - Como ferramenta de gerenciamento de projetos
   Descreva as tarefas a serem realizadas, como elas se relacionam, a ordem
   de execução, orçamentos, riscos e assim por diante.
-  Com labels, cada card pode ser classificado como já concluído, algo que
+  Com rótulos, cada cartão pode ser classificado como já concluído, algo que
   precisa ser feito imediatamente, algo para adiar, entre outros. Isso
   facilita decidir o que fazer em seguida, o que pode se tornar um problema
   e como o projeto deve avançar.
@@ -318,32 +318,32 @@ Características principais
 
 As principais características do Frieve Editor são as seguintes.
 
-- Representação com cards e links
-  No Frieve Editor, cada ideia ou fato é descrito em um card, e as relações
-  entre os cards são expressas por meio de links. Como os links podem ser
-  criados de qualquer card para qualquer outro, até temas complexos podem
+- Representação com cartões e links
+  No Frieve Editor, cada ideia ou fato é descrito em um cartão, e as relações
+  entre os cartões são expressas por meio de links. Como os links podem ser
+  criados de qualquer cartão para qualquer outro, até temas complexos podem
   ser descritos naturalmente.
 
-- Classificação de cards e links com labels
-  Cada card e link pode ter múltiplos labels. Os labels podem ser definidos
-  livremente pelo usuário. Como os cards e links são diferenciados por cores
-  de acordo com os labels na tela, você consegue entender o significado de
+- Classificação de cartões e links com rótulos
+  Cada cartão e link pode ter múltiplos rótulos. Os rótulos podem ser definidos
+  livremente pelo usuário. Como os cartões e links são diferenciados por cores
+  de acordo com os rótulos na tela, você consegue entender o significado de
   cada um rapidamente.
 
-- Organização automática e filtragem de exibição dos cards
-  O Frieve Editor pode organizar automaticamente o layout dos cards com base
-  nos links e labels atribuídos a eles. Isso facilita visualizar suas
+- Organização automática e filtragem de exibição dos cartões
+  O Frieve Editor pode organizar automaticamente o layout dos cartões com base
+  nos links e rótulos atribuídos a eles. Isso facilita visualizar suas
   informações por diferentes ângulos. Você também pode exibir ou ocultar
-  cards e links por label, ou limitar o alcance visível pelo número de links,
+  cartões e links por rótulo, ou limitar o alcance visível pelo número de links,
   para que apenas as informações necessárias sejam mostradas.
 
 - Animação
   O Frieve Editor inclui diversas animações para estimular a geração de
   ideias e ajudar na compreensão do que foi descrito.
-  Animações que apresentam cards aleatoriamente incentivam novas conexões
-  entre diferentes cards. Animações que rastreiam links aleatoriamente ajudam
-  você a perceber intuitivamente como os cards estão relacionados.
-44
+  Animações que apresentam cartões aleatoriamente incentivam novas conexões
+  entre diferentes cartões. Animações que rastreiam links aleatoriamente ajudam
+  você a perceber intuitivamente como os cartões estão relacionados.
+43
 Title: Funcionalidades básicas
 Label:1
 Fixed:0
@@ -360,34 +360,33 @@ Viewed:2023/04/14 20:14:08
 Funcionalidades básicas
 ----------------------------------------------------------------------------
 
-- Cards
-  No Frieve Editor, cada texto é armazenado em um card.
-  Sempre que pensar em algo, crie um card e registre a ideia. Para descrever
+- Cartões
+  No Frieve Editor, cada texto é armazenado em um cartão.
+  Sempre que pensar em algo, crie um cartão e registre a ideia. Para descrever
   assuntos de forma eficiente, divida o tema em partes tão pequenas quanto
-  possível e descreva-o usando vários cards.
+  possível e descreva-o usando vários cartões.
 
 - Links
-  Links definem as relações entre cards. Um link pode ser criado de um card
-  para outro. Com base nos múltiplos links entre os cards, o Frieve Editor
-  pode organizar os cards automaticamente para que os que estejam ligados
+  Links definem as relações entre cartões. Um link pode ser criado de um cartão
+  para outro. Com base nos múltiplos links entre os cartões, o Frieve Editor
+  pode organizar os cartões automaticamente para que os que estejam ligados
   fiquem próximos uns dos outros.
 
-- Labels
-  O Frieve Editor permite atribuir labels tanto a cards quanto a links.
-  Por padrão, três labels estão definidos: Probrem (Problema), Solution
-  (Solução) e Result (Resultado), mas os labels podem ser editados
-  livremente.
+- Rótulos
+  O Frieve Editor permite atribuir rótulos tanto a cartões quanto a links.
+  Por padrão, três rótulos estão definidos: Problema, Solução e Resultado,
+  mas os rótulos podem ser editados livremente.
 
-  Atribuir labels aos cards ajuda a organizá-los de forma eficiente.
-  Por exemplo, você pode organizar os cards automaticamente para que aqueles
-  com o mesmo label fiquem próximos, exibir apenas cards com determinado
-  label ou ocultá-los. Também é possível agrupar cards com o mesmo label
-  e exibi-los como um único card.
+  Atribuir rótulos aos cartões ajuda a organizá-los de forma eficiente.
+  Por exemplo, você pode organizar os cartões automaticamente para que aqueles
+  com o mesmo rótulo fiquem próximos, exibir apenas cartões com determinado
+  rótulo ou ocultá-los. Também é possível agrupar cartões com o mesmo rótulo
+  e exibi-los como um único cartão.
 
-  Da mesma forma, labels atribuídos a links podem ser usados para exibir ou
-  ocultar apenas links com determinado label. Combinado com a organização
-  automática que posiciona cards linkados próximos uns dos outros, isso
-  facilita a reorganização dos cards focando em um tipo específico de relação.
+  Da mesma forma, rótulos atribuídos a links podem ser usados para exibir ou
+  ocultar apenas links com determinado rótulo. Combinado com a organização
+  automática que posiciona cartões linkados próximos uns dos outros, isso
+  facilita a reorganização dos cartões focando em um tipo específico de relação.
 262
 Title: Histórico de versões
 Label:1
@@ -417,7 +416,7 @@ Histórico de versões
     Quando o mesmo arquivo já está aberto em outra instância, essa instância agora é ativada.
     Corrigido um bug na especificação do modelo GPT no setting2.ini.
     Corrigida a funcionalidade de busca na web.
-    Corrigido o layout dos botões de etiquetas.
+    Corrigido o layout dos botões de rótulos.
 
 - 2.00 (2023/04/14)
   Adicionado suporte para chamadas à API do ChatGPT.
@@ -435,35 +434,35 @@ Histórico de versões
   Salvar um arquivo agora armazena as coordenadas atuais e diversas configurações,
   que são restauradas ao abrir o arquivo.
   Adicionados links curvos.
-  Adicionado HierarchicalText em File menu -> Export.
-  Adicionada substituição de texto para nomes de cards e corpo do texto (Edit menu -> Replace, Ctrl+R).
+  Adicionado Texto hierárquico em menu Arquivo -> Exportar.
+  Adicionada substituição de texto para nomes de cartões e corpo do texto (menu Editar -> Substituir, Ctrl+R).
   Links selecionados agora piscam.
-  Links relacionados ao card atual agora são destacados.
-  Atalho para editar título de card alterado de Ctrl+T para F2.
+  Links relacionados ao cartão atual agora são destacados.
+  Atalho para editar título de cartão alterado de Ctrl+T para F2.
   Traduzidas algumas mensagens que ainda não estavam em japonês.
-  Corrigido bug na aba Statistics em que o dia da semana podia ficar errado.
-  Corrigido bug que causava erro ao editar corpo do texto à direita ou abaixo do Browser.
+  Corrigido bug na aba Estat. em que o dia da semana podia ficar errado.
+  Corrigido bug que causava erro ao editar corpo do texto à direita ou abaixo do Navegador.
   Corrigido bug em que usar linhas pontilhadas podia causar erro.
-  Corrigido vazamento de memória ao exibir a aba Statistics.
-  Corrigido vazamento de memória ao usar organização automática Tree (Radial).
+  Corrigido vazamento de memória ao exibir a aba Estat..
+  Corrigido vazamento de memória ao usar organização automática Árvore (radial).
 
 - 1.30 (2008/06/15)
-  Agora é possível inserir desenhos simples nos cards (aba Drawing).
-  Adicionada exibição de gráficos estatísticos como contagem de labels (aba Statistics).
-  Adicionada função para criar links para todos os cards com um label específico (Insert menu).
-  Adicionada função para adicionar um label específico a todos os cards de destino (Insert menu).
-  Todas as janelas foram traduzidas para japonês (View menu -> Language).
-  A barra de status agora exibe o número de cards selecionados.
+  Agora é possível inserir desenhos simples nos cartões (aba Desenho).
+  Adicionada exibição de gráficos estatísticos como contagem de rótulos (aba Estat.).
+  Adicionada função para criar links para todos os cartões com um rótulo específico (menu Inserir).
+  Adicionada função para adicionar um rótulo específico a todos os cartões de destino (menu Inserir).
+  Todas as janelas foram traduzidas para japonês (menu Exibir -> Alterar idioma).
+  A barra de status agora exibe o número de cartões selecionados.
   Além disso, diversas pequenas melhorias e correções de bugs.
 
 - 1.23 (2008/04/15)
-  Agora é possível digitar um título diretamente sem clicar antes em um card.
+  Agora é possível digitar um título diretamente sem clicar antes em um cartão.
   A seleção atual é usada como chave de busca.
   Histórico de palavras-chave de busca agora é salvo.
   Zoom com as teclas Page Up e Page Down agora é suportado.
-  Selecionar um link na lista de links agora move o Related Text.
-  Melhorada a posição inicial de cards filhos e irmãos quando a organização automática está desativada.
-  O editor de corpo exibido à direita ou abaixo do Browser agora pode ser redimensionado.
+  Selecionar um link na lista de links agora move o texto relacionado no Editor.
+  Melhorada a posição inicial de cartões filhos e irmãos quando a organização automática está desativada.
+  O editor de corpo exibido à direita ou abaixo do Navegador agora pode ser redimensionado.
   Corrigido bug no Windows 98 em que clicar com o botão direito após selecionar múltiplas linhas causava erro.
   Corrigido problema em que texto sendo convertido pelo IME podia não ser exibido.
   Corrigido problema em que adicionar imagens ou vídeo por arrastar e soltar não era refletido imediatamente.
@@ -473,181 +472,181 @@ Histórico de versões
 
 - 1.22 (2008/02/11)
   Adicionada busca global (exibição em lista dos resultados de busca).
-  Adicionada busca na internet usando texto selecionado ou títulos de cards.
-  Adicionado suporte para inserção de links externos por arrastar e soltar e criação de cards com links externos.
-  Adicionado Matrix (Index), que organiza cards ordenadamente pela ordem dos cards.
-  Adicionado Find Previous (Edit menu -> Find Previous, Shift+F3).
-  A aba Editor agora pode exibir o corpo dos cards linkados (Related Text).
-  Agora é possível recortar texto do corpo e criar um card linkado a partir do card selecionado.
-  Adicionado suporte para importar texto hierárquico com pontos (File menu -> Import).
-  Adicionado Text Length à exibição de pontuação.
-  Adicionados Snow e Cherry Blossom às animações de fundo.
-  Selecionar um card agora rola imediatamente por padrão (pode ser alterado em View menu -> Others).
-  Corrigido bug em que F3 só buscava títulos de cards.
+  Adicionada busca na internet usando texto selecionado ou títulos de cartões.
+  Adicionado suporte para inserção de links externos por arrastar e soltar e criação de cartões com links externos.
+  Adicionada Matriz (Ordem), que organiza cartões ordenadamente pela ordem dos cartões.
+  Adicionado Localizar anterior (menu Editar -> Localizar anterior, Shift+F3).
+  A aba Editor agora pode exibir o corpo dos cartões linkados (painel Texto rel.).
+  Agora é possível recortar texto do corpo e criar um cartão linkado a partir do cartão selecionado.
+  Adicionado suporte para importar texto hierárquico com pontos (menu Arquivo -> Importar).
+  Adicionado Comprimento do corpo à exibição de pontuação.
+  Adicionados Neve e Cerejeiras às animações de fundo.
+  Selecionar um cartão agora rola imediatamente por padrão (pode ser alterado em menu Exibir -> Outros).
+  Corrigido bug em que F3 só buscava títulos de cartões.
   Corrigido problema em que o tamanho inicial da lista de links sob o editor era 0.
   Corrigido problema em que Ctrl+clique em link externo na aba Editor às vezes não funcionava.
   Corrigido problema em que configurações de tipo de pontuação não eram salvas.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.21 (2007/12/01)
-  Adicionada organização automática hierárquica (Tree(Radian); requer um card raiz).
+  Adicionada organização automática hierárquica (Árvore (radial); requer um cartão raiz).
   Adicionada lista de arquivos para abrir arquivos rapidamente (mova o mouse para o lado esquerdo da tela).
-  Adicionadas animações Random Jump e Random Map.
-  Adicionada conversão em lote da direção dos links (Edit menu -> Batch Conversion).
-  Visibilidade da lista de cards agora pode ser configurada (View menu -> Others).
-  Largura da lista de cards e configurações relacionadas agora são salvas ao sair do programa.
+  Adicionadas animações Salto aleatório e Mapa aleatório.
+  Adicionada conversão em lote da direção dos links (menu Editar -> Alteração em lote).
+  Visibilidade da lista de cartões agora pode ser configurada (menu Exibir -> Outros).
+  Largura da lista de cartões e configurações relacionadas agora são salvas ao sair do programa.
   Adicionado suporte para especificar posição de reprodução de vídeo
   (posição inicial(ms)-posição final(ms)| antes do nome do arquivo).
-  Animação do cursor agora pode ser ativada e desativada (View menu -> Others).
+  Animação do cursor agora pode ser ativada e desativada (menu Exibir -> Outros).
   Corrigido bug em que clicar duas vezes em um link sob a aba Editor não o seguia.
-  Corrigido bug em que títulos não podiam ser editados no Browser com o editor sempre visível.
-  Corrigido bug em que mover cards com o cursor cancelava o AutoZoom.
-  Corrigido bug em que cards ocultos podiam ser selecionados por seleção de área.
-  Corrigido bug em que Full Screen não podia ser alternado durante animação.
-  Corrigido bug em que arrastar no Overview não era possível com anti-aliasing ativado.
-  Corrigido bug em que pressionar Ctrl+E ao editar título de card no Browser causava erro.
+  Corrigido bug em que títulos não podiam ser editados no Navegador com o editor sempre visível.
+  Corrigido bug em que mover cartões com o cursor cancelava o Zoom auto.
+  Corrigido bug em que cartões ocultos podiam ser selecionados por seleção de área.
+  Corrigido bug em que Tela cheia não podia ser alternado durante animação.
+  Corrigido bug em que arrastar na visão geral não era possível com Antialiasing ativado.
+  Corrigido bug em que pressionar Ctrl+E ao editar título de cartão no Navegador causava erro.
   Reduzida a tremulação da tela.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.20 (2007/11/04)
-  Adicionados Undo e Redo para até 10 operações de edição.
-  Adicionada seleção múltipla de cards.
-  Adicionados recortar, copiar e colar para cards.
-  Adicionada edição de corpo na tela do Browser (View menu -> Text).
-  Adicionada busca limitada apenas aos cards visíveis.
-  O card atual agora é marcado com um cursor visível.
-  Adicionada animação de fundo (View menu -> Others).
+  Adicionados Desfazer e Refazer para até 10 operações de edição.
+  Adicionada seleção múltipla de cartões.
+  Adicionados recortar, copiar e colar para cartões.
+  Adicionada edição de corpo na tela do Navegador (menu Exibir -> Texto do corpo).
+  Adicionada busca limitada apenas aos cartões visíveis.
+  O cartão atual agora é marcado com um cursor visível.
+  Adicionada animação de fundo (menu Exibir -> Outros).
   Adicionada tradução de menus de contexto para japonês.
   Abertura de links externos alterada de Ctrl+clique para Ctrl+Shift+clique.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.13 (2007/10/15)
-  Adicionados diversos comandos de edição ao menu de contexto do Browser.
+  Adicionados diversos comandos de edição ao menu de contexto do Navegador.
   Estilo do link agora pode ser alterado.
-  Adicionada conversão em lote de todas as formas de cards e links (Edit -> Change Shape).
-  Adicionadas configurações padrão de tamanho, forma e posição fixa para cards e links.
-  Adicionada exibição em ticker das primeiras linhas do corpo do texto no Browser.
-  Adicionado sombreamento de cards.
-  Adicionada exibição de gradiente simples para cards.
+  Adicionada conversão em lote de todas as formas de cartões e links (Editar -> Alteração em lote -> Forma de todos os cartões / Forma de todos os links).
+  Adicionadas configurações padrão de tamanho, forma e posição fixa para cartões e links.
+  Adicionada exibição em ticker das primeiras linhas do corpo do texto no Navegador.
+  Adicionado sombreamento de cartões.
+  Adicionada exibição de gradiente simples para cartões.
   Adicionado contorno para links.
-  Adicionado suporte para exibição de vídeo nos cards (insira um nome de arquivo ou URL no corpo).
-  Adicionado suporte para importação de texto hierárquico e arquivos de texto em pastas (File menu -> Import).
-  Adicionada exportação de imagens do Browser nos formatos BMP e JPEG (File menu -> Export).
-  Adicionado suporte para copiar diversos dados para a área de transferência (File menu -> Export).
-  Adicionado anti-aliasing para a exibição do Browser (View menu -> Others).
+  Adicionado suporte para exibição de vídeo nos cartões (insira um nome de arquivo ou URL no corpo).
+  Adicionado suporte para importação de texto hierárquico e arquivos de texto em pastas (menu Arquivo -> Importar).
+  Adicionada exportação de imagens do Navegador nos formatos BMP e JPEG (menu Arquivo -> Exportar).
+  Adicionado suporte para copiar diversos dados para a área de transferência (menu Arquivo -> Exportar).
+  Adicionado Antialiasing para a exibição do Navegador (menu Exibir -> Outros).
   Incluídos papéis de parede de exemplo na pasta wallpaper dentro da pasta de instalação.
   Adicionados diversos recursos de edição em modo tela cheia (mova o mouse para o topo da tela).
-  Corrigido bug em que LinkLabel de alguns arquivos não era carregado corretamente.
-  Corrigido bug em que cards hexagonais não eram desenhados corretamente.
-  Corrigido bug em que clicar duas vezes em um card em tela cheia causava erro.
+  Corrigido bug em que Rótulo de link de alguns arquivos não era carregado corretamente.
+  Corrigido bug em que cartões hexagonais não eram desenhados corretamente.
+  Corrigido bug em que clicar duas vezes em um cartão em tela cheia causava erro.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.12 (2007/10/01)
-  Corrigido bug em que adicionar um card com Arrange ON e Zoom ativos causava erro.
+  Corrigido bug em que adicionar um cartão com botão Auto e Zoom ativos causava erro.
   Além disso, diversas pequenas correções.
 
 - 1.11 (2007/09/30)
-  Adicionada fixação de posição de cards (botão de alfinete).
-  Adicionado Arrange (Matrix), que organiza cards em uma grade.
-  Adicionada visualização geral do layout dos cards no canto inferior direito do Browser.
-  Cards agora podem ser movidos com as teclas de seta no Browser.
-  Adicionado Link Limitation que exibe apenas cards linkados na direção inversa.
-  Adicionado Link Limitation que exibe links entre o card atual e o alvo.
-  Adicionada nova forma de card que desenha uma figura pequena no centro e recorta o texto.
-  Além de círculos ao redor de cards com o mesmo label, agora retângulos também podem ser desenhados.
-  A fonte agora pode ser alterada (View menu -> Font -> Change Font).
-  Papel de parede agora pode ser definido para a tela do Browser (View menu -> Others).
-  Adicionados modos de organização Soft que priorizam evitar sobreposição.
-  A organização automática de cards agora continua mesmo durante o arrasto.
+  Adicionada fixação de posição de cartões (botão de alfinete).
+  Adicionada Matriz, que organiza cartões em uma grade.
+  Adicionada visualização geral do layout dos cartões no canto inferior direito do Navegador.
+  Os cartões agora podem ser movidos com as teclas de seta no Navegador.
+  Adicionado Limitar exibição por links que exibe apenas cartões linkados na direção inversa.
+  Adicionado Limitar exibição por links que exibe links entre o cartão atual e o alvo.
+  Adicionada nova forma de cartão que desenha uma figura pequena no centro e recorta o texto.
+  Além de círculos ao redor de cartões com o mesmo rótulo, agora retângulos também podem ser desenhados.
+  A fonte agora pode ser alterada (menu Exibir -> Fonte -> Alterar fonte).
+  Papel de parede agora pode ser definido para a tela do Navegador (menu Exibir -> Outros).
+  Adicionados modos de organização (suave) que priorizam evitar sobreposição.
+  A organização automática de cartões agora continua mesmo durante o arrasto.
   Organização automática e rolagem agora são ligeiramente mais suaves.
-  Adicionados atalhos para alternar entre Browser e Editor (Ctrl+B, Ctrl+E).
-  Destaque dos três cards mais recentes alterado de Shift para Espaço.
-  Modificador de arrasto para mover cards com o mesmo label alterado de Shift para Ctrl.
+  Adicionados atalhos para alternar entre Navegador e Editor (Ctrl+B, Ctrl+E).
+  Destaque dos três cartões mais recentes alterado de Shift para Espaço.
+  Modificador de arrasto para mover cartões com o mesmo rótulo alterado de Shift para Ctrl.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.10 (2007/09/01)
-  Adicionada opção para quebrar texto do corpo na borda direita em View menu -> Text -> WordWrap.
-  Títulos de cards agora podem conter quebras de linha usando \n ou Ctrl+Enter no Browser.
-  Adicionada organização por similaridade de título/corpo (Similarity).
-  Adicionado Normalize, que ajusta o zoom para que os cards caibam na tela.
-  Adicionado suporte para diversos tipos de pontuação (View menu -> Score).
-  Adicionada leitura em voz alta de títulos de cards (requer Microsoft Agent).
-  Adicionada busca sem diferenciação de maiúsculas/minúsculas (desmarque Match Case).
+  Adicionada opção para quebrar texto do corpo na borda direita em menu Exibir -> Texto do corpo -> Quebrar na borda direita.
+  Títulos de cartões agora podem conter quebras de linha usando \n ou Ctrl+Enter no Navegador.
+  Adicionada organização por similaridade de título/corpo (Similaridade).
+  Adicionado Normalizar, que ajusta o zoom para que os cartões caibam na tela.
+  Adicionado suporte para diversos tipos de pontuação (menu Exibir -> Pontuação).
+  Adicionada leitura em voz alta de títulos de cartões (requer Microsoft Agent).
+  Adicionada busca sem diferenciação de maiúsculas/minúsculas (desmarque Diferenciar maiúsculas e minúsculas).
   Corrigido bug em que atalhos de teclado não funcionavam na caixa de busca.
   Corrigido problema em que um erro podia ocorrer logo após a inicialização.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.05 (2007/08/03)
-  Adicionada seleção de menu em japonês em View menu -> Change Language.
-  Adicionado suporte para exibir imagens de links externos nos cards.
-  Adicionados cálculo e exibição de pontuação em View menu -> Others.
-  Adicionada exportação da lista de títulos de cards em File menu -> Export.
-  Cards visualizados mais recentemente agora são exibidos na frente.
-  Pressionar Shift agora destaca os três cards visualizados mais recentemente.
-  Nomes de labels agora são exibidos dentro dos círculos de labels no Browser.
-  Área de layout de cards do Browser ampliada para quatro vezes o tamanho anterior
+  Adicionada seleção de menu em japonês em menu Exibir -> Alterar idioma.
+  Adicionado suporte para exibir imagens de links externos nos cartões.
+  Adicionados cálculo e exibição de pontuação em menu Exibir -> Outros.
+  Adicionada exportação da lista de títulos de cartões em menu Arquivo -> Exportar.
+  Os cartões visualizados mais recentemente agora são exibidos na frente.
+  Pressionar Shift agora destaca os três cartões visualizados mais recentemente.
+  Os nomes dos rótulos agora são exibidos dentro dos círculos de rótulos no Navegador.
+  Área de layout de cartões do Navegador ampliada para quatro vezes o tamanho anterior
   (duas vezes mais larga e duas vezes mais alta).
-  AutoZoom agora sempre mantém cards relacionados visíveis na tela.
+  Zoom auto agora sempre mantém cartões relacionados visíveis na tela.
   Carregamento de arquivos agora é mais rápido.
-  Corrigido problema em que cards podiam se sobrepor durante a organização automática.
-  Corrigido problema em que Delete não conseguia remover um card logo após editar seu título.
+  Corrigido problema em que cartões podiam se sobrepor durante a organização automática.
+  Corrigido problema em que Excluir não conseguia remover um cartão logo após editar seu título.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.04 (2007/07/16)
-  Adicionadas configurações de tamanho de card por label com o botão View na aba Browser.
-  Labels agora podem ser ativados ou desativados.
-  Adicionada filtragem de cards visíveis por data.
-  Adicionada filtragem de cards visíveis por tamanho mínimo de card.
-  Cores de frente e fundo agora podem ser alteradas em View menu -> Others.
-  Vários cards agora podem ser criados de uma vez a partir de texto com múltiplas linhas, usando cada linha como título.
+  Adicionadas configurações de tamanho de cartão por rótulo com o botão Exibir na aba Navegador.
+  Os rótulos agora podem ser ativados ou desativados.
+  Adicionada filtragem de cartões visíveis por data.
+  Adicionada filtragem de cartões visíveis por tamanho mínimo do cartão.
+  Cores de frente e fundo agora podem ser alteradas em menu Exibir -> Outros.
+  Vários cartões agora podem ser criados de uma vez a partir de texto com múltiplas linhas, usando cada linha como título.
   O nome do arquivo em edição agora é exibido na barra de tarefas.
-  Ao selecionar um card, a lista Cards agora rola até que o card selecionado fique visível.
+  Ao selecionar um cartão, a lista de cartões agora rola até que o cartão selecionado fique visível.
   Corrigido bug em que o programa não iniciava se não houvesse impressora padrão.
-  Corrigido bug em que excluir um Link Label em uso causava erro e deixava o aplicativo inutilizável.
+  Corrigido bug em que excluir um rótulo de link em uso causava erro e deixava o aplicativo inutilizável.
   Corrigido problema em que salvar podia falhar sob carga pesada e o cursor ficava como ampulheta.
   Corrigido problema em que fechar a caixa de busca retornava a posição do cursor ao topo da página.
-  Corrigido problema em que clicar em espaço vazio com Fold ativo podia selecionar um card.
+  Corrigido problema em que clicar em espaço vazio com Dobrar ativo podia selecionar um cartão.
   Corrigido problema em que o intervalo de seleção durante a busca era incorreto.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.03 (2006/12/17)
-  Adicionada impressão simples da exibição do Browser.
-  Adicionado Shift+Insert para criar um card de nó pai.
-  Formas e tamanhos de cards agora podem ser alterados.
+  Adicionada impressão simples da exibição do Navegador.
+  Adicionado Shift+Insert para criar um cartão de nó pai.
+  Formas e tamanhos de cartões agora podem ser alterados.
   Adicionado suporte para níveis de zoom maiores.
   Adicionada barra de status exibindo contagem de caracteres e informações similares
-  (visibilidade pode ser alterada pelo View menu).
-  Adicionado Select All ao Edit menu.
+  (visibilidade pode ser alterada pelo menu Exibir).
+  Adicionado Selecionar tudo ao menu Editar.
   Corrigida corrupção de exibição e arquivo ao colar RichText.
   Corrigido bug em que excluir um link com a tecla Delete durante arrasto causava erro.
-  Corrigido problema em que a linha não era exibida ao arrastar um link com label.
+  Corrigido problema em que a linha não era exibida ao arrastar um link com rótulo.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.02 (2006/10/21)
-  Adicionado Insert para criar um card de nó filho.
-  Adicionado Enter para criar um card de nó irmão.
-  Adicionado Insert com um link selecionado para criar um card entre os cards linkados.
+  Adicionada criação de cartão de nó filho com a tecla Insert.
+  Adicionada criação de cartão de nó irmão com a tecla Enter.
+  Adicionada criação de cartão entre cartões linkados com a tecla Insert enquanto um link está selecionado.
   Links agora podem ser editados por arrasto.
-  Adicionada busca limitada a títulos de cards ou corpo do texto.
-  Adicionada busca de título de card a partir da tela do Browser.
-  Adicionado Shift+arrasto para mover cards com o mesmo label juntos.
+  Adicionada busca limitada a títulos de cartões ou corpo do texto.
+  Adicionada busca de título de cartão a partir da tela do Navegador.
+  Adicionado Shift+arrasto para mover cartões com o mesmo rótulo juntos.
   Busca agora é mais rápida.
   Exibição agora é ligeiramente mais rápida.
-  Ao criar um novo card, o Index inicial agora muda dependendo do card sendo editado.
-  Corrigido problema em que cards agrupados repeliam com muita força durante Arrange.
+  Ao criar um novo cartão, a Ordem inicial agora muda dependendo do cartão sendo editado.
+  Corrigido problema em que cartões agrupados repeliam com muita força durante a organização automática.
   Corrigido problema em que Tab não podia ser inserido no corpo.
   Além disso, diversas pequenas correções e melhorias.
 
 - 1.01 (2006/10/07)
-  Títulos de cards agora podem ser editados diretamente no Browser.
-  Logo após criar um novo card, o programa agora entra em modo de edição de título.
-  Adicionado Auto Zoom, que ajusta automaticamente o zoom da tela do Browser.
-  Adicionada organização por ordem de cards (Index).
-  View button -> Link Limitation agora pode limitar por direção do link.
-  Adicionado Cut to New Card Title ao menu de contexto do Editor.
-  Adicionado Shuffle, que randomiza as coordenadas dos cards no Browser.
-  Adicionado Shuffle (Edit -> Sort menu), que randomiza a ordem dos cards.
-  Corrigido bug em que clicar em um card no Browser podia selecionar o card por baixo.
+  Títulos de cartões agora podem ser editados diretamente no Navegador.
+  Logo após criar um novo cartão, o programa agora entra em modo de edição de título.
+  Adicionado Zoom auto, que ajusta automaticamente o zoom da tela do Navegador.
+  Adicionada organização por ordem de cartões (Ordem).
+  Botão Exibir -> Limitar exibição por links agora pode limitar por direção do link.
+  Adicionado Usar o texto selecionado como título de um novo cartão ao menu de contexto do Editor.
+  Adicionada função de aleatorizar posições, que randomiza as coordenadas dos cartões no Navegador.
+  Adicionado Aleatório (menu Editar -> Ordenar cartões), que randomiza a ordem dos cartões.
+  Corrigido bug em que clicar em um cartão no Navegador podia selecionar o cartão por baixo.
 
 - 1.00 (2006/09/24)
   Versão inicial.
@@ -694,22 +693,22 @@ Viewed:1899/12/30
 Perguntas frequentes
 ----------------------------------------------------------------------------
 
-P. Existe alguma forma de aumentar a área do Browser?
+P. Existe alguma forma de aumentar a área do Navegador?
 
-R. Em Arrange (organização automática de cards) no topo da tela do Browser,
-selecione Normalize e pressione o botão Arrange ON. Os cards serão
-organizados automaticamente ao redor do centro do Browser, mantendo suas
+R. Com a organização automática de cartões na parte superior da tela do Navegador,
+selecione Normalizar e pressione o botão Auto. Os cartões serão
+organizados automaticamente ao redor do centro do Navegador, mantendo suas
 posições relativas. Após a organização, você pode usar a barra de Zoom
-para ampliar ou reduzir, e alterar a área visível do Browser clicando ou
+para ampliar ou reduzir, e alterar a área visível do Navegador clicando ou
 arrastando as barras de rolagem ou a visualização geral no canto inferior
-direito do Browser.
+direito do Navegador.
 
 
 P. O Frieve Editor pode ser iniciado a partir de um pen drive ou mídia similar?
 
 R. Copie todos os arquivos da pasta de instalação do Frieve Editor
 (normalmente c:\Program Files\Frieve Editor\) para o pen drive.
-Depois, basta executar o editor.exe de lá para usar o Frieve Editor.
+Depois, basta executar o feditor.exe de lá para usar o Frieve Editor.
 O Frieve Editor não utiliza o registro do Windows.
 
 
@@ -723,22 +722,22 @@ amplamente.
 P. Parece que ele se conecta à internet ao iniciar. O que está fazendo?
 
 R. Ele está verificando o status de atualização da versão mais recente do
-Frieve Editor. Esta é a mesma operação de Help menu -> Check Latest Release.
-Você também pode configurar em Help menu -> Check Latest Release se a versão
+Frieve Editor. Esta é a mesma operação de menu Ajuda -> Verificar versão mais recente.
+Você também pode configurar em menu Ajuda -> Verificar versão mais recente se a versão
 mais recente deve ser verificada automaticamente.
 Se não quiser que ele se conecte, bloqueá-lo com um firewall ou ferramenta
 similar não causará nenhum problema.
 
 
-P. Texto em japonês aparece ilegível no Browser.
+P. Texto em japonês aparece ilegível no Navegador.
 
 R. O conjunto de caracteres da fonte pode estar definido para uma opção
 não japonesa, como fontes ocidentais. Abra a caixa de diálogo de fontes em
-View menu -> Font -> Change Font, escolha uma fonte japonesa e defina o
-conjunto de caracteres para Japanese.
+menu Exibir -> Fonte -> Alterar fonte, escolha uma fonte japonesa e defina o
+conjunto de caracteres para japonês.
 
 
-P. O vídeo associado a um card não reproduz.
+P. O vídeo associado a um cartão não reproduz.
 
 R. Tente instalar o codec indicado aqui:
 http://ja.wikipedia.org/wiki/Ffdshow
@@ -769,7 +768,7 @@ O endereço de e-mail da Frieve está indicado abaixo.
 Observe que nem sempre será possível responder às mensagens enviadas.
 frieve-a@frieve.com
 15
-Title:Editar Cards
+Title:Editar cartões
 Label:2,8
 Fixed:0
 X:0.135771751403809
@@ -782,10 +781,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-Editar Cards
+Editar cartões
 ============================================================================
 57
-Title: Como criar um novo card
+Title: Como criar um novo cartão
 Label:2
 Fixed:0
 X:0.0362772606313229
@@ -798,52 +797,52 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como criar um novo card
+Como criar um novo cartão
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique duas vezes em uma área vazia do Browser onde não haja nenhum card.
+1. Clique na aba Navegador.
+2. Clique duas vezes em uma área vazia do Navegador onde não haja nenhum cartão.
 
-Nota: Neste caso, o novo card é adicionado ao final da lista de cards.
+Nota: Neste caso, o novo cartão é adicionado ao final da lista de cartões.
 
 Nota: Se você clicar no terceiro botão da esquerda no canto superior esquerdo
-      da tela do Browser (o botão marcado com L e um card), escolher um label
-      e depois clicar duas vezes, poderá adicionar um card que já tenha esse
-      label atribuído.
+      da tela do Navegador (o botão marcado com L e um cartão), escolher um rótulo
+      e depois clicar duas vezes, poderá adicionar um cartão que já tenha esse
+      rótulo atribuído.
 
 Ou,
 
-Selecione New Card no Insert menu.
+Selecione Novo cartão no menu Inserir.
 
-Nota: Neste caso, o novo card é adicionado após o card selecionado.
-      Se nenhum card estiver selecionado, ele é adicionado ao final da lista.
-
-Ou,
-
-1. Clique com o botão direito na lista Cards no lado esquerdo da tela.
-2. Escolha New Card no menu exibido.
-
-Nota: Neste caso, o novo card é adicionado antes do card selecionado.
-      Se nenhum card estiver selecionado, ele é adicionado ao final da lista.
+Nota: Neste caso, o novo cartão é adicionado após o cartão selecionado.
+      Se nenhum cartão estiver selecionado, ele é adicionado ao final da lista.
 
 Ou,
 
-1. Na aba Editor, selecione uma parte do corpo de um card existente que
-   deseja usar como corpo de um novo card.
-2. Escolha Cut to New Card no menu de contexto do Editor.
-   Um novo card é criado usando o texto selecionado como corpo.
+1. Clique com o botão direito na lista de cartões no lado esquerdo da tela.
+2. Escolha Novo cartão no menu exibido.
+
+Nota: Neste caso, o novo cartão é adicionado antes do cartão selecionado.
+      Se nenhum cartão estiver selecionado, ele é adicionado ao final da lista.
 
 Ou,
 
-1. Na aba Editor, selecione a linha ou linhas no corpo de um card existente
-   que deseja usar como título de um novo card
-   (selecione múltiplas linhas para criar vários cards de uma vez).
-2. Escolha Cut to New Card Title ou Cut to New Card Title with Link no menu
-   de contexto do Editor. Um novo card é criado usando o texto selecionado
-   como título. Se escolher a opção with Link, um link também é criado do
-   card original para o novo card.
+1. Na aba Editor, selecione uma parte do corpo de um cartão existente que
+   deseja usar como corpo de um novo cartão.
+2. Escolha Usar o texto selecionado como corpo de um novo cartão no menu de contexto do Editor.
+   Um novo cartão é criado usando o texto selecionado como corpo.
+
+Ou,
+
+1. Na aba Editor, selecione a linha ou linhas no corpo de um cartão existente
+   que deseja usar como título de um novo cartão
+   (selecione múltiplas linhas para criar vários cartões de uma vez).
+2. Escolha Usar o texto selecionado como título de um novo cartão ou Usar o texto selecionado como título de um novo cartão e vincular no menu
+   de contexto do Editor. Um novo cartão é criado usando o texto selecionado
+   como título. Se escolher a opção com link, um link também é criado do
+   cartão original para o novo cartão.
 59
-Title: Como criar um card linkado a partir de um card existente
+Title: Como criar um cartão linkado a partir de um cartão existente
 Label:2
 Fixed:0
 X:0.00704234046861529
@@ -856,54 +855,54 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como criar um card linkado a partir de um card existente
+Como criar um cartão linkado a partir de um cartão existente
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Selecione o card de origem no Browser.
-3. Pressione a tecla Insert. Um novo card linkado a partir do card selecionado
+1. Clique na aba Navegador.
+2. Selecione o cartão de origem no Navegador.
+3. Pressione a tecla Insert. Um novo cartão linkado a partir do cartão selecionado
    é criado.
 
-Nota: Neste caso, o novo card é adicionado após o último card entre os cards
-      linkados a partir do card selecionado.
+Nota: Neste caso, o novo cartão é adicionado após o último cartão entre os cartões
+      linkados a partir do cartão selecionado.
 
-Nota: Os labels do card selecionado são herdados pelo novo card.
-
-Ou,
-
-1. Clique na aba Browser.
-2. Selecione o card de origem no Browser.
-3. Pressione Shift+Insert. Um novo card linkado ao card selecionado é criado.
-
-Nota: Neste caso, o novo card é adicionado após o último card entre os cards
-      linkados ao card selecionado.
-
-Nota: Os labels do card selecionado são herdados pelo novo card.
+Nota: Os rótulos do cartão selecionado são herdados pelo novo cartão.
 
 Ou,
 
-1. Clique na aba Browser.
-2. Selecione um card que seja irmão do card que deseja criar.
-3. Pressione Enter. Um novo card linkado a partir do card de origem do card
+1. Clique na aba Navegador.
+2. Selecione o cartão de origem no Navegador.
+3. Pressione Shift+Insert. Um novo cartão linkado ao cartão selecionado é criado.
+
+Nota: Neste caso, o novo cartão é adicionado após o último cartão entre os cartões
+      linkados ao cartão selecionado.
+
+Nota: Os rótulos do cartão selecionado são herdados pelo novo cartão.
+
+Ou,
+
+1. Clique na aba Navegador.
+2. Selecione um cartão que seja irmão do cartão que deseja criar.
+3. Pressione Enter. Um novo cartão linkado a partir do cartão de origem
    selecionado é criado.
 
-Nota: Neste caso, o novo card é adicionado após o card selecionado.
+Nota: Neste caso, o novo cartão é adicionado após o cartão selecionado.
 
-Nota: Se mais de um card apontar para o card selecionado, o novo card é
-      criado a partir do card de origem mais recentemente selecionado.
+Nota: Se mais de um cartão apontar para o cartão selecionado, o novo cartão é
+      criado a partir do cartão de origem mais recentemente selecionado.
 
-Nota: Os labels do card selecionado são herdados pelo novo card.
+Nota: Os rótulos do cartão selecionado são herdados pelo novo cartão.
 
 Ou,
 
-1. Clique na aba Browser.
-2. Selecione o link onde deseja inserir um card.
-3. Pressione a tecla Insert. Um novo card é criado no meio do link selecionado.
+1. Clique na aba Navegador.
+2. Selecione o link onde deseja inserir um cartão.
+3. Pressione a tecla Insert. Um novo cartão é criado no meio do link selecionado.
 
-Nota: Neste caso, o novo card é adicionado após o último card entre os cards
-      linkados a partir do card de origem do card selecionado.
+Nota: Neste caso, o novo cartão é adicionado após o último cartão entre os cartões
+      linkados a partir do cartão de origem do cartão selecionado.
 32
-Title: Como selecionar cards
+Title: Como selecionar cartões
 Label:2
 Fixed:0
 X:0
@@ -916,27 +915,27 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como selecionar cards
+Como selecionar cartões
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no card que deseja selecionar. Para selecionar múltiplos cards
-   ao mesmo tempo, mantenha Ctrl pressionado enquanto clica nos cards.
+1. Clique na aba Navegador.
+2. Clique no cartão que deseja selecionar. Para selecionar múltiplos cartões
+   ao mesmo tempo, mantenha Ctrl pressionado enquanto clica nos cartões.
 
 Ou,
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Mantenha Shift pressionado e arraste sobre uma área vazia para definir
-   uma faixa de seleção. Os cards dentro da área arrastada são selecionados.
+   uma faixa de seleção. Os cartões dentro da área arrastada são selecionados.
 
 Ou,
 
-Clique nos cards na lista Cards no lado esquerdo da tela.
-Para selecionar múltiplos cards, mantenha Ctrl pressionado enquanto clica,
-arraste sobre a faixa desejada, ou selecione o primeiro card da faixa e
-depois mantenha Shift pressionado enquanto clica no último card da faixa.
+Clique nos cartões na lista de cartões no lado esquerdo da tela.
+Para selecionar múltiplos cartões, mantenha Ctrl pressionado enquanto clica,
+arraste sobre a faixa desejada, ou selecione o primeiro cartão da faixa e
+depois mantenha Shift pressionado enquanto clica no último cartão da faixa.
 27
-Title: Como mover cards
+Title: Como mover cartões
 Label:2,5
 Fixed:0
 X:0.340611904859543
@@ -949,22 +948,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como mover cards
+Como mover cartões
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Arraste o card que deseja mover.
+1. Clique na aba Navegador.
+2. Arraste o cartão que deseja mover.
 
-Nota: Se múltiplos cards estiverem selecionados, você pode mover todos os
-      cards selecionados juntos.
+Nota: Se múltiplos cartões estiverem selecionados, você pode mover todos os
+      cartões selecionados juntos.
 
 Ou,
 
-1. Clique na aba Browser.
-2. Mantenha Ctrl pressionado e arraste um card.
-   Isso permite mover cards com o mesmo label juntos.
+1. Clique na aba Navegador.
+2. Mantenha Ctrl pressionado e arraste um cartão.
+   Isso permite mover cartões com o mesmo rótulo juntos.
 18
-Title: Como editar o título de um card
+Title: Como editar o título de um cartão
 Label:2
 Fixed:0
 X:0.0260267276316881
@@ -977,13 +976,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como editar o título de um card
+Como editar o título de um cartão
 ----------------------------------------------------------------------------
 
-1. Selecione o card cujo título deseja editar.
-2. Digite o novo título no campo Title no painel Card.
+1. Selecione o cartão cujo título deseja editar.
+2. Digite o novo título no campo Nome no painel Cartão.
 20
-Title: Como editar o conteúdo de um card
+Title: Como editar o conteúdo de um cartão
 Label:2
 Fixed:0
 X:0.00242089992389083
@@ -996,15 +995,15 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:51
 -
 ----------------------------------------------------------------------------
-Como editar o conteúdo de um card
+Como editar o conteúdo de um cartão
 ----------------------------------------------------------------------------
 
-1. Clique duas vezes no card que deseja editar no Browser, ou clique duas
-   vezes na lista de Cards no lado esquerdo da tela. Se o card já estiver
+1. Clique duas vezes no cartão que deseja editar no Navegador, ou clique duas
+   vezes na lista de cartões no lado esquerdo da tela. Se o cartão já estiver
    selecionado, clique na aba Editor para exibi-lo.
-2. Edite o conteúdo do card no Editor.
+2. Edite o conteúdo do cartão no Editor.
 113
-Title: Como editar o conteúdo de um card com GPT
+Title: Como editar o conteúdo de um cartão com GPT
 Label:2
 Fixed:0
 X:0.0822317451238632
@@ -1017,19 +1016,19 @@ Updated:2023/04/14 20:37:19
 Viewed:2023/04/14 20:23:50
 -
 ----------------------------------------------------------------------------
-Como editar o conteúdo de um card com GPT
+Como editar o conteúdo de um cartão com GPT
 ----------------------------------------------------------------------------
 
-1. Escolha GPT no Edit menu, ou pressione Ctrl+G no teclado.
+1. Escolha GPT no menu Editar, ou pressione Ctrl+G no teclado.
    Recomenda-se usar Ctrl+G.
 2. Selecione a operação desejada no menu de contexto.
-3. Na primeira vez que usar, insira sua API Key da OpenAI na caixa de
+3. Na primeira vez que usar, insira sua chave da API OpenAI na caixa de
    diálogo exibida.
 
 A integração com GPT do Frieve Editor utiliza a API paga, porém muito
 acessível, da OpenAI. Para usar a API da OpenAI, você precisa criar uma
 conta OpenAI e cadastrar um cartão de crédito. Para mais detalhes sobre
-como obter uma API Key da OpenAI, consulte o site da API da OpenAI.
+como obter uma chave da API OpenAI, consulte o site da API da OpenAI.
 https://platform.openai.com/overview
 
 
@@ -1066,7 +1065,7 @@ Translate to Japanese
 
 
 Title
-  Gera um título para o card com base no texto selecionado.
+  Gera um título para o cartão com base no texto selecionado.
 
 
 Editando o arquivo setting2.ini, incluído com o Frieve Editor, em um editor
@@ -1111,14 +1110,14 @@ InsertAfter
 Replace
   Substitui o texto na seleção atual pelo texto gerado
 Title
-  Define o título do card como texto gerado a partir do texto na seleção atual
+  Define o título do cartão como texto gerado a partir do texto na seleção atual
 
 Qualquer texto pode ser usado como prompt que instrui o processamento.
 Você também pode usar português no prompt.
 Se especificar (Input), uma caixa de diálogo é aberta após selecionar a
 operação, solicitando que o usuário insira qualquer prompt.
 35
-Title: Como buscar cards
+Title: Como buscar cartões
 Label:2
 Fixed:0
 X:0.0635863617062569
@@ -1131,30 +1130,30 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:23:48
 -
 ----------------------------------------------------------------------------
-Como buscar cards
+Como buscar cartões
 ----------------------------------------------------------------------------
 
-1. Escolha Find no Edit menu, ou pressione Ctrl+F.
+1. Escolha Localizar no menu Editar, ou pressione Ctrl+F.
 2. Digite o texto de busca na caixa de diálogo exibida.
-3. Para buscar títulos de cards, marque Card Title.
-4. Para buscar o corpo dos cards, marque Text.
-5. Para busca com diferenciação de maiúsculas/minúsculas, marque Match Case.
-   Para busca sem diferenciação, desmarque Match Case.
-6. Para incluir cards ocultos do Browser na busca, marque Invisible Card.
-   Se não quiser incluir cards ocultos, desmarque Invisible Card.
-7. Pressione Find Next.
+3. Para buscar títulos de cartões, marque Nome do cartão.
+4. Para buscar o corpo dos cartões, marque Corpo do cartão.
+5. Para busca com diferenciação de maiúsculas/minúsculas, marque Diferenciar maiúsculas e minúsculas.
+   Para busca sem diferenciação, desmarque Diferenciar maiúsculas e minúsculas.
+6. Para incluir cartões ocultos do Navegador na busca, marque Cartões ocultos.
+   Se não quiser incluir cartões ocultos, desmarque Cartões ocultos.
+7. Pressione Localizar próximo.
 8. Para buscar o próximo resultado com a mesma palavra-chave e condições,
-   escolha Find Next no Edit menu ou pressione F3.
+   escolha Localizar próximo no menu Editar ou pressione F3.
 
 Ou,
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Digite o texto de busca na caixa de edição no canto superior direito da
-   aba Browser.
-3. Pressione o botão Find à direita da caixa de edição.
-   Isso busca nos cards visíveis os títulos que contenham o texto de busca.
+   aba Navegador.
+3. Pressione o botão Buscar à direita da caixa de edição.
+   Isso busca nos cartões visíveis os títulos que contenham o texto de busca.
 26
-Title: Como excluir cards
+Title: Como excluir cartões
 Label:2
 Fixed:0
 X:0.24679708480835
@@ -1167,21 +1166,21 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como excluir cards
+Como excluir cartões
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Selecione o card que deseja excluir.
+1. Clique na aba Navegador.
+2. Selecione o cartão que deseja excluir.
 3. Pressione a tecla Delete.
 
 Ou,
 
-1. Clique no card que deseja excluir na lista Cards no lado esquerdo e
+1. Clique no cartão que deseja excluir na lista de cartões no lado esquerdo e
    selecione-o.
-2. Clique com o botão direito na lista Cards.
-3. Escolha Delete Card no menu de contexto exibido.
+2. Clique com o botão direito na lista de cartões.
+3. Escolha Excluir cartão no menu de contexto exibido.
 28
-Title: Como adicionar um label a um card
+Title: Como adicionar um rótulo a um cartão
 Label:2
 Fixed:0
 X:0.214659854769707
@@ -1194,23 +1193,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como adicionar um label a um card
+Como adicionar um rótulo a um cartão
 ----------------------------------------------------------------------------
 
-1. Selecione o card ao qual deseja atribuir um label.
-2. Clique em um dos botões à direita de Label no painel Card que ainda não
-   tenha um label atribuído.
-3. Escolha o label a aplicar ao card no menu de contexto exibido.
+1. Selecione o cartão ao qual deseja atribuir um rótulo.
+2. Clique em um dos botões à direita de Rótulo no painel Cartão que ainda não
+   tenha um rótulo atribuído.
+3. Escolha o rótulo a aplicar ao cartão no menu de contexto exibido.
 
 Ou,
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Clique no terceiro botão da esquerda no canto superior esquerdo da tela
-   do Browser (o botão marcado com L e um card) para selecioná-lo.
-3. Escolha o label a aplicar no menu de contexto exibido.
-4. Clique no card ao qual deseja atribuir o label.
+   do Navegador (o botão marcado com L e um cartão) para selecioná-lo.
+3. Escolha o rótulo a aplicar no menu de contexto exibido.
+4. Clique no cartão ao qual deseja atribuir o rótulo.
 19
-Title: Como adicionar um novo label a um card
+Title: Como adicionar um novo rótulo a um cartão
 Label:2,4
 Fixed:0
 X:0.155212134122849
@@ -1223,14 +1222,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como adicionar um novo label a um card
+Como adicionar um novo rótulo a um cartão
 ----------------------------------------------------------------------------
 
-1. Selecione o card cujos labels deseja editar.
-2. Escolha New Label no Insert menu.
-3. Digite o nome do novo label na caixa de diálogo exibida e pressione OK.
+1. Selecione o cartão cujos rótulos deseja editar.
+2. Escolha Novo rótulo no menu Inserir.
+3. Digite o nome do novo rótulo na caixa de diálogo exibida e pressione OK.
 21
-Title: Como remover ou alterar o label de um card
+Title: Como remover ou alterar o rótulo de um cartão
 Label:2
 Fixed:0
 X:0.119580142199993
@@ -1243,16 +1242,16 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como remover ou alterar o label de um card
+Como remover ou alterar o rótulo de um cartão
 ----------------------------------------------------------------------------
 
-1. Selecione o card cujos labels deseja editar.
-2. Clique no botão de label que deseja remover ou alterar entre os botões à
-   direita de Label no painel Card.
-3. Escolha o label a atribuir ao card no menu de contexto exibido.
-   Se escolher No Label aqui, o label é removido.
+1. Selecione o cartão cujos rótulos deseja editar.
+2. Clique no botão de rótulo que deseja remover ou alterar entre os botões à
+   direita de Rótulo no painel Cartão.
+3. Escolha o rótulo a atribuir ao cartão no menu de contexto exibido.
+   Se escolher Sem rótulo aqui, o rótulo é removido.
 29
-Title: Como associar um arquivo externo ou URL a um card
+Title: Como associar um arquivo externo ou URL a um cartão
 Label:2
 Fixed:0
 X:0.208069488406181
@@ -1265,24 +1264,24 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como associar um arquivo externo ou URL a um card
+Como associar um arquivo externo ou URL a um cartão
 ----------------------------------------------------------------------------
 
-1. Clique duas vezes no card que deseja editar no Browser, ou clique duas
-   vezes na lista de Cards no lado esquerdo da tela. Se o card já estiver
+1. Clique duas vezes no cartão que deseja editar no Navegador, ou clique duas
+   vezes na lista de cartões no lado esquerdo da tela. Se o cartão já estiver
    selecionado, clique na aba Editor para exibi-lo.
-2. Em uma linha no corpo do card, insira o nome do arquivo (caminho completo)
+2. Em uma linha no corpo do cartão, insira o nome do arquivo (caminho completo)
    do arquivo externo ou uma URL.
 
 Ou,
 
-1. Selecione o card a associar ao item externo.
-2. Escolha New Ext Link no Insert menu.
+1. Selecione o cartão a associar ao item externo.
+2. Escolha Novo link externo no menu Inserir.
 3. Especifique o arquivo a associar.
    O nome do arquivo especificado é adicionado como última linha do corpo
-   do card.
+   do cartão.
 38
-Title: Como exibir imagens ou vídeos em um card
+Title: Como exibir imagens ou vídeos em um cartão
 Label:2
 Fixed:0
 X:0.1629708558321
@@ -1295,22 +1294,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como exibir imagens ou vídeos em um card
+Como exibir imagens ou vídeos em um cartão
 ----------------------------------------------------------------------------
 
-1. Clique duas vezes no card que deseja editar no Browser, ou clique duas
-   vezes na lista de Cards no lado esquerdo da tela. Se o card já estiver
+1. Clique duas vezes no cartão que deseja editar no Navegador, ou clique duas
+   vezes na lista de cartões no lado esquerdo da tela. Se o cartão já estiver
    selecionado, clique na aba Editor para exibi-lo.
-2. Em uma linha no corpo do card, insira o nome do arquivo de imagem
+2. Em uma linha no corpo do cartão, insira o nome do arquivo de imagem
    (caminho completo) ou a URL de um arquivo de imagem ou vídeo.
 
 Ou,
 
-1. Selecione o card a associar à mídia.
-2. Escolha New Ext Link no Insert menu.
+1. Selecione o cartão a associar à mídia.
+2. Escolha Novo link externo no menu Inserir.
 3. Especifique o arquivo de imagem ou vídeo.
    O nome do arquivo especificado é adicionado como última linha do corpo
-   do card.
+   do cartão.
 
 Nota: Os formatos de imagem e vídeo suportados atualmente são bmp, jpg,
       avi e mpg.
@@ -1321,7 +1320,7 @@ Nota: Se você escrever "posição inicial de reprodução(ms)-posição final(m
 Exemplo: 1000-5000|c:\movie.mpg
          Reproduz em loop de 1 segundo a 5 segundos de c:\movie.mpg
 73
-Title: Como exibir desenhos em um card
+Title: Como exibir desenhos em um cartão
 Label:2
 Fixed:0
 X:0.057452104985714
@@ -1334,43 +1333,43 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como exibir desenhos em um card
+Como exibir desenhos em um cartão
 ----------------------------------------------------------------------------
 
-1. Selecione o card no qual deseja inserir um desenho, no Browser ou na
-   lista de cards no lado esquerdo da tela.
-2. Clique na aba Drawing para exibir o editor de desenhos.
-3. Edite o desenho na aba Drawing.
-4. Ao retornar ao Browser, o desenho editado é exibido no card.
+1. Selecione o cartão no qual deseja inserir um desenho, no Navegador ou na
+   lista de cartões no lado esquerdo da tela.
+2. Clique na aba Desenho para exibir o editor de desenhos.
+3. Edite o desenho na aba Desenho.
+4. Ao retornar ao Navegador, o desenho editado é exibido no cartão.
 
 
 - Para adicionar uma forma
 
-1. No canto superior esquerdo da aba Drawing, clique para escolher o tipo
+1. No canto superior esquerdo da aba Desenho, clique para escolher o tipo
    de forma a adicionar: linha à mão livre, linha reta, retângulo ou elipse.
 2. Arraste o mouse dentro da moldura pontilhada para adicionar a forma.
 
 
 - Para selecionar uma forma
 
-1. No canto superior esquerdo da aba Drawing, escolha o botão de seleção
+1. No canto superior esquerdo da aba Desenho, escolha o botão de seleção
    com o ícone do cursor do mouse.
 2. Clique na forma que deseja selecionar. Mantenha Ctrl pressionado
    enquanto clica para alternar a seleção de múltiplas formas, ou arraste
    sobre uma área para selecionar várias formas de uma vez. Para selecionar
-   todas as formas, escolha Select All no Edit menu ou no menu de contexto.
+   todas as formas, escolha Selecionar tudo no menu Editar ou no menu de contexto.
 
 
 - Para recortar, copiar ou excluir uma forma
 
 1. Selecione a forma a editar.
-2. Escolha Cut, Copy ou Delete no Edit menu ou no menu de contexto.
+2. Escolha Recortar, Copiar ou Excluir no menu Editar ou no menu de contexto.
    Você também pode usar a tecla Delete para excluir.
 
 
 - Para colar uma forma recortada ou copiada
 
-Escolha Paste no Edit menu ou no menu de contexto.
+Escolha Colar no menu Editar ou no menu de contexto.
 
 
 - Para redimensionar uma forma
@@ -1388,14 +1387,14 @@ Escolha Paste no Edit menu ou no menu de contexto.
 - Para alterar a cor de uma forma
 
 1. Selecione a forma.
-2. Escolha uma cor com Color.
-   Para usar a cor de desenho do card determinada pelos labels, clique em Default.
+2. Escolha uma cor com Cor.
+   Para usar a cor de desenho do cartão determinada pelos rótulos, clique em Padrão.
    Para escolher outra cor, clique no pequeno botão duas posições à direita
-   de Default e escolha uma cor na caixa de diálogo de seleção de cores
+   de Padrão e escolha uma cor na caixa de diálogo de seleção de cores
    exibida. Se a cor desejada já tiver sido selecionada, basta clicar na
-   área de cor imediatamente à direita de Default.
+   área de cor imediatamente à direita de Padrão.
 25
-Title: Como alterar a forma e o tamanho de um card
+Title: Como alterar a forma e o tamanho de um cartão
 Label:2
 Fixed:0
 X:0.0962711051106453
@@ -1408,20 +1407,20 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como alterar a forma e o tamanho de um card
+Como alterar a forma e o tamanho de um cartão
 ----------------------------------------------------------------------------
 
-1. Selecione o card cujo tamanho deseja alterar.
-2. Altere o valor de Size à direita de Title no painel Card.
-   Com +8 o card fica quatro vezes maior, e com -8 fica um quarto do tamanho.
+1. Selecione o cartão cujo tamanho deseja alterar.
+2. Altere o valor de Tamanho à direita de Nome no painel Cartão.
+   Com +8 o cartão fica quatro vezes maior, e com -8 fica um quarto do tamanho.
 
 Ou,
 
-1. Selecione o card cuja forma deseja alterar.
-2. Clique no botão que exibe a forma do card à direita de Size no painel Card.
-3. Escolha a forma do card no menu de contexto exibido.
+1. Selecione o cartão cuja forma deseja alterar.
+2. Clique no botão que exibe a forma do cartão à direita de Tamanho no painel Cartão.
+3. Escolha a forma do cartão no menu de contexto exibido.
 15
-Title:Editar Links
+Title:Editar links
 Label:3,8
 Fixed:0
 X:0.623000621795654
@@ -1434,10 +1433,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-Editar Links
+Editar links
 ============================================================================
 46
-Title: Como criar um link entre cards
+Title: Como criar um link entre cartões
 Label:3
 Fixed:0
 X:0.566736936569214
@@ -1450,39 +1449,39 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como criar um link entre cards
+Como criar um link entre cartões
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Clique no segundo botão da esquerda no canto superior esquerdo da aba
-   Browser (o botão com uma linha) para selecioná-lo.
-3. Arraste o mouse do card de origem para o card de destino.
+   Navegador (o botão com uma linha) para selecioná-lo.
+3. Arraste o mouse do cartão de origem para o cartão de destino.
 
 Ou,
-1. Clique na aba Browser.
-2. Clique no card de origem para selecioná-lo.
-3. Mantenha Shift pressionado e clique no card de destino.
-   Você pode criar links rapidamente continuando a clicar em cards enquanto
+1. Clique na aba Navegador.
+2. Clique no cartão de origem para selecioná-lo.
+3. Mantenha Shift pressionado e clique no cartão de destino.
+   Você pode criar links rapidamente continuando a clicar em cartões enquanto
    mantém Shift pressionado.
 
 Nota: Se você clicar no quarto botão da esquerda no canto superior esquerdo
-      da tela do Browser (o botão marcado com L e uma linha), escolher um
-      label e depois criar um link, poderá adicionar um link com esse label
+      da tela do Navegador (o botão marcado com L e uma linha), escolher um
+      rótulo e depois criar um link, poderá adicionar um link com esse rótulo
       atribuído por padrão.
 
 Ou,
 
-1. Selecione o card de origem.
-2. Escolha New Link no Insert menu.
-3. Selecione o card de destino na caixa de diálogo exibida e pressione OK.
+1. Selecione o cartão de origem.
+2. Escolha Novo link no menu Inserir.
+3. Selecione o cartão de destino na caixa de diálogo exibida e pressione OK.
 
 Ou,
 
-1. Selecione o card de origem.
+1. Selecione o cartão de origem.
 2. Clique na aba Editor.
 3. Clique com o botão direito na lista de links na parte inferior da tela.
-4. Escolha New Link no menu de contexto exibido.
-5. Selecione o card de destino na caixa de diálogo exibida e pressione OK.
+4. Escolha Novo link no menu de contexto exibido.
+5. Selecione o cartão de destino na caixa de diálogo exibida e pressione OK.
 18
 Title: Como selecionar links
 Label:3
@@ -1500,7 +1499,7 @@ Viewed:1899/12/30
 Como selecionar links
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Clique no link que deseja selecionar.
 18
 Title: Como editar o título de um link
@@ -1520,7 +1519,7 @@ Como editar o título de um link
 ----------------------------------------------------------------------------
 
 1. Selecione o link cujo título deseja editar.
-2. Digite o novo título no campo Title no painel Link.
+2. Digite o novo título no campo Nome no painel Link.
 25
 Title: Como alterar a origem ou o destino de um link
 Label:3
@@ -1538,15 +1537,15 @@ Viewed:1899/12/30
 Como alterar a origem ou o destino de um link
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Arraste a extremidade do link que está mais próxima do card de origem.
-   Você pode alterar a origem para outro card.
+1. Clique na aba Navegador.
+2. Arraste a extremidade do link que está mais próxima do cartão de origem.
+   Você pode alterar a origem para outro cartão.
 
 Ou,
 
-1. Clique na aba Browser.
-2. Arraste a extremidade do link que está mais próxima do card de destino.
-   Você pode alterar o destino para outro card.
+1. Clique na aba Navegador.
+2. Arraste a extremidade do link que está mais próxima do cartão de destino.
+   Você pode alterar o destino para outro cartão.
 28
 Title: Como excluir links
 Label:3
@@ -1564,20 +1563,20 @@ Viewed:1899/12/30
 Como excluir links
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Selecione o link que deseja excluir.
 3. Pressione a tecla Delete.
 
 Ou,
 
-1. Selecione um card que tenha o link que deseja excluir.
+1. Selecione um cartão que tenha o link que deseja excluir.
 2. Clique na aba Editor.
 3. Selecione o link que deseja excluir na lista de links na parte inferior
    da tela.
 4. Clique com o botão direito na lista de links.
-5. Escolha Delete Link no menu de contexto exibido.
+5. Escolha Excluir link no menu de contexto exibido.
 27
-Title: Como adicionar um label a um link
+Title: Como adicionar um rótulo a um link
 Label:3
 Fixed:0
 X:0.696277678012848
@@ -1590,22 +1589,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como adicionar um label a um link
+Como adicionar um rótulo a um link
 ----------------------------------------------------------------------------
 
-1. Selecione o link ao qual deseja atribuir um label.
-2. Clique no botão à direita de Label no painel Link.
-3. Escolha o label a aplicar ao link no menu de contexto exibido.
+1. Selecione o link ao qual deseja atribuir um rótulo.
+2. Clique no botão à direita de Rótulo no painel Link.
+3. Escolha o rótulo a aplicar ao link no menu de contexto exibido.
 
 Ou,
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Clique no quarto botão da esquerda no canto superior esquerdo da tela
-   do Browser (o botão marcado com L e uma linha) para selecioná-lo.
-3. Escolha o label a aplicar no menu de contexto exibido.
-4. Clique no link ao qual deseja atribuir o label.
+   do Navegador (o botão marcado com L e uma linha) para selecioná-lo.
+3. Escolha o rótulo a aplicar no menu de contexto exibido.
+4. Clique no link ao qual deseja atribuir o rótulo.
 19
-Title: Como adicionar um novo label a um link
+Title: Como adicionar um novo rótulo a um link
 Label:3,4
 Fixed:0
 X:0.44114363193512
@@ -1618,14 +1617,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como adicionar um novo label a um link
+Como adicionar um novo rótulo a um link
 ----------------------------------------------------------------------------
 
-1. Selecione o link cujos labels deseja editar.
-2. Escolha New Link Label no Insert menu.
-3. Digite o nome do novo label na caixa de diálogo exibida e pressione OK.
+1. Selecione o link cujos rótulos deseja editar.
+2. Escolha Novo rótulo de link no menu Inserir.
+3. Digite o nome do novo rótulo na caixa de diálogo exibida e pressione OK.
 21
-Title: Como remover ou alterar o label de um link
+Title: Como remover ou alterar o rótulo de um link
 Label:3
 Fixed:0
 X:0.659928321838379
@@ -1638,14 +1637,14 @@ Updated:1899/12/30
 Viewed:2013/11/02 22:43:18
 -
 ----------------------------------------------------------------------------
-Como remover ou alterar o label de um link
+Como remover ou alterar o rótulo de um link
 ----------------------------------------------------------------------------
 
-1. Selecione o link cujos labels deseja editar.
-2. Clique no botão de label que deseja remover ou alterar entre os botões à
-   direita de Label no painel Link.
-3. Escolha o label a atribuir ao card no menu de contexto exibido.
-   Se escolher No Label aqui, o label é removido.
+1. Selecione o link cujos rótulos deseja editar.
+2. Clique no botão de rótulo que deseja remover ou alterar entre os botões à
+   direita de Rótulo no painel Link.
+3. Escolha o rótulo a atribuir ao link no menu de contexto exibido.
+   Se escolher Sem rótulo aqui, o rótulo é removido.
 18
 Title: Como inverter a direção de um link
 Label:3
@@ -1664,7 +1663,7 @@ Como inverter a direção de um link
 ----------------------------------------------------------------------------
 
 1. Selecione o link cuja direção deseja inverter.
-2. Clique no botão Inverse no painel Link.
+2. Clique no botão Inverter no painel Link.
 18
 Title: Como ativar ou desativar a direção de um link
 Label:3
@@ -1683,7 +1682,7 @@ Como ativar ou desativar a direção de um link
 ----------------------------------------------------------------------------
 
 1. Selecione o link cuja configuração de direção deseja alternar.
-2. Clique na caixa de seleção Direction no painel Link.
+2. Clique na caixa de seleção Direção no painel Link.
 20
 Title: Como alterar o estilo de um link
 Label:3
@@ -1702,11 +1701,11 @@ Como alterar o estilo de um link
 ----------------------------------------------------------------------------
 
 1. Selecione o link cujo estilo de linha deseja alterar.
-2. Clique no botão que exibe a linha à direita do botão Inverse no painel
+2. Clique no botão que exibe a linha à direita do botão Inverter no painel
    Link.
 3. Escolha o estilo de linha do link no menu de contexto exibido.
 15
-Title:Editar Labels
+Title:Editar rótulos
 Label:4,8
 Fixed:0
 X:0.309822618961334
@@ -1719,10 +1718,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-Editar Labels
+Editar rótulos
 ============================================================================
 18
-Title: Como abrir o editor de Card Labels
+Title: Como abrir o editor de rótulos de cartão
 Label:2,4
 Fixed:0
 X:0.239311203360558
@@ -1735,13 +1734,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como abrir o editor de Card Labels
+Como abrir o editor de rótulos de cartão
 ----------------------------------------------------------------------------
 
-Escolha Label no Edit menu.
-A caixa de diálogo de edição de Labels é aberta.
+No menu Editar, escolha Editar rótulos.
+A caixa de diálogo de edição de rótulos é aberta.
 18
-Title: Como abrir o editor de Link Labels
+Title: Como abrir o editor de rótulos de link
 Label:3,4
 Fixed:0
 X:0.450650095939636
@@ -1754,13 +1753,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como abrir o editor de Link Labels
+Como abrir o editor de rótulos de link
 ----------------------------------------------------------------------------
 
-Escolha Link Label no Edit menu.
-A caixa de diálogo de edição de Link Labels é aberta.
+No menu Editar, escolha Editar rótulos de link.
+A caixa de diálogo de edição de rótulos de link é aberta.
 19
-Title: Como criar um novo label
+Title: Como criar um novo rótulo
 Label:4
 Fixed:0
 X:0.249744102358818
@@ -1773,14 +1772,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como criar um novo label
+Como criar um novo rótulo
 ----------------------------------------------------------------------------
 
-1. Abra a tela de edição de labels.
-2. Pressione o botão New no canto inferior esquerdo da tela de edição.
-3. Digite o nome do novo label na caixa de diálogo exibida e pressione OK.
+1. Abra a tela de edição de rótulos.
+2. Pressione o botão Novo no canto inferior esquerdo da tela de edição.
+3. Digite o nome do novo rótulo na caixa de diálogo exibida e pressione OK.
 19
-Title: Como renomear um label
+Title: Como renomear um rótulo
 Label:4
 Fixed:0
 X:0.205345436930656
@@ -1793,14 +1792,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como renomear um label
+Como renomear um rótulo
 ----------------------------------------------------------------------------
 
-1. Abra a tela de edição de labels.
-2. Clique duas vezes no nome do label que deseja alterar.
-3. Altere o nome do label na caixa de diálogo exibida e pressione OK.
+1. Abra a tela de edição de rótulos.
+2. Clique duas vezes no nome do rótulo que deseja alterar.
+3. Altere o nome do rótulo na caixa de diálogo exibida e pressione OK.
 19
-Title: Como alterar a cor de um label
+Title: Como alterar a cor de um rótulo
 Label:4
 Fixed:0
 X:0.247681140899658
@@ -1813,14 +1812,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como alterar a cor de um label
+Como alterar a cor de um rótulo
 ----------------------------------------------------------------------------
 
-1. Abra a tela de edição de labels.
-2. Clique duas vezes na área de cor do label que deseja alterar.
-3. Especifique a cor do label na caixa de diálogo exibida e pressione OK.
+1. Abra a tela de edição de rótulos.
+2. Clique duas vezes na área de cor do rótulo que deseja alterar.
+3. Especifique a cor do rótulo na caixa de diálogo exibida e pressione OK.
 22
-Title: Como ativar ou desativar um label
+Title: Como ativar ou desativar um rótulo
 Label:4
 Fixed:0
 X:0.304129838943481
@@ -1833,17 +1832,17 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como ativar ou desativar um label
+Como ativar ou desativar um rótulo
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão VIEW na tela. A caixa de diálogo VIEW é exibida.
-3. Clique na aba Label para selecioná-la.
-4. Clique na coluna Enable do label para alternar entre ativado e desativado.
-   Labels desativados são tratados como se não estivessem atribuídos ao
-   exibir e organizar cards.
+1. Clique na aba Navegador.
+2. Clique no botão Exibir na tela. A caixa de diálogo Exibir é exibida.
+3. Clique na aba Rótulo para selecioná-la.
+4. Clique na coluna Ativar do rótulo para alternar entre ativado e desativado.
+   Rótulos desativados são tratados como se não estivessem atribuídos ao
+   exibir e organizar cartões.
 19
-Title: Como excluir um label
+Title: Como excluir um rótulo
 Label:4
 Fixed:0
 X:0.32245659828186
@@ -1856,14 +1855,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como excluir um label
+Como excluir um rótulo
 ----------------------------------------------------------------------------
 
-1. Abra a tela de edição de labels.
-2. Clique no label que deseja excluir.
-3. Pressione o botão Delete na parte inferior da tela de edição.
+1. Abra a tela de edição de rótulos.
+2. Clique no rótulo que deseja excluir.
+3. Pressione o botão Excluir na parte inferior da tela de edição.
 15
-Title:Organizar Cards
+Title:Organizar cartões
 Label:5,8
 Fixed:0
 X:0.541004419326782
@@ -1876,10 +1875,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-Organizar Cards
+Organizar cartões
 ============================================================================
 20
-Title: Como encaixar todos os cards na tela
+Title: Como encaixar todos os cartões na tela
 Label:5
 Fixed:0
 X:0.659723877906799
@@ -1892,15 +1891,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como encaixar todos os cards na tela
+Como encaixar todos os cartões na tela
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Normalize no
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Normalizar no
    menu de contexto exibido.
 20
-Title: Como organizar cards para que não se sobreponham
+Title: Como organizar cartões para que não se sobreponham
 Label:5
 Fixed:0
 X:0.609346568584442
@@ -1913,15 +1912,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards para que não se sobreponham
+Como organizar cartões para que não se sobreponham
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Repulsion no
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Repulsão no
    menu de contexto exibido.
 23
-Title: Como organizar cards por links
+Title: Como organizar cartões por links
 Label:5
 Fixed:0
 X:0.427540153264999
@@ -1934,18 +1933,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards por links
+Como organizar cartões por links
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Link ou
-   Link(Soft) no menu de contexto exibido.
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Link ou
+   Link (suave) no menu de contexto exibido.
 
-Nota: Comparado com Link, o modo Link(Soft) dá maior prioridade a evitar
-      sobreposição de cards.
+Nota: Comparado com Link, o modo Link (suave) dá maior prioridade a evitar
+      sobreposição de cartões.
 23
-Title: Como organizar cards por labels
+Title: Como organizar cartões por rótulos
 Label:5
 Fixed:0
 X:0.536202609539032
@@ -1958,18 +1957,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards por labels
+Como organizar cartões por rótulos
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Label ou
-   Label(Soft) no menu de contexto exibido.
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Rótulo ou
+   Rótulo (suave) no menu de contexto exibido.
 
-Nota: Comparado com Label, o modo Label(Soft) dá maior prioridade a evitar
-      sobreposição de cards.
+Nota: Comparado com Rótulo, o modo Rótulo (suave) dá maior prioridade a evitar
+      sobreposição de cartões.
 25
-Title: Como organizar cards por índice
+Title: Como organizar cartões por índice
 Label:5
 Fixed:0
 X:0.465191870927811
@@ -1982,20 +1981,20 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards por índice
+Como organizar cartões por índice
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Index,
-   Index(Soft) ou Index(Matrix) no menu de contexto exibido.
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Ordem,
+   Ordem (suave) ou Ordem (matriz) no menu de contexto exibido.
 
-Nota: Comparado com Index, o modo Index(Soft) dá maior prioridade a evitar
-      sobreposição de cards.
-Index(Matrix) organiza os cards ordenadamente a partir do canto superior
+Nota: Comparado com Ordem, o modo Ordem (suave) dá maior prioridade a evitar
+      sobreposição de cartões.
+Ordem (matriz) organiza os cartões ordenadamente a partir do canto superior
 esquerdo.
 20
-Title: Como organizar cards em grade
+Title: Como organizar cartões em grade
 Label:5
 Fixed:0
 X:0.442980200052261
@@ -2008,15 +2007,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards em grade
+Como organizar cartões em grade
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Matrix no menu
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Matriz no menu
    de contexto exibido.
 39
-Title: Como organizar cards por similaridade de título/texto
+Title: Como organizar cartões por similaridade de título/texto
 Label:5
 Fixed:0
 X:0.52382880449295
@@ -2029,34 +2028,34 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards por similaridade de título/texto
+Como organizar cartões por similaridade de título/texto
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão Arrange ON para que fique pressionado.
-3. Pressione o botão à direita do botão Arrange ON e escolha Similarity ou
-   Similarity(Soft) no menu de contexto exibido.
-4. Para organizar os cards usando os valores de similaridade mais recentes,
+1. Clique na aba Navegador.
+2. Clique no botão Auto para que fique pressionado.
+3. Pressione o botão à direita do botão Auto e escolha Similaridade ou
+   Similaridade (suave) no menu de contexto exibido.
+4. Para organizar os cartões usando os valores de similaridade mais recentes,
    pressione o botão de atualização mais à direita.
 
 Atenção: Em projetos sem corpo de texto, o cálculo de similaridade termina
-em poucos segundos, mas se o número de cards chegar aos milhares ou o
+em poucos segundos, mas se o número de cartões chegar aos milhares ou o
 arquivo for focado em corpo de texto, o cálculo de similaridade pode
 demorar bastante. Por exemplo, se o tamanho do corpo do texto alcançar
 cerca de 500 kB, o cálculo pode levar aproximadamente um minuto em uma
 CPU de cerca de 2 GHz.
 
 Nota: Como o cálculo de similaridade leva tempo, o Frieve Editor calcula
-      a similaridade entre os cards apenas uma vez quando Similarity é
-      selecionado com o botão ON pressionado, ou quando o botão ON é
-      pressionado com Similarity selecionado. Após editar títulos ou corpos
-      de cards, pressione o botão de atualização para reorganizar os cards
+      a similaridade entre os cartões apenas uma vez quando Similaridade é
+      selecionada com o botão Auto pressionado, ou quando o botão Auto é
+      pressionado com Similaridade selecionada. Após editar títulos ou corpos
+      de cartões, pressione o botão de atualização para reorganizar os cartões
       usando valores de similaridade que reflitam essas edições.
 
-Nota: Comparado com Similarity, o modo Similarity(Soft) dá maior prioridade
-      a evitar sobreposição de cards.
+Nota: Comparado com Similaridade, o modo Similaridade (suave) dá maior prioridade
+      a evitar sobreposição de cartões.
 47
-Title: Como organizar cards hierarquicamente
+Title: Como organizar cartões hierarquicamente
 Label:5
 Fixed:0
 X:0.468564659357071
@@ -2069,42 +2068,42 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como organizar cards hierarquicamente
+Como organizar cartões hierarquicamente
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no card que será a raiz (o topo da hierarquia) para selecioná-lo.
+1. Clique na aba Navegador.
+2. Clique no cartão que será a raiz (o topo da hierarquia) para selecioná-lo.
 3. Ative o botão de designação de raiz na tela
-   (à direita do botão de alfinete e à esquerda do label).
-4. Clique no botão Arrange ON para que fique pressionado.
-5. Pressione o botão à direita do botão Arrange ON e escolha Tree (Radial)
+   (à direita do botão de alfinete e à esquerda do rótulo).
+4. Clique no botão Auto para que fique pressionado.
+5. Pressione o botão à direita do botão Auto e escolha Árvore (radial)
    no menu de contexto exibido.
 
-Para alterar a ordem dos cards dentro do mesmo nível, use os botões Up/Down
-no canto superior direito da lista de cards no lado esquerdo da tela, ou
-arraste os cards para cima e para baixo no Browser.
+Para alterar a ordem dos cartões dentro do mesmo nível, use os botões de seta
+para cima e para baixo no canto superior direito da lista de cartões no lado
+esquerdo da tela, ou arraste os cartões para cima e para baixo no Navegador.
 
-Para editar a hierarquia em si, arraste os links no Browser e reconecte-os.
+Para editar a hierarquia em si, arraste os links no Navegador e reconecte-os.
 
-Para ocultar os níveis inferiores sob um card específico, pressione o
-botão "-" exibido no canto inferior direito do card. Para exibir novamente
+Para ocultar os níveis inferiores sob um cartão específico, pressione o
+botão "-" exibido no canto inferior direito do cartão. Para exibir novamente
 um nível oculto, pressione o botão "+" exibido no canto inferior direito
-do card.
+do cartão.
 
-Atenção: Quando a organização automática é realizada com Tree (Radial), os
-valores de Index dos cards são ordenados forçosamente na ordem hierárquica.
+Atenção: Quando a organização automática é realizada com Árvore (radial), os
+valores de ordem dos cartões são ordenados forçosamente na ordem hierárquica.
 
-Nota: Um card designado como raiz exibe ">" à esquerda de seu título na
-      lista de cards no lado esquerdo da tela.
+Nota: Um cartão designado como raiz exibe ">" à esquerda de seu título na
+      lista de cartões no lado esquerdo da tela.
 
-Nota: Quando a organização automática é realizada com Tree (Radial), a lista
-      de cards no lado esquerdo da tela é exibida com recuo correspondente
+Nota: Quando a organização automática é realizada com Árvore (radial), a lista
+      de cartões no lado esquerdo da tela é exibida com recuo correspondente
       aos níveis hierárquicos.
 
-Nota: Se múltiplos cards forem definidos como raiz, múltiplas árvores com
-      esses cards como raiz são organizadas na tela ao mesmo tempo.
+Nota: Se múltiplos cartões forem definidos como raiz, múltiplas árvores com
+      esses cartões como raiz são organizadas na tela ao mesmo tempo.
 21
-Title: Como alterar o tamanho dos cards por label
+Title: Como alterar o tamanho dos cartões por rótulo
 Label:5
 Fixed:0
 X:0.586505353450775
@@ -2117,16 +2116,16 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como alterar o tamanho dos cards por label
+Como alterar o tamanho dos cartões por rótulo
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão VIEW na tela. A caixa de diálogo VIEW é exibida.
-3. Clique na aba Label para selecioná-la.
-4. Nas colunas Label e Size, use os botões + e - para especificar quanto
-   cada label afeta o tamanho do card.
+1. Clique na aba Navegador.
+2. Clique no botão Exibir na tela. A caixa de diálogo Exibir é exibida.
+3. Clique na aba Rótulo para selecioná-la.
+4. Nas colunas Rótulo e Tamanho, use os botões + e - para especificar quanto
+   cada rótulo afeta o tamanho do cartão.
 23
-Title: Como agrupar cards com o mesmo label
+Title: Como agrupar cartões com o mesmo rótulo
 Label:5
 Fixed:0
 X:0.655330836772919
@@ -2139,18 +2138,18 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como agrupar cards com o mesmo label
+Como agrupar cartões com o mesmo rótulo
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão VIEW na tela. A caixa de diálogo VIEW para escolher
-   quais cards e links exibir é mostrada.
-3. Clique na aba Label para selecioná-la.
-4. Nas colunas Label e Fold, especifique o label que deseja agrupar. Cards
-   com esse label marcado são exibidos no Browser como um único card com o
-   nome do label.
+1. Clique na aba Navegador.
+2. Clique no botão Exibir na tela. A caixa de diálogo Exibir para escolher
+   quais cartões e links exibir é mostrada.
+3. Clique na aba Rótulo para selecioná-la.
+4. Nas colunas Rótulo e Dobrar, especifique o rótulo que deseja agrupar. Os cartões
+   com esse rótulo marcado são exibidos no Navegador como um único cartão com o
+   nome do rótulo.
 86
-Title: Como escolher quais cards e links são exibidos no Browser
+Title: Como escolher quais cartões e links são exibidos no Navegador
 Label:5
 Fixed:0
 X:0.69487738609314
@@ -2163,81 +2162,81 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como escolher quais cards e links são exibidos no Browser
+Como escolher quais cartões e links são exibidos no Navegador
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Clique no botão VIEW na tela. A caixa de diálogo VIEW para escolher
-   quais cards e links exibir é mostrada.
-3. Clique na aba Label ou na aba Limitation.
+1. Clique na aba Navegador.
+2. Clique no botão Exibir na tela. A caixa de diálogo Exibir para escolher
+   quais cartões e links exibir é mostrada.
+3. Clique na aba Rótulo ou na aba Filtro.
 
 
-- Para limitar cards visíveis por tamanho
+- Para limitar cartões visíveis por tamanho
 
-1. Marque Size Limitation.
-2. Use o controle deslizante à direita de Size Limitation para especificar o
-   tamanho mínimo dos cards a exibir.
+1. Marque Limitar exibição por tamanho.
+2. Use o controle deslizante à direita de Limitar exibição por tamanho para especificar o
+   tamanho mínimo dos cartões a exibir.
 
 
-- Para limitar cards visíveis pelo número de links a partir do card selecionado
+- Para limitar cartões visíveis pelo número de links a partir do cartão selecionado
 
-1. Marque Link Limitation.
-2. Use o controle deslizante de Link Limitation para especificar o limite
+1. Marque Limitar exibição por links.
+2. Use o controle deslizante de Limitar exibição por links para especificar o limite
    de links.
 3. Para limitar ainda mais pelo sentido do link ao usar esta configuração,
-   marque Direction.
-4. Para limitar ao sentido direto, marque Forward. Para limitar ao sentido
-   inverso, marque Backward.
-5. Para adicionar uma restrição por card alvo, pressione o botão à direita
-   de Target Card, escolha Select e selecione o card alvo na caixa de
-   diálogo. Ou, no Browser, mantenha Alt pressionado enquanto clica no card
-   alvo. Para limpar a restrição de card alvo, pressione o botão à direita
-   de Target Card e escolha No Assign.
+   marque Direção.
+4. Para limitar ao sentido direto, marque Avançar. Para limitar ao sentido
+   inverso, marque Voltar.
+5. Para adicionar uma restrição por cartão alvo, pressione o botão à direita
+   de Destino, escolha Selecionar... e selecione o cartão alvo na caixa de
+   diálogo. Ou, no Navegador, mantenha Alt pressionado enquanto clica no cartão
+   alvo. Para limpar a restrição de cartão alvo, pressione o botão à direita
+   de Destino e escolha Sem atribuição.
 
 
-- Para limitar cards visíveis por data
+- Para limitar cartões visíveis por data
 
-1. Marque Date Limitation.
-2. Em Date Type, escolha a data a ser usada na restrição.
-   Created é a data e hora de criação do card, Edited é a data e hora da
-   última edição do corpo, e Viewed é a data e hora em que o card foi
+1. Marque Limitar exibição por data e hora.
+2. Em Data/hora:, escolha a data a ser usada na restrição.
+   Data de criação é a data e hora de criação do cartão, Data de edição é a data e hora da
+   última edição do corpo, e Data de visualização é a data e hora em que o cartão foi
    selecionado ou exibido pela última vez.
-3. Em Date Limitation Type, escolha como a restrição é aplicada.
-   Old exibe cards em ordem do mais antigo, New exibe em ordem do mais
-   recente, Near exibe cards com datas próximas ao card selecionado, Older
-   exibe cards mais antigos que o selecionado e próximos em data, e Newer
-   exibe cards mais recentes que o selecionado e próximos em data.
-2. Use o controle deslizante à direita de Date Limitation para especificar
+3. Em Método:, escolha como a restrição é aplicada.
+   Mais antigo primeiro exibe cartões em ordem do mais antigo, Mais recente primeiro exibe em ordem do mais
+   recente, Mais próximo primeiro exibe cartões com datas próximas ao cartão selecionado, Mais antigo
+   exibe cartões mais antigos que o selecionado e próximos em data, e Mais recente
+   exibe cartões mais recentes que o selecionado e próximos em data.
+4. Use o controle deslizante à direita de Limitar exibição por data e hora para especificar
    a intensidade da restrição.
-   Com Old, os cards mais antigos são exibidos quando o controle está à
-   esquerda, e cards mais novos são adicionados conforme você o move para
+   Com Mais antigo primeiro, os cartões mais antigos são exibidos quando o controle está à
+   esquerda, e cartões mais novos são adicionados conforme você o move para
    a direita.
-   Com New, os cards mais recentes são exibidos quando o controle está à
-   direita, e cards mais antigos são adicionados conforme você o move para
+   Com Mais recente primeiro, os cartões mais recentes são exibidos quando o controle está à
+   direita, e cartões mais antigos são adicionados conforme você o move para
    a esquerda.
-   Com Near, Older e Newer, mover a barra para a direita relaxa a restrição.
+   Com Mais próximo primeiro, Mais antigo e Mais recente, mover a barra para a direita relaxa a restrição.
 
 
-- Para exibir ou ocultar cards com labels
+- Para exibir ou ocultar cartões com rótulos
 
-1. Para exibir cards com determinados labels, especifique esses labels na
-   coluna Show em Label. Se um card tiver um ou mais dos labels marcados,
+1. Para exibir cartões com determinados rótulos, especifique esses rótulos na
+   coluna Mostrar em Rótulo. Se um cartão tiver um ou mais dos rótulos marcados,
    ele é exibido.
-2. Para ocultar cards com determinados labels, especifique esses labels na
-   coluna Hide. Se um card tiver um ou mais labels marcados ali, ele é
-   ocultado. As configurações de Hide têm prioridade sobre as de Show.
+2. Para ocultar cartões com determinados rótulos, especifique esses rótulos na
+   coluna Ocultar. Se um cartão tiver um ou mais rótulos marcados ali, ele é
+   ocultado. As configurações de Ocultar têm prioridade sobre as de Mostrar.
 
 
-- Para exibir ou ocultar links com labels
+- Para exibir ou ocultar links com rótulos
 
-1. Para exibir links com determinados labels, especifique esses labels na
-   coluna Show em Link Label. Se um link tiver um ou mais dos labels
+1. Para exibir links com determinados rótulos, especifique esses rótulos na
+   coluna Mostrar em Rótulo do link. Se um link tiver um ou mais dos rótulos
    marcados, ele é exibido.
-2. Para ocultar links com determinados labels, especifique esses labels na
-   coluna Hide. Se um link tiver um ou mais labels marcados ali, ele é
-   ocultado. As configurações de Hide têm prioridade sobre as de Show.
+2. Para ocultar links com determinados rótulos, especifique esses rótulos na
+   coluna Ocultar. Se um link tiver um ou mais rótulos marcados ali, ele é
+   ocultado. As configurações de Ocultar têm prioridade sobre as de Mostrar.
 29
-Title: Como ordenar cards
+Title: Como ordenar cartões
 Label:5
 Fixed:0
 X:0.602828919887543
@@ -2250,24 +2249,24 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como ordenar cards
+Como ordenar cartões
 ----------------------------------------------------------------------------
 
-Escolha um método de ordenação em Edit menu -> Sort Card.
-Title ordena os cards por título.
-Date Created ordena pela ordem de criação.
-Date Edited ordena pela data da última edição do card.
-Date Viewed ordena pela data em que o card foi selecionado pela última vez.
-Itens marcados com Inverse ordenam na ordem inversa.
+Escolha um método de ordenação em menu Editar -> Ordenar cartões.
+Título ordena os cartões por título.
+Data de criação ordena pela ordem de criação.
+Data de edição ordena pela data da última edição do cartão.
+Data de visualização ordena pela data em que o cartão foi selecionado pela última vez.
+Itens marcados com Inverter ordenam na ordem inversa.
 
 Ou,
 
-1. Clique no card que deseja reordenar na lista Cards no lado esquerdo da
+1. Clique no cartão que deseja reordenar na lista de cartões no lado esquerdo da
    tela.
-2. Use os botões UpDown no canto superior direito da lista Cards para mover
-   a posição do card na lista.
+2. Use os botões de seta para cima e para baixo no canto superior direito da lista de cartões para mover
+   a posição do cartão na lista.
 15
-Title:Navegar e Animar
+Title:Navegar e animar
 Label:6,8
 Fixed:0
 X:0.900903046131134
@@ -2280,7 +2279,7 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-Navegar e Animar
+Navegar e animar
 ============================================================================
 37
 Title: Como rolar a tela do navegador
@@ -2299,24 +2298,24 @@ Viewed:1899/12/30
 Como rolar a tela do navegador
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Ative Auto Scroll no canto superior direito da aba Browser.
-   Com o Auto Scroll ativado, sempre que você selecionar um cartão ou link,
+1. Clique na aba Navegador.
+2. Ative Rol. auto no canto superior direito da aba Navegador.
+   Com a rolagem automática ativada, sempre que você selecionar um cartão ou link,
    a tela rola automaticamente para centralizar o elemento selecionado.
 
 Ou:
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Arraste em uma área vazia (onde não haja cartões).
 
 Ou:
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Use as barras de rolagem à direita e na parte inferior do navegador.
 
 Ou:
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Use a roda do mouse (sem Ctrl) para rolar verticalmente.
    Segure Shift e gire a roda para rolar horizontalmente
    (ou deslize dois dedos no trackpad).
@@ -2337,28 +2336,28 @@ Viewed:1899/12/30
 Como ampliar ou reduzir a tela do navegador
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Ative Auto Zoom no canto superior direito da aba Browser.
-   Com o Auto Zoom ativado, sempre que você selecionar um cartão ou link,
+1. Clique na aba Navegador.
+2. Ative Zoom auto no canto superior direito da aba Navegador.
+   Com o zoom automático ativado, sempre que você selecionar um cartão ou link,
    o zoom é ajustado automaticamente para exibir o cartão selecionado
    e os cartões relacionados.
 
 Ou:
 
-1. Clique na aba Browser.
-2. Arraste o controle Zoom na aba Browser.
+1. Clique na aba Navegador.
+2. Arraste o controle Zoom na aba Navegador.
 
 Ou:
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Segure Ctrl e use a roda do mouse para aumentar ou diminuir o zoom.
 
 Ou:
 
-1. Clique na aba Browser.
+1. Clique na aba Navegador.
 2. Use o gesto de pinça no trackpad para aumentar ou diminuir o zoom.
 36
-Title: Como navegar entre cards com o teclado
+Title: Como navegar entre cartões com o teclado
 Label:6
 Fixed:0
 X:0.862526595592499
@@ -2371,29 +2370,29 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como navegar entre cards com o teclado
+Como navegar entre cartões com o teclado
 ----------------------------------------------------------------------------
 
 Pressione as teclas de seta.
-Isso move para o card mais próximo do card atual, independentemente dos links.
+Isso move para o cartão mais próximo do cartão atual, independentemente dos links.
 
 Ou,
 
 Pressione Ctrl+Cima ou Ctrl+Baixo.
-Isso move para o card pai ou card filho exibido mais recentemente,
+Isso move para o cartão pai ou cartão filho exibido mais recentemente,
 respectivamente.
 
 Ou,
 
 Pressione Ctrl+Esquerda ou Ctrl+Direita.
-Isso move para cards irmãos no sentido anti-horário ou horário,
+Isso move para cartões irmãos no sentido anti-horário ou horário,
 respectivamente.
 
 Ou,
 
 Pressione Shift+teclas de seta.
-Entre os cards linkados ao card atual, isso move para o que está mais
-próximo do card atual.
+Entre os cartões linkados ao cartão atual, isso move para o que está mais
+próximo do cartão atual.
 27
 Title: Como alterar o tamanho do texto
 Label:6
@@ -2411,7 +2410,7 @@ Viewed:1899/12/30
 Como alterar o tamanho do texto
 ----------------------------------------------------------------------------
 
-No menu View, em Font Size, selecione Magnify (ampliar) ou Reduce (reduzir).
+No menu Exibir, em Fonte, selecione Aumentar ou Reduzir.
 
 Ou:
 
@@ -2421,7 +2420,7 @@ Ou:
 
 Segure Ctrl+Shift e use a roda do mouse para ajustar o tamanho do texto.
 
-Para restaurar o tamanho padrão, selecione Default no menu View > Font Size ou pressione Ctrl+Shift+0.
+Para restaurar o tamanho padrão, selecione Tamanho padrão no menu Exibir -> Fonte ou pressione Ctrl+Shift+0.
 23
 Title: Como usar a tela cheia
 Label:6
@@ -2439,7 +2438,7 @@ Viewed:1899/12/30
 Como usar a tela cheia
 ----------------------------------------------------------------------------
 
-Escolha Full Screen no View menu.
+Escolha Tela cheia no menu Exibir.
 
 Ou,
 
@@ -2447,7 +2446,7 @@ Pressione F10.
 
 Para sair da tela cheia, pressione Esc ou F10.
 30
-Title: Como abrir links externos associados a cards
+Title: Como abrir links externos associados a cartões
 Label:6
 Fixed:0
 X:0.968530714511871
@@ -2460,25 +2459,25 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como abrir links externos associados a cards
+Como abrir links externos associados a cartões
 ----------------------------------------------------------------------------
 
-1. Clique na aba Browser.
-2. Mantenha Ctrl e Shift pressionados enquanto clica no card cujo link
-   externo deseja abrir. Se o card tiver apenas um link externo, ele abre
+1. Clique na aba Navegador.
+2. Mantenha Ctrl e Shift pressionados enquanto clica no cartão cujo link
+   externo deseja abrir. Se o cartão tiver apenas um link externo, ele abre
    imediatamente.
-3. Se o card tiver múltiplos links externos, clique no link que deseja
+3. Se o cartão tiver múltiplos links externos, clique no link que deseja
    abrir no menu de contexto exibido.
 
 Ou,
 
-1. Clique duas vezes no card cujo link externo deseja abrir no Browser, ou
-   clique duas vezes na lista de Cards no lado esquerdo da tela. Se o card
+1. Clique duas vezes no cartão cujo link externo deseja abrir no Navegador, ou
+   clique duas vezes na lista de cartões no lado esquerdo da tela. Se o cartão
    já estiver selecionado, clique na aba Editor para exibi-lo.
 2. Mantenha Ctrl pressionado enquanto clica na linha que contém o link
    externo.
 33
-Title: Como exibir cards aleatoriamente
+Title: Como exibir cartões aleatoriamente
 Label:6
 Fixed:0
 X:0.992111325263977
@@ -2491,26 +2490,26 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como exibir cards aleatoriamente
+Como exibir cartões aleatoriamente
 ----------------------------------------------------------------------------
 
-1. Escolha Random Flash, Random Map, Random Scroll ou Random Jump no
-   Animation menu. A animação inicia e a caixa de diálogo Random Animation
+1. Escolha Flash aleatório, Mapa aleatório, Rolagem aleatória ou Salto aleatório no
+   menu Animação. A animação inicia e a caixa de diálogo Animação aleatória
    é exibida.
-   Random Flash exibe o número especificado de cards um após o outro.
-   Random Map exibe um card aleatório e depois expande a exibição para os
-   cards linkados a ele.
-   Random Scroll rola o número especificado de cards pela tela.
-   Random Jump faz o número especificado de cards saltar da parte inferior
+   Flash aleatório exibe o número especificado de cartões um após o outro.
+   Mapa aleatório exibe um cartão aleatório e depois expande a exibição para os
+   cartões linkados a ele.
+   Rolagem aleatória rola o número especificado de cartões pela tela.
+   Salto aleatório faz o número especificado de cartões saltar da parte inferior
    da tela.
 2. Para ampliar ou reduzir, altere Zoom.
-3. Para alterar a velocidade de exibição, ajuste Speed.
-4. Para alterar quantos cards são mostrados na tela ao mesmo tempo, ajuste
-   Cards.
-5. Para entrar ou sair do modo tela cheia, pressione o botão Full Screen
+3. Para alterar a velocidade de exibição, ajuste Velocidade.
+4. Para alterar quantos cartões são mostrados na tela ao mesmo tempo, ajuste
+   Cartões.
+5. Para entrar ou sair do modo tela cheia, pressione o botão Tela cheia
    ou F10.
-6. Para pausar ou retomar a animação, pressione o botão Pause.
-7. Para encerrar a animação, pressione o botão Stop.
+6. Para pausar ou retomar a animação, pressione o botão Pausar.
+7. Para encerrar a animação, pressione o botão Parar.
 24
 Title: Como rastrear links aleatoriamente
 Label:6
@@ -2528,14 +2527,14 @@ Viewed:1899/12/30
 Como rastrear links aleatoriamente
 ----------------------------------------------------------------------------
 
-1. Escolha Random Trace no Animation menu.
-   A animação inicia e a caixa de diálogo Random Animation é exibida.
+1. Escolha Rastreamento aleatório no menu Animação.
+   A animação inicia e a caixa de diálogo Animação aleatória é exibida.
 2. Para ampliar ou reduzir, altere Zoom.
-3. Para alterar a velocidade de exibição, ajuste Speed.
-4. Para entrar ou sair do modo tela cheia, pressione o botão Full Screen
+3. Para alterar a velocidade de exibição, ajuste Velocidade.
+4. Para entrar ou sair do modo tela cheia, pressione o botão Tela cheia
    ou F10.
-5. Para pausar ou retomar a animação, pressione o botão Pause.
-6. Para encerrar a animação, pressione o botão Stop.
+5. Para pausar ou retomar a animação, pressione o botão Pausar.
+6. Para encerrar a animação, pressione o botão Parar.
 37
 Title: Como visualizar estatísticas
 Label:6
@@ -2553,27 +2552,27 @@ Viewed:1899/12/30
 Como visualizar estatísticas
 ----------------------------------------------------------------------------
 
-1. Clique na aba Statistics.
-   Inicialmente, um gráfico mostrando o número de cards para cada label é
+1. Clique na aba Estat..
+   Inicialmente, um gráfico mostrando o número de cartões para cada rótulo é
    exibido.
-2. Para alterar a chave usada no gráfico, clique no botão à direita de Key
+2. Para alterar a chave usada no gráfico, clique no botão à direita de Chave
    e escolha uma das opções a seguir.
 
-   Label: Exibe gráfico do número de cards por label (padrão)
-   Number of Link: Exibe gráfico do número de cards por quantidade de links
-   Created Date: Exibe gráfico do número de cards por data de criação
-   Edited Date: Exibe gráfico do número de cards por data da última edição
-   Viewed Date: Exibe gráfico do número de cards por data de visualização
+   Rótulo: exibe gráfico do número de cartões por rótulo (padrão)
+   Número de links: exibe gráfico do número de cartões por quantidade de links
+   Data de criação: exibe gráfico do número de cartões por data de criação
+   Data de edição: exibe gráfico do número de cartões por data da última edição
+   Data de visualização: exibe gráfico do número de cartões por data de visualização
 
-   Se Created Date, Edited Date ou Viewed Date for selecionado, você também
-   pode escolher a unidade de agregação entre Year, Month, Day, Week ou Hour.
+   Se Data de criação, Data de edição ou Data de visualização for selecionado, você também
+   pode escolher a unidade de agregação entre Agrupar por ano, Agrupar por mês, Agrupar por dia, Agrupar por semana ou Agrupar por hora.
 
-3. Para listar os cards incluídos em cada gráfico, clique em uma barra do
-   gráfico. Uma lista dos cards incluídos aparece no lado direito da tela.
+3. Para listar os cartões incluídos em cada gráfico, clique em uma barra do
+   gráfico. Uma lista dos cartões incluídos aparece no lado direito da tela.
 
 
-Nota: Este recurso também pode ser usado para listar apenas cards que tenham
-      um label específico.
+Nota: Este recurso também pode ser usado para listar apenas cartões que tenham
+      um rótulo específico.
 15
 Title:Impressão
 Label:9,8
@@ -2591,7 +2590,7 @@ Viewed:1899/12/30
 Impressão
 ============================================================================
 27
-Title: Como imprimir a visualização do Browser
+Title: Como imprimir a visualização do Navegador
 Label:9
 Fixed:0
 X:0.675095319747925
@@ -2604,22 +2603,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Como imprimir a visualização do Browser
+Como imprimir a visualização do Navegador
 ----------------------------------------------------------------------------
 
-1. Escolha Print Image no File menu.
+1. Escolha Imprimir visualização do navegador no menu Arquivo.
 2. Na caixa de diálogo exibida, escolha e configure a impressora conforme
    necessário.
 3. Pressione OK para iniciar a impressão.
 
-Nota: A visualização atual do Browser é impressa centralizada no papel
+Nota: A visualização atual do Navegador é impressa centralizada no papel
       selecionado.
 
 Nota: Exceto por ser redimensionada para caber no tamanho do papel, a
-      visualização atual do Browser é basicamente impressa como aparece
+      visualização atual do Navegador é basicamente impressa como aparece
       na tela.
 15
-Title:Guia de Menus
+Title:Guia de menus
 Label:7,8
 Fixed:0
 X:0.896600604057312
@@ -2632,10 +2631,10 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:14:35
 -
 ============================================================================
-Guia de Menus
+Guia de menus
 ============================================================================
 90
-Title: File Menu
+Title: Menu Arquivo
 Label:7
 Fixed:0
 X:0.959879457950592
@@ -2648,29 +2647,29 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-File Menu
+Menu Arquivo
 ----------------------------------------------------------------------------
 
-New
+Novo
   Cria um novo projeto.
 
-Open
+Abrir
   Abre um projeto salvo.
 
-Save
+Salvar
   Sobrescreve o projeto atual.
 
-SaveAs
+Salvar como
   Salva o projeto atual com um novo nome.
 
-Auto Save (This File)
+Salvar automaticamente (este arquivo)
   Ativa ou desativa o salvamento automático para este arquivo.
   Quando ativado, as alterações são salvas automaticamente após um
   período de inatividade.
   Ao fechar o aplicativo, alterações não salvas são salvas sem
   solicitar confirmação.
 
-Auto Reload (This File)
+Recarregar automaticamente (este arquivo)
   Ativa ou desativa o recarregamento automático para este arquivo.
   Quando ativado, o arquivo é recarregado automaticamente quando
   modificado por um programa externo.
@@ -2678,55 +2677,55 @@ Auto Reload (This File)
   não salvas no aplicativo.
 
 
-Recent Files
+Arquivos recentes
   Abre um projeto usado anteriormente.
 
-Recent Folders
+Pastas recentes
   Abre um projeto de uma pasta usada anteriormente.
 
 
-Import
+Importar
   Carrega dados de arquivos que não sejam arquivos fip.
-  Txt File carrega um ou mais arquivos de texto como um card cada.
-  Hierarchical Text File carrega um arquivo de texto hierárquico cuja
+  Arquivo de texto carrega um ou mais arquivos de texto como um cartão cada.
+  Texto hierárquico carrega um arquivo de texto hierárquico cuja
   indentação inicial é feita com tabulações ou espaços, usando uma linha
-  por card.
-  Hierarchical Text File 2 carrega um arquivo de texto hierárquico em que
+  por cartão.
+  Texto hierárquico 2 carrega um arquivo de texto hierárquico em que
   a hierarquia é representada pelo número de pontos iniciais e o restante
   do texto se torna o corpo.
-  Text Files in a Folder carrega todos os arquivos de texto dentro de uma
+  Textos em uma pasta carrega todos os arquivos de texto dentro de uma
   pasta especificada junto com a estrutura de pastas.
 
 
-Export
+Exportar
   Exporta dados para arquivos externos.
-  Txt file(Card Title) gera um arquivo de texto com todos os títulos de cards.
-  Txt file(Text) gera um arquivo de texto com o corpo de todos os cards.
-  Txt files gera cada card como um arquivo de texto separado. Nesse caso,
-  o nome de cada arquivo é o título do card mais ".txt".
-  html files gera os dados em formato HTML para visualização na web. Além
+  Arquivo de texto (título do cartão) gera um arquivo de texto com todos os títulos de cartões.
+  Arquivo de texto (corpo) gera um arquivo de texto com o corpo de todos os cartões.
+  Vários arquivos de texto gera cada cartão como um arquivo de texto separado. Nesse caso,
+  o nome de cada arquivo é o título do cartão mais ".txt".
+  Arquivo HTML gera os dados em formato HTML para visualização na web. Além
   do arquivo com o nome especificado, "cards.html" e arquivos com o número
-  do card + ".html" são criados.
-  Hierarchical Text gera um arquivo de texto em que a hierarquia é
+  do cartão + ".html" são criados.
+  Texto hierárquico gera um arquivo de texto em que a hierarquia é
   representada pelo número de pontos iniciais. Texto hierárquico exportado
-  neste formato pode ser importado com Import menu -> Hierarchical Text
-  File 2.
+  neste formato pode ser importado com menu Importar -> Texto hierárquico
+  2.
 
-Atenção: Ao realizar operações de Export que criam múltiplos arquivos, se
+Atenção: Ao realizar operações de Exportar que criam múltiplos arquivos, se
   arquivos com os mesmos nomes já existirem, eles serão sobrescritos sem
   aviso.
 
 
-Print Image
-  Realiza impressão simples da exibição do Browser.
-  A visualização atual do Browser é redimensionada para o tamanho do papel
+Imprimir visualização do navegador
+  Realiza impressão simples da exibição do Navegador.
+  A visualização atual do Navegador é redimensionada para o tamanho do papel
   selecionado e impressa.
 
 
-Exit
+Sair
   Sai do Frieve Editor.
 69
-Title: Edit Menu
+Title: Menu Editar
 Label:7
 Fixed:0
 X:0.908938229084015
@@ -2739,64 +2738,64 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Edit Menu
+Menu Editar
 ----------------------------------------------------------------------------
 
-Undo
+Desfazer
   Cancela a edição mais recente.
 
-Redo
+Refazer
   Repete a edição que foi desfeita mais recentemente.
 
 
-Cut
+Recortar
   Copia o texto selecionado para a área de transferência e depois o exclui.
 
-Copy
+Copiar
   Copia o texto selecionado para a área de transferência.
 
-Paste
+Colar
   Cola o texto da área de transferência na posição atual.
 
-Delete
+Excluir
   Exclui o texto selecionado.
 
-Select All
+Selecionar tudo
   Seleciona todo o texto.
 
 
-Find
-  Busca uma string especificada.
+Localizar
+  Busca um texto especificado.
 
-Replace
-  Substitui uma string especificada por outra.
+Substituir
+  Substitui um texto especificado por outro.
 
-Find Next
-  Busca a próxima ocorrência da string especificada.
+Localizar próximo
+  Busca a próxima ocorrência do texto especificado.
 
-Find Previous
-  Busca a ocorrência anterior da string especificada.
+Localizar anterior
+  Busca a ocorrência anterior do texto especificado.
 
-Web Search
-  Busca na web usando o título do card selecionado ou o texto selecionado.
-
-
-Sort Card
-  Ordena os cards por nome ou data.
-
-Barch Conversion
-  All Cards Shape converte em lote todos os cards para a forma especificada.
-  All Links Shape converte em lote todos os links para a forma especificada.
-  All Links Direction inverte a direção de todos os links.
+Busca na Web
+  Busca na web usando o título do cartão selecionado ou o texto selecionado.
 
 
-Label
-  Abre a caixa de diálogo de edição de labels.
+Ordenar cartões
+  Ordena os cartões por nome ou data.
 
-Link Label
-  Abre a caixa de diálogo de edição de link labels.
+Alteração em lote
+  Forma de todos os cartões converte em lote todos os cartões para a forma especificada.
+  Forma de todos os links converte em lote todos os links para a forma especificada.
+  Direção de todos os links inverte a direção de todos os links.
+
+
+Editar rótulos
+  Abre a caixa de diálogo de edição de rótulos.
+
+Editar rótulos de link
+  Abre a caixa de diálogo de edição de rótulos de link.
 41
-Title: Insert Menu
+Title: Menu Inserir
 Label:7
 Fixed:0
 X:0.986021161079407
@@ -2809,36 +2808,36 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Insert Menu
+Menu Inserir
 ----------------------------------------------------------------------------
 
-New Card
-  Cria um novo card.
+Novo cartão
+  Cria um novo cartão.
 
-New Link
-  Cria um novo link a partir do card selecionado.
+Novo link
+  Cria um novo link a partir do cartão selecionado.
 
-New Ext Link
-  Insere um link externo (nome de arquivo) no card selecionado.
+Novo link externo
+  Insere um link externo (nome de arquivo) no cartão selecionado.
 
-New Label
-  Adiciona um novo label ao card selecionado.
+Novo rótulo
+  Adiciona um novo rótulo ao cartão selecionado.
 
-New Link Label
-  Adiciona um novo label ao link selecionado.
+Novo rótulo de link
+  Adiciona um novo rótulo ao link selecionado.
 
 
-Link to All Cards with Designated Label
-  Cria links do card atual para todos os cards que tenham o label
+Vincular a todos os cartões com o rótulo indicado
+  Cria links do cartão atual para todos os cartões que tenham o rótulo
   especificado.
 
-New Card Links to All Cards with Designated Label
-  Cria um novo card linkado a todos os cards que tenham o label especificado.
+Novo cartão com links para todos os cartões com o rótulo indicado
+  Cria um novo cartão linkado a todos os cartões que tenham o rótulo especificado.
 
-Add Designated Label to All Destination Cards
-  Adiciona o label especificado a todos os cards de destino.
+Adicionar o rótulo indicado a todos os cartões de destino
+  Adiciona o rótulo especificado a todos os cartões de destino.
 32
-Title: Animation Menu
+Title: Menu Animação
 Label:7
 Fixed:0
 X:0.968556582927704
@@ -2851,27 +2850,27 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Animation Menu
+Menu Animação
 ----------------------------------------------------------------------------
 
-Random Flash
-  Executa uma animação que exibe cards aleatoriamente.
+Flash aleatório
+  Executa uma animação que exibe cartões aleatoriamente.
 
-Random Map
-  Executa uma animação que exibe um card aleatório e depois expande a
-  exibição para os cards linkados a ele.
+Mapa aleatório
+  Executa uma animação que exibe um cartão aleatório e depois expande a
+  exibição para os cartões linkados a ele.
 
-Random Scroll
-  Executa uma animação que rola cards aleatoriamente.
+Rolagem aleatória
+  Executa uma animação que rola cartões aleatoriamente.
 
-Random Jump
-  Executa uma animação em que cards saltam aleatoriamente da parte inferior
+Salto aleatório
+  Executa uma animação em que cartões saltam aleatoriamente da parte inferior
   da tela.
 
-Random Trace
+Rastreamento aleatório
   Executa uma animação que segue links aleatoriamente.
-122
-Title: View Menu
+124
+Title: Menu Exibir
 Label:7
 Fixed:0
 X:0.957366585731506
@@ -2884,73 +2883,73 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:18
 -
 ----------------------------------------------------------------------------
-View Menu
+Menu Exibir
 ----------------------------------------------------------------------------
 
-Font
+Fonte
   Altera a fonte.
-  Default Size restaura o tamanho padrão, Magnify aumenta e Reduce diminui.
-  Para alterar a família da fonte, escolha Change Font e especifique a fonte.
+  Tamanho padrão restaura o tamanho padrão, Aumentar aumenta e Reduzir diminui.
+  Para alterar a família da fonte, escolha Alterar fonte e especifique a fonte.
 
-Card
-  Altera as configurações de exibição de cards.
-  Shadow ativa ou desativa as sombras dos cards.
-  Gradation ativa ou desativa o gradiente dos cards.
-  Ticker ativa ou desativa a exibição em ticker do corpo do texto nos cards.
-  1Line exibe a primeira linha do corpo do card, e 2Lines exibe a primeira e
+Cartão
+  Altera as configurações de exibição de cartões.
+  Sombra do cartão ativa ou desativa as sombras dos cartões.
+  Gradiente ativa ou desativa o gradiente dos cartões.
+  Ticker ativa ou desativa a exibição em ticker do corpo do texto nos cartões.
+  Primeira linha do corpo exibe a primeira linha do corpo do cartão, e Primeiras 2 linhas do corpo exibe a primeira e
   segunda linhas como texto ticker.
-  Image ativa ou desativa a exibição de miniaturas de imagens. O primeiro
-  arquivo jpg ou bmp escrito no corpo do card é utilizado.
-  Video ativa ou desativa a exibição de vídeo. O primeiro arquivo mpg ou avi
-  escrito no corpo do card é utilizado. A exibição de vídeo tem prioridade
+  Imagem ativa ou desativa a exibição de miniaturas de imagens. O primeiro
+  arquivo jpg ou bmp escrito no corpo do cartão é utilizado.
+  Vídeo ativa ou desativa a exibição de vídeo. O primeiro arquivo mpg ou avi
+  escrito no corpo do cartão é utilizado. A exibição de vídeo tem prioridade
   sobre a de imagem.
-  Drawing ativa ou desativa a exibição de desenhos. A exibição de desenhos
+  Desenho ativa ou desativa a exibição de desenhos. A exibição de desenhos
   tem prioridade sobre a de imagens e vídeos.
   32x32 a 320x320 especifica o tamanho máximo de imagens, vídeos e desenhos
-  exibidos nos cards. Mídias maiores são reduzidas para caber no tamanho
+  exibidos nos cartões. Mídias maiores são reduzidas para caber no tamanho
   especificado.
 
 Link
   Altera as configurações de exibição de links.
-  Link ativa ou desativa as linhas de links, Hemming ativa ou desativa os
-  contornos de links, Direction ativa ou desativa a direção dos links e
-  Name ativa ou desativa a exibição do nome dos links.
+  Linha do link ativa ou desativa as linhas de links, Contorno do link ativa ou desativa os
+  contornos de links, Direção do link ativa ou desativa a direção dos links e
+  Nome do link ativa ou desativa a exibição do nome dos links.
 
-Label
-  Altera as configurações de exibição de labels.
-  Circle ativa ou desativa círculos que indicam grupos do mesmo label.
-  Rectangle ativa ou desativa retângulos que indicam grupos do mesmo label.
-  Name ativa ou desativa a exibição do nome dos labels.
+Rótulo
+  Altera as configurações de exibição de rótulos.
+  Círculo do rótulo ativa ou desativa círculos que indicam grupos do mesmo rótulo.
+  Retângulo do rótulo ativa ou desativa retângulos que indicam grupos do mesmo rótulo.
+  Nome do rótulo ativa ou desativa a exibição do nome dos rótulos.
 
-Text
+Texto do corpo
   Altera as configurações de exibição do corpo do texto.
-  Text ativa ou desativa a exibição do corpo do card selecionado no Browser.
-  Centering alterna entre exibição centralizada e exibição no canto superior
-  esquerdo do corpo do texto no Browser.
-  Edit In Browser ativa ou desativa se clicar duas vezes em um card no
-  Browser edita seu corpo no local.
-  Always Show Editor ativa ou desativa se o editor é sempre exibido no
-  Browser (efetivo com qualquer configuração exceto Under the Card).
-  Under the Card edita o corpo imediatamente abaixo do card.
-  Browser Right edita o corpo na borda direita do Browser.
-  Browser Bottom edita o corpo na parte inferior do Browser.
+  Texto do corpo ativa ou desativa a exibição do corpo do cartão selecionado no Navegador.
+  Centralizar alterna entre exibição centralizada e exibição no canto superior
+  esquerdo do corpo do texto no Navegador.
+  Editar o corpo no navegador ativa ou desativa se clicar duas vezes em um cartão no
+  Navegador edita seu corpo no local.
+  Mostrar sempre o editor no navegador ativa ou desativa se o editor é sempre exibido no
+  Navegador (efetivo com qualquer configuração exceto Abaixo do cartão).
+  Abaixo do cartão edita o corpo imediatamente abaixo do cartão.
+  À direita do navegador edita o corpo na borda direita do Navegador.
+  Abaixo do navegador edita o corpo na parte inferior do Navegador.
 
-Score
-  Score ativa ou desativa a exibição de pontuação.
-  Authenticity calcula uma pontuação em que cards linkados a partir de cards
+Pontuação
+  Pontuação ativa ou desativa a exibição de pontuação.
+  Confiabilidade calcula uma pontuação em que cartões linkados a partir de cartões
   com alta pontuação recebem pontuação maior.
-  StartingPoint atribui pontuações maiores a cards de origem.
-  Destination atribui pontuações maiores a cards de destino.
-  Links(Out) usa o número de links de saída de um card.
-  Links(In) usa o número de links de entrada de um card.
-  Links(Total) usa o número total de links de um card.
-  Links(In-Out) usa links de entrada menos links de saída.
-  Text Length usa o comprimento do corpo do texto.
+  Ponto inicial atribui pontuações maiores a cartões de origem.
+  Destino atribui pontuações maiores a cartões de destino.
+  Número de links (saída) usa o número de links de saída de um cartão.
+  Número de links (entrada) usa o número de links de entrada de um cartão.
+  Número de links (total) usa o número total de links de um cartão.
+  Número de links (entrada-saída) usa links de entrada menos links de saída.
+  Comprimento do corpo usa o comprimento do corpo do texto.
 
-Read Aloud
-  Read Aloud ativa ou desativa a leitura em voz alta dos títulos de cards.
+Ler em voz alta
+  Ler em voz alta ativa ou desativa a leitura em voz alta dos títulos de cartões.
 
-Nota: O Microsoft Agent precisa estar instalado para ler títulos de cards
+Nota: O Microsoft Agent precisa estar instalado para ler títulos de cartões
       em voz alta. Este menu não é exibido em ambientes onde o Microsoft
       Agent ou os componentes de fala relacionados não estão instalados.
 
@@ -2959,42 +2958,44 @@ Nota: O Microsoft Agent é distribuído gratuitamente pela Microsoft, mas seus
       frequência. Se você precisar do recurso de leitura em voz alta,
       consulte informações na web e instale os arquivos necessários.
 
-Others
+Outros
   Altera outras configurações relacionadas à exibição.
-  Card List ativa ou desativa a lista de cards no lado esquerdo da tela.
-  File List ativa ou desativa a lista de arquivos exibida ao mover o mouse
+  Lista de cartões ativa ou desativa a lista de cartões no lado esquerdo da tela.
+  Lista de arquivos ativa ou desativa a lista de arquivos exibida ao mover o mouse
   para o lado esquerdo da tela.
-  Overview ativa ou desativa a visualização geral no canto inferior direito
-  do Browser.
-  FourgroundColor altera a cor de primeiro plano e BackgroundColor altera a
+  Mostrar visão geral ativa ou desativa a visualização geral no canto inferior direito
+  do Navegador.
+  Alterar cor do primeiro plano altera a cor de primeiro plano e Alterar cor do fundo altera a
   cor de fundo.
-  Wallpaper especifica um papel de parede. Para limpar o papel de parede,
-  escolha Wallpaper novamente.
-  Fix Wallpaper fixa o papel de parede para preencher a tela.
-  Tile Wallpaper ladrilha o papel de parede por toda a área do Browser.
-  Background Animation ativa ou desativa a animação de fundo.
-  Background Animation Type altera o tipo de animação de fundo.
-  Cursor Animation ativa ou desativa a animação do cursor.
-  No Scroll Lag ativa ou desativa se a rolagem automática ocorre
-  imediatamente ao selecionar um card.
-  Anti-Aliasing ativa ou desativa o anti-aliasing.
-  2x realiza anti-aliasing com o dobro da resolução vertical e horizontal,
+  Papel de parede especifica uma imagem de fundo. Para limpar o papel de parede,
+  escolha Papel de parede novamente.
+  Fixar papel de parede fixa o papel de parede para preencher a tela.
+  Repetir papel de parede ladrilha o papel de parede por toda a área do Navegador.
+  Animação de fundo ativa ou desativa a animação de fundo.
+  Tipo da animação de fundo altera o tipo de animação de fundo.
+  Animação do cursor ativa ou desativa a animação do cursor.
+  Rolagem imediata ativa ou desativa se a rolagem automática ocorre
+  imediatamente ao selecionar um cartão.
+  Antialiasing ativa ou desativa o antialiasing.
+  2x realiza antialiasing com o dobro da resolução vertical e horizontal,
   e 4x usa quatro vezes.
 
-Change Language
-  Altera o idioma dos menus (atualmente inglês e japonês são suportados).
-  Para suportar outros idiomas, coloque um arquivo .lng na pasta do Frieve
-  Editor (formato de arquivo texto; veja Japanese.lng para o formato).
+Alterar idioma
+  Altera o idioma dos menus. Há suporte a vários idiomas, incluindo japonês e inglês
+  (consulte os arquivos .lng incluídos).
+  Para adicionar ou substituir idiomas, coloque um arquivo .lng na mesma pasta do
+  Frieve Editor (texto; veja Japanese.lng quanto ao formato). A ajuda usa
+  help_<idioma>.fip conforme o idioma definido.
 
 
-Full Screen
-  Alterna a exibição em tela cheia do Browser.
+Tela cheia
+  Alterna a exibição em tela cheia do Navegador.
 
 
-Status Bar
+Barra de status
   Ativa ou desativa a barra de status.
 28
-Title: Settings Menu
+Title: Menu Configurações
 Label:7
 Fixed:0
 X:0.924349308013916
@@ -3007,23 +3008,23 @@ Updated:2023/04/14 20:17:21
 Viewed:2023/04/14 20:17:19
 -
 ----------------------------------------------------------------------------
-Settings Menu
+Menu Configurações
 ----------------------------------------------------------------------------
 
-GPT API Key
-  Define a API Key obtida no site da OpenAI para usar a integração com GPT.
+Chave da API GPT
+  Define a chave de API obtida no site da OpenAI para usar a integração com GPT.
 
-Auto Save Default
+Padrão de auto salvar
   Define o valor padrão do salvamento automático para arquivos novos.
   Quando ativado, os arquivos recém-criados já terão o salvamento
   automático habilitado.
 
-Auto Reload Default
+Padrão de auto recarregar
   Define o valor padrão do recarregamento automático para arquivos novos.
   Quando ativado, os arquivos recém-criados já terão o recarregamento
   automático habilitado.
 31
-Title: Help Menu
+Title: Menu Ajuda
 Label:7
 Fixed:0
 X:0.891983985900879
@@ -3036,21 +3037,21 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:15:15
 -
 ----------------------------------------------------------------------------
-Help Menu
+Menu Ajuda
 ----------------------------------------------------------------------------
 
-Contents
+Conteúdo
   Abre e exibe este arquivo de ajuda no Frieve Editor.
 
-Open Frieve Web Site
+Site da Frieve
   Abre o site da Frieve no navegador padrão.
 
-Open Frieve Editor Web Site
+Site do Frieve Editor
   Abre o site do Frieve Editor no navegador padrão.
 
-Check Latest Release
+Verificar versão mais recente
   Verifica a versão mais recente disponível.
 
 
-About
+Sobre
   Exibe informações de versão.

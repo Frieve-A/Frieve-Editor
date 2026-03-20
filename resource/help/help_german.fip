@@ -231,7 +231,7 @@ Vielen Dank, dass Sie Frieve Editor heruntergeladen haben.
 Frieve Editor ist ein neuartiger Editor, der Sie dabei unterstützt, Ihre Gedanken
 zu ordnen und auf originelle Ideen zu kommen.
 
-Um diese Hilfe zu lesen, wählen Sie das gewünschte Thema aus der Kartenliste (Cards)
+Um diese Hilfe zu lesen, wählen Sie das gewünschte Thema aus der Kartenliste (Karten)
 auf der linken Seite des Bildschirms.
 Über die Links am unteren Bildschirmrand können Sie verwandte Artikel aufrufen.
 15
@@ -272,16 +272,16 @@ Frieve Editor eignet sich unter anderem für folgende Anwendungsgebiete:
 - Als Ideenprozessor
   Platzieren Sie Stichwort-Karten, die als Ausgangspunkt für neue Ideen dienen,
   nacheinander auf dem Bildschirm. Sobald Ihnen neue Ideen einfallen, erstellen
-  Sie ebenfalls Karten dafür, vergeben Labels zur Klassifizierung und beschreiben
+  Sie ebenfalls Karten dafür, vergeben Beschriftungen zur Klassifizierung und beschreiben
   die Zusammenhänge mit anderen Stichwörtern als Links.
-  Anhand der vergebenen Labels und Links können die Karten automatisch angeordnet
+  Anhand der vergebenen Beschriftungen und Links können die Karten automatisch angeordnet
   werden. Funktionen wie das zufällige Anzeigen von Karten oder das zufällige
   Verfolgen von Links fördern frisches und unkonventionelles Denken.
 
 - Zur übersichtlichen Beschreibung und Ordnung komplexer Sachverhalte
   Beschreiben Sie komplexe Situationen, deren Bedingungen miteinander verflochten
   sind, beginnend bei den Teilen, die Sie bereits verstehen.
-  Indem Sie Zusammenhänge mit Labels und Links definieren, lassen sich komplexe
+  Indem Sie Zusammenhänge mit Beschriftungen und Links definieren, lassen sich komplexe
   Sachverhalte verständlicher darstellen. So finden Sie Lösungen, die auch sonst
   leicht übersehene Auswirkungen berücksichtigen. Selbst komplizierte Gedanken,
   die bisher nur schwer vermittelbar waren, lassen sich auf natürliche Weise
@@ -290,7 +290,7 @@ Frieve Editor eignet sich unter anderem für folgende Anwendungsgebiete:
 - Als Projektmanagement-Werkzeug
   Beschreiben Sie die anstehenden Aufgaben, deren Zusammenhänge, die Reihenfolge
   der Durchführung, Budgets, Risiken und mehr.
-  Mit Labels lassen sich Karten z. B. als bereits erledigt, als sofort zu
+  Mit Beschriftungen lassen sich Karten z. B. als bereits erledigt, als sofort zu
   erledigen oder als aufgeschoben klassifizieren. So wird es leichter zu beurteilen,
   was als Nächstes zu tun ist, wo Probleme drohen und wie das Projekt weitergeführt
   werden sollte.
@@ -323,16 +323,16 @@ Die wichtigsten Merkmale von Frieve Editor sind:
   Da Links von jeder beliebigen Karte zu jeder anderen gezogen werden können,
   lassen sich auch komplexe Themen auf natürliche Weise abbilden.
 
-- Klassifizierung von Karten und Links mit Labels
-  Jede Karte und jeder Link kann mit mehreren Labels versehen werden. Labels können
+- Klassifizierung von Karten und Links mit Beschriftungen
+  Jede Karte und jeder Link kann mit mehreren Beschriftungen versehen werden. Beschriftungen können
   vom Benutzer frei definiert werden. Da Karten und Links auf dem Bildschirm
-  entsprechend ihrer Labels farblich gekennzeichnet sind, erfassen Sie deren
+  entsprechend ihrer Beschriftungen farblich gekennzeichnet sind, erfassen Sie deren
   Bedeutung auf einen Blick.
 
 - Automatische Anordnung und Anzeigefilter für Karten
   Frieve Editor kann das Layout der Karten automatisch anhand der vorhandenen Links
-  und der zugewiesenen Labels anordnen. So lassen sich Ihre Informationen leicht aus
-  verschiedenen Blickwinkeln betrachten. Außerdem können Karten und Links nach Label
+  und der zugewiesenen Beschriftungen anordnen. So lassen sich Ihre Informationen leicht aus
+  verschiedenen Blickwinkeln betrachten. Außerdem können Karten und Links nach Beschriftung
   ein- oder ausgeblendet oder der sichtbare Bereich nach Linkanzahl eingeschränkt
   werden, sodass nur die benötigten Informationen angezeigt werden.
 
@@ -370,18 +370,18 @@ Grundfunktionen
   mit einer anderen. Anhand der Links zwischen Karten kann Frieve Editor die Karten
   automatisch so anordnen, dass verknüpfte Karten nah beieinander liegen.
 
-- Labels
-  Frieve Editor ermöglicht es, sowohl Karten als auch Links mit Labels zu versehen.
-  Standardmäßig sind drei Labels definiert: Probrem (Problem), Solution und Result.
-  Labels können jedoch frei bearbeitet werden.
+- Beschriftungen
+  Frieve Editor ermöglicht es, sowohl Karten als auch Links mit Beschriftungen zu versehen.
+  Standardmäßig sind drei Beschriftungen definiert: Problem, Lösung und Ergebnis.
+  Beschriftungen können jedoch frei bearbeitet werden.
 
-  Durch das Zuweisen von Labels lassen sich Karten effizient organisieren. Sie können
-  z. B. Karten mit gleichem Label automatisch nahe beieinander anordnen lassen, nur
-  Karten mit einem bestimmten Label anzeigen oder ausblenden. Es ist auch möglich,
-  Karten mit demselben Label zu einer einzigen Karte zusammenzufassen.
+  Durch das Zuweisen von Beschriftungen lassen sich Karten effizient organisieren. Sie können
+  z. B. Karten mit gleicher Beschriftung automatisch nahe beieinander anordnen lassen, nur
+  Karten mit einer bestimmten Beschriftung anzeigen oder ausblenden. Es ist auch möglich,
+  Karten mit derselben Beschriftung zu einer einzigen Karte zusammenzufassen.
 
-  Ebenso können Labels an Links genutzt werden, um nur Links mit einem bestimmten
-  Label ein- oder auszublenden. In Kombination mit der automatischen Anordnung, bei
+  Ebenso können Beschriftungen an Links genutzt werden, um nur Links mit einer bestimmten
+  Beschriftung ein- oder auszublenden. In Kombination mit der automatischen Anordnung, bei
   der verknüpfte Karten nahe beieinander platziert werden, lässt sich so leicht eine
   Anordnung erstellen, die auf eine bestimmte Art von Beziehung fokussiert.
 259
@@ -413,7 +413,7 @@ Versionsgeschichte
     Wenn dieselbe Datei bereits in einer anderen Instanz geöffnet ist, wird diese nun aktiviert.
     Fehler bei der GPT-Modellangabe in setting2.ini behoben.
     Websuche korrigiert.
-    Layout der Label-Schaltflächen korrigiert.
+    Layout der Beschriftung-Schaltflächen korrigiert.
 
 - 2.00 (2023/04/14)
   Unterstützung für den Aufruf der ChatGPT-API hinzugefügt.
@@ -431,7 +431,7 @@ Versionsgeschichte
   Beim Speichern werden nun die aktuellen Koordinaten und verschiedene Einstellungen
   gesichert und beim Laden wiederhergestellt.
   Gebogene Links hinzugefügt.
-  HierarchicalText unter Datei-Menü -> Exportieren hinzugefügt.
+  Hierarchischer Text unter Datei-Menü -> Exportieren hinzugefügt.
   Zeichenkettenersetzung für Kartennamen und Fließtext (Bearbeiten-Menü -> Ersetzen, Ctrl+R).
   Ausgewählte Links blinken nun.
   Links, die mit der aktuellen Karte zusammenhängen, werden hervorgehoben.
@@ -441,14 +441,14 @@ Versionsgeschichte
   Fehler behoben, der beim Bearbeiten von Fließtext rechts oder unterhalb des Browsers auftrat.
   Fehler behoben, bei dem gepunktete Linien zu einem Fehler führen konnten.
   Speicherleck bei Anzeige des Stats-Tabs behoben.
-  Speicherleck bei Verwendung der Tree (Radial)-Anordnung behoben.
+  Speicherleck bei Verwendung der Baum (radial)-Anordnung behoben.
 
 - 1.30 (2008/06/15)
   Einfügen einfacher Zeichnungen in Karten möglich (Zeichnung-Tab).
-  Statistische Diagrammanzeige (z. B. Label-Anzahl) hinzugefügt (Stats-Tab).
-  Funktion zum Verlinken aller Karten mit einem bestimmten Label (Einfügen-Menü).
-  Funktion zum Hinzufügen eines bestimmten Labels zu allen Zielkarten (Einfügen-Menü).
-  Alle Fenster ins Japanische lokalisiert (Ansicht-Menü -> Language).
+  Statistische Diagrammanzeige (z. B. Beschriftung-Anzahl) hinzugefügt (Stats-Tab).
+  Funktion zum Verlinken aller Karten mit einer bestimmten Beschriftung (Einfügen-Menü).
+  Funktion zum Hinzufügen einer bestimmten Beschriftung zu allen Zielkarten (Einfügen-Menü).
+  Alle Fenster ins Japanische lokalisiert (Ansicht-Menü -> Sprache ändern).
   Die Statusleiste zeigt nun die Anzahl der ausgewählten Karten an.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
@@ -457,7 +457,7 @@ Versionsgeschichte
   Die aktuelle Auswahl wird als Suchbegriff verwendet.
   Der Suchverlauf wird nun gespeichert.
   Zoomen mit den Tasten Page Up und Page Down möglich.
-  Auswahl eines Links in der Linkliste verschiebt nun Related Text.
+  Auswahl eines Links in der Linkliste verschiebt nun Bezugstext.
   Verbesserte Anfangsposition von Kind- und Geschwisterkarten bei deaktivierter Anordnung.
   Der Fließtext-Editor rechts oder unterhalb des Browsers ist nun in der Größe veränderbar.
   Fehler unter Windows 98 behoben, bei dem ein Rechtsklick nach Mehrfachauswahl einen Fehler verursachte.
@@ -469,49 +469,49 @@ Versionsgeschichte
 
 - 1.22 (2008/02/11)
   Globale Suche (Listenansicht der Suchergebnisse) hinzugefügt.
-  Internetsuche mit ausgewähltem Text oder Kartentiteln möglich.
+  Websuche mit ausgewähltem Text oder Kartentiteln möglich.
   Einfügen externer Links per Drag-and-Drop und Erstellen von Karten mit externen Links möglich.
-  Matrix (Index) hinzugefügt, das Karten ordentlich nach Kartenreihenfolge anordnet.
+  Matrix (Reihenfolge) hinzugefügt, das Karten ordentlich nach Kartenreihenfolge anordnet.
   Rückwärtssuche hinzugefügt (Bearbeiten-Menü -> Vorheriges suchen, Shift+F3).
   Der Editor-Tab kann nun den Fließtext verknüpfter Karten anzeigen (Bezugstext).
   Text kann aus dem Fließtext ausgeschnitten und als neue, verlinkte Karte erstellt werden.
-  Import von hierarchischem Text mit Punkten als Ebenenangabe möglich (File-Menü -> Import).
-  Textlänge (Text Length) zur Anzeigepunktzahl hinzugefügt.
-  Hintergrundanimationen Snow und Cherry Blossom hinzugefügt.
-  Bei Kartenauswahl wird nun sofort gescrollt (änderbar über View-Menü -> Others).
+  Importieren von hierarchischem Text mit Punkten als Ebenenangabe möglich (Datei-Menü -> Importieren).
+  Textlänge (Länge des Textkörpers) zur Anzeigepunktzahl hinzugefügt.
+  Hintergrundanimationen Schnee und Kirschblüten hinzugefügt.
+  Bei Kartenauswahl wird nun sofort gescrollt (änderbar über Ansicht-Menü -> Sonstiges).
   Fehler behoben, bei dem F3 nur Kartentitel durchsuchte.
   Problem behoben, bei dem die Anfangsgröße der Linkliste unter dem Editor 0 war.
   Problem behoben, bei dem Ctrl+Klick auf einen externen Link im Editor-Tab nicht funktionierte.
-  Problem behoben, bei dem Score-Typ-Einstellungen nicht gespeichert wurden.
+  Problem behoben, bei dem Punktzahl-Typ-Einstellungen nicht gespeichert wurden.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.21 (2007/12/01)
-  Hierarchische Anordnung hinzugefügt (Tree(Radian); erfordert eine Wurzelkarte).
+  Hierarchische Anordnung hinzugefügt (Baum (radial); erfordert eine Wurzelkarte).
   Dateiliste zum schnellen Öffnen von Dateien hinzugefügt (Maus an den linken Bildschirmrand bewegen).
-  Animationen Random Jump und Random Map hinzugefügt.
-  Stapelweise Umkehrung der Linkrichtung möglich (Edit-Menü -> Batch Conversion).
-  Sichtbarkeit der Kartenliste konfigurierbar (View-Menü -> Others).
+  Animationen Zufälliger Sprung und Zufällige Karte hinzugefügt.
+  Stapelweise Umkehrung der Linkrichtung möglich (Bearbeiten-Menü -> Stapeländerung).
+  Sichtbarkeit der Kartenliste konfigurierbar (Ansicht-Menü -> Sonstiges).
   Breite der Kartenliste und zugehörige Einstellungen werden beim Beenden gespeichert.
   Angabe der Video-Wiedergabeposition möglich (Startposition(ms)-Endposition(ms)| vor dem Dateinamen).
-  Cursor-Animation kann ein-/ausgeschaltet werden (View-Menü -> Others).
+  Cursor-Animation kann ein-/ausgeschaltet werden (Ansicht-Menü -> Sonstiges).
   Fehler behoben, bei dem Doppelklick auf einen Link im Editor-Tab nicht funktionierte.
   Fehler behoben, bei dem Titel im Browser nicht bearbeitbar waren, wenn der Editor dauerhaft angezeigt wurde.
-  Fehler behoben, bei dem Kartenbewegung per Cursor AutoZoom abbrach.
+  Fehler behoben, bei dem Kartenbewegung per Cursor Auto-Zoom abbrach.
   Fehler behoben, bei dem ausgeblendete Karten durch Bereichsauswahl selektiert werden konnten.
-  Fehler behoben, bei dem Full Screen während einer Animation nicht umschaltbar war.
-  Fehler behoben, bei dem bei aktiviertem Anti-Aliasing nicht auf der Übersicht gezogen werden konnte.
+  Fehler behoben, bei dem Vollbild während einer Animation nicht umschaltbar war.
+  Fehler behoben, bei dem bei aktivierter Kantenglättung nicht auf der Gesamtübersicht gezogen werden konnte.
   Fehler behoben, bei dem Ctrl+E während der Titelbearbeitung im Browser einen Fehler verursachte.
   Bildschirmflackern reduziert.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.20 (2007/11/04)
-  Undo und Redo für bis zu 10 Bearbeitungsschritte hinzugefügt.
+  Rückgängig und Wiederholen für bis zu 10 Bearbeitungsschritte hinzugefügt.
   Mehrfachauswahl von Karten möglich.
   Ausschneiden, Kopieren und Einfügen von Karten möglich.
-  Fließtextbearbeitung im Browser-Bildschirm möglich (View-Menü -> Text).
+  Fließtextbearbeitung im Browser-Bildschirm möglich (Ansicht-Menü -> Textkörper).
   Suche beschränkt auf aktuell sichtbare Karten möglich.
   Die aktuelle Karte wird nun mit einem sichtbaren Cursor markiert.
-  Hintergrundanimation hinzugefügt (View-Menü -> Others).
+  Hintergrundanimation hinzugefügt (Ansicht-Menü -> Sonstiges).
   Japanische Lokalisierung für Popup-Menüs ergänzt.
   Öffnen externer Links von Ctrl+Klick auf Ctrl+Shift+Klick geändert.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
@@ -519,88 +519,88 @@ Versionsgeschichte
 - 1.13 (2007/10/15)
   Verschiedene Bearbeitungsbefehle zum Rechtsklickmenü des Browsers hinzugefügt.
   Der Linkstil kann nun geändert werden.
-  Stapelweise Änderung aller Kartenformen und Linkformen (Edit -> Change Shape).
+  Stapelweise Änderung aller Kartenformen und Linkformen (Bearbeiten -> Stapeländerung).
   Standardgröße, -form und Fixierungseinstellungen für Karten und Links hinzugefügt.
   Lauftext-Anzeige der ersten ein bis zwei Zeilen des Fließtexts im Browser.
   Kartenschatten-Darstellung hinzugefügt.
   Einfache Verlaufsdarstellung für Karten hinzugefügt.
   Umrissdarstellung für Links hinzugefügt.
   Videoanzeige in Karten möglich (Dateiname oder URL im Fließtext eingeben).
-  Import von hierarchischem Text und Textdateien in Ordnern möglich (File-Menü -> Import).
-  Export von Browser-Bildern im BMP- und JPEG-Format möglich (File-Menü -> Export).
-  Kopieren verschiedener Daten in die Zwischenablage möglich (File-Menü -> Export).
-  Anti-Aliasing für die Browser-Anzeige hinzugefügt (View-Menü -> Others).
+  Importieren von hierarchischem Text und Textdateien in Ordnern möglich (Datei-Menü -> Importieren).
+  Exportieren von Browser-Bildern im BMP- und JPEG-Format möglich (Datei-Menü -> Exportieren).
+  Kopieren verschiedener Daten in die Zwischenablage möglich (Datei-Menü -> Exportieren).
+  Kantenglättung für die Browser-Anzeige hinzugefügt (Ansicht-Menü -> Sonstiges).
   Beispiel-Hintergrundbilder im Ordner wallpaper im Installationsverzeichnis enthalten.
   Verschiedene Bearbeitungsfunktionen im Vollbildmodus (Maus an den oberen Bildschirmrand bewegen).
-  Fehler behoben, bei dem LinkLabel in manchen Dateien nicht korrekt geladen wurde.
+  Fehler behoben, bei dem die Link-Beschriftung in manchen Dateien nicht korrekt geladen wurde.
   Fehler behoben, bei dem sechseckige Karten nicht korrekt gezeichnet wurden.
   Fehler behoben, bei dem Doppelklick auf eine Karte im Vollbild einen Fehler verursachte.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.12 (2007/10/01)
-  Fehler behoben, bei dem das Hinzufügen einer Karte bei aktiviertem Arrange und Zoom einen Fehler verursachte.
+  Fehler behoben, bei dem das Hinzufügen einer Karte bei aktivierter automatischer Kartenanordnung und Zoom einen Fehler verursachte.
   Diverse weitere kleine Fehlerbehebungen.
 
 - 1.11 (2007/09/30)
   Fixierte Kartenpositionen hinzugefügt (Reißzwecke-Schaltfläche).
-  Arrange (Matrix) hinzugefügt, das Karten ordentlich in einem Raster anordnet.
-  Übersichtsanzeige des gesamten Kartenlayouts unten rechts im Browser.
+  Automatische Anordnung (Matrix) hinzugefügt, die Karten ordentlich in einem Raster anordnet.
+  Gesamtübersicht des Kartenlayouts unten rechts im Browser.
   Karten können mit den Pfeiltasten im Browser verschoben werden.
-  Link Limitation für die Anzeige nur in Gegenrichtung verlinkter Karten hinzugefügt.
-  Link Limitation für Links zwischen der aktuellen Karte und dem Ziel hinzugefügt.
+  Anzeige nach Links beschränken für die Anzeige nur in Gegenrichtung verlinkter Karten hinzugefügt.
+  Anzeige nach Links beschränken für Links zwischen der aktuellen Karte und dem Ziel hinzugefügt.
   Neue Kartenform: kleine Figur in der Mitte, Text außen herum.
-  Neben Kreisen können nun auch Rechtecke um Karten mit gleichem Label gezeichnet werden.
-  Schriftart änderbar (View-Menü -> Font -> Change Font).
-  Hintergrundbild für den Browser einstellbar (View-Menü -> Others).
+  Neben Kreisen können nun auch Rechtecke um Karten mit gleicher Beschriftung gezeichnet werden.
+  Schriftart änderbar (Ansicht-Menü -> Schriftart -> Schriftart ändern).
+  Hintergrundbild für den Browser einstellbar (Ansicht-Menü -> Sonstiges).
   Soft-Anordnungsmodi hinzugefügt, die Überlappungen stärker vermeiden.
   Die automatische Anordnung läuft nun auch während des Ziehens weiter.
   Automatische Anordnung und Scrollen etwas flüssiger.
   Tastenkürzel zum Wechseln zwischen Browser und Editor (Ctrl+B, Ctrl+E).
   Hervorhebung der drei zuletzt angesehenen Karten von Shift auf Leertaste geändert.
-  Ziehen von Karten mit gleichem Label von Shift auf Ctrl geändert.
+  Ziehen von Karten mit gleicher Beschriftung von Shift auf Ctrl geändert.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.10 (2007/09/01)
-  Zeilenumbruch am rechten Rand über View-Menü -> Text -> WordWrap einstellbar.
+  Zeilenumbruch am rechten Rand über Ansicht-Menü -> Textkörper -> Am rechten Rand umbrechen einstellbar.
   Kartentitel können Zeilenumbrüche mit \n oder Ctrl+Enter im Browser enthalten.
-  Anordnung nach Titel-/Text-Ähnlichkeit (Similarity) hinzugefügt.
-  Normalize hinzugefügt, das die Ansicht so zoomt, dass alle Karten sichtbar sind.
-  Verschiedene Score-Typen hinzugefügt (View-Menü -> Score).
-  Vorlesen von Kartentiteln möglich (erfordert Microsoft Agent).
-  Groß-/Kleinschreibung-unabhängige Suche (Match Case deaktivieren).
+  Anordnung nach Titel-/Text-Ähnlichkeit (Ähnlichkeit) hinzugefügt.
+  Normalisieren hinzugefügt, das die Ansicht so zoomt, dass alle Karten sichtbar sind.
+  Verschiedene Punktzahl-Typen hinzugefügt (Ansicht-Menü -> Punktzahl).
+  Vorlesen von Kartentiteln möglich (Windows-SAPI, Text-to-Speech).
+  Groß-/Kleinschreibung-unabhängige Suche (Groß-/Kleinschreibung beachten deaktivieren).
   Fehler behoben, bei dem Tastenkürzel im Suchdialog nicht funktionierten.
   Problem behoben, bei dem direkt nach dem Start ein Fehler auftreten konnte.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.05 (2007/08/03)
-  Japanische Menüauswahl über View-Menü -> Change Language.
+  Japanische Menüauswahl über Ansicht-Menü -> Sprache ändern.
   Anzeige von Bildern, die über externe Links angegeben sind, auf Karten möglich.
-  Score-Berechnung und -Anzeige über View-Menü -> Others.
-  Export der Kartentitel-Liste über File-Menü -> Export.
+  Punktzahl-Berechnung und -Anzeige über Ansicht-Menü -> Sonstiges.
+  Exportieren der Kartentitel-Liste über Datei-Menü -> Exportieren.
   Zuletzt angesehene Karten werden weiter vorne angezeigt.
   Drücken der Leertaste hebt die drei zuletzt angesehenen Karten hervor.
-  Label-Namen werden nun innerhalb der Label-Kreise im Browser angezeigt.
+  Beschriftungsnamen werden nun innerhalb der Beschriftungskreise im Browser angezeigt.
   Browser-Kartenlayout auf die vierfache Fläche erweitert (doppelte Breite und Höhe).
-  AutoZoom hält verwandte Karten stets im sichtbaren Bereich.
+  Auto-Zoom hält verwandte Karten stets im sichtbaren Bereich.
   Laden von Dateien beschleunigt.
   Problem behoben, bei dem Karten sich bei der Anordnung überlappen konnten.
   Problem behoben, bei dem Delete eine Karte nach Titelbearbeitung nicht sofort entfernen konnte.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.04 (2007/07/16)
-  Label-abhängige Kartengrößen-Einstellung über die View-Schaltfläche im Browser-Tab.
-  Labels können aktiviert oder deaktiviert werden.
+  Beschriftung-abhängige Kartengrößen-Einstellung über die Ansicht-Schaltfläche im Browser-Tab.
+  Beschriftungen können aktiviert oder deaktiviert werden.
   Filterung sichtbarer Karten nach Datum hinzugefügt.
   Filterung sichtbarer Karten nach Mindest-Kartengröße hinzugefügt.
-  Vorder- und Hintergrundfarbe änderbar über View-Menü -> Others.
+  Vorder- und Hintergrundfarbe änderbar über Ansicht-Menü -> Sonstiges.
   Mehrere Karten gleichzeitig aus mehrzeiligem Text erstellbar (jede Zeile als Titel).
   Der Dateiname der geöffneten Datei wird nun in der Taskleiste angezeigt.
-  Bei Kartenauswahl scrollt Cards bis die ausgewählte Karte sichtbar ist.
+  Bei Kartenauswahl scrollt Karten bis die ausgewählte Karte sichtbar ist.
   Fehler behoben, bei dem das Programm ohne Standarddrucker nicht starten konnte.
-  Fehler behoben, bei dem das Löschen eines verwendeten Link Labels zu einem Fehler führte.
+  Fehler behoben, bei dem das Löschen eines verwendeten Link Beschriftungen zu einem Fehler führte.
   Problem behoben, bei dem das Speichern bei hoher Last fehlschlagen konnte und der Cursor als Sanduhr verblieb.
   Problem behoben, bei dem das Schließen des Suchdialogs die Cursorposition zurücksetzte.
-  Problem behoben, bei dem Klick auf leere Fläche bei aktiviertem Fold eine Karte auswählen konnte.
+  Problem behoben, bei dem Klick auf leere Fläche bei aktiviertem Einklappen eine Karte auswählen konnte.
   Problem behoben, bei dem der Auswahlbereich bei der Suche falsch war.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
@@ -609,37 +609,37 @@ Versionsgeschichte
   Shift+Insert erstellt eine übergeordnete Karte.
   Kartenformen und -größen können geändert werden.
   Höhere Zoomstufen hinzugefügt.
-  Statusleiste mit Zeichenanzahl und ähnlichen Informationen (Sichtbarkeit über das View-Menü änderbar).
-  Select All im Edit-Menü hinzugefügt.
+  Statusleiste mit Zeichenanzahl und ähnlichen Informationen (Sichtbarkeit über das Ansicht-Menü änderbar).
+  Alles auswählen im Bearbeiten-Menü hinzugefügt.
   Anzeige- und Dateibeschädigung beim Einfügen von RichText behoben.
-  Fehler behoben, bei dem das Löschen eines Links mit der Delete-Taste während des Ziehens einen Fehler verursachte.
+  Fehler behoben, bei dem das Löschen eines Links mit der Löschen-Taste während des Ziehens einen Fehler verursachte.
   Problem behoben, bei dem beim Ziehen eines beschrifteten Links die Linie nicht angezeigt wurde.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.02 (2006/10/21)
   Insert erstellt eine Kindkarte.
   Enter erstellt eine Geschwisterkarte.
-  Insert bei ausgewähltem Link erstellt eine Karte zwischen den verlinkten Karten.
+  Einfügen bei ausgewähltem Link erstellt eine Karte zwischen den verlinkten Karten.
   Links können durch Ziehen bearbeitet werden.
   Suche nur in Kartentiteln oder Fließtext möglich.
   Kartentitel-Suche vom Browser-Bildschirm aus möglich.
-  Shift+Ziehen verschiebt Karten mit gleichem Label gemeinsam.
+  Shift+Ziehen verschiebt Karten mit gleicher Beschriftung gemeinsam.
   Schnellere Suche.
   Leicht schnellere Anzeige.
-  Beim Erstellen einer neuen Karte hängt der Index nun von der aktuell bearbeiteten Karte ab.
-  Problem behoben, bei dem zusammengefasste Karten bei Arrange zu stark abstoßen.
+  Beim Erstellen einer neuen Karte hängt der Reihenfolge nun von der aktuell bearbeiteten Karte ab.
+  Problem behoben, bei dem zusammengefasste Karten bei der automatischen Anordnung zu stark abstoßen.
   Problem behoben, bei dem Tab nicht in den Fließtext eingefügt werden konnte.
   Diverse weitere kleine Verbesserungen und Fehlerbehebungen.
 
 - 1.01 (2006/10/07)
   Kartentitel können direkt im Browser bearbeitet werden.
   Nach dem Erstellen einer neuen Karte wird sofort die Titelbearbeitung aktiviert.
-  Auto Zoom hinzugefügt, das den Browser automatisch ein- und auszoomt.
-  Anordnung nach Kartenreihenfolge (Index) hinzugefügt.
-  View-Schaltfläche -> Link Limitation kann nun nach Linkrichtung filtern.
-  Cut to New Card Title zum Rechtsklickmenü des Editors hinzugefügt.
-  Shuffle hinzugefügt, das Kartenkoordinaten im Browser zufällig verteilt.
-  Shuffle (Edit -> Sort-Menü) hinzugefügt, das die Kartenreihenfolge zufällig mischt.
+  Auto-Zoom hinzugefügt, das den Browser automatisch ein- und auszoomt.
+  Anordnung nach Kartenreihenfolge (Reihenfolge) hinzugefügt.
+  Ansicht-Schaltfläche -> Anzeige nach Links beschränken kann nun nach Linkrichtung filtern.
+  Ausgewählten Text als Titel einer neuen Karte verwenden zum Rechtsklickmenü des Editors hinzugefügt.
+  Zufällig hinzugefügt, das Kartenkoordinaten im Browser zufällig verteilt.
+  Zufällig (Bearbeiten -> Karten sortieren-Menü) hinzugefügt, das die Kartenreihenfolge zufällig mischt.
   Fehler behoben, bei dem Klick auf eine Karte im Browser die darunterliegende Karte auswählen konnte.
 
 - 1.00 (2006/09/24)
@@ -688,8 +688,8 @@ Häufig gestellte Fragen
 
 F: Gibt es eine Möglichkeit, den Browser-Bereich zu vergrößern?
 
-A: Wählen Sie bei Arrange (automatische Kartenanordnung) oben im Browser-Bildschirm
-Normalize und drücken Sie die Arrange ON-Schaltfläche. Die Karten werden automatisch
+A: Wählen Sie im Bereich „Auto:“ (automatische Kartenanordnung) oben im Browser-Bildschirm
+Normalisieren und drücken Sie die ON-Schaltfläche neben „Auto:“. Die Karten werden automatisch
 um die Mitte des Browsers angeordnet, wobei ihre relativen Positionen erhalten bleiben.
 Danach können Sie mit dem Zoom-Regler hinein- oder herauszoomen und den sichtbaren
 Bereich des Browsers über die Scrollbalken oder die Übersichtsanzeige unten rechts
@@ -700,7 +700,7 @@ F: Kann Frieve Editor von einem USB-Stick oder ähnlichem Medium gestartet werde
 
 A: Kopieren Sie alle Dateien aus dem Frieve Editor-Installationsordner
 (normalerweise c:\Program Files\Frieve Editor\) auf den USB-Stick.
-Sie können Frieve Editor dann starten, indem Sie dort editor.exe ausführen.
+Sie können Frieve Editor dann starten, indem Sie dort feditor.exe ausführen.
 Frieve Editor verwendet keine Registry-Einträge.
 
 
@@ -713,9 +713,9 @@ Eine Kontaktaufnahme ist auch bei unternehmensweiter Verteilung nicht erforderli
 F: Beim Start scheint eine Internetverbindung aufgebaut zu werden. Was geschieht da?
 
 A: Es wird geprüft, ob eine neuere Version von Frieve Editor verfügbar ist.
-Dies entspricht der Funktion Help-Menü -> Check Latest Release.
+Dies entspricht der Funktion Hilfe-Menü -> Neueste Version prüfen.
 Ob diese Prüfung automatisch erfolgen soll, können Sie ebenfalls über
-Help-Menü -> Check Latest Release einstellen.
+Hilfe-Menü -> Neueste Version prüfen einstellen.
 Falls Sie keine Verbindung wünschen, können Sie den Zugriff bedenkenlos per
 Firewall blockieren.
 
@@ -724,7 +724,7 @@ F: Japanischer Text wird im Browser verstümmelt angezeigt.
 
 A: Möglicherweise ist der Schriftzeichensatz auf eine nicht-japanische Option eingestellt
 (z. B. ein westlicher Zeichensatz). Öffnen Sie den Schriftartendialog über
-View-Menü -> Font -> Change Font, wählen Sie eine japanische Schriftart und stellen
+Ansicht-Menü -> Schriftart -> Schriftart ändern, wählen Sie eine japanische Schriftart und stellen
 Sie den Zeichensatz auf Japanisch ein.
 
 
@@ -797,20 +797,20 @@ So erstellen Sie eine neue Karte
 Hinweis: Die neue Karte wird am Ende der Kartenliste eingefügt.
 
 Hinweis: Wenn Sie die dritte Schaltfläche von links oben im Browser-Bildschirm
-         anklicken (die Schaltfläche mit L und einer Karte), ein Label auswählen
-         und dann doppelklicken, wird eine Karte mit diesem Label erstellt.
+         anklicken (die Schaltfläche mit L und einer Karte), eine Beschriftung auswählen
+         und dann doppelklicken, wird eine Karte mit dieser Beschriftung erstellt.
 
 Oder:
 
-Wählen Sie New Card aus dem Insert-Menü.
+Wählen Sie Neue Karte aus dem Einfügen-Menü.
 
 Hinweis: Die neue Karte wird nach der aktuell ausgewählten Karte eingefügt.
          Falls keine Karte ausgewählt ist, wird sie am Ende der Kartenliste angefügt.
 
 Oder:
 
-1. Klicken Sie mit der rechten Maustaste in die Cards-Liste auf der linken Seite.
-2. Wählen Sie New Card aus dem erscheinenden Menü.
+1. Klicken Sie mit der rechten Maustaste in die Kartenliste auf der linken Seite.
+2. Wählen Sie Neue Karte aus dem erscheinenden Menü.
 
 Hinweis: Die neue Karte wird vor der aktuell ausgewählten Karte eingefügt.
          Falls keine Karte ausgewählt ist, wird sie am Ende der Kartenliste angefügt.
@@ -819,7 +819,7 @@ Oder:
 
 1. Wählen Sie im Editor-Tab einen Teil des Fließtexts einer vorhandenen Karte aus,
    den Sie als Fließtext einer neuen Karte verwenden möchten.
-2. Wählen Sie Cut to New Card aus dem Rechtsklickmenü des Editors.
+2. Wählen Sie Ausgewählten Text als Textkörper einer neuen Karte verwenden aus dem Rechtsklickmenü des Editors.
    Eine neue Karte mit dem ausgewählten Text als Fließtext wird erstellt.
 
 Oder:
@@ -827,10 +827,10 @@ Oder:
 1. Wählen Sie im Editor-Tab die Zeile(n) im Fließtext einer vorhandenen Karte aus,
    die als Titel einer neuen Karte dienen sollen
    (mehrere Zeilen auswählen, um mehrere Karten auf einmal zu erstellen).
-2. Wählen Sie Cut to New Card Title oder Cut to New Card Title with Link aus dem
-   Rechtsklickmenü des Editors. Eine neue Karte mit dem ausgewählten Text als Titel
-   wird erstellt. Bei der Option with Link wird zusätzlich ein Link von der
-   ursprünglichen Karte zur neuen Karte erzeugt.
+2. Wählen Sie Ausgewählten Text als Titel einer neuen Karte verwenden oder die
+   Option mit Link aus dem Rechtsklickmenü des Editors. Eine neue Karte mit dem
+   ausgewählten Text als Titel wird erstellt. Bei der Option mit Link wird zusätzlich
+   ein Link von der ursprünglichen Karte zur neuen Karte erzeugt.
 61
 Title: So erstellen Sie eine Karte mit Link von einer vorhandenen Karte
 Label:2
@@ -850,13 +850,13 @@ So erstellen Sie eine Karte mit Link von einer vorhandenen Karte
 
 1. Klicken Sie auf den Browser-Tab.
 2. Wählen Sie die Ausgangskarte im Browser aus.
-3. Drücken Sie die Insert-Taste. Eine neue Karte mit einem Link von der
+3. Drücken Sie die Einfügen-Taste. Eine neue Karte mit einem Link von der
    ausgewählten Karte wird erstellt.
 
 Hinweis: Die neue Karte wird nach der letzten der von der ausgewählten Karte
          verlinkten Karten eingefügt.
 
-Hinweis: Die Labels der ausgewählten Karte werden auf die neue Karte übertragen.
+Hinweis: Die Beschriftungen der ausgewählten Karte werden auf die neue Karte übertragen.
 
 Oder:
 
@@ -868,7 +868,7 @@ Oder:
 Hinweis: Die neue Karte wird nach der letzten der zur ausgewählten Karte
          verlinkten Karten eingefügt.
 
-Hinweis: Die Labels der ausgewählten Karte werden auf die neue Karte übertragen.
+Hinweis: Die Beschriftungen der ausgewählten Karte werden auf die neue Karte übertragen.
 
 Oder:
 
@@ -882,13 +882,13 @@ Hinweis: Die neue Karte wird nach der aktuell ausgewählten Karte eingefügt.
 Hinweis: Falls mehrere Karten zur ausgewählten Karte verlinken, wird die zuletzt
          angezeigte Elternkarte als Ausgangspunkt verwendet.
 
-Hinweis: Die Labels der ausgewählten Karte werden auf die neue Karte übertragen.
+Hinweis: Die Beschriftungen der ausgewählten Karte werden auf die neue Karte übertragen.
 
 Oder:
 
 1. Klicken Sie auf den Browser-Tab.
 2. Wählen Sie den Link aus, in den Sie eine Karte einfügen möchten.
-3. Drücken Sie die Insert-Taste. Eine neue Karte wird in der Mitte des
+3. Drücken Sie die Einfügen-Taste. Eine neue Karte wird in der Mitte des
    ausgewählten Links erstellt.
 
 Hinweis: Die neue Karte wird nach der letzten der von der Ausgangskarte des
@@ -922,7 +922,7 @@ Oder:
 
 Oder:
 
-Klicken Sie auf Karten in der Cards-Liste auf der linken Seite des Bildschirms.
+Klicken Sie auf Karten in der Kartenliste auf der linken Seite des Bildschirms.
 Für Mehrfachauswahl halten Sie Ctrl beim Klicken gedrückt, ziehen Sie über den
 gewünschten Bereich, oder wählen Sie die erste Karte und halten dann Shift gedrückt,
 während Sie auf die letzte Karte klicken.
@@ -953,7 +953,7 @@ Oder:
 
 1. Klicken Sie auf den Browser-Tab.
 2. Halten Sie Ctrl gedrückt und ziehen Sie eine Karte.
-   So verschieben Sie alle Karten mit demselben Label gemeinsam.
+   So verschieben Sie alle Karten mit derselben Beschriftung gemeinsam.
 18
 Title: So bearbeiten Sie einen Kartentitel
 Label:2
@@ -972,7 +972,7 @@ So bearbeiten Sie einen Kartentitel
 ----------------------------------------------------------------------------
 
 1. Wählen Sie die Karte aus, deren Titel Sie bearbeiten möchten.
-2. Geben Sie den neuen Titel im Feld Title auf dem Card-Panel ein.
+2. Geben Sie den neuen Titel im Feld „Name:“ ein (rechts von „Karte:“ im Kartenbereich).
 20
 Title: So bearbeiten Sie den Karteninhalt
 Label:2
@@ -1011,15 +1011,15 @@ Viewed:2023/04/14 20:23:50
 So bearbeiten Sie Karteninhalt mit GPT
 ----------------------------------------------------------------------------
 
-1. Wählen Sie GPT aus dem Edit-Menü, oder drücken Sie Ctrl+G.
+1. Wählen Sie GPT aus dem Bearbeiten-Menü, oder drücken Sie Ctrl+G.
    Die Verwendung von Ctrl+G wird empfohlen.
 2. Wählen Sie die gewünschte Operation aus dem Popup-Menü.
-3. Beim ersten Mal geben Sie Ihren OpenAI API Key in das erscheinende Dialogfeld ein.
+3. Beim ersten Mal geben Sie Ihren OpenAI-API-Schlüssel in das erscheinende Dialogfeld ein.
 
 Die GPT-Integration von Frieve Editor nutzt die kostenpflichtige, aber äußerst
 günstige OpenAI-API. Zur Nutzung der OpenAI-API benötigen Sie ein OpenAI-Konto
 und eine registrierte Kreditkarte.
-Informationen zur Beschaffung eines OpenAI API Keys finden Sie auf der OpenAI-API-Website.
+Informationen zur Beschaffung eines OpenAI-API-Schlüssels finden Sie auf der OpenAI-API-Website.
 https://platform.openai.com/overview
 
 
@@ -1121,23 +1121,23 @@ Viewed:2023/04/14 20:23:48
 So suchen Sie nach Karten
 ----------------------------------------------------------------------------
 
-1. Wählen Sie Find aus dem Edit-Menü, oder drücken Sie Ctrl+F.
+1. Wählen Sie Suchen aus dem Bearbeiten-Menü, oder drücken Sie Ctrl+F.
 2. Geben Sie den Suchbegriff in das erscheinende Dialogfeld ein.
-3. Um Kartentitel zu durchsuchen, aktivieren Sie Card Title.
-4. Um den Fließtext von Karten zu durchsuchen, aktivieren Sie Text.
-5. Für eine Suche unter Beachtung der Groß-/Kleinschreibung aktivieren Sie Match Case.
-   Für eine Suche ohne Beachtung der Groß-/Kleinschreibung deaktivieren Sie Match Case.
-6. Um auch im Browser ausgeblendete Karten zu durchsuchen, aktivieren Sie Invisible Card.
-   Andernfalls deaktivieren Sie Invisible Card.
-7. Drücken Sie Find Next.
-8. Um mit demselben Suchbegriff weiterzusuchen, wählen Sie Find Next aus dem
-   Edit-Menü oder drücken Sie F3.
+3. Um Kartentitel zu durchsuchen, aktivieren Sie Kartenname.
+4. Um den Fließtext von Karten zu durchsuchen, aktivieren Sie Textkörper.
+5. Für eine Suche unter Beachtung der Groß-/Kleinschreibung aktivieren Sie Groß-/Kleinschreibung beachten.
+   Für eine Suche ohne Beachtung der Groß-/Kleinschreibung deaktivieren Sie Groß-/Kleinschreibung beachten.
+6. Um auch im Browser ausgeblendete Karten zu durchsuchen, aktivieren Sie Ausgeblendete Karten.
+   Andernfalls deaktivieren Sie Ausgeblendete Karten.
+7. Drücken Sie Weitersuchen.
+8. Um mit demselben Suchbegriff weiterzusuchen, wählen Sie Weitersuchen aus dem
+   Bearbeiten-Menü oder drücken Sie F3.
 
 Oder:
 
 1. Klicken Sie auf den Browser-Tab.
 2. Geben Sie den Suchbegriff in das Eingabefeld oben rechts im Browser-Tab ein.
-3. Drücken Sie die Find-Schaltfläche rechts neben dem Eingabefeld.
+3. Drücken Sie die Suchen-Schaltfläche rechts neben dem Eingabefeld.
    Damit werden die aktuell sichtbaren Karten nach Kartentiteln durchsucht,
    die den Suchbegriff enthalten.
 25
@@ -1159,15 +1159,15 @@ So löschen Sie Karten
 
 1. Klicken Sie auf den Browser-Tab.
 2. Wählen Sie die zu löschende Karte aus.
-3. Drücken Sie die Delete-Taste.
+3. Drücken Sie die Löschen-Taste.
 
 Oder:
 
-1. Klicken Sie in der Cards-Liste links auf die zu löschende Karte.
-2. Klicken Sie mit der rechten Maustaste in die Cards-Liste.
-3. Wählen Sie Delete Card aus dem erscheinenden Popup-Menü.
+1. Klicken Sie in der Karten-Liste links auf die zu löschende Karte.
+2. Klicken Sie mit der rechten Maustaste in die Kartenliste.
+3. Wählen Sie Karte löschen aus dem erscheinenden Popup-Menü.
 28
-Title: So weisen Sie einer Karte ein Label zu
+Title: So weisen Sie einer Karte eine Beschriftung zu
 Label:2
 Fixed:0
 X:0.214659854769707
@@ -1180,23 +1180,23 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So weisen Sie einer Karte ein Label zu
+So weisen Sie einer Karte eine Beschriftung zu
 ----------------------------------------------------------------------------
 
-1. Wählen Sie die Karte aus, der Sie ein Label zuweisen möchten.
-2. Klicken Sie auf eine der Schaltflächen rechts von Label auf dem Card-Panel,
-   der noch kein Label zugewiesen ist.
-3. Wählen Sie das gewünschte Label aus dem erscheinenden Popup-Menü.
+1. Wählen Sie die Karte aus, der Sie eine Beschriftung zuweisen möchten.
+2. Klicken Sie auf eine der Schaltflächen rechts von „Beschriftung:“ im Kartenbereich,
+   der noch keine Beschriftung zugewiesen ist.
+3. Wählen Sie die gewünschte Beschriftung aus dem erscheinenden Popup-Menü.
 
 Oder:
 
 1. Klicken Sie auf den Browser-Tab.
 2. Klicken Sie auf die dritte Schaltfläche von links oben im Browser-Bildschirm
    (die Schaltfläche mit L und einer Karte).
-3. Wählen Sie das gewünschte Label aus dem erscheinenden Popup-Menü.
-4. Klicken Sie auf die Karte, der Sie das Label zuweisen möchten.
+3. Wählen Sie die gewünschte Beschriftung aus dem erscheinenden Popup-Menü.
+4. Klicken Sie auf die Karte, der Sie die Beschriftung zuweisen möchten.
 19
-Title: So fügen Sie ein neues Label zu einer Karte hinzu
+Title: So fügen Sie eine neue Beschriftung zu einer Karte hinzu
 Label:2,4
 Fixed:0
 X:0.155212134122849
@@ -1209,14 +1209,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So fügen Sie ein neues Label zu einer Karte hinzu
+So fügen Sie eine neue Beschriftung zu einer Karte hinzu
 ----------------------------------------------------------------------------
 
-1. Wählen Sie die Karte aus, deren Labels Sie bearbeiten möchten.
-2. Wählen Sie New Label aus dem Insert-Menü.
-3. Geben Sie den neuen Label-Namen im erscheinenden Dialogfeld ein und drücken Sie OK.
+1. Wählen Sie die Karte aus, deren Beschriftungen Sie bearbeiten möchten.
+2. Wählen Sie Neue Beschriftung aus dem Einfügen-Menü.
+3. Geben Sie den neuen Beschriftungsnamen im erscheinenden Dialogfeld ein und drücken Sie OK.
 21
-Title: So entfernen oder ändern Sie ein Karten-Label
+Title: So entfernen oder ändern Sie eine Kartenbeschriftung
 Label:2
 Fixed:0
 X:0.119580142199993
@@ -1229,14 +1229,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So entfernen oder ändern Sie ein Karten-Label
+So entfernen oder ändern Sie eine Kartenbeschriftung
 ----------------------------------------------------------------------------
 
-1. Wählen Sie die Karte aus, deren Labels Sie bearbeiten möchten.
-2. Klicken Sie auf die Label-Schaltfläche, die Sie entfernen oder ändern möchten
-   (rechts von Label auf dem Card-Panel).
-3. Wählen Sie das gewünschte Label aus dem erscheinenden Popup-Menü.
-   Wenn Sie No Label wählen, wird das Label entfernt.
+1. Wählen Sie die Karte aus, deren Beschriftungen Sie bearbeiten möchten.
+2. Klicken Sie auf die Beschriftung-Schaltfläche, die Sie entfernen oder ändern möchten
+   (rechts von „Beschriftung:“ im Kartenbereich).
+3. Wählen Sie die gewünschte Beschriftung aus dem erscheinenden Popup-Menü.
+   Wenn Sie Keine Beschriftung wählen, wird die Beschriftung entfernt.
 28
 Title: So verknüpfen Sie eine externe Datei oder URL mit einer Karte
 Label:2
@@ -1263,7 +1263,7 @@ So verknüpfen Sie eine externe Datei oder URL mit einer Karte
 Oder:
 
 1. Wählen Sie die Karte aus, die Sie verknüpfen möchten.
-2. Wählen Sie New Ext Link aus dem Insert-Menü.
+2. Wählen Sie Neuer externer Link aus dem Einfügen-Menü.
 3. Geben Sie die zu verknüpfende Datei an.
    Der Dateiname wird als letzte Zeile des Kartenfließtexts eingefügt.
 36
@@ -1292,7 +1292,7 @@ So zeigen Sie Bilder oder Videos auf einer Karte an
 Oder:
 
 1. Wählen Sie die Karte aus, die Sie verknüpfen möchten.
-2. Wählen Sie New Ext Link aus dem Insert-Menü.
+2. Wählen Sie Neuer externer Link aus dem Einfügen-Menü.
 3. Geben Sie die Bild- oder Videodatei an.
    Der Dateiname wird als letzte Zeile des Kartenfließtexts eingefügt.
 
@@ -1322,39 +1322,39 @@ So zeigen Sie Zeichnungen auf einer Karte an
 
 1. Wählen Sie die Karte aus, in die Sie eine Zeichnung einfügen möchten, entweder
    im Browser oder in der Kartenliste auf der linken Seite.
-2. Klicken Sie auf den Drawing-Tab, um den Zeichnungseditor anzuzeigen.
-3. Bearbeiten Sie die Zeichnung im Drawing-Tab.
+2. Klicken Sie auf den Zeichnung-Tab, um den Zeichnungseditor anzuzeigen.
+3. Bearbeiten Sie die Zeichnung im Zeichnung-Tab.
 4. Wenn Sie zum Browser zurückkehren, wird die bearbeitete Zeichnung auf der Karte
    angezeigt.
 
 
 - So fügen Sie eine Form hinzu
 
-1. Wählen Sie oben links im Drawing-Tab den Formtyp: Freihandlinie, Gerade,
+1. Wählen Sie oben links im Zeichnung-Tab den Formtyp: Freihandlinie, Gerade,
    Rechteck oder Ellipse.
 2. Ziehen Sie die Maus innerhalb des gestrichelten Rahmens, um die Form hinzuzufügen.
 
 
 - So wählen Sie eine Form aus
 
-1. Wählen Sie oben links im Drawing-Tab die Auswahlschaltfläche mit dem
+1. Wählen Sie oben links im Zeichnung-Tab die Auswahlschaltfläche mit dem
    Mauscursor-Symbol.
 2. Klicken Sie auf die gewünschte Form. Halten Sie Ctrl gedrückt, um die Auswahl
    für mehrere Formen umzuschalten, oder ziehen Sie einen Bereich auf, um mehrere
-   Formen auf einmal auszuwählen. Um alle Formen auszuwählen, wählen Sie Select All
-   aus dem Edit-Menü oder dem Rechtsklickmenü.
+   Formen auf einmal auszuwählen. Um alle Formen auszuwählen, wählen Sie Alles auswählen
+   aus dem Bearbeiten-Menü oder dem Rechtsklickmenü.
 
 
 - So schneiden Sie eine Form aus, kopieren oder löschen sie
 
 1. Wählen Sie die zu bearbeitende Form aus.
-2. Wählen Sie Cut, Copy oder Delete aus dem Edit-Menü oder dem Rechtsklickmenü.
-   Zum Löschen können Sie auch die Delete-Taste verwenden.
+2. Wählen Sie Ausschneiden, Kopieren oder Löschen aus dem Bearbeiten-Menü oder dem Rechtsklickmenü.
+   Zum Löschen können Sie auch die Löschen-Taste verwenden.
 
 
 - So fügen Sie eine ausgeschnittene oder kopierte Form ein
 
-Wählen Sie Paste aus dem Edit-Menü oder dem Rechtsklickmenü.
+Wählen Sie Einfügen aus dem Bearbeiten-Menü oder dem Rechtsklickmenü.
 
 
 - So ändern Sie die Größe einer Form
@@ -1372,12 +1372,12 @@ Wählen Sie Paste aus dem Edit-Menü oder dem Rechtsklickmenü.
 - So ändern Sie die Farbe einer Form
 
 1. Wählen Sie die Form aus.
-2. Wählen Sie eine Farbe unter Color.
-   Um die vom Label bestimmte Kartenzeichenfarbe zu verwenden, klicken Sie auf Default.
+2. Wählen Sie eine Farbe unter Farbe.
+   Um die von der Beschriftung bestimmte Kartenzeichenfarbe zu verwenden, klicken Sie auf Automatisch.
    Um eine andere Farbe zu wählen, klicken Sie auf die kleine Schaltfläche zwei
-   Positionen rechts von Default und wählen Sie eine Farbe im Farbauswahldialog.
+   Positionen rechts von Automatisch und wählen Sie eine Farbe im Farbauswahldialog.
    Wenn die gewünschte Farbe bereits ausgewählt ist, können Sie einfach auf den
-   Farbbereich direkt rechts von Default klicken.
+   Farbbereich direkt rechts von Automatisch klicken.
 26
 Title: So ändern Sie Form und Größe einer Karte
 Label:2
@@ -1396,14 +1396,14 @@ So ändern Sie Form und Größe einer Karte
 ----------------------------------------------------------------------------
 
 1. Wählen Sie die Karte aus, deren Größe Sie ändern möchten.
-2. Ändern Sie den Wert von Size rechts von Title auf dem Card-Panel.
+2. Ändern Sie den Wert von Größe rechts von „Name:“ im Kartenbereich.
    Bei +8 wird die Karte auf die vierfache Größe skaliert, bei -8 auf ein Viertel.
 
 Oder:
 
 1. Wählen Sie die Karte aus, deren Form Sie ändern möchten.
-2. Klicken Sie auf die Schaltfläche mit der Kartenform rechts von Size auf dem
-   Card-Panel.
+2. Klicken Sie auf die Schaltfläche mit der Kartenform rechts von Größe im
+   Kartenbereich.
 3. Wählen Sie die gewünschte Kartenform aus dem erscheinenden Popup-Menü.
 15
 Title:Links bearbeiten
@@ -1451,13 +1451,13 @@ Oder:
    auf Karten klicken.
 
 Hinweis: Wenn Sie die vierte Schaltfläche von links oben im Browser-Bildschirm
-         anklicken (die Schaltfläche mit L und einer Linie), ein Label auswählen
-         und dann einen Link erstellen, wird der Link mit diesem Label versehen.
+         anklicken (die Schaltfläche mit L und einer Linie), eine Beschriftung auswählen
+         und dann einen Link erstellen, wird der Link mit dieser Beschriftung versehen.
 
 Oder:
 
 1. Wählen Sie die Ausgangskarte aus.
-2. Wählen Sie New Link aus dem Insert-Menü.
+2. Wählen Sie Neuer Link aus dem Einfügen-Menü.
 3. Wählen Sie im erscheinenden Dialogfeld die Zielkarte aus und drücken Sie OK.
 
 Oder:
@@ -1465,7 +1465,7 @@ Oder:
 1. Wählen Sie die Ausgangskarte aus.
 2. Klicken Sie auf den Editor-Tab.
 3. Klicken Sie mit der rechten Maustaste in die Linkliste am unteren Bildschirmrand.
-4. Wählen Sie New Link aus dem erscheinenden Popup-Menü.
+4. Wählen Sie Neuer Link aus dem erscheinenden Popup-Menü.
 5. Wählen Sie im erscheinenden Dialogfeld die Zielkarte aus und drücken Sie OK.
 18
 Title: So wählen Sie Links aus
@@ -1504,7 +1504,7 @@ So bearbeiten Sie einen Linktitel
 ----------------------------------------------------------------------------
 
 1. Wählen Sie den Link aus, dessen Titel Sie bearbeiten möchten.
-2. Geben Sie den neuen Titel im Feld Title auf dem Link-Panel ein.
+2. Geben Sie den neuen Titel im Feld „Name:“ ein (rechts von „Link:“ im Linkbereich).
 25
 Title: So ändern Sie Ursprung oder Ziel eines Links
 Label:3
@@ -1550,7 +1550,7 @@ So löschen Sie Links
 
 1. Klicken Sie auf den Browser-Tab.
 2. Wählen Sie den zu löschenden Link aus.
-3. Drücken Sie die Delete-Taste.
+3. Drücken Sie die Löschen-Taste.
 
 Oder:
 
@@ -1558,9 +1558,9 @@ Oder:
 2. Klicken Sie auf den Editor-Tab.
 3. Wählen Sie den zu löschenden Link aus der Linkliste am unteren Bildschirmrand.
 4. Klicken Sie mit der rechten Maustaste in die Linkliste.
-5. Wählen Sie Delete Link aus dem erscheinenden Popup-Menü.
+5. Wählen Sie Link löschen aus dem erscheinenden Popup-Menü.
 27
-Title: So weisen Sie einem Link ein Label zu
+Title: So weisen Sie einem Link eine Beschriftung zu
 Label:3
 Fixed:0
 X:0.696277678012848
@@ -1573,22 +1573,22 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So weisen Sie einem Link ein Label zu
+So weisen Sie einem Link eine Beschriftung zu
 ----------------------------------------------------------------------------
 
-1. Wählen Sie den Link aus, dem Sie ein Label zuweisen möchten.
-2. Klicken Sie auf die Schaltfläche rechts von Label auf dem Link-Panel.
-3. Wählen Sie das gewünschte Label aus dem erscheinenden Popup-Menü.
+1. Wählen Sie den Link aus, dem Sie eine Beschriftung zuweisen möchten.
+2. Klicken Sie auf die Schaltfläche rechts von „Beschriftung:“ im Linkbereich.
+3. Wählen Sie die gewünschte Beschriftung aus dem erscheinenden Popup-Menü.
 
 Oder:
 
 1. Klicken Sie auf den Browser-Tab.
 2. Klicken Sie auf die vierte Schaltfläche von links oben im Browser-Bildschirm
    (die Schaltfläche mit L und einer Linie).
-3. Wählen Sie das gewünschte Label aus dem erscheinenden Popup-Menü.
-4. Klicken Sie auf den Link, dem Sie das Label zuweisen möchten.
+3. Wählen Sie das gewünschte Beschriftung aus dem erscheinenden Popup-Menü.
+4. Klicken Sie auf den Link, dem Sie die Beschriftung zuweisen möchten.
 19
-Title: So fügen Sie ein neues Label zu einem Link hinzu
+Title: So fügen Sie eine neue Beschriftung zu einem Link hinzu
 Label:3,4
 Fixed:0
 X:0.44114363193512
@@ -1601,14 +1601,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So fügen Sie ein neues Label zu einem Link hinzu
+So fügen Sie eine neue Beschriftung zu einem Link hinzu
 ----------------------------------------------------------------------------
 
-1. Wählen Sie den Link aus, dessen Labels Sie bearbeiten möchten.
-2. Wählen Sie New Link Label aus dem Insert-Menü.
-3. Geben Sie den neuen Label-Namen im erscheinenden Dialogfeld ein und drücken Sie OK.
+1. Wählen Sie den Link aus, dessen Beschriftungen Sie bearbeiten möchten.
+2. Wählen Sie Neue Link-Beschriftung aus dem Einfügen-Menü.
+3. Geben Sie den neuen Beschriftungsnamen im erscheinenden Dialogfeld ein und drücken Sie OK.
 21
-Title: So entfernen oder ändern Sie ein Link-Label
+Title: So entfernen oder ändern Sie eine Link-Beschriftung
 Label:3
 Fixed:0
 X:0.659928321838379
@@ -1621,14 +1621,14 @@ Updated:1899/12/30
 Viewed:2013/11/02 22:43:18
 -
 ----------------------------------------------------------------------------
-So entfernen oder ändern Sie ein Link-Label
+So entfernen oder ändern Sie eine Link-Beschriftung
 ----------------------------------------------------------------------------
 
-1. Wählen Sie den Link aus, dessen Labels Sie bearbeiten möchten.
-2. Klicken Sie auf die Label-Schaltfläche, die Sie entfernen oder ändern möchten
-   (rechts von Label auf dem Link-Panel).
-3. Wählen Sie das gewünschte Label aus dem erscheinenden Popup-Menü.
-   Wenn Sie No Label wählen, wird das Label entfernt.
+1. Wählen Sie den Link aus, dessen Beschriftungen Sie bearbeiten möchten.
+2. Klicken Sie auf die Beschriftung-Schaltfläche, die Sie entfernen oder ändern möchten
+   (rechts von „Beschriftung:“ im Linkbereich).
+3. Wählen Sie die gewünschte Beschriftung aus dem erscheinenden Popup-Menü.
+   Wenn Sie Keine Beschriftung wählen, wird die Beschriftung entfernt.
 18
 Title: So kehren Sie die Linkrichtung um
 Label:3
@@ -1647,7 +1647,7 @@ So kehren Sie die Linkrichtung um
 ----------------------------------------------------------------------------
 
 1. Wählen Sie den Link aus, dessen Richtung Sie umkehren möchten.
-2. Klicken Sie auf die Schaltfläche Inverse auf dem Link-Panel.
+2. Klicken Sie auf die Schaltfläche Umkehren im Linkbereich.
 18
 Title: So schalten Sie die Linkrichtung ein oder aus
 Label:3
@@ -1666,7 +1666,7 @@ So schalten Sie die Linkrichtung ein oder aus
 ----------------------------------------------------------------------------
 
 1. Wählen Sie den Link aus, dessen Richtungseinstellung Sie umschalten möchten.
-2. Aktivieren oder deaktivieren Sie das Kontrollkästchen Direction auf dem Link-Panel.
+2. Aktivieren oder deaktivieren Sie das Kontrollkästchen Richtung im Linkbereich.
 20
 Title: So ändern Sie den Linkstil
 Label:3
@@ -1685,11 +1685,11 @@ So ändern Sie den Linkstil
 ----------------------------------------------------------------------------
 
 1. Wählen Sie den Link aus, dessen Linienstil Sie ändern möchten.
-2. Klicken Sie auf die Schaltfläche mit der Linie rechts von der Inverse-Schaltfläche
-   auf dem Link-Panel.
+2. Klicken Sie auf die Schaltfläche mit der Linie rechts von der Umkehren-Schaltfläche
+   im Linkbereich.
 3. Wählen Sie den gewünschten Linienstil aus dem erscheinenden Popup-Menü.
 15
-Title:Labels bearbeiten
+Title:Beschriftungen bearbeiten
 Label:4,8
 Fixed:0
 X:0.309822618961334
@@ -1702,10 +1702,10 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ============================================================================
-Labels bearbeiten
+Beschriftungen bearbeiten
 ============================================================================
 18
-Title: So öffnen Sie den Karten-Label-Editor
+Title: So öffnen Sie den Karten-Beschriftung-Editor
 Label:2,4
 Fixed:0
 X:0.239311203360558
@@ -1718,13 +1718,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So öffnen Sie den Karten-Label-Editor
+So öffnen Sie den Karten-Beschriftung-Editor
 ----------------------------------------------------------------------------
 
-Wählen Sie Label aus dem Edit-Menü.
-Der Label-Bearbeitungsdialog wird geöffnet.
+Wählen Sie Beschriftungen bearbeiten aus dem Bearbeiten-Menü.
+Der Beschriftung-Bearbeitungsdialog wird geöffnet.
 18
-Title: So öffnen Sie den Link-Label-Editor
+Title: So öffnen Sie den Link-Beschriftung-Editor
 Label:3,4
 Fixed:0
 X:0.450650095939636
@@ -1737,13 +1737,13 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So öffnen Sie den Link-Label-Editor
+So öffnen Sie den Link-Beschriftung-Editor
 ----------------------------------------------------------------------------
 
-Wählen Sie Link Label aus dem Edit-Menü.
-Der Link-Label-Bearbeitungsdialog wird geöffnet.
+Wählen Sie Link-Beschriftungen bearbeiten aus dem Bearbeiten-Menü.
+Der Link-Beschriftung-Bearbeitungsdialog wird geöffnet.
 19
-Title: So erstellen Sie ein neues Label
+Title: So erstellen Sie eine neue Beschriftung
 Label:4
 Fixed:0
 X:0.249744102358818
@@ -1756,14 +1756,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So erstellen Sie ein neues Label
+So erstellen Sie eine neue Beschriftung
 ----------------------------------------------------------------------------
 
-1. Öffnen Sie den Label-Bearbeitungsbildschirm.
-2. Drücken Sie die Schaltfläche New unten links auf dem Bearbeitungsbildschirm.
-3. Geben Sie den neuen Label-Namen im erscheinenden Dialogfeld ein und drücken Sie OK.
+1. Öffnen Sie den Beschriftung-Bearbeitungsbildschirm.
+2. Drücken Sie die Schaltfläche Neueste zuerst unten links auf dem Bearbeitungsbildschirm.
+3. Geben Sie den neuen Beschriftungsnamen im erscheinenden Dialogfeld ein und drücken Sie OK.
 19
-Title: So benennen Sie ein Label um
+Title: So benennen Sie eine Beschriftung um
 Label:4
 Fixed:0
 X:0.205345436930656
@@ -1776,14 +1776,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So benennen Sie ein Label um
+So benennen Sie eine Beschriftung um
 ----------------------------------------------------------------------------
 
-1. Öffnen Sie den Label-Bearbeitungsbildschirm.
-2. Doppelklicken Sie auf den Namen des Labels, das Sie ändern möchten.
-3. Ändern Sie den Label-Namen im erscheinenden Dialogfeld und drücken Sie OK.
+1. Öffnen Sie den Beschriftung-Bearbeitungsbildschirm.
+2. Doppelklicken Sie auf den Namen der Beschriftung, die Sie ändern möchten.
+3. Ändern Sie den Beschriftungsnamen im erscheinenden Dialogfeld und drücken Sie OK.
 19
-Title: So ändern Sie eine Label-Farbe
+Title: So ändern Sie eine Beschriftung-Farbe
 Label:4
 Fixed:0
 X:0.247681140899658
@@ -1796,14 +1796,14 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So ändern Sie eine Label-Farbe
+So ändern Sie eine Beschriftung-Farbe
 ----------------------------------------------------------------------------
 
-1. Öffnen Sie den Label-Bearbeitungsbildschirm.
-2. Doppelklicken Sie auf den Farbbereich des Labels, das Sie ändern möchten.
-3. Legen Sie die Label-Farbe im erscheinenden Dialogfeld fest und drücken Sie OK.
+1. Öffnen Sie den Beschriftung-Bearbeitungsbildschirm.
+2. Doppelklicken Sie auf den Farbbereich der Beschriftung, die Sie ändern möchten.
+3. Legen Sie die Beschriftungsfarbe im erscheinenden Dialogfeld fest und drücken Sie OK.
 22
-Title: So aktivieren oder deaktivieren Sie ein Label
+Title: So aktivieren oder deaktivieren Sie eine Beschriftung
 Label:4
 Fixed:0
 X:0.304129838943481
@@ -1816,17 +1816,17 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So aktivieren oder deaktivieren Sie ein Label
+So aktivieren oder deaktivieren Sie eine Beschriftung
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die VIEW-Schaltfläche. Der VIEW-Dialog erscheint.
-3. Klicken Sie auf den Label-Tab.
-4. Klicken Sie in der Spalte Enable auf das gewünschte Label, um es zu aktivieren
-   oder zu deaktivieren. Deaktivierte Labels werden bei der Anzeige und Anordnung
+2. Klicken Sie auf die Ansicht-Schaltfläche. Der Ansicht-Dialog erscheint.
+3. Klicken Sie auf den Beschriftung-Tab.
+4. Klicken Sie in der Spalte Aktivieren auf die gewünschte Beschriftung, um sie zu aktivieren
+   oder zu deaktivieren. Deaktivierte Beschriftungen werden bei der Anzeige und Anordnung
    von Karten so behandelt, als wären sie nicht zugewiesen.
 19
-Title: So löschen Sie ein Label
+Title: So löschen Sie eine Beschriftung
 Label:4
 Fixed:0
 X:0.32245659828186
@@ -1839,12 +1839,12 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So löschen Sie ein Label
+So löschen Sie eine Beschriftung
 ----------------------------------------------------------------------------
 
-1. Öffnen Sie den Label-Bearbeitungsbildschirm.
-2. Klicken Sie auf das Label, das Sie löschen möchten.
-3. Drücken Sie die Schaltfläche Delete am unteren Rand des Bearbeitungsbildschirms.
+1. Öffnen Sie den Beschriftung-Bearbeitungsbildschirm.
+2. Klicken Sie auf die Beschriftung, die Sie löschen möchten.
+3. Drücken Sie die Schaltfläche Löschen am unteren Rand des Bearbeitungsbildschirms.
 15
 Title:Karten anordnen
 Label:5,8
@@ -1879,9 +1879,9 @@ So passen Sie alle Karten auf den Bildschirm ein
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Normalize aus dem erscheinenden Popup-Menü.
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Normalisieren aus dem erscheinenden Popup-Menü.
 20
 Title: So ordnen Sie Karten ohne Überlappung an
 Label:5
@@ -1900,9 +1900,9 @@ So ordnen Sie Karten ohne Überlappung an
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Repulsion aus dem erscheinenden Popup-Menü.
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Abstoßung aus dem erscheinenden Popup-Menü.
 23
 Title: So ordnen Sie Karten nach Links an
 Label:5
@@ -1921,14 +1921,14 @@ So ordnen Sie Karten nach Links an
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Link oder Link(Soft) aus dem erscheinenden Popup-Menü.
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Link oder Link (weich) aus dem erscheinenden Popup-Menü.
 
-Hinweis: Im Vergleich zu Link verhindert Link(Soft) stärker, dass Karten sich
+Hinweis: Im Vergleich zu Link verhindert Link (weich) stärker, dass Karten sich
          überlappen.
 23
-Title: So ordnen Sie Karten nach Labels an
+Title: So ordnen Sie Karten nach Beschriftungen an
 Label:5
 Fixed:0
 X:0.536202609539032
@@ -1941,15 +1941,15 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So ordnen Sie Karten nach Labels an
+So ordnen Sie Karten nach Beschriftungen an
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Label oder Label(Soft) aus dem erscheinenden Popup-Menü.
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Beschriftung oder Beschriftung (weich) aus dem erscheinenden Popup-Menü.
 
-Hinweis: Im Vergleich zu Label verhindert Label(Soft) stärker, dass Karten sich
+Hinweis: Im Vergleich zu Beschriftung verhindert Beschriftung (weich) stärker, dass Karten sich
          überlappen.
 24
 Title: So ordnen Sie Karten nach Index an
@@ -1969,13 +1969,13 @@ So ordnen Sie Karten nach Index an
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Index, Index(Soft) oder Index(Matrix) aus dem erscheinenden Popup-Menü.
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Reihenfolge, Reihenfolge (weich) oder Reihenfolge (Matrix) aus dem erscheinenden Popup-Menü.
 
-Hinweis: Im Vergleich zu Index verhindert Index(Soft) stärker, dass Karten sich
+Hinweis: Im Vergleich zu Reihenfolge verhindert Reihenfolge (weich) stärker, dass Karten sich
          überlappen.
-Index(Matrix) ordnet Karten der Reihe nach von links oben an.
+Reihenfolge (Matrix) ordnet Karten der Reihe nach von links oben an.
 20
 Title: So ordnen Sie Karten in einem Raster an
 Label:5
@@ -1994,8 +1994,8 @@ So ordnen Sie Karten in einem Raster an
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
    Sie Matrix aus dem erscheinenden Popup-Menü.
 38
 Title: So ordnen Sie Karten nach Titel-/Text-Ähnlichkeit an
@@ -2015,9 +2015,9 @@ So ordnen Sie Karten nach Titel-/Text-Ähnlichkeit an
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-3. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Similarity oder Similarity(Soft) aus dem erscheinenden Popup-Menü.
+2. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+3. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Ähnlichkeit oder Ähnlichkeit (weich) aus dem erscheinenden Popup-Menü.
 4. Um die Karten mit aktuellen Ähnlichkeitswerten anzuordnen, drücken Sie die
    Aktualisierungs-Schaltfläche weiter rechts.
 
@@ -2028,13 +2028,13 @@ Anspruch nehmen. Bei etwa 500 kB Fließtext kann die Berechnung auf einer CPU um
 2 GHz etwa eine Minute dauern.
 
 Hinweis: Da die Ähnlichkeitsberechnung Zeit benötigt, führt Frieve Editor sie nur
-         einmal durch - entweder wenn Similarity bei gedrückter ON-Schaltfläche
-         gewählt wird, oder wenn die ON-Schaltfläche bei gewähltem Similarity
+         einmal durch - entweder wenn Ähnlichkeit bei gedrückter ON-Schaltfläche
+         gewählt wird, oder wenn die ON-Schaltfläche bei gewähltem Ähnlichkeit
          gedrückt wird. Nach dem Bearbeiten von Kartentiteln oder Fließtext drücken
          Sie die Aktualisierungs-Schaltfläche, um die Anordnung mit den aktualisierten
          Ähnlichkeitswerten zu erneuern.
 
-Hinweis: Im Vergleich zu Similarity verhindert Similarity(Soft) stärker, dass Karten
+Hinweis: Im Vergleich zu Ähnlichkeit verhindert Ähnlichkeit (weich) stärker, dass Karten
          sich überlappen.
 46
 Title: So ordnen Sie Karten hierarchisch an
@@ -2056,10 +2056,10 @@ So ordnen Sie Karten hierarchisch an
 1. Klicken Sie auf den Browser-Tab.
 2. Klicken Sie auf die Karte, die zur Wurzel (Spitze der Hierarchie) werden soll.
 3. Aktivieren Sie die Wurzel-Schaltfläche auf dem Bildschirm
-   (rechts von der Reißzwecke-Schaltfläche und links vom Label).
-4. Klicken Sie auf die Arrange ON-Schaltfläche, sodass sie gedrückt ist.
-5. Drücken Sie die Schaltfläche rechts neben der Arrange ON-Schaltfläche und wählen
-   Sie Tree (Radial) aus dem erscheinenden Popup-Menü.
+   (rechts von der Reißzwecke-Schaltfläche und links von „Beschriftung:“).
+4. Klicken Sie auf die ON-Schaltfläche neben „Auto:“, sodass sie gedrückt ist.
+5. Drücken Sie die Schaltfläche rechts neben der ON-Schaltfläche bei „Auto:“ und wählen
+   Sie Baum (radial) aus dem erscheinenden Popup-Menü.
 
 Um die Reihenfolge von Karten auf derselben Ebene zu ändern, verwenden Sie die
 Auf-/Ab-Schaltflächen oben rechts in der Kartenliste auf der linken Seite, oder
@@ -2072,19 +2072,19 @@ Um die unteren Ebenen unter einer bestimmten Karte auszublenden, drücken Sie di
 "-"-Schaltfläche unten rechts an der Karte. Um eine ausgeblendete Ebene wieder
 anzuzeigen, drücken Sie die "+"-Schaltfläche unten rechts an der Karte.
 
-Achtung: Bei der Anordnung mit Tree (Radial) werden die Index-Werte der Karten
+Achtung: Bei der Anordnung mit Baum (radial) werden die Index-Werte der Karten
 zwangsweise in die Hierarchiereihenfolge sortiert.
 
 Hinweis: Eine als Wurzel festgelegte Karte zeigt ">" links neben ihrem Titel
          in der Kartenliste auf der linken Seite.
 
-Hinweis: Bei der Anordnung mit Tree (Radial) wird die Kartenliste auf der linken
+Hinweis: Bei der Anordnung mit Baum (radial) wird die Kartenliste auf der linken
          Seite mit Einrückungen entsprechend der Hierarchieebenen angezeigt.
 
 Hinweis: Wenn mehrere Karten als Wurzeln festgelegt sind, werden mehrere Bäume
          mit diesen Karten als Wurzeln gleichzeitig auf dem Bildschirm angeordnet.
 21
-Title: So ändern Sie die Kartengröße nach Label
+Title: So ändern Sie die Kartengröße nach Beschriftung
 Label:5
 Fixed:0
 X:0.586505353450775
@@ -2097,16 +2097,16 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So ändern Sie die Kartengröße nach Label
+So ändern Sie die Kartengröße nach Beschriftung
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die VIEW-Schaltfläche. Der VIEW-Dialog erscheint.
-3. Klicken Sie auf den Label-Tab.
-4. In den Spalten Label und Size können Sie mit den Schaltflächen + und - festlegen,
-   wie stark jedes Label die Kartengröße beeinflusst.
+2. Klicken Sie auf die Ansicht-Schaltfläche. Der Ansicht-Dialog erscheint.
+3. Klicken Sie auf den Beschriftung-Tab.
+4. In den Spalten Beschriftung und Größe können Sie mit den Schaltflächen + und - festlegen,
+   wie stark jede Beschriftung die Kartengröße beeinflusst.
 23
-Title: So fassen Sie Karten mit gleichem Label zusammen
+Title: So fassen Sie Karten mit gleicher Beschriftung zusammen
 Label:5
 Fixed:0
 X:0.655330836772919
@@ -2119,16 +2119,16 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-So fassen Sie Karten mit gleichem Label zusammen
+So fassen Sie Karten mit gleicher Beschriftung zusammen
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die VIEW-Schaltfläche. Der VIEW-Dialog zur Auswahl der
+2. Klicken Sie auf die Ansicht-Schaltfläche. Der Ansicht-Dialog zur Auswahl der
    anzuzeigenden Karten und Links erscheint.
-3. Klicken Sie auf den Label-Tab.
-4. Legen Sie in den Spalten Label und Fold das Label fest, das Sie zusammenfassen
-   möchten. Karten mit dem markierten Label werden im Browser als eine einzige Karte
-   mit dem Label-Namen angezeigt.
+3. Klicken Sie auf den Beschriftung-Tab.
+4. Legen Sie in den Spalten Beschriftung und Einklappen die Beschriftung fest, die Sie zusammenfassen
+   möchten. Karten mit der markierten Beschriftung werden im Browser als eine einzige Karte
+   mit dem Beschriftungsnamen angezeigt.
 78
 Title: So wählen Sie, welche Karten und Links im Browser angezeigt werden
 Label:5
@@ -2147,67 +2147,67 @@ So wählen Sie, welche Karten und Links im Browser angezeigt werden
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Browser-Tab.
-2. Klicken Sie auf die VIEW-Schaltfläche. Der VIEW-Dialog zur Auswahl der
+2. Klicken Sie auf die Ansicht-Schaltfläche. Der Ansicht-Dialog zur Auswahl der
    anzuzeigenden Karten und Links erscheint.
-3. Klicken Sie auf den Label-Tab oder den Limitation-Tab.
+3. Klicken Sie auf den Beschriftung-Tab oder den Filter-Tab.
 
 
 - Karten nach Kartengröße einschränken
 
-1. Aktivieren Sie Size Limitation.
-2. Stellen Sie mit dem Schieberegler rechts von Size Limitation die Mindestgröße
+1. Aktivieren Sie Anzeige nach Größe beschränken.
+2. Stellen Sie mit dem Schieberegler rechts von Anzeige nach Größe beschränken die Mindestgröße
    der anzuzeigenden Karten ein.
 
 
 - Karten nach Linkanzahl von der ausgewählten Karte einschränken
 
-1. Aktivieren Sie Link Limitation.
-2. Stellen Sie mit dem Link Limitation-Schieberegler das Linklimit ein.
-3. Um das Ergebnis zusätzlich nach Linkrichtung einzuschränken, aktivieren Sie Direction.
-4. Für die Vorwärtsrichtung aktivieren Sie Forward, für die Rückwärtsrichtung Backward.
+1. Aktivieren Sie Anzeige nach Links beschränken.
+2. Stellen Sie mit dem Schieberegler das Linklimit ein.
+3. Um das Ergebnis zusätzlich nach Linkrichtung einzuschränken, aktivieren Sie Richtung.
+4. Für die Vorwärtsrichtung aktivieren Sie Vorwärts, für die Rückwärtsrichtung Rückwärts.
 5. Um eine Einschränkung nach Zielkarte hinzuzufügen, drücken Sie die Schaltfläche
-   rechts von Target Card, wählen Sie Select und wählen Sie die Zielkarte im Dialog.
+   rechts von Ziel, wählen Sie Auswählen und wählen Sie die Zielkarte im Dialog.
    Alternativ halten Sie im Browser Alt gedrückt und klicken auf die Zielkarte.
    Um die Zielkarten-Einschränkung aufzuheben, drücken Sie die Schaltfläche rechts
-   von Target Card und wählen No Assign.
+   von Ziel und wählen Nicht zugewiesen.
 
 
 - Karten nach Datum einschränken
 
-1. Aktivieren Sie Date Limitation.
-2. Wählen Sie unter Date Type das Datum für die Einschränkung.
-   Created ist das Erstellungsdatum, Edited das Datum der letzten Textbearbeitung,
-   Viewed das Datum der letzten Auswahl oder Anzeige.
-3. Wählen Sie unter Date Limitation Type die Art der Einschränkung.
-   Old zeigt Karten vom ältesten an, New vom neuesten, Near zeigt Karten mit einem
-   Datum nahe der ausgewählten Karte, Older zeigt ältere Karten nahe der ausgewählten,
-   Newer zeigt neuere Karten nahe der ausgewählten.
-2. Stellen Sie mit dem Schieberegler rechts von Date Limitation die Stärke der
+1. Aktivieren Sie Anzeige nach Datum und Uhrzeit beschränken.
+2. Wählen Sie unter Datum/Zeit das Datum für die Einschränkung.
+   Erstellungsdatum bezeichnet das Erstellungsdatum, Bearbeitungsdatum das Datum der letzten Textbearbeitung,
+   Ansichtsdatum das Datum der letzten Auswahl oder Anzeige.
+3. Wählen Sie unter Methode: die Art der Einschränkung.
+   Älteste zuerst zeigt Karten vom ältesten an, Neueste zuerst vom neuesten, Nächste zuerst zeigt Karten mit einem
+   Datum nahe der ausgewählten Karte, Älter zeigt ältere Karten nahe der ausgewählten,
+   Neuer zeigt neuere Karten nahe der ausgewählten.
+4. Stellen Sie mit dem Schieberegler rechts von Anzeige nach Datum und Uhrzeit beschränken die Stärke der
    Einschränkung ein.
-   Bei Old werden bei linker Position die ältesten Karten gezeigt; nach rechts kommen
+   Bei Älteste zuerst werden bei linker Position die ältesten Karten gezeigt; nach rechts kommen
    neuere hinzu.
-   Bei New werden bei rechter Position die neuesten gezeigt; nach links kommen ältere
+   Bei Neueste zuerst werden bei rechter Position die neuesten gezeigt; nach links kommen ältere
    hinzu.
-   Bei Near, Older und Newer wird die Einschränkung nach rechts gelockert.
+   Bei Nächste zuerst, Älter und Neuer wird die Einschränkung nach rechts gelockert.
 
 
-- Karten mit Labels ein- oder ausblenden
+- Karten mit Beschriftungen ein- oder ausblenden
 
-1. Um Karten mit bestimmten Labels anzuzeigen, legen Sie diese in der Spalte Show
-   unter Label fest. Karten mit mindestens einem der markierten Labels werden angezeigt.
-2. Um Karten mit bestimmten Labels auszublenden, legen Sie diese in der Spalte Hide fest.
-   Karten mit mindestens einem dort markierten Label werden ausgeblendet.
-   Hide-Einstellungen haben Vorrang vor Show-Einstellungen.
+1. Um Karten mit bestimmten Beschriftungen anzuzeigen, legen Sie diese in der Spalte Anzeigen
+   unter Beschriftung fest. Karten mit mindestens einer der markierten Beschriftungen werden angezeigt.
+2. Um Karten mit bestimmten Beschriftungen auszublenden, legen Sie diese in der Spalte Ausblenden fest.
+   Karten mit mindestens einer dort markierten Beschriftung werden ausgeblendet.
+   Ausblenden-Einstellungen haben Vorrang vor Anzeigen-Einstellungen.
 
 
-- Links mit Labels ein- oder ausblenden
+- Links mit Beschriftungen ein- oder ausblenden
 
-1. Um Links mit bestimmten Labels anzuzeigen, legen Sie diese in der Spalte Show
-   unter Link Label fest. Links mit mindestens einem der markierten Labels werden
+1. Um Links mit bestimmten Beschriftungen anzuzeigen, legen Sie diese in der Spalte Anzeigen
+   unter Link-Beschriftung fest. Links mit mindestens einer der markierten Beschriftungen werden
    angezeigt.
-2. Um Links mit bestimmten Labels auszublenden, legen Sie diese in der Spalte Hide fest.
-   Links mit mindestens einem dort markierten Label werden ausgeblendet.
-   Hide-Einstellungen haben Vorrang vor Show-Einstellungen.
+2. Um Links mit bestimmten Beschriftungen auszublenden, legen Sie diese in der Spalte Ausblenden fest.
+   Links mit mindestens einer dort markierten Beschriftung werden ausgeblendet.
+   Ausblenden-Einstellungen haben Vorrang vor Anzeigen-Einstellungen.
 29
 Title: So sortieren Sie Karten
 Label:5
@@ -2225,18 +2225,18 @@ Viewed:1899/12/30
 So sortieren Sie Karten
 ----------------------------------------------------------------------------
 
-Wählen Sie eine Sortiermethode aus Edit-Menü -> Sort Card.
-Title sortiert nach Titel.
-Date Created sortiert nach Erstellungsreihenfolge.
-Date Edited sortiert nach dem Datum der letzten Bearbeitung.
-Date Viewed sortiert nach dem Datum der letzten Auswahl.
-Einträge mit Inverse kehren die Sortierreihenfolge um.
+Wählen Sie eine Sortiermethode aus Bearbeiten-Menü -> Karten sortieren.
+Die Menüoption Titel sortiert nach dem Kartennamen.
+Erstellungsdatum sortiert nach Erstellungsreihenfolge.
+Bearbeitungsdatum sortiert nach dem Datum der letzten Bearbeitung.
+Ansichtsdatum sortiert nach dem Datum der letzten Auswahl.
+Einträge mit Umkehren kehren die Sortierreihenfolge um.
 
 Oder:
 
-1. Klicken Sie auf die Karte, die Sie umsortieren möchten, in der Cards-Liste
+1. Klicken Sie auf die Karte, die Sie umsortieren möchten, in der Kartenliste
    auf der linken Seite.
-2. Verwenden Sie die UpDown-Schaltflächen oben rechts in der Cards-Liste, um die
+2. Verwenden Sie die Auf-/Ab-Schaltflächen oben rechts in der Kartenliste, um die
    Position der Karte in der Liste zu verschieben.
 15
 Title:Durchsuchen und Animieren
@@ -2272,8 +2272,8 @@ So scrollen Sie die Browser-Ansicht
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Reiter „Browser".
-2. Aktivieren Sie Auto Scroll oben rechts im Browser-Reiter.
-   Wenn Auto Scroll aktiviert ist, wird die Ansicht bei jeder Auswahl einer
+2. Aktivieren Sie Auto-Scroll oben rechts im Browser-Reiter.
+   Wenn Auto-Scroll aktiviert ist, wird die Ansicht bei jeder Auswahl einer
    Karte oder Verknüpfung automatisch so verschoben, dass das ausgewählte
    Element in der Bildschirmmitte erscheint.
 
@@ -2311,8 +2311,8 @@ So vergrößern oder verkleinern Sie die Browser-Ansicht
 ----------------------------------------------------------------------------
 
 1. Klicken Sie auf den Reiter „Browser".
-2. Aktivieren Sie Auto Zoom oben rechts im Browser-Reiter.
-   Wenn Auto Zoom aktiviert ist, wird der Zoom bei jeder Auswahl einer Karte
+2. Aktivieren Sie Auto-Zoom oben rechts im Browser-Reiter.
+   Wenn Auto-Zoom aktiviert ist, wird der Zoom bei jeder Auswahl einer Karte
    oder Verknüpfung automatisch so angepasst, dass die ausgewählte Karte und
    die zugehörigen Karten sichtbar sind.
 
@@ -2381,7 +2381,7 @@ Viewed:1899/12/30
 So ändern Sie die Textgröße
 ----------------------------------------------------------------------------
 
-Wählen Sie im Menü View unter Font Size den Eintrag Magnify (vergrößern) oder Reduce (verkleinern).
+Wählen Sie im Menü Ansicht unter Schriftart den Eintrag Vergrößern oder Verkleinern.
 
 Oder:
 
@@ -2391,7 +2391,7 @@ Oder:
 
 Halten Sie Ctrl+Shift gedrückt und drehen Sie das Mausrad, um die Schriftgröße anzupassen.
 
-Um die Standardgröße wiederherzustellen, wählen Sie Default im Menü View > Font Size oder drücken Sie Ctrl+Shift+0.
+Um die Standardgröße wiederherzustellen, wählen Sie Standardgröße im Menü Ansicht > Schriftart oder drücken Sie Ctrl+Shift+0.
 23
 Title: So verwenden Sie den Vollbildmodus
 Label:6
@@ -2409,7 +2409,7 @@ Viewed:1899/12/30
 So verwenden Sie den Vollbildmodus
 ----------------------------------------------------------------------------
 
-Wählen Sie Full Screen aus dem View-Menü.
+Wählen Sie Vollbild aus dem Ansicht-Menü.
 
 Oder:
 
@@ -2463,20 +2463,20 @@ Viewed:1899/12/30
 So zeigen Sie Karten zufällig an
 ----------------------------------------------------------------------------
 
-1. Wählen Sie Random Flash, Random Map, Random Scroll oder Random Jump aus dem
-   Animation-Menü. Die Animation startet und der Random Animation-Dialog erscheint.
-   Random Flash zeigt die angegebene Anzahl von Karten nacheinander an.
-   Random Map zeigt eine zufällige Karte und erweitert dann die Anzeige auf
+1. Wählen Sie Zufälliges Blinken, Zufällige Karte, Zufälliges Scrollen oder Zufälliger Sprung aus dem
+   Animation-Menü. Die Animation startet und das Dialogfeld Zufallsanimation erscheint.
+   Zufälliges Blinken zeigt die angegebene Anzahl von Karten nacheinander an.
+   Zufällige Karte zeigt eine zufällige Karte und erweitert dann die Anzeige auf
    die von ihr verlinkten Karten.
-   Random Scroll scrollt die angegebene Anzahl von Karten über den Bildschirm.
-   Random Jump lässt die angegebene Anzahl von Karten vom unteren Bildschirmrand
+   Zufälliges Scrollen scrollt die angegebene Anzahl von Karten über den Bildschirm.
+   Zufälliger Sprung lässt die angegebene Anzahl von Karten vom unteren Bildschirmrand
    aufspringen.
 2. Zum Hinein- oder Herauszoomen ändern Sie Zoom.
-3. Um die Anzeigegeschwindigkeit zu ändern, stellen Sie Speed ein.
-4. Um die Anzahl gleichzeitig angezeigter Karten zu ändern, stellen Sie Cards ein.
-5. Für den Vollbildmodus drücken Sie die Full Screen-Schaltfläche oder F10.
+3. Um die Anzeigegeschwindigkeit zu ändern, stellen Sie Geschwindigkeit ein.
+4. Um die Anzahl gleichzeitig angezeigter Karten zu ändern, stellen Sie Karten ein.
+5. Für den Vollbildmodus drücken Sie die Vollbild-Schaltfläche oder F10.
 6. Zum Anhalten oder Fortsetzen der Animation drücken Sie die Pause-Schaltfläche.
-7. Um die Animation zu beenden, drücken Sie die Stop-Schaltfläche.
+7. Um die Animation zu beenden, drücken Sie die Stopp-Schaltfläche.
 23
 Title: So verfolgen Sie Links zufällig
 Label:6
@@ -2494,13 +2494,13 @@ Viewed:1899/12/30
 So verfolgen Sie Links zufällig
 ----------------------------------------------------------------------------
 
-1. Wählen Sie Random Trace aus dem Animation-Menü.
-   Die Animation startet und der Random Animation-Dialog erscheint.
+1. Wählen Sie Zufällige Verfolgung aus dem Animation-Menü.
+   Die Animation startet und das Dialogfeld Zufallsanimation erscheint.
 2. Zum Hinein- oder Herauszoomen ändern Sie Zoom.
-3. Um die Anzeigegeschwindigkeit zu ändern, stellen Sie Speed ein.
-4. Für den Vollbildmodus drücken Sie die Full Screen-Schaltfläche oder F10.
+3. Um die Anzeigegeschwindigkeit zu ändern, stellen Sie Geschwindigkeit ein.
+4. Für den Vollbildmodus drücken Sie die Vollbild-Schaltfläche oder F10.
 5. Zum Anhalten oder Fortsetzen drücken Sie die Pause-Schaltfläche.
-6. Um die Animation zu beenden, drücken Sie die Stop-Schaltfläche.
+6. Um die Animation zu beenden, drücken Sie die Stopp-Schaltfläche.
 36
 Title: So zeigen Sie Statistiken an
 Label:6
@@ -2518,26 +2518,26 @@ Viewed:1899/12/30
 So zeigen Sie Statistiken an
 ----------------------------------------------------------------------------
 
-1. Klicken Sie auf den Statistics-Tab.
-   Standardmäßig wird ein Diagramm mit der Kartenanzahl pro Label angezeigt.
+1. Klicken Sie auf den Stats-Tab.
+   Standardmäßig wird ein Diagramm mit der Kartenanzahl pro Beschriftung angezeigt.
 2. Um den Schlüssel für die Diagrammanzeige zu ändern, klicken Sie auf die
-   Schaltfläche rechts von Key und wählen Sie eine der folgenden Optionen:
+   Schaltfläche rechts von Schlüssel und wählen Sie eine der folgenden Optionen:
 
-   Label: Diagramm der Kartenanzahl pro Label (Standard)
-   Number of Link: Diagramm der Kartenanzahl pro Linkanzahl
-   Created Date: Diagramm der Kartenanzahl nach Erstellungsdatum
-   Edited Date: Diagramm der Kartenanzahl nach letztem Bearbeitungsdatum
-   Viewed Date: Diagramm der Kartenanzahl nach Anzeigedatum
+   Beschriftung: Diagramm der Kartenanzahl pro Beschriftung (Standard)
+   Anzahl Links: Diagramm der Kartenanzahl pro Linkanzahl
+   Erstellungsdatum: Diagramm der Kartenanzahl nach Erstellungsdatum
+   Bearbeitungsdatum: Diagramm der Kartenanzahl nach letztem Bearbeitungsdatum
+   Ansichtsdatum: Diagramm der Kartenanzahl nach Anzeigedatum
 
-   Bei Auswahl von Created Date, Edited Date oder Viewed Date können Sie zusätzlich
-   die Aggregationseinheit aus Year, Month, Day, Week oder Hour wählen.
+   Bei Auswahl von Erstellungsdatum, Bearbeitungsdatum oder Ansichtsdatum können Sie zusätzlich
+   die Aggregationseinheit aus Nach Jahr gruppieren, Nach Monat gruppieren, Nach Tag gruppieren, Nach Wochentag gruppieren oder Nach Stunde gruppieren wählen.
 
 3. Um die in jedem Balken enthaltenen Karten aufzulisten, klicken Sie auf einen
    Balken im Diagramm. Eine Liste der enthaltenen Karten erscheint rechts.
 
 
-Hinweis: Diese Funktion kann auch verwendet werden, um nur Karten mit einem
-         bestimmten Label aufzulisten.
+Hinweis: Diese Funktion kann auch verwendet werden, um nur Karten mit einer
+         bestimmten Beschriftung aufzulisten.
 15
 Title:Drucken
 Label:9,8
@@ -2571,7 +2571,7 @@ Viewed:1899/12/30
 So drucken Sie die Browser-Ansicht
 ----------------------------------------------------------------------------
 
-1. Wählen Sie Print Image aus dem File-Menü.
+1. Wählen Sie Browseransicht drucken aus dem Datei-Menü.
 2. Wählen und konfigurieren Sie im erscheinenden Dialogfeld den Drucker.
 3. Drücken Sie OK, um den Druckvorgang zu starten.
 
@@ -2597,7 +2597,7 @@ Viewed:2023/04/14 20:14:35
 Menüübersicht
 ============================================================================
 85
-Title: File-Menü
+Title: Datei-Menü
 Label:7
 Fixed:0
 X:0.959879457950592
@@ -2610,29 +2610,29 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-File-Menü
+Datei-Menü
 ----------------------------------------------------------------------------
 
-New
+Neu
   Erstellt ein neues Projekt.
 
-Open
+Öffnen
   Öffnet ein gespeichertes Projekt.
 
-Save
+Speichern
   Überschreibt das aktuelle Projekt.
 
-SaveAs
+Speichern unter
   Speichert das aktuelle Projekt unter einem neuen Namen.
 
-Auto Save (This File)
+Auto-Speichern (diese Datei)
   Aktiviert oder deaktiviert die automatische Speicherung für diese Datei.
   Wenn aktiviert, werden Änderungen nach einer gewissen Leerlaufzeit
   automatisch gespeichert.
   Beim Beenden der Anwendung werden nicht gespeicherte Änderungen ohne
   Rückfrage automatisch gesichert.
 
-Auto Reload (This File)
+Auto-Neuladen (diese Datei)
   Aktiviert oder deaktiviert das automatische Neuladen für diese Datei.
   Wenn aktiviert, wird die Datei automatisch neu geladen, sobald sie von
   einem externen Programm geändert wird.
@@ -2640,50 +2640,50 @@ Auto Reload (This File)
   gespeicherte Änderungen vorliegen.
 
 
-Recent Files
+Zuletzt verwendete Dateien
   Öffnet ein zuvor verwendetes Projekt.
 
-Recent Folders
+Zuletzt verwendete Ordner
   Öffnet ein Projekt aus einem zuvor verwendeten Ordner.
 
 
-Import
+Importieren
   Lädt Daten aus Dateien, die nicht im fip-Format vorliegen.
-  Txt File lädt eine oder mehrere Textdateien als jeweils eine Karte.
-  Hierarchical Text File lädt eine hierarchische Textdatei, deren Einrückung mit
+  Textdatei lädt eine oder mehrere Textdateien als jeweils eine Karte.
+  Hierarchischer Text lädt eine hierarchische Textdatei, deren Einrückung mit
   Tabs oder Leerzeichen erfolgt, wobei jede Zeile eine Karte darstellt.
-  Hierarchical Text File 2 lädt eine hierarchische Textdatei, bei der die Hierarchie
+  Hierarchischer Text 2 lädt eine hierarchische Textdatei, bei der die Hierarchie
   durch die Anzahl führender Punkte dargestellt wird und der Rest den Fließtext bildet.
-  Text Files in a Folder lädt alle Textdateien eines angegebenen Ordners mitsamt der
+  Texte in einem Ordner lädt alle Textdateien eines angegebenen Ordners mitsamt der
   Ordnerstruktur.
 
 
-Export
+Exportieren
   Exportiert Daten in externe Dateien.
-  Txt file(Card Title) gibt alle Kartentitel in eine einzelne Textdatei aus.
-  Txt file(Text) gibt den Fließtext aller Karten in eine einzelne Textdatei aus.
-  Txt files gibt jede Karte als separate Textdatei aus. Der Dateiname ist dabei
+  Textdatei (Kartentitel) gibt alle Kartentitel in eine einzelne Textdatei aus.
+  Textdatei (Textkörper) gibt den Fließtext aller Karten in eine einzelne Textdatei aus.
+  Textdateien gibt jede Karte als separate Textdatei aus. Der Dateiname ist dabei
   der Kartentitel plus ".txt".
-  html files gibt die Daten im HTML-Format zur Anzeige im Browser aus.
+  Html-Datei gibt die Daten im HTML-Format zur Anzeige im Browser aus.
   Zusätzlich zur Datei mit dem angegebenen Namen werden "cards.html" und Dateien
   mit Kartennummer + ".html" erstellt.
-  Hierarchical Text gibt eine Textdatei aus, in der die Hierarchie durch führende
-  Punkte dargestellt wird. So exportierter Text kann mit Import -> Hierarchical
-  Text File 2 wieder importiert werden.
+  Hierarchischer Text gibt eine Textdatei aus, in der die Hierarchie durch führende
+  Punkte dargestellt wird. So exportierter Text kann mit Importieren -> Hierarchischer
+  Text 2 wieder importiert werden.
 
 Achtung: Bei Export-Operationen, die mehrere Dateien erzeugen, werden bereits
   vorhandene gleichnamige Dateien ohne Warnung überschrieben.
 
 
-Print Image
+Browseransicht drucken
   Druckt die Browser-Anzeige.
   Die aktuelle Browser-Ansicht wird auf die Papiergröße skaliert und gedruckt.
 
 
-Exit
+Beenden
   Beendet Frieve Editor.
 69
-Title: Edit-Menü
+Title: Bearbeiten-Menü
 Label:7
 Fixed:0
 X:0.908938229084015
@@ -2696,64 +2696,64 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Edit-Menü
+Bearbeiten-Menü
 ----------------------------------------------------------------------------
 
-Undo
+Rückgängig
   Macht die letzte Bearbeitung rückgängig.
 
-Redo
+Wiederholen
   Wiederholt die zuletzt rückgängig gemachte Bearbeitung.
 
 
-Cut
+Ausschneiden
   Kopiert den ausgewählten Text in die Zwischenablage und löscht ihn.
 
-Copy
+Kopieren
   Kopiert den ausgewählten Text in die Zwischenablage.
 
-Paste
+Einfügen
   Fügt den Text aus der Zwischenablage an der aktuellen Position ein.
 
-Delete
+Löschen
   Löscht den ausgewählten Text.
 
-Select All
+Alles auswählen
   Wählt den gesamten Text aus.
 
 
-Find
+Suchen
   Sucht nach einer bestimmten Zeichenkette.
 
-Replace
+Ersetzen
   Ersetzt eine bestimmte Zeichenkette durch eine andere.
 
-Find Next
+Weitersuchen
   Sucht das nächste Vorkommen der Zeichenkette.
 
-Find Previous
+Vorheriges suchen
   Sucht das vorherige Vorkommen der Zeichenkette.
 
-Web Search
+Websuche
   Sucht im Web nach dem ausgewählten Kartentitel oder Text.
 
 
-Sort Card
+Karten sortieren
   Sortiert Karten nach Name oder Datum.
 
-Barch Conversion
-  All Cards Shape konvertiert alle Karten stapelweise in die angegebene Form.
-  All Links Shape konvertiert alle Links stapelweise in die angegebene Form.
-  All Links Direction kehrt die Richtung aller Links um.
+Stapeländerung
+  Alle Kartenformen konvertiert alle Karten stapelweise in die angegebene Form.
+  Alle Linkformen konvertiert alle Links stapelweise in die angegebene Form.
+  Alle Linkrichtungen kehrt die Richtung aller Links um.
 
 
-Label
-  Öffnet den Label-Bearbeitungsdialog.
+Beschriftungen bearbeiten
+  Öffnet den Beschriftung-Bearbeitungsdialog.
 
-Link Label
-  Öffnet den Link-Label-Bearbeitungsdialog.
+Link-Beschriftungen bearbeiten
+  Öffnet den Link-Beschriftung-Bearbeitungsdialog.
 40
-Title: Insert-Menü
+Title: Einfügen-Menü
 Label:7
 Fixed:0
 X:0.986021161079407
@@ -2766,33 +2766,33 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Insert-Menü
+Einfügen-Menü
 ----------------------------------------------------------------------------
 
-New Card
+Neue Karte
   Erstellt eine neue Karte.
 
-New Link
+Neuer Link
   Erstellt einen neuen Link von der ausgewählten Karte.
 
-New Ext Link
+Neuer externer Link
   Fügt einen externen Link (Dateiname) in die ausgewählte Karte ein.
 
-New Label
-  Fügt der ausgewählten Karte ein neues Label hinzu.
+Neue Beschriftung
+  Fügt der ausgewählten Karte eine neue Beschriftung hinzu.
 
-New Link Label
-  Fügt dem ausgewählten Link ein neues Label hinzu.
+Neue Link-Beschriftung
+  Fügt dem ausgewählten Link eine neue Beschriftung hinzu.
 
 
-Link to All Cards with Designated Label
-  Erstellt Links von der aktuellen Karte zu allen Karten mit dem angegebenen Label.
+Mit allen Karten mit der angegebenen Beschriftung verknüpfen
+  Erstellt Links von der aktuellen Karte zu allen Karten mit der angegebenen Beschriftung.
 
-New Card Links to All Cards with Designated Label
-  Erstellt eine neue Karte mit Links zu allen Karten mit dem angegebenen Label.
+Neue Karte, die mit allen Karten mit der angegebenen Beschriftung verknüpft ist
+  Erstellt eine neue Karte mit Links zu allen Karten mit der angegebenen Beschriftung.
 
-Add Designated Label to All Destination Cards
-  Fügt das angegebene Label allen Zielkarten hinzu.
+Angegebene Beschriftung zu allen Zielkarten hinzufügen
+  Fügt die angegebene Beschriftung allen Zielkarten hinzu.
 32
 Title: Animation-Menü
 Label:7
@@ -2810,24 +2810,24 @@ Viewed:1899/12/30
 Animation-Menü
 ----------------------------------------------------------------------------
 
-Random Flash
+Zufälliges Blinken
   Startet eine Animation, die Karten in zufälliger Reihenfolge anzeigt.
 
-Random Map
+Zufällige Karte
   Startet eine Animation, die eine zufällige Karte anzeigt und dann die Anzeige auf
   die von ihr verlinkten Karten erweitert.
 
-Random Scroll
+Zufälliges Scrollen
   Startet eine Animation, die Karten zufällig über den Bildschirm scrollt.
 
-Random Jump
+Zufälliger Sprung
   Startet eine Animation, bei der Karten zufällig vom unteren Bildschirmrand
   aufspringen.
 
-Random Trace
+Zufällige Verfolgung
   Startet eine Animation, die Links in zufälliger Reihenfolge verfolgt.
-113
-Title: View-Menü
+111
+Title: Ansicht-Menü
 Label:7
 Fixed:0
 X:0.957366585731506
@@ -2840,108 +2840,106 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:18
 -
 ----------------------------------------------------------------------------
-View-Menü
+Ansicht-Menü
 ----------------------------------------------------------------------------
 
-Font
+Schriftart
   Ändert die Schriftart.
-  Default Size stellt die Standardgröße wieder her, Magnify vergrößert, Reduce verkleinert.
-  Um die Schriftfamilie zu ändern, wählen Sie Change Font und legen die Schriftart fest.
+  Standardgröße stellt die Standardgröße wieder her, Vergrößern vergrößert, Verkleinern verkleinert.
+  Um die Schriftfamilie zu ändern, wählen Sie Schriftart ändern und legen die Schriftart fest.
 
-Card
+Karte
   Ändert die Kartendarstellungs-Einstellungen.
-  Shadow schaltet Kartenschatten ein oder aus.
-  Gradation schaltet Kartenverläufe ein oder aus.
-  Ticker schaltet die Lauftext-Anzeige des Fließtexts auf Karten um. 1Line zeigt die
-  erste Zeile des Kartenfließtexts, 2Lines zeigt die ersten beiden Zeilen.
-  Image schaltet die Miniaturansicht von Bildern ein oder aus. Die erste jpg- oder
+  Kartenschatten schaltet Kartenschatten ein oder aus.
+  Verlauf schaltet Kartenverläufe ein oder aus.
+  Ticker schaltet die Lauftext-Anzeige des Fließtexts auf Karten um. Erste Zeile des Textkörpers zeigt die
+  erste Zeile des Kartenfließtexts, Erste 2 Zeilen des Textkörpers zeigt die ersten beiden Zeilen.
+  Bild schaltet die Miniaturansicht von Bildern ein oder aus. Die erste jpg- oder
   bmp-Datei im Kartenfließtext wird verwendet.
   Video schaltet die Videoanzeige ein oder aus. Die erste mpg- oder avi-Datei im
   Kartenfließtext wird verwendet. Videoanzeige hat Vorrang vor Bildanzeige.
-  Drawing schaltet die Zeichnungsanzeige ein oder aus. Zeichnungsanzeige hat Vorrang
+  Zeichnung schaltet die Zeichnungsanzeige ein oder aus. Zeichnungsanzeige hat Vorrang
   vor Bild- und Videoanzeige.
   32x32 bis 320x320 legt die Maximalgröße von Bildern, Videos und Zeichnungen auf
   Karten fest. Größere Medien werden entsprechend verkleinert.
 
 Link
   Ändert die Linkdarstellungs-Einstellungen.
-  Link schaltet Linklinien, Hemming schaltet Linkumrisse, Direction schaltet die
-  Linkrichtung, Name schaltet die Linknamen-Anzeige ein oder aus.
+  Link schaltet Linklinien, Link-Umrandung schaltet Linkumrisse, Link-Richtung schaltet die
+  Linkrichtung, Link-Name schaltet die Linknamen-Anzeige ein oder aus.
 
-Label
-  Ändert die Label-Darstellungs-Einstellungen.
-  Circle schaltet Kreise um Gruppen mit gleichem Label ein oder aus.
-  Rectangle schaltet Rechtecke um Gruppen mit gleichem Label ein oder aus.
-  Name schaltet die Label-Namensanzeige ein oder aus.
+Beschriftung
+  Ändert die Beschriftung-Darstellungs-Einstellungen.
+  Beschriftungskreis schaltet Kreise um Gruppen mit gleicher Beschriftung ein oder aus.
+  Beschriftungsrechteck schaltet Rechtecke um Gruppen mit gleicher Beschriftung ein oder aus.
+  Beschriftungsname schaltet die Anzeige der Beschriftungsnamen ein oder aus.
 
-Text
+Textkörper
   Ändert die Fließtext-Darstellungs-Einstellungen.
-  Text schaltet die Anzeige des Fließtexts der ausgewählten Karte im Browser um.
-  Centering schaltet zwischen zentrierter und linksbündiger Anzeige um.
-  Edit In Browser schaltet um, ob Doppelklick auf eine Karte den Fließtext direkt
+  Textkörper schaltet die Anzeige des Fließtexts der ausgewählten Karte im Browser um.
+  Zentrieren schaltet zwischen zentrierter und linksbündiger Anzeige um.
+  Textkörper im Browser bearbeiten schaltet um, ob Doppelklick auf eine Karte den Fließtext direkt
   im Browser bearbeitet.
-  Always Show Editor schaltet um, ob der Editor ständig im Browser angezeigt wird
-  (wirksam bei jeder Einstellung außer Under the Card).
-  Under the Card bearbeitet den Fließtext direkt unter der Karte.
-  Browser Right bearbeitet den Fließtext am rechten Rand des Browsers.
-  Browser Bottom bearbeitet den Fließtext am unteren Rand des Browsers.
+  Editor immer im Browser anzeigen schaltet um, ob der Editor ständig im Browser angezeigt wird
+  (wirksam bei jeder Einstellung außer Unter der Karte).
+  Unter der Karte bearbeitet den Fließtext direkt unter der Karte.
+  Rechts vom Browser bearbeitet den Fließtext am rechten Rand des Browsers.
+  Unter dem Browser bearbeitet den Fließtext am unteren Rand des Browsers.
 
-Score
-  Score schaltet die Score-Anzeige ein oder aus.
-  Authenticity berechnet einen Score, bei dem Karten, auf die von Karten mit hohem
-  Score verlinkt wird, einen höheren Score erhalten.
-  StartingPoint gibt Ausgangskarten einen höheren Score.
-  Destination gibt Zielkarten einen höheren Score.
-  Links(Out) verwendet die Anzahl ausgehender Links.
-  Links(In) verwendet die Anzahl eingehender Links.
-  Links(Total) verwendet die Gesamtanzahl der Links.
-  Links(In-Out) verwendet eingehende minus ausgehende Links.
-  Text Length verwendet die Länge des Fließtexts.
+Punktzahl
+  Punktzahl schaltet die Punktzahl-Anzeige ein oder aus.
+  Zuverlässigkeit berechnet eine Punktzahl; Karten, auf die von Karten mit hoher
+  Punktzahl verlinkt wird, erhalten eine höhere Punktzahl.
+  Startpunkt vergibt an Ausgangskarten eine höhere Punktzahl.
+  Ziel vergibt an Zielkarten eine höhere Punktzahl.
+  Anzahl Links (ausgehend) verwendet die Anzahl ausgehender Links.
+  Anzahl Links (eingehend) verwendet die Anzahl eingehender Links.
+  Anzahl Links (gesamt) verwendet die Gesamtanzahl der Links.
+  Anzahl Links (ein-aus) verwendet eingehende minus ausgehende Links.
+  Länge des Textkörpers verwendet die Länge des Fließtexts.
 
-Read Aloud
-  Read Aloud schaltet das Vorlesen von Kartentiteln ein oder aus.
+Vorlesen
+  Vorlesen schaltet das Vorlesen von Kartentiteln ein oder aus.
 
-Hinweis: Microsoft Agent muss installiert sein, um Kartentitel vorlesen zu können.
-         Dieses Menü wird nicht angezeigt, wenn Microsoft Agent oder die zugehörigen
-         Sprachkomponenten nicht installiert sind.
+Hinweis: Für das Vorlesen der Kartentitel nutzt Frieve Editor die Windows-SAPI
+         (Text-to-Speech). Wenn die Sprachausgabe auf Ihrem System nicht verfügbar ist,
+         kann das Menü Vorlesen ausgeblendet sein oder die Wiedergabe schlägt fehl.
 
-Hinweis: Microsoft Agent wird von Microsoft kostenlos vertrieben, aber die
-         Download-Adressen und erforderlichen Dateien ändern sich anscheinend häufig.
-         Falls Sie die Vorlesefunktion benötigen, informieren Sie sich im Internet
-         und installieren Sie die benötigten Dateien.
+Hinweis: Unter Windows können Sie unter Einstellungen -> Zeit und Sprache -> Sprache
+         weitere Stimmen hinzufügen oder die Standardstimme für die Vorlesefunktion wählen.
 
-Others
+Sonstiges
   Ändert sonstige Anzeige-Einstellungen.
-  Card List schaltet die Kartenliste auf der linken Seite ein oder aus.
-  File List schaltet die Dateiliste ein oder aus, die erscheint, wenn die Maus an
+  Kartenliste schaltet die Kartenliste auf der linken Seite ein oder aus.
+  Dateiliste schaltet die Dateiliste ein oder aus, die erscheint, wenn die Maus an
   den linken Bildschirmrand bewegt wird.
-  Overview schaltet die Übersichtsanzeige unten rechts im Browser ein oder aus.
-  FourgroundColor ändert die Vordergrundfarbe, BackgroundColor die Hintergrundfarbe.
-  Wallpaper legt ein Hintergrundbild fest. Um es zu entfernen, wählen Sie Wallpaper
+  Gesamtübersicht schaltet die Übersichtsanzeige unten rechts im Browser ein oder aus.
+  Vordergrundfarbe ändert die Vordergrundfarbe, Hintergrundfarbe die Hintergrundfarbe.
+  Hintergrundbild legt ein Hintergrundbild fest. Um es zu entfernen, wählen Sie Hintergrundbild
   erneut.
-  Fix Wallpaper fixiert das Hintergrundbild bildschirmfüllend.
-  Tile Wallpaper kachelt das Hintergrundbild über den gesamten Browser-Bereich.
-  Background Animation schaltet Hintergrundanimation ein oder aus.
-  Background Animation Type ändert die Art der Hintergrundanimation.
-  Cursor Animation schaltet die Cursor-Animation ein oder aus.
-  No Scroll Lag schaltet um, ob bei Kartenauswahl sofort gescrollt wird.
-  Anti-Aliasing schaltet Anti-Aliasing ein oder aus.
-  2x führt Anti-Aliasing mit doppelter Auflösung durch, 4x mit vierfacher.
+  Hintergrundbild fixieren fixiert das Hintergrundbild bildschirmfüllend.
+  Hintergrundbild kacheln kachelt das Hintergrundbild über den gesamten Browser-Bereich.
+  Hintergrundanimation schaltet Hintergrundanimation ein oder aus.
+  Typ der Hintergrundanimation ändert die Art der Hintergrundanimation.
+  Cursor-Animation schaltet die Cursor-Animation ein oder aus.
+  Sofort scrollen schaltet um, ob bei Kartenauswahl sofort gescrollt wird.
+  Kantenglättung schaltet Kantenglättung ein oder aus.
+  2x führt Kantenglättung mit doppelter Auflösung durch, 4x mit vierfacher.
 
-Change Language
-  Ändert die Menüsprache (derzeit werden Englisch und Japanisch unterstützt).
-  Um weitere Sprachen zu unterstützen, legen Sie eine .lng-Datei im Frieve
-  Editor-Ordner ab (Textformat; siehe Japanese.lng für das Format).
+Sprache ändern
+  Ändert die Menüsprache. Frieve Editor unterstützt mehrere Sprachen (siehe Versionshinweise).
+  Zum Hinzufügen einer Sprache legen Sie eine passende .lng-Datei im Frieve-Editor-Ordner ab
+  (Textformat; siehe Japanese.lng als Beispiel für den Aufbau).
 
 
-Full Screen
+Vollbild
   Schaltet die Vollbildanzeige des Browsers um.
 
 
-Status Bar
+Statusleiste
   Schaltet die Statusleiste ein oder aus.
 29
-Title: Settings-Menü
+Title: Einstellungen-Menü
 Label:7
 Fixed:0
 X:0.924349308013916
@@ -2954,24 +2952,24 @@ Updated:2023/04/14 20:17:21
 Viewed:2023/04/14 20:17:19
 -
 ----------------------------------------------------------------------------
-Settings-Menü
+Einstellungen-Menü
 ----------------------------------------------------------------------------
 
-GPT API Key
-  Legt den von der OpenAI-Website erhaltenen API Key fest, um die GPT-Integration
+GPT-API-Schlüssel
+  Legt den von der OpenAI-Website erhaltenen API-Schlüssel fest, um die GPT-Integration
   zu nutzen.
 
-Auto Save Default
+Standardwert Auto-Speichern
   Legt den Standardwert für die automatische Speicherung bei neuen Dateien fest.
   Wenn aktiviert, ist die automatische Speicherung bei neu erstellten Dateien
   von Anfang an eingeschaltet.
 
-Auto Reload Default
+Standardwert Auto-Neuladen
   Legt den Standardwert für das automatische Neuladen bei neuen Dateien fest.
   Wenn aktiviert, ist das automatische Neuladen bei neu erstellten Dateien
   von Anfang an eingeschaltet.
 31
-Title: Help-Menü
+Title: Hilfe-Menü
 Label:7
 Fixed:0
 X:0.891983985900879
@@ -2984,21 +2982,21 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:15:15
 -
 ----------------------------------------------------------------------------
-Help-Menü
+Hilfe-Menü
 ----------------------------------------------------------------------------
 
-Contents
+Inhalt
   Öffnet und zeigt diese Hilfedatei in Frieve Editor an.
 
-Open Frieve Web Site
+Frieve-Website öffnen
   Öffnet die Frieve-Website im Standardbrowser.
 
-Open Frieve Editor Web Site
+Frieve Editor-Website öffnen
   Öffnet die Frieve Editor-Website im Standardbrowser.
 
-Check Latest Release
+Neueste Version prüfen
   Prüft die aktuellste veröffentlichte Version.
 
 
-About
+Info
   Zeigt Versionsinformationen an.

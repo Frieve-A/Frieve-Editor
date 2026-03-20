@@ -231,7 +231,7 @@ Gracias por descargar Frieve Editor.
 Frieve Editor es un nuevo tipo de editor diseñado para ayudarle a organizar sus
 pensamientos y generar ideas originales.
 
-Para consultar esta ayuda, seleccione el tema deseado en la lista Cards situada en
+Para consultar esta ayuda, seleccione el tema deseado en la lista de tarjetas situada en
 el lado izquierdo de la pantalla.
 También puede seguir los enlaces que aparecen en la parte inferior de la pantalla para abrir artículos relacionados.
 15
@@ -340,7 +340,7 @@ Las principales características de Frieve Editor son las siguientes.
   Las animaciones que presentan tarjetas al azar estimulan nuevas conexiones entre
   tarjetas diferentes. Las animaciones que recorren enlaces de forma aleatoria ayudan
   a captar intuitivamente cómo se relacionan las tarjetas.
-43
+42
 Title: Funciones básicas
 Label:1
 Fixed:0
@@ -371,8 +371,7 @@ Funciones básicas
 
 - Etiquetas
   Frieve Editor permite asignar etiquetas tanto a tarjetas como a enlaces.
-  De forma predeterminada se definen tres etiquetas: Probrem (Problema), Solution
-  (Solución) y Result (Resultado), pero las etiquetas se pueden editar libremente.
+  De forma predeterminada se definen tres etiquetas: Problema, Solución y Resultado, pero las etiquetas se pueden editar libremente.
 
   Asignar etiquetas a las tarjetas ayuda a organizarlas eficientemente. Por ejemplo,
   puede ordenar automáticamente las tarjetas de modo que las que compartan la misma
@@ -384,7 +383,7 @@ Funciones básicas
   solo los enlaces con una etiqueta concreta. Combinado con la ordenación automática
   que sitúa próximas las tarjetas enlazadas, resulta fácil reorganizar las tarjetas
   centrándose en un tipo particular de relación.
-332
+331
 Title: Historial de versiones
 Label:1
 Fixed:0
@@ -431,30 +430,30 @@ Historial de versiones
   Al guardar un archivo ahora se almacenan las coordenadas actuales y diversas
   configuraciones, que se restauran al cargarlo.
   Se añadieron enlaces curvos.
-  Se añadió HierarchicalText al menú File -> Export.
+  Se añadió Texto jerárquico al menú Archivo -> Exportar.
   Se añadió la sustitución de cadenas en nombres de tarjetas y texto del cuerpo
-  (menú Edit -> Replace, Ctrl+R).
+  (menú Editar -> Reemplazar, Ctrl+R).
   Los enlaces seleccionados ahora parpadean.
   Los enlaces relacionados con la tarjeta actual ahora se resaltan.
   Se cambió el atajo para editar el título de una tarjeta de Ctrl+T a F2.
   Se tradujeron al japonés algunos mensajes que aún no estaban localizados.
-  Se corrigió un error en la pestaña Statistics donde el día de la semana podía
+  Se corrigió un error en la pestaña Estad. donde el día de la semana podía
   desfasarse.
   Se corrigió un error que ocurría al editar texto del cuerpo en el lado derecho o
-  inferior del Browser.
+  inferior del Navegador.
   Se corrigió un error que podía ocurrir al usar líneas punteadas.
-  Se corrigió una fuga de memoria al mostrar la pestaña Statistics.
-  Se corrigió una fuga de memoria al usar la ordenación automática Tree (Radial).
+  Se corrigió una fuga de memoria al mostrar la pestaña Estad..
+  Se corrigió una fuga de memoria al usar la ordenación automática Árbol (radial).
 
 - 1.30 (2008/06/15)
-  Se añadió la posibilidad de insertar dibujos simples en las tarjetas (pestaña Drawing).
+  Se añadió la posibilidad de insertar dibujos simples en las tarjetas (pestaña Dibujo).
   Se añadió la visualización de gráficos estadísticos como el conteo de etiquetas
-  (pestaña Statistics).
+  (pestaña Estad.).
   Se añadió una función para enlazar a todas las tarjetas con una etiqueta designada
-  (menú Insert).
+  (menú Insertar).
   Se añadió una función para agregar una etiqueta designada a todas las tarjetas de
-  destino (menú Insert).
-  Se localizó al japonés la totalidad de las ventanas (menú View -> Language).
+  destino (menú Insertar).
+  Se localizó al japonés la totalidad de las ventanas (menú Ver -> Cambiar idioma).
   La barra de estado ahora muestra el número de tarjetas seleccionadas.
   Además, se realizaron varias mejoras menores y correcciones de errores.
 
@@ -464,10 +463,10 @@ Historial de versiones
   La selección actual se usa ahora como clave de búsqueda.
   Se guarda el historial de palabras clave de búsqueda.
   Se añadió el zoom con las teclas Page Up y Page Down.
-  Al seleccionar un enlace en la lista de enlaces, ahora se desplaza el Related Text.
+  Al seleccionar un enlace en la lista de enlaces, ahora se desplaza el Texto rel..
   Se mejoró la posición inicial de las tarjetas hijas y hermanas cuando la ordenación
   automática está desactivada.
-  El editor de texto del cuerpo que aparece a la derecha o debajo del Browser ahora es
+  El editor de texto del cuerpo que aparece a la derecha o debajo del Navegador ahora es
   redimensionable.
   Se corrigió un error en Windows 98 donde al hacer clic derecho tras seleccionar
   múltiples líneas se producía un error.
@@ -486,18 +485,18 @@ Historial de versiones
   Se añadió la búsqueda en internet con texto seleccionado o títulos de tarjetas.
   Se añadió la inserción de enlaces externos mediante arrastrar y soltar y la creación
   de tarjetas con enlaces externos.
-  Se añadió Matrix (Index), que ordena las tarjetas de forma organizada según su orden.
-  Se añadió Buscar anterior (menú Edit -> Find Previous, Shift+F3).
+  Se añadió Matriz (Orden), que ordena las tarjetas de forma organizada según su orden.
+  Se añadió Buscar anterior (menú Editar -> Buscar anterior, Shift+F3).
   La pestaña Editor ahora puede mostrar el texto del cuerpo de las tarjetas enlazadas
-  (Related Text).
+  (Texto rel.).
   Ahora puede cortar texto del cuerpo y crear una tarjeta enlazada a partir de la
   tarjeta seleccionada.
-  Se añadió la importación de texto jerárquico representado con puntos (menú File ->
-  Import).
-  Se añadió Text Length a la visualización de puntuación.
-  Se añadieron Snow y Cherry Blossom a las animaciones de fondo.
+  Se añadió la importación de texto jerárquico representado con puntos (menú Archivo ->
+  Importar).
+  Se añadió Longitud del cuerpo a la visualización de puntuación.
+  Se añadieron Nieve y Cerezos en flor a las animaciones de fondo.
   Al seleccionar una tarjeta, ahora se desplaza inmediatamente de forma predeterminada
-  (se puede cambiar desde el menú View -> Others).
+  (se puede cambiar desde el menú Ver -> Otros).
   Se corrigió un error donde F3 solo podía buscar títulos de tarjetas.
   Se corrigió un problema donde el tamaño inicial de la lista de enlaces bajo el editor
   era 0.
@@ -507,101 +506,100 @@ Historial de versiones
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.21 (2007/12/01)
-  Se añadió la ordenación automática jerárquica (Tree(Radian); requiere especificar
-  una tarjeta raíz).
+  Se añadió la ordenación automática jerárquica (Árbol (radial); requiere especificar una tarjeta raíz).
   Se añadió una lista de archivos para abrirlos rápidamente (mueva el ratón al lado
   izquierdo de la pantalla).
-  Se añadieron las animaciones Random Jump y Random Map.
-  Se añadió la conversión por lotes de la dirección de los enlaces (menú Edit ->
-  Batch Conversion).
-  La visibilidad de la lista de tarjetas ahora es configurable (menú View -> Others).
+  Se añadieron las animaciones Salto aleatorio y Mapa aleatorio.
+  Se añadió la conversión por lotes de la dirección de los enlaces (menú Editar ->
+  Cambio por lotes).
+  La visibilidad de la lista de tarjetas ahora es configurable (menú Ver -> Otros).
   El ancho de la lista de tarjetas y los ajustes relacionados ahora se guardan al salir
   del programa.
   Se añadió la posibilidad de especificar la posición de reproducción del vídeo
   (inicio(ms)-fin(ms)| antes del nombre del archivo).
-  La animación del cursor ahora se puede activar y desactivar (menú View -> Others).
+  La animación del cursor ahora se puede activar y desactivar (menú Ver -> Otros).
   Se corrigió un error donde al hacer doble clic en un enlace en la pestaña Editor no
   se seguía el enlace.
-  Se corrigió un error donde no se podían editar títulos en el Browser mientras el
+  Se corrigió un error donde no se podían editar títulos en el Navegador mientras el
   editor estaba siempre visible.
-  Se corrigió un error donde mover tarjetas con el cursor cancelaba AutoZoom.
+  Se corrigió un error donde mover tarjetas con el cursor cancelaba el Auto zoom.
   Se corrigió un error donde las tarjetas ocultas podían seleccionarse por selección
   de rango.
-  Se corrigió un error donde no se podía alternar Full Screen durante una animación.
-  Se corrigió un error donde no se podía arrastrar sobre el Overview con el
+  Se corrigió un error donde no se podía alternar Pantalla completa durante una animación.
+  Se corrigió un error donde no se podía arrastrar sobre el Mostrar vista general con el
   anti-aliasing activado.
   Se corrigió un error donde pulsar Ctrl+E mientras se editaba un título de tarjeta
-  en el Browser causaba un error.
+  en el Navegador causaba un error.
   Se redujo el parpadeo de la pantalla.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.20 (2007/11/04)
-  Se añadieron Undo y Redo para hasta 10 operaciones de edición.
+  Se añadieron Deshacer y Rehacer para hasta 10 operaciones de edición.
   Se añadió la selección múltiple de tarjetas.
   Se añadieron cortar, copiar y pegar para tarjetas.
-  Se añadió la edición del cuerpo en la pantalla del Browser (menú View -> Text).
+  Se añadió la edición del cuerpo en la pantalla del Navegador (menú Ver -> Texto del cuerpo).
   Se añadió la búsqueda limitada a las tarjetas visibles actualmente.
   La tarjeta actual ahora se marca con un cursor visible.
-  Se añadió animación de fondo (menú View -> Others).
+  Se añadió animación de fondo (menú Ver -> Otros).
   Se añadió la localización al japonés de los menús emergentes.
   Se cambió la apertura de enlaces externos de Ctrl+clic a Ctrl+Shift+clic.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.13 (2007/10/15)
-  Se añadieron diversos comandos de edición al menú contextual del Browser.
+  Se añadieron diversos comandos de edición al menú contextual del Navegador.
   El estilo de enlace ahora se puede cambiar.
   Se añadió la conversión por lotes de todas las formas de tarjetas y enlaces
-  (Edit -> Change Shape).
+  (Editar -> Cambio por lotes).
   Se añadieron ajustes predeterminados de tamaño, forma y posición fija para tarjetas
   y enlaces.
   Se añadió la visualización en cinta de las primeras líneas del texto del cuerpo en
-  el Browser.
+  el Navegador.
   Se añadió el dibujo de sombras en las tarjetas.
   Se añadió la visualización de degradado simple en las tarjetas.
   Se añadió el dibujo de contorno para los enlaces.
   Se añadió la visualización de vídeo dentro de las tarjetas (escriba un nombre de
   archivo o URL en el cuerpo).
   Se añadió la importación de texto jerárquico y archivos de texto en carpetas (menú
-  File -> Import).
-  Se añadió la exportación de imágenes del Browser en formatos BMP y JPEG (menú File ->
-  Export).
-  Se añadió la copia de diversos datos al portapapeles (menú File -> Export).
-  Se añadió anti-aliasing para la visualización del Browser (menú View -> Others).
+  Archivo -> Importar).
+  Se añadió la exportación de imágenes del Navegador en formatos BMP y JPEG (menú Archivo ->
+  Exportar).
+  Se añadió la copia de diversos datos al portapapeles (menú Archivo -> Exportar).
+  Se añadió anti-aliasing para la visualización del Navegador (menú Ver -> Otros).
   Se incluyeron fondos de pantalla de muestra en la carpeta wallpaper de la carpeta
   de instalación.
   Se añadieron diversas funciones de edición en modo de pantalla completa (mueva el
   ratón a la parte superior de la pantalla).
-  Se corrigió un error donde el LinkLabel de algunos archivos no se cargaba correctamente.
+  Se corrigió un error donde la etiqueta de enlace de algunos archivos no se cargaba correctamente.
   Se corrigió un error donde las tarjetas hexagonales no se dibujaban correctamente.
   Se corrigió un error donde al hacer doble clic en una tarjeta en pantalla completa
   se producía un error.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.12 (2007/10/01)
-  Se corrigió un error que se producía al añadir una tarjeta con Arrange ON y Zoom
-  activos.
+  Se corrigió un error que se producía al añadir una tarjeta con el botón Auto activado y el zoom
+  activo.
   Además, se realizaron varias correcciones menores.
 
 - 1.11 (2007/09/30)
   Se añadieron posiciones fijas para tarjetas (botón de chincheta).
-  Se añadió Arrange (Matrix), que ordena las tarjetas en cuadrícula.
+  Se añadió Matriz, que ordena las tarjetas en cuadrícula.
   Se añadió una vista general de la disposición completa de tarjetas en la esquina
-  inferior derecha del Browser.
-  Las tarjetas ahora se pueden mover con las teclas de cursor en el Browser.
-  Se añadió Link Limitation que muestra solo las tarjetas enlazadas en la dirección
+  inferior derecha del Navegador.
+  Las tarjetas ahora se pueden mover con las teclas de cursor en el Navegador.
+  Se añadió Limitar visualización por enlaces que muestra solo las tarjetas enlazadas en la dirección
   inversa.
-  Se añadió Link Limitation que muestra los enlaces entre la tarjeta actual y el
+  Se añadió Limitar visualización por enlaces que muestra los enlaces entre la tarjeta actual y el
   objetivo.
   Se añadió una nueva forma de tarjeta que dibuja una figura pequeña en el centro y
   deja el texto vacío.
   Además de círculos alrededor de tarjetas con la misma etiqueta, ahora se pueden
   dibujar rectángulos.
-  La fuente ahora se puede cambiar (menú View -> Font -> Change Font).
-  Se puede especificar un fondo de pantalla para el Browser (menú View -> Others).
-  Se añadieron modos de ordenación Soft que priorizan evitar la superposición.
+  La fuente ahora se puede cambiar (menú Ver -> Cambiar fuente).
+  Se puede especificar un fondo de pantalla para el Navegador (menú Ver -> Otros).
+  Se añadieron modos de ordenación suave (enlace/etiqueta/orden suave) que priorizan evitar la superposición.
   La ordenación automática de tarjetas ahora continúa incluso al arrastrar.
   La ordenación automática y el desplazamiento son ahora ligeramente más fluidos.
-  Se añadieron atajos para moverse entre el Browser y el Editor (Ctrl+B, Ctrl+E).
+  Se añadieron atajos para moverse entre el Navegador y el Editor (Ctrl+B, Ctrl+E).
   Se cambió el activador del resaltado de las tres tarjetas vistas más recientemente
   de Shift a Espacio.
   Se cambió el modificador de arrastre para mover tarjetas con la misma etiqueta de
@@ -610,109 +608,109 @@ Historial de versiones
 
 - 1.10 (2007/09/01)
   Se añadió un ajuste para ajustar el texto del cuerpo al borde derecho mediante el
-  menú View -> Text -> WordWrap.
+  menú Ver -> Texto del cuerpo -> Ajustar al borde derecho.
   Los títulos de tarjetas ahora pueden contener saltos de línea usando \n o
-  Ctrl+Enter en el Browser.
-  Se añadió la ordenación por similitud de título/cuerpo (Similarity).
-  Se añadió Normalize, que ajusta el zoom para que las tarjetas quepan en la pantalla.
-  Se añadió compatibilidad con diversos tipos de puntuación (menú View -> Score).
-  Se añadió la lectura en voz alta de títulos de tarjetas (requiere Microsoft Agent).
-  Se añadió la búsqueda sin distinguir mayúsculas/minúsculas (desmarque Match Case).
+  Ctrl+Enter en el Navegador.
+  Se añadió la ordenación por similitud de título/cuerpo (Similitud).
+  Se añadió Normalizar, que ajusta el zoom para que las tarjetas quepan en la pantalla.
+  Se añadió compatibilidad con diversos tipos de puntuación (menú Ver -> Puntuación).
+  Se añadió la lectura en voz alta de títulos de tarjetas (en esa época, Microsoft Agent; en las versiones actuales se usa la síntesis de voz de Windows (SAPI)).
+  Se añadió la búsqueda sin distinguir mayúsculas/minúsculas (desmarque Distinguir mayúsculas y minúsculas).
   Se corrigió un error donde no se podían usar atajos de teclado en el diálogo de
   búsqueda.
   Se corrigió un problema donde podía producirse un error justo después del inicio.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.05 (2007/08/03)
-  Se añadió la selección de menú en japonés mediante el menú View -> Change Language.
+  Se añadió la selección de menú en japonés mediante el menú Ver -> Cambiar idioma.
   Se añadió la visualización de imágenes especificadas por enlaces externos en las tarjetas.
-  Se añadió el cálculo y visualización de puntuación mediante el menú View -> Others.
-  Se añadió la exportación de la lista de títulos de tarjetas mediante el menú File ->
-  Export.
+  Se añadió el cálculo y visualización de puntuación mediante el menú Ver -> Otros.
+  Se añadió la exportación de la lista de títulos de tarjetas mediante el menú Archivo ->
+  Exportar.
   Las tarjetas vistas más recientemente ahora se muestran en primer plano.
   Al pulsar Shift ahora se resaltan las tres tarjetas vistas más recientemente.
   Los nombres de las etiquetas ahora se muestran dentro de los círculos de etiquetas
-  en el Browser.
-  Se amplió el área de disposición de tarjetas del Browser a cuatro veces su tamaño
+  en el Navegador.
+  Se amplió el área de disposición de tarjetas del Navegador a cuatro veces su tamaño
   anterior (el doble de ancho y el doble de alto).
-  AutoZoom ahora mantiene siempre las tarjetas relacionadas dentro de la pantalla visible.
+  Auto zoom ahora mantiene siempre las tarjetas relacionadas dentro de la pantalla visible.
   La carga de archivos es ahora más rápida.
   Se corrigió un problema donde las tarjetas podían superponerse durante la ordenación
   automática.
-  Se corrigió un problema donde Delete no podía eliminar una tarjeta inmediatamente
+  Se corrigió un problema donde Eliminar no podía eliminar una tarjeta inmediatamente
   después de editar su título.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.04 (2007/07/16)
-  Se añadieron ajustes de tamaño de tarjeta por etiqueta con el botón View de la
-  pestaña Browser.
+  Se añadieron ajustes de tamaño de tarjeta por etiqueta con el botón Ver de la
+  pestaña Navegador.
   Las etiquetas ahora se pueden activar o desactivar.
   Se añadió el filtrado de tarjetas visibles por fecha.
   Se añadió el filtrado de tarjetas visibles por tamaño mínimo.
-  Los colores de primer plano y de fondo ahora se pueden cambiar desde el menú View ->
-  Others.
+  Los colores de primer plano y de fondo ahora se pueden cambiar desde el menú Ver ->
+  Otros.
   Se pueden crear múltiples tarjetas a la vez a partir de texto multilínea, usando cada
   línea como título.
   El nombre del archivo en edición ahora aparece en la barra de tareas.
-  Al seleccionar una tarjeta, la lista Cards se desplaza hasta que la tarjeta
+  Al seleccionar una tarjeta, la lista de tarjetas se desplaza hasta que la tarjeta
   seleccionada sea visible.
   Se corrigió un error donde el programa no podía iniciarse si no existía una impresora
   predeterminada.
-  Se corrigió un error donde eliminar un Link Label en uso causaba un error y dejaba
+  Se corrigió un error donde eliminar una etiqueta de enlace en uso causaba un error y dejaba
   la aplicación inutilizable.
   Se corrigió un problema donde guardar podía fallar bajo carga pesada y el cursor
   quedaba como reloj de arena.
   Se corrigió un problema donde cerrar el diálogo de búsqueda devolvía la posición
   del cursor al inicio de la página.
-  Se corrigió un problema donde al hacer clic en un espacio vacío con Fold activo se
+  Se corrigió un problema donde al hacer clic en un espacio vacío con Plegar activo se
   podía seleccionar una tarjeta.
   Se corrigió un problema donde el rango de selección durante la búsqueda era incorrecto.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.03 (2006/12/17)
-  Se añadió la impresión simple de la vista del Browser.
+  Se añadió la impresión simple de la vista del Navegador.
   Se añadió Shift+Insert para crear una tarjeta de nodo padre.
   Las formas y los tamaños de las tarjetas ahora se pueden cambiar.
   Se añadió compatibilidad con niveles de zoom más grandes.
   Se añadió una barra de estado que muestra el conteo de caracteres e información
-  similar (la visibilidad se puede cambiar desde el menú View).
-  Se añadió Seleccionar todo al menú Edit.
+  similar (la visibilidad se puede cambiar desde el menú Ver).
+  Se añadió Seleccionar todo al menú Editar.
   Se corrigió la corrupción de pantalla y de archivos al pegar RichText.
-  Se corrigió un error donde eliminar un enlace con la tecla Delete mientras se
+  Se corrigió un error donde eliminar un enlace con la tecla Eliminar mientras se
   arrastraba causaba un error.
   Se corrigió un problema donde no se mostraba la línea al arrastrar un enlace con
   etiqueta.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.02 (2006/10/21)
-  Se añadió Insert para crear una tarjeta de nodo hijo.
+  Se añadió Insertar para crear una tarjeta de nodo hijo.
   Se añadió Enter para crear una tarjeta de nodo hermano.
-  Se añadió Insert con un enlace seleccionado para crear una tarjeta entre las tarjetas
+  Se añadió Insertar con un enlace seleccionado para crear una tarjeta entre las tarjetas
   enlazadas.
   Los enlaces ahora se pueden editar arrastrando.
   Se añadió la búsqueda limitada a títulos de tarjetas o texto del cuerpo.
-  Se añadió la búsqueda por título de tarjeta desde la pantalla del Browser.
+  Se añadió la búsqueda por título de tarjeta desde la pantalla del Navegador.
   Se añadió Shift+arrastrar para mover tarjetas con la misma etiqueta juntas.
   La búsqueda es ahora más rápida.
   La visualización es ahora ligeramente más rápida.
   Al crear una nueva tarjeta, el índice inicial cambia según la tarjeta que se esté
   editando actualmente.
   Se corrigió un problema donde las tarjetas agrupadas repelían demasiado durante
-  Arrange.
+  la organización automática.
   Se corrigió un problema donde no se podía insertar tabulador en el cuerpo.
   Además, se realizaron varias correcciones menores y mejoras.
 
 - 1.01 (2006/10/07)
-  Los títulos de las tarjetas ahora se pueden editar directamente en el Browser.
+  Los títulos de las tarjetas ahora se pueden editar directamente en el Navegador.
   Inmediatamente después de crear una nueva tarjeta, el programa entra en modo de
   edición de título.
-  Se añadió Auto Zoom, que ajusta automáticamente el zoom del Browser.
-  Se añadió la ordenación por orden de tarjetas (Index).
-  El botón View -> Link Limitation ahora puede limitar por dirección de enlace.
-  Se añadió Cut to New Card Title al menú contextual del Editor.
-  Se añadió Shuffle, que aleatoriza las coordenadas de las tarjetas en el Browser.
-  Se añadió Shuffle (menú Edit -> Sort), que aleatoriza el orden de las tarjetas.
-  Se corrigió un error donde al hacer clic en una tarjeta en el Browser se podía
+  Se añadió Auto zoom, que ajusta automáticamente el zoom del Navegador.
+  Se añadió la ordenación por orden de tarjetas (Orden).
+  El botón Ver -> Limitar visualización por enlaces ahora puede limitar por dirección de enlace.
+  Se añadió Usar el texto seleccionado como título de una nueva tarjeta al menú contextual del Editor.
+  Se añadió Aleatorio, que aleatoriza las coordenadas de las tarjetas en el Navegador.
+  Se añadió Aleatorio (menú Editar -> Ordenar tarjetas), que aleatoriza el orden de las tarjetas.
+  Se corrigió un error donde al hacer clic en una tarjeta en el Navegador se podía
   seleccionar la tarjeta que estaba debajo.
 
 - 1.00 (2006/09/24)
@@ -759,22 +757,22 @@ Viewed:1899/12/30
 Preguntas frecuentes
 ----------------------------------------------------------------------------
 
-P. ¿Hay alguna forma de ampliar el área del Browser?
+P. ¿Hay alguna forma de ampliar el área del Navegador?
 
-R. En Arrange (disposición automática de tarjetas) en la parte superior de la pantalla
-del Browser, seleccione Normalize y pulse el botón Arrange ON. Las tarjetas se
-ordenarán automáticamente alrededor del centro del Browser manteniendo sus posiciones
+R. En la zona Auto (organización automática de tarjetas) en la parte superior de la pantalla
+del Navegador, seleccione Normalizar y pulse el botón Auto. Las tarjetas se
+ordenarán automáticamente alrededor del centro del Navegador manteniendo sus posiciones
 relativas. Después de la ordenación, puede usar la barra Zoom para acercar o alejar la
-vista, y puede cambiar el área visible del Browser haciendo clic o arrastrando en las
-barras de desplazamiento o en la vista general (overview) en la esquina inferior derecha
-del Browser.
+vista, y puede cambiar el área visible del Navegador haciendo clic o arrastrando en las
+barras de desplazamiento o en la vista general en la esquina inferior derecha
+del Navegador.
 
 
 P. ¿Se puede iniciar Frieve Editor desde una memoria USB o un medio similar?
 
 R. Copie todos los archivos de la carpeta de instalación de Frieve Editor
 (normalmente c:\Program Files\Frieve Editor\) a la memoria USB.
-Luego puede usar Frieve Editor ejecutando editor.exe desde allí.
+Luego puede usar Frieve Editor ejecutando feditor.exe desde allí.
 Frieve Editor no utiliza el registro de Windows.
 
 
@@ -787,19 +785,19 @@ No es necesario ponerse en contacto con nosotros aunque lo implemente ampliament
 P. Parece que se conecta a internet al iniciarse. ¿Qué está haciendo?
 
 R. Está comprobando el estado de actualización de la última versión de Frieve Editor.
-Es la misma operación que Help menu -> Check Latest Release.
-También puede configurar desde Help menu -> Check Latest Release si se debe comprobar
+Es la misma operación que menú Ayuda -> Comprobar última versión.
+También puede configurar desde menú Ayuda -> Comprobar última versión si se debe comprobar
 automáticamente la versión más reciente.
 Si no desea que se conecte, bloquearlo con un firewall o herramienta similar no causará
 ningún problema.
 
 
-P. El texto en japonés aparece con caracteres ilegibles en el Browser.
+P. El texto en japonés aparece con caracteres ilegibles en el Navegador.
 
 R. Es posible que el conjunto de caracteres de la fuente esté configurado en una opción
 no japonesa, como un conjunto de fuentes occidental. Abra el diálogo de fuentes desde
-el menú View -> Font -> Change Font, elija una fuente japonesa y establezca el conjunto
-de caracteres en Japanese.
+el menú Ver -> Cambiar fuente, elija una fuente japonesa y establezca el conjunto
+de caracteres en japonés.
 
 
 P. El vídeo adjunto a una tarjeta no se reproduce.
@@ -865,19 +863,19 @@ Viewed:1899/12/30
 Cómo crear una nueva tarjeta
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga doble clic en cualquier área vacía del Browser donde no haya ninguna tarjeta.
+1. Haga clic en la pestaña Navegador.
+2. Haga doble clic en cualquier área vacía del Navegador donde no haya ninguna tarjeta.
 
 Nota: En este caso, la nueva tarjeta se añade al final de la lista de tarjetas.
 
 Nota: Si hace clic en el tercer botón desde la izquierda en la esquina superior
-      izquierda de la pantalla del Browser (el botón marcado con L y una tarjeta),
+      izquierda de la pantalla del Navegador (el botón marcado con L y una tarjeta),
       elige una etiqueta y luego hace doble clic, puede añadir una tarjeta que ya
       tenga esa etiqueta asignada.
 
 O bien,
 
-Seleccione New Card en el menú Insert.
+Seleccione Nueva tarjeta en el menú Insertar.
 
 Nota: En este caso, la nueva tarjeta se añade después de la tarjeta seleccionada
       actualmente. Si no hay ninguna tarjeta seleccionada, se añade al final de la
@@ -885,8 +883,8 @@ Nota: En este caso, la nueva tarjeta se añade después de la tarjeta selecciona
 
 O bien,
 
-1. Haga clic derecho en la lista Cards en el lado izquierdo de la pantalla.
-2. Elija New Card en el menú que aparece.
+1. Haga clic derecho en la lista de tarjetas en el lado izquierdo de la pantalla.
+2. Elija Nueva tarjeta en el menú que aparece.
 
 Nota: En este caso, la nueva tarjeta se añade antes de la tarjeta seleccionada
       actualmente. Si no hay ninguna tarjeta seleccionada, se añade al final de la
@@ -896,7 +894,7 @@ O bien,
 
 1. En la pestaña Editor, seleccione una parte del texto del cuerpo de una tarjeta
    existente que desee usar como cuerpo de una nueva tarjeta.
-2. Elija Cut to New Card en el menú contextual del Editor.
+2. Elija Usar el texto seleccionado como cuerpo de una nueva tarjeta en el menú contextual del Editor.
    Se crea una nueva tarjeta con el texto seleccionado como cuerpo.
 
 O bien,
@@ -904,10 +902,10 @@ O bien,
 1. En la pestaña Editor, seleccione la línea o líneas del cuerpo de una tarjeta
    existente que desee usar como título de una nueva tarjeta
    (seleccione varias líneas para crear múltiples tarjetas a la vez).
-2. Elija Cut to New Card Title o Cut to New Card Title with Link en el menú
-   contextual del Editor. Se crea una nueva tarjeta con el texto seleccionado como
-   título. Si elige with Link, también se crea un enlace de la tarjeta original a la
-   nueva tarjeta creada.
+2. Elija en el menú contextual del Editor «Usar el texto seleccionado como título de una nueva tarjeta» o
+   «Usar el texto seleccionado como título de una nueva tarjeta y enlazar». Se crea una nueva tarjeta con el
+   texto seleccionado como título. Si elige la segunda opción, también se crea un enlace de la tarjeta
+   original a la nueva tarjeta creada.
 58
 Title: Cómo crear una tarjeta enlazada desde una tarjeta existente
 Label:2
@@ -925,8 +923,8 @@ Viewed:1899/12/30
 Cómo crear una tarjeta enlazada desde una tarjeta existente
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Seleccione la tarjeta de origen en el Browser.
+1. Haga clic en la pestaña Navegador.
+2. Seleccione la tarjeta de origen en el Navegador.
 3. Pulse la tecla Insert. Se crea una nueva tarjeta enlazada desde la tarjeta seleccionada.
 
 Nota: En este caso, la nueva tarjeta se añade después de la última tarjeta entre las
@@ -936,8 +934,8 @@ Nota: Las etiquetas de la tarjeta seleccionada se heredan en la nueva tarjeta.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
-2. Seleccione la tarjeta de origen en el Browser.
+1. Haga clic en la pestaña Navegador.
+2. Seleccione la tarjeta de origen en el Navegador.
 3. Pulse Shift+Insert. Se crea una nueva tarjeta enlazada hacia la tarjeta seleccionada.
 
 Nota: En este caso, la nueva tarjeta se añade después de la última tarjeta entre las
@@ -947,7 +945,7 @@ Nota: Las etiquetas de la tarjeta seleccionada se heredan en la nueva tarjeta.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Seleccione una tarjeta que sea hermana de la tarjeta que desea crear.
 3. Pulse Enter. Se crea una nueva tarjeta enlazada desde la tarjeta origen de la tarjeta seleccionada.
 
@@ -961,7 +959,7 @@ Nota: Las etiquetas de la tarjeta seleccionada se heredan en la nueva tarjeta.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Seleccione el enlace donde desea insertar una tarjeta.
 3. Pulse la tecla Insert. Se crea una nueva tarjeta en el medio del enlace seleccionado.
 
@@ -984,20 +982,20 @@ Viewed:1899/12/30
 Cómo seleccionar tarjetas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en la tarjeta que desea seleccionar. Para seleccionar varias tarjetas a la
    vez, mantenga pulsada la tecla Ctrl mientras hace clic en las tarjetas.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Mantenga pulsada la tecla Shift y arrastre sobre un área vacía para definir un rango
    de selección. Las tarjetas dentro del rango que delimite con el ratón quedarán
    seleccionadas.
 
 O bien,
 
-Haga clic en las tarjetas de la lista Cards en el lado izquierdo de la pantalla.
+Haga clic en las tarjetas de la lista de tarjetas en el lado izquierdo de la pantalla.
 Para seleccionar varias tarjetas, mantenga pulsada Ctrl mientras hace clic, arrastre
 sobre el rango que desee seleccionar, o seleccione la primera tarjeta del rango y luego
 mantenga pulsada Shift mientras hace clic en la última tarjeta del rango.
@@ -1018,7 +1016,7 @@ Viewed:1899/12/30
 Cómo mover tarjetas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Arrastre la tarjeta que desea mover.
 
 Nota: Si hay varias tarjetas seleccionadas, puede mover todas las tarjetas
@@ -1026,7 +1024,7 @@ Nota: Si hay varias tarjetas seleccionadas, puede mover todas las tarjetas
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Mantenga pulsada Ctrl y arrastre una tarjeta.
    Esto le permite mover tarjetas con la misma etiqueta juntas.
 18
@@ -1047,7 +1045,7 @@ Cómo editar el título de una tarjeta
 ----------------------------------------------------------------------------
 
 1. Seleccione la tarjeta cuyo título desea editar.
-2. Introduzca el nuevo título en Title del panel Card.
+2. Introduzca el nuevo título en Título del panel Tarjeta.
 20
 Title: Cómo editar el contenido de una tarjeta
 Label:2
@@ -1065,8 +1063,8 @@ Viewed:2023/04/14 20:17:51
 Cómo editar el contenido de una tarjeta
 ----------------------------------------------------------------------------
 
-1. Haga doble clic en la tarjeta que desea editar en el Browser, o haga doble clic en
-   ella en la lista Card en el lado izquierdo de la pantalla. Si la tarjeta ya está
+1. Haga doble clic en la tarjeta que desea editar en el Navegador, o haga doble clic en
+   ella en la lista Tarjeta en el lado izquierdo de la pantalla. Si la tarjeta ya está
    seleccionada, haga clic en la pestaña Editor para mostrar el Editor.
 2. Edite el contenido de la tarjeta en el Editor.
 113
@@ -1086,7 +1084,7 @@ Viewed:2023/04/14 20:23:50
 Cómo editar el contenido de una tarjeta con GPT
 ----------------------------------------------------------------------------
 
-1. Elija GPT en el menú Edit, o pulse Ctrl+G en el teclado.
+1. Elija GPT en el menú Editar, o pulse Ctrl+G en el teclado.
    Se recomienda usar Ctrl+G.
 2. Seleccione la operación que desee en el menú emergente.
 3. La primera vez que lo use, introduzca su clave de API de OpenAI en el cuadro de
@@ -1200,24 +1198,24 @@ Viewed:2023/04/14 20:23:48
 Cómo buscar tarjetas
 ----------------------------------------------------------------------------
 
-1. Elija Find en el menú Edit, o pulse Ctrl+F.
+1. Elija Buscar en el menú Editar, o pulse Ctrl+F.
 2. Introduzca la cadena de búsqueda en el cuadro de diálogo que aparece.
-3. Para buscar en los títulos de las tarjetas, marque Card Title.
-4. Para buscar en el texto del cuerpo, marque Text.
-5. Para realizar una búsqueda distinguiendo mayúsculas/minúsculas, marque Match Case.
-   Para una búsqueda sin distinguir, desmarque Match Case.
-6. Para incluir en la búsqueda las tarjetas ocultas en el Browser, marque Invisible Card.
-   Si no desea incluir tarjetas ocultas, desmarque Invisible Card.
-7. Pulse Find Next.
+3. Para buscar en los títulos de las tarjetas, marque Nombre de la tarjeta.
+4. Para buscar en el texto del cuerpo, marque Texto del cuerpo.
+5. Para realizar una búsqueda distinguiendo mayúsculas/minúsculas, marque Distinguir mayúsculas y minúsculas.
+   Para una búsqueda sin distinguir, desmarque Distinguir mayúsculas y minúsculas.
+6. Para incluir en la búsqueda las tarjetas ocultas en el Navegador, marque Tarjetas ocultas.
+   Si no desea incluir tarjetas ocultas, desmarque Tarjetas ocultas.
+7. Pulse Buscar siguiente.
 8. Para buscar el siguiente resultado con la misma palabra clave y condiciones,
-   elija Find Next en el menú Edit o pulse F3.
+   elija Buscar siguiente en el menú Editar o pulse F3.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Introduzca la cadena de búsqueda en el cuadro de edición de la esquina superior
-   derecha de la pestaña Browser.
-3. Pulse el botón Find a la derecha del cuadro de edición.
+   derecha de la pestaña Navegador.
+3. Pulse el botón Buscar a la derecha del cuadro de edición.
    Esto busca en las tarjetas actualmente visibles los títulos que contengan la cadena
    de búsqueda.
 26
@@ -1237,16 +1235,16 @@ Viewed:1899/12/30
 Cómo eliminar tarjetas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Seleccione la tarjeta que desea eliminar.
-3. Pulse la tecla Delete.
+3. Pulse la tecla Suprimir.
 
 O bien,
 
-1. Haga clic en la tarjeta que desea eliminar en la lista Cards del lado izquierdo y
+1. Haga clic en la tarjeta que desea eliminar en la lista de tarjetas del lado izquierdo y
    selecciónela.
-2. Haga clic derecho en la lista Cards.
-3. Elija Delete Card en el menú emergente que aparece.
+2. Haga clic derecho en la lista de tarjetas.
+3. Elija Eliminar tarjeta en el menú emergente que aparece.
 28
 Title: Cómo añadir una etiqueta a una tarjeta
 Label:2
@@ -1265,15 +1263,15 @@ Cómo añadir una etiqueta a una tarjeta
 ----------------------------------------------------------------------------
 
 1. Seleccione la tarjeta a la que desea añadir la etiqueta.
-2. Haga clic en uno de los botones a la derecha de Label en el panel Card que no tenga
+2. Haga clic en uno de los botones a la derecha de Etiqueta en el panel Tarjeta que no tenga
    actualmente una etiqueta asignada.
 3. Elija la etiqueta a aplicar a la tarjeta en el menú emergente que aparece.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en el tercer botón desde la izquierda en la esquina superior izquierda de
-   la pantalla del Browser (el botón marcado con L y una tarjeta) para seleccionarlo.
+   la pantalla del Navegador (el botón marcado con L y una tarjeta) para seleccionarlo.
 3. Elija la etiqueta a aplicar en el menú emergente que aparece.
 4. Haga clic en la tarjeta a la que desea añadir la etiqueta.
 20
@@ -1294,9 +1292,9 @@ Cómo añadir una nueva etiqueta a una tarjeta
 ----------------------------------------------------------------------------
 
 1. Seleccione la tarjeta cuyas etiquetas desea editar.
-2. Elija New Label en el menú Insert.
+2. Elija Nueva etiqueta en el menú Insertar.
 3. Introduzca el nombre de la nueva etiqueta en el cuadro de diálogo que aparece y
-   pulse OK.
+   pulse Aceptar.
 21
 Title: Cómo eliminar o cambiar la etiqueta de una tarjeta
 Label:2
@@ -1316,9 +1314,9 @@ Cómo eliminar o cambiar la etiqueta de una tarjeta
 
 1. Seleccione la tarjeta cuyas etiquetas desea editar.
 2. Haga clic en el botón de la etiqueta que desea eliminar o cambiar entre los botones
-   a la derecha de Label en el panel Card.
+   a la derecha de Etiqueta en el panel Tarjeta.
 3. Elija la etiqueta a asignar a la tarjeta en el menú emergente que aparece.
-   Si elige No Label, la etiqueta se elimina.
+   Si elige Sin etiqueta, la etiqueta se elimina.
 28
 Title: Cómo asociar un archivo externo o URL a una tarjeta
 Label:2
@@ -1336,8 +1334,8 @@ Viewed:1899/12/30
 Cómo asociar un archivo externo o URL a una tarjeta
 ----------------------------------------------------------------------------
 
-1. Haga doble clic en la tarjeta que desea editar en el Browser, o haga doble clic en
-   ella en la lista Card en el lado izquierdo de la pantalla. Si la tarjeta ya está
+1. Haga doble clic en la tarjeta que desea editar en el Navegador, o haga doble clic en
+   ella en la lista Tarjeta en el lado izquierdo de la pantalla. Si la tarjeta ya está
    seleccionada, haga clic en la pestaña Editor para mostrar el Editor.
 2. En una línea del cuerpo de la tarjeta, introduzca el nombre de archivo (ruta completa)
    del archivo externo o una URL.
@@ -1345,7 +1343,7 @@ Cómo asociar un archivo externo o URL a una tarjeta
 O bien,
 
 1. Seleccione la tarjeta que desea asociar con el elemento externo.
-2. Elija New Ext Link en el menú Insert.
+2. Elija Nuevo enlace externo en el menú Insertar.
 3. Especifique el archivo a asociar.
    El nombre de archivo especificado se añade como última línea del cuerpo de la tarjeta.
 36
@@ -1365,8 +1363,8 @@ Viewed:1899/12/30
 Cómo mostrar imágenes o vídeo en una tarjeta
 ----------------------------------------------------------------------------
 
-1. Haga doble clic en la tarjeta que desea editar en el Browser, o haga doble clic en
-   ella en la lista Card en el lado izquierdo de la pantalla. Si la tarjeta ya está
+1. Haga doble clic en la tarjeta que desea editar en el Navegador, o haga doble clic en
+   ella en la lista Tarjeta en el lado izquierdo de la pantalla. Si la tarjeta ya está
    seleccionada, haga clic en la pestaña Editor para mostrar el Editor.
 2. En una línea del cuerpo de la tarjeta, introduzca el nombre del archivo de imagen
    (ruta completa) o la URL de un archivo de imagen o vídeo.
@@ -1374,7 +1372,7 @@ Cómo mostrar imágenes o vídeo en una tarjeta
 O bien,
 
 1. Seleccione la tarjeta que desea asociar con el contenido multimedia.
-2. Elija New Ext Link en el menú Insert.
+2. Elija Nuevo enlace externo en el menú Insertar.
 3. Especifique el archivo de imagen o vídeo.
    El nombre de archivo especificado se añade como última línea del cuerpo de la tarjeta.
 
@@ -1402,40 +1400,40 @@ Viewed:1899/12/30
 Cómo mostrar dibujos en una tarjeta
 ----------------------------------------------------------------------------
 
-1. Seleccione la tarjeta en la que desea insertar un dibujo, ya sea en el Browser o
+1. Seleccione la tarjeta en la que desea insertar un dibujo, ya sea en el Navegador o
    desde la lista de tarjetas en el lado izquierdo de la pantalla.
-2. Haga clic en la pestaña Drawing para mostrar el editor de dibujos.
-3. Edite el dibujo en la pestaña Drawing.
-4. Cuando vuelva al Browser, el dibujo editado se muestra en la tarjeta.
+2. Haga clic en la pestaña Dibujo para mostrar el editor de dibujos.
+3. Edite el dibujo en la pestaña Dibujo.
+4. Cuando vuelva al Navegador, el dibujo editado se muestra en la tarjeta.
 
 
 - Para añadir una forma
 
-1. En la esquina superior izquierda de la pestaña Drawing, haga clic para elegir el
+1. En la esquina superior izquierda de la pestaña Dibujo, haga clic para elegir el
    tipo de forma a añadir: línea a mano alzada, línea recta, rectángulo o elipse.
 2. Arrastre el ratón dentro del marco punteado para añadir la forma.
 
 
 - Para seleccionar una forma
 
-1. En la esquina superior izquierda de la pestaña Drawing, elija el botón de selección
+1. En la esquina superior izquierda de la pestaña Dibujo, elija el botón de selección
    con el icono de cursor de ratón.
 2. Haga clic en la forma que desea seleccionar. Mantenga pulsada Ctrl mientras hace clic
    para alternar la selección de varias formas, o arrastre sobre un área para
-   seleccionar varias formas a la vez. Para seleccionar todas las formas, elija Select
-   All en el menú Edit o en el menú contextual.
+   seleccionar varias formas a la vez. Para seleccionar todas las formas, elija Seleccionar todo
+   en el menú Editar o en el menú contextual.
 
 
 - Para cortar, copiar o eliminar una forma
 
 1. Seleccione la forma a editar.
-2. Elija Cut, Copy o Delete en el menú Edit o en el menú contextual.
-   También puede usar la tecla Delete para eliminarla.
+2. Elija Cortar, Copiar o Eliminar en el menú Editar o en el menú contextual.
+   También puede usar la tecla Eliminar para eliminarla.
 
 
 - Para pegar una forma cortada o copiada
 
-Elija Paste en el menú Edit o en el menú contextual.
+Elija Pegar en el menú Editar o en el menú contextual.
 
 
 - Para cambiar el tamaño de una forma
@@ -1455,10 +1453,10 @@ Elija Paste en el menú Edit o en el menú contextual.
 1. Seleccione la forma.
 2. Elija un color con Color.
    Para usar el color de dibujo de la tarjeta determinado por las etiquetas, haga clic
-   en Default. Para elegir otro color, haga clic en el pequeño botón dos posiciones a la
-   derecha de Default y elija un color en el diálogo de selección de color que aparece.
+   en Automático. Para elegir otro color, haga clic en el pequeño botón dos posiciones a la
+   derecha de Automático y elija un color en el diálogo de selección de color que aparece.
    Si el color que desea ya ha sido seleccionado, puede simplemente hacer clic en el
-   área de color inmediatamente a la derecha de Default.
+   área de color inmediatamente a la derecha de Automático.
 27
 Title: Cómo cambiar la forma y el tamaño de una tarjeta
 Label:2
@@ -1477,15 +1475,15 @@ Cómo cambiar la forma y el tamaño de una tarjeta
 ----------------------------------------------------------------------------
 
 1. Seleccione la tarjeta cuyo tamaño desea cambiar.
-2. Cambie el valor de Size a la derecha de Title en el panel Card.
+2. Cambie el valor de Tamaño a la derecha de Nombre en el panel Tarjeta.
    Con +8 la tarjeta pasa a ser cuatro veces su tamaño original, y con -8 se reduce a
    un cuarto.
 
 O bien,
 
 1. Seleccione la tarjeta cuya forma desea cambiar.
-2. Haga clic en el botón que muestra la forma de la tarjeta a la derecha de Size en el
-   panel Card.
+2. Haga clic en el botón que muestra la forma de la tarjeta a la derecha de Tamaño en el
+   panel Tarjeta.
 3. Elija la forma de la tarjeta en el menú emergente que aparece.
 15
 Title:Editar enlaces
@@ -1520,36 +1518,36 @@ Viewed:1899/12/30
 Cómo crear un enlace entre tarjetas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en el segundo botón desde la izquierda en la esquina superior izquierda de
-   la pestaña Browser (el botón con una línea) para seleccionarlo.
+   la pestaña Navegador (el botón con una línea) para seleccionarlo.
 3. Arrastre el ratón desde la tarjeta de origen hasta la tarjeta de destino.
 
 O bien,
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en la tarjeta de origen para seleccionarla.
 3. Mientras mantiene pulsada Shift, haga clic en la tarjeta de destino.
    Puede crear enlaces rápidamente continuando haciendo clic en tarjetas mientras
    mantiene Shift pulsada.
 
 Nota: Si hace clic en el cuarto botón desde la izquierda en la esquina superior
-      izquierda de la pantalla del Browser (el botón marcado con L y una línea),
+      izquierda de la pantalla del Navegador (el botón marcado con L y una línea),
       elige una etiqueta y luego crea un enlace, puede añadir un enlace con esa
       etiqueta asignada de forma predeterminada.
 
 O bien,
 
 1. Seleccione la tarjeta de origen.
-2. Elija New Link en el menú Insert.
-3. Seleccione la tarjeta de destino en el cuadro de diálogo que aparece y pulse OK.
+2. Elija Nuevo enlace en el menú Insertar.
+3. Seleccione la tarjeta de destino en el cuadro de diálogo que aparece y pulse Aceptar.
 
 O bien,
 
 1. Seleccione la tarjeta de origen.
 2. Haga clic en la pestaña Editor.
 3. Haga clic derecho en la lista de enlaces en la parte inferior de la pantalla.
-4. Elija New Link en el menú emergente que aparece.
-5. Seleccione la tarjeta de destino en el cuadro de diálogo que aparece y pulse OK.
+4. Elija Nuevo enlace en el menú emergente que aparece.
+5. Seleccione la tarjeta de destino en el cuadro de diálogo que aparece y pulse Aceptar.
 18
 Title: Cómo seleccionar enlaces
 Label:3
@@ -1567,7 +1565,7 @@ Viewed:1899/12/30
 Cómo seleccionar enlaces
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en el enlace que desea seleccionar.
 18
 Title: Cómo editar el título de un enlace
@@ -1587,7 +1585,7 @@ Cómo editar el título de un enlace
 ----------------------------------------------------------------------------
 
 1. Seleccione el enlace cuyo título desea editar.
-2. Introduzca el nuevo título en Title del panel Link.
+2. Introduzca el nuevo título en Título del panel Enlace.
 25
 Title: Cómo cambiar el origen o destino de un enlace
 Label:3
@@ -1605,13 +1603,13 @@ Viewed:1899/12/30
 Cómo cambiar el origen o destino de un enlace
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Arrastre el extremo del enlace que está más cerca de la tarjeta de origen.
    Puede cambiar el origen a otra tarjeta.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Arrastre el extremo del enlace que está más cerca de la tarjeta de destino.
    Puede cambiar el destino a otra tarjeta.
 28
@@ -1631,9 +1629,9 @@ Viewed:1899/12/30
 Cómo eliminar enlaces
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Seleccione el enlace que desea eliminar.
-3. Pulse la tecla Delete.
+3. Pulse la tecla Suprimir.
 
 O bien,
 
@@ -1642,7 +1640,7 @@ O bien,
 3. Seleccione el enlace que desea eliminar de la lista de enlaces en la parte inferior
    de la pantalla.
 4. Haga clic derecho en la lista de enlaces.
-5. Elija Delete Link en el menú emergente que aparece.
+5. Elija Eliminar enlace en el menú emergente que aparece.
 27
 Title: Cómo añadir una etiqueta a un enlace
 Label:3
@@ -1661,14 +1659,14 @@ Cómo añadir una etiqueta a un enlace
 ----------------------------------------------------------------------------
 
 1. Seleccione el enlace al que desea añadir la etiqueta.
-2. Haga clic en el botón a la derecha de Label en el panel Link.
+2. Haga clic en el botón a la derecha de Etiqueta en el panel Enlace.
 3. Elija la etiqueta a aplicar al enlace en el menú emergente que aparece.
 
 O bien,
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en el cuarto botón desde la izquierda en la esquina superior izquierda de
-   la pantalla del Browser (el botón marcado con L y una línea) para seleccionarlo.
+   la pantalla del Navegador (el botón marcado con L y una línea) para seleccionarlo.
 3. Elija la etiqueta a aplicar en el menú emergente que aparece.
 4. Haga clic en el enlace al que desea añadir la etiqueta.
 20
@@ -1689,9 +1687,9 @@ Cómo añadir una nueva etiqueta a un enlace
 ----------------------------------------------------------------------------
 
 1. Seleccione el enlace cuyas etiquetas desea editar.
-2. Elija New Link Label en el menú Insert.
+2. Elija Nueva etiqueta de enlace en el menú Insertar.
 3. Introduzca el nombre de la nueva etiqueta en el cuadro de diálogo que aparece y
-   pulse OK.
+   pulse Aceptar.
 21
 Title: Cómo eliminar o cambiar la etiqueta de un enlace
 Label:3
@@ -1711,9 +1709,9 @@ Cómo eliminar o cambiar la etiqueta de un enlace
 
 1. Seleccione el enlace cuyas etiquetas desea editar.
 2. Haga clic en el botón de la etiqueta que desea eliminar o cambiar entre los botones
-   a la derecha de Label en el panel Link.
+   a la derecha de Etiqueta en el panel Enlace.
 3. Elija la etiqueta a asignar al enlace en el menú emergente que aparece.
-   Si elige No Label, la etiqueta se elimina.
+   Si elige Sin etiqueta, la etiqueta se elimina.
 18
 Title: Cómo invertir la dirección de un enlace
 Label:3
@@ -1732,7 +1730,7 @@ Cómo invertir la dirección de un enlace
 ----------------------------------------------------------------------------
 
 1. Seleccione el enlace cuya dirección desea invertir.
-2. Haga clic en el botón Inverse del panel Link.
+2. Haga clic en el botón Invertir del panel Enlace.
 18
 Title: Cómo activar o desactivar la dirección de un enlace
 Label:3
@@ -1751,7 +1749,7 @@ Cómo activar o desactivar la dirección de un enlace
 ----------------------------------------------------------------------------
 
 1. Seleccione el enlace cuya configuración de dirección desea cambiar.
-2. Haga clic en la casilla Direction del panel Link.
+2. Haga clic en la casilla Dirección del panel Enlace.
 20
 Title: Cómo cambiar el estilo de un enlace
 Label:3
@@ -1770,8 +1768,8 @@ Cómo cambiar el estilo de un enlace
 ----------------------------------------------------------------------------
 
 1. Seleccione el enlace cuyo estilo de línea desea cambiar.
-2. Haga clic en el botón que muestra la línea a la derecha del botón Inverse en el
-   panel Link.
+2. Haga clic en el botón que muestra la línea a la derecha del botón Invertir en el
+   panel Enlace.
 3. Elija el estilo de línea del enlace en el menú emergente que aparece.
 15
 Title:Editar etiquetas
@@ -1806,7 +1804,7 @@ Viewed:1899/12/30
 Cómo abrir el editor de etiquetas de tarjetas
 ----------------------------------------------------------------------------
 
-Elija Label en el menú Edit.
+Elija Editar etiquetas en el menú Editar.
 Se abre el diálogo de edición de etiquetas.
 18
 Title: Cómo abrir el editor de etiquetas de enlaces
@@ -1825,7 +1823,7 @@ Viewed:1899/12/30
 Cómo abrir el editor de etiquetas de enlaces
 ----------------------------------------------------------------------------
 
-Elija Link Label en el menú Edit.
+Elija Editar etiquetas de enlace en el menú Editar.
 Se abre el diálogo de edición de etiquetas de enlaces.
 20
 Title: Cómo crear una nueva etiqueta
@@ -1845,9 +1843,9 @@ Cómo crear una nueva etiqueta
 ----------------------------------------------------------------------------
 
 1. Abra la pantalla de edición de etiquetas.
-2. Pulse el botón New en la parte inferior izquierda de la pantalla de edición.
+2. Pulse el botón Más reciente primero en la parte inferior izquierda de la pantalla de edición.
 3. Introduzca el nombre de la nueva etiqueta en el cuadro de diálogo que aparece y
-   pulse OK.
+   pulse Aceptar.
 19
 Title: Cómo renombrar una etiqueta
 Label:4
@@ -1867,7 +1865,7 @@ Cómo renombrar una etiqueta
 
 1. Abra la pantalla de edición de etiquetas.
 2. Haga doble clic en el nombre de la etiqueta que desea cambiar.
-3. Cambie el nombre de la etiqueta en el cuadro de diálogo que aparece y pulse OK.
+3. Cambie el nombre de la etiqueta en el cuadro de diálogo que aparece y pulse Aceptar.
 19
 Title: Cómo cambiar el color de una etiqueta
 Label:4
@@ -1887,7 +1885,7 @@ Cómo cambiar el color de una etiqueta
 
 1. Abra la pantalla de edición de etiquetas.
 2. Haga doble clic en el área de color de la etiqueta que desea cambiar.
-3. Especifique el color de la etiqueta en el cuadro de diálogo que aparece y pulse OK.
+3. Especifique el color de la etiqueta en el cuadro de diálogo que aparece y pulse Aceptar.
 22
 Title: Cómo activar o desactivar una etiqueta
 Label:4
@@ -1905,10 +1903,10 @@ Viewed:1899/12/30
 Cómo activar o desactivar una etiqueta
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón VIEW en la pantalla. Aparece el diálogo VIEW.
-3. Haga clic en la pestaña Label para seleccionarla.
-4. Haga clic en la columna Enable de la etiqueta para alternar la etiqueta entre
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Ver en la pantalla. Aparece el diálogo Ver.
+3. Haga clic en la pestaña Etiqueta para seleccionarla.
+4. Haga clic en la columna Habilitar de la etiqueta para alternar la etiqueta entre
    activada y desactivada. Las etiquetas desactivadas se tratan como si no estuvieran
    asignadas al mostrar y ordenar las tarjetas.
 19
@@ -1930,7 +1928,7 @@ Cómo eliminar una etiqueta
 
 1. Abra la pantalla de edición de etiquetas.
 2. Haga clic en la etiqueta que desea eliminar.
-3. Pulse el botón Delete en la parte inferior de la pantalla de edición.
+3. Pulse el botón Eliminar en la parte inferior de la pantalla de edición.
 15
 Title:Ordenar tarjetas
 Label:5,8
@@ -1964,9 +1962,9 @@ Viewed:1899/12/30
 Cómo ajustar todas las tarjetas en la pantalla
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Normalize en el menú
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Normalizar en el menú
    emergente que aparece.
 20
 Title: Cómo ordenar tarjetas para que no se superpongan
@@ -1985,9 +1983,9 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas para que no se superpongan
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Repulsion en el menú
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Repulsión en el menú
    emergente que aparece.
 23
 Title: Cómo ordenar tarjetas por enlaces
@@ -2006,12 +2004,12 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas por enlaces
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Link o Link(Soft) en el
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Enlace o Enlace (suave) en el
    menú emergente que aparece.
 
-Nota: En comparación con Link, Link(Soft) da mayor prioridad a evitar la superposición
+Nota: En comparación con Enlace, Enlace (suave) da mayor prioridad a evitar la superposición
       de tarjetas.
 23
 Title: Cómo ordenar tarjetas por etiquetas
@@ -2030,12 +2028,12 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas por etiquetas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Label o Label(Soft) en el
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Etiqueta o Etiqueta (suave) en el
    menú emergente que aparece.
 
-Nota: En comparación con Label, Label(Soft) da mayor prioridad a evitar la
+Nota: En comparación con Etiqueta, Etiqueta (suave) da mayor prioridad a evitar la
       superposición de tarjetas.
 25
 Title: Cómo ordenar tarjetas por índice
@@ -2054,14 +2052,14 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas por índice
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Index, Index(Soft) o
-   Index(Matrix) en el menú emergente que aparece.
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Orden, Orden (suave) o
+   Orden (matriz) en el menú emergente que aparece.
 
-Nota: En comparación con Index, Index(Soft) da mayor prioridad a evitar la
+Nota: En comparación con Orden, Orden (suave) da mayor prioridad a evitar la
       superposición de tarjetas.
-Index(Matrix) ordena las tarjetas de forma organizada desde la esquina superior
+Orden (matriz) ordena las tarjetas de forma organizada desde la esquina superior
 izquierda.
 20
 Title: Cómo ordenar tarjetas en cuadrícula
@@ -2080,9 +2078,9 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas en cuadrícula
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Matrix en el menú
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Matriz en el menú
    emergente que aparece.
 37
 Title: Cómo ordenar tarjetas por similitud de título/texto
@@ -2101,10 +2099,10 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas por similitud de título/texto
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón Arrange ON para que quede pulsado.
-3. Pulse el botón a la derecha del botón Arrange ON y elija Similarity o
-   Similarity(Soft) en el menú emergente que aparece.
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Auto para que quede pulsado.
+3. Pulse el botón a la derecha del botón Auto y elija Similitud o
+   Similitud (suave) en el menú emergente que aparece.
 4. Para ordenar las tarjetas usando los valores de similitud más recientes, pulse el
    botón de actualización situado más a la derecha.
 
@@ -2115,12 +2113,12 @@ texto del cuerpo alcanza unos 500 kB, el cálculo puede tardar aproximadamente u
 minuto en una CPU de alrededor de 2 GHz.
 
 Nota: Dado que el cálculo de similitud lleva tiempo, Frieve Editor calcula la similitud
-      entre tarjetas solo una vez, cuando se selecciona Similarity con el botón ON
-      pulsado, o cuando se pulsa el botón ON con Similarity seleccionado.
+      entre tarjetas solo una vez, cuando se selecciona Similitud con el botón Auto
+      pulsado, o cuando se pulsa el botón Auto con Similitud seleccionado.
       Después de editar títulos o texto del cuerpo, pulse el botón de actualización para
       reordenar las tarjetas con valores de similitud que reflejen esas ediciones.
 
-Nota: En comparación con Similarity, Similarity(Soft) da mayor prioridad a evitar la
+Nota: En comparación con Similitud, Similitud (suave) da mayor prioridad a evitar la
       superposición de tarjetas.
 48
 Title: Cómo ordenar tarjetas jerárquicamente
@@ -2139,33 +2137,33 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas jerárquicamente
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Haga clic en la tarjeta que será la raíz (la parte superior de la jerarquía) para
    seleccionarla.
 3. Active el botón de designación de raíz en la pantalla (a la derecha del botón de
    chincheta y a la izquierda de la etiqueta).
-4. Haga clic en el botón Arrange ON para que quede pulsado.
-5. Pulse el botón a la derecha del botón Arrange ON y elija Tree (Radial) en el menú
+4. Haga clic en el botón Auto para que quede pulsado.
+5. Pulse el botón a la derecha del botón Auto y elija Árbol (radial) en el menú
    emergente que aparece.
 
-Para cambiar el orden de las tarjetas dentro del mismo nivel, use los botones Up/Down
+Para cambiar el orden de las tarjetas dentro del mismo nivel, use los botones de subir y bajar
 en la esquina superior derecha de la lista de tarjetas en el lado izquierdo de la
-pantalla, o arrastre las tarjetas hacia arriba y hacia abajo en el Browser.
+pantalla, o arrastre las tarjetas hacia arriba y hacia abajo en el Navegador.
 
-Para editar la jerarquía en sí, arrastre los enlaces en el Browser y reconéctelos.
+Para editar la jerarquía en sí, arrastre los enlaces en el Navegador y reconéctelos.
 
 Para ocultar los niveles inferiores bajo una tarjeta específica, pulse el botón "-"
 que se muestra en la esquina inferior derecha de la tarjeta. Para volver a mostrar un
 nivel oculto, pulse el botón "+" que se muestra en la esquina inferior derecha de la
 tarjeta.
 
-Precaución: Cuando se realiza la ordenación automática con Tree (Radial), los valores
+Precaución: Cuando se realiza la ordenación automática con Árbol (radial), los valores
 de índice de las tarjetas se reordenan forzosamente en el orden jerárquico.
 
 Nota: Una tarjeta designada como raíz muestra ">" a la izquierda de su título en la
       lista de tarjetas en el lado izquierdo de la pantalla.
 
-Nota: Cuando se realiza la ordenación automática con Tree (Radial), la lista de
+Nota: Cuando se realiza la ordenación automática con Árbol (radial), la lista de
       tarjetas en el lado izquierdo de la pantalla se muestra con sangría que
       corresponde a los niveles jerárquicos.
 
@@ -2188,10 +2186,10 @@ Viewed:1899/12/30
 Cómo cambiar el tamaño de tarjeta por etiqueta
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón VIEW en la pantalla. Aparece el diálogo VIEW.
-3. Haga clic en la pestaña Label para seleccionarla.
-4. En las columnas Label y Size, use los botones + y - para especificar cuánto afecta
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Ver en la pantalla. Aparece el diálogo Ver.
+3. Haga clic en la pestaña Etiqueta para seleccionarla.
+4. En las columnas Etiqueta y Tamaño, use los botones + y - para especificar cuánto afecta
    cada etiqueta al tamaño de la tarjeta.
 23
 Title: Cómo agrupar tarjetas con la misma etiqueta
@@ -2210,15 +2208,15 @@ Viewed:1899/12/30
 Cómo agrupar tarjetas con la misma etiqueta
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón VIEW en la pantalla. Aparece el diálogo VIEW para elegir qué
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Ver en la pantalla. Aparece el diálogo Ver para elegir qué
    tarjetas y enlaces mostrar.
-3. Haga clic en la pestaña Label para seleccionarla.
-4. En las columnas Label y Fold, especifique la etiqueta que desea agrupar. Las tarjetas
-   con esa etiqueta marcada se muestran en el Browser como una sola tarjeta con el
+3. Haga clic en la pestaña Etiqueta para seleccionarla.
+4. En las columnas Etiqueta y Plegar, especifique la etiqueta que desea agrupar. Las tarjetas
+   con esa etiqueta marcada se muestran en el Navegador como una sola tarjeta con el
    nombre de la etiqueta.
 82
-Title: Cómo elegir qué tarjetas y enlaces se muestran en el Browser
+Title: Cómo elegir qué tarjetas y enlaces se muestran en el Navegador
 Label:5
 Fixed:0
 X:0.69487738609314
@@ -2231,75 +2229,75 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Cómo elegir qué tarjetas y enlaces se muestran en el Browser
+Cómo elegir qué tarjetas y enlaces se muestran en el Navegador
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Haga clic en el botón VIEW en la pantalla. Aparece el diálogo VIEW para elegir qué
+1. Haga clic en la pestaña Navegador.
+2. Haga clic en el botón Ver en la pantalla. Aparece el diálogo Ver para elegir qué
    tarjetas y enlaces mostrar.
-3. Haga clic en la pestaña Label o en la pestaña Limitation.
+3. Haga clic en la pestaña Etiqueta o en la pestaña Filtro.
 
 
 - Para limitar las tarjetas visibles por tamaño de tarjeta
 
-1. Marque Size Limitation.
-2. Use el control deslizante a la derecha de Size Limitation para especificar el tamaño
+1. Marque Limitar visualización por tamaño.
+2. Use el control deslizante a la derecha de Limitar visualización por tamaño para especificar el tamaño
    mínimo de las tarjetas a mostrar.
 
 
 - Para limitar las tarjetas visibles por número de enlaces desde la tarjeta seleccionada
 
-1. Marque Link Limitation.
-2. Use el control deslizante de Link Limitation para especificar el límite de enlaces.
+1. Marque Limitar visualización por enlaces.
+2. Use el control deslizante de Limitar visualización por enlaces para especificar el límite de enlaces.
 3. Para restringir aún más el resultado por dirección de enlace al usar este ajuste,
-   marque Direction.
-4. Para limitar a la dirección de avance, marque Forward. Para limitar a la dirección
-   inversa, marque Backward.
+   marque Dirección.
+4. Para limitar a la dirección de avance, marque Hacia delante. Para limitar a la dirección
+   inversa, marque Hacia atrás.
 5. Para añadir una restricción por tarjeta objetivo, pulse el botón a la derecha de
-   Target Card, elija Select y seleccione la tarjeta objetivo en el cuadro de diálogo.
-   O bien, en el Browser, mantenga pulsada Alt mientras hace clic en la tarjeta objetivo.
+   Destino, elija Seleccionar y seleccione la tarjeta objetivo en el cuadro de diálogo.
+   O bien, en el Navegador, mantenga pulsada Alt mientras hace clic en la tarjeta objetivo.
    Para eliminar la restricción de tarjeta objetivo, pulse el botón a la derecha de
-   Target Card y elija No Assign.
+   Destino y elija Sin asignar.
 
 
 - Para limitar las tarjetas visibles por fecha
 
-1. Marque Date Limitation.
-2. En Date Type, elija la fecha a usar para la restricción.
-   Created es la fecha y hora de creación de la tarjeta, Edited es la fecha y hora de
-   la última edición del cuerpo de la tarjeta, y Viewed es la fecha y hora en que la
+1. Marque Limitar visualización por fecha y hora.
+2. En Fecha/hora, elija la fecha a usar para la restricción.
+   Fecha de creación es la fecha y hora de creación de la tarjeta, Fecha de edición es la fecha y hora de
+   la última edición del cuerpo de la tarjeta, y Fecha de visualización es la fecha y hora en que la
    tarjeta fue seleccionada o mostrada por última vez.
-3. En Date Limitation Type, elija cómo se aplica la restricción.
-   Old muestra las tarjetas en orden de más antigua a más reciente, New las muestra de
-   más reciente a más antigua, Near muestra las tarjetas con fechas cercanas a la
-   tarjeta seleccionada, Older muestra las tarjetas más antiguas que la seleccionada y
-   cercanas en fecha, y Newer muestra las tarjetas más recientes que la seleccionada y
+3. En Método:, elija cómo se aplica la restricción.
+   Más antiguo primero muestra las tarjetas en orden de más antigua a más reciente, Más reciente primero las muestra de
+   más reciente a más antigua, Más cercano primero muestra las tarjetas con fechas cercanas a la
+   tarjeta seleccionada, Más antiguo muestra las tarjetas más antiguas que la seleccionada y
+   cercanas en fecha, y Más reciente muestra las tarjetas más recientes que la seleccionada y
    cercanas en fecha.
-4. Use el control deslizante a la derecha de Date Limitation para especificar la
+4. Use el control deslizante a la derecha de Limitar visualización por fecha y hora para especificar la
    intensidad de la restricción.
-   Con Old, las tarjetas más antiguas se muestran cuando el control está a la izquierda,
+   Con Más antiguo primero, las tarjetas más antiguas se muestran cuando el control está a la izquierda,
    y se añaden tarjetas más recientes al moverlo a la derecha.
-   Con New, las tarjetas más recientes se muestran cuando el control está a la derecha,
+   Con Más reciente primero, las tarjetas más recientes se muestran cuando el control está a la derecha,
    y se añaden tarjetas más antiguas al moverlo a la izquierda.
-   Con Near, Older y Newer, mover la barra a la derecha relaja la restricción.
+   Con Más cercano primero, Más antiguo y Más reciente, mover la barra a la derecha relaja la restricción.
 
 
 - Para mostrar u ocultar tarjetas con etiquetas
 
-1. Para mostrar tarjetas con ciertas etiquetas, especifíquelas en la columna Show bajo
-   Label. Si una tarjeta tiene una o más de las etiquetas marcadas, se muestra.
-2. Para ocultar tarjetas con ciertas etiquetas, especifíquelas en la columna Hide.
+1. Para mostrar tarjetas con ciertas etiquetas, especifíquelas en la columna Mostrar bajo
+   Etiqueta. Si una tarjeta tiene una o más de las etiquetas marcadas, se muestra.
+2. Para ocultar tarjetas con ciertas etiquetas, especifíquelas en la columna Ocultar.
    Si una tarjeta tiene una o más etiquetas marcadas allí, se oculta.
-   La configuración de Hide tiene prioridad sobre la de Show.
+   La configuración de Ocultar tiene prioridad sobre la de Mostrar.
 
 
 - Para mostrar u ocultar enlaces con etiquetas
 
-1. Para mostrar enlaces con ciertas etiquetas, especifíquelas en la columna Show bajo
-   Link Label. Si un enlace tiene una o más de las etiquetas marcadas, se muestra.
-2. Para ocultar enlaces con ciertas etiquetas, especifíquelas en la columna Hide.
+1. Para mostrar enlaces con ciertas etiquetas, especifíquelas en la columna Mostrar bajo
+   Enlace Etiqueta. Si un enlace tiene una o más de las etiquetas marcadas, se muestra.
+2. Para ocultar enlaces con ciertas etiquetas, especifíquelas en la columna Ocultar.
    Si un enlace tiene una o más etiquetas marcadas allí, se oculta.
-   La configuración de Hide tiene prioridad sobre la de Show.
+   La configuración de Ocultar tiene prioridad sobre la de Mostrar.
 29
 Title: Cómo ordenar tarjetas
 Label:5
@@ -2317,18 +2315,18 @@ Viewed:1899/12/30
 Cómo ordenar tarjetas
 ----------------------------------------------------------------------------
 
-Elija un método de ordenación en Edit menu -> Sort Card.
-Title ordena las tarjetas por título.
-Date Created ordena por orden de creación.
-Date Edited ordena por la fecha de última edición de la tarjeta.
-Date Viewed ordena por la fecha de última selección de la tarjeta.
-Los elementos marcados con Inverse ordenan en orden inverso.
+Elija un método de ordenación en menú Editar -> Ordenar tarjetas.
+Título ordena las tarjetas por título.
+Fecha de creación ordena por orden de creación.
+Fecha de edición ordena por la fecha de última edición de la tarjeta.
+Fecha de visualización ordena por la fecha de última selección de la tarjeta.
+Los elementos marcados con Invertir ordenan en orden inverso.
 
 O bien,
 
-1. Haga clic en la tarjeta que desea reordenar en la lista Cards del lado izquierdo de
+1. Haga clic en la tarjeta que desea reordenar en la lista de tarjetas del lado izquierdo de
    la pantalla.
-2. Use los botones UpDown en la esquina superior derecha de la lista Cards para mover la
+2. Use los botones de subir y bajar en la esquina superior derecha de la lista de tarjetas para mover la
    posición de la tarjeta en la lista.
 15
 Title:Explorar y animar
@@ -2363,25 +2361,25 @@ Viewed:1899/12/30
 Cómo desplazar la vista del navegador
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Active Auto Scroll en la esquina superior derecha de la pestaña Browser.
-   Con Auto Scroll activado, cada vez que seleccione una tarjeta o un enlace,
+1. Haga clic en la pestaña Navegador.
+2. Active Auto despl. en la esquina superior derecha de la pestaña Navegador.
+   Con Auto despl. activado, cada vez que seleccione una tarjeta o un enlace,
    la vista se desplaza automáticamente para centrar el elemento seleccionado
    en la pantalla.
 
 O bien:
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Arrastre sobre un área vacía (donde no haya tarjetas).
 
 O bien:
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Utilice las barras de desplazamiento a la derecha y en la parte inferior del navegador.
 
 O bien:
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Utilice la rueda del ratón (sin Ctrl) para desplazarse verticalmente.
    Mantenga pulsada la tecla Shift mientras gira la rueda para desplazarse
    horizontalmente (o deslice dos dedos en el trackpad).
@@ -2402,25 +2400,25 @@ Viewed:1899/12/30
 Cómo ampliar o reducir la vista del navegador
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
-2. Active Auto Zoom en la esquina superior derecha de la pestaña Browser.
-   Con Auto Zoom activado, cada vez que seleccione una tarjeta o un enlace,
+1. Haga clic en la pestaña Navegador.
+2. Active Auto zoom en la esquina superior derecha de la pestaña Navegador.
+   Con Auto zoom activado, cada vez que seleccione una tarjeta o un enlace,
    el zoom se ajusta automáticamente para mostrar la tarjeta seleccionada
    y las tarjetas relacionadas.
 
 O bien:
 
-1. Haga clic en la pestaña Browser.
-2. Arrastre el control Zoom en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
+2. Arrastre el control Zoom en la pestaña Navegador.
 
 O bien:
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Mantenga pulsada la tecla Ctrl y gire la rueda del ratón para acercar o alejar.
 
 O bien:
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Pellizque o separe los dedos en el trackpad para acercar o alejar.
 37
 Title: Cómo moverse entre tarjetas con el teclado
@@ -2477,7 +2475,7 @@ Viewed:1899/12/30
 Cómo cambiar el tamaño del texto
 ----------------------------------------------------------------------------
 
-En el menú View, dentro de Font Size, seleccione Magnify (ampliar) o Reduce (reducir).
+En el menú Ver, dentro de Fuente, seleccione Ampliar o Reducir.
 
 O bien:
 
@@ -2487,7 +2485,7 @@ O bien:
 
 Mantenga pulsadas las teclas Ctrl+Shift y gire la rueda del ratón para ajustar el tamaño del texto.
 
-Para restablecer el tamaño predeterminado, seleccione Default en el menú View > Font Size, o pulse Ctrl+Shift+0.
+Para restablecer el tamaño predeterminado, seleccione Tamaño predeterminado en el menú Ver > Fuente, o pulse Ctrl+Shift+0.
 23
 Title: Cómo usar la pantalla completa
 Label:6
@@ -2505,7 +2503,7 @@ Viewed:1899/12/30
 Cómo usar la pantalla completa
 ----------------------------------------------------------------------------
 
-Elija Full Screen en el menú View.
+Elija Pantalla completa en el menú Ver.
 
 O bien,
 
@@ -2529,7 +2527,7 @@ Viewed:1899/12/30
 Cómo abrir enlaces externos asociados a tarjetas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Browser.
+1. Haga clic en la pestaña Navegador.
 2. Mantenga pulsadas Ctrl y Shift mientras hace clic en la tarjeta cuyo enlace externo
    desea abrir. Si la tarjeta tiene un solo enlace externo, se abre inmediatamente.
 3. Si la tarjeta tiene varios enlaces externos, haga clic en el enlace que desea abrir
@@ -2537,8 +2535,8 @@ Cómo abrir enlaces externos asociados a tarjetas
 
 O bien,
 
-1. Haga doble clic en la tarjeta cuyo enlace externo desea abrir en el Browser, o haga
-   doble clic en ella en la lista Card en el lado izquierdo de la pantalla. Si esa
+1. Haga doble clic en la tarjeta cuyo enlace externo desea abrir en el Navegador, o haga
+   doble clic en ella en la lista de tarjetas en el lado izquierdo de la pantalla. Si esa
    tarjeta ya está seleccionada, haga clic en la pestaña Editor para mostrar el Editor.
 2. Mantenga pulsada Ctrl mientras hace clic en la línea que contiene el enlace externo.
 30
@@ -2558,20 +2556,20 @@ Viewed:1899/12/30
 Cómo mostrar tarjetas aleatoriamente
 ----------------------------------------------------------------------------
 
-1. Elija Random Flash, Random Map, Random Scroll o Random Jump en el menú Animation.
-   La animación comienza y aparece el diálogo Random Animation.
-   Random Flash muestra el número especificado de tarjetas una tras otra.
-   Random Map muestra una tarjeta aleatoria y luego amplía la visualización a las
+1. Elija Destello aleatorio, Mapa aleatorio, Desplazamiento aleatorio o Salto aleatorio en el menú Animación.
+   La animación comienza y aparece el diálogo Random Animación.
+   Destello aleatorio muestra el número especificado de tarjetas una tras otra.
+   Mapa aleatorio muestra una tarjeta aleatoria y luego amplía la visualización a las
    tarjetas enlazadas desde ella.
-   Random Scroll desplaza el número especificado de tarjetas por la pantalla.
-   Random Jump hace que el número especificado de tarjetas reboten desde la parte
+   Desplazamiento aleatorio desplaza el número especificado de tarjetas por la pantalla.
+   Salto aleatorio hace que el número especificado de tarjetas reboten desde la parte
    inferior de la pantalla.
 2. Para acercar o alejar la vista, cambie Zoom.
-3. Para cambiar la velocidad de visualización, ajuste Speed.
-4. Para cambiar cuántas tarjetas se muestran a la vez en la pantalla, ajuste Cards.
-5. Para entrar o salir del modo de pantalla completa, pulse el botón Full Screen o F10.
-6. Para pausar o reanudar la animación, pulse el botón Pause.
-7. Para finalizar la animación, pulse el botón Stop.
+3. Para cambiar la velocidad de visualización, ajuste Velocidad.
+4. Para cambiar cuántas tarjetas se muestran a la vez en la pantalla, ajuste Tarjetas.
+5. Para entrar o salir del modo de pantalla completa, pulse el botón Pantalla completa o F10.
+6. Para pausar o reanudar la animación, pulse el botón Pausa.
+7. Para finalizar la animación, pulse el botón Detener.
 23
 Title: Cómo seguir enlaces aleatoriamente
 Label:6
@@ -2589,13 +2587,13 @@ Viewed:1899/12/30
 Cómo seguir enlaces aleatoriamente
 ----------------------------------------------------------------------------
 
-1. Elija Random Trace en el menú Animation.
-   La animación comienza y aparece el diálogo Random Animation.
+1. Elija Trazo aleatorio en el menú Animación.
+   La animación comienza y aparece el diálogo Random Animación.
 2. Para acercar o alejar la vista, cambie Zoom.
-3. Para cambiar la velocidad de visualización, ajuste Speed.
-4. Para entrar o salir del modo de pantalla completa, pulse el botón Full Screen o F10.
-5. Para pausar o reanudar la animación, pulse el botón Pause.
-6. Para finalizar la animación, pulse el botón Stop.
+3. Para cambiar la velocidad de visualización, ajuste Velocidad.
+4. Para entrar o salir del modo de pantalla completa, pulse el botón Pantalla completa o F10.
+5. Para pausar o reanudar la animación, pulse el botón Pausa.
+6. Para finalizar la animación, pulse el botón Detener.
 38
 Title: Cómo ver estadísticas
 Label:6
@@ -2613,21 +2611,21 @@ Viewed:1899/12/30
 Cómo ver estadísticas
 ----------------------------------------------------------------------------
 
-1. Haga clic en la pestaña Statistics.
+1. Haga clic en la pestaña Estad..
    Inicialmente se muestra un gráfico con el número de tarjetas por cada etiqueta.
 2. Para cambiar la clave usada para la visualización del gráfico, haga clic en el botón
    a la derecha de Key y elija una de las siguientes opciones.
 
-   Label: Muestra un gráfico del número de tarjetas por cada etiqueta (predeterminado)
-   Number of Link: Muestra un gráfico del número de tarjetas por cantidad de enlaces
-   Created Date: Muestra un gráfico del número de tarjetas por fecha y hora de creación
-   Edited Date: Muestra un gráfico del número de tarjetas por fecha y hora de última
+   Etiqueta: Muestra un gráfico del número de tarjetas por cada etiqueta (predeterminado)
+   Número de enlaces: Muestra un gráfico del número de tarjetas por cantidad de enlaces
+   Fecha de creación: Muestra un gráfico del número de tarjetas por fecha y hora de creación
+   Fecha de edición: Muestra un gráfico del número de tarjetas por fecha y hora de última
    edición
-   Viewed Date: Muestra un gráfico del número de tarjetas por fecha y hora de
+   Fecha de visualización: Muestra un gráfico del número de tarjetas por fecha y hora de
    visualización
 
-   Si se selecciona Created Date, Edited Date o Viewed Date, también puede elegir la
-   unidad de agregación entre Year, Month, Day, Week u Hour.
+   Si se selecciona Fecha de creación, Fecha de edición o Fecha de visualización, también puede elegir la
+   unidad de agregación entre Agrupar por año, Agrupar por mes, Agrupar por día, Agrupar por día de la semana u Agrupar por hora.
 
 3. Para listar las tarjetas incluidas en cada gráfico, haga clic en una barra del
    gráfico. Aparece una lista de las tarjetas incluidas en el lado derecho de la pantalla.
@@ -2652,7 +2650,7 @@ Viewed:1899/12/30
 Imprimir
 ============================================================================
 25
-Title: Cómo imprimir la vista del Browser
+Title: Cómo imprimir la vista del Navegador
 Label:9
 Fixed:0
 X:0.675095319747925
@@ -2665,17 +2663,17 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Cómo imprimir la vista del Browser
+Cómo imprimir la vista del Navegador
 ----------------------------------------------------------------------------
 
-1. Elija Print Image en el menú File.
+1. Elija Imprimir vista del navegador en el menú Archivo.
 2. En el cuadro de diálogo que aparece, elija y configure la impresora según sea
    necesario.
-3. Pulse OK para iniciar la impresión.
+3. Pulse Aceptar para iniciar la impresión.
 
-Nota: La vista actual del Browser se imprime centrada en el papel seleccionado.
+Nota: La vista actual del Navegador se imprime centrada en el papel seleccionado.
 
-Nota: Excepto por el ajuste de escala al tamaño del papel, la vista actual del Browser
+Nota: Excepto por el ajuste de escala al tamaño del papel, la vista actual del Navegador
       se imprime básicamente tal como aparece en pantalla.
 15
 Title:Guía de menús
@@ -2694,7 +2692,7 @@ Viewed:2023/04/14 20:14:35
 Guía de menús
 ============================================================================
 87
-Title: Menú File
+Title: Menú Archivo
 Label:7
 Fixed:0
 X:0.959879457950592
@@ -2707,29 +2705,29 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menú File
+Menú Archivo
 ----------------------------------------------------------------------------
 
-New
+Nuevo
   Crea un proyecto nuevo.
 
-Open
+Abrir
   Abre un proyecto guardado.
 
-Save
+Guardar
   Sobrescribe el proyecto actual.
 
-SaveAs
+Guardar como
   Guarda el proyecto actual con un nuevo nombre.
 
-Auto Save (This File)
+Guardado automático (este archivo)
   Activa o desactiva el guardado automático para este archivo.
   Cuando está activado, los cambios se guardan automáticamente tras un
   período de inactividad.
   Al cerrar la aplicación, los cambios no guardados se guardan sin
   solicitar confirmación.
 
-Auto Reload (This File)
+Recarga automática (este archivo)
   Activa o desactiva la recarga automática para este archivo.
   Cuando está activado, el archivo se recarga automáticamente si es
   modificado por un programa externo.
@@ -2737,52 +2735,52 @@ Auto Reload (This File)
   guardados en la aplicación.
 
 
-Recent Files
+Archivos recientes
   Abre un proyecto utilizado anteriormente.
 
-Recent Folders
+Carpetas recientes
   Abre un proyecto desde una carpeta utilizada anteriormente.
 
 
-Import
+Importar
   Carga datos desde archivos que no sean archivos fip.
-  Txt File carga uno o más archivos de texto como una tarjeta cada uno.
-  Hierarchical Text File carga un archivo de texto jerárquico cuya sangría inicial está
+  Archivo de texto carga uno o más archivos de texto como una tarjeta cada uno.
+  Texto jerárquico carga un archivo de texto jerárquico cuya sangría inicial está
   hecha con tabuladores o espacios, usando una línea por tarjeta.
-  Hierarchical Text File 2 carga un archivo de texto jerárquico en el que la jerarquía
+  Texto jerárquico 2 carga un archivo de texto jerárquico en el que la jerarquía
   se representa por el número de puntos iniciales y el texto restante se convierte en el
   cuerpo.
-  Text Files in a Folder carga todos los archivos de texto en una carpeta especificada
+  Textos en una carpeta carga todos los archivos de texto en una carpeta especificada
   junto con la estructura de carpetas.
 
 
-Export
+Exportar
   Exporta datos a archivos externos.
-  Txt file(Card Title) genera todos los títulos de tarjetas en un solo archivo de texto.
-  Txt file(Text) genera el texto del cuerpo de todas las tarjetas en un solo archivo de
+  Archivo de texto (título de tarjeta) genera todos los títulos de tarjetas en un solo archivo de texto.
+  Archivo de texto (cuerpo) genera el texto del cuerpo de todas las tarjetas en un solo archivo de
   texto.
-  Txt files genera cada tarjeta como un archivo de texto independiente. En ese caso, cada
+  Varios archivos de texto genera cada tarjeta como un archivo de texto independiente. En ese caso, cada
   nombre de archivo es el título de la tarjeta más ".txt".
-  html files genera los datos en formato HTML para consultar en la web.
+  Archivo Html genera los datos en formato HTML para consultar en la web.
   Además del archivo con el nombre especificado, se crean "cards.html" y archivos con el
   nombre número de tarjeta + ".html".
-  Hierarchical Text genera un archivo de texto en el que la jerarquía se representa por
+  Texto jerárquico genera un archivo de texto en el que la jerarquía se representa por
   el número de puntos iniciales. El texto jerárquico exportado en este formato se puede
-  importar con Import menu -> Hierarchical Text File 2.
+  importar con menú Archivo -> Importar -> Texto jerárquico 2.
 
-Precaución: Al realizar operaciones de Export que crean múltiples archivos, si ya existen
+Precaución: Al realizar operaciones de exportación que crean múltiples archivos, si ya existen
   archivos con los mismos nombres, se sobrescriben sin aviso.
 
 
-Print Image
-  Realiza una impresión simple de la vista del Browser.
-  La vista actual del Browser se ajusta al tamaño del papel seleccionado y se imprime.
+Imprimir vista del navegador
+  Realiza una impresión simple de la vista del Navegador.
+  La vista actual del Navegador se ajusta al tamaño del papel seleccionado y se imprime.
 
 
-Exit
+Salir
   Sale de Frieve Editor.
 69
-Title: Menú Edit
+Title: Menú Editar
 Label:7
 Fixed:0
 X:0.908938229084015
@@ -2795,64 +2793,64 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menú Edit
+Menú Editar
 ----------------------------------------------------------------------------
 
-Undo
+Deshacer
   Cancela la edición más reciente.
 
-Redo
+Rehacer
   Repite la edición que se deshizo más recientemente.
 
 
-Cut
+Cortar
   Copia el texto seleccionado al portapapeles y luego lo elimina.
 
-Copy
+Copiar
   Copia el texto seleccionado al portapapeles.
 
-Paste
+Pegar
   Pega el texto del portapapeles en la posición actual.
 
-Delete
+Eliminar
   Elimina el texto seleccionado.
 
-Select All
+Seleccionar todo
   Selecciona todo el texto.
 
 
-Find
+Buscar
   Busca una cadena especificada.
 
-Replace
+Reemplazar
   Sustituye una cadena especificada por otra cadena.
 
-Find Next
+Buscar siguiente
   Busca la siguiente aparición de la cadena especificada.
 
-Find Previous
+Buscar anterior
   Busca la aparición anterior de la cadena especificada.
 
-Web Search
+Búsqueda web
   Busca en la web usando el título de la tarjeta seleccionada o el texto seleccionado.
 
 
-Sort Card
+Ordenar tarjetas
   Ordena las tarjetas por nombre de tarjeta o fecha.
 
-Barch Conversion
-  All Cards Shape convierte por lotes todas las tarjetas a la forma especificada.
-  All Links Shape convierte por lotes todos los enlaces a la forma especificada.
-  All Links Direction invierte la dirección de todos los enlaces.
+Cambio por lotes
+  Forma de todas las tarjetas convierte por lotes todas las tarjetas a la forma especificada.
+  Forma de todos los enlaces convierte por lotes todos los enlaces a la forma especificada.
+  Dirección de todos los enlaces invierte la dirección de todos los enlaces.
 
 
-Label
+Editar etiquetas
   Abre el diálogo de edición de etiquetas.
 
-Link Label
+Editar etiquetas de enlace
   Abre el diálogo de edición de etiquetas de enlaces.
 42
-Title: Menú Insert
+Title: Menú Insertar
 Label:7
 Fixed:0
 X:0.986021161079407
@@ -2865,37 +2863,37 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menú Insert
+Menú Insertar
 ----------------------------------------------------------------------------
 
-New Card
+Nueva tarjeta
   Crea una nueva tarjeta.
 
-New Link
+Nuevo enlace
   Crea un nuevo enlace desde la tarjeta seleccionada.
 
-New Ext Link
+Nuevo enlace externo
   Inserta un enlace externo (nombre de archivo) en la tarjeta seleccionada.
 
-New Label
+Nueva etiqueta
   Añade una nueva etiqueta a la tarjeta seleccionada.
 
-New Link Label
+Nueva etiqueta de enlace
   Añade una nueva etiqueta al enlace seleccionado.
 
 
-Link to All Cards with Designated Label
+Enlazar a todas las tarjetas con la etiqueta indicada
   Crea enlaces desde la tarjeta actual a todas las tarjetas que tengan la etiqueta
   especificada.
 
-New Card Links to All Cards with Designated Label
+Nueva tarjeta enlazada a todas las tarjetas con la etiqueta indicada
   Crea una nueva tarjeta enlazada a todas las tarjetas que tengan la etiqueta
   especificada.
 
-Add Designated Label to All Destination Cards
+Añadir la etiqueta indicada a todas las tarjetas de destino
   Añade la etiqueta especificada a todas las tarjetas de destino.
 32
-Title: Menú Animation
+Title: Menú Animación
 Label:7
 Fixed:0
 X:0.968556582927704
@@ -2908,27 +2906,27 @@ Updated:1899/12/30
 Viewed:1899/12/30
 -
 ----------------------------------------------------------------------------
-Menú Animation
+Menú Animación
 ----------------------------------------------------------------------------
 
-Random Flash
+Destello aleatorio
   Ejecuta una animación que muestra tarjetas al azar.
 
-Random Map
+Mapa aleatorio
   Ejecuta una animación que muestra una tarjeta aleatoria y luego amplía la
   visualización a las tarjetas enlazadas desde ella.
 
-Random Scroll
+Desplazamiento aleatorio
   Ejecuta una animación que desplaza tarjetas al azar.
 
-Random Jump
+Salto aleatorio
   Ejecuta una animación en la que las tarjetas rebotan aleatoriamente desde la parte
   inferior de la pantalla.
 
-Random Trace
+Trazo aleatorio
   Ejecuta una animación que sigue enlaces al azar.
-122
-Title: Menú View
+117
+Title: Menú Ver
 Label:7
 Fixed:0
 X:0.957366585731506
@@ -2941,117 +2939,112 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:17:18
 -
 ----------------------------------------------------------------------------
-Menú View
+Menú Ver
 ----------------------------------------------------------------------------
 
-Font
+Fuente
   Cambia la fuente.
-  Default Size restaura el tamaño estándar, Magnify lo amplía y Reduce lo reduce.
-  Para cambiar la familia de fuentes, elija Change Font y especifique la fuente.
+  Tamaño predeterminado restaura el tamaño estándar, Ampliar lo amplía y Reducir lo reduce.
+  Para cambiar la familia de fuentes, elija Cambiar fuente y especifique la fuente.
 
-Card
+Tarjeta
   Cambia los ajustes de visualización de tarjetas.
-  Shadow activa o desactiva las sombras de las tarjetas.
-  Gradation activa o desactiva los degradados de las tarjetas.
-  Ticker activa o desactiva la visualización en cinta del texto del cuerpo en las
-  tarjetas. 1Line muestra la primera línea del cuerpo de la tarjeta, y 2Lines muestra
+  Sombra de la tarjeta activa o desactiva las sombras de las tarjetas.
+  Degradado activa o desactiva los degradados de las tarjetas.
+  Teletipo activa o desactiva la visualización en cinta del texto del cuerpo en las
+  tarjetas. Primera línea del cuerpo muestra la primera línea del cuerpo de la tarjeta, y Primeras 2 líneas del cuerpo muestra
   la primera y la segunda línea como texto en cinta.
-  Image activa o desactiva la visualización de miniaturas de imágenes. Se usa el primer
+  Imagen activa o desactiva la visualización de miniaturas de imágenes. Se usa el primer
   archivo jpg o bmp escrito en el cuerpo de la tarjeta.
-  Video activa o desactiva la visualización de vídeo. Se usa el primer archivo mpg o avi
+  Vídeo activa o desactiva la visualización de vídeo. Se usa el primer archivo mpg o avi
   escrito en el cuerpo de la tarjeta. La visualización de vídeo tiene prioridad sobre la
   de imágenes.
-  Drawing activa o desactiva la visualización de dibujos. La visualización de dibujos
+  Dibujo activa o desactiva la visualización de dibujos. La visualización de dibujos
   tiene prioridad sobre la de imágenes y vídeo.
   32x32 a 320x320 especifica el tamaño máximo de imágenes, vídeo y dibujos mostrados
   en las tarjetas. Los medios más grandes se reducen para que encajen dentro del tamaño
   especificado.
 
-Link
+Enlace
   Cambia los ajustes de visualización de enlaces.
-  Link activa o desactiva las líneas de enlace, Hemming activa o desactiva los contornos
-  de enlace, Direction activa o desactiva la dirección de enlace, y Name activa o
+  Enlace activa o desactiva las líneas de enlace, Contorno del enlace activa o desactiva los contornos
+  de enlace, Dirección del enlace activa o desactiva la dirección de enlace, y Nombre del enlace activa o
   desactiva la visualización del nombre del enlace.
 
-Label
+Etiqueta
   Cambia los ajustes de visualización de etiquetas.
-  Circle activa o desactiva los círculos que muestran grupos de la misma etiqueta.
-  Rectangle activa o desactiva los rectángulos que muestran grupos de la misma etiqueta.
-  Name activa o desactiva la visualización del nombre de la etiqueta.
+  Círculo de etiqueta activa o desactiva los círculos que muestran grupos de la misma etiqueta.
+  Rectángulo de etiqueta activa o desactiva los rectángulos que muestran grupos de la misma etiqueta.
+  Nombre de etiqueta activa o desactiva la visualización del nombre de la etiqueta.
 
-Text
+Texto del cuerpo
   Cambia los ajustes de visualización del texto del cuerpo.
-  Text activa o desactiva la visualización del texto del cuerpo de la tarjeta
-  seleccionada en el Browser.
-  Centering alterna entre la visualización centrada o en la esquina superior izquierda
-  del texto del cuerpo en el Browser.
-  Edit In Browser alterna si al hacer doble clic en una tarjeta en el Browser se edita
+  Texto del cuerpo activa o desactiva la visualización del texto del cuerpo de la tarjeta
+  seleccionada en el Navegador.
+  Centrar alterna entre la visualización centrada o en la esquina superior izquierda
+  del texto del cuerpo en el Navegador.
+  Editar el cuerpo en el navegador alterna si al hacer doble clic en una tarjeta en el Navegador se edita
   su cuerpo en el mismo lugar.
-  Always Show Editor alterna si el editor se muestra siempre en el Browser (efectivo con
-  cualquier ajuste excepto Under the Card).
-  Under the Card edita el cuerpo inmediatamente debajo de la tarjeta.
-  Browser Right edita el cuerpo en el borde derecho del Browser.
-  Browser Bottom edita el cuerpo en la parte inferior del Browser.
+  Mostrar siempre el editor en el navegador alterna si el editor se muestra siempre en el Navegador (efectivo con
+  cualquier ajuste excepto Debajo de la tarjeta).
+  Debajo de la tarjeta edita el cuerpo inmediatamente debajo de la tarjeta.
+  A la derecha del navegador edita el cuerpo en el borde derecho del Navegador.
+  Debajo del navegador edita el cuerpo en la parte inferior del Navegador.
 
-Score
-  Score activa o desactiva la visualización de puntuación.
-  Authenticity calcula una puntuación en la que las tarjetas enlazadas desde tarjetas con
+Puntuación
+  Activa o desactiva la visualización de puntuación.
+  Fiabilidad calcula una puntuación en la que las tarjetas enlazadas desde tarjetas con
   alta puntuación obtienen puntuaciones más altas.
-  StartingPoint da puntuaciones más altas a las tarjetas de origen.
-  Destination da puntuaciones más altas a las tarjetas de destino.
-  Links(Out) usa el número de enlaces salientes de una tarjeta.
-  Links(In) usa el número de enlaces entrantes a una tarjeta.
-  Links(Total) usa el número total de enlaces de una tarjeta.
-  Links(In-Out) usa los enlaces entrantes menos los salientes.
-  Text Length usa la longitud del texto del cuerpo.
+  Punto de inicio da puntuaciones más altas a las tarjetas de origen.
+  Destino da puntuaciones más altas a las tarjetas de destino.
+  Número de enlaces (salida) usa el número de enlaces salientes de una tarjeta.
+  Número de enlaces (entrada) usa el número de enlaces entrantes a una tarjeta.
+  Número de enlaces (total) usa el número total de enlaces de una tarjeta.
+  Número de enlaces (entrada-salida) usa los enlaces entrantes menos los salientes.
+  Longitud del cuerpo usa la longitud del texto del cuerpo.
 
-Read Aloud
-  Read Aloud activa o desactiva la lectura en voz alta de los títulos de las tarjetas.
+Leer en voz alta
+  Leer en voz alta activa o desactiva la lectura en voz alta de los títulos de las tarjetas.
 
-Nota: Microsoft Agent debe estar instalado para leer los títulos de las tarjetas en voz
-      alta. Este menú no se muestra en entornos donde Microsoft Agent o los componentes de
-      voz relacionados no están instalados.
+Nota: La lectura en voz alta de los títulos de las tarjetas usa la síntesis de voz de Windows
+      (SAPI / texto a voz). Si no está disponible en el sistema, al activarla se mostrará
+      una advertencia y la opción volverá a desactivarse.
 
-Nota: Microsoft Agent se distribuye de forma gratuita por Microsoft, pero sus direcciones
-      de descarga y los archivos necesarios parecen cambiar con frecuencia.
-      Si necesita la función de lectura en voz alta, consulte la información disponible
-      en la web e instale los archivos necesarios.
-
-Others
+Otros
   Cambia otros ajustes relacionados con la visualización.
-  Card List activa o desactiva la lista de tarjetas en el lado izquierdo de la pantalla.
-  File List activa o desactiva la lista de archivos que se muestra al mover el ratón al
+  Lista de tarjetas activa o desactiva la lista de tarjetas en el lado izquierdo de la pantalla.
+  Lista de archivos activa o desactiva la lista de archivos que se muestra al mover el ratón al
   lado izquierdo de la pantalla.
-  Overview activa o desactiva la vista general en la esquina inferior derecha del Browser.
-  FourgroundColor cambia el color de primer plano, y BackgroundColor cambia el color de
+  Mostrar vista general activa o desactiva la vista general en la esquina inferior derecha del Navegador.
+  Cambiar color de primer plano cambia el color de primer plano, y Cambiar color de fondo cambia el color de
   fondo.
-  Wallpaper especifica un fondo de pantalla. Para borrar el fondo de pantalla, elija
-  Wallpaper de nuevo.
-  Fix Wallpaper fija el fondo de pantalla para que llene la pantalla.
-  Tile Wallpaper repite el fondo de pantalla en mosaico en toda el área del Browser.
-  Background Animation activa o desactiva la animación de fondo.
-  Background Animation Type cambia el tipo de animación de fondo.
-  Cursor Animation activa o desactiva la animación del cursor.
-  No Scroll Lag alterna si el desplazamiento automático ocurre inmediatamente al
+  Fondo de pantalla especifica un fondo de pantalla. Para borrar el fondo de pantalla, elija
+  Fondo de pantalla de nuevo.
+  Fijar fondo de pantalla fija el fondo de pantalla para que llene la pantalla.
+  Mosaico del fondo de pantalla repite el fondo de pantalla en mosaico en toda el área del Navegador.
+  Animación de fondo activa o desactiva la animación de fondo.
+  Tipo de animación de fondo cambia el tipo de animación de fondo.
+  Animación del cursor activa o desactiva la animación del cursor.
+  Desplazamiento inmediato alterna si el desplazamiento automático ocurre inmediatamente al
   seleccionar una tarjeta.
-  Anti-Aliasing activa o desactiva el anti-aliasing.
+  Antialiasing activa o desactiva el anti-aliasing.
   2x realiza el anti-aliasing al doble de resolución vertical y horizontal, y 4x usa
   cuatro veces.
 
-Change Language
-  Cambia el idioma del menú (actualmente se admiten inglés y japonés).
-  Para admitir otros idiomas, coloque un archivo .lng en la carpeta de Frieve Editor
-  (formato de texto; consulte Japanese.lng para el formato).
+Cambiar idioma
+  Cambia el idioma de los menús y del archivo de ayuda. Hay soporte para varios idiomas
+  (incluidos inglés y japonés). Para añadir o sustituir idiomas, coloque un archivo .lng
+  en la carpeta de Frieve Editor (formato de texto; consulte Japanese.lng como referencia del formato).
 
 
-Full Screen
-  Alterna la visualización a pantalla completa del Browser.
+Pantalla completa
+  Alterna la visualización a pantalla completa del Navegador.
 
 
-Status Bar
+Barra de estado
   Activa o desactiva la barra de estado.
 29
-Title: Menú Settings
+Title: Menú Configuración
 Label:7
 Fixed:0
 X:0.924349308013916
@@ -3064,24 +3057,24 @@ Updated:2023/04/14 20:17:21
 Viewed:2023/04/14 20:17:19
 -
 ----------------------------------------------------------------------------
-Menú Settings
+Menú Configuración
 ----------------------------------------------------------------------------
 
-GPT API Key
+Clave API de GPT
   Establece la clave de API obtenida del sitio web de OpenAI para usar la integración
   con GPT.
 
-Auto Save Default
+Predeterminado de auto-guardado
   Establece el valor predeterminado del guardado automático para los archivos nuevos.
   Cuando está activado, los archivos recién creados tendrán el guardado
   automático habilitado desde el principio.
 
-Auto Reload Default
+Predeterminado de auto-recarga
   Establece el valor predeterminado de la recarga automática para los archivos nuevos.
   Cuando está activado, los archivos recién creados tendrán la recarga
   automática habilitada desde el principio.
 31
-Title: Menú Help
+Title: Menú Ayuda
 Label:7
 Fixed:0
 X:0.891983985900879
@@ -3094,21 +3087,21 @@ Updated:1899/12/30
 Viewed:2023/04/14 20:15:15
 -
 ----------------------------------------------------------------------------
-Menú Help
+Menú Ayuda
 ----------------------------------------------------------------------------
 
-Contents
+Contenido
   Abre y muestra este archivo de ayuda en Frieve Editor.
 
-Open Frieve Web Site
+Sitio de Frieve
   Abre el sitio web de Frieve en el navegador predeterminado.
 
-Open Frieve Editor Web Site
+Sitio de Frieve Editor
   Abre el sitio web de Frieve Editor en el navegador predeterminado.
 
-Check Latest Release
+Comprobar última versión
   Comprueba la última versión publicada.
 
 
-About
+Acerca de
   Muestra la información de versión.
