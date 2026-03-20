@@ -2878,8 +2878,8 @@ object Fo_Main: TFo_Main
   end
   object SD: TSaveDialog
     DefaultExt = 'fip2'
-    FileName = '*.fip2;*.fip'
-    Filter = 'Frieve (*.fip2;*.fip)|*.fip2;*.fip|All (*.*)|*.*'
+    FileName = '*.fip2'
+    Filter = 'Frieve FIP2 (*.fip2)|*.fip2|Frieve FIP (*.fip)|*.fip|All (*.*)|*.*'
     FilterIndex = 1
     Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
     Left = 288
