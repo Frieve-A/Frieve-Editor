@@ -221,7 +221,8 @@ void __fastcall TFo_Main::WMDropFiles(TWMDropFiles &mes) {
     wchar_t FN[MAX_PATH];
     DragQueryFile((HDROP)mes.Drop, 0, FN, MAX_PATH);
 
-    if (fcount > 1 || LowerCase(ExtractFileExt(FN)) != ".fip") {
+    UnicodeString dropExt = LowerCase(ExtractFileExt(FN));
+    if (fcount > 1 || (dropExt != L".fip" && dropExt != L".fip2")) {
       // Insert external link
       if (m_nTargetCard >= 0 && m_nTargetCard == m_nCurrentCard) {
         // Insert into current card
@@ -407,6 +408,7 @@ __fastcall TFo_Main::TFo_Main(TComponent *Owner)
       m_DemoStrings(NULL), m_nDemoIndex(0),
       // For consistency
       m_bSkipAutoZoom(false),
+      m_FileListPaths(NULL),
       m_bFileListDragging(false) // Don't hide while using FileList
 {
   memset(Bu_Label, 0, sizeof(Bu_Label));
@@ -467,6 +469,7 @@ void __fastcall TFo_Main::FormCreate(TObject *Sender) {
   }
 
   m_Document = new TDocument();
+  m_FileListPaths = new TStringList();
   // New file defaults: explicitly apply app defaults.
   m_Document->m_nAutoSave = SettingFile.m_bAutoSaveDefault ? 1 : 0;
   m_Document->m_nAutoReload = SettingFile.m_bAutoReloadDefault ? 1 : 0;
@@ -833,6 +836,8 @@ void __fastcall TFo_Main::FormDestroy(TObject *Sender) {
   delete m_UndoRedo;
   delete m_Document;
 
+  delete m_FileListPaths;
+
   delete Ed_TitleB;
 
   FreeMILabels();
@@ -1111,7 +1116,17 @@ void __fastcall TFo_Main::FormShow(TObject *Sender) {
     }
     LoadSub(fn);
   } else {
+    // Auto-open last document when launched without a file argument.
+    // If another instance already has the same file open, keep new-document state
+    // (and focus the already-open window).
     m_nTargetCard = 0;
+    UnicodeString lastFn =
+        Trim(Ini->ReadString("Global", "LastOpenFile", ""));
+    if (!lastFn.IsEmpty()) {
+      if (!ActivateOtherInstanceIfFileAlreadyOpen(lastFn)) {
+        LoadSub(lastFn);
+      }
+    }
   }
 
   Randomize();
@@ -1140,6 +1155,11 @@ void __fastcall TFo_Main::FormClose(TObject *Sender, TCloseAction &Action) {
 
   SettingFile.WriteToIni(Ini, "File");
   SettingView.WriteToIni(Ini, "View");
+
+  // Remember last opened file for next startup.
+  UnicodeString lastFn = m_Document ? m_Document->m_FN : UnicodeString();
+  Ini->WriteString("Global", "LastOpenFile",
+                   lastFn.IsEmpty() ? "" : ExpandFileName(lastFn));
 
   CloseEditBox();
   Ed_TitleB->Parent = Pa_Browser;

@@ -22,6 +22,11 @@ Unzip the downloaded zip file and run the exe file to launch the app. No install
 
 
 
+## How to use
+
+Open the help from the Help menu in the Frieve Editor, and read the usage guide created by Frieve Editor.
+
+
 ## How to build
 
 1. Download and install the C++ Builder Community Edition from the following link.
@@ -44,16 +49,6 @@ The script creates `dist\feditor\` and `dist\feditor_<Platform>_<Config>.zip`.
 ## License
 
 This project is licensed under the MIT License. See `LICENSE`.
-
-
-
-## How to use
-
-Open the help.fip file in the Frieve Editor. You can refer to the help created by Frieve Editor (currently only available in Japanese).
-
-You can open the help.fip file with a text editor and translate it with a translation service on the web.
-
-
 
 
 
@@ -83,8 +78,11 @@ https://github.com/Frieve-A/Frieve-Editor/releases
 
 ダウンロードしたzipファイルを解凍し、exeファイルを実行するとアプリが起動します（インストールは不要です）。
 
-メニュー表示を日本語化するには、Viewメニュー、Change LanguageからJapaneseを選択し、アプリを再起動します
 
+
+## 使い方
+
+Frieve Editorを起動し、ヘルプメニューからヘルプを開いて、Frieve Editorで作成された使い方説明を参照できます。
 
 
 ## ビルド方法
@@ -109,11 +107,3 @@ https://www.embarcadero.com/jp/products/cbuilder/starter
 ## ライセンス
 
 このプロジェクトは MIT License の下で公開されています。詳細は `LICENSE` を参照してください。
-
-
-
-## 使い方
-
-Frieve Editorを起動し、help.fipを開きます。Frieve Editorにて作成されたヘルプを参照することができます。
-
-

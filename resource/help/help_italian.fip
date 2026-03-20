@@ -384,7 +384,7 @@ Funzionalità di base
   mostrare o nascondere solo i collegamenti con una determinata etichetta. In combinazione
   con la disposizione automatica che avvicina le carte collegate, è facile riorganizzare
   le carte concentrandosi su un particolare tipo di relazione.
-332
+333
 Title: Cronologia delle versioni
 Label:1
 Fixed:0
@@ -402,6 +402,7 @@ Cronologia delle versioni
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Abbiamo modificato il formato file predefinito in quello fip2, più adatto all'IA
   Aggiunto il salvataggio automatico e il ricaricamento automatico.
   Migliorate le operazioni con la rotellina e i gesti (rotellina = scorrimento, Ctrl+rotellina = zoom,
   Ctrl+Shift+rotellina = dimensione carattere, pizzico = zoom).

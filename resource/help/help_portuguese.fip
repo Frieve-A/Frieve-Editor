@@ -387,7 +387,7 @@ Funcionalidades básicas
   ocultar apenas links com determinado rótulo. Combinado com a organização
   automática que posiciona cartões linkados próximos uns dos outros, isso
   facilita a reorganização dos cartões focando em um tipo específico de relação.
-262
+263
 Title: Histórico de versões
 Label:1
 Fixed:0
@@ -405,6 +405,7 @@ Histórico de versões
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Alteramos o formato de arquivo padrão para o formato fip2, mais adequado para IA
   Adicionada a funcionalidade de salvamento e recarregamento automáticos.
   Melhoradas as operações de roda e gestos (roda = rolagem, Ctrl+roda = zoom,
   Ctrl+Shift+roda = tamanho da fonte, pinça = zoom).

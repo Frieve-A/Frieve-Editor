@@ -383,7 +383,7 @@ Funciones básicas
   solo los enlaces con una etiqueta concreta. Combinado con la ordenación automática
   que sitúa próximas las tarjetas enlazadas, resulta fácil reorganizar las tarjetas
   centrándose en un tipo particular de relación.
-331
+332
 Title: Historial de versiones
 Label:1
 Fixed:0
@@ -401,6 +401,7 @@ Historial de versiones
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Hemos cambiado el formato de archivo predeterminado al formato fip2, más compatible con la IA
   Se añadió la funcionalidad de guardado y recarga automáticos.
   Se mejoraron las operaciones de rueda y gestos (rueda = desplazamiento,
   Ctrl+rueda = zoom, Ctrl+Shift+rueda = tamaño de fuente, pellizco = zoom).

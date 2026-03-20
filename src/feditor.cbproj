@@ -431,6 +431,10 @@
             <DependentOn>utils\document.h</DependentOn>
             <BuildOrder>49</BuildOrder>
         </CppCompile>
+        <CppCompile Include="utils\document_fip2.cpp">
+            <DependentOn>utils\document.h</DependentOn>
+            <BuildOrder>49</BuildOrder>
+        </CppCompile>
         <None Include="utils\document.h">
             <BuildOrder>50</BuildOrder>
         </None>

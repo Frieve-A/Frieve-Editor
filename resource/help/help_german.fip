@@ -384,7 +384,7 @@ Grundfunktionen
   Beschriftung ein- oder auszublenden. In Kombination mit der automatischen Anordnung, bei
   der verknüpfte Karten nahe beieinander platziert werden, lässt sich so leicht eine
   Anordnung erstellen, die auf eine bestimmte Art von Beziehung fokussiert.
-259
+260
 Title: Versionsgeschichte
 Label:1
 Fixed:0
@@ -402,6 +402,7 @@ Versionsgeschichte
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Das Standarddateiformat wurde in das für KI besonders geeignete fip2-Format geändert
   Automatisches Speichern und automatisches Neuladen hinzugefügt.
   Mausrad- und Gestensteuerung verbessert (Mausrad = Scrollen, Strg+Mausrad = Zoom,
   Strg+Umschalt+Mausrad = Schriftgröße, Pinch = Zoom).

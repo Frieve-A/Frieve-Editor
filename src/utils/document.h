@@ -166,6 +166,9 @@ public:
 
 private:
   inline TCard *GetCardByIndex_(int nIndex);
+  static bool ShouldLoadAsFip2(const UnicodeString &FN, TStringList *SL);
+  bool LoadFromStringFip2(TStringList *SL, UnicodeString FN);
+  bool SaveToStringFip2(TStringList *SL);
 
 public:
   // Data access (links)

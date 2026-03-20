@@ -388,7 +388,7 @@ Fonctions de base
   portant une certaine étiquette, ou à les masquer. Combiné avec l'organisation automatique
   qui rapproche les cartes liées, cela permet de réorganiser facilement les cartes en
   se concentrant sur un type de relation particulier.
-325
+326
 Title: Historique des versions
 Label:1
 Fixed:0
@@ -406,6 +406,7 @@ Historique des versions
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Nous avons modifié le format de fichier par défaut vers le format fip2, plus adapté à l'IA
   Ajout de la sauvegarde automatique et du rechargement automatique.
   Amélioration de la molette et des gestes (molette = défilement, Ctrl+molette = zoom,
   Ctrl+Shift+molette = taille de police, pincement = zoom).

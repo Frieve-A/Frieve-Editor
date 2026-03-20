@@ -6,6 +6,7 @@
 #include <System.IOUtils.hpp>
 #include <clipbrd.hpp>
 #include <math.h>
+#include <string.h>
 
 #include "document.h"
 #include "utils.h"
@@ -993,6 +994,10 @@ void TDocument::RefreshList() {
 bool TDocument::LoadFromString(TStringList *SL, UnicodeString FN) {
   bool result = true;
 
+  if (ShouldLoadAsFip2(FN, SL)) {
+    return LoadFromStringFip2(SL, FN);
+  }
+
   // Save
   ClearCards();
   ClearLinks();
@@ -1335,6 +1340,52 @@ bool TDocument::SaveToString(TStringList *SL) {
 }
 
 // ---------------------------------------------------------------------------
+// FIP2 is always UTF-8 (optional BOM). Do not use legacy .fip heuristics
+// (e.g. Shift-JIS fallback) for .fip2 or files whose first non-empty line is
+// FIP2/1 or FIPMD/1 in UTF-8.
+static bool Fip2LoadMustUseUtf8(const UnicodeString &FN, const TBytes &b) {
+  if (LowerCase(ExtractFileExt(FN)) == UnicodeString(L".fip2")) {
+    return true;
+  }
+  int start = 0;
+  int n = b.Length;
+  if (n >= 3 && (unsigned char)b[0] == 0xEF && (unsigned char)b[1] == 0xBB &&
+      (unsigned char)b[2] == 0xBF) {
+    start = 3;
+  }
+  while (start < n) {
+    unsigned char c = (unsigned char)b[start];
+    if (c == ' ' || c == '\t') {
+      start++;
+      continue;
+    }
+    if (c == '\r') {
+      start++;
+      if (start < n && (unsigned char)b[start] == '\n') {
+        start++;
+      }
+      continue;
+    }
+    if (c == '\n') {
+      start++;
+      continue;
+    }
+    static const char m1[] = "FIP2/1";
+    static const char m2[] = "FIPMD/1";
+    if (start + (int)sizeof(m1) - 1 <= n &&
+        memcmp(&b[start], m1, sizeof(m1) - 1) == 0) {
+      return true;
+    }
+    if (start + (int)sizeof(m2) - 1 <= n &&
+        memcmp(&b[start], m2, sizeof(m2) - 1) == 0) {
+      return true;
+    }
+    break;
+  }
+  return false;
+}
+
+// ---------------------------------------------------------------------------
 bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
   bool result = true;
 
@@ -1345,10 +1396,17 @@ bool TDocument::Load(UnicodeString FN, bool bSoftLoad) {
 
   TStringList *SL = new TStringList();
   try {
-    // Detect encoding: UTF-8 with BOM or Shift-JIS (legacy)
     TBytes buffer = TFile::ReadAllBytes(m_FN);
     TEncoding *enc = nullptr;
-    TEncoding::GetBufferEncoding(buffer, enc, TEncoding::GetEncoding(932));
+    if (Fip2LoadMustUseUtf8(m_FN, buffer)) {
+      enc = TEncoding::UTF8;
+    } else {
+      // Legacy .fip: UTF-8 with BOM or Shift-JIS (and similar)
+      TEncoding::GetBufferEncoding(buffer, enc, TEncoding::GetEncoding(932));
+    }
+    if (enc == nullptr) {
+      enc = TEncoding::UTF8;
+    }
     TMemoryStream *stream = new TMemoryStream();
     if (buffer.Length > 0) {
       stream->WriteBuffer(&buffer[0], buffer.Length);
@@ -1382,10 +1440,17 @@ bool TDocument::Save() {
   // Global data
   TStringList *SL = new TStringList();
 
-  result = SaveToString(SL);
+  UnicodeString ext = LowerCase(ExtractFileExt(m_FN));
+  if (ext == L".fip") {
+    result = SaveToString(SL);
+  } else {
+    // FIP2: UTF-8 without BOM (see FIP2_FORMAT_SPEC.md)
+    result = SaveToStringFip2(SL);
+  }
 
   try {
-    SL->WriteBOM = true;
+    // .fip may write UTF-8 with BOM; .fip2 and other extensions: UTF-8, no BOM
+    SL->WriteBOM = (ext == L".fip");
     SL->SaveToFile(m_FN, TEncoding::UTF8);
   } catch (...) {
     result = false;

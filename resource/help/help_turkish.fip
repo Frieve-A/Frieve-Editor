@@ -381,7 +381,7 @@ Temel İşlevler
   bağlantıları gösterip gizlemek için kullanılabilir. Bağlantılı kartların yakın
   yerleştirilmesine dayanan otomatik düzenlemeyle birlikte bu özellik, belirli bir
   ilişki türüne odaklanırken kartların kolayca yeniden düzenlenmesini sağlar.
-213
+214
 Title:Sürüm Geçmişi
 Label:1
 Fixed:0
@@ -399,6 +399,7 @@ Sürüm Geçmişi
 ----------------------------------------------------------------------------
 
 - 3.00 (2026/03/19)
+  Varsayılan dosya biçimini yapay zekaya daha uygun olan fip2 biçimine değiştirdik
   Otomatik kaydetme ve otomatik yeniden yükleme eklendi.
   Fare tekerleği ve jestlerle kullanım iyileştirildi (tekerlek=kaydırma, Ctrl+tekerlek=yakınlaştırma, Ctrl+Shift+tekerlek=yazı tipi boyutu, sıkıştırma=yakınlaştırma).
   13 dil desteği eklendi (menü görünümü ve dile göre yardım dosyaları).

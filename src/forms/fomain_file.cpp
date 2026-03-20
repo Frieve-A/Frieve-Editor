@@ -226,6 +226,11 @@ void TFo_Main::RefreshRecent(UnicodeString FN) {
 // ---------------------------------------------------------------------------
 bool TFo_Main::SaveCheck() {
   if (m_Document->m_bChanged && !m_Document->m_bReadOnly) {
+    // When AutoSave is enabled for an already-named file, do not prompt.
+    // Save immediately (same behavior as application close).
+    if (m_Document->m_FN != "" && m_Document->m_nAutoSave != 0) {
+      return Save();
+    }
     int result = Application->MessageBox(
         UnicodeString(MLText.SaveCheck).c_str(),
         UnicodeString(AppTitle).c_str(), MB_YESNOCANCEL);
@@ -405,14 +410,17 @@ void TFo_Main::LoadSub(UnicodeString FN, bool bSoftLoad, bool bRefreshRecent) {
 // ---------------------------------------------------------------------------
 void TFo_Main::RefreshFileList() {
   TStringList *SL = new TStringList();
-  FileListCreator(ExtractFileDir(SettingFile.m_RecentFolders[0] + "file"), SL,
-                  ".fip", false);
+  UnicodeString dir =
+      ExtractFileDir(SettingFile.m_RecentFolders[0] + "file");
+  FileListCreator(dir, SL, UnicodeString(".fip2.fip"), false);
 
   LB_FileList->Items->BeginUpdate();
   LB_FileList->Clear();
+  m_FileListPaths->Clear();
   int index = -1;
   for (int i = 0; i < SL->Count; i++) {
-    LB_FileList->Items->Add(ExtractFileNameOnly(SL->Strings[i]));
+    m_FileListPaths->Add(SL->Strings[i]);
+    LB_FileList->Items->Add(ExtractFileName(SL->Strings[i]));
     if (SL->Strings[i] == m_Document->m_FN) {
       index = i;
     }
@@ -436,8 +444,7 @@ void __fastcall TFo_Main::MF_RecentFilesClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TFo_Main::MF_RecentFoldersClick(TObject *Sender) {
-  OD->FileName =
-      SettingFile.m_RecentFolders[((TMenuItem *)Sender)->Tag] + "*.fip";
+  OD->InitialDir = SettingFile.m_RecentFolders[((TMenuItem *)Sender)->Tag];
   MF_OpenClick(Sender);
 }
 // ---------------------------------------------------------------------------
@@ -478,7 +485,9 @@ void __fastcall TFo_Main::MF_SaveAsClick(TObject *Sender) { SaveAs(); }
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::MF_OpenClick(TObject *Sender) {
-  OD->InitialDir = ExtractFileDir(m_Document->m_FN);
+  if (OD->InitialDir.IsEmpty()) {
+    OD->InitialDir = ExtractFileDir(m_Document->m_FN);
+  }
   if (!OD->Execute()) {
     return;
   }
@@ -494,15 +503,9 @@ void __fastcall TFo_Main::MF_OpenClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::FormCloseQuery(TObject *Sender, bool &CanClose) {
-  if (m_Document && m_Document->m_bChanged && !m_Document->m_bReadOnly) {
-    // For a new (not-yet-saved) file, behave like AutoSave is OFF:
-    // let SaveCheck handle the prompt (and SaveAs if needed).
-    if (m_Document->m_FN != "" && m_Document->m_nAutoSave != 0) {
-      CanClose = Save();
-      return;
-    }
-  }
-  CanClose = SaveCheck();
+  // Unify close behavior with "open/replace" behavior via SaveCheck().
+  // SaveCheck() is responsible for whether to prompt or AutoSave silently.
+  CanClose = m_Document ? SaveCheck() : true;
 }
 
 // ---------------------------------------------------------------------------
@@ -517,11 +520,9 @@ void __fastcall TFo_Main::LB_FileListClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void __fastcall TFo_Main::LB_FileListDblClick(TObject *Sender) {
-  if (LB_FileList->ItemIndex >= 0) {
-    UnicodeString fn = ExtractFileDir(SettingFile.m_RecentFolders[0] + "file") +
-                       UnicodeString("\\") +
-                       LB_FileList->Items->Strings[LB_FileList->ItemIndex] +
-                       UnicodeString(".fip");
+  if (LB_FileList->ItemIndex >= 0 &&
+      LB_FileList->ItemIndex < m_FileListPaths->Count) {
+    UnicodeString fn = m_FileListPaths->Strings[LB_FileList->ItemIndex];
     if (ActivateOtherInstanceIfFileAlreadyOpen(fn)) {
       return;
     }

@@ -1282,6 +1282,7 @@ private:
   int m_nDemoIndex;
   // For consistency
   bool m_bSkipAutoZoom;
+  TStringList *m_FileListPaths; // Full paths for LB_FileList (see RefreshFileList)
   bool m_bFileListDragging; // Don't delete while FileList in use
 };
 
