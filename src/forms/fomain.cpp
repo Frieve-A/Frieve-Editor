@@ -1341,6 +1341,17 @@ void __fastcall TFo_Main::ME_PasteClick(TObject *Sender) {
   } else {
     m_nLastModified = 0;
     m_nLastSelLength = RE_Edit->SelLength;
+    // Normalize bare LF to CRLF in clipboard text before pasting
+    if (Clipboard()->HasFormat(CF_UNICODETEXT) || Clipboard()->HasFormat(CF_TEXT)) {
+      UnicodeString ClipText = Clipboard()->AsText;
+      UnicodeString Normalized = StringReplace(ClipText, "\r\n", "\n",
+          TReplaceFlags() << rfReplaceAll);
+      Normalized = StringReplace(Normalized, "\n", "\r\n",
+          TReplaceFlags() << rfReplaceAll);
+      if (Normalized != ClipText) {
+        Clipboard()->AsText = Normalized;
+      }
+    }
     if (RE_Edit->Focused()) {
       RE_Edit->PasteFromClipboard();
     } else if (Ed_Title->Focused()) {
